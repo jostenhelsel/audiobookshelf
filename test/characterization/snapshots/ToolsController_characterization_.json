@@ -1,0 +1,733 @@
+{
+  "ToolsController (characterization) > DELETE /api/tools/item/:id/encode-m4b > 404s without a pending task, also for unknown items > no pending task": {
+    "res": {
+      "status": 404,
+      "headers": {
+        "content-type": "text/plain; charset=utf-8"
+      },
+      "body": "Not Found"
+    },
+    "calls": {
+      "abMerge": [
+        {
+          "method": "getPendingTaskByLibraryItemId",
+          "args": [
+            "<book>"
+          ]
+        }
+      ],
+      "audioMetadata": []
+    },
+    "emitted": []
+  },
+  "ToolsController (characterization) > DELETE /api/tools/item/:id/encode-m4b > 404s without a pending task, also for unknown items > unknown item": {
+    "res": {
+      "status": 404,
+      "headers": {
+        "content-type": "text/plain; charset=utf-8"
+      },
+      "body": "Not Found"
+    },
+    "calls": {
+      "abMerge": [],
+      "audioMetadata": []
+    },
+    "emitted": []
+  },
+  "ToolsController (characterization) > DELETE /api/tools/item/:id/encode-m4b > cancels a pending merge": {
+    "res": {
+      "status": 200,
+      "headers": {
+        "content-type": "text/plain; charset=utf-8"
+      },
+      "body": "OK"
+    },
+    "calls": {
+      "abMerge": [
+        {
+          "method": "getPendingTaskByLibraryItemId",
+          "args": [
+            "<book>"
+          ]
+        },
+        {
+          "method": "cancelEncode",
+          "args": [
+            {
+              "id": "task-1"
+            }
+          ]
+        }
+      ],
+      "audioMetadata": []
+    },
+    "emitted": []
+  },
+  "ToolsController (characterization) > DELETE /api/tools/item/:id/encode-m4b > requires authentication and admin > anonymous": {
+    "res": {
+      "status": 401,
+      "headers": {
+        "content-type": "text/plain; charset=utf-8"
+      },
+      "body": "Unauthorized"
+    },
+    "calls": {
+      "abMerge": [],
+      "audioMetadata": []
+    },
+    "emitted": []
+  },
+  "ToolsController (characterization) > DELETE /api/tools/item/:id/encode-m4b > requires authentication and admin > user": {
+    "res": {
+      "status": 403,
+      "headers": {
+        "content-type": "text/plain; charset=utf-8"
+      },
+      "body": "Forbidden"
+    },
+    "calls": {
+      "abMerge": [],
+      "audioMetadata": []
+    },
+    "emitted": []
+  },
+  "ToolsController (characterization) > POST /api/tools/batch/embed-metadata > 403s when the admin cannot access an item": {
+    "res": {
+      "status": 403,
+      "headers": {
+        "content-type": "text/plain; charset=utf-8"
+      },
+      "body": "Forbidden"
+    },
+    "calls": {
+      "abMerge": [],
+      "audioMetadata": []
+    },
+    "emitted": []
+  },
+  "ToolsController (characterization) > POST /api/tools/batch/embed-metadata > 404s when any item is unknown and starts nothing": {
+    "res": {
+      "status": 404,
+      "headers": {
+        "content-type": "text/plain; charset=utf-8"
+      },
+      "body": "Not Found"
+    },
+    "calls": {
+      "abMerge": [],
+      "audioMetadata": [
+        {
+          "method": "getIsLibraryItemQueuedOrProcessing",
+          "args": [
+            "<book>"
+          ]
+        }
+      ]
+    },
+    "emitted": []
+  },
+  "ToolsController (characterization) > POST /api/tools/batch/embed-metadata > is admin only": {
+    "res": {
+      "status": 403,
+      "headers": {
+        "content-type": "text/plain; charset=utf-8"
+      },
+      "body": "Forbidden"
+    },
+    "calls": {
+      "abMerge": [],
+      "audioMetadata": []
+    },
+    "emitted": []
+  },
+  "ToolsController (characterization) > POST /api/tools/batch/embed-metadata > rejects invalid or queued items > no audio": {
+    "res": {
+      "status": 400,
+      "headers": {
+        "content-type": "text/plain; charset=utf-8"
+      },
+      "body": "Bad Request"
+    },
+    "calls": {
+      "abMerge": [],
+      "audioMetadata": []
+    },
+    "emitted": []
+  },
+  "ToolsController (characterization) > POST /api/tools/batch/embed-metadata > rejects invalid or queued items > podcast": {
+    "res": {
+      "status": 400,
+      "headers": {
+        "content-type": "text/plain; charset=utf-8"
+      },
+      "body": "Bad Request"
+    },
+    "calls": {
+      "abMerge": [],
+      "audioMetadata": [
+        {
+          "method": "getIsLibraryItemQueuedOrProcessing",
+          "args": [
+            "<book>"
+          ]
+        }
+      ]
+    },
+    "emitted": []
+  },
+  "ToolsController (characterization) > POST /api/tools/batch/embed-metadata > rejects invalid or queued items > queued": {
+    "res": {
+      "status": 400,
+      "headers": {
+        "content-type": "text/html; charset=utf-8"
+      },
+      "body": "Library item is already in queue or processing"
+    },
+    "calls": {
+      "abMerge": [],
+      "audioMetadata": [
+        {
+          "method": "getIsLibraryItemQueuedOrProcessing",
+          "args": [
+            "<book>"
+          ]
+        }
+      ]
+    },
+    "emitted": []
+  },
+  "ToolsController (characterization) > POST /api/tools/batch/embed-metadata > requires authentication": {
+    "res": {
+      "status": 401,
+      "headers": {
+        "content-type": "text/plain; charset=utf-8"
+      },
+      "body": "Unauthorized"
+    },
+    "calls": {
+      "abMerge": [],
+      "audioMetadata": []
+    },
+    "emitted": []
+  },
+  "ToolsController (characterization) > POST /api/tools/batch/embed-metadata > starts the batch with parsed options > both options": {
+    "res": {
+      "status": 200,
+      "headers": {
+        "content-type": "text/plain; charset=utf-8"
+      },
+      "body": "OK"
+    },
+    "calls": {
+      "abMerge": [],
+      "audioMetadata": [
+        {
+          "method": "getIsLibraryItemQueuedOrProcessing",
+          "args": [
+            "<book-2>"
+          ]
+        },
+        {
+          "method": "handleBatchEmbed",
+          "args": [
+            "<uuid-6>",
+            [
+              {
+                "item": "<book-2>"
+              }
+            ],
+            {
+              "forceEmbedChapters": true,
+              "backup": true
+            }
+          ]
+        }
+      ]
+    },
+    "emitted": []
+  },
+  "ToolsController (characterization) > POST /api/tools/batch/embed-metadata > starts the batch with parsed options > no options": {
+    "res": {
+      "status": 200,
+      "headers": {
+        "content-type": "text/plain; charset=utf-8"
+      },
+      "body": "OK"
+    },
+    "calls": {
+      "abMerge": [],
+      "audioMetadata": [
+        {
+          "method": "getIsLibraryItemQueuedOrProcessing",
+          "args": [
+            "<book>"
+          ]
+        },
+        {
+          "method": "getIsLibraryItemQueuedOrProcessing",
+          "args": [
+            "<book-2>"
+          ]
+        },
+        {
+          "method": "handleBatchEmbed",
+          "args": [
+            "<uuid-5>",
+            [
+              {
+                "item": "<book>"
+              },
+              {
+                "item": "<book-2>"
+              }
+            ],
+            {
+              "forceEmbedChapters": false,
+              "backup": false
+            }
+          ]
+        }
+      ]
+    },
+    "emitted": []
+  },
+  "ToolsController (characterization) > POST /api/tools/batch/embed-metadata > validates the payload > empty ids": {
+    "res": {
+      "status": 400,
+      "headers": {
+        "content-type": "text/html; charset=utf-8"
+      },
+      "body": "Invalid request payload"
+    },
+    "calls": {
+      "abMerge": [],
+      "audioMetadata": []
+    },
+    "emitted": []
+  },
+  "ToolsController (characterization) > POST /api/tools/batch/embed-metadata > validates the payload > no ids": {
+    "res": {
+      "status": 400,
+      "headers": {
+        "content-type": "text/html; charset=utf-8"
+      },
+      "body": "Invalid request payload"
+    },
+    "calls": {
+      "abMerge": [],
+      "audioMetadata": []
+    },
+    "emitted": []
+  },
+  "ToolsController (characterization) > POST /api/tools/item/:id/embed-metadata > 404s for unknown items": {
+    "res": {
+      "status": 404,
+      "headers": {
+        "content-type": "text/plain; charset=utf-8"
+      },
+      "body": "Not Found"
+    },
+    "calls": {
+      "abMerge": [],
+      "audioMetadata": []
+    },
+    "emitted": []
+  },
+  "ToolsController (characterization) > POST /api/tools/item/:id/embed-metadata > is admin only > user": {
+    "res": {
+      "status": 403,
+      "headers": {
+        "content-type": "text/plain; charset=utf-8"
+      },
+      "body": "Forbidden"
+    },
+    "calls": {
+      "abMerge": [],
+      "audioMetadata": []
+    },
+    "emitted": []
+  },
+  "ToolsController (characterization) > POST /api/tools/item/:id/embed-metadata > rejects an item already queued": {
+    "res": {
+      "status": 400,
+      "headers": {
+        "content-type": "text/html; charset=utf-8"
+      },
+      "body": "Library item is already in queue or processing"
+    },
+    "calls": {
+      "abMerge": [],
+      "audioMetadata": [
+        {
+          "method": "getIsLibraryItemQueuedOrProcessing",
+          "args": [
+            "<book>"
+          ]
+        }
+      ]
+    },
+    "emitted": []
+  },
+  "ToolsController (characterization) > POST /api/tools/item/:id/embed-metadata > rejects invalid items with a bare 400 > missing": {
+    "res": {
+      "status": 400,
+      "headers": {
+        "content-type": "text/plain; charset=utf-8"
+      },
+      "body": "Bad Request"
+    },
+    "calls": {
+      "abMerge": [],
+      "audioMetadata": []
+    },
+    "emitted": []
+  },
+  "ToolsController (characterization) > POST /api/tools/item/:id/embed-metadata > rejects invalid items with a bare 400 > no audio": {
+    "res": {
+      "status": 400,
+      "headers": {
+        "content-type": "text/plain; charset=utf-8"
+      },
+      "body": "Bad Request"
+    },
+    "calls": {
+      "abMerge": [],
+      "audioMetadata": []
+    },
+    "emitted": []
+  },
+  "ToolsController (characterization) > POST /api/tools/item/:id/embed-metadata > rejects invalid items with a bare 400 > podcast": {
+    "res": {
+      "status": 400,
+      "headers": {
+        "content-type": "text/plain; charset=utf-8"
+      },
+      "body": "Bad Request"
+    },
+    "calls": {
+      "abMerge": [],
+      "audioMetadata": []
+    },
+    "emitted": []
+  },
+  "ToolsController (characterization) > POST /api/tools/item/:id/embed-metadata > requires authentication": {
+    "res": {
+      "status": 401,
+      "headers": {
+        "content-type": "text/plain; charset=utf-8"
+      },
+      "body": "Unauthorized"
+    },
+    "calls": {
+      "abMerge": [],
+      "audioMetadata": []
+    },
+    "emitted": []
+  },
+  "ToolsController (characterization) > POST /api/tools/item/:id/embed-metadata > starts the embed with parsed options > both options": {
+    "res": {
+      "status": 200,
+      "headers": {
+        "content-type": "text/plain; charset=utf-8"
+      },
+      "body": "OK"
+    },
+    "calls": {
+      "abMerge": [],
+      "audioMetadata": [
+        {
+          "method": "getIsLibraryItemQueuedOrProcessing",
+          "args": [
+            "<book>"
+          ]
+        },
+        {
+          "method": "updateMetadataForItem",
+          "args": [
+            "<uuid-4>",
+            {
+              "item": "<book>",
+              "title": "Audio Book"
+            },
+            {
+              "forceEmbedChapters": true,
+              "backup": true
+            }
+          ]
+        }
+      ]
+    },
+    "emitted": []
+  },
+  "ToolsController (characterization) > POST /api/tools/item/:id/embed-metadata > starts the embed with parsed options > no options": {
+    "res": {
+      "status": 200,
+      "headers": {
+        "content-type": "text/plain; charset=utf-8"
+      },
+      "body": "OK"
+    },
+    "calls": {
+      "abMerge": [],
+      "audioMetadata": [
+        {
+          "method": "getIsLibraryItemQueuedOrProcessing",
+          "args": [
+            "<book>"
+          ]
+        },
+        {
+          "method": "updateMetadataForItem",
+          "args": [
+            "<uuid-4>",
+            {
+              "item": "<book>",
+              "title": "Audio Book"
+            },
+            {
+              "forceEmbedChapters": false,
+              "backup": false
+            }
+          ]
+        }
+      ]
+    },
+    "emitted": []
+  },
+  "ToolsController (characterization) > POST /api/tools/item/:id/embed-metadata > starts the embed with parsed options > only \"1\" counts": {
+    "res": {
+      "status": 200,
+      "headers": {
+        "content-type": "text/plain; charset=utf-8"
+      },
+      "body": "OK"
+    },
+    "calls": {
+      "abMerge": [],
+      "audioMetadata": [
+        {
+          "method": "getIsLibraryItemQueuedOrProcessing",
+          "args": [
+            "<book>"
+          ]
+        },
+        {
+          "method": "updateMetadataForItem",
+          "args": [
+            "<uuid-4>",
+            {
+              "item": "<book>",
+              "title": "Audio Book"
+            },
+            {
+              "forceEmbedChapters": false,
+              "backup": false
+            }
+          ]
+        }
+      ]
+    },
+    "emitted": []
+  },
+  "ToolsController (characterization) > POST /api/tools/item/:id/encode-m4b > 404s for unknown items": {
+    "res": {
+      "status": 404,
+      "headers": {
+        "content-type": "text/plain; charset=utf-8"
+      },
+      "body": "Not Found"
+    },
+    "calls": {
+      "abMerge": [],
+      "audioMetadata": []
+    },
+    "emitted": []
+  },
+  "ToolsController (characterization) > POST /api/tools/item/:id/encode-m4b > is admin only > guest": {
+    "res": {
+      "status": 403,
+      "headers": {
+        "content-type": "text/plain; charset=utf-8"
+      },
+      "body": "Forbidden"
+    },
+    "calls": {
+      "abMerge": [],
+      "audioMetadata": []
+    },
+    "emitted": []
+  },
+  "ToolsController (characterization) > POST /api/tools/item/:id/encode-m4b > is admin only > user": {
+    "res": {
+      "status": 403,
+      "headers": {
+        "content-type": "text/plain; charset=utf-8"
+      },
+      "body": "Forbidden"
+    },
+    "calls": {
+      "abMerge": [],
+      "audioMetadata": []
+    },
+    "emitted": []
+  },
+  "ToolsController (characterization) > POST /api/tools/item/:id/encode-m4b > rejects an item that is already merging": {
+    "res": {
+      "status": 400,
+      "headers": {
+        "content-type": "text/html; charset=utf-8"
+      },
+      "body": "Audiobook is already processing"
+    },
+    "calls": {
+      "abMerge": [
+        {
+          "method": "getPendingTaskByLibraryItemId",
+          "args": [
+            "<book>"
+          ]
+        }
+      ],
+      "audioMetadata": []
+    },
+    "emitted": []
+  },
+  "ToolsController (characterization) > POST /api/tools/item/:id/encode-m4b > rejects invalid items > invalid": {
+    "res": {
+      "status": 404,
+      "headers": {
+        "content-type": "text/html; charset=utf-8"
+      },
+      "body": "Audiobook not found"
+    },
+    "calls": {
+      "abMerge": [],
+      "audioMetadata": []
+    },
+    "emitted": []
+  },
+  "ToolsController (characterization) > POST /api/tools/item/:id/encode-m4b > rejects invalid items > missing": {
+    "res": {
+      "status": 404,
+      "headers": {
+        "content-type": "text/html; charset=utf-8"
+      },
+      "body": "Audiobook not found"
+    },
+    "calls": {
+      "abMerge": [],
+      "audioMetadata": []
+    },
+    "emitted": []
+  },
+  "ToolsController (characterization) > POST /api/tools/item/:id/encode-m4b > rejects invalid items > no audio tracks": {
+    "res": {
+      "status": 400,
+      "headers": {
+        "content-type": "text/html; charset=utf-8"
+      },
+      "body": "Invalid audiobook: no audio tracks"
+    },
+    "calls": {
+      "abMerge": [],
+      "audioMetadata": []
+    },
+    "emitted": []
+  },
+  "ToolsController (characterization) > POST /api/tools/item/:id/encode-m4b > rejects invalid items > podcast": {
+    "res": {
+      "status": 400,
+      "headers": {
+        "content-type": "text/html; charset=utf-8"
+      },
+      "body": "Invalid library item: not a book"
+    },
+    "calls": {
+      "abMerge": [],
+      "audioMetadata": []
+    },
+    "emitted": []
+  },
+  "ToolsController (characterization) > POST /api/tools/item/:id/encode-m4b > requires authentication": {
+    "res": {
+      "status": 401,
+      "headers": {
+        "content-type": "text/plain; charset=utf-8"
+      },
+      "body": "Unauthorized"
+    },
+    "calls": {
+      "abMerge": [],
+      "audioMetadata": []
+    },
+    "emitted": []
+  },
+  "ToolsController (characterization) > POST /api/tools/item/:id/encode-m4b > starts a merge and passes the query as options > no options": {
+    "res": {
+      "status": 200,
+      "headers": {
+        "content-type": "text/plain; charset=utf-8"
+      },
+      "body": "OK"
+    },
+    "calls": {
+      "abMerge": [
+        {
+          "method": "getPendingTaskByLibraryItemId",
+          "args": [
+            "<book>"
+          ]
+        },
+        {
+          "method": "startAudiobookMerge",
+          "args": [
+            "<uuid-4>",
+            {
+              "item": "<book>",
+              "title": "Audio Book"
+            },
+            {}
+          ]
+        }
+      ],
+      "audioMetadata": []
+    },
+    "emitted": []
+  },
+  "ToolsController (characterization) > POST /api/tools/item/:id/encode-m4b > starts a merge and passes the query as options > with options": {
+    "res": {
+      "status": 200,
+      "headers": {
+        "content-type": "text/plain; charset=utf-8"
+      },
+      "body": "OK"
+    },
+    "calls": {
+      "abMerge": [
+        {
+          "method": "getPendingTaskByLibraryItemId",
+          "args": [
+            "<book>"
+          ]
+        },
+        {
+          "method": "startAudiobookMerge",
+          "args": [
+            "<uuid-5>",
+            {
+              "item": "<book>",
+              "title": "Audio Book"
+            },
+            {
+              "codec": "aac",
+              "bitrate": "128k",
+              "channels": "2"
+            }
+          ]
+        }
+      ],
+      "audioMetadata": []
+    },
+    "emitted": []
+  }
+}

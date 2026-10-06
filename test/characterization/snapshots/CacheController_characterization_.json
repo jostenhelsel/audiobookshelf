@@ -1,0 +1,196 @@
+{
+  "CacheController (characterization) > POST /api/cache/items/purge > is forbidden for user and guest, files stay > guest": {
+    "res": {
+      "status": 403,
+      "headers": {
+        "content-type": "text/plain; charset=utf-8"
+      },
+      "body": "Forbidden"
+    },
+    "files": {
+      "covers": [
+        "a_400.webp"
+      ],
+      "images": [
+        "b_400.webp"
+      ],
+      "items": [
+        "c.m4b"
+      ]
+    },
+    "emitted": []
+  },
+  "CacheController (characterization) > POST /api/cache/items/purge > is forbidden for user and guest, files stay > user": {
+    "res": {
+      "status": 403,
+      "headers": {
+        "content-type": "text/plain; charset=utf-8"
+      },
+      "body": "Forbidden"
+    },
+    "files": {
+      "covers": [
+        "a_400.webp"
+      ],
+      "images": [
+        "b_400.webp"
+      ],
+      "items": [
+        "c.m4b"
+      ]
+    },
+    "emitted": []
+  },
+  "CacheController (characterization) > POST /api/cache/items/purge > purges only the items cache for admin and root > admin": {
+    "res": {
+      "status": 200,
+      "headers": {
+        "content-type": "text/plain; charset=utf-8"
+      },
+      "body": "OK"
+    },
+    "files": {
+      "covers": [
+        "a_400.webp"
+      ],
+      "images": [
+        "b_400.webp"
+      ],
+      "items": []
+    },
+    "emitted": []
+  },
+  "CacheController (characterization) > POST /api/cache/items/purge > purges only the items cache for admin and root > root": {
+    "res": {
+      "status": 200,
+      "headers": {
+        "content-type": "text/plain; charset=utf-8"
+      },
+      "body": "OK"
+    },
+    "files": {
+      "covers": [
+        "a_400.webp"
+      ],
+      "images": [
+        "b_400.webp"
+      ],
+      "items": []
+    },
+    "emitted": []
+  },
+  "CacheController (characterization) > POST /api/cache/items/purge > requires authentication": {
+    "res": {
+      "status": 401,
+      "headers": {
+        "content-type": "text/plain; charset=utf-8"
+      },
+      "body": "Unauthorized"
+    },
+    "files": {
+      "covers": [
+        "a_400.webp"
+      ],
+      "images": [
+        "b_400.webp"
+      ],
+      "items": [
+        "c.m4b"
+      ]
+    },
+    "emitted": []
+  },
+  "CacheController (characterization) > POST /api/cache/purge > is forbidden for user and guest, files stay > guest": {
+    "res": {
+      "status": 403,
+      "headers": {
+        "content-type": "text/plain; charset=utf-8"
+      },
+      "body": "Forbidden"
+    },
+    "files": {
+      "covers": [
+        "a_400.webp"
+      ],
+      "images": [
+        "b_400.webp"
+      ],
+      "items": [
+        "c.m4b"
+      ]
+    },
+    "emitted": []
+  },
+  "CacheController (characterization) > POST /api/cache/purge > is forbidden for user and guest, files stay > user": {
+    "res": {
+      "status": 403,
+      "headers": {
+        "content-type": "text/plain; charset=utf-8"
+      },
+      "body": "Forbidden"
+    },
+    "files": {
+      "covers": [
+        "a_400.webp"
+      ],
+      "images": [
+        "b_400.webp"
+      ],
+      "items": [
+        "c.m4b"
+      ]
+    },
+    "emitted": []
+  },
+  "CacheController (characterization) > POST /api/cache/purge > purges every cache directory for admin and root > admin": {
+    "res": {
+      "status": 200,
+      "headers": {
+        "content-type": "text/plain; charset=utf-8"
+      },
+      "body": "OK"
+    },
+    "files": {
+      "covers": [],
+      "images": [],
+      "items": []
+    },
+    "emitted": []
+  },
+  "CacheController (characterization) > POST /api/cache/purge > purges every cache directory for admin and root > root": {
+    "res": {
+      "status": 200,
+      "headers": {
+        "content-type": "text/plain; charset=utf-8"
+      },
+      "body": "OK"
+    },
+    "files": {
+      "covers": [],
+      "images": [],
+      "items": []
+    },
+    "emitted": []
+  },
+  "CacheController (characterization) > POST /api/cache/purge > requires authentication": {
+    "res": {
+      "status": 401,
+      "headers": {
+        "content-type": "text/plain; charset=utf-8"
+      },
+      "body": "Unauthorized"
+    },
+    "files": {
+      "covers": [
+        "a_400.webp"
+      ],
+      "images": [
+        "b_400.webp"
+      ],
+      "items": [
+        "c.m4b"
+      ]
+    },
+    "emitted": []
+  }
+}
