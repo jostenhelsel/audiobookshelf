@@ -1,0 +1,795 @@
+{
+  "ApiKeyController (characterization) > DELETE /api/api-keys/:id > deletes a key and 404s afterwards > admin deletes": {
+    "res": {
+      "status": 200,
+      "headers": {
+        "content-type": "text/plain; charset=utf-8"
+      },
+      "body": "OK"
+    },
+    "emitted": []
+  },
+  "ApiKeyController (characterization) > DELETE /api/api-keys/:id > deletes a key and 404s afterwards > again": {
+    "res": {
+      "status": 404,
+      "headers": {
+        "content-type": "text/plain; charset=utf-8"
+      },
+      "body": "Not Found"
+    },
+    "emitted": []
+  },
+  "ApiKeyController (characterization) > DELETE /api/api-keys/:id > deletes a key and 404s afterwards > list afterwards": {
+    "res": {
+      "status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8"
+      },
+      "body": {
+        "apiKeys": [
+          {
+            "id": "<uuid-5>",
+            "name": "other",
+            "description": null,
+            "expiresAt": null,
+            "lastUsedAt": null,
+            "isActive": false,
+            "permissions": null,
+            "createdAt": "<iso-date>",
+            "updatedAt": "<iso-date>",
+            "userId": "<user>",
+            "createdByUserId": "<admin>",
+            "user": {
+              "id": "<user>",
+              "username": "user",
+              "type": "user"
+            },
+            "createdByUser": {
+              "id": "<admin>",
+              "username": "admin",
+              "type": "admin"
+            }
+          }
+        ]
+      }
+    },
+    "emitted": []
+  },
+  "ApiKeyController (characterization) > DELETE /api/api-keys/:id > deleting a user cascades to its keys > delete user": {
+    "res": {
+      "status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8"
+      },
+      "body": {
+        "success": true
+      }
+    },
+    "emitted": [
+      {
+        "method": "adminEmitter",
+        "args": [
+          "user_removed",
+          {
+            "id": "<temp>",
+            "username": "temp",
+            "email": null,
+            "type": "user",
+            "token": "token-temp",
+            "mediaProgress": [],
+            "seriesHideFromContinueListening": [],
+            "bookmarks": [],
+            "isActive": true,
+            "isLocked": false,
+            "lastSeen": null,
+            "createdAt": "<timestamp>",
+            "permissions": {
+              "download": true,
+              "update": false,
+              "delete": false,
+              "upload": false,
+              "createEreader": false,
+              "accessAllLibraries": true,
+              "accessAllTags": true,
+              "accessExplicitContent": false,
+              "selectedTagsNotAccessible": false
+            },
+            "librariesAccessible": [],
+            "itemTagsSelected": [],
+            "hasOpenIDLink": false
+          }
+        ]
+      }
+    ]
+  },
+  "ApiKeyController (characterization) > DELETE /api/api-keys/:id > deleting a user cascades to its keys > list afterwards": {
+    "res": {
+      "status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8"
+      },
+      "body": {
+        "apiKeys": []
+      }
+    },
+    "emitted": []
+  },
+  "ApiKeyController (characterization) > DELETE /api/api-keys/:id > requires authentication and admin > guest": {
+    "res": {
+      "status": 403,
+      "headers": {
+        "content-type": "text/plain; charset=utf-8"
+      },
+      "body": "Forbidden"
+    },
+    "emitted": []
+  },
+  "ApiKeyController (characterization) > DELETE /api/api-keys/:id > requires authentication and admin > unauthenticated": {
+    "res": {
+      "status": 401,
+      "headers": {
+        "content-type": "text/plain; charset=utf-8"
+      },
+      "body": "Unauthorized"
+    },
+    "emitted": []
+  },
+  "ApiKeyController (characterization) > DELETE /api/api-keys/:id > requires authentication and admin > user": {
+    "res": {
+      "status": 403,
+      "headers": {
+        "content-type": "text/plain; charset=utf-8"
+      },
+      "body": "Forbidden"
+    },
+    "emitted": []
+  },
+  "ApiKeyController (characterization) > GET /api/api-keys > lists keys with user and creator > empty": {
+    "res": {
+      "status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8"
+      },
+      "body": {
+        "apiKeys": []
+      }
+    },
+    "emitted": []
+  },
+  "ApiKeyController (characterization) > GET /api/api-keys > lists keys with user and creator > two keys": {
+    "res": {
+      "status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8"
+      },
+      "body": {
+        "apiKeys": [
+          {
+            "id": "<uuid-5>",
+            "name": "one",
+            "description": null,
+            "expiresAt": null,
+            "lastUsedAt": null,
+            "isActive": false,
+            "permissions": null,
+            "createdAt": "<iso-date>",
+            "updatedAt": "<iso-date>",
+            "userId": "<user>",
+            "createdByUserId": "<admin>",
+            "user": {
+              "id": "<user>",
+              "username": "user",
+              "type": "user"
+            },
+            "createdByUser": {
+              "id": "<admin>",
+              "username": "admin",
+              "type": "admin"
+            }
+          },
+          {
+            "id": "<uuid-6>",
+            "name": "two",
+            "description": null,
+            "expiresAt": null,
+            "lastUsedAt": null,
+            "isActive": true,
+            "permissions": null,
+            "createdAt": "<iso-date>",
+            "updatedAt": "<iso-date>",
+            "userId": "<guest>",
+            "createdByUserId": "<root>",
+            "user": {
+              "id": "<guest>",
+              "username": "guest",
+              "type": "guest"
+            },
+            "createdByUser": {
+              "id": "<root>",
+              "username": "root",
+              "type": "root"
+            }
+          }
+        ]
+      }
+    },
+    "emitted": []
+  },
+  "ApiKeyController (characterization) > GET /api/api-keys > requires authentication and admin > guest": {
+    "res": {
+      "status": 403,
+      "headers": {
+        "content-type": "text/plain; charset=utf-8"
+      },
+      "body": "Forbidden"
+    },
+    "emitted": []
+  },
+  "ApiKeyController (characterization) > GET /api/api-keys > requires authentication and admin > unauthenticated": {
+    "res": {
+      "status": 401,
+      "headers": {
+        "content-type": "text/plain; charset=utf-8"
+      },
+      "body": "Unauthorized"
+    },
+    "emitted": []
+  },
+  "ApiKeyController (characterization) > GET /api/api-keys > requires authentication and admin > user": {
+    "res": {
+      "status": 403,
+      "headers": {
+        "content-type": "text/plain; charset=utf-8"
+      },
+      "body": "Forbidden"
+    },
+    "emitted": []
+  },
+  "ApiKeyController (characterization) > PATCH /api/api-keys/:id > 404s for an unknown key": {
+    "res": {
+      "status": 404,
+      "headers": {
+        "content-type": "text/plain; charset=utf-8"
+      },
+      "body": "Not Found"
+    },
+    "emitted": []
+  },
+  "ApiKeyController (characterization) > PATCH /api/api-keys/:id > only root can update a key that belongs to root > admin": {
+    "res": {
+      "status": 403,
+      "headers": {
+        "content-type": "text/plain; charset=utf-8"
+      },
+      "body": "Forbidden"
+    },
+    "emitted": []
+  },
+  "ApiKeyController (characterization) > PATCH /api/api-keys/:id > only root can update a key that belongs to root > root": {
+    "res": {
+      "status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8"
+      },
+      "body": {
+        "apiKey": {
+          "id": "<uuid-5>",
+          "name": "root key",
+          "description": null,
+          "expiresAt": null,
+          "lastUsedAt": null,
+          "isActive": true,
+          "permissions": null,
+          "createdAt": "<iso-date>",
+          "updatedAt": "<iso-date>",
+          "userId": "<root>",
+          "createdByUserId": "<root>",
+          "user": {
+            "id": "<root>",
+            "username": "root",
+            "type": "root"
+          }
+        }
+      }
+    },
+    "emitted": []
+  },
+  "ApiKeyController (characterization) > PATCH /api/api-keys/:id > requires authentication and admin > guest": {
+    "res": {
+      "status": 403,
+      "headers": {
+        "content-type": "text/plain; charset=utf-8"
+      },
+      "body": "Forbidden"
+    },
+    "emitted": []
+  },
+  "ApiKeyController (characterization) > PATCH /api/api-keys/:id > requires authentication and admin > unauthenticated": {
+    "res": {
+      "status": 401,
+      "headers": {
+        "content-type": "text/plain; charset=utf-8"
+      },
+      "body": "Unauthorized"
+    },
+    "emitted": []
+  },
+  "ApiKeyController (characterization) > PATCH /api/api-keys/:id > requires authentication and admin > user": {
+    "res": {
+      "status": 403,
+      "headers": {
+        "content-type": "text/plain; charset=utf-8"
+      },
+      "body": "Forbidden"
+    },
+    "emitted": []
+  },
+  "ApiKeyController (characterization) > PATCH /api/api-keys/:id > updates isActive and userId, and ignores everything else > activate": {
+    "res": {
+      "status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8"
+      },
+      "body": {
+        "apiKey": {
+          "id": "<uuid-5>",
+          "name": "one",
+          "description": null,
+          "expiresAt": null,
+          "lastUsedAt": null,
+          "isActive": true,
+          "permissions": null,
+          "createdAt": "<iso-date>",
+          "updatedAt": "<iso-date>",
+          "userId": "<user>",
+          "createdByUserId": "<admin>",
+          "user": {
+            "id": "<user>",
+            "username": "user",
+            "type": "user"
+          }
+        }
+      }
+    },
+    "emitted": []
+  },
+  "ApiKeyController (characterization) > PATCH /api/api-keys/:id > updates isActive and userId, and ignores everything else > activate again (no change)": {
+    "res": {
+      "status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8"
+      },
+      "body": {
+        "apiKey": {
+          "id": "<uuid-5>",
+          "name": "one",
+          "description": null,
+          "expiresAt": null,
+          "lastUsedAt": null,
+          "isActive": true,
+          "permissions": null,
+          "createdAt": "<iso-date>",
+          "updatedAt": "<iso-date>",
+          "userId": "<user>",
+          "createdByUserId": "<admin>",
+          "user": {
+            "id": "<user>",
+            "username": "user",
+            "email": null,
+            "pash": "hash",
+            "type": "user",
+            "token": "token-user",
+            "isActive": true,
+            "isLocked": false,
+            "lastSeen": null,
+            "permissions": {
+              "download": true,
+              "update": false,
+              "delete": false,
+              "upload": false,
+              "createEreader": false,
+              "accessAllLibraries": true,
+              "accessAllTags": true,
+              "accessExplicitContent": false,
+              "selectedTagsNotAccessible": false,
+              "librariesAccessible": [],
+              "itemTagsSelected": []
+            },
+            "bookmarks": [],
+            "extraData": {
+              "seriesHideFromContinueListening": []
+            },
+            "createdAt": "<iso-date>",
+            "updatedAt": "<iso-date>"
+          }
+        }
+      }
+    },
+    "emitted": []
+  },
+  "ApiKeyController (characterization) > PATCH /api/api-keys/:id > updates isActive and userId, and ignores everything else > change user, name ignored": {
+    "res": {
+      "status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8"
+      },
+      "body": {
+        "apiKey": {
+          "id": "<uuid-5>",
+          "name": "one",
+          "description": null,
+          "expiresAt": null,
+          "lastUsedAt": null,
+          "isActive": true,
+          "permissions": null,
+          "createdAt": "<iso-date>",
+          "updatedAt": "<iso-date>",
+          "userId": "<guest>",
+          "createdByUserId": "<admin>",
+          "user": {
+            "id": "<guest>",
+            "username": "guest",
+            "type": "guest"
+          }
+        }
+      }
+    },
+    "emitted": []
+  },
+  "ApiKeyController (characterization) > PATCH /api/api-keys/:id > updates isActive and userId, and ignores everything else > empty body": {
+    "res": {
+      "status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8"
+      },
+      "body": {
+        "apiKey": {
+          "id": "<uuid-5>",
+          "name": "one",
+          "description": null,
+          "expiresAt": null,
+          "lastUsedAt": null,
+          "isActive": true,
+          "permissions": null,
+          "createdAt": "<iso-date>",
+          "updatedAt": "<iso-date>",
+          "userId": "<guest>",
+          "createdByUserId": "<admin>",
+          "user": {
+            "id": "<guest>",
+            "username": "guest",
+            "email": null,
+            "pash": "hash",
+            "type": "guest",
+            "token": "token-guest",
+            "isActive": true,
+            "isLocked": false,
+            "lastSeen": null,
+            "permissions": {
+              "download": true,
+              "update": false,
+              "delete": false,
+              "upload": false,
+              "createEreader": false,
+              "accessAllLibraries": true,
+              "accessAllTags": true,
+              "accessExplicitContent": false,
+              "selectedTagsNotAccessible": false,
+              "librariesAccessible": [],
+              "itemTagsSelected": []
+            },
+            "bookmarks": [],
+            "extraData": {
+              "seriesHideFromContinueListening": []
+            },
+            "createdAt": "<iso-date>",
+            "updatedAt": "<iso-date>"
+          }
+        }
+      }
+    },
+    "emitted": []
+  },
+  "ApiKeyController (characterization) > PATCH /api/api-keys/:id > updates isActive and userId, and ignores everything else > list afterwards": {
+    "res": {
+      "status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8"
+      },
+      "body": {
+        "apiKeys": [
+          {
+            "id": "<uuid-5>",
+            "name": "one",
+            "description": null,
+            "expiresAt": null,
+            "lastUsedAt": null,
+            "isActive": true,
+            "permissions": null,
+            "createdAt": "<iso-date>",
+            "updatedAt": "<iso-date>",
+            "userId": "<guest>",
+            "createdByUserId": "<admin>",
+            "user": {
+              "id": "<guest>",
+              "username": "guest",
+              "type": "guest"
+            },
+            "createdByUser": {
+              "id": "<admin>",
+              "username": "admin",
+              "type": "admin"
+            }
+          },
+          {
+            "id": "<uuid-6>",
+            "name": "root key",
+            "description": null,
+            "expiresAt": null,
+            "lastUsedAt": null,
+            "isActive": false,
+            "permissions": null,
+            "createdAt": "<iso-date>",
+            "updatedAt": "<iso-date>",
+            "userId": "<root>",
+            "createdByUserId": "<root>",
+            "user": {
+              "id": "<root>",
+              "username": "root",
+              "type": "root"
+            },
+            "createdByUser": {
+              "id": "<root>",
+              "username": "root",
+              "type": "root"
+            }
+          }
+        ]
+      }
+    },
+    "emitted": []
+  },
+  "ApiKeyController (characterization) > PATCH /api/api-keys/:id > validates the body > admin moves key to root user": {
+    "res": {
+      "status": 403,
+      "headers": {
+        "content-type": "text/plain; charset=utf-8"
+      },
+      "body": "Forbidden"
+    },
+    "emitted": []
+  },
+  "ApiKeyController (characterization) > PATCH /api/api-keys/:id > validates the body > isActive not boolean": {
+    "res": {
+      "status": 400,
+      "headers": {
+        "content-type": "text/plain; charset=utf-8"
+      },
+      "body": "Bad Request"
+    },
+    "emitted": []
+  },
+  "ApiKeyController (characterization) > PATCH /api/api-keys/:id > validates the body > unknown user": {
+    "res": {
+      "status": 400,
+      "headers": {
+        "content-type": "text/plain; charset=utf-8"
+      },
+      "body": "Bad Request"
+    },
+    "emitted": []
+  },
+  "ApiKeyController (characterization) > PATCH /api/api-keys/:id > validates the body > userId not string": {
+    "res": {
+      "status": 400,
+      "headers": {
+        "content-type": "text/plain; charset=utf-8"
+      },
+      "body": "Bad Request"
+    },
+    "emitted": []
+  },
+  "ApiKeyController (characterization) > POST /api/api-keys > creates keys with and without expiry > active with expiry": {
+    "res": {
+      "status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8"
+      },
+      "body": {
+        "apiKey": {
+          "apiKey": "string",
+          "id": "<uuid-6>",
+          "name": "active",
+          "expiresAt": "<in 1h>",
+          "userId": "<admin>",
+          "isActive": true,
+          "createdByUserId": "<root>",
+          "updatedAt": "<iso-date>",
+          "createdAt": "<iso-date>",
+          "user": {
+            "id": "<admin>",
+            "username": "admin",
+            "type": "admin"
+          }
+        }
+      }
+    },
+    "emitted": []
+  },
+  "ApiKeyController (characterization) > POST /api/api-keys > creates keys with and without expiry > permanent": {
+    "res": {
+      "status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8"
+      },
+      "body": {
+        "apiKey": {
+          "apiKey": "string",
+          "id": "<uuid-5>",
+          "name": "permanent",
+          "expiresAt": null,
+          "userId": "<user>",
+          "isActive": false,
+          "createdByUserId": "<admin>",
+          "updatedAt": "<iso-date>",
+          "createdAt": "<iso-date>",
+          "user": {
+            "id": "<user>",
+            "username": "user",
+            "type": "user"
+          }
+        }
+      }
+    },
+    "emitted": []
+  },
+  "ApiKeyController (characterization) > POST /api/api-keys > is admin only > guest": {
+    "res": {
+      "status": 403,
+      "headers": {
+        "content-type": "text/plain; charset=utf-8"
+      },
+      "body": "Forbidden"
+    },
+    "emitted": []
+  },
+  "ApiKeyController (characterization) > POST /api/api-keys > is admin only > user": {
+    "res": {
+      "status": 403,
+      "headers": {
+        "content-type": "text/plain; charset=utf-8"
+      },
+      "body": "Forbidden"
+    },
+    "emitted": []
+  },
+  "ApiKeyController (characterization) > POST /api/api-keys > only root can create a key for the root user > admin for root": {
+    "res": {
+      "status": 403,
+      "headers": {
+        "content-type": "text/plain; charset=utf-8"
+      },
+      "body": "Forbidden"
+    },
+    "emitted": []
+  },
+  "ApiKeyController (characterization) > POST /api/api-keys > only root can create a key for the root user > root for root": {
+    "res": {
+      "status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8"
+      },
+      "body": {
+        "apiKey": {
+          "apiKey": "string",
+          "id": "<uuid-5>",
+          "name": "root key",
+          "expiresAt": null,
+          "userId": "<root>",
+          "isActive": true,
+          "createdByUserId": "<root>",
+          "updatedAt": "<iso-date>",
+          "createdAt": "<iso-date>",
+          "user": {
+            "id": "<root>",
+            "username": "root",
+            "type": "root"
+          }
+        }
+      }
+    },
+    "emitted": []
+  },
+  "ApiKeyController (characterization) > POST /api/api-keys > requires authentication": {
+    "res": {
+      "status": 401,
+      "headers": {
+        "content-type": "text/plain; charset=utf-8"
+      },
+      "body": "Unauthorized"
+    },
+    "emitted": []
+  },
+  "ApiKeyController (characterization) > POST /api/api-keys > validates the body > expiresIn negative": {
+    "res": {
+      "status": 400,
+      "headers": {
+        "content-type": "text/plain; charset=utf-8"
+      },
+      "body": "Bad Request"
+    },
+    "emitted": []
+  },
+  "ApiKeyController (characterization) > POST /api/api-keys > validates the body > expiresIn not a number": {
+    "res": {
+      "status": 400,
+      "headers": {
+        "content-type": "text/plain; charset=utf-8"
+      },
+      "body": "Bad Request"
+    },
+    "emitted": []
+  },
+  "ApiKeyController (characterization) > POST /api/api-keys > validates the body > name not a string": {
+    "res": {
+      "status": 400,
+      "headers": {
+        "content-type": "text/plain; charset=utf-8"
+      },
+      "body": "Bad Request"
+    },
+    "emitted": []
+  },
+  "ApiKeyController (characterization) > POST /api/api-keys > validates the body > no name": {
+    "res": {
+      "status": 400,
+      "headers": {
+        "content-type": "text/plain; charset=utf-8"
+      },
+      "body": "Bad Request"
+    },
+    "emitted": []
+  },
+  "ApiKeyController (characterization) > POST /api/api-keys > validates the body > no userId": {
+    "res": {
+      "status": 400,
+      "headers": {
+        "content-type": "text/plain; charset=utf-8"
+      },
+      "body": "Bad Request"
+    },
+    "emitted": []
+  },
+  "ApiKeyController (characterization) > POST /api/api-keys > validates the body > nothing created": {
+    "res": {
+      "status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8"
+      },
+      "body": {
+        "apiKeys": []
+      }
+    },
+    "emitted": []
+  },
+  "ApiKeyController (characterization) > POST /api/api-keys > validates the body > unknown user": {
+    "res": {
+      "status": 400,
+      "headers": {
+        "content-type": "text/plain; charset=utf-8"
+      },
+      "body": "Bad Request"
+    },
+    "emitted": []
+  },
+  "ApiKeyController (characterization) > POST /api/api-keys > validates the body > userId not a string": {
+    "res": {
+      "status": 400,
+      "headers": {
+        "content-type": "text/plain; charset=utf-8"
+      },
+      "body": "Bad Request"
+    },
+    "emitted": []
+  }
+}
