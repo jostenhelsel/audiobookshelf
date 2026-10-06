@@ -1,0 +1,2153 @@
+{
+  "AuthorController (characterization) > DELETE /api/authors/:id > checks permissions > admin": {
+    "res": {
+      "status": 403,
+      "headers": {
+        "content-type": "text/plain; charset=utf-8"
+      },
+      "body": "Forbidden"
+    },
+    "emitted": []
+  },
+  "AuthorController (characterization) > DELETE /api/authors/:id > checks permissions > anonymous": {
+    "res": {
+      "status": 401,
+      "headers": {
+        "content-type": "text/plain; charset=utf-8"
+      },
+      "body": "Unauthorized"
+    },
+    "emitted": []
+  },
+  "AuthorController (characterization) > DELETE /api/authors/:id > checks permissions > guest": {
+    "res": {
+      "status": 403,
+      "headers": {
+        "content-type": "text/plain; charset=utf-8"
+      },
+      "body": "Forbidden"
+    },
+    "emitted": []
+  },
+  "AuthorController (characterization) > DELETE /api/authors/:id > checks permissions > user": {
+    "res": {
+      "status": 403,
+      "headers": {
+        "content-type": "text/plain; charset=utf-8"
+      },
+      "body": "Forbidden"
+    },
+    "emitted": []
+  },
+  "AuthorController (characterization) > DELETE /api/authors/:id > deletes as root, removes from books and 404s afterwards > delete again": {
+    "res": {
+      "status": 404,
+      "headers": {
+        "content-type": "text/plain; charset=utf-8"
+      },
+      "body": "Not Found"
+    },
+    "emitted": []
+  },
+  "AuthorController (characterization) > DELETE /api/authors/:id > deletes as root, removes from books and 404s afterwards > find after delete": {
+    "res": {
+      "status": 404,
+      "headers": {
+        "content-type": "text/plain; charset=utf-8"
+      },
+      "body": "Not Found"
+    },
+    "emitted": []
+  },
+  "AuthorController (characterization) > DELETE /api/authors/:id > deletes as root, removes from books and 404s afterwards > root deletes": {
+    "res": {
+      "status": 200,
+      "headers": {
+        "content-type": "text/plain; charset=utf-8"
+      },
+      "body": "OK"
+    },
+    "emitted": [
+      {
+        "method": "emitter",
+        "args": [
+          "author_removed",
+          {
+            "id": "<ann>",
+            "asin": "B000000001",
+            "name": "Ann Author",
+            "description": "Writes things",
+            "imagePath": null,
+            "libraryId": "<uuid-4>",
+            "addedAt": "<timestamp>",
+            "updatedAt": "<timestamp>"
+          }
+        ]
+      }
+    ]
+  },
+  "AuthorController (characterization) > DELETE /api/authors/:id > deletes as root, removes from books and 404s afterwards > rows": {
+    "res": {
+      "rows": [
+        {
+          "id": "<bob>",
+          "name": "Bob Builder",
+          "lastFirst": "Builder, Bob",
+          "asin": null,
+          "description": null,
+          "imagePath": null
+        },
+        {
+          "id": "<other-author>",
+          "name": "Elsewhere Writer",
+          "lastFirst": "Writer, Elsewhere",
+          "asin": null,
+          "description": null,
+          "imagePath": null
+        }
+      ],
+      "bookAuthors": [
+        "C:<bob>",
+        "other:<other-author>"
+      ]
+    },
+    "emitted": []
+  },
+  "AuthorController (characterization) > DELETE /api/authors/:id > deletes as root, removes from books and 404s afterwards > unknown id": {
+    "res": {
+      "status": 404,
+      "headers": {
+        "content-type": "text/plain; charset=utf-8"
+      },
+      "body": "Not Found"
+    },
+    "emitted": []
+  },
+  "AuthorController (characterization) > GET /api/authors/:id > 404s for unknown ids and inaccessible libraries > accessible library": {
+    "res": {
+      "status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8"
+      },
+      "body": {
+        "id": "<other-author>",
+        "asin": null,
+        "name": "Elsewhere Writer",
+        "description": null,
+        "imagePath": null,
+        "libraryId": "<uuid-4>",
+        "addedAt": "<timestamp>",
+        "updatedAt": "<timestamp>"
+      }
+    },
+    "emitted": []
+  },
+  "AuthorController (characterization) > GET /api/authors/:id > 404s for unknown ids and inaccessible libraries > library not accessible": {
+    "res": {
+      "status": 404,
+      "headers": {
+        "content-type": "text/plain; charset=utf-8"
+      },
+      "body": "Not Found"
+    },
+    "emitted": []
+  },
+  "AuthorController (characterization) > GET /api/authors/:id > 404s for unknown ids and inaccessible libraries > unknown id": {
+    "res": {
+      "status": 404,
+      "headers": {
+        "content-type": "text/plain; charset=utf-8"
+      },
+      "body": "Not Found"
+    },
+    "emitted": []
+  },
+  "AuthorController (characterization) > GET /api/authors/:id > requires authentication": {
+    "res": {
+      "status": 401,
+      "headers": {
+        "content-type": "text/plain; charset=utf-8"
+      },
+      "body": "Unauthorized"
+    },
+    "emitted": []
+  },
+  "AuthorController (characterization) > GET /api/authors/:id > returns an author, optionally with items and series > include items": {
+    "res": {
+      "status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8"
+      },
+      "body": {
+        "id": "<ann>",
+        "asin": "B000000001",
+        "name": "Ann Author",
+        "description": "Writes things",
+        "imagePath": null,
+        "libraryId": "<uuid-4>",
+        "addedAt": "<timestamp>",
+        "updatedAt": "<timestamp>",
+        "libraryItems": [
+          {
+            "id": "<uuid-5>",
+            "ino": null,
+            "oldLibraryItemId": null,
+            "libraryId": "<uuid-4>",
+            "folderId": "<uuid-6>",
+            "path": "/test/books/Book B",
+            "relPath": "Book B",
+            "isFile": null,
+            "addedAt": "<timestamp>",
+            "updatedAt": "<timestamp>",
+            "isMissing": false,
+            "isInvalid": false,
+            "mediaType": "book",
+            "media": {
+              "id": "<uuid-7>",
+              "metadata": {
+                "title": "Book B",
+                "titleIgnorePrefix": "Book B",
+                "subtitle": null,
+                "authorName": "Ann Author",
+                "authorNameLF": "Author, Ann",
+                "narratorName": "",
+                "seriesName": "Saga #1",
+                "genres": [],
+                "publishedYear": null,
+                "publishedDate": null,
+                "publisher": null,
+                "description": null,
+                "isbn": null,
+                "asin": null,
+                "language": null,
+                "explicit": false,
+                "abridged": null
+              },
+              "coverPath": null,
+              "tags": [],
+              "numTracks": 0,
+              "numAudioFiles": 0,
+              "numChapters": 0,
+              "duration": null,
+              "size": 0
+            },
+            "numFiles": 0,
+            "size": null
+          },
+          {
+            "id": "<uuid-8>",
+            "ino": null,
+            "oldLibraryItemId": null,
+            "libraryId": "<uuid-4>",
+            "folderId": "<uuid-6>",
+            "path": "/test/books/Book A",
+            "relPath": "Book A",
+            "isFile": null,
+            "addedAt": "<timestamp>",
+            "updatedAt": "<timestamp>",
+            "isMissing": false,
+            "isInvalid": false,
+            "mediaType": "book",
+            "media": {
+              "id": "<uuid-9>",
+              "metadata": {
+                "title": "Book A",
+                "titleIgnorePrefix": "Book A",
+                "subtitle": null,
+                "authorName": "Ann Author",
+                "authorNameLF": "Author, Ann",
+                "narratorName": "",
+                "seriesName": "Saga #2",
+                "genres": [],
+                "publishedYear": null,
+                "publishedDate": null,
+                "publisher": null,
+                "description": null,
+                "isbn": null,
+                "asin": null,
+                "language": null,
+                "explicit": false,
+                "abridged": null
+              },
+              "coverPath": null,
+              "tags": [],
+              "numTracks": 0,
+              "numAudioFiles": 0,
+              "numChapters": 0,
+              "duration": null,
+              "size": 0
+            },
+            "numFiles": 0,
+            "size": null
+          }
+        ]
+      }
+    },
+    "emitted": []
+  },
+  "AuthorController (characterization) > GET /api/authors/:id > returns an author, optionally with items and series > include items and series": {
+    "res": {
+      "status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8"
+      },
+      "body": {
+        "id": "<ann>",
+        "asin": "B000000001",
+        "name": "Ann Author",
+        "description": "Writes things",
+        "imagePath": null,
+        "libraryId": "<uuid-4>",
+        "addedAt": "<timestamp>",
+        "updatedAt": "<timestamp>",
+        "series": [
+          {
+            "id": "<uuid-10>",
+            "name": "Saga",
+            "items": [
+              {
+                "id": "<uuid-5>",
+                "ino": null,
+                "oldLibraryItemId": null,
+                "libraryId": "<uuid-4>",
+                "folderId": "<uuid-6>",
+                "path": "/test/books/Book B",
+                "relPath": "Book B",
+                "isFile": null,
+                "addedAt": "<timestamp>",
+                "updatedAt": "<timestamp>",
+                "isMissing": false,
+                "isInvalid": false,
+                "mediaType": "book",
+                "media": {
+                  "id": "<uuid-7>",
+                  "metadata": {
+                    "title": "Book B",
+                    "titleIgnorePrefix": "Book B",
+                    "subtitle": null,
+                    "authorName": "Ann Author",
+                    "authorNameLF": "Author, Ann",
+                    "narratorName": "",
+                    "seriesName": "Saga #1",
+                    "genres": [],
+                    "publishedYear": null,
+                    "publishedDate": null,
+                    "publisher": null,
+                    "description": null,
+                    "isbn": null,
+                    "asin": null,
+                    "language": null,
+                    "explicit": false,
+                    "abridged": null,
+                    "series": {
+                      "id": "<uuid-10>",
+                      "name": "Saga",
+                      "nameIgnorePrefix": null,
+                      "sequence": "1"
+                    }
+                  },
+                  "coverPath": null,
+                  "tags": [],
+                  "numTracks": 0,
+                  "numAudioFiles": 0,
+                  "numChapters": 0,
+                  "duration": null,
+                  "size": 0
+                },
+                "numFiles": 0,
+                "size": null
+              },
+              {
+                "id": "<uuid-8>",
+                "ino": null,
+                "oldLibraryItemId": null,
+                "libraryId": "<uuid-4>",
+                "folderId": "<uuid-6>",
+                "path": "/test/books/Book A",
+                "relPath": "Book A",
+                "isFile": null,
+                "addedAt": "<timestamp>",
+                "updatedAt": "<timestamp>",
+                "isMissing": false,
+                "isInvalid": false,
+                "mediaType": "book",
+                "media": {
+                  "id": "<uuid-9>",
+                  "metadata": {
+                    "title": "Book A",
+                    "titleIgnorePrefix": "Book A",
+                    "subtitle": null,
+                    "authorName": "Ann Author",
+                    "authorNameLF": "Author, Ann",
+                    "narratorName": "",
+                    "seriesName": "Saga #2",
+                    "genres": [],
+                    "publishedYear": null,
+                    "publishedDate": null,
+                    "publisher": null,
+                    "description": null,
+                    "isbn": null,
+                    "asin": null,
+                    "language": null,
+                    "explicit": false,
+                    "abridged": null,
+                    "series": {
+                      "id": "<uuid-10>",
+                      "name": "Saga",
+                      "nameIgnorePrefix": null,
+                      "sequence": "2"
+                    }
+                  },
+                  "coverPath": null,
+                  "tags": [],
+                  "numTracks": 0,
+                  "numAudioFiles": 0,
+                  "numChapters": 0,
+                  "duration": null,
+                  "size": 0
+                },
+                "numFiles": 0,
+                "size": null
+              }
+            ]
+          }
+        ],
+        "libraryItems": [
+          {
+            "id": "<uuid-5>",
+            "ino": null,
+            "oldLibraryItemId": null,
+            "libraryId": "<uuid-4>",
+            "folderId": "<uuid-6>",
+            "path": "/test/books/Book B",
+            "relPath": "Book B",
+            "isFile": null,
+            "addedAt": "<timestamp>",
+            "updatedAt": "<timestamp>",
+            "isMissing": false,
+            "isInvalid": false,
+            "mediaType": "book",
+            "media": {
+              "id": "<uuid-7>",
+              "metadata": {
+                "title": "Book B",
+                "titleIgnorePrefix": "Book B",
+                "subtitle": null,
+                "authorName": "Ann Author",
+                "authorNameLF": "Author, Ann",
+                "narratorName": "",
+                "seriesName": "Saga #1",
+                "genres": [],
+                "publishedYear": null,
+                "publishedDate": null,
+                "publisher": null,
+                "description": null,
+                "isbn": null,
+                "asin": null,
+                "language": null,
+                "explicit": false,
+                "abridged": null
+              },
+              "coverPath": null,
+              "tags": [],
+              "numTracks": 0,
+              "numAudioFiles": 0,
+              "numChapters": 0,
+              "duration": null,
+              "size": 0
+            },
+            "numFiles": 0,
+            "size": null
+          },
+          {
+            "id": "<uuid-8>",
+            "ino": null,
+            "oldLibraryItemId": null,
+            "libraryId": "<uuid-4>",
+            "folderId": "<uuid-6>",
+            "path": "/test/books/Book A",
+            "relPath": "Book A",
+            "isFile": null,
+            "addedAt": "<timestamp>",
+            "updatedAt": "<timestamp>",
+            "isMissing": false,
+            "isInvalid": false,
+            "mediaType": "book",
+            "media": {
+              "id": "<uuid-9>",
+              "metadata": {
+                "title": "Book A",
+                "titleIgnorePrefix": "Book A",
+                "subtitle": null,
+                "authorName": "Ann Author",
+                "authorNameLF": "Author, Ann",
+                "narratorName": "",
+                "seriesName": "Saga #2",
+                "genres": [],
+                "publishedYear": null,
+                "publishedDate": null,
+                "publisher": null,
+                "description": null,
+                "isbn": null,
+                "asin": null,
+                "language": null,
+                "explicit": false,
+                "abridged": null
+              },
+              "coverPath": null,
+              "tags": [],
+              "numTracks": 0,
+              "numAudioFiles": 0,
+              "numChapters": 0,
+              "duration": null,
+              "size": 0
+            },
+            "numFiles": 0,
+            "size": null
+          }
+        ]
+      }
+    },
+    "emitted": []
+  },
+  "AuthorController (characterization) > GET /api/authors/:id > returns an author, optionally with items and series > include items and series as user": {
+    "res": {
+      "status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8"
+      },
+      "body": {
+        "id": "<ann>",
+        "asin": "B000000001",
+        "name": "Ann Author",
+        "description": "Writes things",
+        "imagePath": null,
+        "libraryId": "<uuid-4>",
+        "addedAt": "<timestamp>",
+        "updatedAt": "<timestamp>",
+        "series": [
+          {
+            "id": "<uuid-10>",
+            "name": "Saga",
+            "items": [
+              {
+                "id": "<uuid-5>",
+                "ino": null,
+                "oldLibraryItemId": null,
+                "libraryId": "<uuid-4>",
+                "folderId": "<uuid-6>",
+                "path": "/test/books/Book B",
+                "relPath": "Book B",
+                "isFile": null,
+                "addedAt": "<timestamp>",
+                "updatedAt": "<timestamp>",
+                "isMissing": false,
+                "isInvalid": false,
+                "mediaType": "book",
+                "media": {
+                  "id": "<uuid-7>",
+                  "metadata": {
+                    "title": "Book B",
+                    "titleIgnorePrefix": "Book B",
+                    "subtitle": null,
+                    "authorName": "Ann Author",
+                    "authorNameLF": "Author, Ann",
+                    "narratorName": "",
+                    "seriesName": "Saga #1",
+                    "genres": [],
+                    "publishedYear": null,
+                    "publishedDate": null,
+                    "publisher": null,
+                    "description": null,
+                    "isbn": null,
+                    "asin": null,
+                    "language": null,
+                    "explicit": false,
+                    "abridged": null,
+                    "series": {
+                      "id": "<uuid-10>",
+                      "name": "Saga",
+                      "nameIgnorePrefix": null,
+                      "sequence": "1"
+                    }
+                  },
+                  "coverPath": null,
+                  "tags": [],
+                  "numTracks": 0,
+                  "numAudioFiles": 0,
+                  "numChapters": 0,
+                  "duration": null,
+                  "size": 0
+                },
+                "numFiles": 0,
+                "size": null
+              },
+              {
+                "id": "<uuid-8>",
+                "ino": null,
+                "oldLibraryItemId": null,
+                "libraryId": "<uuid-4>",
+                "folderId": "<uuid-6>",
+                "path": "/test/books/Book A",
+                "relPath": "Book A",
+                "isFile": null,
+                "addedAt": "<timestamp>",
+                "updatedAt": "<timestamp>",
+                "isMissing": false,
+                "isInvalid": false,
+                "mediaType": "book",
+                "media": {
+                  "id": "<uuid-9>",
+                  "metadata": {
+                    "title": "Book A",
+                    "titleIgnorePrefix": "Book A",
+                    "subtitle": null,
+                    "authorName": "Ann Author",
+                    "authorNameLF": "Author, Ann",
+                    "narratorName": "",
+                    "seriesName": "Saga #2",
+                    "genres": [],
+                    "publishedYear": null,
+                    "publishedDate": null,
+                    "publisher": null,
+                    "description": null,
+                    "isbn": null,
+                    "asin": null,
+                    "language": null,
+                    "explicit": false,
+                    "abridged": null,
+                    "series": {
+                      "id": "<uuid-10>",
+                      "name": "Saga",
+                      "nameIgnorePrefix": null,
+                      "sequence": "2"
+                    }
+                  },
+                  "coverPath": null,
+                  "tags": [],
+                  "numTracks": 0,
+                  "numAudioFiles": 0,
+                  "numChapters": 0,
+                  "duration": null,
+                  "size": 0
+                },
+                "numFiles": 0,
+                "size": null
+              }
+            ]
+          }
+        ],
+        "libraryItems": [
+          {
+            "id": "<uuid-5>",
+            "ino": null,
+            "oldLibraryItemId": null,
+            "libraryId": "<uuid-4>",
+            "folderId": "<uuid-6>",
+            "path": "/test/books/Book B",
+            "relPath": "Book B",
+            "isFile": null,
+            "addedAt": "<timestamp>",
+            "updatedAt": "<timestamp>",
+            "isMissing": false,
+            "isInvalid": false,
+            "mediaType": "book",
+            "media": {
+              "id": "<uuid-7>",
+              "metadata": {
+                "title": "Book B",
+                "titleIgnorePrefix": "Book B",
+                "subtitle": null,
+                "authorName": "Ann Author",
+                "authorNameLF": "Author, Ann",
+                "narratorName": "",
+                "seriesName": "Saga #1",
+                "genres": [],
+                "publishedYear": null,
+                "publishedDate": null,
+                "publisher": null,
+                "description": null,
+                "isbn": null,
+                "asin": null,
+                "language": null,
+                "explicit": false,
+                "abridged": null
+              },
+              "coverPath": null,
+              "tags": [],
+              "numTracks": 0,
+              "numAudioFiles": 0,
+              "numChapters": 0,
+              "duration": null,
+              "size": 0
+            },
+            "numFiles": 0,
+            "size": null
+          },
+          {
+            "id": "<uuid-8>",
+            "ino": null,
+            "oldLibraryItemId": null,
+            "libraryId": "<uuid-4>",
+            "folderId": "<uuid-6>",
+            "path": "/test/books/Book A",
+            "relPath": "Book A",
+            "isFile": null,
+            "addedAt": "<timestamp>",
+            "updatedAt": "<timestamp>",
+            "isMissing": false,
+            "isInvalid": false,
+            "mediaType": "book",
+            "media": {
+              "id": "<uuid-9>",
+              "metadata": {
+                "title": "Book A",
+                "titleIgnorePrefix": "Book A",
+                "subtitle": null,
+                "authorName": "Ann Author",
+                "authorNameLF": "Author, Ann",
+                "narratorName": "",
+                "seriesName": "Saga #2",
+                "genres": [],
+                "publishedYear": null,
+                "publishedDate": null,
+                "publisher": null,
+                "description": null,
+                "isbn": null,
+                "asin": null,
+                "language": null,
+                "explicit": false,
+                "abridged": null
+              },
+              "coverPath": null,
+              "tags": [],
+              "numTracks": 0,
+              "numAudioFiles": 0,
+              "numChapters": 0,
+              "duration": null,
+              "size": 0
+            },
+            "numFiles": 0,
+            "size": null
+          }
+        ]
+      }
+    },
+    "emitted": []
+  },
+  "AuthorController (characterization) > GET /api/authors/:id > returns an author, optionally with items and series > include series only": {
+    "res": {
+      "status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8"
+      },
+      "body": {
+        "id": "<ann>",
+        "asin": "B000000001",
+        "name": "Ann Author",
+        "description": "Writes things",
+        "imagePath": null,
+        "libraryId": "<uuid-4>",
+        "addedAt": "<timestamp>",
+        "updatedAt": "<timestamp>"
+      }
+    },
+    "emitted": []
+  },
+  "AuthorController (characterization) > GET /api/authors/:id > returns an author, optionally with items and series > plain as admin": {
+    "res": {
+      "status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8"
+      },
+      "body": {
+        "id": "<ann>",
+        "asin": "B000000001",
+        "name": "Ann Author",
+        "description": "Writes things",
+        "imagePath": null,
+        "libraryId": "<uuid-4>",
+        "addedAt": "<timestamp>",
+        "updatedAt": "<timestamp>"
+      }
+    },
+    "emitted": []
+  },
+  "AuthorController (characterization) > GET /api/authors/:id > returns an author, optionally with items and series > plain as guest": {
+    "res": {
+      "status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8"
+      },
+      "body": {
+        "id": "<ann>",
+        "asin": "B000000001",
+        "name": "Ann Author",
+        "description": "Writes things",
+        "imagePath": null,
+        "libraryId": "<uuid-4>",
+        "addedAt": "<timestamp>",
+        "updatedAt": "<timestamp>"
+      }
+    },
+    "emitted": []
+  },
+  "AuthorController (characterization) > GET /api/authors/:id > returns an author, optionally with items and series > plain as user": {
+    "res": {
+      "status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8"
+      },
+      "body": {
+        "id": "<ann>",
+        "asin": "B000000001",
+        "name": "Ann Author",
+        "description": "Writes things",
+        "imagePath": null,
+        "libraryId": "<uuid-4>",
+        "addedAt": "<timestamp>",
+        "updatedAt": "<timestamp>"
+      }
+    },
+    "emitted": []
+  },
+  "AuthorController (characterization) > PATCH /api/authors/:id > checks permissions > anonymous": {
+    "res": {
+      "status": 401,
+      "headers": {
+        "content-type": "text/plain; charset=utf-8"
+      },
+      "body": "Unauthorized"
+    },
+    "emitted": []
+  },
+  "AuthorController (characterization) > PATCH /api/authors/:id > checks permissions > guest": {
+    "res": {
+      "status": 403,
+      "headers": {
+        "content-type": "text/plain; charset=utf-8"
+      },
+      "body": "Forbidden"
+    },
+    "emitted": []
+  },
+  "AuthorController (characterization) > PATCH /api/authors/:id > checks permissions > rows unchanged": {
+    "res": {
+      "rows": [
+        {
+          "id": "<ann>",
+          "name": "Ann Author",
+          "lastFirst": "Author, Ann",
+          "asin": "B000000001",
+          "description": "Writes things",
+          "imagePath": null
+        },
+        {
+          "id": "<bob>",
+          "name": "Bob Builder",
+          "lastFirst": "Builder, Bob",
+          "asin": null,
+          "description": null,
+          "imagePath": null
+        },
+        {
+          "id": "<other-author>",
+          "name": "Elsewhere Writer",
+          "lastFirst": "Writer, Elsewhere",
+          "asin": null,
+          "description": null,
+          "imagePath": null
+        }
+      ]
+    },
+    "emitted": []
+  },
+  "AuthorController (characterization) > PATCH /api/authors/:id > checks permissions > user": {
+    "res": {
+      "status": 403,
+      "headers": {
+        "content-type": "text/plain; charset=utf-8"
+      },
+      "body": "Forbidden"
+    },
+    "emitted": []
+  },
+  "AuthorController (characterization) > PATCH /api/authors/:id > does not merge across libraries > rows": {
+    "res": {
+      "rows": [
+        {
+          "id": "<ann>",
+          "name": "Ann Author",
+          "lastFirst": "Author, Ann",
+          "asin": "B000000001",
+          "description": "Writes things",
+          "imagePath": null
+        },
+        {
+          "id": "<bob>",
+          "name": "Elsewhere Writer",
+          "lastFirst": "Writer, Elsewhere",
+          "asin": null,
+          "description": null,
+          "imagePath": null
+        },
+        {
+          "id": "<other-author>",
+          "name": "Elsewhere Writer",
+          "lastFirst": "Writer, Elsewhere",
+          "asin": null,
+          "description": null,
+          "imagePath": null
+        }
+      ]
+    },
+    "emitted": []
+  },
+  "AuthorController (characterization) > PATCH /api/authors/:id > does not merge across libraries > same name other library": {
+    "res": {
+      "status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8"
+      },
+      "body": {
+        "author": {
+          "id": "<bob>",
+          "asin": null,
+          "name": "Elsewhere Writer",
+          "description": null,
+          "imagePath": null,
+          "libraryId": "<uuid-4>",
+          "addedAt": "<timestamp>",
+          "updatedAt": "<timestamp>"
+        },
+        "updated": true
+      }
+    },
+    "emitted": [
+      {
+        "method": "libraryItemsEmitter",
+        "args": [
+          "items_updated",
+          [
+            {
+              "id": "<uuid-5>",
+              "ino": null,
+              "path": "/test/books/Book C",
+              "relPath": "Book C",
+              "mediaId": "<uuid-6>",
+              "mediaType": "book",
+              "isFile": null,
+              "isMissing": null,
+              "isInvalid": null,
+              "mtime": null,
+              "ctime": null,
+              "birthtime": null,
+              "size": null,
+              "lastScan": null,
+              "lastScanVersion": null,
+              "libraryFiles": [],
+              "extraData": null,
+              "title": null,
+              "titleIgnorePrefix": null,
+              "authorNamesFirstLast": null,
+              "authorNamesLastFirst": null,
+              "createdAt": "<iso-date>",
+              "updatedAt": "<iso-date>",
+              "libraryId": "<uuid-4>",
+              "libraryFolderId": "<uuid-7>"
+            }
+          ]
+        ]
+      },
+      {
+        "method": "emitter",
+        "args": [
+          "author_updated",
+          {
+            "id": "<bob>",
+            "asin": null,
+            "name": "Elsewhere Writer",
+            "description": null,
+            "imagePath": null,
+            "libraryId": "<uuid-4>",
+            "addedAt": "<timestamp>",
+            "updatedAt": "<timestamp>",
+            "numBooks": 1
+          }
+        ]
+      }
+    ]
+  },
+  "AuthorController (characterization) > PATCH /api/authors/:id > merges an author with no books > merge empty": {
+    "res": {
+      "status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8"
+      },
+      "body": {
+        "author": {
+          "id": "<bob>",
+          "asin": null,
+          "name": "Bob Builder",
+          "description": null,
+          "imagePath": null,
+          "libraryId": "<uuid-5>",
+          "addedAt": "<timestamp>",
+          "updatedAt": "<timestamp>"
+        },
+        "merged": true
+      }
+    },
+    "emitted": [
+      {
+        "method": "emitter",
+        "args": [
+          "author_removed",
+          {
+            "id": "<nobody>",
+            "asin": null,
+            "name": "Nobody",
+            "description": null,
+            "imagePath": null,
+            "libraryId": "<uuid-5>",
+            "addedAt": "<timestamp>",
+            "updatedAt": "<timestamp>"
+          }
+        ]
+      },
+      {
+        "method": "emitter",
+        "args": [
+          "author_updated",
+          {
+            "id": "<bob>",
+            "asin": null,
+            "name": "Bob Builder",
+            "description": null,
+            "imagePath": null,
+            "libraryId": "<uuid-5>",
+            "addedAt": "<timestamp>",
+            "updatedAt": "<timestamp>",
+            "numBooks": 1
+          }
+        ]
+      }
+    ]
+  },
+  "AuthorController (characterization) > PATCH /api/authors/:id > merges into an existing author with the same name > merge": {
+    "res": {
+      "status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8"
+      },
+      "body": {
+        "author": {
+          "id": "<ann>",
+          "asin": "B000000001",
+          "name": "Ann Author",
+          "description": "Writes things",
+          "imagePath": null,
+          "libraryId": "<uuid-4>",
+          "addedAt": "<timestamp>",
+          "updatedAt": "<timestamp>"
+        },
+        "merged": true
+      }
+    },
+    "emitted": [
+      {
+        "method": "libraryItemsEmitter",
+        "args": [
+          "items_updated",
+          [
+            {
+              "id": "<uuid-5>",
+              "ino": null,
+              "path": "/test/books/Book C",
+              "relPath": "Book C",
+              "mediaId": "<uuid-6>",
+              "mediaType": "book",
+              "isFile": null,
+              "isMissing": null,
+              "isInvalid": null,
+              "mtime": null,
+              "ctime": null,
+              "birthtime": null,
+              "size": null,
+              "lastScan": null,
+              "lastScanVersion": null,
+              "libraryFiles": [],
+              "extraData": null,
+              "title": null,
+              "titleIgnorePrefix": null,
+              "authorNamesFirstLast": null,
+              "authorNamesLastFirst": null,
+              "createdAt": "<iso-date>",
+              "updatedAt": "<iso-date>",
+              "libraryId": "<uuid-4>",
+              "libraryFolderId": "<uuid-7>"
+            }
+          ]
+        ]
+      },
+      {
+        "method": "emitter",
+        "args": [
+          "author_removed",
+          {
+            "id": "<bob>",
+            "asin": null,
+            "name": "Bob Builder",
+            "description": null,
+            "imagePath": null,
+            "libraryId": "<uuid-4>",
+            "addedAt": "<timestamp>",
+            "updatedAt": "<timestamp>"
+          }
+        ]
+      },
+      {
+        "method": "emitter",
+        "args": [
+          "author_updated",
+          {
+            "id": "<ann>",
+            "asin": "B000000001",
+            "name": "Ann Author",
+            "description": "Writes things",
+            "imagePath": null,
+            "libraryId": "<uuid-4>",
+            "addedAt": "<timestamp>",
+            "updatedAt": "<timestamp>",
+            "numBooks": 3
+          }
+        ]
+      }
+    ]
+  },
+  "AuthorController (characterization) > PATCH /api/authors/:id > merges into an existing author with the same name > merged author gone": {
+    "res": {
+      "status": 404,
+      "headers": {
+        "content-type": "text/plain; charset=utf-8"
+      },
+      "body": "Not Found"
+    },
+    "emitted": []
+  },
+  "AuthorController (characterization) > PATCH /api/authors/:id > merges into an existing author with the same name > rows": {
+    "res": {
+      "rows": [
+        {
+          "id": "<ann>",
+          "name": "Ann Author",
+          "lastFirst": "Author, Ann",
+          "asin": "B000000001",
+          "description": "Writes things",
+          "imagePath": null
+        },
+        {
+          "id": "<other-author>",
+          "name": "Elsewhere Writer",
+          "lastFirst": "Writer, Elsewhere",
+          "asin": null,
+          "description": null,
+          "imagePath": null
+        }
+      ],
+      "bookAuthors": [
+        "A:<ann>",
+        "B:<ann>",
+        "C:<ann>",
+        "other:<other-author>"
+      ]
+    },
+    "emitted": []
+  },
+  "AuthorController (characterization) > PATCH /api/authors/:id > merges into an existing author with the same name > target author": {
+    "res": {
+      "status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8"
+      },
+      "body": {
+        "id": "<ann>",
+        "asin": "B000000001",
+        "name": "Ann Author",
+        "description": "Writes things",
+        "imagePath": null,
+        "libraryId": "<uuid-4>",
+        "addedAt": "<timestamp>",
+        "updatedAt": "<timestamp>",
+        "libraryItems": [
+          {
+            "id": "<uuid-5>",
+            "ino": null,
+            "oldLibraryItemId": null,
+            "libraryId": "<uuid-4>",
+            "folderId": "<uuid-7>",
+            "path": "/test/books/Book C",
+            "relPath": "Book C",
+            "isFile": null,
+            "addedAt": "<timestamp>",
+            "updatedAt": "<timestamp>",
+            "isMissing": false,
+            "isInvalid": false,
+            "mediaType": "book",
+            "media": {
+              "id": "<uuid-6>",
+              "metadata": {
+                "title": "Book C",
+                "titleIgnorePrefix": "Book C",
+                "subtitle": null,
+                "authorName": "Ann Author",
+                "authorNameLF": "Author, Ann",
+                "narratorName": "",
+                "seriesName": "",
+                "genres": [],
+                "publishedYear": null,
+                "publishedDate": null,
+                "publisher": null,
+                "description": null,
+                "isbn": null,
+                "asin": null,
+                "language": null,
+                "explicit": false,
+                "abridged": null
+              },
+              "coverPath": null,
+              "tags": [],
+              "numTracks": 0,
+              "numAudioFiles": 0,
+              "numChapters": 0,
+              "duration": null,
+              "size": 0
+            },
+            "numFiles": 0,
+            "size": null
+          },
+          {
+            "id": "<uuid-8>",
+            "ino": null,
+            "oldLibraryItemId": null,
+            "libraryId": "<uuid-4>",
+            "folderId": "<uuid-7>",
+            "path": "/test/books/Book B",
+            "relPath": "Book B",
+            "isFile": null,
+            "addedAt": "<timestamp>",
+            "updatedAt": "<timestamp>",
+            "isMissing": false,
+            "isInvalid": false,
+            "mediaType": "book",
+            "media": {
+              "id": "<uuid-9>",
+              "metadata": {
+                "title": "Book B",
+                "titleIgnorePrefix": "Book B",
+                "subtitle": null,
+                "authorName": "Ann Author",
+                "authorNameLF": "Author, Ann",
+                "narratorName": "",
+                "seriesName": "Saga #1",
+                "genres": [],
+                "publishedYear": null,
+                "publishedDate": null,
+                "publisher": null,
+                "description": null,
+                "isbn": null,
+                "asin": null,
+                "language": null,
+                "explicit": false,
+                "abridged": null
+              },
+              "coverPath": null,
+              "tags": [],
+              "numTracks": 0,
+              "numAudioFiles": 0,
+              "numChapters": 0,
+              "duration": null,
+              "size": 0
+            },
+            "numFiles": 0,
+            "size": null
+          },
+          {
+            "id": "<uuid-10>",
+            "ino": null,
+            "oldLibraryItemId": null,
+            "libraryId": "<uuid-4>",
+            "folderId": "<uuid-7>",
+            "path": "/test/books/Book A",
+            "relPath": "Book A",
+            "isFile": null,
+            "addedAt": "<timestamp>",
+            "updatedAt": "<timestamp>",
+            "isMissing": false,
+            "isInvalid": false,
+            "mediaType": "book",
+            "media": {
+              "id": "<uuid-11>",
+              "metadata": {
+                "title": "Book A",
+                "titleIgnorePrefix": "Book A",
+                "subtitle": null,
+                "authorName": "Ann Author",
+                "authorNameLF": "Author, Ann",
+                "narratorName": "",
+                "seriesName": "Saga #2",
+                "genres": [],
+                "publishedYear": null,
+                "publishedDate": null,
+                "publisher": null,
+                "description": null,
+                "isbn": null,
+                "asin": null,
+                "language": null,
+                "explicit": false,
+                "abridged": null
+              },
+              "coverPath": null,
+              "tags": [],
+              "numTracks": 0,
+              "numAudioFiles": 0,
+              "numChapters": 0,
+              "duration": null,
+              "size": 0
+            },
+            "numFiles": 0,
+            "size": null
+          }
+        ]
+      }
+    },
+    "emitted": []
+  },
+  "AuthorController (characterization) > PATCH /api/authors/:id > rejects invalid payloads > empty": {
+    "res": {
+      "status": 400,
+      "headers": {
+        "content-type": "text/html; charset=utf-8"
+      },
+      "body": "Invalid request payload. No valid keys found"
+    },
+    "emitted": []
+  },
+  "AuthorController (characterization) > PATCH /api/authors/:id > rejects invalid payloads > unknown id": {
+    "res": {
+      "status": 404,
+      "headers": {
+        "content-type": "text/plain; charset=utf-8"
+      },
+      "body": "Not Found"
+    },
+    "emitted": []
+  },
+  "AuthorController (characterization) > PATCH /api/authors/:id > rejects invalid payloads > wrong types": {
+    "res": {
+      "status": 400,
+      "headers": {
+        "content-type": "text/html; charset=utf-8"
+      },
+      "body": "Invalid request payload. No valid keys found"
+    },
+    "emitted": []
+  },
+  "AuthorController (characterization) > PATCH /api/authors/:id > renames and updates lastFirst > after rename": {
+    "res": {
+      "status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8"
+      },
+      "body": {
+        "id": "<ann>",
+        "asin": "B000000001",
+        "name": "Anne Writer",
+        "description": "Writes things",
+        "imagePath": null,
+        "libraryId": "<uuid-4>",
+        "addedAt": "<timestamp>",
+        "updatedAt": "<timestamp>",
+        "libraryItems": [
+          {
+            "id": "<uuid-8>",
+            "ino": null,
+            "oldLibraryItemId": null,
+            "libraryId": "<uuid-4>",
+            "folderId": "<uuid-7>",
+            "path": "/test/books/Book B",
+            "relPath": "Book B",
+            "isFile": null,
+            "addedAt": "<timestamp>",
+            "updatedAt": "<timestamp>",
+            "isMissing": false,
+            "isInvalid": false,
+            "mediaType": "book",
+            "media": {
+              "id": "<uuid-9>",
+              "metadata": {
+                "title": "Book B",
+                "titleIgnorePrefix": "Book B",
+                "subtitle": null,
+                "authorName": "Anne Writer",
+                "authorNameLF": "Writer, Anne",
+                "narratorName": "",
+                "seriesName": "Saga #1",
+                "genres": [],
+                "publishedYear": null,
+                "publishedDate": null,
+                "publisher": null,
+                "description": null,
+                "isbn": null,
+                "asin": null,
+                "language": null,
+                "explicit": false,
+                "abridged": null
+              },
+              "coverPath": null,
+              "tags": [],
+              "numTracks": 0,
+              "numAudioFiles": 0,
+              "numChapters": 0,
+              "duration": null,
+              "size": 0
+            },
+            "numFiles": 0,
+            "size": null
+          },
+          {
+            "id": "<uuid-5>",
+            "ino": null,
+            "oldLibraryItemId": null,
+            "libraryId": "<uuid-4>",
+            "folderId": "<uuid-7>",
+            "path": "/test/books/Book A",
+            "relPath": "Book A",
+            "isFile": null,
+            "addedAt": "<timestamp>",
+            "updatedAt": "<timestamp>",
+            "isMissing": false,
+            "isInvalid": false,
+            "mediaType": "book",
+            "media": {
+              "id": "<uuid-6>",
+              "metadata": {
+                "title": "Book A",
+                "titleIgnorePrefix": "Book A",
+                "subtitle": null,
+                "authorName": "Anne Writer",
+                "authorNameLF": "Writer, Anne",
+                "narratorName": "",
+                "seriesName": "Saga #2",
+                "genres": [],
+                "publishedYear": null,
+                "publishedDate": null,
+                "publisher": null,
+                "description": null,
+                "isbn": null,
+                "asin": null,
+                "language": null,
+                "explicit": false,
+                "abridged": null
+              },
+              "coverPath": null,
+              "tags": [],
+              "numTracks": 0,
+              "numAudioFiles": 0,
+              "numChapters": 0,
+              "duration": null,
+              "size": 0
+            },
+            "numFiles": 0,
+            "size": null
+          }
+        ]
+      }
+    },
+    "emitted": []
+  },
+  "AuthorController (characterization) > PATCH /api/authors/:id > renames and updates lastFirst > rename": {
+    "res": {
+      "status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8"
+      },
+      "body": {
+        "author": {
+          "id": "<ann>",
+          "asin": "B000000001",
+          "name": "Anne Writer",
+          "description": "Writes things",
+          "imagePath": null,
+          "libraryId": "<uuid-4>",
+          "addedAt": "<timestamp>",
+          "updatedAt": "<timestamp>"
+        },
+        "updated": true
+      }
+    },
+    "emitted": [
+      {
+        "method": "libraryItemsEmitter",
+        "args": [
+          "items_updated",
+          [
+            {
+              "id": "<uuid-5>",
+              "ino": null,
+              "path": "/test/books/Book A",
+              "relPath": "Book A",
+              "mediaId": "<uuid-6>",
+              "mediaType": "book",
+              "isFile": null,
+              "isMissing": null,
+              "isInvalid": null,
+              "mtime": null,
+              "ctime": null,
+              "birthtime": null,
+              "size": null,
+              "lastScan": null,
+              "lastScanVersion": null,
+              "libraryFiles": [],
+              "extraData": null,
+              "title": null,
+              "titleIgnorePrefix": null,
+              "authorNamesFirstLast": null,
+              "authorNamesLastFirst": null,
+              "createdAt": "<iso-date>",
+              "updatedAt": "<iso-date>",
+              "libraryId": "<uuid-4>",
+              "libraryFolderId": "<uuid-7>"
+            },
+            {
+              "id": "<uuid-8>",
+              "ino": null,
+              "path": "/test/books/Book B",
+              "relPath": "Book B",
+              "mediaId": "<uuid-9>",
+              "mediaType": "book",
+              "isFile": null,
+              "isMissing": null,
+              "isInvalid": null,
+              "mtime": null,
+              "ctime": null,
+              "birthtime": null,
+              "size": null,
+              "lastScan": null,
+              "lastScanVersion": null,
+              "libraryFiles": [],
+              "extraData": null,
+              "title": null,
+              "titleIgnorePrefix": null,
+              "authorNamesFirstLast": null,
+              "authorNamesLastFirst": null,
+              "createdAt": "<iso-date>",
+              "updatedAt": "<iso-date>",
+              "libraryId": "<uuid-4>",
+              "libraryFolderId": "<uuid-7>"
+            }
+          ]
+        ]
+      },
+      {
+        "method": "emitter",
+        "args": [
+          "author_updated",
+          {
+            "id": "<ann>",
+            "asin": "B000000001",
+            "name": "Anne Writer",
+            "description": "Writes things",
+            "imagePath": null,
+            "libraryId": "<uuid-4>",
+            "addedAt": "<timestamp>",
+            "updatedAt": "<timestamp>",
+            "numBooks": 2
+          }
+        ]
+      }
+    ]
+  },
+  "AuthorController (characterization) > PATCH /api/authors/:id > renames and updates lastFirst > rows": {
+    "res": {
+      "rows": [
+        {
+          "id": "<ann>",
+          "name": "Anne Writer",
+          "lastFirst": "Writer, Anne",
+          "asin": "B000000001",
+          "description": "Writes things",
+          "imagePath": null
+        },
+        {
+          "id": "<bob>",
+          "name": "Bob Builder",
+          "lastFirst": "Builder, Bob",
+          "asin": null,
+          "description": null,
+          "imagePath": null
+        },
+        {
+          "id": "<other-author>",
+          "name": "Elsewhere Writer",
+          "lastFirst": "Writer, Elsewhere",
+          "asin": null,
+          "description": null,
+          "imagePath": null
+        }
+      ]
+    },
+    "emitted": []
+  },
+  "AuthorController (characterization) > PATCH /api/authors/:id > updates description and asin without touching books > no change": {
+    "res": {
+      "status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8"
+      },
+      "body": {
+        "author": {
+          "id": "<ann>",
+          "asin": "B000000002",
+          "name": "Ann Author",
+          "description": "New bio",
+          "imagePath": null,
+          "libraryId": "<uuid-4>",
+          "addedAt": "<timestamp>",
+          "updatedAt": "<timestamp>"
+        },
+        "updated": false
+      }
+    },
+    "emitted": []
+  },
+  "AuthorController (characterization) > PATCH /api/authors/:id > updates description and asin without touching books > null values": {
+    "res": {
+      "status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8"
+      },
+      "body": {
+        "author": {
+          "id": "<ann>",
+          "asin": null,
+          "name": "Ann Author",
+          "description": null,
+          "imagePath": null,
+          "libraryId": "<uuid-4>",
+          "addedAt": "<timestamp>",
+          "updatedAt": "<timestamp>"
+        },
+        "updated": true
+      }
+    },
+    "emitted": [
+      {
+        "method": "emitter",
+        "args": [
+          "author_updated",
+          {
+            "id": "<ann>",
+            "asin": null,
+            "name": "Ann Author",
+            "description": null,
+            "imagePath": null,
+            "libraryId": "<uuid-4>",
+            "addedAt": "<timestamp>",
+            "updatedAt": "<timestamp>",
+            "numBooks": 2
+          }
+        ]
+      }
+    ]
+  },
+  "AuthorController (characterization) > PATCH /api/authors/:id > updates description and asin without touching books > update": {
+    "res": {
+      "status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8"
+      },
+      "body": {
+        "author": {
+          "id": "<ann>",
+          "asin": "B000000002",
+          "name": "Ann Author",
+          "description": "New bio",
+          "imagePath": null,
+          "libraryId": "<uuid-4>",
+          "addedAt": "<timestamp>",
+          "updatedAt": "<timestamp>"
+        },
+        "updated": true
+      }
+    },
+    "emitted": [
+      {
+        "method": "emitter",
+        "args": [
+          "author_updated",
+          {
+            "id": "<ann>",
+            "asin": "B000000002",
+            "name": "Ann Author",
+            "description": "New bio",
+            "imagePath": null,
+            "libraryId": "<uuid-4>",
+            "addedAt": "<timestamp>",
+            "updatedAt": "<timestamp>",
+            "numBooks": 2
+          }
+        ]
+      }
+    ]
+  },
+  "AuthorController (characterization) > POST /api/authors/:id/image > reports download failures > download error": {
+    "res": {
+      "status": 400,
+      "headers": {
+        "content-type": "text/html; charset=utf-8"
+      },
+      "body": "Failed to download"
+    },
+    "emitted": []
+  },
+  "AuthorController (characterization) > POST /api/authors/:id/image > reports download failures > no result": {
+    "res": {
+      "status": 500,
+      "headers": {
+        "content-type": "text/html; charset=utf-8"
+      },
+      "body": "Unknown error occurred"
+    },
+    "emitted": []
+  },
+  "AuthorController (characterization) > POST /api/authors/:id/image > saves a downloaded image > rows": {
+    "res": {
+      "rows": [
+        {
+          "id": "<ann>",
+          "name": "Ann Author",
+          "lastFirst": "Author, Ann",
+          "asin": "B000000001",
+          "description": "Writes things",
+          "imagePath": "<tmp>/metadata/authors/<ann>.jpg"
+        },
+        {
+          "id": "<bob>",
+          "name": "Bob Builder",
+          "lastFirst": "Builder, Bob",
+          "asin": null,
+          "description": null,
+          "imagePath": null
+        },
+        {
+          "id": "<other-author>",
+          "name": "Elsewhere Writer",
+          "lastFirst": "Writer, Elsewhere",
+          "asin": null,
+          "description": null,
+          "imagePath": null
+        }
+      ]
+    },
+    "emitted": []
+  },
+  "AuthorController (characterization) > POST /api/authors/:id/image > saves a downloaded image > success": {
+    "res": {
+      "status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8"
+      },
+      "body": {
+        "author": {
+          "id": "<ann>",
+          "asin": "B000000001",
+          "name": "Ann Author",
+          "description": "Writes things",
+          "imagePath": "<tmp>/metadata/authors/<ann>.jpg",
+          "libraryId": "<uuid-4>",
+          "addedAt": "<timestamp>",
+          "updatedAt": "<timestamp>"
+        }
+      }
+    },
+    "emitted": [
+      {
+        "method": "emitter",
+        "args": [
+          "author_updated",
+          {
+            "id": "<ann>",
+            "asin": "B000000001",
+            "name": "Ann Author",
+            "description": "Writes things",
+            "imagePath": "<tmp>/metadata/authors/<ann>.jpg",
+            "libraryId": "<uuid-4>",
+            "addedAt": "<timestamp>",
+            "updatedAt": "<timestamp>",
+            "numBooks": 2
+          }
+        ]
+      }
+    ]
+  },
+  "AuthorController (characterization) > POST /api/authors/:id/image > validates the payload and permissions > bad url": {
+    "res": {
+      "status": 400,
+      "headers": {
+        "content-type": "text/html; charset=utf-8"
+      },
+      "body": "Invalid request payload. Invalid url \"ftp://x/y.jpg\""
+    },
+    "emitted": []
+  },
+  "AuthorController (characterization) > POST /api/authors/:id/image > validates the payload and permissions > guest": {
+    "res": {
+      "status": 403,
+      "headers": {
+        "content-type": "text/plain; charset=utf-8"
+      },
+      "body": "Forbidden"
+    },
+    "emitted": []
+  },
+  "AuthorController (characterization) > POST /api/authors/:id/image > validates the payload and permissions > no url": {
+    "res": {
+      "status": 400,
+      "headers": {
+        "content-type": "text/html; charset=utf-8"
+      },
+      "body": "Invalid request payload. 'url' not in request body"
+    },
+    "emitted": []
+  },
+  "AuthorController (characterization) > POST /api/authors/:id/image > validates the payload and permissions > non-string url": {
+    "res": {
+      "status": 400,
+      "headers": {
+        "content-type": "text/html; charset=utf-8"
+      },
+      "body": "Invalid request payload. Invalid url \"5\""
+    },
+    "emitted": []
+  },
+  "AuthorController (characterization) > POST /api/authors/:id/image > validates the payload and permissions > user": {
+    "res": {
+      "status": 403,
+      "headers": {
+        "content-type": "text/plain; charset=utf-8"
+      },
+      "body": "Forbidden"
+    },
+    "emitted": []
+  },
+  "AuthorController (characterization) > POST /api/authors/:id/match > 404s when nothing is found and checks permissions > no query": {
+    "res": {
+      "status": 404,
+      "headers": {
+        "content-type": "text/html; charset=utf-8"
+      },
+      "body": "Author not found"
+    },
+    "emitted": []
+  },
+  "AuthorController (characterization) > POST /api/authors/:id/match > 404s when nothing is found and checks permissions > not found": {
+    "res": {
+      "status": 404,
+      "headers": {
+        "content-type": "text/html; charset=utf-8"
+      },
+      "body": "Author not found"
+    },
+    "emitted": []
+  },
+  "AuthorController (characterization) > POST /api/authors/:id/match > 404s when nothing is found and checks permissions > unknown id": {
+    "res": {
+      "status": 404,
+      "headers": {
+        "content-type": "text/plain; charset=utf-8"
+      },
+      "body": "Not Found"
+    },
+    "emitted": []
+  },
+  "AuthorController (characterization) > POST /api/authors/:id/match > 404s when nothing is found and checks permissions > user": {
+    "res": {
+      "status": 403,
+      "headers": {
+        "content-type": "text/plain; charset=utf-8"
+      },
+      "body": "Forbidden"
+    },
+    "emitted": []
+  },
+  "AuthorController (characterization) > POST /api/authors/:id/match > matches by asin and reports no updates when nothing differs > invalid asin falls back to name search": {
+    "res": {
+      "status": 404,
+      "headers": {
+        "content-type": "text/html; charset=utf-8"
+      },
+      "body": "Author not found"
+    },
+    "emitted": []
+  },
+  "AuthorController (characterization) > POST /api/authors/:id/match > matches by asin and reports no updates when nothing differs > match by asin no updates": {
+    "res": {
+      "status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8"
+      },
+      "body": {
+        "updated": false,
+        "author": {
+          "id": "<ann>",
+          "asin": "B000000001",
+          "name": "Ann Author",
+          "description": "Writes things",
+          "imagePath": null,
+          "libraryId": "<uuid-4>",
+          "addedAt": "<timestamp>",
+          "updatedAt": "<timestamp>"
+        }
+      }
+    },
+    "emitted": [],
+    "finderCalls": {
+      "byAsin": [
+        [
+          "b000000001",
+          "us"
+        ]
+      ]
+    }
+  },
+  "AuthorController (characterization) > POST /api/authors/:id/match > matches by name, updating asin, description and image > match by name": {
+    "res": {
+      "status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8"
+      },
+      "body": {
+        "updated": true,
+        "author": {
+          "id": "<ann>",
+          "asin": "B000000099",
+          "name": "Ann Author",
+          "description": "Matched bio",
+          "imagePath": "/metadata/authors/ann.jpg",
+          "libraryId": "<uuid-4>",
+          "addedAt": "<timestamp>",
+          "updatedAt": "<timestamp>"
+        }
+      }
+    },
+    "emitted": [
+      {
+        "method": "emitter",
+        "args": [
+          "author_updated",
+          {
+            "id": "<ann>",
+            "asin": "B000000099",
+            "name": "Ann Author",
+            "description": "Matched bio",
+            "imagePath": "/metadata/authors/ann.jpg",
+            "libraryId": "<uuid-4>",
+            "addedAt": "<timestamp>",
+            "updatedAt": "<timestamp>",
+            "numBooks": 2
+          }
+        ]
+      }
+    ],
+    "finderCalls": {
+      "byName": [
+        [
+          "Ann Author",
+          "uk"
+        ]
+      ],
+      "saveImage": [
+        [
+          "<ann>",
+          "https://example.test/ann.jpg"
+        ]
+      ]
+    }
+  },
+  "AuthorController (characterization) > image routes > DELETE image: removes file and clears imagePath > admin forbidden": {
+    "res": {
+      "status": 403,
+      "headers": {
+        "content-type": "text/plain; charset=utf-8"
+      },
+      "body": "Forbidden"
+    },
+    "emitted": []
+  },
+  "AuthorController (characterization) > image routes > DELETE image: removes file and clears imagePath > again": {
+    "res": {
+      "status": 400,
+      "headers": {
+        "content-type": "text/html; charset=utf-8"
+      },
+      "body": "Author has no image path set"
+    },
+    "emitted": []
+  },
+  "AuthorController (characterization) > image routes > DELETE image: removes file and clears imagePath > author without image": {
+    "res": {
+      "status": 400,
+      "headers": {
+        "content-type": "text/html; charset=utf-8"
+      },
+      "body": "Author has no image path set"
+    },
+    "emitted": []
+  },
+  "AuthorController (characterization) > image routes > DELETE image: removes file and clears imagePath > root deletes": {
+    "res": {
+      "status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8"
+      },
+      "body": {
+        "author": {
+          "id": "<ann>",
+          "asin": "B000000001",
+          "name": "Ann Author",
+          "description": "Writes things",
+          "imagePath": null,
+          "libraryId": "<uuid-4>",
+          "addedAt": "<timestamp>",
+          "updatedAt": "<timestamp>"
+        }
+      }
+    },
+    "emitted": [
+      {
+        "method": "emitter",
+        "args": [
+          "author_updated",
+          {
+            "id": "<ann>",
+            "asin": "B000000001",
+            "name": "Ann Author",
+            "description": "Writes things",
+            "imagePath": null,
+            "libraryId": "<uuid-4>",
+            "addedAt": "<timestamp>",
+            "updatedAt": "<timestamp>",
+            "numBooks": 2
+          }
+        ]
+      }
+    ],
+    "fileExists": false
+  },
+  "AuthorController (characterization) > image routes > DELETE image: removes file and clears imagePath > unknown id": {
+    "res": {
+      "status": 404,
+      "headers": {
+        "content-type": "text/plain; charset=utf-8"
+      },
+      "body": "Not Found"
+    },
+    "emitted": []
+  },
+  "AuthorController (characterization) > image routes > DELETE image: removes file and clears imagePath > user forbidden": {
+    "res": {
+      "status": 403,
+      "headers": {
+        "content-type": "text/plain; charset=utf-8"
+      },
+      "body": "Forbidden"
+    },
+    "emitted": []
+  },
+  "AuthorController (characterization) > image routes > GET image: raw, cached, invalid and missing > cache hit": {
+    "res": {
+      "status": 200,
+      "type": "image/jpeg",
+      "body": "cached-bytes"
+    },
+    "emitted": []
+  },
+  "AuthorController (characterization) > image routes > GET image: raw, cached, invalid and missing > invalid format": {
+    "res": {
+      "status": 400,
+      "headers": {
+        "content-type": "text/plain; charset=utf-8"
+      },
+      "body": "Bad Request"
+    },
+    "emitted": []
+  },
+  "AuthorController (characterization) > image routes > GET image: raw, cached, invalid and missing > negative width (author without image)": {
+    "res": {
+      "status": 404,
+      "headers": {
+        "content-type": "text/plain; charset=utf-8"
+      },
+      "body": "Not Found"
+    },
+    "emitted": []
+  },
+  "AuthorController (characterization) > image routes > GET image: raw, cached, invalid and missing > no image for author": {
+    "res": {
+      "status": 404,
+      "headers": {
+        "content-type": "text/plain; charset=utf-8"
+      },
+      "body": "Not Found"
+    },
+    "emitted": []
+  },
+  "AuthorController (characterization) > image routes > GET image: raw, cached, invalid and missing > not a uuid": {
+    "res": {
+      "status": 400,
+      "headers": {
+        "content-type": "text/plain; charset=utf-8"
+      },
+      "body": "Bad Request"
+    },
+    "emitted": []
+  },
+  "AuthorController (characterization) > image routes > GET image: raw, cached, invalid and missing > raw": {
+    "res": {
+      "status": 200,
+      "body": "not-really-a-png"
+    },
+    "emitted": []
+  },
+  "AuthorController (characterization) > image routes > GET image: raw, cached, invalid and missing > raw, author without image": {
+    "res": {
+      "status": 404,
+      "headers": {
+        "content-type": "text/plain; charset=utf-8"
+      },
+      "body": "Not Found"
+    },
+    "emitted": []
+  },
+  "AuthorController (characterization) > image routes > GET image: raw, cached, invalid and missing > raw, unknown id": {
+    "res": {
+      "status": 404,
+      "headers": {
+        "content-type": "text/plain; charset=utf-8"
+      },
+      "body": "Not Found"
+    },
+    "emitted": []
+  },
+  "AuthorController (characterization) > image routes > GET image: raw, cached, invalid and missing > requires authentication": {
+    "res": {
+      "status": 401,
+      "headers": {
+        "content-type": "text/plain; charset=utf-8"
+      },
+      "body": "Unauthorized"
+    },
+    "emitted": []
+  }
+}
