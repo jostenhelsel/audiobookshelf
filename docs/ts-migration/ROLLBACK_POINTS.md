@@ -6,3 +6,4 @@ Confirmed-good commits on `claude/dreamy-ramanujan-l3ozd4`. Git tags `rollback/N
 |---|---|---|
 | rollback/00-baseline | 7d10b8f | Upstream v2.37.0, untouched. build, lint, 356 tests green (Node 22, sandbox); boot smoke OK with binary-check overrides. |
 | rollback/01-upgrade-smoke | 65e983b | Baseline code plus upgrade smoke harness. lint clean, 356 tests, `npm run smoke:upgrade` passes (Node 22, sandbox). |
+| rollback/02-ratchet | 83f2931 | Adds typescript-eslint, checkJs ratchet (7,576 errors / 206 files), MIGRATION.md. Local: build, lint, 356 tests, ratchet, smoke:upgrade pass. GitHub CI: all 5 workflows green on this SHA (Node 24). |
