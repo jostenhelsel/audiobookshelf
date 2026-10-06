@@ -1,0 +1,914 @@
+{
+  "SearchController (characterization) > GET /api/search/authors > maps finder failures to 500": {
+    "res": {
+      "status": 500,
+      "headers": {
+        "content-type": "application/json; charset=utf-8"
+      },
+      "body": {
+        "error": "Internal server error"
+      }
+    },
+    "calls": {
+      "author": [
+        [
+          "Ann"
+        ]
+      ]
+    }
+  },
+  "SearchController (characterization) > GET /api/search/authors > requires authentication": {
+    "res": {
+      "status": 401,
+      "headers": {
+        "content-type": "text/plain; charset=utf-8"
+      },
+      "body": "Unauthorized"
+    },
+    "calls": {}
+  },
+  "SearchController (characterization) > GET /api/search/authors > validates q and searches > found": {
+    "res": {
+      "status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8"
+      },
+      "body": {
+        "id": "asin1",
+        "name": "Ann Author"
+      }
+    },
+    "calls": {
+      "author": [
+        [
+          "Ann"
+        ]
+      ]
+    }
+  },
+  "SearchController (characterization) > GET /api/search/authors > validates q and searches > no q": {
+    "res": {
+      "status": 400,
+      "headers": {
+        "content-type": "application/json; charset=utf-8"
+      },
+      "body": {
+        "error": "Query parameter \"q\" is required"
+      }
+    },
+    "calls": {}
+  },
+  "SearchController (characterization) > GET /api/search/authors > validates q and searches > not found": {
+    "res": {
+      "status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8"
+      },
+      "body": null
+    },
+    "calls": {
+      "author": [
+        [
+          "Nobody"
+        ]
+      ]
+    }
+  },
+  "SearchController (characterization) > GET /api/search/books > maps finder failures to 500": {
+    "res": {
+      "status": 500,
+      "headers": {
+        "content-type": "application/json; charset=utf-8"
+      },
+      "body": {
+        "error": "Internal server error"
+      }
+    },
+    "calls": {
+      "bookSearch": [
+        [
+          null,
+          "google",
+          "",
+          ""
+        ]
+      ]
+    }
+  },
+  "SearchController (characterization) > GET /api/search/books > requires authentication": {
+    "res": {
+      "status": 401,
+      "headers": {
+        "content-type": "text/plain; charset=utf-8"
+      },
+      "body": "Unauthorized"
+    },
+    "calls": {}
+  },
+  "SearchController (characterization) > GET /api/search/books > resolves the library item by id > known id": {
+    "res": {
+      "status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8"
+      },
+      "body": [
+        {
+          "title": "Result One",
+          "author": "Ann Author"
+        }
+      ]
+    },
+    "calls": {
+      "bookSearch": [
+        [
+          {
+            "id": "<item>"
+          },
+          "google",
+          "x",
+          ""
+        ]
+      ]
+    }
+  },
+  "SearchController (characterization) > GET /api/search/books > resolves the library item by id > unknown id": {
+    "res": {
+      "status": 404,
+      "headers": {
+        "content-type": "application/json; charset=utf-8"
+      },
+      "body": {
+        "error": "library item \"nope\" not found"
+      }
+    },
+    "calls": {}
+  },
+  "SearchController (characterization) > GET /api/search/books > uses defaults and passes query params to the finder > array param": {
+    "res": {
+      "status": 400,
+      "headers": {
+        "content-type": "application/json; charset=utf-8"
+      },
+      "body": {
+        "error": "Query parameter \"title\" is an array"
+      }
+    },
+    "calls": {}
+  },
+  "SearchController (characterization) > GET /api/search/books > uses defaults and passes query params to the finder > defaults": {
+    "res": {
+      "status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8"
+      },
+      "body": [
+        {
+          "title": "Result One",
+          "author": "Ann Author"
+        }
+      ]
+    },
+    "calls": {
+      "bookSearch": [
+        [
+          null,
+          "google",
+          "",
+          ""
+        ]
+      ]
+    }
+  },
+  "SearchController (characterization) > GET /api/search/books > uses defaults and passes query params to the finder > guest": {
+    "res": {
+      "status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8"
+      },
+      "body": [
+        {
+          "title": "Result One",
+          "author": "Ann Author"
+        }
+      ]
+    },
+    "calls": {
+      "bookSearch": [
+        [
+          null,
+          "google",
+          "",
+          ""
+        ]
+      ]
+    }
+  },
+  "SearchController (characterization) > GET /api/search/books > uses defaults and passes query params to the finder > provider title author": {
+    "res": {
+      "status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8"
+      },
+      "body": [
+        {
+          "title": "Result One",
+          "author": "Ann Author"
+        }
+      ]
+    },
+    "calls": {
+      "bookSearch": [
+        [
+          null,
+          "audible",
+          "Dune",
+          "Frank Herbert"
+        ]
+      ]
+    }
+  },
+  "SearchController (characterization) > GET /api/search/chapters > maps finder failures to 500": {
+    "res": {
+      "status": 500,
+      "headers": {
+        "content-type": "application/json; charset=utf-8"
+      },
+      "body": {
+        "error": "Internal server error"
+      }
+    },
+    "calls": {
+      "bookChapters": [
+        [
+          "B000000000",
+          "us"
+        ]
+      ]
+    }
+  },
+  "SearchController (characterization) > GET /api/search/chapters > requires authentication": {
+    "res": {
+      "status": 401,
+      "headers": {
+        "content-type": "text/plain; charset=utf-8"
+      },
+      "body": "Unauthorized"
+    },
+    "calls": {}
+  },
+  "SearchController (characterization) > GET /api/search/chapters > validates the asin and returns chapters > chapters not found": {
+    "res": {
+      "status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8"
+      },
+      "body": {
+        "error": "Chapters not found",
+        "stringKey": "MessageChaptersNotFound"
+      }
+    },
+    "calls": {
+      "bookChapters": [
+        [
+          "B000000000",
+          "us"
+        ]
+      ]
+    }
+  },
+  "SearchController (characterization) > GET /api/search/chapters > validates the asin and returns chapters > invalid asin": {
+    "res": {
+      "status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8"
+      },
+      "body": {
+        "error": "Invalid ASIN",
+        "stringKey": "MessageInvalidAsin"
+      }
+    },
+    "calls": {}
+  },
+  "SearchController (characterization) > GET /api/search/chapters > validates the asin and returns chapters > lowercase asin, default region": {
+    "res": {
+      "status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8"
+      },
+      "body": {
+        "asin": "B000000000",
+        "chapters": [
+          {
+            "id": 0,
+            "title": "One",
+            "startOffsetMs": 0
+          }
+        ]
+      }
+    },
+    "calls": {
+      "bookChapters": [
+        [
+          "b000000000",
+          "us"
+        ]
+      ]
+    }
+  },
+  "SearchController (characterization) > GET /api/search/chapters > validates the asin and returns chapters > no asin": {
+    "res": {
+      "status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8"
+      },
+      "body": {
+        "error": "Invalid ASIN",
+        "stringKey": "MessageInvalidAsin"
+      }
+    },
+    "calls": {}
+  },
+  "SearchController (characterization) > GET /api/search/chapters > validates the asin and returns chapters > region uppercased": {
+    "res": {
+      "status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8"
+      },
+      "body": {
+        "asin": "B000000000",
+        "chapters": [
+          {
+            "id": 0,
+            "title": "One",
+            "startOffsetMs": 0
+          }
+        ]
+      }
+    },
+    "calls": {
+      "bookChapters": [
+        [
+          "B000000000",
+          "uk"
+        ]
+      ]
+    }
+  },
+  "SearchController (characterization) > GET /api/search/covers > maps finder failures to 500": {
+    "res": {
+      "status": 500,
+      "headers": {
+        "content-type": "application/json; charset=utf-8"
+      },
+      "body": {
+        "error": "Internal server error"
+      }
+    },
+    "calls": {
+      "bookCovers": [
+        [
+          "google",
+          "Dune",
+          ""
+        ]
+      ]
+    }
+  },
+  "SearchController (characterization) > GET /api/search/covers > requires authentication": {
+    "res": {
+      "status": 401,
+      "headers": {
+        "content-type": "text/plain; charset=utf-8"
+      },
+      "body": "Unauthorized"
+    },
+    "calls": {}
+  },
+  "SearchController (characterization) > GET /api/search/covers > validates the title and returns book and podcast covers > book": {
+    "res": {
+      "status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8"
+      },
+      "body": {
+        "results": [
+          "https://example.com/cover1.jpg"
+        ]
+      }
+    },
+    "calls": {
+      "bookCovers": [
+        [
+          "audiobookcovers",
+          "Dune",
+          "Frank"
+        ]
+      ]
+    }
+  },
+  "SearchController (characterization) > GET /api/search/covers > validates the title and returns book and podcast covers > book defaults": {
+    "res": {
+      "status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8"
+      },
+      "body": {
+        "results": [
+          "https://example.com/cover1.jpg"
+        ]
+      }
+    },
+    "calls": {
+      "bookCovers": [
+        [
+          "google",
+          "Dune",
+          ""
+        ]
+      ]
+    }
+  },
+  "SearchController (characterization) > GET /api/search/covers > validates the title and returns book and podcast covers > empty title": {
+    "res": {
+      "status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8"
+      },
+      "body": {
+        "results": [
+          "https://example.com/cover1.jpg"
+        ]
+      }
+    },
+    "calls": {
+      "bookCovers": [
+        [
+          "google",
+          "",
+          ""
+        ]
+      ]
+    }
+  },
+  "SearchController (characterization) > GET /api/search/covers > validates the title and returns book and podcast covers > no title": {
+    "res": {
+      "status": 400,
+      "headers": {
+        "content-type": "application/json; charset=utf-8"
+      },
+      "body": {
+        "error": "Query parameter \"title\" is required"
+      }
+    },
+    "calls": {}
+  },
+  "SearchController (characterization) > GET /api/search/covers > validates the title and returns book and podcast covers > podcast": {
+    "res": {
+      "status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8"
+      },
+      "body": {
+        "results": [
+          "https://example.com/pod.jpg"
+        ]
+      }
+    },
+    "calls": {
+      "podcastCovers": [
+        [
+          "Pod"
+        ]
+      ]
+    }
+  },
+  "SearchController (characterization) > GET /api/search/covers > validates the title and returns book and podcast covers > podcast=0 is a book search": {
+    "res": {
+      "status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8"
+      },
+      "body": {
+        "results": [
+          "https://example.com/cover1.jpg"
+        ]
+      }
+    },
+    "calls": {
+      "bookCovers": [
+        [
+          "google",
+          "Pod",
+          ""
+        ]
+      ]
+    }
+  },
+  "SearchController (characterization) > GET /api/search/podcast > maps finder failures to 500": {
+    "res": {
+      "status": 500,
+      "headers": {
+        "content-type": "application/json; charset=utf-8"
+      },
+      "body": {
+        "error": "Internal server error"
+      }
+    },
+    "calls": {
+      "podcastSearch": [
+        [
+          "tech",
+          {
+            "country": "us"
+          }
+        ]
+      ]
+    }
+  },
+  "SearchController (characterization) > GET /api/search/podcast > requires authentication": {
+    "res": {
+      "status": 401,
+      "headers": {
+        "content-type": "text/plain; charset=utf-8"
+      },
+      "body": "Unauthorized"
+    },
+    "calls": {}
+  },
+  "SearchController (characterization) > GET /api/search/podcast > validates the term and searches > country de": {
+    "res": {
+      "status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8"
+      },
+      "body": [
+        {
+          "title": "Pod Result",
+          "feedUrl": "https://example.com/feed.xml"
+        }
+      ]
+    },
+    "calls": {
+      "podcastSearch": [
+        [
+          "tech",
+          {
+            "country": "de"
+          }
+        ]
+      ]
+    }
+  },
+  "SearchController (characterization) > GET /api/search/podcast > validates the term and searches > default country": {
+    "res": {
+      "status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8"
+      },
+      "body": [
+        {
+          "title": "Pod Result",
+          "feedUrl": "https://example.com/feed.xml"
+        }
+      ]
+    },
+    "calls": {
+      "podcastSearch": [
+        [
+          "tech",
+          {
+            "country": "us"
+          }
+        ]
+      ]
+    }
+  },
+  "SearchController (characterization) > GET /api/search/podcast > validates the term and searches > no term": {
+    "res": {
+      "status": 400,
+      "headers": {
+        "content-type": "application/json; charset=utf-8"
+      },
+      "body": {
+        "error": "Query parameter \"term\" is required"
+      }
+    },
+    "calls": {}
+  },
+  "SearchController (characterization) > GET /api/search/providers > lists the built-in providers": {
+    "res": {
+      "status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8"
+      },
+      "body": {
+        "providers": {
+          "books": [
+            {
+              "value": "google",
+              "text": "Google Books"
+            },
+            {
+              "value": "itunes",
+              "text": "iTunes"
+            },
+            {
+              "value": "openlibrary",
+              "text": "Open Library"
+            },
+            {
+              "value": "fantlab",
+              "text": "FantLab.ru"
+            },
+            {
+              "value": "audible",
+              "text": "Audible.com"
+            },
+            {
+              "value": "audible.ca",
+              "text": "Audible.ca"
+            },
+            {
+              "value": "audible.uk",
+              "text": "Audible.co.uk"
+            },
+            {
+              "value": "audible.au",
+              "text": "Audible.com.au"
+            },
+            {
+              "value": "audible.fr",
+              "text": "Audible.fr"
+            },
+            {
+              "value": "audible.de",
+              "text": "Audible.de"
+            },
+            {
+              "value": "audible.jp",
+              "text": "Audible.co.jp"
+            },
+            {
+              "value": "audible.it",
+              "text": "Audible.it"
+            },
+            {
+              "value": "audible.in",
+              "text": "Audible.in"
+            },
+            {
+              "value": "audible.es",
+              "text": "Audible.es"
+            }
+          ],
+          "booksCovers": [
+            {
+              "value": "best",
+              "text": "Best"
+            },
+            {
+              "value": "google",
+              "text": "Google Books"
+            },
+            {
+              "value": "itunes",
+              "text": "iTunes"
+            },
+            {
+              "value": "openlibrary",
+              "text": "Open Library"
+            },
+            {
+              "value": "fantlab",
+              "text": "FantLab.ru"
+            },
+            {
+              "value": "audiobookcovers",
+              "text": "AudiobookCovers.com"
+            },
+            {
+              "value": "audible",
+              "text": "Audible.com"
+            },
+            {
+              "value": "audible.ca",
+              "text": "Audible.ca"
+            },
+            {
+              "value": "audible.uk",
+              "text": "Audible.co.uk"
+            },
+            {
+              "value": "audible.au",
+              "text": "Audible.com.au"
+            },
+            {
+              "value": "audible.fr",
+              "text": "Audible.fr"
+            },
+            {
+              "value": "audible.de",
+              "text": "Audible.de"
+            },
+            {
+              "value": "audible.jp",
+              "text": "Audible.co.jp"
+            },
+            {
+              "value": "audible.it",
+              "text": "Audible.it"
+            },
+            {
+              "value": "audible.in",
+              "text": "Audible.in"
+            },
+            {
+              "value": "audible.es",
+              "text": "Audible.es"
+            },
+            {
+              "value": "all",
+              "text": "All"
+            }
+          ],
+          "podcasts": [
+            {
+              "value": "itunes",
+              "text": "iTunes"
+            }
+          ]
+        }
+      }
+    },
+    "calls": {}
+  },
+  "SearchController (characterization) > GET /api/search/providers > merges custom providers by media type": {
+    "res": {
+      "status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8"
+      },
+      "body": {
+        "providers": {
+          "books": [
+            {
+              "value": "google",
+              "text": "Google Books"
+            },
+            {
+              "value": "itunes",
+              "text": "iTunes"
+            },
+            {
+              "value": "openlibrary",
+              "text": "Open Library"
+            },
+            {
+              "value": "fantlab",
+              "text": "FantLab.ru"
+            },
+            {
+              "value": "audible",
+              "text": "Audible.com"
+            },
+            {
+              "value": "audible.ca",
+              "text": "Audible.ca"
+            },
+            {
+              "value": "audible.uk",
+              "text": "Audible.co.uk"
+            },
+            {
+              "value": "audible.au",
+              "text": "Audible.com.au"
+            },
+            {
+              "value": "audible.fr",
+              "text": "Audible.fr"
+            },
+            {
+              "value": "audible.de",
+              "text": "Audible.de"
+            },
+            {
+              "value": "audible.jp",
+              "text": "Audible.co.jp"
+            },
+            {
+              "value": "audible.it",
+              "text": "Audible.it"
+            },
+            {
+              "value": "audible.in",
+              "text": "Audible.in"
+            },
+            {
+              "value": "audible.es",
+              "text": "Audible.es"
+            },
+            {
+              "value": "custom-<uuid-1>",
+              "text": "My Books"
+            }
+          ],
+          "booksCovers": [
+            {
+              "value": "best",
+              "text": "Best"
+            },
+            {
+              "value": "google",
+              "text": "Google Books"
+            },
+            {
+              "value": "itunes",
+              "text": "iTunes"
+            },
+            {
+              "value": "openlibrary",
+              "text": "Open Library"
+            },
+            {
+              "value": "fantlab",
+              "text": "FantLab.ru"
+            },
+            {
+              "value": "audiobookcovers",
+              "text": "AudiobookCovers.com"
+            },
+            {
+              "value": "audible",
+              "text": "Audible.com"
+            },
+            {
+              "value": "audible.ca",
+              "text": "Audible.ca"
+            },
+            {
+              "value": "audible.uk",
+              "text": "Audible.co.uk"
+            },
+            {
+              "value": "audible.au",
+              "text": "Audible.com.au"
+            },
+            {
+              "value": "audible.fr",
+              "text": "Audible.fr"
+            },
+            {
+              "value": "audible.de",
+              "text": "Audible.de"
+            },
+            {
+              "value": "audible.jp",
+              "text": "Audible.co.jp"
+            },
+            {
+              "value": "audible.it",
+              "text": "Audible.it"
+            },
+            {
+              "value": "audible.in",
+              "text": "Audible.in"
+            },
+            {
+              "value": "audible.es",
+              "text": "Audible.es"
+            },
+            {
+              "value": "custom-<uuid-1>",
+              "text": "My Books"
+            },
+            {
+              "value": "all",
+              "text": "All"
+            }
+          ],
+          "podcasts": [
+            {
+              "value": "itunes",
+              "text": "iTunes"
+            },
+            {
+              "value": "custom-<uuid-2>",
+              "text": "My Podcasts"
+            }
+          ]
+        }
+      }
+    },
+    "calls": {}
+  },
+  "SearchController (characterization) > GET /api/search/providers > requires authentication": {
+    "res": {
+      "status": 401,
+      "headers": {
+        "content-type": "text/plain; charset=utf-8"
+      },
+      "body": "Unauthorized"
+    },
+    "calls": {}
+  }
+}
