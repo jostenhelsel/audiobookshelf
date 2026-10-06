@@ -1,0 +1,318 @@
+{
+  "StatsController (characterization) > GET /api/stats/server > is admin only > guest": {
+    "res": {
+      "status": 403,
+      "headers": {
+        "content-type": "text/plain; charset=utf-8"
+      },
+      "body": "Forbidden"
+    }
+  },
+  "StatsController (characterization) > GET /api/stats/server > is admin only > user": {
+    "res": {
+      "status": 403,
+      "headers": {
+        "content-type": "text/plain; charset=utf-8"
+      },
+      "body": "Forbidden"
+    }
+  },
+  "StatsController (characterization) > GET /api/stats/server > requires authentication": {
+    "res": {
+      "status": 401,
+      "headers": {
+        "content-type": "text/plain; charset=utf-8"
+      },
+      "body": "Unauthorized"
+    }
+  },
+  "StatsController (characterization) > GET /api/stats/server > returns sizes and counts for books and podcasts > admin": {
+    "res": {
+      "status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8"
+      },
+      "body": {
+        "books": {
+          "totalSize": 6300,
+          "numItems": 3,
+          "numAudioFiles": 3
+        },
+        "podcasts": {
+          "totalSize": 700,
+          "numItems": 1,
+          "numAudioFiles": 2
+        },
+        "total": {
+          "totalSize": 7000,
+          "numItems": 4,
+          "numAudioFiles": 5
+        }
+      }
+    }
+  },
+  "StatsController (characterization) > GET /api/stats/server > returns sizes and counts for books and podcasts > root": {
+    "res": {
+      "status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8"
+      },
+      "body": {
+        "books": {
+          "totalSize": 6300,
+          "numItems": 3,
+          "numAudioFiles": 3
+        },
+        "podcasts": {
+          "totalSize": 700,
+          "numItems": 1,
+          "numAudioFiles": 2
+        },
+        "total": {
+          "totalSize": 7000,
+          "numItems": 4,
+          "numAudioFiles": 5
+        }
+      }
+    }
+  },
+  "StatsController (characterization) > GET /api/stats/server > returns zero totals for an empty server": {
+    "res": {
+      "status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8"
+      },
+      "body": {
+        "books": {
+          "totalSize": 0,
+          "numItems": 0,
+          "numAudioFiles": 0
+        },
+        "podcasts": {
+          "totalSize": 0,
+          "numItems": 0,
+          "numAudioFiles": 0
+        },
+        "total": {
+          "totalSize": 0,
+          "numItems": 0,
+          "numAudioFiles": 0
+        }
+      }
+    }
+  },
+  "StatsController (characterization) > GET /api/stats/year/:year > aggregates books and listening for 2024 and 2023 > 2023": {
+    "res": {
+      "status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8"
+      },
+      "body": {
+        "numListeningSessions": 1,
+        "numBooksAdded": 1,
+        "numAuthorsAdded": 0,
+        "totalBooksAddedSize": 300,
+        "totalBooksAddedDuration": 500,
+        "booksAddedWithCovers": [],
+        "totalBooksSize": 6300,
+        "totalBooksDuration": 3500,
+        "totalListeningTime": 111,
+        "numBooks": 3,
+        "topAuthors": [
+          {
+            "name": "Cy Old",
+            "time": 111
+          }
+        ],
+        "topNarrators": [],
+        "topGenres": []
+      }
+    }
+  },
+  "StatsController (characterization) > GET /api/stats/year/:year > aggregates books and listening for 2024 and 2023 > 2024 as admin": {
+    "res": {
+      "status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8"
+      },
+      "body": {
+        "numListeningSessions": 3,
+        "numBooksAdded": 2,
+        "numAuthorsAdded": 1,
+        "totalBooksAddedSize": 6000,
+        "totalBooksAddedDuration": 3000,
+        "booksAddedWithCovers": [],
+        "totalBooksSize": 6300,
+        "totalBooksDuration": 3500,
+        "totalListeningTime": 1700,
+        "numBooks": 3,
+        "topAuthors": [
+          {
+            "name": "Ann Author",
+            "time": 900
+          },
+          {
+            "name": "Bob Writer",
+            "time": 800
+          }
+        ],
+        "topNarrators": [
+          {
+            "name": "Nora",
+            "time": 900
+          },
+          {
+            "name": "Nick",
+            "time": 800
+          }
+        ],
+        "topGenres": [
+          {
+            "genre": "Fantasy",
+            "time": 900
+          },
+          {
+            "genre": "Mystery",
+            "time": 800
+          }
+        ]
+      }
+    }
+  },
+  "StatsController (characterization) > GET /api/stats/year/:year > aggregates books and listening for 2024 and 2023 > 2024 as root": {
+    "res": {
+      "status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8"
+      },
+      "body": {
+        "numListeningSessions": 3,
+        "numBooksAdded": 2,
+        "numAuthorsAdded": 1,
+        "totalBooksAddedSize": 6000,
+        "totalBooksAddedDuration": 3000,
+        "booksAddedWithCovers": [],
+        "totalBooksSize": 6300,
+        "totalBooksDuration": 3500,
+        "totalListeningTime": 1700,
+        "numBooks": 3,
+        "topAuthors": [
+          {
+            "name": "Ann Author",
+            "time": 900
+          },
+          {
+            "name": "Bob Writer",
+            "time": 800
+          }
+        ],
+        "topNarrators": [
+          {
+            "name": "Nora",
+            "time": 900
+          },
+          {
+            "name": "Nick",
+            "time": 800
+          }
+        ],
+        "topGenres": [
+          {
+            "genre": "Fantasy",
+            "time": 900
+          },
+          {
+            "genre": "Mystery",
+            "time": 800
+          }
+        ]
+      }
+    }
+  },
+  "StatsController (characterization) > GET /api/stats/year/:year > is admin only > guest": {
+    "res": {
+      "status": 403,
+      "headers": {
+        "content-type": "text/plain; charset=utf-8"
+      },
+      "body": "Forbidden"
+    }
+  },
+  "StatsController (characterization) > GET /api/stats/year/:year > is admin only > user": {
+    "res": {
+      "status": 403,
+      "headers": {
+        "content-type": "text/plain; charset=utf-8"
+      },
+      "body": "Forbidden"
+    }
+  },
+  "StatsController (characterization) > GET /api/stats/year/:year > rejects invalid years > 10000": {
+    "res": {
+      "status": 400,
+      "headers": {
+        "content-type": "text/html; charset=utf-8"
+      },
+      "body": "Invalid year"
+    }
+  },
+  "StatsController (characterization) > GET /api/stats/year/:year > rejects invalid years > 1999": {
+    "res": {
+      "status": 400,
+      "headers": {
+        "content-type": "text/html; charset=utf-8"
+      },
+      "body": "Invalid year"
+    }
+  },
+  "StatsController (characterization) > GET /api/stats/year/:year > rejects invalid years > 2024.5x": {
+    "res": {
+      "status": 400,
+      "headers": {
+        "content-type": "text/html; charset=utf-8"
+      },
+      "body": "Invalid year"
+    }
+  },
+  "StatsController (characterization) > GET /api/stats/year/:year > rejects invalid years > abc": {
+    "res": {
+      "status": 400,
+      "headers": {
+        "content-type": "text/html; charset=utf-8"
+      },
+      "body": "Invalid year"
+    }
+  },
+  "StatsController (characterization) > GET /api/stats/year/:year > requires authentication": {
+    "res": {
+      "status": 401,
+      "headers": {
+        "content-type": "text/plain; charset=utf-8"
+      },
+      "body": "Unauthorized"
+    }
+  },
+  "StatsController (characterization) > GET /api/stats/year/:year > returns zeros for a year without data": {
+    "res": {
+      "status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8"
+      },
+      "body": {
+        "numListeningSessions": 0,
+        "numBooksAdded": 0,
+        "numAuthorsAdded": 0,
+        "totalBooksAddedSize": 0,
+        "totalBooksAddedDuration": 0,
+        "booksAddedWithCovers": [],
+        "totalBooksSize": 0,
+        "totalBooksDuration": 0,
+        "totalListeningTime": 0,
+        "numBooks": 0,
+        "topAuthors": [],
+        "topNarrators": [],
+        "topGenres": []
+      }
+    }
+  }
+}

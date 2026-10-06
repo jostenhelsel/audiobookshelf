@@ -1,0 +1,4717 @@
+{
+  "UserController (characterization) > DELETE /api/users/:id > deletes a user, their playlists and unlinks their playback sessions > delete": {
+    "res": {
+      "status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8"
+      },
+      "body": {
+        "success": true
+      }
+    },
+    "emitted": [
+      {
+        "method": "adminEmitter",
+        "args": [
+          "user_removed",
+          {
+            "id": "<doomed>",
+            "username": "doomed",
+            "email": null,
+            "type": "user",
+            "token": "token-doomed",
+            "mediaProgress": [],
+            "seriesHideFromContinueListening": [],
+            "bookmarks": [],
+            "isActive": true,
+            "isLocked": false,
+            "lastSeen": null,
+            "createdAt": "<timestamp>",
+            "permissions": {
+              "download": true,
+              "update": false,
+              "delete": false,
+              "upload": false,
+              "createEreader": false,
+              "accessAllLibraries": true,
+              "accessAllTags": true,
+              "accessExplicitContent": false,
+              "selectedTagsNotAccessible": false
+            },
+            "librariesAccessible": [],
+            "itemTagsSelected": [],
+            "hasOpenIDLink": false
+          }
+        ]
+      }
+    ]
+  },
+  "UserController (characterization) > DELETE /api/users/:id > deletes a user, their playlists and unlinks their playback sessions > delete again": {
+    "res": {
+      "status": 404,
+      "headers": {
+        "content-type": "text/plain; charset=utf-8"
+      },
+      "body": "Not Found"
+    },
+    "emitted": []
+  },
+  "UserController (characterization) > DELETE /api/users/:id > deletes a user, their playlists and unlinks their playback sessions > get afterwards": {
+    "res": {
+      "status": 404,
+      "headers": {
+        "content-type": "text/plain; charset=utf-8"
+      },
+      "body": "Not Found"
+    },
+    "emitted": []
+  },
+  "UserController (characterization) > DELETE /api/users/:id > deletes a user, their playlists and unlinks their playback sessions > list afterwards": {
+    "res": {
+      "status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8"
+      },
+      "body": {
+        "users": [
+          {
+            "id": "<root>",
+            "username": "root",
+            "email": null,
+            "type": "root",
+            "token": "",
+            "seriesHideFromContinueListening": [],
+            "isActive": true,
+            "isLocked": false,
+            "lastSeen": null,
+            "createdAt": "<timestamp>",
+            "permissions": {
+              "download": true,
+              "update": true,
+              "delete": true,
+              "upload": true,
+              "createEreader": true,
+              "accessAllLibraries": true,
+              "accessAllTags": true,
+              "accessExplicitContent": true,
+              "selectedTagsNotAccessible": false
+            },
+            "librariesAccessible": [],
+            "itemTagsSelected": [],
+            "hasOpenIDLink": false
+          },
+          {
+            "id": "<admin>",
+            "username": "admin",
+            "email": null,
+            "type": "admin",
+            "token": "token-admin",
+            "seriesHideFromContinueListening": [],
+            "isActive": true,
+            "isLocked": false,
+            "lastSeen": null,
+            "createdAt": "<timestamp>",
+            "permissions": {
+              "download": true,
+              "update": true,
+              "delete": false,
+              "upload": true,
+              "createEreader": true,
+              "accessAllLibraries": true,
+              "accessAllTags": true,
+              "accessExplicitContent": true,
+              "selectedTagsNotAccessible": false
+            },
+            "librariesAccessible": [],
+            "itemTagsSelected": [],
+            "hasOpenIDLink": false
+          },
+          {
+            "id": "<user>",
+            "username": "user",
+            "email": null,
+            "type": "user",
+            "token": "token-user",
+            "seriesHideFromContinueListening": [],
+            "isActive": true,
+            "isLocked": false,
+            "lastSeen": null,
+            "createdAt": "<timestamp>",
+            "permissions": {
+              "download": true,
+              "update": false,
+              "delete": false,
+              "upload": false,
+              "createEreader": false,
+              "accessAllLibraries": true,
+              "accessAllTags": true,
+              "accessExplicitContent": false,
+              "selectedTagsNotAccessible": false
+            },
+            "librariesAccessible": [],
+            "itemTagsSelected": [],
+            "hasOpenIDLink": false
+          },
+          {
+            "id": "<guest>",
+            "username": "guest",
+            "email": null,
+            "type": "guest",
+            "token": "token-guest",
+            "seriesHideFromContinueListening": [],
+            "isActive": true,
+            "isLocked": false,
+            "lastSeen": null,
+            "createdAt": "<timestamp>",
+            "permissions": {
+              "download": true,
+              "update": false,
+              "delete": false,
+              "upload": false,
+              "createEreader": false,
+              "accessAllLibraries": true,
+              "accessAllTags": true,
+              "accessExplicitContent": false,
+              "selectedTagsNotAccessible": false
+            },
+            "librariesAccessible": [],
+            "itemTagsSelected": [],
+            "hasOpenIDLink": false
+          }
+        ]
+      }
+    },
+    "emitted": []
+  },
+  "UserController (characterization) > DELETE /api/users/:id > is admin only > guest": {
+    "res": {
+      "status": 403,
+      "headers": {
+        "content-type": "text/plain; charset=utf-8"
+      },
+      "body": "Forbidden"
+    },
+    "emitted": []
+  },
+  "UserController (characterization) > DELETE /api/users/:id > is admin only > user": {
+    "res": {
+      "status": 403,
+      "headers": {
+        "content-type": "text/plain; charset=utf-8"
+      },
+      "body": "Forbidden"
+    },
+    "emitted": []
+  },
+  "UserController (characterization) > DELETE /api/users/:id > refuses to delete oneself or the root user, and 404s for unknown ids > root": {
+    "res": {
+      "status": 403,
+      "headers": {
+        "content-type": "text/plain; charset=utf-8"
+      },
+      "body": "Forbidden"
+    },
+    "emitted": []
+  },
+  "UserController (characterization) > DELETE /api/users/:id > refuses to delete oneself or the root user, and 404s for unknown ids > self": {
+    "res": {
+      "status": 400,
+      "headers": {
+        "content-type": "text/plain; charset=utf-8"
+      },
+      "body": "Bad Request"
+    },
+    "emitted": []
+  },
+  "UserController (characterization) > DELETE /api/users/:id > refuses to delete oneself or the root user, and 404s for unknown ids > unknown": {
+    "res": {
+      "status": 404,
+      "headers": {
+        "content-type": "text/plain; charset=utf-8"
+      },
+      "body": "Not Found"
+    },
+    "emitted": []
+  },
+  "UserController (characterization) > DELETE /api/users/:id > requires authentication": {
+    "res": {
+      "status": 401,
+      "headers": {
+        "content-type": "text/plain; charset=utf-8"
+      },
+      "body": "Unauthorized"
+    },
+    "emitted": []
+  },
+  "UserController (characterization) > GET /api/users > includes the latest listening session > include latestSession": {
+    "res": {
+      "status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8"
+      },
+      "body": {
+        "users": [
+          {
+            "id": "<root>",
+            "username": "root",
+            "email": null,
+            "type": "root",
+            "token": "",
+            "seriesHideFromContinueListening": [],
+            "isActive": true,
+            "isLocked": false,
+            "lastSeen": null,
+            "createdAt": "<timestamp>",
+            "permissions": {
+              "download": true,
+              "update": true,
+              "delete": true,
+              "upload": true,
+              "createEreader": true,
+              "accessAllLibraries": true,
+              "accessAllTags": true,
+              "accessExplicitContent": true,
+              "selectedTagsNotAccessible": false
+            },
+            "librariesAccessible": [],
+            "itemTagsSelected": [],
+            "hasOpenIDLink": false,
+            "latestSession": null
+          },
+          {
+            "id": "<admin>",
+            "username": "admin",
+            "email": null,
+            "type": "admin",
+            "token": "token-admin",
+            "seriesHideFromContinueListening": [],
+            "isActive": true,
+            "isLocked": false,
+            "lastSeen": null,
+            "createdAt": "<timestamp>",
+            "permissions": {
+              "download": true,
+              "update": true,
+              "delete": false,
+              "upload": true,
+              "createEreader": true,
+              "accessAllLibraries": true,
+              "accessAllTags": true,
+              "accessExplicitContent": true,
+              "selectedTagsNotAccessible": false
+            },
+            "librariesAccessible": [],
+            "itemTagsSelected": [],
+            "hasOpenIDLink": false,
+            "latestSession": null
+          },
+          {
+            "id": "<user>",
+            "username": "user",
+            "email": null,
+            "type": "user",
+            "token": "token-user",
+            "seriesHideFromContinueListening": [],
+            "isActive": true,
+            "isLocked": false,
+            "lastSeen": null,
+            "createdAt": "<timestamp>",
+            "permissions": {
+              "download": true,
+              "update": false,
+              "delete": false,
+              "upload": false,
+              "createEreader": false,
+              "accessAllLibraries": true,
+              "accessAllTags": true,
+              "accessExplicitContent": false,
+              "selectedTagsNotAccessible": false
+            },
+            "librariesAccessible": [],
+            "itemTagsSelected": [],
+            "hasOpenIDLink": false,
+            "latestSession": {
+              "id": "<uuid-7>",
+              "userId": "<user>",
+              "libraryId": "<library>",
+              "libraryItemId": "<item-A>",
+              "bookId": "<uuid-8>",
+              "episodeId": null,
+              "mediaType": "book",
+              "mediaMetadata": {
+                "title": "newest",
+                "authors": [],
+                "narrators": [],
+                "genres": []
+              },
+              "chapters": [],
+              "displayTitle": "newest",
+              "displayAuthor": "",
+              "coverPath": null,
+              "duration": 1000,
+              "playMethod": 0,
+              "mediaPlayer": "test-player",
+              "deviceInfo": {},
+              "serverVersion": "2.0.0-test",
+              "date": "2024-03-17",
+              "dayOfWeek": "Friday",
+              "timeListening": 20,
+              "startTime": 0,
+              "currentTime": 60,
+              "startedAt": "<timestamp>",
+              "updatedAt": "<timestamp>"
+            }
+          },
+          {
+            "id": "<guest>",
+            "username": "guest",
+            "email": null,
+            "type": "guest",
+            "token": "token-guest",
+            "seriesHideFromContinueListening": [],
+            "isActive": true,
+            "isLocked": false,
+            "lastSeen": null,
+            "createdAt": "<timestamp>",
+            "permissions": {
+              "download": true,
+              "update": false,
+              "delete": false,
+              "upload": false,
+              "createEreader": false,
+              "accessAllLibraries": true,
+              "accessAllTags": true,
+              "accessExplicitContent": false,
+              "selectedTagsNotAccessible": false
+            },
+            "librariesAccessible": [],
+            "itemTagsSelected": [],
+            "hasOpenIDLink": false,
+            "latestSession": null
+          }
+        ]
+      }
+    },
+    "emitted": []
+  },
+  "UserController (characterization) > GET /api/users > includes the latest listening session > unknown include": {
+    "res": {
+      "status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8"
+      },
+      "body": {
+        "users": [
+          {
+            "id": "<root>",
+            "username": "root",
+            "email": null,
+            "type": "root",
+            "token": "",
+            "seriesHideFromContinueListening": [],
+            "isActive": true,
+            "isLocked": false,
+            "lastSeen": null,
+            "createdAt": "<timestamp>",
+            "permissions": {
+              "download": true,
+              "update": true,
+              "delete": true,
+              "upload": true,
+              "createEreader": true,
+              "accessAllLibraries": true,
+              "accessAllTags": true,
+              "accessExplicitContent": true,
+              "selectedTagsNotAccessible": false
+            },
+            "librariesAccessible": [],
+            "itemTagsSelected": [],
+            "hasOpenIDLink": false
+          },
+          {
+            "id": "<admin>",
+            "username": "admin",
+            "email": null,
+            "type": "admin",
+            "token": "token-admin",
+            "seriesHideFromContinueListening": [],
+            "isActive": true,
+            "isLocked": false,
+            "lastSeen": null,
+            "createdAt": "<timestamp>",
+            "permissions": {
+              "download": true,
+              "update": true,
+              "delete": false,
+              "upload": true,
+              "createEreader": true,
+              "accessAllLibraries": true,
+              "accessAllTags": true,
+              "accessExplicitContent": true,
+              "selectedTagsNotAccessible": false
+            },
+            "librariesAccessible": [],
+            "itemTagsSelected": [],
+            "hasOpenIDLink": false
+          },
+          {
+            "id": "<user>",
+            "username": "user",
+            "email": null,
+            "type": "user",
+            "token": "token-user",
+            "seriesHideFromContinueListening": [],
+            "isActive": true,
+            "isLocked": false,
+            "lastSeen": null,
+            "createdAt": "<timestamp>",
+            "permissions": {
+              "download": true,
+              "update": false,
+              "delete": false,
+              "upload": false,
+              "createEreader": false,
+              "accessAllLibraries": true,
+              "accessAllTags": true,
+              "accessExplicitContent": false,
+              "selectedTagsNotAccessible": false
+            },
+            "librariesAccessible": [],
+            "itemTagsSelected": [],
+            "hasOpenIDLink": false
+          },
+          {
+            "id": "<guest>",
+            "username": "guest",
+            "email": null,
+            "type": "guest",
+            "token": "token-guest",
+            "seriesHideFromContinueListening": [],
+            "isActive": true,
+            "isLocked": false,
+            "lastSeen": null,
+            "createdAt": "<timestamp>",
+            "permissions": {
+              "download": true,
+              "update": false,
+              "delete": false,
+              "upload": false,
+              "createEreader": false,
+              "accessAllLibraries": true,
+              "accessAllTags": true,
+              "accessExplicitContent": false,
+              "selectedTagsNotAccessible": false
+            },
+            "librariesAccessible": [],
+            "itemTagsSelected": [],
+            "hasOpenIDLink": false
+          }
+        ]
+      }
+    },
+    "emitted": []
+  },
+  "UserController (characterization) > GET /api/users > lists users; the root token is only visible to root > admin": {
+    "res": {
+      "status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8"
+      },
+      "body": {
+        "users": [
+          {
+            "id": "<root>",
+            "username": "root",
+            "email": null,
+            "type": "root",
+            "token": "",
+            "seriesHideFromContinueListening": [],
+            "isActive": true,
+            "isLocked": false,
+            "lastSeen": null,
+            "createdAt": "<timestamp>",
+            "permissions": {
+              "download": true,
+              "update": true,
+              "delete": true,
+              "upload": true,
+              "createEreader": true,
+              "accessAllLibraries": true,
+              "accessAllTags": true,
+              "accessExplicitContent": true,
+              "selectedTagsNotAccessible": false
+            },
+            "librariesAccessible": [],
+            "itemTagsSelected": [],
+            "hasOpenIDLink": false
+          },
+          {
+            "id": "<admin>",
+            "username": "admin",
+            "email": null,
+            "type": "admin",
+            "token": "token-admin",
+            "seriesHideFromContinueListening": [],
+            "isActive": true,
+            "isLocked": false,
+            "lastSeen": null,
+            "createdAt": "<timestamp>",
+            "permissions": {
+              "download": true,
+              "update": true,
+              "delete": false,
+              "upload": true,
+              "createEreader": true,
+              "accessAllLibraries": true,
+              "accessAllTags": true,
+              "accessExplicitContent": true,
+              "selectedTagsNotAccessible": false
+            },
+            "librariesAccessible": [],
+            "itemTagsSelected": [],
+            "hasOpenIDLink": false
+          },
+          {
+            "id": "<user>",
+            "username": "user",
+            "email": null,
+            "type": "user",
+            "token": "token-user",
+            "seriesHideFromContinueListening": [],
+            "isActive": true,
+            "isLocked": false,
+            "lastSeen": null,
+            "createdAt": "<timestamp>",
+            "permissions": {
+              "download": true,
+              "update": false,
+              "delete": false,
+              "upload": false,
+              "createEreader": false,
+              "accessAllLibraries": true,
+              "accessAllTags": true,
+              "accessExplicitContent": false,
+              "selectedTagsNotAccessible": false
+            },
+            "librariesAccessible": [],
+            "itemTagsSelected": [],
+            "hasOpenIDLink": false
+          },
+          {
+            "id": "<guest>",
+            "username": "guest",
+            "email": null,
+            "type": "guest",
+            "token": "token-guest",
+            "seriesHideFromContinueListening": [],
+            "isActive": true,
+            "isLocked": false,
+            "lastSeen": null,
+            "createdAt": "<timestamp>",
+            "permissions": {
+              "download": true,
+              "update": false,
+              "delete": false,
+              "upload": false,
+              "createEreader": false,
+              "accessAllLibraries": true,
+              "accessAllTags": true,
+              "accessExplicitContent": false,
+              "selectedTagsNotAccessible": false
+            },
+            "librariesAccessible": [],
+            "itemTagsSelected": [],
+            "hasOpenIDLink": false
+          }
+        ]
+      }
+    },
+    "emitted": []
+  },
+  "UserController (characterization) > GET /api/users > lists users; the root token is only visible to root > root": {
+    "res": {
+      "status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8"
+      },
+      "body": {
+        "users": [
+          {
+            "id": "<root>",
+            "username": "root",
+            "email": null,
+            "type": "root",
+            "token": "token-root",
+            "seriesHideFromContinueListening": [],
+            "isActive": true,
+            "isLocked": false,
+            "lastSeen": null,
+            "createdAt": "<timestamp>",
+            "permissions": {
+              "download": true,
+              "update": true,
+              "delete": true,
+              "upload": true,
+              "createEreader": true,
+              "accessAllLibraries": true,
+              "accessAllTags": true,
+              "accessExplicitContent": true,
+              "selectedTagsNotAccessible": false
+            },
+            "librariesAccessible": [],
+            "itemTagsSelected": [],
+            "hasOpenIDLink": false
+          },
+          {
+            "id": "<admin>",
+            "username": "admin",
+            "email": null,
+            "type": "admin",
+            "token": "token-admin",
+            "seriesHideFromContinueListening": [],
+            "isActive": true,
+            "isLocked": false,
+            "lastSeen": null,
+            "createdAt": "<timestamp>",
+            "permissions": {
+              "download": true,
+              "update": true,
+              "delete": false,
+              "upload": true,
+              "createEreader": true,
+              "accessAllLibraries": true,
+              "accessAllTags": true,
+              "accessExplicitContent": true,
+              "selectedTagsNotAccessible": false
+            },
+            "librariesAccessible": [],
+            "itemTagsSelected": [],
+            "hasOpenIDLink": false
+          },
+          {
+            "id": "<user>",
+            "username": "user",
+            "email": null,
+            "type": "user",
+            "token": "token-user",
+            "seriesHideFromContinueListening": [],
+            "isActive": true,
+            "isLocked": false,
+            "lastSeen": null,
+            "createdAt": "<timestamp>",
+            "permissions": {
+              "download": true,
+              "update": false,
+              "delete": false,
+              "upload": false,
+              "createEreader": false,
+              "accessAllLibraries": true,
+              "accessAllTags": true,
+              "accessExplicitContent": false,
+              "selectedTagsNotAccessible": false
+            },
+            "librariesAccessible": [],
+            "itemTagsSelected": [],
+            "hasOpenIDLink": false
+          },
+          {
+            "id": "<guest>",
+            "username": "guest",
+            "email": null,
+            "type": "guest",
+            "token": "token-guest",
+            "seriesHideFromContinueListening": [],
+            "isActive": true,
+            "isLocked": false,
+            "lastSeen": null,
+            "createdAt": "<timestamp>",
+            "permissions": {
+              "download": true,
+              "update": false,
+              "delete": false,
+              "upload": false,
+              "createEreader": false,
+              "accessAllLibraries": true,
+              "accessAllTags": true,
+              "accessExplicitContent": false,
+              "selectedTagsNotAccessible": false
+            },
+            "librariesAccessible": [],
+            "itemTagsSelected": [],
+            "hasOpenIDLink": false
+          }
+        ]
+      }
+    },
+    "emitted": []
+  },
+  "UserController (characterization) > GET /api/users > requires authentication and admin > guest": {
+    "res": {
+      "status": 403,
+      "headers": {
+        "content-type": "text/plain; charset=utf-8"
+      },
+      "body": "Forbidden"
+    },
+    "emitted": []
+  },
+  "UserController (characterization) > GET /api/users > requires authentication and admin > unauthenticated": {
+    "res": {
+      "status": 401,
+      "headers": {
+        "content-type": "text/plain; charset=utf-8"
+      },
+      "body": "Unauthorized"
+    },
+    "emitted": []
+  },
+  "UserController (characterization) > GET /api/users > requires authentication and admin > user": {
+    "res": {
+      "status": 403,
+      "headers": {
+        "content-type": "text/plain; charset=utf-8"
+      },
+      "body": "Forbidden"
+    },
+    "emitted": []
+  },
+  "UserController (characterization) > GET /api/users/:id > 404s for an unknown id": {
+    "res": {
+      "status": 404,
+      "headers": {
+        "content-type": "text/plain; charset=utf-8"
+      },
+      "body": "Not Found"
+    },
+    "emitted": []
+  },
+  "UserController (characterization) > GET /api/users/:id > non-admins get 403 for themselves and others > other": {
+    "res": {
+      "status": 403,
+      "headers": {
+        "content-type": "text/plain; charset=utf-8"
+      },
+      "body": "Forbidden"
+    },
+    "emitted": []
+  },
+  "UserController (characterization) > GET /api/users/:id > non-admins get 403 for themselves and others > self": {
+    "res": {
+      "status": 403,
+      "headers": {
+        "content-type": "text/plain; charset=utf-8"
+      },
+      "body": "Forbidden"
+    },
+    "emitted": []
+  },
+  "UserController (characterization) > GET /api/users/:id > non-admins get 403 for themselves and others > unknown id as user": {
+    "res": {
+      "status": 403,
+      "headers": {
+        "content-type": "text/plain; charset=utf-8"
+      },
+      "body": "Forbidden"
+    },
+    "emitted": []
+  },
+  "UserController (characterization) > GET /api/users/:id > requires authentication": {
+    "res": {
+      "status": 401,
+      "headers": {
+        "content-type": "text/plain; charset=utf-8"
+      },
+      "body": "Unauthorized"
+    },
+    "emitted": []
+  },
+  "UserController (characterization) > GET /api/users/:id > returns the user with media progress details > root as admin hides token": {
+    "res": {
+      "status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8"
+      },
+      "body": {
+        "id": "<root>",
+        "username": "root",
+        "email": null,
+        "type": "root",
+        "token": "",
+        "mediaProgress": [],
+        "seriesHideFromContinueListening": [],
+        "bookmarks": [],
+        "isActive": true,
+        "isLocked": false,
+        "lastSeen": null,
+        "createdAt": "<timestamp>",
+        "permissions": {
+          "download": true,
+          "update": true,
+          "delete": true,
+          "upload": true,
+          "createEreader": true,
+          "accessAllLibraries": true,
+          "accessAllTags": true,
+          "accessExplicitContent": true,
+          "selectedTagsNotAccessible": false
+        },
+        "librariesAccessible": [],
+        "itemTagsSelected": [],
+        "hasOpenIDLink": false
+      }
+    },
+    "emitted": []
+  },
+  "UserController (characterization) > GET /api/users/:id > returns the user with media progress details > root as root": {
+    "res": {
+      "status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8"
+      },
+      "body": {
+        "id": "<root>",
+        "username": "root",
+        "email": null,
+        "type": "root",
+        "token": "token-root",
+        "mediaProgress": [],
+        "seriesHideFromContinueListening": [],
+        "bookmarks": [],
+        "isActive": true,
+        "isLocked": false,
+        "lastSeen": null,
+        "createdAt": "<timestamp>",
+        "permissions": {
+          "download": true,
+          "update": true,
+          "delete": true,
+          "upload": true,
+          "createEreader": true,
+          "accessAllLibraries": true,
+          "accessAllTags": true,
+          "accessExplicitContent": true,
+          "selectedTagsNotAccessible": false
+        },
+        "librariesAccessible": [],
+        "itemTagsSelected": [],
+        "hasOpenIDLink": false
+      }
+    },
+    "emitted": []
+  },
+  "UserController (characterization) > GET /api/users/:id > returns the user with media progress details > user as admin": {
+    "res": {
+      "status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8"
+      },
+      "body": {
+        "id": "<user>",
+        "username": "user",
+        "email": null,
+        "type": "user",
+        "token": "token-user",
+        "mediaProgress": [
+          {
+            "id": "<uuid-8>",
+            "userId": "<user>",
+            "libraryItemId": "<item-A>",
+            "episodeId": null,
+            "mediaItemId": "<uuid-9>",
+            "mediaItemType": "book",
+            "duration": 1000,
+            "progress": 0.25,
+            "currentTime": 250,
+            "isFinished": false,
+            "hideFromContinueListening": false,
+            "ebookLocation": null,
+            "ebookProgress": 0,
+            "lastUpdate": "<timestamp>",
+            "startedAt": "<timestamp>",
+            "finishedAt": null,
+            "displayTitle": "Book A",
+            "coverPath": null,
+            "mediaUpdatedAt": "<iso-date>"
+          },
+          {
+            "id": "<uuid-10>",
+            "userId": "<user>",
+            "libraryItemId": "<item-B>",
+            "episodeId": null,
+            "mediaItemId": "<uuid-11>",
+            "mediaItemType": "book",
+            "duration": 2000,
+            "progress": 1,
+            "currentTime": 2000,
+            "isFinished": true,
+            "hideFromContinueListening": false,
+            "ebookLocation": null,
+            "ebookProgress": 0,
+            "lastUpdate": "<timestamp>",
+            "startedAt": "<timestamp>",
+            "finishedAt": "<timestamp>",
+            "displayTitle": "Book B",
+            "coverPath": null,
+            "mediaUpdatedAt": "<iso-date>"
+          }
+        ],
+        "seriesHideFromContinueListening": [],
+        "bookmarks": [],
+        "isActive": true,
+        "isLocked": false,
+        "lastSeen": null,
+        "createdAt": "<timestamp>",
+        "permissions": {
+          "download": true,
+          "update": false,
+          "delete": false,
+          "upload": false,
+          "createEreader": false,
+          "accessAllLibraries": true,
+          "accessAllTags": true,
+          "accessExplicitContent": false,
+          "selectedTagsNotAccessible": false
+        },
+        "librariesAccessible": [],
+        "itemTagsSelected": [],
+        "hasOpenIDLink": false
+      }
+    },
+    "emitted": []
+  },
+  "UserController (characterization) > GET /api/users/online > lists connected users with their connection counts": {
+    "res": {
+      "status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8"
+      },
+      "body": {
+        "usersOnline": [
+          {
+            "id": "<user>",
+            "username": "user",
+            "type": "user",
+            "session": null,
+            "lastSeen": null,
+            "createdAt": "<timestamp>",
+            "connections": 2
+          }
+        ],
+        "openSessions": []
+      }
+    },
+    "emitted": []
+  },
+  "UserController (characterization) > GET /api/users/online > lists nobody online without socket clients": {
+    "res": {
+      "status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8"
+      },
+      "body": {
+        "usersOnline": [],
+        "openSessions": []
+      }
+    },
+    "emitted": []
+  },
+  "UserController (characterization) > GET /api/users/online > requires authentication and admin > guest": {
+    "res": {
+      "status": 403,
+      "headers": {
+        "content-type": "text/plain; charset=utf-8"
+      },
+      "body": "Forbidden"
+    },
+    "emitted": []
+  },
+  "UserController (characterization) > GET /api/users/online > requires authentication and admin > unauthenticated": {
+    "res": {
+      "status": 401,
+      "headers": {
+        "content-type": "text/plain; charset=utf-8"
+      },
+      "body": "Unauthorized"
+    },
+    "emitted": []
+  },
+  "UserController (characterization) > GET /api/users/online > requires authentication and admin > user": {
+    "res": {
+      "status": 403,
+      "headers": {
+        "content-type": "text/plain; charset=utf-8"
+      },
+      "body": "Forbidden"
+    },
+    "emitted": []
+  },
+  "UserController (characterization) > PATCH /api/users/:id > 404s for an unknown user": {
+    "res": {
+      "status": 404,
+      "headers": {
+        "content-type": "text/plain; charset=utf-8"
+      },
+      "body": "Not Found"
+    },
+    "emitted": []
+  },
+  "UserController (characterization) > PATCH /api/users/:id > an admin changing their own password rotates the current session > own password": {
+    "res": {
+      "status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8"
+      },
+      "body": {
+        "success": true,
+        "user": {
+          "id": "<admin>",
+          "username": "admin",
+          "email": null,
+          "type": "admin",
+          "token": "token-admin",
+          "mediaProgress": [],
+          "seriesHideFromContinueListening": [],
+          "bookmarks": [],
+          "isActive": true,
+          "isLocked": false,
+          "lastSeen": null,
+          "createdAt": "<timestamp>",
+          "permissions": {
+            "download": true,
+            "update": true,
+            "delete": false,
+            "upload": true,
+            "createEreader": true,
+            "accessAllLibraries": true,
+            "accessAllTags": true,
+            "accessExplicitContent": true,
+            "selectedTagsNotAccessible": false
+          },
+          "librariesAccessible": [],
+          "itemTagsSelected": [],
+          "hasOpenIDLink": false
+        }
+      }
+    },
+    "emitted": [
+      {
+        "method": "clientEmitter",
+        "args": [
+          "<admin>",
+          "user_updated",
+          {
+            "id": "<admin>",
+            "username": "admin",
+            "email": null,
+            "type": "admin",
+            "token": "token-admin",
+            "mediaProgress": [],
+            "seriesHideFromContinueListening": [],
+            "bookmarks": [],
+            "isActive": true,
+            "isLocked": false,
+            "lastSeen": null,
+            "createdAt": "<timestamp>",
+            "permissions": {
+              "download": true,
+              "update": true,
+              "delete": false,
+              "upload": true,
+              "createEreader": true,
+              "accessAllLibraries": true,
+              "accessAllTags": true,
+              "accessExplicitContent": true,
+              "selectedTagsNotAccessible": false
+            },
+            "librariesAccessible": [],
+            "itemTagsSelected": [],
+            "hasOpenIDLink": false
+          }
+        ]
+      }
+    ]
+  },
+  "UserController (characterization) > PATCH /api/users/:id > changing username or password invalidates login sessions > new password": {
+    "res": {
+      "status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8"
+      },
+      "body": {
+        "success": true,
+        "user": {
+          "id": "<target>",
+          "username": "target",
+          "email": null,
+          "type": "user",
+          "token": "token-target",
+          "mediaProgress": [],
+          "seriesHideFromContinueListening": [],
+          "bookmarks": [],
+          "isActive": true,
+          "isLocked": false,
+          "lastSeen": null,
+          "createdAt": "<timestamp>",
+          "permissions": {
+            "download": true,
+            "update": false,
+            "delete": false,
+            "upload": false,
+            "createEreader": false,
+            "accessAllLibraries": true,
+            "accessAllTags": true,
+            "accessExplicitContent": false,
+            "selectedTagsNotAccessible": false
+          },
+          "librariesAccessible": [],
+          "itemTagsSelected": [],
+          "hasOpenIDLink": false
+        }
+      }
+    },
+    "emitted": [
+      {
+        "method": "clientEmitter",
+        "args": [
+          "<admin>",
+          "user_updated",
+          {
+            "id": "<target>",
+            "username": "target",
+            "email": null,
+            "type": "user",
+            "token": "token-target",
+            "mediaProgress": [],
+            "seriesHideFromContinueListening": [],
+            "bookmarks": [],
+            "isActive": true,
+            "isLocked": false,
+            "lastSeen": null,
+            "createdAt": "<timestamp>",
+            "permissions": {
+              "download": true,
+              "update": false,
+              "delete": false,
+              "upload": false,
+              "createEreader": false,
+              "accessAllLibraries": true,
+              "accessAllTags": true,
+              "accessExplicitContent": false,
+              "selectedTagsNotAccessible": false
+            },
+            "librariesAccessible": [],
+            "itemTagsSelected": [],
+            "hasOpenIDLink": false
+          }
+        ]
+      }
+    ]
+  },
+  "UserController (characterization) > PATCH /api/users/:id > changing username or password invalidates login sessions > new username": {
+    "res": {
+      "status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8"
+      },
+      "body": {
+        "success": true,
+        "user": {
+          "id": "<target>",
+          "username": "renamed",
+          "email": null,
+          "type": "user",
+          "token": "<jwt>",
+          "mediaProgress": [],
+          "seriesHideFromContinueListening": [],
+          "bookmarks": [],
+          "isActive": true,
+          "isLocked": false,
+          "lastSeen": null,
+          "createdAt": "<timestamp>",
+          "permissions": {
+            "download": true,
+            "update": false,
+            "delete": false,
+            "upload": false,
+            "createEreader": false,
+            "accessAllLibraries": true,
+            "accessAllTags": true,
+            "accessExplicitContent": false,
+            "selectedTagsNotAccessible": false
+          },
+          "librariesAccessible": [],
+          "itemTagsSelected": [],
+          "hasOpenIDLink": false
+        }
+      }
+    },
+    "emitted": [
+      {
+        "method": "clientEmitter",
+        "args": [
+          "<admin>",
+          "user_updated",
+          {
+            "id": "<target>",
+            "username": "renamed",
+            "email": null,
+            "type": "user",
+            "token": "<jwt>",
+            "mediaProgress": [],
+            "seriesHideFromContinueListening": [],
+            "bookmarks": [],
+            "isActive": true,
+            "isLocked": false,
+            "lastSeen": null,
+            "createdAt": "<timestamp>",
+            "permissions": {
+              "download": true,
+              "update": false,
+              "delete": false,
+              "upload": false,
+              "createEreader": false,
+              "accessAllLibraries": true,
+              "accessAllTags": true,
+              "accessExplicitContent": false,
+              "selectedTagsNotAccessible": false
+            },
+            "librariesAccessible": [],
+            "itemTagsSelected": [],
+            "hasOpenIDLink": false
+          }
+        ]
+      }
+    ]
+  },
+  "UserController (characterization) > PATCH /api/users/:id > changing username or password invalidates login sessions > username differing only by case": {
+    "res": {
+      "status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8"
+      },
+      "body": {
+        "success": true,
+        "user": {
+          "id": "<target>",
+          "username": "Renamed",
+          "email": null,
+          "type": "user",
+          "token": "<jwt>",
+          "mediaProgress": [],
+          "seriesHideFromContinueListening": [],
+          "bookmarks": [],
+          "isActive": true,
+          "isLocked": false,
+          "lastSeen": null,
+          "createdAt": "<timestamp>",
+          "permissions": {
+            "download": true,
+            "update": false,
+            "delete": false,
+            "upload": false,
+            "createEreader": false,
+            "accessAllLibraries": true,
+            "accessAllTags": true,
+            "accessExplicitContent": false,
+            "selectedTagsNotAccessible": false
+          },
+          "librariesAccessible": [],
+          "itemTagsSelected": [],
+          "hasOpenIDLink": false
+        }
+      }
+    },
+    "emitted": [
+      {
+        "method": "clientEmitter",
+        "args": [
+          "<admin>",
+          "user_updated",
+          {
+            "id": "<target>",
+            "username": "Renamed",
+            "email": null,
+            "type": "user",
+            "token": "<jwt>",
+            "mediaProgress": [],
+            "seriesHideFromContinueListening": [],
+            "bookmarks": [],
+            "isActive": true,
+            "isLocked": false,
+            "lastSeen": null,
+            "createdAt": "<timestamp>",
+            "permissions": {
+              "download": true,
+              "update": false,
+              "delete": false,
+              "upload": false,
+              "createEreader": false,
+              "accessAllLibraries": true,
+              "accessAllTags": true,
+              "accessExplicitContent": false,
+              "selectedTagsNotAccessible": false
+            },
+            "librariesAccessible": [],
+            "itemTagsSelected": [],
+            "hasOpenIDLink": false
+          }
+        ]
+      }
+    ]
+  },
+  "UserController (characterization) > PATCH /api/users/:id > is admin only, even for oneself > guest other": {
+    "res": {
+      "status": 403,
+      "headers": {
+        "content-type": "text/plain; charset=utf-8"
+      },
+      "body": "Forbidden"
+    },
+    "emitted": []
+  },
+  "UserController (characterization) > PATCH /api/users/:id > is admin only, even for oneself > user self": {
+    "res": {
+      "status": 403,
+      "headers": {
+        "content-type": "text/plain; charset=utf-8"
+      },
+      "body": "Forbidden"
+    },
+    "emitted": []
+  },
+  "UserController (characterization) > PATCH /api/users/:id > protects the root user > admin updates root": {
+    "res": {
+      "status": 403,
+      "headers": {
+        "content-type": "text/plain; charset=utf-8"
+      },
+      "body": "Forbidden"
+    },
+    "emitted": []
+  },
+  "UserController (characterization) > PATCH /api/users/:id > protects the root user > root keeps type root": {
+    "res": {
+      "status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8"
+      },
+      "body": {
+        "success": true,
+        "user": {
+          "id": "<root>",
+          "username": "root",
+          "email": "r@example.com",
+          "type": "root",
+          "token": "token-root",
+          "mediaProgress": [],
+          "seriesHideFromContinueListening": [],
+          "bookmarks": [],
+          "isActive": true,
+          "isLocked": false,
+          "lastSeen": null,
+          "createdAt": "<timestamp>",
+          "permissions": {
+            "download": true,
+            "update": true,
+            "delete": true,
+            "upload": true,
+            "createEreader": true,
+            "accessAllLibraries": true,
+            "accessAllTags": true,
+            "accessExplicitContent": true,
+            "selectedTagsNotAccessible": false
+          },
+          "librariesAccessible": [],
+          "itemTagsSelected": [],
+          "hasOpenIDLink": false
+        }
+      }
+    },
+    "emitted": [
+      {
+        "method": "clientEmitter",
+        "args": [
+          "<root>",
+          "user_updated",
+          {
+            "id": "<root>",
+            "username": "root",
+            "email": "r@example.com",
+            "type": "root",
+            "token": "token-root",
+            "mediaProgress": [],
+            "seriesHideFromContinueListening": [],
+            "bookmarks": [],
+            "isActive": true,
+            "isLocked": false,
+            "lastSeen": null,
+            "createdAt": "<timestamp>",
+            "permissions": {
+              "download": true,
+              "update": true,
+              "delete": true,
+              "upload": true,
+              "createEreader": true,
+              "accessAllLibraries": true,
+              "accessAllTags": true,
+              "accessExplicitContent": true,
+              "selectedTagsNotAccessible": false
+            },
+            "librariesAccessible": [],
+            "itemTagsSelected": [],
+            "hasOpenIDLink": false
+          }
+        ]
+      }
+    ]
+  },
+  "UserController (characterization) > PATCH /api/users/:id > rejects invalid payloads > email not a string": {
+    "res": {
+      "status": 400,
+      "headers": {
+        "content-type": "text/html; charset=utf-8"
+      },
+      "body": "Invalid email"
+    },
+    "emitted": []
+  },
+  "UserController (characterization) > PATCH /api/users/:id > rejects invalid payloads > forbidden key bookmarks": {
+    "res": {
+      "status": 400,
+      "headers": {
+        "content-type": "text/html; charset=utf-8"
+      },
+      "body": "Key \"bookmarks\" cannot be updated"
+    },
+    "emitted": []
+  },
+  "UserController (characterization) > PATCH /api/users/:id > rejects invalid payloads > forbidden key extraData": {
+    "res": {
+      "status": 400,
+      "headers": {
+        "content-type": "text/html; charset=utf-8"
+      },
+      "body": "Key \"extraData\" cannot be updated"
+    },
+    "emitted": []
+  },
+  "UserController (characterization) > PATCH /api/users/:id > rejects invalid payloads > forbidden key id": {
+    "res": {
+      "status": 400,
+      "headers": {
+        "content-type": "text/html; charset=utf-8"
+      },
+      "body": "Key \"id\" cannot be updated"
+    },
+    "emitted": []
+  },
+  "UserController (characterization) > PATCH /api/users/:id > rejects invalid payloads > forbidden key pash": {
+    "res": {
+      "status": 400,
+      "headers": {
+        "content-type": "text/html; charset=utf-8"
+      },
+      "body": "Key \"pash\" cannot be updated"
+    },
+    "emitted": []
+  },
+  "UserController (characterization) > PATCH /api/users/:id > rejects invalid payloads > forbidden key token": {
+    "res": {
+      "status": 400,
+      "headers": {
+        "content-type": "text/html; charset=utf-8"
+      },
+      "body": "Key \"token\" cannot be updated"
+    },
+    "emitted": []
+  },
+  "UserController (characterization) > PATCH /api/users/:id > rejects invalid payloads > permissions not an object": {
+    "res": {
+      "status": 400,
+      "headers": {
+        "content-type": "text/html; charset=utf-8"
+      },
+      "body": "Invalid permissions"
+    },
+    "emitted": []
+  },
+  "UserController (characterization) > PATCH /api/users/:id > rejects invalid payloads > type root": {
+    "res": {
+      "status": 400,
+      "headers": {
+        "content-type": "text/html; charset=utf-8"
+      },
+      "body": "Invalid account type"
+    },
+    "emitted": []
+  },
+  "UserController (characterization) > PATCH /api/users/:id > rejects invalid payloads > user unchanged": {
+    "res": {
+      "status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8"
+      },
+      "body": {
+        "id": "<user>",
+        "username": "user",
+        "email": null,
+        "type": "user",
+        "token": "token-user",
+        "mediaProgress": [],
+        "seriesHideFromContinueListening": [],
+        "bookmarks": [],
+        "isActive": true,
+        "isLocked": false,
+        "lastSeen": null,
+        "createdAt": "<timestamp>",
+        "permissions": {
+          "download": true,
+          "update": false,
+          "delete": false,
+          "upload": false,
+          "createEreader": false,
+          "accessAllLibraries": true,
+          "accessAllTags": true,
+          "accessExplicitContent": false,
+          "selectedTagsNotAccessible": false
+        },
+        "librariesAccessible": [],
+        "itemTagsSelected": [],
+        "hasOpenIDLink": false
+      }
+    },
+    "emitted": []
+  },
+  "UserController (characterization) > PATCH /api/users/:id > rejects invalid payloads > username not a string": {
+    "res": {
+      "status": 400,
+      "headers": {
+        "content-type": "text/html; charset=utf-8"
+      },
+      "body": "Invalid username"
+    },
+    "emitted": []
+  },
+  "UserController (characterization) > PATCH /api/users/:id > rejects invalid payloads > username taken": {
+    "res": {
+      "status": 400,
+      "headers": {
+        "content-type": "text/html; charset=utf-8"
+      },
+      "body": "Username already taken"
+    },
+    "emitted": []
+  },
+  "UserController (characterization) > PATCH /api/users/:id > requires authentication": {
+    "res": {
+      "status": 401,
+      "headers": {
+        "content-type": "text/plain; charset=utf-8"
+      },
+      "body": "Unauthorized"
+    },
+    "emitted": []
+  },
+  "UserController (characterization) > PATCH /api/users/:id > updates simple fields and permissions > email, isActive, lastSeen": {
+    "res": {
+      "status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8"
+      },
+      "body": {
+        "success": true,
+        "user": {
+          "id": "<user>",
+          "username": "user",
+          "email": "u@example.com",
+          "type": "user",
+          "token": "token-user",
+          "mediaProgress": [],
+          "seriesHideFromContinueListening": [],
+          "bookmarks": [],
+          "isActive": false,
+          "isLocked": false,
+          "lastSeen": "<timestamp>",
+          "createdAt": "<timestamp>",
+          "permissions": {
+            "download": true,
+            "update": false,
+            "delete": false,
+            "upload": false,
+            "createEreader": false,
+            "accessAllLibraries": true,
+            "accessAllTags": true,
+            "accessExplicitContent": false,
+            "selectedTagsNotAccessible": false
+          },
+          "librariesAccessible": [],
+          "itemTagsSelected": [],
+          "hasOpenIDLink": false
+        }
+      }
+    },
+    "emitted": [
+      {
+        "method": "clientEmitter",
+        "args": [
+          "<admin>",
+          "user_updated",
+          {
+            "id": "<user>",
+            "username": "user",
+            "email": "u@example.com",
+            "type": "user",
+            "token": "token-user",
+            "mediaProgress": [],
+            "seriesHideFromContinueListening": [],
+            "bookmarks": [],
+            "isActive": false,
+            "isLocked": false,
+            "lastSeen": "<timestamp>",
+            "createdAt": "<timestamp>",
+            "permissions": {
+              "download": true,
+              "update": false,
+              "delete": false,
+              "upload": false,
+              "createEreader": false,
+              "accessAllLibraries": true,
+              "accessAllTags": true,
+              "accessExplicitContent": false,
+              "selectedTagsNotAccessible": false
+            },
+            "librariesAccessible": [],
+            "itemTagsSelected": [],
+            "hasOpenIDLink": false
+          }
+        ]
+      }
+    ]
+  },
+  "UserController (characterization) > PATCH /api/users/:id > updates simple fields and permissions > invalid arrays are ignored": {
+    "res": {
+      "status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8"
+      },
+      "body": {
+        "success": true,
+        "user": {
+          "id": "<user>",
+          "username": "user",
+          "email": "u@example.com",
+          "type": "admin",
+          "token": "token-user",
+          "mediaProgress": [],
+          "seriesHideFromContinueListening": [],
+          "bookmarks": [],
+          "isActive": false,
+          "isLocked": false,
+          "lastSeen": "<timestamp>",
+          "createdAt": "<timestamp>",
+          "permissions": {
+            "download": false,
+            "update": true,
+            "delete": true,
+            "upload": false,
+            "createEreader": false,
+            "accessAllLibraries": false,
+            "accessAllTags": false,
+            "accessExplicitContent": false,
+            "selectedTagsNotAccessible": false
+          },
+          "librariesAccessible": [],
+          "itemTagsSelected": [],
+          "hasOpenIDLink": false
+        }
+      }
+    },
+    "emitted": []
+  },
+  "UserController (characterization) > PATCH /api/users/:id > updates simple fields and permissions > library and tag restrictions": {
+    "res": {
+      "status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8"
+      },
+      "body": {
+        "success": true,
+        "user": {
+          "id": "<user>",
+          "username": "user",
+          "email": "u@example.com",
+          "type": "admin",
+          "token": "token-user",
+          "mediaProgress": [],
+          "seriesHideFromContinueListening": [],
+          "bookmarks": [],
+          "isActive": false,
+          "isLocked": false,
+          "lastSeen": "<timestamp>",
+          "createdAt": "<timestamp>",
+          "permissions": {
+            "download": false,
+            "update": true,
+            "delete": true,
+            "upload": false,
+            "createEreader": false,
+            "accessAllLibraries": false,
+            "accessAllTags": false,
+            "accessExplicitContent": false,
+            "selectedTagsNotAccessible": false
+          },
+          "librariesAccessible": [
+            "<library>"
+          ],
+          "itemTagsSelected": [
+            "tagA"
+          ],
+          "hasOpenIDLink": false
+        }
+      }
+    },
+    "emitted": [
+      {
+        "method": "clientEmitter",
+        "args": [
+          "<admin>",
+          "user_updated",
+          {
+            "id": "<user>",
+            "username": "user",
+            "email": "u@example.com",
+            "type": "admin",
+            "token": "token-user",
+            "mediaProgress": [],
+            "seriesHideFromContinueListening": [],
+            "bookmarks": [],
+            "isActive": false,
+            "isLocked": false,
+            "lastSeen": "<timestamp>",
+            "createdAt": "<timestamp>",
+            "permissions": {
+              "download": false,
+              "update": true,
+              "delete": true,
+              "upload": false,
+              "createEreader": false,
+              "accessAllLibraries": false,
+              "accessAllTags": false,
+              "accessExplicitContent": false,
+              "selectedTagsNotAccessible": false
+            },
+            "librariesAccessible": [
+              "<library>"
+            ],
+            "itemTagsSelected": [
+              "tagA"
+            ],
+            "hasOpenIDLink": false
+          }
+        ]
+      }
+    ]
+  },
+  "UserController (characterization) > PATCH /api/users/:id > updates simple fields and permissions > no changes": {
+    "res": {
+      "status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8"
+      },
+      "body": {
+        "success": true,
+        "user": {
+          "id": "<user>",
+          "username": "user",
+          "email": "u@example.com",
+          "type": "admin",
+          "token": "token-user",
+          "mediaProgress": [],
+          "seriesHideFromContinueListening": [],
+          "bookmarks": [],
+          "isActive": false,
+          "isLocked": false,
+          "lastSeen": "<timestamp>",
+          "createdAt": "<timestamp>",
+          "permissions": {
+            "download": false,
+            "update": true,
+            "delete": true,
+            "upload": false,
+            "createEreader": false,
+            "accessAllLibraries": false,
+            "accessAllTags": false,
+            "accessExplicitContent": false,
+            "selectedTagsNotAccessible": false
+          },
+          "librariesAccessible": [],
+          "itemTagsSelected": [],
+          "hasOpenIDLink": false
+        }
+      }
+    },
+    "emitted": []
+  },
+  "UserController (characterization) > PATCH /api/users/:id > updates simple fields and permissions > permissions with invalid entries": {
+    "res": {
+      "status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8"
+      },
+      "body": {
+        "success": true,
+        "user": {
+          "id": "<user>",
+          "username": "user",
+          "email": "u@example.com",
+          "type": "admin",
+          "token": "token-user",
+          "mediaProgress": [],
+          "seriesHideFromContinueListening": [],
+          "bookmarks": [],
+          "isActive": false,
+          "isLocked": false,
+          "lastSeen": "<timestamp>",
+          "createdAt": "<timestamp>",
+          "permissions": {
+            "download": false,
+            "update": true,
+            "delete": true,
+            "upload": false,
+            "createEreader": false,
+            "accessAllLibraries": true,
+            "accessAllTags": true,
+            "accessExplicitContent": false,
+            "selectedTagsNotAccessible": false
+          },
+          "librariesAccessible": [],
+          "itemTagsSelected": [],
+          "hasOpenIDLink": false
+        }
+      }
+    },
+    "emitted": [
+      {
+        "method": "clientEmitter",
+        "args": [
+          "<admin>",
+          "user_updated",
+          {
+            "id": "<user>",
+            "username": "user",
+            "email": "u@example.com",
+            "type": "admin",
+            "token": "token-user",
+            "mediaProgress": [],
+            "seriesHideFromContinueListening": [],
+            "bookmarks": [],
+            "isActive": false,
+            "isLocked": false,
+            "lastSeen": "<timestamp>",
+            "createdAt": "<timestamp>",
+            "permissions": {
+              "download": false,
+              "update": true,
+              "delete": true,
+              "upload": false,
+              "createEreader": false,
+              "accessAllLibraries": true,
+              "accessAllTags": true,
+              "accessExplicitContent": false,
+              "selectedTagsNotAccessible": false
+            },
+            "librariesAccessible": [],
+            "itemTagsSelected": [],
+            "hasOpenIDLink": false
+          }
+        ]
+      }
+    ]
+  },
+  "UserController (characterization) > PATCH /api/users/:id > updates simple fields and permissions > promote to admin": {
+    "res": {
+      "status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8"
+      },
+      "body": {
+        "success": true,
+        "user": {
+          "id": "<user>",
+          "username": "user",
+          "email": "u@example.com",
+          "type": "admin",
+          "token": "token-user",
+          "mediaProgress": [],
+          "seriesHideFromContinueListening": [],
+          "bookmarks": [],
+          "isActive": false,
+          "isLocked": false,
+          "lastSeen": "<timestamp>",
+          "createdAt": "<timestamp>",
+          "permissions": {
+            "download": true,
+            "update": false,
+            "delete": false,
+            "upload": false,
+            "createEreader": false,
+            "accessAllLibraries": true,
+            "accessAllTags": true,
+            "accessExplicitContent": false,
+            "selectedTagsNotAccessible": false
+          },
+          "librariesAccessible": [],
+          "itemTagsSelected": [],
+          "hasOpenIDLink": false
+        }
+      }
+    },
+    "emitted": [
+      {
+        "method": "clientEmitter",
+        "args": [
+          "<admin>",
+          "user_updated",
+          {
+            "id": "<user>",
+            "username": "user",
+            "email": "u@example.com",
+            "type": "admin",
+            "token": "token-user",
+            "mediaProgress": [],
+            "seriesHideFromContinueListening": [],
+            "bookmarks": [],
+            "isActive": false,
+            "isLocked": false,
+            "lastSeen": "<timestamp>",
+            "createdAt": "<timestamp>",
+            "permissions": {
+              "download": true,
+              "update": false,
+              "delete": false,
+              "upload": false,
+              "createEreader": false,
+              "accessAllLibraries": true,
+              "accessAllTags": true,
+              "accessExplicitContent": false,
+              "selectedTagsNotAccessible": false
+            },
+            "librariesAccessible": [],
+            "itemTagsSelected": [],
+            "hasOpenIDLink": false
+          }
+        ]
+      }
+    ]
+  },
+  "UserController (characterization) > PATCH /api/users/:id > updates simple fields and permissions > same values": {
+    "res": {
+      "status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8"
+      },
+      "body": {
+        "success": true,
+        "user": {
+          "id": "<user>",
+          "username": "user",
+          "email": "u@example.com",
+          "type": "admin",
+          "token": "token-user",
+          "mediaProgress": [],
+          "seriesHideFromContinueListening": [],
+          "bookmarks": [],
+          "isActive": false,
+          "isLocked": false,
+          "lastSeen": "<timestamp>",
+          "createdAt": "<timestamp>",
+          "permissions": {
+            "download": false,
+            "update": true,
+            "delete": true,
+            "upload": false,
+            "createEreader": false,
+            "accessAllLibraries": false,
+            "accessAllTags": false,
+            "accessExplicitContent": false,
+            "selectedTagsNotAccessible": false
+          },
+          "librariesAccessible": [],
+          "itemTagsSelected": [],
+          "hasOpenIDLink": false
+        }
+      }
+    },
+    "emitted": []
+  },
+  "UserController (characterization) > PATCH /api/users/:id > updates simple fields and permissions > top level arrays without permission changes": {
+    "res": {
+      "status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8"
+      },
+      "body": {
+        "success": true,
+        "user": {
+          "id": "<user>",
+          "username": "user",
+          "email": "u@example.com",
+          "type": "admin",
+          "token": "token-user",
+          "mediaProgress": [],
+          "seriesHideFromContinueListening": [],
+          "bookmarks": [],
+          "isActive": false,
+          "isLocked": false,
+          "lastSeen": "<timestamp>",
+          "createdAt": "<timestamp>",
+          "permissions": {
+            "download": false,
+            "update": true,
+            "delete": true,
+            "upload": false,
+            "createEreader": false,
+            "accessAllLibraries": false,
+            "accessAllTags": false,
+            "accessExplicitContent": false,
+            "selectedTagsNotAccessible": false
+          },
+          "librariesAccessible": [],
+          "itemTagsSelected": [],
+          "hasOpenIDLink": false
+        }
+      }
+    },
+    "emitted": [
+      {
+        "method": "clientEmitter",
+        "args": [
+          "<admin>",
+          "user_updated",
+          {
+            "id": "<user>",
+            "username": "user",
+            "email": "u@example.com",
+            "type": "admin",
+            "token": "token-user",
+            "mediaProgress": [],
+            "seriesHideFromContinueListening": [],
+            "bookmarks": [],
+            "isActive": false,
+            "isLocked": false,
+            "lastSeen": "<timestamp>",
+            "createdAt": "<timestamp>",
+            "permissions": {
+              "download": false,
+              "update": true,
+              "delete": true,
+              "upload": false,
+              "createEreader": false,
+              "accessAllLibraries": false,
+              "accessAllTags": false,
+              "accessExplicitContent": false,
+              "selectedTagsNotAccessible": false
+            },
+            "librariesAccessible": [],
+            "itemTagsSelected": [],
+            "hasOpenIDLink": false
+          }
+        ]
+      }
+    ]
+  },
+  "UserController (characterization) > PATCH /api/users/:id/openid-unlink > 404s for an unknown user": {
+    "res": {
+      "status": 404,
+      "headers": {
+        "content-type": "text/plain; charset=utf-8"
+      },
+      "body": "Not Found"
+    },
+    "emitted": []
+  },
+  "UserController (characterization) > PATCH /api/users/:id/openid-unlink > is a no-op for a user without an openid link": {
+    "res": {
+      "status": 200,
+      "headers": {
+        "content-type": "text/plain; charset=utf-8"
+      },
+      "body": "OK"
+    },
+    "emitted": []
+  },
+  "UserController (characterization) > PATCH /api/users/:id/openid-unlink > removes the openid link > list after": {
+    "res": {
+      "status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8"
+      },
+      "body": {
+        "users": [
+          {
+            "id": "<root>",
+            "username": "root",
+            "email": null,
+            "type": "root",
+            "token": "",
+            "seriesHideFromContinueListening": [],
+            "isActive": true,
+            "isLocked": false,
+            "lastSeen": null,
+            "createdAt": "<timestamp>",
+            "permissions": {
+              "download": true,
+              "update": true,
+              "delete": true,
+              "upload": true,
+              "createEreader": true,
+              "accessAllLibraries": true,
+              "accessAllTags": true,
+              "accessExplicitContent": true,
+              "selectedTagsNotAccessible": false
+            },
+            "librariesAccessible": [],
+            "itemTagsSelected": [],
+            "hasOpenIDLink": false
+          },
+          {
+            "id": "<admin>",
+            "username": "admin",
+            "email": null,
+            "type": "admin",
+            "token": "token-admin",
+            "seriesHideFromContinueListening": [],
+            "isActive": true,
+            "isLocked": false,
+            "lastSeen": null,
+            "createdAt": "<timestamp>",
+            "permissions": {
+              "download": true,
+              "update": true,
+              "delete": false,
+              "upload": true,
+              "createEreader": true,
+              "accessAllLibraries": true,
+              "accessAllTags": true,
+              "accessExplicitContent": true,
+              "selectedTagsNotAccessible": false
+            },
+            "librariesAccessible": [],
+            "itemTagsSelected": [],
+            "hasOpenIDLink": false
+          },
+          {
+            "id": "<user>",
+            "username": "user",
+            "email": null,
+            "type": "user",
+            "token": "token-user",
+            "seriesHideFromContinueListening": [],
+            "isActive": true,
+            "isLocked": false,
+            "lastSeen": null,
+            "createdAt": "<timestamp>",
+            "permissions": {
+              "download": true,
+              "update": false,
+              "delete": false,
+              "upload": false,
+              "createEreader": false,
+              "accessAllLibraries": true,
+              "accessAllTags": true,
+              "accessExplicitContent": false,
+              "selectedTagsNotAccessible": false
+            },
+            "librariesAccessible": [],
+            "itemTagsSelected": [],
+            "hasOpenIDLink": false
+          },
+          {
+            "id": "<guest>",
+            "username": "guest",
+            "email": null,
+            "type": "guest",
+            "token": "token-guest",
+            "seriesHideFromContinueListening": [],
+            "isActive": true,
+            "isLocked": false,
+            "lastSeen": null,
+            "createdAt": "<timestamp>",
+            "permissions": {
+              "download": true,
+              "update": false,
+              "delete": false,
+              "upload": false,
+              "createEreader": false,
+              "accessAllLibraries": true,
+              "accessAllTags": true,
+              "accessExplicitContent": false,
+              "selectedTagsNotAccessible": false
+            },
+            "librariesAccessible": [],
+            "itemTagsSelected": [],
+            "hasOpenIDLink": false
+          },
+          {
+            "id": "<linked>",
+            "username": "linked",
+            "email": null,
+            "type": "user",
+            "token": "token-linked",
+            "seriesHideFromContinueListening": [],
+            "isActive": true,
+            "isLocked": false,
+            "lastSeen": null,
+            "createdAt": "<timestamp>",
+            "permissions": {
+              "download": true,
+              "update": false,
+              "delete": false,
+              "upload": false,
+              "createEreader": false,
+              "accessAllLibraries": true,
+              "accessAllTags": true,
+              "accessExplicitContent": false,
+              "selectedTagsNotAccessible": false
+            },
+            "librariesAccessible": [],
+            "itemTagsSelected": [],
+            "hasOpenIDLink": false
+          }
+        ]
+      }
+    },
+    "emitted": []
+  },
+  "UserController (characterization) > PATCH /api/users/:id/openid-unlink > removes the openid link > list before": {
+    "res": {
+      "status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8"
+      },
+      "body": {
+        "users": [
+          {
+            "id": "<root>",
+            "username": "root",
+            "email": null,
+            "type": "root",
+            "token": "",
+            "seriesHideFromContinueListening": [],
+            "isActive": true,
+            "isLocked": false,
+            "lastSeen": null,
+            "createdAt": "<timestamp>",
+            "permissions": {
+              "download": true,
+              "update": true,
+              "delete": true,
+              "upload": true,
+              "createEreader": true,
+              "accessAllLibraries": true,
+              "accessAllTags": true,
+              "accessExplicitContent": true,
+              "selectedTagsNotAccessible": false
+            },
+            "librariesAccessible": [],
+            "itemTagsSelected": [],
+            "hasOpenIDLink": false
+          },
+          {
+            "id": "<admin>",
+            "username": "admin",
+            "email": null,
+            "type": "admin",
+            "token": "token-admin",
+            "seriesHideFromContinueListening": [],
+            "isActive": true,
+            "isLocked": false,
+            "lastSeen": null,
+            "createdAt": "<timestamp>",
+            "permissions": {
+              "download": true,
+              "update": true,
+              "delete": false,
+              "upload": true,
+              "createEreader": true,
+              "accessAllLibraries": true,
+              "accessAllTags": true,
+              "accessExplicitContent": true,
+              "selectedTagsNotAccessible": false
+            },
+            "librariesAccessible": [],
+            "itemTagsSelected": [],
+            "hasOpenIDLink": false
+          },
+          {
+            "id": "<user>",
+            "username": "user",
+            "email": null,
+            "type": "user",
+            "token": "token-user",
+            "seriesHideFromContinueListening": [],
+            "isActive": true,
+            "isLocked": false,
+            "lastSeen": null,
+            "createdAt": "<timestamp>",
+            "permissions": {
+              "download": true,
+              "update": false,
+              "delete": false,
+              "upload": false,
+              "createEreader": false,
+              "accessAllLibraries": true,
+              "accessAllTags": true,
+              "accessExplicitContent": false,
+              "selectedTagsNotAccessible": false
+            },
+            "librariesAccessible": [],
+            "itemTagsSelected": [],
+            "hasOpenIDLink": false
+          },
+          {
+            "id": "<guest>",
+            "username": "guest",
+            "email": null,
+            "type": "guest",
+            "token": "token-guest",
+            "seriesHideFromContinueListening": [],
+            "isActive": true,
+            "isLocked": false,
+            "lastSeen": null,
+            "createdAt": "<timestamp>",
+            "permissions": {
+              "download": true,
+              "update": false,
+              "delete": false,
+              "upload": false,
+              "createEreader": false,
+              "accessAllLibraries": true,
+              "accessAllTags": true,
+              "accessExplicitContent": false,
+              "selectedTagsNotAccessible": false
+            },
+            "librariesAccessible": [],
+            "itemTagsSelected": [],
+            "hasOpenIDLink": false
+          },
+          {
+            "id": "<linked>",
+            "username": "linked",
+            "email": null,
+            "type": "user",
+            "token": "token-linked",
+            "seriesHideFromContinueListening": [],
+            "isActive": true,
+            "isLocked": false,
+            "lastSeen": null,
+            "createdAt": "<timestamp>",
+            "permissions": {
+              "download": true,
+              "update": false,
+              "delete": false,
+              "upload": false,
+              "createEreader": false,
+              "accessAllLibraries": true,
+              "accessAllTags": true,
+              "accessExplicitContent": false,
+              "selectedTagsNotAccessible": false
+            },
+            "librariesAccessible": [],
+            "itemTagsSelected": [],
+            "hasOpenIDLink": true
+          }
+        ]
+      }
+    },
+    "emitted": []
+  },
+  "UserController (characterization) > PATCH /api/users/:id/openid-unlink > removes the openid link > unlink": {
+    "res": {
+      "status": 200,
+      "headers": {
+        "content-type": "text/plain; charset=utf-8"
+      },
+      "body": "OK"
+    },
+    "emitted": [
+      {
+        "method": "clientEmitter",
+        "args": [
+          "<admin>",
+          "user_updated",
+          {
+            "id": "<linked>",
+            "username": "linked",
+            "email": null,
+            "type": "user",
+            "token": "token-linked",
+            "mediaProgress": [],
+            "seriesHideFromContinueListening": [],
+            "bookmarks": [],
+            "isActive": true,
+            "isLocked": false,
+            "lastSeen": null,
+            "createdAt": "<timestamp>",
+            "permissions": {
+              "download": true,
+              "update": false,
+              "delete": false,
+              "upload": false,
+              "createEreader": false,
+              "accessAllLibraries": true,
+              "accessAllTags": true,
+              "accessExplicitContent": false,
+              "selectedTagsNotAccessible": false
+            },
+            "librariesAccessible": [],
+            "itemTagsSelected": [],
+            "hasOpenIDLink": false
+          }
+        ]
+      }
+    ]
+  },
+  "UserController (characterization) > PATCH /api/users/:id/openid-unlink > requires authentication and admin > guest": {
+    "res": {
+      "status": 403,
+      "headers": {
+        "content-type": "text/plain; charset=utf-8"
+      },
+      "body": "Forbidden"
+    },
+    "emitted": []
+  },
+  "UserController (characterization) > PATCH /api/users/:id/openid-unlink > requires authentication and admin > unauthenticated": {
+    "res": {
+      "status": 401,
+      "headers": {
+        "content-type": "text/plain; charset=utf-8"
+      },
+      "body": "Unauthorized"
+    },
+    "emitted": []
+  },
+  "UserController (characterization) > PATCH /api/users/:id/openid-unlink > requires authentication and admin > user self": {
+    "res": {
+      "status": 403,
+      "headers": {
+        "content-type": "text/plain; charset=utf-8"
+      },
+      "body": "Forbidden"
+    },
+    "emitted": []
+  },
+  "UserController (characterization) > POST /api/users > creates a user with defaults and hashes the password > defaults": {
+    "res": {
+      "status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8"
+      },
+      "body": {
+        "user": {
+          "id": "<uuid-7>",
+          "username": "newbie",
+          "email": null,
+          "type": "user",
+          "token": "<jwt>",
+          "mediaProgress": [],
+          "seriesHideFromContinueListening": [],
+          "bookmarks": [],
+          "isActive": false,
+          "isLocked": false,
+          "lastSeen": null,
+          "createdAt": "<timestamp>",
+          "permissions": {
+            "download": true,
+            "update": false,
+            "delete": false,
+            "upload": false,
+            "createEreader": false,
+            "accessAllLibraries": true,
+            "accessAllTags": true,
+            "accessExplicitContent": false,
+            "selectedTagsNotAccessible": false
+          },
+          "librariesAccessible": [],
+          "itemTagsSelected": [],
+          "hasOpenIDLink": false
+        }
+      }
+    },
+    "emitted": [
+      {
+        "method": "adminEmitter",
+        "args": [
+          "user_added",
+          {
+            "id": "<uuid-7>",
+            "username": "newbie",
+            "email": null,
+            "type": "user",
+            "token": "<jwt>",
+            "mediaProgress": [],
+            "seriesHideFromContinueListening": [],
+            "bookmarks": [],
+            "isActive": false,
+            "isLocked": false,
+            "lastSeen": null,
+            "createdAt": "<timestamp>",
+            "permissions": {
+              "download": true,
+              "update": false,
+              "delete": false,
+              "upload": false,
+              "createEreader": false,
+              "accessAllLibraries": true,
+              "accessAllTags": true,
+              "accessExplicitContent": false,
+              "selectedTagsNotAccessible": false
+            },
+            "librariesAccessible": [],
+            "itemTagsSelected": [],
+            "hasOpenIDLink": false
+          }
+        ]
+      }
+    ]
+  },
+  "UserController (characterization) > POST /api/users > creates users with type, permissions, library and tag restrictions > admin with permissions": {
+    "res": {
+      "status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8"
+      },
+      "body": {
+        "user": {
+          "id": "<uuid-7>",
+          "username": "custom",
+          "email": "c@example.com",
+          "type": "admin",
+          "token": "<jwt>",
+          "mediaProgress": [],
+          "seriesHideFromContinueListening": [],
+          "bookmarks": [],
+          "isActive": true,
+          "isLocked": false,
+          "lastSeen": null,
+          "createdAt": "<timestamp>",
+          "permissions": {
+            "download": false,
+            "update": true,
+            "delete": true,
+            "upload": true,
+            "createEreader": true,
+            "accessAllLibraries": false,
+            "accessAllTags": false,
+            "accessExplicitContent": true,
+            "selectedTagsNotAccessible": false
+          },
+          "librariesAccessible": [
+            "<library>"
+          ],
+          "itemTagsSelected": [
+            "tagA"
+          ],
+          "hasOpenIDLink": false
+        }
+      }
+    },
+    "emitted": [
+      {
+        "method": "adminEmitter",
+        "args": [
+          "user_added",
+          {
+            "id": "<uuid-7>",
+            "username": "custom",
+            "email": "c@example.com",
+            "type": "admin",
+            "token": "<jwt>",
+            "mediaProgress": [],
+            "seriesHideFromContinueListening": [],
+            "bookmarks": [],
+            "isActive": true,
+            "isLocked": false,
+            "lastSeen": null,
+            "createdAt": "<timestamp>",
+            "permissions": {
+              "download": false,
+              "update": true,
+              "delete": true,
+              "upload": true,
+              "createEreader": true,
+              "accessAllLibraries": false,
+              "accessAllTags": false,
+              "accessExplicitContent": true,
+              "selectedTagsNotAccessible": false
+            },
+            "librariesAccessible": [
+              "<library>"
+            ],
+            "itemTagsSelected": [
+              "tagA"
+            ],
+            "hasOpenIDLink": false
+          }
+        ]
+      }
+    ]
+  },
+  "UserController (characterization) > POST /api/users > creates users with type, permissions, library and tag restrictions > guest": {
+    "res": {
+      "status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8"
+      },
+      "body": {
+        "user": {
+          "id": "<uuid-10>",
+          "username": "guesty",
+          "email": null,
+          "type": "guest",
+          "token": "<jwt>",
+          "mediaProgress": [],
+          "seriesHideFromContinueListening": [],
+          "bookmarks": [],
+          "isActive": true,
+          "isLocked": false,
+          "lastSeen": null,
+          "createdAt": "<timestamp>",
+          "permissions": {
+            "download": true,
+            "update": false,
+            "delete": false,
+            "upload": false,
+            "createEreader": false,
+            "accessAllLibraries": true,
+            "accessAllTags": true,
+            "accessExplicitContent": false,
+            "selectedTagsNotAccessible": false
+          },
+          "librariesAccessible": [],
+          "itemTagsSelected": [],
+          "hasOpenIDLink": false
+        }
+      }
+    },
+    "emitted": [
+      {
+        "method": "adminEmitter",
+        "args": [
+          "user_added",
+          {
+            "id": "<uuid-10>",
+            "username": "guesty",
+            "email": null,
+            "type": "guest",
+            "token": "<jwt>",
+            "mediaProgress": [],
+            "seriesHideFromContinueListening": [],
+            "bookmarks": [],
+            "isActive": true,
+            "isLocked": false,
+            "lastSeen": null,
+            "createdAt": "<timestamp>",
+            "permissions": {
+              "download": true,
+              "update": false,
+              "delete": false,
+              "upload": false,
+              "createEreader": false,
+              "accessAllLibraries": true,
+              "accessAllTags": true,
+              "accessExplicitContent": false,
+              "selectedTagsNotAccessible": false
+            },
+            "librariesAccessible": [],
+            "itemTagsSelected": [],
+            "hasOpenIDLink": false
+          }
+        ]
+      }
+    ]
+  },
+  "UserController (characterization) > POST /api/users > creates users with type, permissions, library and tag restrictions > invalid arrays and email are ignored": {
+    "res": {
+      "status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8"
+      },
+      "body": {
+        "user": {
+          "id": "<uuid-9>",
+          "username": "badarrays",
+          "email": null,
+          "type": "user",
+          "token": "<jwt>",
+          "mediaProgress": [],
+          "seriesHideFromContinueListening": [],
+          "bookmarks": [],
+          "isActive": false,
+          "isLocked": false,
+          "lastSeen": null,
+          "createdAt": "<timestamp>",
+          "permissions": {
+            "download": true,
+            "update": false,
+            "delete": false,
+            "upload": false,
+            "createEreader": false,
+            "accessAllLibraries": true,
+            "accessAllTags": true,
+            "accessExplicitContent": false,
+            "selectedTagsNotAccessible": false
+          },
+          "librariesAccessible": [],
+          "itemTagsSelected": [],
+          "hasOpenIDLink": false
+        }
+      }
+    },
+    "emitted": [
+      {
+        "method": "adminEmitter",
+        "args": [
+          "user_added",
+          {
+            "id": "<uuid-9>",
+            "username": "badarrays",
+            "email": null,
+            "type": "user",
+            "token": "<jwt>",
+            "mediaProgress": [],
+            "seriesHideFromContinueListening": [],
+            "bookmarks": [],
+            "isActive": false,
+            "isLocked": false,
+            "lastSeen": null,
+            "createdAt": "<timestamp>",
+            "permissions": {
+              "download": true,
+              "update": false,
+              "delete": false,
+              "upload": false,
+              "createEreader": false,
+              "accessAllLibraries": true,
+              "accessAllTags": true,
+              "accessExplicitContent": false,
+              "selectedTagsNotAccessible": false
+            },
+            "librariesAccessible": [],
+            "itemTagsSelected": [],
+            "hasOpenIDLink": false
+          }
+        ]
+      }
+    ]
+  },
+  "UserController (characterization) > POST /api/users > creates users with type, permissions, library and tag restrictions > list afterwards": {
+    "res": {
+      "status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8"
+      },
+      "body": {
+        "users": [
+          {
+            "id": "<root>",
+            "username": "root",
+            "email": null,
+            "type": "root",
+            "token": "",
+            "seriesHideFromContinueListening": [],
+            "isActive": true,
+            "isLocked": false,
+            "lastSeen": null,
+            "createdAt": "<timestamp>",
+            "permissions": {
+              "download": true,
+              "update": true,
+              "delete": true,
+              "upload": true,
+              "createEreader": true,
+              "accessAllLibraries": true,
+              "accessAllTags": true,
+              "accessExplicitContent": true,
+              "selectedTagsNotAccessible": false
+            },
+            "librariesAccessible": [],
+            "itemTagsSelected": [],
+            "hasOpenIDLink": false
+          },
+          {
+            "id": "<admin>",
+            "username": "admin",
+            "email": null,
+            "type": "admin",
+            "token": "token-admin",
+            "seriesHideFromContinueListening": [],
+            "isActive": true,
+            "isLocked": false,
+            "lastSeen": null,
+            "createdAt": "<timestamp>",
+            "permissions": {
+              "download": true,
+              "update": true,
+              "delete": false,
+              "upload": true,
+              "createEreader": true,
+              "accessAllLibraries": true,
+              "accessAllTags": true,
+              "accessExplicitContent": true,
+              "selectedTagsNotAccessible": false
+            },
+            "librariesAccessible": [],
+            "itemTagsSelected": [],
+            "hasOpenIDLink": false
+          },
+          {
+            "id": "<user>",
+            "username": "user",
+            "email": null,
+            "type": "user",
+            "token": "token-user",
+            "seriesHideFromContinueListening": [],
+            "isActive": true,
+            "isLocked": false,
+            "lastSeen": null,
+            "createdAt": "<timestamp>",
+            "permissions": {
+              "download": true,
+              "update": false,
+              "delete": false,
+              "upload": false,
+              "createEreader": false,
+              "accessAllLibraries": true,
+              "accessAllTags": true,
+              "accessExplicitContent": false,
+              "selectedTagsNotAccessible": false
+            },
+            "librariesAccessible": [],
+            "itemTagsSelected": [],
+            "hasOpenIDLink": false
+          },
+          {
+            "id": "<guest>",
+            "username": "guest",
+            "email": null,
+            "type": "guest",
+            "token": "token-guest",
+            "seriesHideFromContinueListening": [],
+            "isActive": true,
+            "isLocked": false,
+            "lastSeen": null,
+            "createdAt": "<timestamp>",
+            "permissions": {
+              "download": true,
+              "update": false,
+              "delete": false,
+              "upload": false,
+              "createEreader": false,
+              "accessAllLibraries": true,
+              "accessAllTags": true,
+              "accessExplicitContent": false,
+              "selectedTagsNotAccessible": false
+            },
+            "librariesAccessible": [],
+            "itemTagsSelected": [],
+            "hasOpenIDLink": false
+          },
+          {
+            "id": "<uuid-7>",
+            "username": "custom",
+            "email": "c@example.com",
+            "type": "admin",
+            "token": "<jwt>",
+            "seriesHideFromContinueListening": [],
+            "isActive": true,
+            "isLocked": false,
+            "lastSeen": null,
+            "createdAt": "<timestamp>",
+            "permissions": {
+              "download": false,
+              "update": true,
+              "delete": true,
+              "upload": true,
+              "createEreader": true,
+              "accessAllLibraries": false,
+              "accessAllTags": false,
+              "accessExplicitContent": true,
+              "selectedTagsNotAccessible": false
+            },
+            "librariesAccessible": [
+              "<library>"
+            ],
+            "itemTagsSelected": [
+              "tagA"
+            ],
+            "hasOpenIDLink": false
+          },
+          {
+            "id": "<uuid-8>",
+            "username": "restricted",
+            "email": null,
+            "type": "user",
+            "token": "<jwt>",
+            "seriesHideFromContinueListening": [],
+            "isActive": false,
+            "isLocked": false,
+            "lastSeen": null,
+            "createdAt": "<timestamp>",
+            "permissions": {
+              "download": true,
+              "update": false,
+              "delete": false,
+              "upload": false,
+              "createEreader": false,
+              "accessAllLibraries": false,
+              "accessAllTags": true,
+              "accessExplicitContent": false,
+              "selectedTagsNotAccessible": false
+            },
+            "librariesAccessible": [
+              "<library>"
+            ],
+            "itemTagsSelected": [
+              "tagA",
+              "tagB"
+            ],
+            "hasOpenIDLink": false
+          },
+          {
+            "id": "<uuid-9>",
+            "username": "badarrays",
+            "email": null,
+            "type": "user",
+            "token": "<jwt>",
+            "seriesHideFromContinueListening": [],
+            "isActive": false,
+            "isLocked": false,
+            "lastSeen": null,
+            "createdAt": "<timestamp>",
+            "permissions": {
+              "download": true,
+              "update": false,
+              "delete": false,
+              "upload": false,
+              "createEreader": false,
+              "accessAllLibraries": true,
+              "accessAllTags": true,
+              "accessExplicitContent": false,
+              "selectedTagsNotAccessible": false
+            },
+            "librariesAccessible": [],
+            "itemTagsSelected": [],
+            "hasOpenIDLink": false
+          },
+          {
+            "id": "<uuid-10>",
+            "username": "guesty",
+            "email": null,
+            "type": "guest",
+            "token": "<jwt>",
+            "seriesHideFromContinueListening": [],
+            "isActive": true,
+            "isLocked": false,
+            "lastSeen": null,
+            "createdAt": "<timestamp>",
+            "permissions": {
+              "download": true,
+              "update": false,
+              "delete": false,
+              "upload": false,
+              "createEreader": false,
+              "accessAllLibraries": true,
+              "accessAllTags": true,
+              "accessExplicitContent": false,
+              "selectedTagsNotAccessible": false
+            },
+            "librariesAccessible": [],
+            "itemTagsSelected": [],
+            "hasOpenIDLink": false
+          }
+        ]
+      }
+    },
+    "emitted": []
+  },
+  "UserController (characterization) > POST /api/users > creates users with type, permissions, library and tag restrictions > top level libraries and tags": {
+    "res": {
+      "status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8"
+      },
+      "body": {
+        "user": {
+          "id": "<uuid-8>",
+          "username": "restricted",
+          "email": null,
+          "type": "user",
+          "token": "<jwt>",
+          "mediaProgress": [],
+          "seriesHideFromContinueListening": [],
+          "bookmarks": [],
+          "isActive": false,
+          "isLocked": false,
+          "lastSeen": null,
+          "createdAt": "<timestamp>",
+          "permissions": {
+            "download": true,
+            "update": false,
+            "delete": false,
+            "upload": false,
+            "createEreader": false,
+            "accessAllLibraries": false,
+            "accessAllTags": true,
+            "accessExplicitContent": false,
+            "selectedTagsNotAccessible": false
+          },
+          "librariesAccessible": [
+            "<library>"
+          ],
+          "itemTagsSelected": [
+            "tagA",
+            "tagB"
+          ],
+          "hasOpenIDLink": false
+        }
+      }
+    },
+    "emitted": [
+      {
+        "method": "adminEmitter",
+        "args": [
+          "user_added",
+          {
+            "id": "<uuid-8>",
+            "username": "restricted",
+            "email": null,
+            "type": "user",
+            "token": "<jwt>",
+            "mediaProgress": [],
+            "seriesHideFromContinueListening": [],
+            "bookmarks": [],
+            "isActive": false,
+            "isLocked": false,
+            "lastSeen": null,
+            "createdAt": "<timestamp>",
+            "permissions": {
+              "download": true,
+              "update": false,
+              "delete": false,
+              "upload": false,
+              "createEreader": false,
+              "accessAllLibraries": false,
+              "accessAllTags": true,
+              "accessExplicitContent": false,
+              "selectedTagsNotAccessible": false
+            },
+            "librariesAccessible": [
+              "<library>"
+            ],
+            "itemTagsSelected": [
+              "tagA",
+              "tagB"
+            ],
+            "hasOpenIDLink": false
+          }
+        ]
+      }
+    ]
+  },
+  "UserController (characterization) > POST /api/users > is admin only > guest": {
+    "res": {
+      "status": 403,
+      "headers": {
+        "content-type": "text/plain; charset=utf-8"
+      },
+      "body": "Forbidden"
+    },
+    "emitted": []
+  },
+  "UserController (characterization) > POST /api/users > is admin only > user": {
+    "res": {
+      "status": 403,
+      "headers": {
+        "content-type": "text/plain; charset=utf-8"
+      },
+      "body": "Forbidden"
+    },
+    "emitted": []
+  },
+  "UserController (characterization) > POST /api/users > requires authentication": {
+    "res": {
+      "status": 401,
+      "headers": {
+        "content-type": "text/plain; charset=utf-8"
+      },
+      "body": "Unauthorized"
+    },
+    "emitted": []
+  },
+  "UserController (characterization) > POST /api/users > validates the body > empty": {
+    "res": {
+      "status": 400,
+      "headers": {
+        "content-type": "text/html; charset=utf-8"
+      },
+      "body": "Username and password are required"
+    },
+    "emitted": []
+  },
+  "UserController (characterization) > POST /api/users > validates the body > no password": {
+    "res": {
+      "status": 400,
+      "headers": {
+        "content-type": "text/html; charset=utf-8"
+      },
+      "body": "Username and password are required"
+    },
+    "emitted": []
+  },
+  "UserController (characterization) > POST /api/users > validates the body > no username": {
+    "res": {
+      "status": 400,
+      "headers": {
+        "content-type": "text/html; charset=utf-8"
+      },
+      "body": "Username and password are required"
+    },
+    "emitted": []
+  },
+  "UserController (characterization) > POST /api/users > validates the body > password not a string": {
+    "res": {
+      "status": 400,
+      "headers": {
+        "content-type": "text/html; charset=utf-8"
+      },
+      "body": "Username and password are required"
+    },
+    "emitted": []
+  },
+  "UserController (characterization) > POST /api/users > validates the body > type root": {
+    "res": {
+      "status": 400,
+      "headers": {
+        "content-type": "text/html; charset=utf-8"
+      },
+      "body": "Invalid account type"
+    },
+    "emitted": []
+  },
+  "UserController (characterization) > POST /api/users > validates the body > unknown type": {
+    "res": {
+      "status": 400,
+      "headers": {
+        "content-type": "text/html; charset=utf-8"
+      },
+      "body": "Invalid account type"
+    },
+    "emitted": []
+  },
+  "UserController (characterization) > POST /api/users > validates the body > username not a string": {
+    "res": {
+      "status": 400,
+      "headers": {
+        "content-type": "text/html; charset=utf-8"
+      },
+      "body": "Username and password are required"
+    },
+    "emitted": []
+  },
+  "UserController (characterization) > POST /api/users > validates the body > username taken": {
+    "res": {
+      "status": 400,
+      "headers": {
+        "content-type": "text/html; charset=utf-8"
+      },
+      "body": "Username already taken"
+    },
+    "emitted": []
+  },
+  "UserController (characterization) > POST /api/users > validates the body > username taken (case differs)": {
+    "res": {
+      "status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8"
+      },
+      "body": {
+        "user": {
+          "id": "<uuid-7>",
+          "username": "USER",
+          "email": null,
+          "type": "user",
+          "token": "<jwt>",
+          "mediaProgress": [],
+          "seriesHideFromContinueListening": [],
+          "bookmarks": [],
+          "isActive": false,
+          "isLocked": false,
+          "lastSeen": null,
+          "createdAt": "<timestamp>",
+          "permissions": {
+            "download": true,
+            "update": false,
+            "delete": false,
+            "upload": false,
+            "createEreader": false,
+            "accessAllLibraries": true,
+            "accessAllTags": true,
+            "accessExplicitContent": false,
+            "selectedTagsNotAccessible": false
+          },
+          "librariesAccessible": [],
+          "itemTagsSelected": [],
+          "hasOpenIDLink": false
+        }
+      }
+    },
+    "emitted": [
+      {
+        "method": "adminEmitter",
+        "args": [
+          "user_added",
+          {
+            "id": "<uuid-7>",
+            "username": "USER",
+            "email": null,
+            "type": "user",
+            "token": "<jwt>",
+            "mediaProgress": [],
+            "seriesHideFromContinueListening": [],
+            "bookmarks": [],
+            "isActive": false,
+            "isLocked": false,
+            "lastSeen": null,
+            "createdAt": "<timestamp>",
+            "permissions": {
+              "download": true,
+              "update": false,
+              "delete": false,
+              "upload": false,
+              "createEreader": false,
+              "accessAllLibraries": true,
+              "accessAllTags": true,
+              "accessExplicitContent": false,
+              "selectedTagsNotAccessible": false
+            },
+            "librariesAccessible": [],
+            "itemTagsSelected": [],
+            "hasOpenIDLink": false
+          }
+        ]
+      }
+    ]
+  },
+  "UserController (characterization) > listening routes > GET /api/users/:id/listening-sessions > requires authentication, and non-admins may only read their own > guest reads user": {
+    "res": {
+      "status": 403,
+      "headers": {
+        "content-type": "text/plain; charset=utf-8"
+      },
+      "body": "Forbidden"
+    },
+    "emitted": []
+  },
+  "UserController (characterization) > listening routes > GET /api/users/:id/listening-sessions > requires authentication, and non-admins may only read their own > unauthenticated": {
+    "res": {
+      "status": 401,
+      "headers": {
+        "content-type": "text/plain; charset=utf-8"
+      },
+      "body": "Unauthorized"
+    },
+    "emitted": []
+  },
+  "UserController (characterization) > listening routes > GET /api/users/:id/listening-sessions > requires authentication, and non-admins may only read their own > unknown user": {
+    "res": {
+      "status": 404,
+      "headers": {
+        "content-type": "text/plain; charset=utf-8"
+      },
+      "body": "Not Found"
+    },
+    "emitted": []
+  },
+  "UserController (characterization) > listening routes > GET /api/users/:id/listening-sessions > requires authentication, and non-admins may only read their own > user reads admin": {
+    "res": {
+      "status": 403,
+      "headers": {
+        "content-type": "text/plain; charset=utf-8"
+      },
+      "body": "Forbidden"
+    },
+    "emitted": []
+  },
+  "UserController (characterization) > listening routes > GET /api/users/:id/listening-sessions > returns sessions newest first, paginated, with the user attached > admin reads user": {
+    "res": {
+      "status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8"
+      },
+      "body": {
+        "total": 5,
+        "numPages": 1,
+        "page": 0,
+        "itemsPerPage": 10,
+        "sessions": [
+          {
+            "id": "<uuid-7>",
+            "userId": "<user>",
+            "libraryId": "<library>",
+            "libraryItemId": "<uuid-8>",
+            "bookId": "<uuid-9>",
+            "episodeId": null,
+            "mediaType": "book",
+            "mediaMetadata": {
+              "title": "Other book",
+              "authors": [],
+              "narrators": [],
+              "genres": []
+            },
+            "chapters": [],
+            "displayTitle": "Other book",
+            "displayAuthor": "",
+            "coverPath": null,
+            "duration": 2000,
+            "playMethod": 0,
+            "mediaPlayer": "test-player",
+            "deviceInfo": {},
+            "serverVersion": "2.0.0-test",
+            "date": "2024-03-20",
+            "dayOfWeek": "Wednesday",
+            "timeListening": 50,
+            "startTime": 0,
+            "currentTime": 60,
+            "startedAt": "<timestamp>",
+            "updatedAt": "<timestamp>",
+            "lastSave": 0,
+            "audioTracks": [],
+            "stream": null,
+            "shareSessionId": null,
+            "mediaItemShareId": null,
+            "coverAspectRatio": null,
+            "user": {
+              "id": "<user>",
+              "username": "user"
+            }
+          },
+          {
+            "id": "<uuid-10>",
+            "userId": "<user>",
+            "libraryId": "<library>",
+            "libraryItemId": "<item-A>",
+            "bookId": "<uuid-11>",
+            "episodeId": null,
+            "mediaType": "book",
+            "mediaMetadata": {
+              "title": "Session 4",
+              "authors": [
+                {
+                  "id": "au-Ann Author",
+                  "name": "Ann Author"
+                }
+              ],
+              "narrators": [],
+              "genres": []
+            },
+            "chapters": [],
+            "displayTitle": "Session 4",
+            "displayAuthor": "Ann Author",
+            "coverPath": null,
+            "duration": 1000,
+            "playMethod": 0,
+            "mediaPlayer": "test-player",
+            "deviceInfo": {},
+            "serverVersion": "2.0.0-test",
+            "date": "2024-03-14",
+            "dayOfWeek": "Monday",
+            "timeListening": 400,
+            "startTime": 0,
+            "currentTime": 30,
+            "startedAt": "<timestamp>",
+            "updatedAt": "<timestamp>",
+            "lastSave": 0,
+            "audioTracks": [],
+            "stream": null,
+            "shareSessionId": null,
+            "mediaItemShareId": null,
+            "coverAspectRatio": null,
+            "user": {
+              "id": "<user>",
+              "username": "user"
+            }
+          },
+          {
+            "id": "<uuid-12>",
+            "userId": "<user>",
+            "libraryId": "<library>",
+            "libraryItemId": "<item-A>",
+            "bookId": "<uuid-11>",
+            "episodeId": null,
+            "mediaType": "book",
+            "mediaMetadata": {
+              "title": "Session 3",
+              "authors": [
+                {
+                  "id": "au-Ann Author",
+                  "name": "Ann Author"
+                }
+              ],
+              "narrators": [],
+              "genres": []
+            },
+            "chapters": [],
+            "displayTitle": "Session 3",
+            "displayAuthor": "Ann Author",
+            "coverPath": null,
+            "duration": 1000,
+            "playMethod": 0,
+            "mediaPlayer": "test-player",
+            "deviceInfo": {},
+            "serverVersion": "2.0.0-test",
+            "date": "2024-03-13",
+            "dayOfWeek": "Monday",
+            "timeListening": 300,
+            "startTime": 0,
+            "currentTime": 20,
+            "startedAt": "<timestamp>",
+            "updatedAt": "<timestamp>",
+            "lastSave": 0,
+            "audioTracks": [],
+            "stream": null,
+            "shareSessionId": null,
+            "mediaItemShareId": null,
+            "coverAspectRatio": null,
+            "user": {
+              "id": "<user>",
+              "username": "user"
+            }
+          },
+          {
+            "id": "<uuid-13>",
+            "userId": "<user>",
+            "libraryId": "<library>",
+            "libraryItemId": "<item-A>",
+            "bookId": "<uuid-11>",
+            "episodeId": null,
+            "mediaType": "book",
+            "mediaMetadata": {
+              "title": "Session 2",
+              "authors": [
+                {
+                  "id": "au-Ann Author",
+                  "name": "Ann Author"
+                }
+              ],
+              "narrators": [],
+              "genres": []
+            },
+            "chapters": [],
+            "displayTitle": "Session 2",
+            "displayAuthor": "Ann Author",
+            "coverPath": null,
+            "duration": 1000,
+            "playMethod": 0,
+            "mediaPlayer": "test-player",
+            "deviceInfo": {},
+            "serverVersion": "2.0.0-test",
+            "date": "2024-03-12",
+            "dayOfWeek": "Monday",
+            "timeListening": 200,
+            "startTime": 0,
+            "currentTime": 10,
+            "startedAt": "<timestamp>",
+            "updatedAt": "<timestamp>",
+            "lastSave": 0,
+            "audioTracks": [],
+            "stream": null,
+            "shareSessionId": null,
+            "mediaItemShareId": null,
+            "coverAspectRatio": null,
+            "user": {
+              "id": "<user>",
+              "username": "user"
+            }
+          },
+          {
+            "id": "<uuid-14>",
+            "userId": "<user>",
+            "libraryId": "<library>",
+            "libraryItemId": "<item-A>",
+            "bookId": "<uuid-11>",
+            "episodeId": null,
+            "mediaType": "book",
+            "mediaMetadata": {
+              "title": "Session 1",
+              "authors": [
+                {
+                  "id": "au-Ann Author",
+                  "name": "Ann Author"
+                }
+              ],
+              "narrators": [],
+              "genres": []
+            },
+            "chapters": [],
+            "displayTitle": "Session 1",
+            "displayAuthor": "Ann Author",
+            "coverPath": null,
+            "duration": 1000,
+            "playMethod": 0,
+            "mediaPlayer": "test-player",
+            "deviceInfo": {},
+            "serverVersion": "2.0.0-test",
+            "date": "2024-03-11",
+            "dayOfWeek": "Monday",
+            "timeListening": 100,
+            "startTime": 0,
+            "currentTime": 0,
+            "startedAt": "<timestamp>",
+            "updatedAt": "<timestamp>",
+            "lastSave": 0,
+            "audioTracks": [],
+            "stream": null,
+            "shareSessionId": null,
+            "mediaItemShareId": null,
+            "coverAspectRatio": null,
+            "user": {
+              "id": "<user>",
+              "username": "user"
+            }
+          }
+        ]
+      }
+    },
+    "emitted": []
+  },
+  "UserController (characterization) > listening routes > GET /api/users/:id/listening-sessions > returns sessions newest first, paginated, with the user attached > itemsPerPage 0 falls back to 10": {
+    "res": {
+      "status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8"
+      },
+      "body": {
+        "total": 5,
+        "numPages": 1,
+        "page": 0,
+        "itemsPerPage": 10,
+        "sessions": [
+          {
+            "id": "<uuid-7>",
+            "userId": "<user>",
+            "libraryId": "<library>",
+            "libraryItemId": "<uuid-8>",
+            "bookId": "<uuid-9>",
+            "episodeId": null,
+            "mediaType": "book",
+            "mediaMetadata": {
+              "title": "Other book",
+              "authors": [],
+              "narrators": [],
+              "genres": []
+            },
+            "chapters": [],
+            "displayTitle": "Other book",
+            "displayAuthor": "",
+            "coverPath": null,
+            "duration": 2000,
+            "playMethod": 0,
+            "mediaPlayer": "test-player",
+            "deviceInfo": {},
+            "serverVersion": "2.0.0-test",
+            "date": "2024-03-20",
+            "dayOfWeek": "Wednesday",
+            "timeListening": 50,
+            "startTime": 0,
+            "currentTime": 60,
+            "startedAt": "<timestamp>",
+            "updatedAt": "<timestamp>",
+            "lastSave": 0,
+            "audioTracks": [],
+            "stream": null,
+            "shareSessionId": null,
+            "mediaItemShareId": null,
+            "coverAspectRatio": null,
+            "user": {
+              "id": "<user>",
+              "username": "user"
+            }
+          },
+          {
+            "id": "<uuid-10>",
+            "userId": "<user>",
+            "libraryId": "<library>",
+            "libraryItemId": "<item-A>",
+            "bookId": "<uuid-11>",
+            "episodeId": null,
+            "mediaType": "book",
+            "mediaMetadata": {
+              "title": "Session 4",
+              "authors": [
+                {
+                  "id": "au-Ann Author",
+                  "name": "Ann Author"
+                }
+              ],
+              "narrators": [],
+              "genres": []
+            },
+            "chapters": [],
+            "displayTitle": "Session 4",
+            "displayAuthor": "Ann Author",
+            "coverPath": null,
+            "duration": 1000,
+            "playMethod": 0,
+            "mediaPlayer": "test-player",
+            "deviceInfo": {},
+            "serverVersion": "2.0.0-test",
+            "date": "2024-03-14",
+            "dayOfWeek": "Monday",
+            "timeListening": 400,
+            "startTime": 0,
+            "currentTime": 30,
+            "startedAt": "<timestamp>",
+            "updatedAt": "<timestamp>",
+            "lastSave": 0,
+            "audioTracks": [],
+            "stream": null,
+            "shareSessionId": null,
+            "mediaItemShareId": null,
+            "coverAspectRatio": null,
+            "user": {
+              "id": "<user>",
+              "username": "user"
+            }
+          },
+          {
+            "id": "<uuid-12>",
+            "userId": "<user>",
+            "libraryId": "<library>",
+            "libraryItemId": "<item-A>",
+            "bookId": "<uuid-11>",
+            "episodeId": null,
+            "mediaType": "book",
+            "mediaMetadata": {
+              "title": "Session 3",
+              "authors": [
+                {
+                  "id": "au-Ann Author",
+                  "name": "Ann Author"
+                }
+              ],
+              "narrators": [],
+              "genres": []
+            },
+            "chapters": [],
+            "displayTitle": "Session 3",
+            "displayAuthor": "Ann Author",
+            "coverPath": null,
+            "duration": 1000,
+            "playMethod": 0,
+            "mediaPlayer": "test-player",
+            "deviceInfo": {},
+            "serverVersion": "2.0.0-test",
+            "date": "2024-03-13",
+            "dayOfWeek": "Monday",
+            "timeListening": 300,
+            "startTime": 0,
+            "currentTime": 20,
+            "startedAt": "<timestamp>",
+            "updatedAt": "<timestamp>",
+            "lastSave": 0,
+            "audioTracks": [],
+            "stream": null,
+            "shareSessionId": null,
+            "mediaItemShareId": null,
+            "coverAspectRatio": null,
+            "user": {
+              "id": "<user>",
+              "username": "user"
+            }
+          },
+          {
+            "id": "<uuid-13>",
+            "userId": "<user>",
+            "libraryId": "<library>",
+            "libraryItemId": "<item-A>",
+            "bookId": "<uuid-11>",
+            "episodeId": null,
+            "mediaType": "book",
+            "mediaMetadata": {
+              "title": "Session 2",
+              "authors": [
+                {
+                  "id": "au-Ann Author",
+                  "name": "Ann Author"
+                }
+              ],
+              "narrators": [],
+              "genres": []
+            },
+            "chapters": [],
+            "displayTitle": "Session 2",
+            "displayAuthor": "Ann Author",
+            "coverPath": null,
+            "duration": 1000,
+            "playMethod": 0,
+            "mediaPlayer": "test-player",
+            "deviceInfo": {},
+            "serverVersion": "2.0.0-test",
+            "date": "2024-03-12",
+            "dayOfWeek": "Monday",
+            "timeListening": 200,
+            "startTime": 0,
+            "currentTime": 10,
+            "startedAt": "<timestamp>",
+            "updatedAt": "<timestamp>",
+            "lastSave": 0,
+            "audioTracks": [],
+            "stream": null,
+            "shareSessionId": null,
+            "mediaItemShareId": null,
+            "coverAspectRatio": null,
+            "user": {
+              "id": "<user>",
+              "username": "user"
+            }
+          },
+          {
+            "id": "<uuid-14>",
+            "userId": "<user>",
+            "libraryId": "<library>",
+            "libraryItemId": "<item-A>",
+            "bookId": "<uuid-11>",
+            "episodeId": null,
+            "mediaType": "book",
+            "mediaMetadata": {
+              "title": "Session 1",
+              "authors": [
+                {
+                  "id": "au-Ann Author",
+                  "name": "Ann Author"
+                }
+              ],
+              "narrators": [],
+              "genres": []
+            },
+            "chapters": [],
+            "displayTitle": "Session 1",
+            "displayAuthor": "Ann Author",
+            "coverPath": null,
+            "duration": 1000,
+            "playMethod": 0,
+            "mediaPlayer": "test-player",
+            "deviceInfo": {},
+            "serverVersion": "2.0.0-test",
+            "date": "2024-03-11",
+            "dayOfWeek": "Monday",
+            "timeListening": 100,
+            "startTime": 0,
+            "currentTime": 0,
+            "startedAt": "<timestamp>",
+            "updatedAt": "<timestamp>",
+            "lastSave": 0,
+            "audioTracks": [],
+            "stream": null,
+            "shareSessionId": null,
+            "mediaItemShareId": null,
+            "coverAspectRatio": null,
+            "user": {
+              "id": "<user>",
+              "username": "user"
+            }
+          }
+        ]
+      }
+    },
+    "emitted": []
+  },
+  "UserController (characterization) > listening routes > GET /api/users/:id/listening-sessions > returns sessions newest first, paginated, with the user attached > page 1 of 2 per page": {
+    "res": {
+      "status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8"
+      },
+      "body": {
+        "total": 5,
+        "numPages": 3,
+        "page": 1,
+        "itemsPerPage": 2,
+        "sessions": [
+          {
+            "id": "<uuid-12>",
+            "userId": "<user>",
+            "libraryId": "<library>",
+            "libraryItemId": "<item-A>",
+            "bookId": "<uuid-11>",
+            "episodeId": null,
+            "mediaType": "book",
+            "mediaMetadata": {
+              "title": "Session 3",
+              "authors": [
+                {
+                  "id": "au-Ann Author",
+                  "name": "Ann Author"
+                }
+              ],
+              "narrators": [],
+              "genres": []
+            },
+            "chapters": [],
+            "displayTitle": "Session 3",
+            "displayAuthor": "Ann Author",
+            "coverPath": null,
+            "duration": 1000,
+            "playMethod": 0,
+            "mediaPlayer": "test-player",
+            "deviceInfo": {},
+            "serverVersion": "2.0.0-test",
+            "date": "2024-03-13",
+            "dayOfWeek": "Monday",
+            "timeListening": 300,
+            "startTime": 0,
+            "currentTime": 20,
+            "startedAt": "<timestamp>",
+            "updatedAt": "<timestamp>",
+            "lastSave": 0,
+            "audioTracks": [],
+            "stream": null,
+            "shareSessionId": null,
+            "mediaItemShareId": null,
+            "coverAspectRatio": null,
+            "user": {
+              "id": "<user>",
+              "username": "user"
+            }
+          },
+          {
+            "id": "<uuid-13>",
+            "userId": "<user>",
+            "libraryId": "<library>",
+            "libraryItemId": "<item-A>",
+            "bookId": "<uuid-11>",
+            "episodeId": null,
+            "mediaType": "book",
+            "mediaMetadata": {
+              "title": "Session 2",
+              "authors": [
+                {
+                  "id": "au-Ann Author",
+                  "name": "Ann Author"
+                }
+              ],
+              "narrators": [],
+              "genres": []
+            },
+            "chapters": [],
+            "displayTitle": "Session 2",
+            "displayAuthor": "Ann Author",
+            "coverPath": null,
+            "duration": 1000,
+            "playMethod": 0,
+            "mediaPlayer": "test-player",
+            "deviceInfo": {},
+            "serverVersion": "2.0.0-test",
+            "date": "2024-03-12",
+            "dayOfWeek": "Monday",
+            "timeListening": 200,
+            "startTime": 0,
+            "currentTime": 10,
+            "startedAt": "<timestamp>",
+            "updatedAt": "<timestamp>",
+            "lastSave": 0,
+            "audioTracks": [],
+            "stream": null,
+            "shareSessionId": null,
+            "mediaItemShareId": null,
+            "coverAspectRatio": null,
+            "user": {
+              "id": "<user>",
+              "username": "user"
+            }
+          }
+        ]
+      }
+    },
+    "emitted": []
+  },
+  "UserController (characterization) > listening routes > GET /api/users/:id/listening-sessions > returns sessions newest first, paginated, with the user attached > page beyond the end": {
+    "res": {
+      "status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8"
+      },
+      "body": {
+        "total": 5,
+        "numPages": 3,
+        "page": 9,
+        "itemsPerPage": 2,
+        "sessions": []
+      }
+    },
+    "emitted": []
+  },
+  "UserController (characterization) > listening routes > GET /api/users/:id/listening-sessions > returns sessions newest first, paginated, with the user attached > user reads self": {
+    "res": {
+      "status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8"
+      },
+      "body": {
+        "total": 5,
+        "numPages": 1,
+        "page": 0,
+        "itemsPerPage": 10,
+        "sessions": [
+          {
+            "id": "<uuid-7>",
+            "userId": "<user>",
+            "libraryId": "<library>",
+            "libraryItemId": "<uuid-8>",
+            "bookId": "<uuid-9>",
+            "episodeId": null,
+            "mediaType": "book",
+            "mediaMetadata": {
+              "title": "Other book",
+              "authors": [],
+              "narrators": [],
+              "genres": []
+            },
+            "chapters": [],
+            "displayTitle": "Other book",
+            "displayAuthor": "",
+            "coverPath": null,
+            "duration": 2000,
+            "playMethod": 0,
+            "mediaPlayer": "test-player",
+            "deviceInfo": {},
+            "serverVersion": "2.0.0-test",
+            "date": "2024-03-20",
+            "dayOfWeek": "Wednesday",
+            "timeListening": 50,
+            "startTime": 0,
+            "currentTime": 60,
+            "startedAt": "<timestamp>",
+            "updatedAt": "<timestamp>",
+            "lastSave": 0,
+            "audioTracks": [],
+            "stream": null,
+            "shareSessionId": null,
+            "mediaItemShareId": null,
+            "coverAspectRatio": null,
+            "user": {
+              "id": "<user>",
+              "username": "user"
+            }
+          },
+          {
+            "id": "<uuid-10>",
+            "userId": "<user>",
+            "libraryId": "<library>",
+            "libraryItemId": "<item-A>",
+            "bookId": "<uuid-11>",
+            "episodeId": null,
+            "mediaType": "book",
+            "mediaMetadata": {
+              "title": "Session 4",
+              "authors": [
+                {
+                  "id": "au-Ann Author",
+                  "name": "Ann Author"
+                }
+              ],
+              "narrators": [],
+              "genres": []
+            },
+            "chapters": [],
+            "displayTitle": "Session 4",
+            "displayAuthor": "Ann Author",
+            "coverPath": null,
+            "duration": 1000,
+            "playMethod": 0,
+            "mediaPlayer": "test-player",
+            "deviceInfo": {},
+            "serverVersion": "2.0.0-test",
+            "date": "2024-03-14",
+            "dayOfWeek": "Monday",
+            "timeListening": 400,
+            "startTime": 0,
+            "currentTime": 30,
+            "startedAt": "<timestamp>",
+            "updatedAt": "<timestamp>",
+            "lastSave": 0,
+            "audioTracks": [],
+            "stream": null,
+            "shareSessionId": null,
+            "mediaItemShareId": null,
+            "coverAspectRatio": null,
+            "user": {
+              "id": "<user>",
+              "username": "user"
+            }
+          },
+          {
+            "id": "<uuid-12>",
+            "userId": "<user>",
+            "libraryId": "<library>",
+            "libraryItemId": "<item-A>",
+            "bookId": "<uuid-11>",
+            "episodeId": null,
+            "mediaType": "book",
+            "mediaMetadata": {
+              "title": "Session 3",
+              "authors": [
+                {
+                  "id": "au-Ann Author",
+                  "name": "Ann Author"
+                }
+              ],
+              "narrators": [],
+              "genres": []
+            },
+            "chapters": [],
+            "displayTitle": "Session 3",
+            "displayAuthor": "Ann Author",
+            "coverPath": null,
+            "duration": 1000,
+            "playMethod": 0,
+            "mediaPlayer": "test-player",
+            "deviceInfo": {},
+            "serverVersion": "2.0.0-test",
+            "date": "2024-03-13",
+            "dayOfWeek": "Monday",
+            "timeListening": 300,
+            "startTime": 0,
+            "currentTime": 20,
+            "startedAt": "<timestamp>",
+            "updatedAt": "<timestamp>",
+            "lastSave": 0,
+            "audioTracks": [],
+            "stream": null,
+            "shareSessionId": null,
+            "mediaItemShareId": null,
+            "coverAspectRatio": null,
+            "user": {
+              "id": "<user>",
+              "username": "user"
+            }
+          },
+          {
+            "id": "<uuid-13>",
+            "userId": "<user>",
+            "libraryId": "<library>",
+            "libraryItemId": "<item-A>",
+            "bookId": "<uuid-11>",
+            "episodeId": null,
+            "mediaType": "book",
+            "mediaMetadata": {
+              "title": "Session 2",
+              "authors": [
+                {
+                  "id": "au-Ann Author",
+                  "name": "Ann Author"
+                }
+              ],
+              "narrators": [],
+              "genres": []
+            },
+            "chapters": [],
+            "displayTitle": "Session 2",
+            "displayAuthor": "Ann Author",
+            "coverPath": null,
+            "duration": 1000,
+            "playMethod": 0,
+            "mediaPlayer": "test-player",
+            "deviceInfo": {},
+            "serverVersion": "2.0.0-test",
+            "date": "2024-03-12",
+            "dayOfWeek": "Monday",
+            "timeListening": 200,
+            "startTime": 0,
+            "currentTime": 10,
+            "startedAt": "<timestamp>",
+            "updatedAt": "<timestamp>",
+            "lastSave": 0,
+            "audioTracks": [],
+            "stream": null,
+            "shareSessionId": null,
+            "mediaItemShareId": null,
+            "coverAspectRatio": null,
+            "user": {
+              "id": "<user>",
+              "username": "user"
+            }
+          },
+          {
+            "id": "<uuid-14>",
+            "userId": "<user>",
+            "libraryId": "<library>",
+            "libraryItemId": "<item-A>",
+            "bookId": "<uuid-11>",
+            "episodeId": null,
+            "mediaType": "book",
+            "mediaMetadata": {
+              "title": "Session 1",
+              "authors": [
+                {
+                  "id": "au-Ann Author",
+                  "name": "Ann Author"
+                }
+              ],
+              "narrators": [],
+              "genres": []
+            },
+            "chapters": [],
+            "displayTitle": "Session 1",
+            "displayAuthor": "Ann Author",
+            "coverPath": null,
+            "duration": 1000,
+            "playMethod": 0,
+            "mediaPlayer": "test-player",
+            "deviceInfo": {},
+            "serverVersion": "2.0.0-test",
+            "date": "2024-03-11",
+            "dayOfWeek": "Monday",
+            "timeListening": 100,
+            "startTime": 0,
+            "currentTime": 0,
+            "startedAt": "<timestamp>",
+            "updatedAt": "<timestamp>",
+            "lastSave": 0,
+            "audioTracks": [],
+            "stream": null,
+            "shareSessionId": null,
+            "mediaItemShareId": null,
+            "coverAspectRatio": null,
+            "user": {
+              "id": "<user>",
+              "username": "user"
+            }
+          }
+        ]
+      }
+    },
+    "emitted": []
+  },
+  "UserController (characterization) > listening routes > GET /api/users/:id/listening-sessions > returns sessions newest first, paginated, with the user attached > user without sessions": {
+    "res": {
+      "status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8"
+      },
+      "body": {
+        "total": 0,
+        "numPages": 0,
+        "page": 0,
+        "itemsPerPage": 10,
+        "sessions": []
+      }
+    },
+    "emitted": []
+  },
+  "UserController (characterization) > listening routes > GET /api/users/:id/listening-stats > aggregates listening time per item, day and weekday > admin reads user": {
+    "res": {
+      "status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8"
+      },
+      "body": {
+        "totalTime": 1050,
+        "items": {
+          "<uuid-7>": {
+            "id": "<uuid-7>",
+            "timeListening": 50,
+            "mediaMetadata": {
+              "title": "Other book",
+              "authors": [],
+              "narrators": [],
+              "genres": []
+            }
+          },
+          "<item-A>": {
+            "id": "<item-A>",
+            "timeListening": 1000,
+            "mediaMetadata": {
+              "title": "Session 4",
+              "authors": [
+                {
+                  "id": "au-Ann Author",
+                  "name": "Ann Author"
+                }
+              ],
+              "narrators": [],
+              "genres": []
+            }
+          }
+        },
+        "days": {
+          "2024-03-20": 50,
+          "2024-03-14": 400,
+          "2024-03-13": 300,
+          "2024-03-12": 200,
+          "2024-03-11": 100
+        },
+        "dayOfWeek": {
+          "Wednesday": 50,
+          "Monday": 1000
+        },
+        "today": 0,
+        "recentSessions": [
+          {
+            "id": "<uuid-8>",
+            "userId": "<user>",
+            "libraryId": "<library>",
+            "libraryItemId": "<uuid-7>",
+            "bookId": "<uuid-9>",
+            "episodeId": null,
+            "mediaType": "book",
+            "mediaMetadata": {
+              "title": "Other book",
+              "authors": [],
+              "narrators": [],
+              "genres": []
+            },
+            "chapters": [],
+            "displayTitle": "Other book",
+            "displayAuthor": "",
+            "coverPath": null,
+            "duration": 2000,
+            "playMethod": 0,
+            "mediaPlayer": "test-player",
+            "deviceInfo": {},
+            "serverVersion": "2.0.0-test",
+            "date": "2024-03-20",
+            "dayOfWeek": "Wednesday",
+            "timeListening": 50,
+            "startTime": 0,
+            "currentTime": 60,
+            "startedAt": "<timestamp>",
+            "updatedAt": "<timestamp>"
+          },
+          {
+            "id": "<uuid-10>",
+            "userId": "<user>",
+            "libraryId": "<library>",
+            "libraryItemId": "<item-A>",
+            "bookId": "<uuid-11>",
+            "episodeId": null,
+            "mediaType": "book",
+            "mediaMetadata": {
+              "title": "Session 4",
+              "authors": [
+                {
+                  "id": "au-Ann Author",
+                  "name": "Ann Author"
+                }
+              ],
+              "narrators": [],
+              "genres": []
+            },
+            "chapters": [],
+            "displayTitle": "Session 4",
+            "displayAuthor": "Ann Author",
+            "coverPath": null,
+            "duration": 1000,
+            "playMethod": 0,
+            "mediaPlayer": "test-player",
+            "deviceInfo": {},
+            "serverVersion": "2.0.0-test",
+            "date": "2024-03-14",
+            "dayOfWeek": "Monday",
+            "timeListening": 400,
+            "startTime": 0,
+            "currentTime": 30,
+            "startedAt": "<timestamp>",
+            "updatedAt": "<timestamp>"
+          },
+          {
+            "id": "<uuid-12>",
+            "userId": "<user>",
+            "libraryId": "<library>",
+            "libraryItemId": "<item-A>",
+            "bookId": "<uuid-11>",
+            "episodeId": null,
+            "mediaType": "book",
+            "mediaMetadata": {
+              "title": "Session 3",
+              "authors": [
+                {
+                  "id": "au-Ann Author",
+                  "name": "Ann Author"
+                }
+              ],
+              "narrators": [],
+              "genres": []
+            },
+            "chapters": [],
+            "displayTitle": "Session 3",
+            "displayAuthor": "Ann Author",
+            "coverPath": null,
+            "duration": 1000,
+            "playMethod": 0,
+            "mediaPlayer": "test-player",
+            "deviceInfo": {},
+            "serverVersion": "2.0.0-test",
+            "date": "2024-03-13",
+            "dayOfWeek": "Monday",
+            "timeListening": 300,
+            "startTime": 0,
+            "currentTime": 20,
+            "startedAt": "<timestamp>",
+            "updatedAt": "<timestamp>"
+          },
+          {
+            "id": "<uuid-13>",
+            "userId": "<user>",
+            "libraryId": "<library>",
+            "libraryItemId": "<item-A>",
+            "bookId": "<uuid-11>",
+            "episodeId": null,
+            "mediaType": "book",
+            "mediaMetadata": {
+              "title": "Session 2",
+              "authors": [
+                {
+                  "id": "au-Ann Author",
+                  "name": "Ann Author"
+                }
+              ],
+              "narrators": [],
+              "genres": []
+            },
+            "chapters": [],
+            "displayTitle": "Session 2",
+            "displayAuthor": "Ann Author",
+            "coverPath": null,
+            "duration": 1000,
+            "playMethod": 0,
+            "mediaPlayer": "test-player",
+            "deviceInfo": {},
+            "serverVersion": "2.0.0-test",
+            "date": "2024-03-12",
+            "dayOfWeek": "Monday",
+            "timeListening": 200,
+            "startTime": 0,
+            "currentTime": 10,
+            "startedAt": "<timestamp>",
+            "updatedAt": "<timestamp>"
+          },
+          {
+            "id": "<uuid-14>",
+            "userId": "<user>",
+            "libraryId": "<library>",
+            "libraryItemId": "<item-A>",
+            "bookId": "<uuid-11>",
+            "episodeId": null,
+            "mediaType": "book",
+            "mediaMetadata": {
+              "title": "Session 1",
+              "authors": [
+                {
+                  "id": "au-Ann Author",
+                  "name": "Ann Author"
+                }
+              ],
+              "narrators": [],
+              "genres": []
+            },
+            "chapters": [],
+            "displayTitle": "Session 1",
+            "displayAuthor": "Ann Author",
+            "coverPath": null,
+            "duration": 1000,
+            "playMethod": 0,
+            "mediaPlayer": "test-player",
+            "deviceInfo": {},
+            "serverVersion": "2.0.0-test",
+            "date": "2024-03-11",
+            "dayOfWeek": "Monday",
+            "timeListening": 100,
+            "startTime": 0,
+            "currentTime": 0,
+            "startedAt": "<timestamp>",
+            "updatedAt": "<timestamp>"
+          }
+        ]
+      }
+    },
+    "emitted": []
+  },
+  "UserController (characterization) > listening routes > GET /api/users/:id/listening-stats > aggregates listening time per item, day and weekday > user reads self": {
+    "res": {
+      "status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8"
+      },
+      "body": {
+        "totalTime": 1050,
+        "items": {
+          "<uuid-7>": {
+            "id": "<uuid-7>",
+            "timeListening": 50,
+            "mediaMetadata": {
+              "title": "Other book",
+              "authors": [],
+              "narrators": [],
+              "genres": []
+            }
+          },
+          "<item-A>": {
+            "id": "<item-A>",
+            "timeListening": 1000,
+            "mediaMetadata": {
+              "title": "Session 4",
+              "authors": [
+                {
+                  "id": "au-Ann Author",
+                  "name": "Ann Author"
+                }
+              ],
+              "narrators": [],
+              "genres": []
+            }
+          }
+        },
+        "days": {
+          "2024-03-20": 50,
+          "2024-03-14": 400,
+          "2024-03-13": 300,
+          "2024-03-12": 200,
+          "2024-03-11": 100
+        },
+        "dayOfWeek": {
+          "Wednesday": 50,
+          "Monday": 1000
+        },
+        "today": 0,
+        "recentSessions": [
+          {
+            "id": "<uuid-8>",
+            "userId": "<user>",
+            "libraryId": "<library>",
+            "libraryItemId": "<uuid-7>",
+            "bookId": "<uuid-9>",
+            "episodeId": null,
+            "mediaType": "book",
+            "mediaMetadata": {
+              "title": "Other book",
+              "authors": [],
+              "narrators": [],
+              "genres": []
+            },
+            "chapters": [],
+            "displayTitle": "Other book",
+            "displayAuthor": "",
+            "coverPath": null,
+            "duration": 2000,
+            "playMethod": 0,
+            "mediaPlayer": "test-player",
+            "deviceInfo": {},
+            "serverVersion": "2.0.0-test",
+            "date": "2024-03-20",
+            "dayOfWeek": "Wednesday",
+            "timeListening": 50,
+            "startTime": 0,
+            "currentTime": 60,
+            "startedAt": "<timestamp>",
+            "updatedAt": "<timestamp>"
+          },
+          {
+            "id": "<uuid-10>",
+            "userId": "<user>",
+            "libraryId": "<library>",
+            "libraryItemId": "<item-A>",
+            "bookId": "<uuid-11>",
+            "episodeId": null,
+            "mediaType": "book",
+            "mediaMetadata": {
+              "title": "Session 4",
+              "authors": [
+                {
+                  "id": "au-Ann Author",
+                  "name": "Ann Author"
+                }
+              ],
+              "narrators": [],
+              "genres": []
+            },
+            "chapters": [],
+            "displayTitle": "Session 4",
+            "displayAuthor": "Ann Author",
+            "coverPath": null,
+            "duration": 1000,
+            "playMethod": 0,
+            "mediaPlayer": "test-player",
+            "deviceInfo": {},
+            "serverVersion": "2.0.0-test",
+            "date": "2024-03-14",
+            "dayOfWeek": "Monday",
+            "timeListening": 400,
+            "startTime": 0,
+            "currentTime": 30,
+            "startedAt": "<timestamp>",
+            "updatedAt": "<timestamp>"
+          },
+          {
+            "id": "<uuid-12>",
+            "userId": "<user>",
+            "libraryId": "<library>",
+            "libraryItemId": "<item-A>",
+            "bookId": "<uuid-11>",
+            "episodeId": null,
+            "mediaType": "book",
+            "mediaMetadata": {
+              "title": "Session 3",
+              "authors": [
+                {
+                  "id": "au-Ann Author",
+                  "name": "Ann Author"
+                }
+              ],
+              "narrators": [],
+              "genres": []
+            },
+            "chapters": [],
+            "displayTitle": "Session 3",
+            "displayAuthor": "Ann Author",
+            "coverPath": null,
+            "duration": 1000,
+            "playMethod": 0,
+            "mediaPlayer": "test-player",
+            "deviceInfo": {},
+            "serverVersion": "2.0.0-test",
+            "date": "2024-03-13",
+            "dayOfWeek": "Monday",
+            "timeListening": 300,
+            "startTime": 0,
+            "currentTime": 20,
+            "startedAt": "<timestamp>",
+            "updatedAt": "<timestamp>"
+          },
+          {
+            "id": "<uuid-13>",
+            "userId": "<user>",
+            "libraryId": "<library>",
+            "libraryItemId": "<item-A>",
+            "bookId": "<uuid-11>",
+            "episodeId": null,
+            "mediaType": "book",
+            "mediaMetadata": {
+              "title": "Session 2",
+              "authors": [
+                {
+                  "id": "au-Ann Author",
+                  "name": "Ann Author"
+                }
+              ],
+              "narrators": [],
+              "genres": []
+            },
+            "chapters": [],
+            "displayTitle": "Session 2",
+            "displayAuthor": "Ann Author",
+            "coverPath": null,
+            "duration": 1000,
+            "playMethod": 0,
+            "mediaPlayer": "test-player",
+            "deviceInfo": {},
+            "serverVersion": "2.0.0-test",
+            "date": "2024-03-12",
+            "dayOfWeek": "Monday",
+            "timeListening": 200,
+            "startTime": 0,
+            "currentTime": 10,
+            "startedAt": "<timestamp>",
+            "updatedAt": "<timestamp>"
+          },
+          {
+            "id": "<uuid-14>",
+            "userId": "<user>",
+            "libraryId": "<library>",
+            "libraryItemId": "<item-A>",
+            "bookId": "<uuid-11>",
+            "episodeId": null,
+            "mediaType": "book",
+            "mediaMetadata": {
+              "title": "Session 1",
+              "authors": [
+                {
+                  "id": "au-Ann Author",
+                  "name": "Ann Author"
+                }
+              ],
+              "narrators": [],
+              "genres": []
+            },
+            "chapters": [],
+            "displayTitle": "Session 1",
+            "displayAuthor": "Ann Author",
+            "coverPath": null,
+            "duration": 1000,
+            "playMethod": 0,
+            "mediaPlayer": "test-player",
+            "deviceInfo": {},
+            "serverVersion": "2.0.0-test",
+            "date": "2024-03-11",
+            "dayOfWeek": "Monday",
+            "timeListening": 100,
+            "startTime": 0,
+            "currentTime": 0,
+            "startedAt": "<timestamp>",
+            "updatedAt": "<timestamp>"
+          }
+        ]
+      }
+    },
+    "emitted": []
+  },
+  "UserController (characterization) > listening routes > GET /api/users/:id/listening-stats > aggregates listening time per item, day and weekday > user without sessions": {
+    "res": {
+      "status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8"
+      },
+      "body": {
+        "totalTime": 0,
+        "items": {},
+        "days": {},
+        "dayOfWeek": {},
+        "today": 0,
+        "recentSessions": []
+      }
+    },
+    "emitted": []
+  },
+  "UserController (characterization) > listening routes > GET /api/users/:id/listening-stats > requires authentication, and non-admins may only read their own > unauthenticated": {
+    "res": {
+      "status": 401,
+      "headers": {
+        "content-type": "text/plain; charset=utf-8"
+      },
+      "body": "Unauthorized"
+    },
+    "emitted": []
+  },
+  "UserController (characterization) > listening routes > GET /api/users/:id/listening-stats > requires authentication, and non-admins may only read their own > unknown user": {
+    "res": {
+      "status": 404,
+      "headers": {
+        "content-type": "text/plain; charset=utf-8"
+      },
+      "body": "Not Found"
+    },
+    "emitted": []
+  },
+  "UserController (characterization) > listening routes > GET /api/users/:id/listening-stats > requires authentication, and non-admins may only read their own > user reads admin": {
+    "res": {
+      "status": 403,
+      "headers": {
+        "content-type": "text/plain; charset=utf-8"
+      },
+      "body": "Forbidden"
+    },
+    "emitted": []
+  }
+}
