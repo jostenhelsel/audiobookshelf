@@ -1,0 +1,5024 @@
+{
+  "MiscController (characterization) > GET /api/logger-data > returns the most recent daily logs of the log manager > admin": {
+    "res": {
+      "status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8"
+      },
+      "body": {
+        "currentDailyLogs": [
+          {
+            "timestamp": "2024-01-01 00:00:00.000",
+            "source": "Server",
+            "message": "hello",
+            "levelName": "INFO",
+            "level": 2
+          }
+        ]
+      }
+    },
+    "emitted": []
+  },
+  "MiscController (characterization) > GET /api/logger-data > returns the most recent daily logs of the log manager > no logs yet": {
+    "res": {
+      "status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8"
+      },
+      "body": {
+        "currentDailyLogs": ""
+      }
+    },
+    "emitted": []
+  },
+  "MiscController (characterization) > GET /api/tasks > lists tasks and optionally the queue > after finish": {
+    "res": {
+      "status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8"
+      },
+      "body": {
+        "tasks": []
+      }
+    },
+    "emitted": [
+      {
+        "method": "emitter",
+        "args": [
+          "task_finished",
+          {
+            "id": "<uuid-1>",
+            "action": "embed-metadata",
+            "data": {
+              "libraryItemId": "li-1"
+            },
+            "title": "Embedding",
+            "titleKey": "MessageTaskEmbeddingMetadata",
+            "titleSubs": null,
+            "description": "Item",
+            "descriptionKey": "x",
+            "descriptionSubs": [
+              "a"
+            ],
+            "error": null,
+            "errorKey": null,
+            "errorSubs": null,
+            "showSuccess": true,
+            "isFailed": false,
+            "isFinished": false,
+            "startedAt": "<timestamp>",
+            "finishedAt": null
+          }
+        ]
+      }
+    ]
+  },
+  "MiscController (characterization) > GET /api/tasks > lists tasks and optionally the queue > empty as user": {
+    "res": {
+      "status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8"
+      },
+      "body": {
+        "tasks": []
+      }
+    },
+    "emitted": []
+  },
+  "MiscController (characterization) > GET /api/tasks > lists tasks and optionally the queue > include list": {
+    "res": {
+      "status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8"
+      },
+      "body": {
+        "tasks": [
+          {
+            "id": "<uuid-1>",
+            "action": "embed-metadata",
+            "data": {
+              "libraryItemId": "li-1"
+            },
+            "title": "Embedding",
+            "titleKey": "MessageTaskEmbeddingMetadata",
+            "titleSubs": null,
+            "description": "Item",
+            "descriptionKey": "x",
+            "descriptionSubs": [
+              "a"
+            ],
+            "error": null,
+            "errorKey": null,
+            "errorSubs": null,
+            "showSuccess": true,
+            "isFailed": false,
+            "isFinished": false,
+            "startedAt": "<timestamp>",
+            "finishedAt": null
+          }
+        ],
+        "queuedTaskData": {
+          "embedMetadata": {
+            "queue": [
+              {
+                "libraryItemId": "li-1"
+              }
+            ],
+            "processing": null
+          }
+        }
+      }
+    },
+    "emitted": []
+  },
+  "MiscController (characterization) > GET /api/tasks > lists tasks and optionally the queue > include queue": {
+    "res": {
+      "status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8"
+      },
+      "body": {
+        "tasks": [
+          {
+            "id": "<uuid-1>",
+            "action": "embed-metadata",
+            "data": {
+              "libraryItemId": "li-1"
+            },
+            "title": "Embedding",
+            "titleKey": "MessageTaskEmbeddingMetadata",
+            "titleSubs": null,
+            "description": "Item",
+            "descriptionKey": "x",
+            "descriptionSubs": [
+              "a"
+            ],
+            "error": null,
+            "errorKey": null,
+            "errorSubs": null,
+            "showSuccess": true,
+            "isFailed": false,
+            "isFinished": false,
+            "startedAt": "<timestamp>",
+            "finishedAt": null
+          }
+        ],
+        "queuedTaskData": {
+          "embedMetadata": {
+            "queue": [
+              {
+                "libraryItemId": "li-1"
+              }
+            ],
+            "processing": null
+          }
+        }
+      }
+    },
+    "emitted": []
+  },
+  "MiscController (characterization) > GET /api/tasks > lists tasks and optionally the queue > one task as guest": {
+    "res": {
+      "status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8"
+      },
+      "body": {
+        "tasks": [
+          {
+            "id": "<uuid-1>",
+            "action": "embed-metadata",
+            "data": {
+              "libraryItemId": "li-1"
+            },
+            "title": "Embedding",
+            "titleKey": "MessageTaskEmbeddingMetadata",
+            "titleSubs": null,
+            "description": "Item",
+            "descriptionKey": "x",
+            "descriptionSubs": [
+              "a"
+            ],
+            "error": null,
+            "errorKey": null,
+            "errorSubs": null,
+            "showSuccess": true,
+            "isFailed": false,
+            "isFinished": false,
+            "startedAt": "<timestamp>",
+            "finishedAt": null
+          }
+        ]
+      }
+    },
+    "emitted": []
+  },
+  "MiscController (characterization) > PATCH /api/settings > does not validate value types > garbage values are stored as given": {
+    "res": {
+      "status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8"
+      },
+      "body": {
+        "serverSettings": {
+          "id": "server-settings",
+          "scannerFindCovers": "yes",
+          "scannerCoverProvider": "google",
+          "scannerParseSubtitle": false,
+          "scannerPreferMatchedMetadata": false,
+          "scannerDisableWatcher": false,
+          "storeCoverWithItem": false,
+          "storeMetadataWithItem": false,
+          "metadataFileFormat": "json",
+          "rateLimitLoginRequests": 10,
+          "rateLimitLoginWindow": 600000,
+          "allowIframe": false,
+          "backupPath": "<tmp>/metadata/backups",
+          "backupSchedule": false,
+          "backupsToKeep": "many",
+          "maxBackupSize": 1,
+          "loggerDailyLogsToKeep": 7,
+          "loggerScannerLogsToKeep": 2,
+          "homeBookshelfView": 1,
+          "bookshelfView": "bogus",
+          "podcastEpisodeSchedule": "0 * * * *",
+          "sortingIgnorePrefix": false,
+          "sortingPrefixes": [
+            "the",
+            "a"
+          ],
+          "chromecastEnabled": false,
+          "dateFormat": "MM/dd/yyyy",
+          "timeFormat": "HH:mm",
+          "language": "en-us",
+          "allowedOrigins": [],
+          "logLevel": 2,
+          "authLoginCustomMessage": null,
+          "authActiveAuthMethods": [
+            "local"
+          ],
+          "authOpenIDIssuerURL": null,
+          "authOpenIDAuthorizationURL": null,
+          "authOpenIDTokenURL": null,
+          "authOpenIDUserInfoURL": null,
+          "authOpenIDJwksURL": null,
+          "authOpenIDLogoutURL": null,
+          "authOpenIDTokenSigningAlgorithm": "RS256",
+          "authOpenIDButtonText": "Login with OpenId",
+          "authOpenIDAutoLaunch": false,
+          "authOpenIDAutoRegister": false,
+          "authOpenIDMatchExistingBy": null
+        }
+      }
+    },
+    "emitted": []
+  },
+  "MiscController (characterization) > PATCH /api/settings > reports no change when values are identical and ignores empty updates > array body is accepted as object": {
+    "res": {
+      "status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8"
+      },
+      "body": {
+        "serverSettings": {
+          "id": "server-settings",
+          "scannerFindCovers": false,
+          "scannerCoverProvider": "google",
+          "scannerParseSubtitle": false,
+          "scannerPreferMatchedMetadata": false,
+          "scannerDisableWatcher": false,
+          "storeCoverWithItem": false,
+          "storeMetadataWithItem": false,
+          "metadataFileFormat": "json",
+          "rateLimitLoginRequests": 10,
+          "rateLimitLoginWindow": 600000,
+          "allowIframe": false,
+          "backupPath": "<tmp>/metadata/backups",
+          "backupSchedule": false,
+          "backupsToKeep": 2,
+          "maxBackupSize": 1,
+          "loggerDailyLogsToKeep": 7,
+          "loggerScannerLogsToKeep": 2,
+          "homeBookshelfView": 1,
+          "bookshelfView": 1,
+          "podcastEpisodeSchedule": "0 * * * *",
+          "sortingIgnorePrefix": false,
+          "sortingPrefixes": [
+            "the",
+            "a"
+          ],
+          "chromecastEnabled": false,
+          "dateFormat": "MM/dd/yyyy",
+          "timeFormat": "HH:mm",
+          "language": "en-us",
+          "allowedOrigins": [],
+          "logLevel": 2,
+          "authLoginCustomMessage": null,
+          "authActiveAuthMethods": [
+            "local"
+          ],
+          "authOpenIDIssuerURL": null,
+          "authOpenIDAuthorizationURL": null,
+          "authOpenIDTokenURL": null,
+          "authOpenIDUserInfoURL": null,
+          "authOpenIDJwksURL": null,
+          "authOpenIDLogoutURL": null,
+          "authOpenIDTokenSigningAlgorithm": "RS256",
+          "authOpenIDButtonText": "Login with OpenId",
+          "authOpenIDAutoLaunch": false,
+          "authOpenIDAutoRegister": false,
+          "authOpenIDMatchExistingBy": null
+        }
+      }
+    },
+    "emitted": []
+  },
+  "MiscController (characterization) > PATCH /api/settings > reports no change when values are identical and ignores empty updates > empty object": {
+    "res": {
+      "status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8"
+      },
+      "body": {
+        "serverSettings": {
+          "id": "server-settings",
+          "scannerFindCovers": false,
+          "scannerCoverProvider": "google",
+          "scannerParseSubtitle": false,
+          "scannerPreferMatchedMetadata": false,
+          "scannerDisableWatcher": false,
+          "storeCoverWithItem": false,
+          "storeMetadataWithItem": false,
+          "metadataFileFormat": "json",
+          "rateLimitLoginRequests": 10,
+          "rateLimitLoginWindow": 600000,
+          "allowIframe": false,
+          "backupPath": "<tmp>/metadata/backups",
+          "backupSchedule": false,
+          "backupsToKeep": 2,
+          "maxBackupSize": 1,
+          "loggerDailyLogsToKeep": 7,
+          "loggerScannerLogsToKeep": 2,
+          "homeBookshelfView": 1,
+          "bookshelfView": 1,
+          "podcastEpisodeSchedule": "0 * * * *",
+          "sortingIgnorePrefix": false,
+          "sortingPrefixes": [
+            "the",
+            "a"
+          ],
+          "chromecastEnabled": false,
+          "dateFormat": "MM/dd/yyyy",
+          "timeFormat": "HH:mm",
+          "language": "en-us",
+          "allowedOrigins": [],
+          "logLevel": 2,
+          "authLoginCustomMessage": null,
+          "authActiveAuthMethods": [
+            "local"
+          ],
+          "authOpenIDIssuerURL": null,
+          "authOpenIDAuthorizationURL": null,
+          "authOpenIDTokenURL": null,
+          "authOpenIDUserInfoURL": null,
+          "authOpenIDJwksURL": null,
+          "authOpenIDLogoutURL": null,
+          "authOpenIDTokenSigningAlgorithm": "RS256",
+          "authOpenIDButtonText": "Login with OpenId",
+          "authOpenIDAutoLaunch": false,
+          "authOpenIDAutoRegister": false,
+          "authOpenIDMatchExistingBy": null
+        }
+      }
+    },
+    "emitted": []
+  },
+  "MiscController (characterization) > PATCH /api/settings > reports no change when values are identical and ignores empty updates > only unknown keys": {
+    "res": {
+      "status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8"
+      },
+      "body": {
+        "serverSettings": {
+          "id": "server-settings",
+          "scannerFindCovers": false,
+          "scannerCoverProvider": "google",
+          "scannerParseSubtitle": false,
+          "scannerPreferMatchedMetadata": false,
+          "scannerDisableWatcher": false,
+          "storeCoverWithItem": false,
+          "storeMetadataWithItem": false,
+          "metadataFileFormat": "json",
+          "rateLimitLoginRequests": 10,
+          "rateLimitLoginWindow": 600000,
+          "allowIframe": false,
+          "backupPath": "<tmp>/metadata/backups",
+          "backupSchedule": false,
+          "backupsToKeep": 2,
+          "maxBackupSize": 1,
+          "loggerDailyLogsToKeep": 7,
+          "loggerScannerLogsToKeep": 2,
+          "homeBookshelfView": 1,
+          "bookshelfView": 1,
+          "podcastEpisodeSchedule": "0 * * * *",
+          "sortingIgnorePrefix": false,
+          "sortingPrefixes": [
+            "the",
+            "a"
+          ],
+          "chromecastEnabled": false,
+          "dateFormat": "MM/dd/yyyy",
+          "timeFormat": "HH:mm",
+          "language": "en-us",
+          "allowedOrigins": [],
+          "logLevel": 2,
+          "authLoginCustomMessage": null,
+          "authActiveAuthMethods": [
+            "local"
+          ],
+          "authOpenIDIssuerURL": null,
+          "authOpenIDAuthorizationURL": null,
+          "authOpenIDTokenURL": null,
+          "authOpenIDUserInfoURL": null,
+          "authOpenIDJwksURL": null,
+          "authOpenIDLogoutURL": null,
+          "authOpenIDTokenSigningAlgorithm": "RS256",
+          "authOpenIDButtonText": "Login with OpenId",
+          "authOpenIDAutoLaunch": false,
+          "authOpenIDAutoRegister": false,
+          "authOpenIDMatchExistingBy": null
+        }
+      }
+    },
+    "emitted": []
+  },
+  "MiscController (characterization) > PATCH /api/settings > reports no change when values are identical and ignores empty updates > same value": {
+    "res": {
+      "status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8"
+      },
+      "body": {
+        "serverSettings": {
+          "id": "server-settings",
+          "scannerFindCovers": false,
+          "scannerCoverProvider": "google",
+          "scannerParseSubtitle": false,
+          "scannerPreferMatchedMetadata": false,
+          "scannerDisableWatcher": false,
+          "storeCoverWithItem": false,
+          "storeMetadataWithItem": false,
+          "metadataFileFormat": "json",
+          "rateLimitLoginRequests": 10,
+          "rateLimitLoginWindow": 600000,
+          "allowIframe": false,
+          "backupPath": "<tmp>/metadata/backups",
+          "backupSchedule": false,
+          "backupsToKeep": 2,
+          "maxBackupSize": 1,
+          "loggerDailyLogsToKeep": 7,
+          "loggerScannerLogsToKeep": 2,
+          "homeBookshelfView": 1,
+          "bookshelfView": 1,
+          "podcastEpisodeSchedule": "0 * * * *",
+          "sortingIgnorePrefix": false,
+          "sortingPrefixes": [
+            "the",
+            "a"
+          ],
+          "chromecastEnabled": false,
+          "dateFormat": "MM/dd/yyyy",
+          "timeFormat": "HH:mm",
+          "language": "en-us",
+          "allowedOrigins": [],
+          "logLevel": 2,
+          "authLoginCustomMessage": null,
+          "authActiveAuthMethods": [
+            "local"
+          ],
+          "authOpenIDIssuerURL": null,
+          "authOpenIDAuthorizationURL": null,
+          "authOpenIDTokenURL": null,
+          "authOpenIDUserInfoURL": null,
+          "authOpenIDJwksURL": null,
+          "authOpenIDLogoutURL": null,
+          "authOpenIDTokenSigningAlgorithm": "RS256",
+          "authOpenIDButtonText": "Login with OpenId",
+          "authOpenIDAutoLaunch": false,
+          "authOpenIDAutoRegister": false,
+          "authOpenIDMatchExistingBy": null
+        }
+      }
+    },
+    "emitted": []
+  },
+  "MiscController (characterization) > PATCH /api/settings > updates patchable keys only and persists them > admin updates": {
+    "res": {
+      "status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8"
+      },
+      "body": {
+        "serverSettings": {
+          "id": "server-settings",
+          "scannerFindCovers": true,
+          "scannerCoverProvider": "google",
+          "scannerParseSubtitle": false,
+          "scannerPreferMatchedMetadata": false,
+          "scannerDisableWatcher": false,
+          "storeCoverWithItem": false,
+          "storeMetadataWithItem": false,
+          "metadataFileFormat": "json",
+          "rateLimitLoginRequests": 10,
+          "rateLimitLoginWindow": 600000,
+          "allowIframe": false,
+          "backupPath": "<tmp>/metadata/backups",
+          "backupSchedule": false,
+          "backupsToKeep": 5,
+          "maxBackupSize": 1,
+          "loggerDailyLogsToKeep": 7,
+          "loggerScannerLogsToKeep": 2,
+          "homeBookshelfView": 1,
+          "bookshelfView": "standard",
+          "podcastEpisodeSchedule": "0 * * * *",
+          "sortingIgnorePrefix": false,
+          "sortingPrefixes": [
+            "the",
+            "a"
+          ],
+          "chromecastEnabled": false,
+          "dateFormat": "dd/MM/yyyy",
+          "timeFormat": "HH:mm",
+          "language": "de",
+          "allowedOrigins": [
+            "https://a.example"
+          ],
+          "logLevel": 2,
+          "authLoginCustomMessage": null,
+          "authActiveAuthMethods": [
+            "local"
+          ],
+          "authOpenIDIssuerURL": null,
+          "authOpenIDAuthorizationURL": null,
+          "authOpenIDTokenURL": null,
+          "authOpenIDUserInfoURL": null,
+          "authOpenIDJwksURL": null,
+          "authOpenIDLogoutURL": null,
+          "authOpenIDTokenSigningAlgorithm": "RS256",
+          "authOpenIDButtonText": "Login with OpenId",
+          "authOpenIDAutoLaunch": false,
+          "authOpenIDAutoRegister": false,
+          "authOpenIDMatchExistingBy": null
+        }
+      }
+    },
+    "emitted": []
+  },
+  "MiscController (characterization) > PATCH /api/settings > updates patchable keys only and persists them > persisted": {
+    "language": "de",
+    "dateFormat": "dd/MM/yyyy",
+    "backupsToKeep": 5,
+    "maxBackupSize": 3,
+    "backupPath": "<tmp>/metadata/backups",
+    "activeMethods": [
+      "local"
+    ]
+  },
+  "MiscController (characterization) > PATCH /api/settings > updates patchable keys only and persists them > root update ignores non patchable keys": {
+    "res": {
+      "status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8"
+      },
+      "body": {
+        "serverSettings": {
+          "id": "server-settings",
+          "scannerFindCovers": true,
+          "scannerCoverProvider": "google",
+          "scannerParseSubtitle": false,
+          "scannerPreferMatchedMetadata": false,
+          "scannerDisableWatcher": false,
+          "storeCoverWithItem": false,
+          "storeMetadataWithItem": false,
+          "metadataFileFormat": "json",
+          "rateLimitLoginRequests": 10,
+          "rateLimitLoginWindow": 600000,
+          "allowIframe": false,
+          "backupPath": "<tmp>/metadata/backups",
+          "backupSchedule": false,
+          "backupsToKeep": 5,
+          "maxBackupSize": 3,
+          "loggerDailyLogsToKeep": 7,
+          "loggerScannerLogsToKeep": 2,
+          "homeBookshelfView": 1,
+          "bookshelfView": "standard",
+          "podcastEpisodeSchedule": "0 * * * *",
+          "sortingIgnorePrefix": false,
+          "sortingPrefixes": [
+            "the",
+            "a"
+          ],
+          "chromecastEnabled": false,
+          "dateFormat": "dd/MM/yyyy",
+          "timeFormat": "HH:mm",
+          "language": "de",
+          "allowedOrigins": [
+            "https://a.example"
+          ],
+          "logLevel": 2,
+          "authLoginCustomMessage": null,
+          "authActiveAuthMethods": [
+            "local"
+          ],
+          "authOpenIDIssuerURL": null,
+          "authOpenIDAuthorizationURL": null,
+          "authOpenIDTokenURL": null,
+          "authOpenIDUserInfoURL": null,
+          "authOpenIDJwksURL": null,
+          "authOpenIDLogoutURL": null,
+          "authOpenIDTokenSigningAlgorithm": "RS256",
+          "authOpenIDButtonText": "Login with OpenId",
+          "authOpenIDAutoLaunch": false,
+          "authOpenIDAutoRegister": false,
+          "authOpenIDMatchExistingBy": null
+        }
+      }
+    },
+    "emitted": []
+  },
+  "MiscController (characterization) > PATCH /api/settings > updates the backup schedule through the backup manager > disable schedule": {
+    "res": {
+      "status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8"
+      },
+      "body": {
+        "serverSettings": {
+          "id": "server-settings",
+          "scannerFindCovers": false,
+          "scannerCoverProvider": "google",
+          "scannerParseSubtitle": false,
+          "scannerPreferMatchedMetadata": false,
+          "scannerDisableWatcher": false,
+          "storeCoverWithItem": false,
+          "storeMetadataWithItem": false,
+          "metadataFileFormat": "json",
+          "rateLimitLoginRequests": 10,
+          "rateLimitLoginWindow": 600000,
+          "allowIframe": false,
+          "backupPath": "<tmp>/metadata/backups",
+          "backupSchedule": false,
+          "backupsToKeep": 2,
+          "maxBackupSize": 1,
+          "loggerDailyLogsToKeep": 7,
+          "loggerScannerLogsToKeep": 2,
+          "homeBookshelfView": 1,
+          "bookshelfView": 1,
+          "podcastEpisodeSchedule": "0 * * * *",
+          "sortingIgnorePrefix": false,
+          "sortingPrefixes": [
+            "the",
+            "a"
+          ],
+          "chromecastEnabled": false,
+          "dateFormat": "MM/dd/yyyy",
+          "timeFormat": "HH:mm",
+          "language": "en-us",
+          "allowedOrigins": [],
+          "logLevel": 2,
+          "authLoginCustomMessage": null,
+          "authActiveAuthMethods": [
+            "local"
+          ],
+          "authOpenIDIssuerURL": null,
+          "authOpenIDAuthorizationURL": null,
+          "authOpenIDTokenURL": null,
+          "authOpenIDUserInfoURL": null,
+          "authOpenIDJwksURL": null,
+          "authOpenIDLogoutURL": null,
+          "authOpenIDTokenSigningAlgorithm": "RS256",
+          "authOpenIDButtonText": "Login with OpenId",
+          "authOpenIDAutoLaunch": false,
+          "authOpenIDAutoRegister": false,
+          "authOpenIDMatchExistingBy": null
+        }
+      }
+    },
+    "emitted": [],
+    "calls": [
+      {
+        "method": "backupManager.updateCronSchedule"
+      }
+    ]
+  },
+  "MiscController (characterization) > PATCH /api/settings > updates the backup schedule through the backup manager > same schedule makes no update": {
+    "res": {
+      "status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8"
+      },
+      "body": {
+        "serverSettings": {
+          "id": "server-settings",
+          "scannerFindCovers": false,
+          "scannerCoverProvider": "google",
+          "scannerParseSubtitle": false,
+          "scannerPreferMatchedMetadata": false,
+          "scannerDisableWatcher": false,
+          "storeCoverWithItem": false,
+          "storeMetadataWithItem": false,
+          "metadataFileFormat": "json",
+          "rateLimitLoginRequests": 10,
+          "rateLimitLoginWindow": 600000,
+          "allowIframe": false,
+          "backupPath": "<tmp>/metadata/backups",
+          "backupSchedule": "30 1 * * *",
+          "backupsToKeep": 2,
+          "maxBackupSize": 1,
+          "loggerDailyLogsToKeep": 7,
+          "loggerScannerLogsToKeep": 2,
+          "homeBookshelfView": 1,
+          "bookshelfView": 1,
+          "podcastEpisodeSchedule": "0 * * * *",
+          "sortingIgnorePrefix": false,
+          "sortingPrefixes": [
+            "the",
+            "a"
+          ],
+          "chromecastEnabled": false,
+          "dateFormat": "MM/dd/yyyy",
+          "timeFormat": "HH:mm",
+          "language": "en-us",
+          "allowedOrigins": [],
+          "logLevel": 2,
+          "authLoginCustomMessage": null,
+          "authActiveAuthMethods": [
+            "local"
+          ],
+          "authOpenIDIssuerURL": null,
+          "authOpenIDAuthorizationURL": null,
+          "authOpenIDTokenURL": null,
+          "authOpenIDUserInfoURL": null,
+          "authOpenIDJwksURL": null,
+          "authOpenIDLogoutURL": null,
+          "authOpenIDTokenSigningAlgorithm": "RS256",
+          "authOpenIDButtonText": "Login with OpenId",
+          "authOpenIDAutoLaunch": false,
+          "authOpenIDAutoRegister": false,
+          "authOpenIDMatchExistingBy": null
+        }
+      }
+    },
+    "emitted": []
+  },
+  "MiscController (characterization) > PATCH /api/settings > updates the backup schedule through the backup manager > set schedule": {
+    "res": {
+      "status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8"
+      },
+      "body": {
+        "serverSettings": {
+          "id": "server-settings",
+          "scannerFindCovers": false,
+          "scannerCoverProvider": "google",
+          "scannerParseSubtitle": false,
+          "scannerPreferMatchedMetadata": false,
+          "scannerDisableWatcher": false,
+          "storeCoverWithItem": false,
+          "storeMetadataWithItem": false,
+          "metadataFileFormat": "json",
+          "rateLimitLoginRequests": 10,
+          "rateLimitLoginWindow": 600000,
+          "allowIframe": false,
+          "backupPath": "<tmp>/metadata/backups",
+          "backupSchedule": "30 1 * * *",
+          "backupsToKeep": 2,
+          "maxBackupSize": 1,
+          "loggerDailyLogsToKeep": 7,
+          "loggerScannerLogsToKeep": 2,
+          "homeBookshelfView": 1,
+          "bookshelfView": 1,
+          "podcastEpisodeSchedule": "0 * * * *",
+          "sortingIgnorePrefix": false,
+          "sortingPrefixes": [
+            "the",
+            "a"
+          ],
+          "chromecastEnabled": false,
+          "dateFormat": "MM/dd/yyyy",
+          "timeFormat": "HH:mm",
+          "language": "en-us",
+          "allowedOrigins": [],
+          "logLevel": 2,
+          "authLoginCustomMessage": null,
+          "authActiveAuthMethods": [
+            "local"
+          ],
+          "authOpenIDIssuerURL": null,
+          "authOpenIDAuthorizationURL": null,
+          "authOpenIDTokenURL": null,
+          "authOpenIDUserInfoURL": null,
+          "authOpenIDJwksURL": null,
+          "authOpenIDLogoutURL": null,
+          "authOpenIDTokenSigningAlgorithm": "RS256",
+          "authOpenIDButtonText": "Login with OpenId",
+          "authOpenIDAutoLaunch": false,
+          "authOpenIDAutoRegister": false,
+          "authOpenIDMatchExistingBy": null
+        }
+      }
+    },
+    "emitted": [],
+    "calls": [
+      {
+        "method": "backupManager.updateCronSchedule"
+      }
+    ]
+  },
+  "MiscController (characterization) > PATCH /api/settings > updates the backup schedule through the backup manager > unrelated update does not touch the schedule": {
+    "res": {
+      "status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8"
+      },
+      "body": {
+        "serverSettings": {
+          "id": "server-settings",
+          "scannerFindCovers": false,
+          "scannerCoverProvider": "google",
+          "scannerParseSubtitle": false,
+          "scannerPreferMatchedMetadata": false,
+          "scannerDisableWatcher": false,
+          "storeCoverWithItem": false,
+          "storeMetadataWithItem": false,
+          "metadataFileFormat": "json",
+          "rateLimitLoginRequests": 10,
+          "rateLimitLoginWindow": 600000,
+          "allowIframe": false,
+          "backupPath": "<tmp>/metadata/backups",
+          "backupSchedule": false,
+          "backupsToKeep": 2,
+          "maxBackupSize": 1,
+          "loggerDailyLogsToKeep": 7,
+          "loggerScannerLogsToKeep": 2,
+          "homeBookshelfView": 1,
+          "bookshelfView": 1,
+          "podcastEpisodeSchedule": "0 * * * *",
+          "sortingIgnorePrefix": false,
+          "sortingPrefixes": [
+            "the",
+            "a"
+          ],
+          "chromecastEnabled": false,
+          "dateFormat": "MM/dd/yyyy",
+          "timeFormat": "HH:mm",
+          "language": "fr",
+          "allowedOrigins": [],
+          "logLevel": 2,
+          "authLoginCustomMessage": null,
+          "authActiveAuthMethods": [
+            "local"
+          ],
+          "authOpenIDIssuerURL": null,
+          "authOpenIDAuthorizationURL": null,
+          "authOpenIDTokenURL": null,
+          "authOpenIDUserInfoURL": null,
+          "authOpenIDJwksURL": null,
+          "authOpenIDLogoutURL": null,
+          "authOpenIDTokenSigningAlgorithm": "RS256",
+          "authOpenIDButtonText": "Login with OpenId",
+          "authOpenIDAutoLaunch": false,
+          "authOpenIDAutoRegister": false,
+          "authOpenIDMatchExistingBy": null
+        }
+      }
+    },
+    "emitted": []
+  },
+  "MiscController (characterization) > PATCH /api/settings > validates the body > allowedOrigins not an array": {
+    "res": {
+      "status": 400,
+      "headers": {
+        "content-type": "text/html; charset=utf-8"
+      },
+      "body": "allowedOrigins must be an array"
+    },
+    "emitted": []
+  },
+  "MiscController (characterization) > PATCH /api/settings > validates the body > cannot disable iframe with env": {
+    "res": {
+      "status": 400,
+      "headers": {
+        "content-type": "text/html; charset=utf-8"
+      },
+      "body": "Cannot disable iframe when ALLOW_IFRAME is enabled in environment"
+    },
+    "emitted": []
+  },
+  "MiscController (characterization) > PATCH /api/settings > validates the body > enabling is fine": {
+    "res": {
+      "status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8"
+      },
+      "body": {
+        "serverSettings": {
+          "id": "server-settings",
+          "scannerFindCovers": false,
+          "scannerCoverProvider": "google",
+          "scannerParseSubtitle": false,
+          "scannerPreferMatchedMetadata": false,
+          "scannerDisableWatcher": false,
+          "storeCoverWithItem": false,
+          "storeMetadataWithItem": false,
+          "metadataFileFormat": "json",
+          "rateLimitLoginRequests": 10,
+          "rateLimitLoginWindow": 600000,
+          "allowIframe": true,
+          "backupPath": "<tmp>/metadata/backups",
+          "backupSchedule": false,
+          "backupsToKeep": 2,
+          "maxBackupSize": 1,
+          "loggerDailyLogsToKeep": 7,
+          "loggerScannerLogsToKeep": 2,
+          "homeBookshelfView": 1,
+          "bookshelfView": 1,
+          "podcastEpisodeSchedule": "0 * * * *",
+          "sortingIgnorePrefix": false,
+          "sortingPrefixes": [
+            "the",
+            "a"
+          ],
+          "chromecastEnabled": false,
+          "dateFormat": "MM/dd/yyyy",
+          "timeFormat": "HH:mm",
+          "language": "en-us",
+          "allowedOrigins": [],
+          "logLevel": 2,
+          "authLoginCustomMessage": null,
+          "authActiveAuthMethods": [
+            "local"
+          ],
+          "authOpenIDIssuerURL": null,
+          "authOpenIDAuthorizationURL": null,
+          "authOpenIDTokenURL": null,
+          "authOpenIDUserInfoURL": null,
+          "authOpenIDJwksURL": null,
+          "authOpenIDLogoutURL": null,
+          "authOpenIDTokenSigningAlgorithm": "RS256",
+          "authOpenIDButtonText": "Login with OpenId",
+          "authOpenIDAutoLaunch": false,
+          "authOpenIDAutoRegister": false,
+          "authOpenIDMatchExistingBy": null
+        }
+      }
+    },
+    "emitted": []
+  },
+  "MiscController (characterization) > PATCH /api/settings > validates the body > no body": {
+    "res": {
+      "status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8"
+      },
+      "body": {
+        "serverSettings": {
+          "id": "server-settings",
+          "scannerFindCovers": false,
+          "scannerCoverProvider": "google",
+          "scannerParseSubtitle": false,
+          "scannerPreferMatchedMetadata": false,
+          "scannerDisableWatcher": false,
+          "storeCoverWithItem": false,
+          "storeMetadataWithItem": false,
+          "metadataFileFormat": "json",
+          "rateLimitLoginRequests": 10,
+          "rateLimitLoginWindow": 600000,
+          "allowIframe": false,
+          "backupPath": "<tmp>/metadata/backups",
+          "backupSchedule": false,
+          "backupsToKeep": 2,
+          "maxBackupSize": 1,
+          "loggerDailyLogsToKeep": 7,
+          "loggerScannerLogsToKeep": 2,
+          "homeBookshelfView": 1,
+          "bookshelfView": 1,
+          "podcastEpisodeSchedule": "0 * * * *",
+          "sortingIgnorePrefix": false,
+          "sortingPrefixes": [
+            "the",
+            "a"
+          ],
+          "chromecastEnabled": false,
+          "dateFormat": "MM/dd/yyyy",
+          "timeFormat": "HH:mm",
+          "language": "en-us",
+          "allowedOrigins": [],
+          "logLevel": 2,
+          "authLoginCustomMessage": null,
+          "authActiveAuthMethods": [
+            "local"
+          ],
+          "authOpenIDIssuerURL": null,
+          "authOpenIDAuthorizationURL": null,
+          "authOpenIDTokenURL": null,
+          "authOpenIDUserInfoURL": null,
+          "authOpenIDJwksURL": null,
+          "authOpenIDLogoutURL": null,
+          "authOpenIDTokenSigningAlgorithm": "RS256",
+          "authOpenIDButtonText": "Login with OpenId",
+          "authOpenIDAutoLaunch": false,
+          "authOpenIDAutoRegister": false,
+          "authOpenIDMatchExistingBy": null
+        }
+      }
+    },
+    "emitted": []
+  },
+  "MiscController (characterization) > PATCH /api/settings > validates the body > string \"false\" is not rejected by the iframe check and is stored as a string": {
+    "res": {
+      "status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8"
+      },
+      "body": {
+        "serverSettings": {
+          "id": "server-settings",
+          "scannerFindCovers": false,
+          "scannerCoverProvider": "google",
+          "scannerParseSubtitle": false,
+          "scannerPreferMatchedMetadata": false,
+          "scannerDisableWatcher": false,
+          "storeCoverWithItem": false,
+          "storeMetadataWithItem": false,
+          "metadataFileFormat": "json",
+          "rateLimitLoginRequests": 10,
+          "rateLimitLoginWindow": 600000,
+          "allowIframe": "false",
+          "backupPath": "<tmp>/metadata/backups",
+          "backupSchedule": false,
+          "backupsToKeep": 2,
+          "maxBackupSize": 1,
+          "loggerDailyLogsToKeep": 7,
+          "loggerScannerLogsToKeep": 2,
+          "homeBookshelfView": 1,
+          "bookshelfView": 1,
+          "podcastEpisodeSchedule": "0 * * * *",
+          "sortingIgnorePrefix": false,
+          "sortingPrefixes": [
+            "the",
+            "a"
+          ],
+          "chromecastEnabled": false,
+          "dateFormat": "MM/dd/yyyy",
+          "timeFormat": "HH:mm",
+          "language": "en-us",
+          "allowedOrigins": [],
+          "logLevel": 2,
+          "authLoginCustomMessage": null,
+          "authActiveAuthMethods": [
+            "local"
+          ],
+          "authOpenIDIssuerURL": null,
+          "authOpenIDAuthorizationURL": null,
+          "authOpenIDTokenURL": null,
+          "authOpenIDUserInfoURL": null,
+          "authOpenIDJwksURL": null,
+          "authOpenIDLogoutURL": null,
+          "authOpenIDTokenSigningAlgorithm": "RS256",
+          "authOpenIDButtonText": "Login with OpenId",
+          "authOpenIDAutoLaunch": false,
+          "authOpenIDAutoRegister": false,
+          "authOpenIDMatchExistingBy": null
+        }
+      }
+    },
+    "emitted": []
+  },
+  "MiscController (characterization) > PATCH /api/settings > validates the body > string body is rejected by the json parser": {
+    "status": 400
+  },
+  "MiscController (characterization) > PATCH /api/sorting-prefixes > normalises prefixes and recomputes sort titles of books, podcasts and series > default prefixes, deduplicated and lower-cased": {
+    "res": {
+      "status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8"
+      },
+      "body": {
+        "rowsUpdated": 3,
+        "serverSettings": {
+          "id": "server-settings",
+          "scannerFindCovers": false,
+          "scannerCoverProvider": "google",
+          "scannerParseSubtitle": false,
+          "scannerPreferMatchedMetadata": false,
+          "scannerDisableWatcher": false,
+          "storeCoverWithItem": false,
+          "storeMetadataWithItem": false,
+          "metadataFileFormat": "json",
+          "rateLimitLoginRequests": 10,
+          "rateLimitLoginWindow": 600000,
+          "allowIframe": false,
+          "backupPath": "<tmp>/metadata/backups",
+          "backupSchedule": false,
+          "backupsToKeep": 2,
+          "maxBackupSize": 1,
+          "loggerDailyLogsToKeep": 7,
+          "loggerScannerLogsToKeep": 2,
+          "homeBookshelfView": 1,
+          "bookshelfView": 1,
+          "podcastEpisodeSchedule": "0 * * * *",
+          "sortingIgnorePrefix": false,
+          "sortingPrefixes": [
+            "the",
+            "a",
+            "an"
+          ],
+          "chromecastEnabled": false,
+          "dateFormat": "MM/dd/yyyy",
+          "timeFormat": "HH:mm",
+          "language": "en-us",
+          "allowedOrigins": [],
+          "logLevel": 2,
+          "authLoginCustomMessage": null,
+          "authActiveAuthMethods": [
+            "local"
+          ],
+          "authOpenIDIssuerURL": null,
+          "authOpenIDAuthorizationURL": null,
+          "authOpenIDTokenURL": null,
+          "authOpenIDUserInfoURL": null,
+          "authOpenIDJwksURL": null,
+          "authOpenIDLogoutURL": null,
+          "authOpenIDTokenSigningAlgorithm": "RS256",
+          "authOpenIDButtonText": "Login with OpenId",
+          "authOpenIDAutoLaunch": false,
+          "authOpenIDAutoRegister": false,
+          "authOpenIDMatchExistingBy": null
+        }
+      }
+    },
+    "emitted": []
+  },
+  "MiscController (characterization) > PATCH /api/sorting-prefixes > normalises prefixes and recomputes sort titles of books, podcasts and series > only le": {
+    "res": {
+      "status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8"
+      },
+      "body": {
+        "rowsUpdated": 5,
+        "serverSettings": {
+          "id": "server-settings",
+          "scannerFindCovers": false,
+          "scannerCoverProvider": "google",
+          "scannerParseSubtitle": false,
+          "scannerPreferMatchedMetadata": false,
+          "scannerDisableWatcher": false,
+          "storeCoverWithItem": false,
+          "storeMetadataWithItem": false,
+          "metadataFileFormat": "json",
+          "rateLimitLoginRequests": 10,
+          "rateLimitLoginWindow": 600000,
+          "allowIframe": false,
+          "backupPath": "<tmp>/metadata/backups",
+          "backupSchedule": false,
+          "backupsToKeep": 2,
+          "maxBackupSize": 1,
+          "loggerDailyLogsToKeep": 7,
+          "loggerScannerLogsToKeep": 2,
+          "homeBookshelfView": 1,
+          "bookshelfView": 1,
+          "podcastEpisodeSchedule": "0 * * * *",
+          "sortingIgnorePrefix": false,
+          "sortingPrefixes": [
+            "le"
+          ],
+          "chromecastEnabled": false,
+          "dateFormat": "MM/dd/yyyy",
+          "timeFormat": "HH:mm",
+          "language": "en-us",
+          "allowedOrigins": [],
+          "logLevel": 2,
+          "authLoginCustomMessage": null,
+          "authActiveAuthMethods": [
+            "local"
+          ],
+          "authOpenIDIssuerURL": null,
+          "authOpenIDAuthorizationURL": null,
+          "authOpenIDTokenURL": null,
+          "authOpenIDUserInfoURL": null,
+          "authOpenIDJwksURL": null,
+          "authOpenIDLogoutURL": null,
+          "authOpenIDTokenSigningAlgorithm": "RS256",
+          "authOpenIDButtonText": "Login with OpenId",
+          "authOpenIDAutoLaunch": false,
+          "authOpenIDAutoRegister": false,
+          "authOpenIDMatchExistingBy": null
+        }
+      }
+    },
+    "emitted": []
+  },
+  "MiscController (characterization) > PATCH /api/sorting-prefixes > normalises prefixes and recomputes sort titles of books, podcasts and series > persisted": {
+    "persisted": [
+      "le"
+    ]
+  },
+  "MiscController (characterization) > PATCH /api/sorting-prefixes > normalises prefixes and recomputes sort titles of books, podcasts and series > rows after default prefixes": {
+    "books": [
+      [
+        "The Hobbit",
+        "Hobbit"
+      ],
+      [
+        "Le Petit Prince",
+        "Le Petit Prince"
+      ],
+      [
+        "Plain",
+        "Plain"
+      ]
+    ],
+    "podcasts": [
+      [
+        "A Show",
+        "Show"
+      ]
+    ],
+    "series": [
+      [
+        "The Saga",
+        "Saga"
+      ],
+      [
+        "Le Series",
+        "Le Series"
+      ]
+    ]
+  },
+  "MiscController (characterization) > PATCH /api/sorting-prefixes > normalises prefixes and recomputes sort titles of books, podcasts and series > rows after le": {
+    "books": [
+      [
+        "The Hobbit",
+        "The Hobbit"
+      ],
+      [
+        "Le Petit Prince",
+        "Petit Prince"
+      ],
+      [
+        "Plain",
+        "Plain"
+      ]
+    ],
+    "podcasts": [
+      [
+        "A Show",
+        "A Show"
+      ]
+    ],
+    "series": [
+      [
+        "The Saga",
+        "The Saga"
+      ],
+      [
+        "Le Series",
+        "Series"
+      ]
+    ]
+  },
+  "MiscController (characterization) > PATCH /api/sorting-prefixes > normalises prefixes and recomputes sort titles of books, podcasts and series > rows before": {
+    "books": [
+      [
+        "The Hobbit",
+        "The Hobbit"
+      ],
+      [
+        "Le Petit Prince",
+        "Le Petit Prince"
+      ],
+      [
+        "Plain",
+        "Plain"
+      ]
+    ],
+    "podcasts": [
+      [
+        "A Show",
+        "A Show"
+      ]
+    ],
+    "series": [
+      [
+        "The Saga",
+        "The Saga"
+      ],
+      [
+        "Le Series",
+        "Le Series"
+      ]
+    ]
+  },
+  "MiscController (characterization) > PATCH /api/sorting-prefixes > normalises prefixes and recomputes sort titles of books, podcasts and series > same again updates no rows": {
+    "res": {
+      "status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8"
+      },
+      "body": {
+        "rowsUpdated": 0,
+        "serverSettings": {
+          "id": "server-settings",
+          "scannerFindCovers": false,
+          "scannerCoverProvider": "google",
+          "scannerParseSubtitle": false,
+          "scannerPreferMatchedMetadata": false,
+          "scannerDisableWatcher": false,
+          "storeCoverWithItem": false,
+          "storeMetadataWithItem": false,
+          "metadataFileFormat": "json",
+          "rateLimitLoginRequests": 10,
+          "rateLimitLoginWindow": 600000,
+          "allowIframe": false,
+          "backupPath": "<tmp>/metadata/backups",
+          "backupSchedule": false,
+          "backupsToKeep": 2,
+          "maxBackupSize": 1,
+          "loggerDailyLogsToKeep": 7,
+          "loggerScannerLogsToKeep": 2,
+          "homeBookshelfView": 1,
+          "bookshelfView": 1,
+          "podcastEpisodeSchedule": "0 * * * *",
+          "sortingIgnorePrefix": false,
+          "sortingPrefixes": [
+            "le"
+          ],
+          "chromecastEnabled": false,
+          "dateFormat": "MM/dd/yyyy",
+          "timeFormat": "HH:mm",
+          "language": "en-us",
+          "allowedOrigins": [],
+          "logLevel": 2,
+          "authLoginCustomMessage": null,
+          "authActiveAuthMethods": [
+            "local"
+          ],
+          "authOpenIDIssuerURL": null,
+          "authOpenIDAuthorizationURL": null,
+          "authOpenIDTokenURL": null,
+          "authOpenIDUserInfoURL": null,
+          "authOpenIDJwksURL": null,
+          "authOpenIDLogoutURL": null,
+          "authOpenIDTokenSigningAlgorithm": "RS256",
+          "authOpenIDButtonText": "Login with OpenId",
+          "authOpenIDAutoLaunch": false,
+          "authOpenIDAutoRegister": false,
+          "authOpenIDMatchExistingBy": null
+        }
+      }
+    },
+    "emitted": []
+  },
+  "MiscController (characterization) > PATCH /api/sorting-prefixes > validates the body > empty array": {
+    "res": {
+      "status": 400,
+      "headers": {
+        "content-type": "text/html; charset=utf-8"
+      },
+      "body": "Invalid request body"
+    },
+    "emitted": []
+  },
+  "MiscController (characterization) > PATCH /api/sorting-prefixes > validates the body > missing": {
+    "res": {
+      "status": 400,
+      "headers": {
+        "content-type": "text/html; charset=utf-8"
+      },
+      "body": "Invalid request body"
+    },
+    "emitted": []
+  },
+  "MiscController (characterization) > PATCH /api/sorting-prefixes > validates the body > only blank entries": {
+    "res": {
+      "status": 400,
+      "headers": {
+        "content-type": "text/html; charset=utf-8"
+      },
+      "body": "Invalid sortingPrefixes in request body"
+    },
+    "emitted": []
+  },
+  "MiscController (characterization) > PATCH /api/sorting-prefixes > validates the body > string with length": {
+    "res": {
+      "status": 400,
+      "headers": {
+        "content-type": "text/html; charset=utf-8"
+      },
+      "body": "Invalid request body"
+    },
+    "emitted": []
+  },
+  "MiscController (characterization) > POST /api/authorize > returns the login payload of the authenticated user > admin": {
+    "res": {
+      "status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8"
+      },
+      "body": {
+        "user": {
+          "id": "<uuid-1>",
+          "username": "admin",
+          "email": null,
+          "type": "admin",
+          "token": "token-admin",
+          "mediaProgress": [],
+          "seriesHideFromContinueListening": [],
+          "bookmarks": [],
+          "isActive": true,
+          "isLocked": false,
+          "lastSeen": null,
+          "createdAt": "<timestamp>",
+          "permissions": {
+            "download": true,
+            "update": true,
+            "delete": false,
+            "upload": true,
+            "createEreader": true,
+            "accessAllLibraries": true,
+            "accessAllTags": true,
+            "accessExplicitContent": true,
+            "selectedTagsNotAccessible": false
+          },
+          "librariesAccessible": [],
+          "itemTagsSelected": [],
+          "hasOpenIDLink": false
+        },
+        "userDefaultLibraryId": "<uuid-2>",
+        "serverSettings": {
+          "id": "server-settings",
+          "scannerFindCovers": false,
+          "scannerCoverProvider": "google",
+          "scannerParseSubtitle": false,
+          "scannerPreferMatchedMetadata": false,
+          "scannerDisableWatcher": false,
+          "storeCoverWithItem": false,
+          "storeMetadataWithItem": false,
+          "metadataFileFormat": "json",
+          "rateLimitLoginRequests": 10,
+          "rateLimitLoginWindow": 600000,
+          "allowIframe": false,
+          "backupPath": "<tmp>/metadata/backups",
+          "backupSchedule": false,
+          "backupsToKeep": 2,
+          "maxBackupSize": 1,
+          "loggerDailyLogsToKeep": 7,
+          "loggerScannerLogsToKeep": 2,
+          "homeBookshelfView": 1,
+          "bookshelfView": 1,
+          "podcastEpisodeSchedule": "0 * * * *",
+          "sortingIgnorePrefix": false,
+          "sortingPrefixes": [
+            "the",
+            "a"
+          ],
+          "chromecastEnabled": false,
+          "dateFormat": "MM/dd/yyyy",
+          "timeFormat": "HH:mm",
+          "language": "en-us",
+          "allowedOrigins": [],
+          "logLevel": 2,
+          "authLoginCustomMessage": null,
+          "authActiveAuthMethods": [
+            "local"
+          ],
+          "authOpenIDIssuerURL": null,
+          "authOpenIDAuthorizationURL": null,
+          "authOpenIDTokenURL": null,
+          "authOpenIDUserInfoURL": null,
+          "authOpenIDJwksURL": null,
+          "authOpenIDLogoutURL": null,
+          "authOpenIDTokenSigningAlgorithm": "RS256",
+          "authOpenIDButtonText": "Login with OpenId",
+          "authOpenIDAutoLaunch": false,
+          "authOpenIDAutoRegister": false,
+          "authOpenIDMatchExistingBy": null
+        },
+        "ereaderDevices": []
+      }
+    },
+    "emitted": []
+  },
+  "MiscController (characterization) > POST /api/authorize > returns the login payload of the authenticated user > guest": {
+    "res": {
+      "status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8"
+      },
+      "body": {
+        "user": {
+          "id": "<uuid-3>",
+          "username": "guest",
+          "email": null,
+          "type": "guest",
+          "token": "token-guest",
+          "mediaProgress": [],
+          "seriesHideFromContinueListening": [],
+          "bookmarks": [],
+          "isActive": true,
+          "isLocked": false,
+          "lastSeen": null,
+          "createdAt": "<timestamp>",
+          "permissions": {
+            "download": true,
+            "update": false,
+            "delete": false,
+            "upload": false,
+            "createEreader": false,
+            "accessAllLibraries": true,
+            "accessAllTags": true,
+            "accessExplicitContent": false,
+            "selectedTagsNotAccessible": false
+          },
+          "librariesAccessible": [],
+          "itemTagsSelected": [],
+          "hasOpenIDLink": false
+        },
+        "userDefaultLibraryId": "<uuid-2>",
+        "serverSettings": {
+          "id": "server-settings",
+          "scannerFindCovers": false,
+          "scannerCoverProvider": "google",
+          "scannerParseSubtitle": false,
+          "scannerPreferMatchedMetadata": false,
+          "scannerDisableWatcher": false,
+          "storeCoverWithItem": false,
+          "storeMetadataWithItem": false,
+          "metadataFileFormat": "json",
+          "rateLimitLoginRequests": 10,
+          "rateLimitLoginWindow": 600000,
+          "allowIframe": false,
+          "backupPath": "<tmp>/metadata/backups",
+          "backupSchedule": false,
+          "backupsToKeep": 2,
+          "maxBackupSize": 1,
+          "loggerDailyLogsToKeep": 7,
+          "loggerScannerLogsToKeep": 2,
+          "homeBookshelfView": 1,
+          "bookshelfView": 1,
+          "podcastEpisodeSchedule": "0 * * * *",
+          "sortingIgnorePrefix": false,
+          "sortingPrefixes": [
+            "the",
+            "a"
+          ],
+          "chromecastEnabled": false,
+          "dateFormat": "MM/dd/yyyy",
+          "timeFormat": "HH:mm",
+          "language": "en-us",
+          "allowedOrigins": [],
+          "logLevel": 2,
+          "authLoginCustomMessage": null,
+          "authActiveAuthMethods": [
+            "local"
+          ],
+          "authOpenIDIssuerURL": null,
+          "authOpenIDAuthorizationURL": null,
+          "authOpenIDTokenURL": null,
+          "authOpenIDUserInfoURL": null,
+          "authOpenIDJwksURL": null,
+          "authOpenIDLogoutURL": null,
+          "authOpenIDTokenSigningAlgorithm": "RS256",
+          "authOpenIDButtonText": "Login with OpenId",
+          "authOpenIDAutoLaunch": false,
+          "authOpenIDAutoRegister": false,
+          "authOpenIDMatchExistingBy": null
+        },
+        "ereaderDevices": []
+      }
+    },
+    "emitted": []
+  },
+  "MiscController (characterization) > POST /api/authorize > returns the login payload of the authenticated user > root": {
+    "res": {
+      "status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8"
+      },
+      "body": {
+        "user": {
+          "id": "<uuid-4>",
+          "username": "root",
+          "email": null,
+          "type": "root",
+          "token": "token-root",
+          "mediaProgress": [],
+          "seriesHideFromContinueListening": [],
+          "bookmarks": [],
+          "isActive": true,
+          "isLocked": false,
+          "lastSeen": null,
+          "createdAt": "<timestamp>",
+          "permissions": {
+            "download": true,
+            "update": true,
+            "delete": true,
+            "upload": true,
+            "createEreader": true,
+            "accessAllLibraries": true,
+            "accessAllTags": true,
+            "accessExplicitContent": true,
+            "selectedTagsNotAccessible": false
+          },
+          "librariesAccessible": [],
+          "itemTagsSelected": [],
+          "hasOpenIDLink": false
+        },
+        "userDefaultLibraryId": "<uuid-2>",
+        "serverSettings": {
+          "id": "server-settings",
+          "scannerFindCovers": false,
+          "scannerCoverProvider": "google",
+          "scannerParseSubtitle": false,
+          "scannerPreferMatchedMetadata": false,
+          "scannerDisableWatcher": false,
+          "storeCoverWithItem": false,
+          "storeMetadataWithItem": false,
+          "metadataFileFormat": "json",
+          "rateLimitLoginRequests": 10,
+          "rateLimitLoginWindow": 600000,
+          "allowIframe": false,
+          "backupPath": "<tmp>/metadata/backups",
+          "backupSchedule": false,
+          "backupsToKeep": 2,
+          "maxBackupSize": 1,
+          "loggerDailyLogsToKeep": 7,
+          "loggerScannerLogsToKeep": 2,
+          "homeBookshelfView": 1,
+          "bookshelfView": 1,
+          "podcastEpisodeSchedule": "0 * * * *",
+          "sortingIgnorePrefix": false,
+          "sortingPrefixes": [
+            "the",
+            "a"
+          ],
+          "chromecastEnabled": false,
+          "dateFormat": "MM/dd/yyyy",
+          "timeFormat": "HH:mm",
+          "language": "en-us",
+          "allowedOrigins": [],
+          "logLevel": 2,
+          "authLoginCustomMessage": null,
+          "authActiveAuthMethods": [
+            "local"
+          ],
+          "authOpenIDIssuerURL": null,
+          "authOpenIDAuthorizationURL": null,
+          "authOpenIDTokenURL": null,
+          "authOpenIDUserInfoURL": null,
+          "authOpenIDJwksURL": null,
+          "authOpenIDLogoutURL": null,
+          "authOpenIDTokenSigningAlgorithm": "RS256",
+          "authOpenIDButtonText": "Login with OpenId",
+          "authOpenIDAutoLaunch": false,
+          "authOpenIDAutoRegister": false,
+          "authOpenIDMatchExistingBy": null
+        },
+        "ereaderDevices": []
+      }
+    },
+    "emitted": []
+  },
+  "MiscController (characterization) > POST /api/authorize > works without libraries > user without libraries": {
+    "res": {
+      "status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8"
+      },
+      "body": {
+        "user": {
+          "id": "<uuid-1>",
+          "username": "user",
+          "email": null,
+          "type": "user",
+          "token": "token-user",
+          "mediaProgress": [],
+          "seriesHideFromContinueListening": [],
+          "bookmarks": [],
+          "isActive": true,
+          "isLocked": false,
+          "lastSeen": null,
+          "createdAt": "<timestamp>",
+          "permissions": {
+            "download": true,
+            "update": false,
+            "delete": false,
+            "upload": false,
+            "createEreader": false,
+            "accessAllLibraries": true,
+            "accessAllTags": true,
+            "accessExplicitContent": false,
+            "selectedTagsNotAccessible": false
+          },
+          "librariesAccessible": [],
+          "itemTagsSelected": [],
+          "hasOpenIDLink": false
+        },
+        "userDefaultLibraryId": null,
+        "serverSettings": {
+          "id": "server-settings",
+          "scannerFindCovers": false,
+          "scannerCoverProvider": "google",
+          "scannerParseSubtitle": false,
+          "scannerPreferMatchedMetadata": false,
+          "scannerDisableWatcher": false,
+          "storeCoverWithItem": false,
+          "storeMetadataWithItem": false,
+          "metadataFileFormat": "json",
+          "rateLimitLoginRequests": 10,
+          "rateLimitLoginWindow": 600000,
+          "allowIframe": false,
+          "backupPath": "<tmp>/metadata/backups",
+          "backupSchedule": false,
+          "backupsToKeep": 2,
+          "maxBackupSize": 1,
+          "loggerDailyLogsToKeep": 7,
+          "loggerScannerLogsToKeep": 2,
+          "homeBookshelfView": 1,
+          "bookshelfView": 1,
+          "podcastEpisodeSchedule": "0 * * * *",
+          "sortingIgnorePrefix": false,
+          "sortingPrefixes": [
+            "the",
+            "a"
+          ],
+          "chromecastEnabled": false,
+          "dateFormat": "MM/dd/yyyy",
+          "timeFormat": "HH:mm",
+          "language": "en-us",
+          "allowedOrigins": [],
+          "logLevel": 2,
+          "authLoginCustomMessage": null,
+          "authActiveAuthMethods": [
+            "local"
+          ],
+          "authOpenIDIssuerURL": null,
+          "authOpenIDAuthorizationURL": null,
+          "authOpenIDTokenURL": null,
+          "authOpenIDUserInfoURL": null,
+          "authOpenIDJwksURL": null,
+          "authOpenIDLogoutURL": null,
+          "authOpenIDTokenSigningAlgorithm": "RS256",
+          "authOpenIDButtonText": "Login with OpenId",
+          "authOpenIDAutoLaunch": false,
+          "authOpenIDAutoRegister": false,
+          "authOpenIDMatchExistingBy": null
+        },
+        "ereaderDevices": []
+      }
+    },
+    "emitted": []
+  },
+  "MiscController (characterization) > POST /api/upload > checks library access > access": {
+    "res": {
+      "status": 200,
+      "headers": {
+        "content-type": "text/plain; charset=utf-8"
+      },
+      "body": "OK"
+    },
+    "emitted": []
+  },
+  "MiscController (characterization) > POST /api/upload > checks library access > no access": {
+    "res": {
+      "status": 403,
+      "headers": {
+        "content-type": "text/plain; charset=utf-8"
+      },
+      "body": "Forbidden"
+    },
+    "emitted": []
+  },
+  "MiscController (characterization) > POST /api/upload > rejects users without upload permission and missing files > guest": {
+    "res": {
+      "status": 403,
+      "headers": {
+        "content-type": "text/plain; charset=utf-8"
+      },
+      "body": "Forbidden"
+    },
+    "emitted": []
+  },
+  "MiscController (characterization) > POST /api/upload > rejects users without upload permission and missing files > no files": {
+    "res": {
+      "status": 400,
+      "headers": {
+        "content-type": "text/plain; charset=utf-8"
+      },
+      "body": "Bad Request"
+    },
+    "emitted": []
+  },
+  "MiscController (characterization) > POST /api/upload > rejects users without upload permission and missing files > user has no upload permission by default": {
+    "res": {
+      "status": 403,
+      "headers": {
+        "content-type": "text/plain; charset=utf-8"
+      },
+      "body": "Forbidden"
+    },
+    "emitted": []
+  },
+  "MiscController (characterization) > POST /api/upload > sanitizes directory parts and file names > dots only title becomes empty part": {
+    "res": {
+      "status": 200,
+      "headers": {
+        "content-type": "text/plain; charset=utf-8"
+      },
+      "body": "OK"
+    },
+    "emitted": []
+  },
+  "MiscController (characterization) > POST /api/upload > sanitizes directory parts and file names > files on disk": {
+    "files": [
+      "books/..EvilAuthor/abc/Why - Not/ird - name.mp3 (1 bytes)",
+      "books/chapter 1.mp3 (11 bytes)"
+    ]
+  },
+  "MiscController (characterization) > POST /api/upload > sanitizes directory parts and file names > illegal characters": {
+    "res": {
+      "status": 200,
+      "headers": {
+        "content-type": "text/plain; charset=utf-8"
+      },
+      "body": "OK"
+    },
+    "emitted": []
+  },
+  "MiscController (characterization) > POST /api/upload > stores book uploads under author/series/title > author, series, title": {
+    "res": {
+      "status": 200,
+      "headers": {
+        "content-type": "text/plain; charset=utf-8"
+      },
+      "body": "OK"
+    },
+    "emitted": []
+  },
+  "MiscController (characterization) > POST /api/upload > stores book uploads under author/series/title > no series": {
+    "res": {
+      "status": 200,
+      "headers": {
+        "content-type": "text/plain; charset=utf-8"
+      },
+      "body": "OK"
+    },
+    "emitted": []
+  },
+  "MiscController (characterization) > POST /api/upload > stores book uploads under author/series/title > title only": {
+    "res": {
+      "status": 200,
+      "headers": {
+        "content-type": "text/plain; charset=utf-8"
+      },
+      "body": "OK"
+    },
+    "emitted": []
+  },
+  "MiscController (characterization) > POST /api/upload > stores podcast uploads one folder deep and ignores author and series > podcast": {
+    "res": {
+      "status": 200,
+      "headers": {
+        "content-type": "text/plain; charset=utf-8"
+      },
+      "body": "OK"
+    },
+    "emitted": []
+  },
+  "MiscController (characterization) > POST /api/upload > validates the fields > empty folder": {
+    "res": {
+      "status": 400,
+      "headers": {
+        "content-type": "text/html; charset=utf-8"
+      },
+      "body": "Invalid request body"
+    },
+    "emitted": []
+  },
+  "MiscController (characterization) > POST /api/upload > validates the fields > empty library": {
+    "res": {
+      "status": 400,
+      "headers": {
+        "content-type": "text/html; charset=utf-8"
+      },
+      "body": "Invalid request body"
+    },
+    "emitted": []
+  },
+  "MiscController (characterization) > POST /api/upload > validates the fields > empty title": {
+    "res": {
+      "status": 400,
+      "headers": {
+        "content-type": "text/html; charset=utf-8"
+      },
+      "body": "Invalid request body"
+    },
+    "emitted": []
+  },
+  "MiscController (characterization) > POST /api/upload > validates the fields > unknown folder": {
+    "res": {
+      "status": 404,
+      "headers": {
+        "content-type": "text/html; charset=utf-8"
+      },
+      "body": "Folder not found"
+    },
+    "emitted": []
+  },
+  "MiscController (characterization) > POST /api/upload > validates the fields > unknown library": {
+    "res": {
+      "status": 404,
+      "headers": {
+        "content-type": "text/html; charset=utf-8"
+      },
+      "body": "Library not found"
+    },
+    "emitted": []
+  },
+  "MiscController (characterization) > POST /api/validate-cron > validates cron expressions (any authenticated user) > empty": {
+    "res": {
+      "status": 400,
+      "headers": {
+        "content-type": "text/plain; charset=utf-8"
+      },
+      "body": "Bad Request"
+    },
+    "emitted": []
+  },
+  "MiscController (characterization) > POST /api/validate-cron > validates cron expressions (any authenticated user) > invalid": {
+    "res": {
+      "status": 400,
+      "headers": {
+        "content-type": "text/html; charset=utf-8"
+      },
+      "body": "Invalid cron expression"
+    },
+    "emitted": []
+  },
+  "MiscController (characterization) > POST /api/validate-cron > validates cron expressions (any authenticated user) > missing": {
+    "res": {
+      "status": 400,
+      "headers": {
+        "content-type": "text/plain; charset=utf-8"
+      },
+      "body": "Bad Request"
+    },
+    "emitted": []
+  },
+  "MiscController (characterization) > POST /api/validate-cron > validates cron expressions (any authenticated user) > number": {
+    "res": {
+      "status": 400,
+      "headers": {
+        "content-type": "text/html; charset=utf-8"
+      },
+      "body": "Invalid cron expression"
+    },
+    "emitted": []
+  },
+  "MiscController (characterization) > POST /api/validate-cron > validates cron expressions (any authenticated user) > out of range": {
+    "res": {
+      "status": 400,
+      "headers": {
+        "content-type": "text/html; charset=utf-8"
+      },
+      "body": "Invalid cron expression"
+    },
+    "emitted": []
+  },
+  "MiscController (characterization) > POST /api/validate-cron > validates cron expressions (any authenticated user) > six fields (seconds)": {
+    "res": {
+      "status": 200,
+      "headers": {
+        "content-type": "text/plain; charset=utf-8"
+      },
+      "body": "OK"
+    },
+    "emitted": []
+  },
+  "MiscController (characterization) > POST /api/validate-cron > validates cron expressions (any authenticated user) > valid": {
+    "res": {
+      "status": 200,
+      "headers": {
+        "content-type": "text/plain; charset=utf-8"
+      },
+      "body": "OK"
+    },
+    "emitted": []
+  },
+  "MiscController (characterization) > POST /api/validate-cron > validates cron expressions (any authenticated user) > valid with lists and ranges": {
+    "res": {
+      "status": 200,
+      "headers": {
+        "content-type": "text/plain; charset=utf-8"
+      },
+      "body": "OK"
+    },
+    "emitted": []
+  },
+  "MiscController (characterization) > POST /api/watcher/update > forwards add, unlink and rename to the watcher > add": {
+    "res": {
+      "status": 200,
+      "headers": {
+        "content-type": "text/plain; charset=utf-8"
+      },
+      "body": "OK"
+    },
+    "emitted": [],
+    "calls": [
+      {
+        "method": "Watcher.onFileAdded",
+        "args": [
+          "lib-1",
+          "/books/a.mp3"
+        ]
+      }
+    ]
+  },
+  "MiscController (characterization) > POST /api/watcher/update > forwards add, unlink and rename to the watcher > rename": {
+    "res": {
+      "status": 200,
+      "headers": {
+        "content-type": "text/plain; charset=utf-8"
+      },
+      "body": "OK"
+    },
+    "emitted": [],
+    "calls": [
+      {
+        "method": "Watcher.onFileRename",
+        "args": [
+          "lib-1",
+          "/books/old.mp3",
+          "/books/new.mp3"
+        ]
+      }
+    ]
+  },
+  "MiscController (characterization) > POST /api/watcher/update > forwards add, unlink and rename to the watcher > unlink": {
+    "res": {
+      "status": 200,
+      "headers": {
+        "content-type": "text/plain; charset=utf-8"
+      },
+      "body": "OK"
+    },
+    "emitted": [],
+    "calls": [
+      {
+        "method": "Watcher.onFileRemoved",
+        "args": [
+          "lib-1",
+          "/books/a.mp3"
+        ]
+      }
+    ]
+  },
+  "MiscController (characterization) > POST /api/watcher/update > validates the body > empty": {
+    "res": {
+      "status": 400,
+      "headers": {
+        "content-type": "text/plain; charset=utf-8"
+      },
+      "body": "Bad Request"
+    },
+    "emitted": []
+  },
+  "MiscController (characterization) > POST /api/watcher/update > validates the body > no path": {
+    "res": {
+      "status": 400,
+      "headers": {
+        "content-type": "text/plain; charset=utf-8"
+      },
+      "body": "Bad Request"
+    },
+    "emitted": []
+  },
+  "MiscController (characterization) > POST /api/watcher/update > validates the body > no type": {
+    "res": {
+      "status": 400,
+      "headers": {
+        "content-type": "text/plain; charset=utf-8"
+      },
+      "body": "Bad Request"
+    },
+    "emitted": []
+  },
+  "MiscController (characterization) > POST /api/watcher/update > validates the body > rename without oldPath": {
+    "res": {
+      "status": 400,
+      "headers": {
+        "content-type": "text/plain; charset=utf-8"
+      },
+      "body": "Bad Request"
+    },
+    "emitted": []
+  },
+  "MiscController (characterization) > POST /api/watcher/update > validates the body > unknown type": {
+    "res": {
+      "status": 400,
+      "headers": {
+        "content-type": "text/plain; charset=utf-8"
+      },
+      "body": "Bad Request"
+    },
+    "emitted": []
+  },
+  "MiscController (characterization) > auth settings > GET returns the authentication settings > admin": {
+    "res": {
+      "status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8"
+      },
+      "body": {
+        "authLoginCustomMessage": null,
+        "authActiveAuthMethods": [
+          "local"
+        ],
+        "authOpenIDIssuerURL": null,
+        "authOpenIDAuthorizationURL": null,
+        "authOpenIDTokenURL": null,
+        "authOpenIDUserInfoURL": null,
+        "authOpenIDJwksURL": null,
+        "authOpenIDLogoutURL": null,
+        "authOpenIDClientID": null,
+        "authOpenIDClientSecret": null,
+        "authOpenIDTokenSigningAlgorithm": "RS256",
+        "authOpenIDButtonText": "Login with OpenId",
+        "authOpenIDAutoLaunch": false,
+        "authOpenIDAutoRegister": false,
+        "authOpenIDMatchExistingBy": null,
+        "authOpenIDMobileRedirectURIs": [
+          "audiobookshelf://oauth"
+        ],
+        "authOpenIDGroupClaim": "",
+        "authOpenIDAdvancedPermsClaim": "",
+        "authOpenIDSamplePermissions": "{\n  \"canDownload\": false,\n  \"canUpload\": false,\n  \"canDelete\": false,\n  \"canUpdate\": false,\n  \"canAccessExplicitContent\": false,\n  \"canAccessAllLibraries\": false,\n  \"canAccessAllTags\": false,\n  \"canCreateEReader\": false,\n  \"tagsAreDenylist\": false,\n  \"allowedLibraries\": [\n    \"<uuid-1>\",\n    \"<uuid-2>\"\n  ],\n  \"allowedTags\": [\n    \"ExampleTag\",\n    \"AnotherTag\",\n    \"ThirdTag\"\n  ]\n}"
+      }
+    },
+    "emitted": []
+  },
+  "MiscController (characterization) > auth settings > GET returns the authentication settings > root": {
+    "res": {
+      "status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8"
+      },
+      "body": {
+        "authLoginCustomMessage": null,
+        "authActiveAuthMethods": [
+          "local"
+        ],
+        "authOpenIDIssuerURL": null,
+        "authOpenIDAuthorizationURL": null,
+        "authOpenIDTokenURL": null,
+        "authOpenIDUserInfoURL": null,
+        "authOpenIDJwksURL": null,
+        "authOpenIDLogoutURL": null,
+        "authOpenIDClientID": null,
+        "authOpenIDClientSecret": null,
+        "authOpenIDTokenSigningAlgorithm": "RS256",
+        "authOpenIDButtonText": "Login with OpenId",
+        "authOpenIDAutoLaunch": false,
+        "authOpenIDAutoRegister": false,
+        "authOpenIDMatchExistingBy": null,
+        "authOpenIDMobileRedirectURIs": [
+          "audiobookshelf://oauth"
+        ],
+        "authOpenIDGroupClaim": "",
+        "authOpenIDAdvancedPermsClaim": "",
+        "authOpenIDSamplePermissions": "{\n  \"canDownload\": false,\n  \"canUpload\": false,\n  \"canDelete\": false,\n  \"canUpdate\": false,\n  \"canAccessExplicitContent\": false,\n  \"canAccessAllLibraries\": false,\n  \"canAccessAllTags\": false,\n  \"canCreateEReader\": false,\n  \"tagsAreDenylist\": false,\n  \"allowedLibraries\": [\n    \"<uuid-1>\",\n    \"<uuid-2>\"\n  ],\n  \"allowedTags\": [\n    \"ExampleTag\",\n    \"AnotherTag\",\n    \"ThirdTag\"\n  ]\n}"
+      }
+    },
+    "emitted": []
+  },
+  "MiscController (characterization) > auth settings > PATCH changes strings, booleans and sanitizes the login message > empty string: null except subfolder": {
+    "res": {
+      "status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8"
+      },
+      "body": {
+        "updated": true,
+        "serverSettings": {
+          "id": "server-settings",
+          "scannerFindCovers": false,
+          "scannerCoverProvider": "google",
+          "scannerParseSubtitle": false,
+          "scannerPreferMatchedMetadata": false,
+          "scannerDisableWatcher": false,
+          "storeCoverWithItem": false,
+          "storeMetadataWithItem": false,
+          "metadataFileFormat": "json",
+          "rateLimitLoginRequests": 10,
+          "rateLimitLoginWindow": 600000,
+          "allowIframe": false,
+          "backupPath": "<tmp>/metadata/backups",
+          "backupSchedule": false,
+          "backupsToKeep": 2,
+          "maxBackupSize": 1,
+          "loggerDailyLogsToKeep": 7,
+          "loggerScannerLogsToKeep": 2,
+          "homeBookshelfView": 1,
+          "bookshelfView": 1,
+          "podcastEpisodeSchedule": "0 * * * *",
+          "sortingIgnorePrefix": false,
+          "sortingPrefixes": [
+            "the",
+            "a"
+          ],
+          "chromecastEnabled": false,
+          "dateFormat": "MM/dd/yyyy",
+          "timeFormat": "HH:mm",
+          "language": "en-us",
+          "allowedOrigins": [],
+          "logLevel": 2,
+          "authLoginCustomMessage": null,
+          "authActiveAuthMethods": [
+            "local"
+          ],
+          "authOpenIDIssuerURL": null,
+          "authOpenIDAuthorizationURL": null,
+          "authOpenIDTokenURL": null,
+          "authOpenIDUserInfoURL": null,
+          "authOpenIDJwksURL": null,
+          "authOpenIDLogoutURL": null,
+          "authOpenIDTokenSigningAlgorithm": "RS256",
+          "authOpenIDButtonText": "SSO",
+          "authOpenIDAutoLaunch": true,
+          "authOpenIDAutoRegister": true,
+          "authOpenIDMatchExistingBy": "email",
+          "authOpenIDSubfolderForRedirectURLs": ""
+        }
+      }
+    },
+    "emitted": []
+  },
+  "MiscController (characterization) > auth settings > PATCH changes strings, booleans and sanitizes the login message > login message is sanitized": {
+    "res": {
+      "status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8"
+      },
+      "body": {
+        "updated": true,
+        "serverSettings": {
+          "id": "server-settings",
+          "scannerFindCovers": false,
+          "scannerCoverProvider": "google",
+          "scannerParseSubtitle": false,
+          "scannerPreferMatchedMetadata": false,
+          "scannerDisableWatcher": false,
+          "storeCoverWithItem": false,
+          "storeMetadataWithItem": false,
+          "metadataFileFormat": "json",
+          "rateLimitLoginRequests": 10,
+          "rateLimitLoginWindow": 600000,
+          "allowIframe": false,
+          "backupPath": "<tmp>/metadata/backups",
+          "backupSchedule": false,
+          "backupsToKeep": 2,
+          "maxBackupSize": 1,
+          "loggerDailyLogsToKeep": 7,
+          "loggerScannerLogsToKeep": 2,
+          "homeBookshelfView": 1,
+          "bookshelfView": 1,
+          "podcastEpisodeSchedule": "0 * * * *",
+          "sortingIgnorePrefix": false,
+          "sortingPrefixes": [
+            "the",
+            "a"
+          ],
+          "chromecastEnabled": false,
+          "dateFormat": "MM/dd/yyyy",
+          "timeFormat": "HH:mm",
+          "language": "en-us",
+          "allowedOrigins": [],
+          "logLevel": 2,
+          "authLoginCustomMessage": "<b>Hello</b>",
+          "authActiveAuthMethods": [
+            "local"
+          ],
+          "authOpenIDIssuerURL": "https://issuer.example",
+          "authOpenIDAuthorizationURL": null,
+          "authOpenIDTokenURL": null,
+          "authOpenIDUserInfoURL": null,
+          "authOpenIDJwksURL": null,
+          "authOpenIDLogoutURL": null,
+          "authOpenIDTokenSigningAlgorithm": "RS256",
+          "authOpenIDButtonText": "SSO",
+          "authOpenIDAutoLaunch": true,
+          "authOpenIDAutoRegister": true,
+          "authOpenIDMatchExistingBy": "email",
+          "authOpenIDSubfolderForRedirectURLs": "/abs"
+        }
+      }
+    },
+    "emitted": []
+  },
+  "MiscController (characterization) > auth settings > PATCH changes strings, booleans and sanitizes the login message > message that sanitizes to empty becomes null": {
+    "res": {
+      "status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8"
+      },
+      "body": {
+        "updated": true,
+        "serverSettings": {
+          "id": "server-settings",
+          "scannerFindCovers": false,
+          "scannerCoverProvider": "google",
+          "scannerParseSubtitle": false,
+          "scannerPreferMatchedMetadata": false,
+          "scannerDisableWatcher": false,
+          "storeCoverWithItem": false,
+          "storeMetadataWithItem": false,
+          "metadataFileFormat": "json",
+          "rateLimitLoginRequests": 10,
+          "rateLimitLoginWindow": 600000,
+          "allowIframe": false,
+          "backupPath": "<tmp>/metadata/backups",
+          "backupSchedule": false,
+          "backupsToKeep": 2,
+          "maxBackupSize": 1,
+          "loggerDailyLogsToKeep": 7,
+          "loggerScannerLogsToKeep": 2,
+          "homeBookshelfView": 1,
+          "bookshelfView": 1,
+          "podcastEpisodeSchedule": "0 * * * *",
+          "sortingIgnorePrefix": false,
+          "sortingPrefixes": [
+            "the",
+            "a"
+          ],
+          "chromecastEnabled": false,
+          "dateFormat": "MM/dd/yyyy",
+          "timeFormat": "HH:mm",
+          "language": "en-us",
+          "allowedOrigins": [],
+          "logLevel": 2,
+          "authLoginCustomMessage": null,
+          "authActiveAuthMethods": [
+            "local"
+          ],
+          "authOpenIDIssuerURL": "https://issuer.example",
+          "authOpenIDAuthorizationURL": null,
+          "authOpenIDTokenURL": null,
+          "authOpenIDUserInfoURL": null,
+          "authOpenIDJwksURL": null,
+          "authOpenIDLogoutURL": null,
+          "authOpenIDTokenSigningAlgorithm": "RS256",
+          "authOpenIDButtonText": "SSO",
+          "authOpenIDAutoLaunch": true,
+          "authOpenIDAutoRegister": true,
+          "authOpenIDMatchExistingBy": "email",
+          "authOpenIDSubfolderForRedirectURLs": "/abs"
+        }
+      }
+    },
+    "emitted": []
+  },
+  "MiscController (characterization) > auth settings > PATCH changes strings, booleans and sanitizes the login message > null on null is no change": {
+    "res": {
+      "status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8"
+      },
+      "body": {
+        "updated": false,
+        "serverSettings": {
+          "id": "server-settings",
+          "scannerFindCovers": false,
+          "scannerCoverProvider": "google",
+          "scannerParseSubtitle": false,
+          "scannerPreferMatchedMetadata": false,
+          "scannerDisableWatcher": false,
+          "storeCoverWithItem": false,
+          "storeMetadataWithItem": false,
+          "metadataFileFormat": "json",
+          "rateLimitLoginRequests": 10,
+          "rateLimitLoginWindow": 600000,
+          "allowIframe": false,
+          "backupPath": "<tmp>/metadata/backups",
+          "backupSchedule": false,
+          "backupsToKeep": 2,
+          "maxBackupSize": 1,
+          "loggerDailyLogsToKeep": 7,
+          "loggerScannerLogsToKeep": 2,
+          "homeBookshelfView": 1,
+          "bookshelfView": 1,
+          "podcastEpisodeSchedule": "0 * * * *",
+          "sortingIgnorePrefix": false,
+          "sortingPrefixes": [
+            "the",
+            "a"
+          ],
+          "chromecastEnabled": false,
+          "dateFormat": "MM/dd/yyyy",
+          "timeFormat": "HH:mm",
+          "language": "en-us",
+          "allowedOrigins": [],
+          "logLevel": 2,
+          "authLoginCustomMessage": null,
+          "authActiveAuthMethods": [
+            "local"
+          ],
+          "authOpenIDIssuerURL": null,
+          "authOpenIDAuthorizationURL": null,
+          "authOpenIDTokenURL": null,
+          "authOpenIDUserInfoURL": null,
+          "authOpenIDJwksURL": null,
+          "authOpenIDLogoutURL": null,
+          "authOpenIDTokenSigningAlgorithm": "RS256",
+          "authOpenIDButtonText": "SSO",
+          "authOpenIDAutoLaunch": true,
+          "authOpenIDAutoRegister": true,
+          "authOpenIDMatchExistingBy": "email",
+          "authOpenIDSubfolderForRedirectURLs": ""
+        }
+      }
+    },
+    "emitted": []
+  },
+  "MiscController (characterization) > auth settings > PATCH changes strings, booleans and sanitizes the login message > set openid values": {
+    "res": {
+      "status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8"
+      },
+      "body": {
+        "updated": true,
+        "serverSettings": {
+          "id": "server-settings",
+          "scannerFindCovers": false,
+          "scannerCoverProvider": "google",
+          "scannerParseSubtitle": false,
+          "scannerPreferMatchedMetadata": false,
+          "scannerDisableWatcher": false,
+          "storeCoverWithItem": false,
+          "storeMetadataWithItem": false,
+          "metadataFileFormat": "json",
+          "rateLimitLoginRequests": 10,
+          "rateLimitLoginWindow": 600000,
+          "allowIframe": false,
+          "backupPath": "<tmp>/metadata/backups",
+          "backupSchedule": false,
+          "backupsToKeep": 2,
+          "maxBackupSize": 1,
+          "loggerDailyLogsToKeep": 7,
+          "loggerScannerLogsToKeep": 2,
+          "homeBookshelfView": 1,
+          "bookshelfView": 1,
+          "podcastEpisodeSchedule": "0 * * * *",
+          "sortingIgnorePrefix": false,
+          "sortingPrefixes": [
+            "the",
+            "a"
+          ],
+          "chromecastEnabled": false,
+          "dateFormat": "MM/dd/yyyy",
+          "timeFormat": "HH:mm",
+          "language": "en-us",
+          "allowedOrigins": [],
+          "logLevel": 2,
+          "authLoginCustomMessage": null,
+          "authActiveAuthMethods": [
+            "local"
+          ],
+          "authOpenIDIssuerURL": "https://issuer.example",
+          "authOpenIDAuthorizationURL": null,
+          "authOpenIDTokenURL": null,
+          "authOpenIDUserInfoURL": null,
+          "authOpenIDJwksURL": null,
+          "authOpenIDLogoutURL": null,
+          "authOpenIDTokenSigningAlgorithm": "RS256",
+          "authOpenIDButtonText": "SSO",
+          "authOpenIDAutoLaunch": true,
+          "authOpenIDAutoRegister": true,
+          "authOpenIDMatchExistingBy": "email",
+          "authOpenIDSubfolderForRedirectURLs": "/abs"
+        }
+      }
+    },
+    "emitted": []
+  },
+  "MiscController (characterization) > auth settings > PATCH changes strings, booleans and sanitizes the login message > settings after": {
+    "res": {
+      "status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8"
+      },
+      "body": {
+        "authLoginCustomMessage": null,
+        "authActiveAuthMethods": [
+          "local"
+        ],
+        "authOpenIDIssuerURL": null,
+        "authOpenIDAuthorizationURL": null,
+        "authOpenIDTokenURL": null,
+        "authOpenIDUserInfoURL": null,
+        "authOpenIDJwksURL": null,
+        "authOpenIDLogoutURL": null,
+        "authOpenIDClientID": "cid",
+        "authOpenIDClientSecret": "sec",
+        "authOpenIDTokenSigningAlgorithm": "RS256",
+        "authOpenIDButtonText": "SSO",
+        "authOpenIDAutoLaunch": true,
+        "authOpenIDAutoRegister": true,
+        "authOpenIDMatchExistingBy": "email",
+        "authOpenIDMobileRedirectURIs": [
+          "audiobookshelf://oauth"
+        ],
+        "authOpenIDGroupClaim": "",
+        "authOpenIDAdvancedPermsClaim": "",
+        "authOpenIDSubfolderForRedirectURLs": "",
+        "authOpenIDSamplePermissions": "{\n  \"canDownload\": false,\n  \"canUpload\": false,\n  \"canDelete\": false,\n  \"canUpdate\": false,\n  \"canAccessExplicitContent\": false,\n  \"canAccessAllLibraries\": false,\n  \"canAccessAllTags\": false,\n  \"canCreateEReader\": false,\n  \"tagsAreDenylist\": false,\n  \"allowedLibraries\": [\n    \"<uuid-1>\",\n    \"<uuid-2>\"\n  ],\n  \"allowedTags\": [\n    \"ExampleTag\",\n    \"AnotherTag\",\n    \"ThirdTag\"\n  ]\n}"
+      }
+    },
+    "emitted": []
+  },
+  "MiscController (characterization) > auth settings > PATCH ignores wrongly typed values": {
+    "res": {
+      "status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8"
+      },
+      "body": {
+        "updated": false,
+        "serverSettings": {
+          "id": "server-settings",
+          "scannerFindCovers": false,
+          "scannerCoverProvider": "google",
+          "scannerParseSubtitle": false,
+          "scannerPreferMatchedMetadata": false,
+          "scannerDisableWatcher": false,
+          "storeCoverWithItem": false,
+          "storeMetadataWithItem": false,
+          "metadataFileFormat": "json",
+          "rateLimitLoginRequests": 10,
+          "rateLimitLoginWindow": 600000,
+          "allowIframe": false,
+          "backupPath": "<tmp>/metadata/backups",
+          "backupSchedule": false,
+          "backupsToKeep": 2,
+          "maxBackupSize": 1,
+          "loggerDailyLogsToKeep": 7,
+          "loggerScannerLogsToKeep": 2,
+          "homeBookshelfView": 1,
+          "bookshelfView": 1,
+          "podcastEpisodeSchedule": "0 * * * *",
+          "sortingIgnorePrefix": false,
+          "sortingPrefixes": [
+            "the",
+            "a"
+          ],
+          "chromecastEnabled": false,
+          "dateFormat": "MM/dd/yyyy",
+          "timeFormat": "HH:mm",
+          "language": "en-us",
+          "allowedOrigins": [],
+          "logLevel": 2,
+          "authLoginCustomMessage": null,
+          "authActiveAuthMethods": [
+            "local"
+          ],
+          "authOpenIDIssuerURL": null,
+          "authOpenIDAuthorizationURL": null,
+          "authOpenIDTokenURL": null,
+          "authOpenIDUserInfoURL": null,
+          "authOpenIDJwksURL": null,
+          "authOpenIDLogoutURL": null,
+          "authOpenIDTokenSigningAlgorithm": "RS256",
+          "authOpenIDButtonText": "Login with OpenId",
+          "authOpenIDAutoLaunch": false,
+          "authOpenIDAutoRegister": false,
+          "authOpenIDMatchExistingBy": null
+        }
+      }
+    },
+    "emitted": []
+  },
+  "MiscController (characterization) > auth settings > PATCH persists changes": {
+    "text": "Persisted",
+    "uris": [
+      "abs://cb"
+    ]
+  },
+  "MiscController (characterization) > auth settings > PATCH switches auth methods and tells the auth manager > add openid, drop bogus": {
+    "res": {
+      "status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8"
+      },
+      "body": {
+        "updated": true,
+        "serverSettings": {
+          "id": "server-settings",
+          "scannerFindCovers": false,
+          "scannerCoverProvider": "google",
+          "scannerParseSubtitle": false,
+          "scannerPreferMatchedMetadata": false,
+          "scannerDisableWatcher": false,
+          "storeCoverWithItem": false,
+          "storeMetadataWithItem": false,
+          "metadataFileFormat": "json",
+          "rateLimitLoginRequests": 10,
+          "rateLimitLoginWindow": 600000,
+          "allowIframe": false,
+          "backupPath": "<tmp>/metadata/backups",
+          "backupSchedule": false,
+          "backupsToKeep": 2,
+          "maxBackupSize": 1,
+          "loggerDailyLogsToKeep": 7,
+          "loggerScannerLogsToKeep": 2,
+          "homeBookshelfView": 1,
+          "bookshelfView": 1,
+          "podcastEpisodeSchedule": "0 * * * *",
+          "sortingIgnorePrefix": false,
+          "sortingPrefixes": [
+            "the",
+            "a"
+          ],
+          "chromecastEnabled": false,
+          "dateFormat": "MM/dd/yyyy",
+          "timeFormat": "HH:mm",
+          "language": "en-us",
+          "allowedOrigins": [],
+          "logLevel": 2,
+          "authLoginCustomMessage": null,
+          "authActiveAuthMethods": [
+            "local",
+            "openid"
+          ],
+          "authOpenIDIssuerURL": null,
+          "authOpenIDAuthorizationURL": null,
+          "authOpenIDTokenURL": null,
+          "authOpenIDUserInfoURL": null,
+          "authOpenIDJwksURL": null,
+          "authOpenIDLogoutURL": null,
+          "authOpenIDTokenSigningAlgorithm": "RS256",
+          "authOpenIDButtonText": "Login with OpenId",
+          "authOpenIDAutoLaunch": false,
+          "authOpenIDAutoRegister": false,
+          "authOpenIDMatchExistingBy": null
+        }
+      }
+    },
+    "emitted": [],
+    "calls": [
+      {
+        "method": "auth.useAuthStrategy",
+        "args": [
+          "openid"
+        ]
+      }
+    ]
+  },
+  "MiscController (characterization) > auth settings > PATCH switches auth methods and tells the auth manager > back to local only": {
+    "res": {
+      "status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8"
+      },
+      "body": {
+        "updated": true,
+        "serverSettings": {
+          "id": "server-settings",
+          "scannerFindCovers": false,
+          "scannerCoverProvider": "google",
+          "scannerParseSubtitle": false,
+          "scannerPreferMatchedMetadata": false,
+          "scannerDisableWatcher": false,
+          "storeCoverWithItem": false,
+          "storeMetadataWithItem": false,
+          "metadataFileFormat": "json",
+          "rateLimitLoginRequests": 10,
+          "rateLimitLoginWindow": 600000,
+          "allowIframe": false,
+          "backupPath": "<tmp>/metadata/backups",
+          "backupSchedule": false,
+          "backupsToKeep": 2,
+          "maxBackupSize": 1,
+          "loggerDailyLogsToKeep": 7,
+          "loggerScannerLogsToKeep": 2,
+          "homeBookshelfView": 1,
+          "bookshelfView": 1,
+          "podcastEpisodeSchedule": "0 * * * *",
+          "sortingIgnorePrefix": false,
+          "sortingPrefixes": [
+            "the",
+            "a"
+          ],
+          "chromecastEnabled": false,
+          "dateFormat": "MM/dd/yyyy",
+          "timeFormat": "HH:mm",
+          "language": "en-us",
+          "allowedOrigins": [],
+          "logLevel": 2,
+          "authLoginCustomMessage": null,
+          "authActiveAuthMethods": [
+            "local"
+          ],
+          "authOpenIDIssuerURL": null,
+          "authOpenIDAuthorizationURL": null,
+          "authOpenIDTokenURL": null,
+          "authOpenIDUserInfoURL": null,
+          "authOpenIDJwksURL": null,
+          "authOpenIDLogoutURL": null,
+          "authOpenIDTokenSigningAlgorithm": "RS256",
+          "authOpenIDButtonText": "Login with OpenId",
+          "authOpenIDAutoLaunch": false,
+          "authOpenIDAutoRegister": false,
+          "authOpenIDMatchExistingBy": null
+        }
+      }
+    },
+    "emitted": [],
+    "calls": [
+      {
+        "method": "auth.useAuthStrategy",
+        "args": [
+          "local"
+        ]
+      },
+      {
+        "method": "auth.unuseAuthStrategy",
+        "args": [
+          "openid"
+        ]
+      }
+    ]
+  },
+  "MiscController (characterization) > auth settings > PATCH switches auth methods and tells the auth manager > empty list ignored": {
+    "res": {
+      "status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8"
+      },
+      "body": {
+        "updated": false,
+        "serverSettings": {
+          "id": "server-settings",
+          "scannerFindCovers": false,
+          "scannerCoverProvider": "google",
+          "scannerParseSubtitle": false,
+          "scannerPreferMatchedMetadata": false,
+          "scannerDisableWatcher": false,
+          "storeCoverWithItem": false,
+          "storeMetadataWithItem": false,
+          "metadataFileFormat": "json",
+          "rateLimitLoginRequests": 10,
+          "rateLimitLoginWindow": 600000,
+          "allowIframe": false,
+          "backupPath": "<tmp>/metadata/backups",
+          "backupSchedule": false,
+          "backupsToKeep": 2,
+          "maxBackupSize": 1,
+          "loggerDailyLogsToKeep": 7,
+          "loggerScannerLogsToKeep": 2,
+          "homeBookshelfView": 1,
+          "bookshelfView": 1,
+          "podcastEpisodeSchedule": "0 * * * *",
+          "sortingIgnorePrefix": false,
+          "sortingPrefixes": [
+            "the",
+            "a"
+          ],
+          "chromecastEnabled": false,
+          "dateFormat": "MM/dd/yyyy",
+          "timeFormat": "HH:mm",
+          "language": "en-us",
+          "allowedOrigins": [],
+          "logLevel": 2,
+          "authLoginCustomMessage": null,
+          "authActiveAuthMethods": [
+            "local"
+          ],
+          "authOpenIDIssuerURL": null,
+          "authOpenIDAuthorizationURL": null,
+          "authOpenIDTokenURL": null,
+          "authOpenIDUserInfoURL": null,
+          "authOpenIDJwksURL": null,
+          "authOpenIDLogoutURL": null,
+          "authOpenIDTokenSigningAlgorithm": "RS256",
+          "authOpenIDButtonText": "Login with OpenId",
+          "authOpenIDAutoLaunch": false,
+          "authOpenIDAutoRegister": false,
+          "authOpenIDMatchExistingBy": null
+        }
+      }
+    },
+    "emitted": []
+  },
+  "MiscController (characterization) > auth settings > PATCH switches auth methods and tells the auth manager > not an array ignored": {
+    "res": {
+      "status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8"
+      },
+      "body": {
+        "updated": false,
+        "serverSettings": {
+          "id": "server-settings",
+          "scannerFindCovers": false,
+          "scannerCoverProvider": "google",
+          "scannerParseSubtitle": false,
+          "scannerPreferMatchedMetadata": false,
+          "scannerDisableWatcher": false,
+          "storeCoverWithItem": false,
+          "storeMetadataWithItem": false,
+          "metadataFileFormat": "json",
+          "rateLimitLoginRequests": 10,
+          "rateLimitLoginWindow": 600000,
+          "allowIframe": false,
+          "backupPath": "<tmp>/metadata/backups",
+          "backupSchedule": false,
+          "backupsToKeep": 2,
+          "maxBackupSize": 1,
+          "loggerDailyLogsToKeep": 7,
+          "loggerScannerLogsToKeep": 2,
+          "homeBookshelfView": 1,
+          "bookshelfView": 1,
+          "podcastEpisodeSchedule": "0 * * * *",
+          "sortingIgnorePrefix": false,
+          "sortingPrefixes": [
+            "the",
+            "a"
+          ],
+          "chromecastEnabled": false,
+          "dateFormat": "MM/dd/yyyy",
+          "timeFormat": "HH:mm",
+          "language": "en-us",
+          "allowedOrigins": [],
+          "logLevel": 2,
+          "authLoginCustomMessage": null,
+          "authActiveAuthMethods": [
+            "local"
+          ],
+          "authOpenIDIssuerURL": null,
+          "authOpenIDAuthorizationURL": null,
+          "authOpenIDTokenURL": null,
+          "authOpenIDUserInfoURL": null,
+          "authOpenIDJwksURL": null,
+          "authOpenIDLogoutURL": null,
+          "authOpenIDTokenSigningAlgorithm": "RS256",
+          "authOpenIDButtonText": "Login with OpenId",
+          "authOpenIDAutoLaunch": false,
+          "authOpenIDAutoRegister": false,
+          "authOpenIDMatchExistingBy": null
+        }
+      }
+    },
+    "emitted": []
+  },
+  "MiscController (characterization) > auth settings > PATCH switches auth methods and tells the auth manager > remove local": {
+    "res": {
+      "status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8"
+      },
+      "body": {
+        "updated": true,
+        "serverSettings": {
+          "id": "server-settings",
+          "scannerFindCovers": false,
+          "scannerCoverProvider": "google",
+          "scannerParseSubtitle": false,
+          "scannerPreferMatchedMetadata": false,
+          "scannerDisableWatcher": false,
+          "storeCoverWithItem": false,
+          "storeMetadataWithItem": false,
+          "metadataFileFormat": "json",
+          "rateLimitLoginRequests": 10,
+          "rateLimitLoginWindow": 600000,
+          "allowIframe": false,
+          "backupPath": "<tmp>/metadata/backups",
+          "backupSchedule": false,
+          "backupsToKeep": 2,
+          "maxBackupSize": 1,
+          "loggerDailyLogsToKeep": 7,
+          "loggerScannerLogsToKeep": 2,
+          "homeBookshelfView": 1,
+          "bookshelfView": 1,
+          "podcastEpisodeSchedule": "0 * * * *",
+          "sortingIgnorePrefix": false,
+          "sortingPrefixes": [
+            "the",
+            "a"
+          ],
+          "chromecastEnabled": false,
+          "dateFormat": "MM/dd/yyyy",
+          "timeFormat": "HH:mm",
+          "language": "en-us",
+          "allowedOrigins": [],
+          "logLevel": 2,
+          "authLoginCustomMessage": null,
+          "authActiveAuthMethods": [
+            "openid"
+          ],
+          "authOpenIDIssuerURL": null,
+          "authOpenIDAuthorizationURL": null,
+          "authOpenIDTokenURL": null,
+          "authOpenIDUserInfoURL": null,
+          "authOpenIDJwksURL": null,
+          "authOpenIDLogoutURL": null,
+          "authOpenIDTokenSigningAlgorithm": "RS256",
+          "authOpenIDButtonText": "Login with OpenId",
+          "authOpenIDAutoLaunch": false,
+          "authOpenIDAutoRegister": false,
+          "authOpenIDMatchExistingBy": null
+        }
+      }
+    },
+    "emitted": [],
+    "calls": [
+      {
+        "method": "auth.unuseAuthStrategy",
+        "args": [
+          "local"
+        ]
+      }
+    ]
+  },
+  "MiscController (characterization) > auth settings > PATCH switches auth methods and tells the auth manager > same set in other order is no change": {
+    "res": {
+      "status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8"
+      },
+      "body": {
+        "updated": false,
+        "serverSettings": {
+          "id": "server-settings",
+          "scannerFindCovers": false,
+          "scannerCoverProvider": "google",
+          "scannerParseSubtitle": false,
+          "scannerPreferMatchedMetadata": false,
+          "scannerDisableWatcher": false,
+          "storeCoverWithItem": false,
+          "storeMetadataWithItem": false,
+          "metadataFileFormat": "json",
+          "rateLimitLoginRequests": 10,
+          "rateLimitLoginWindow": 600000,
+          "allowIframe": false,
+          "backupPath": "<tmp>/metadata/backups",
+          "backupSchedule": false,
+          "backupsToKeep": 2,
+          "maxBackupSize": 1,
+          "loggerDailyLogsToKeep": 7,
+          "loggerScannerLogsToKeep": 2,
+          "homeBookshelfView": 1,
+          "bookshelfView": 1,
+          "podcastEpisodeSchedule": "0 * * * *",
+          "sortingIgnorePrefix": false,
+          "sortingPrefixes": [
+            "the",
+            "a"
+          ],
+          "chromecastEnabled": false,
+          "dateFormat": "MM/dd/yyyy",
+          "timeFormat": "HH:mm",
+          "language": "en-us",
+          "allowedOrigins": [],
+          "logLevel": 2,
+          "authLoginCustomMessage": null,
+          "authActiveAuthMethods": [
+            "local",
+            "openid"
+          ],
+          "authOpenIDIssuerURL": null,
+          "authOpenIDAuthorizationURL": null,
+          "authOpenIDTokenURL": null,
+          "authOpenIDUserInfoURL": null,
+          "authOpenIDJwksURL": null,
+          "authOpenIDLogoutURL": null,
+          "authOpenIDTokenSigningAlgorithm": "RS256",
+          "authOpenIDButtonText": "Login with OpenId",
+          "authOpenIDAutoLaunch": false,
+          "authOpenIDAutoRegister": false,
+          "authOpenIDMatchExistingBy": null
+        }
+      }
+    },
+    "emitted": []
+  },
+  "MiscController (characterization) > auth settings > PATCH switches auth methods and tells the auth manager > unsupported only ignored": {
+    "res": {
+      "status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8"
+      },
+      "body": {
+        "updated": false,
+        "serverSettings": {
+          "id": "server-settings",
+          "scannerFindCovers": false,
+          "scannerCoverProvider": "google",
+          "scannerParseSubtitle": false,
+          "scannerPreferMatchedMetadata": false,
+          "scannerDisableWatcher": false,
+          "storeCoverWithItem": false,
+          "storeMetadataWithItem": false,
+          "metadataFileFormat": "json",
+          "rateLimitLoginRequests": 10,
+          "rateLimitLoginWindow": 600000,
+          "allowIframe": false,
+          "backupPath": "<tmp>/metadata/backups",
+          "backupSchedule": false,
+          "backupsToKeep": 2,
+          "maxBackupSize": 1,
+          "loggerDailyLogsToKeep": 7,
+          "loggerScannerLogsToKeep": 2,
+          "homeBookshelfView": 1,
+          "bookshelfView": 1,
+          "podcastEpisodeSchedule": "0 * * * *",
+          "sortingIgnorePrefix": false,
+          "sortingPrefixes": [
+            "the",
+            "a"
+          ],
+          "chromecastEnabled": false,
+          "dateFormat": "MM/dd/yyyy",
+          "timeFormat": "HH:mm",
+          "language": "en-us",
+          "allowedOrigins": [],
+          "logLevel": 2,
+          "authLoginCustomMessage": null,
+          "authActiveAuthMethods": [
+            "local"
+          ],
+          "authOpenIDIssuerURL": null,
+          "authOpenIDAuthorizationURL": null,
+          "authOpenIDTokenURL": null,
+          "authOpenIDUserInfoURL": null,
+          "authOpenIDJwksURL": null,
+          "authOpenIDLogoutURL": null,
+          "authOpenIDTokenSigningAlgorithm": "RS256",
+          "authOpenIDButtonText": "Login with OpenId",
+          "authOpenIDAutoLaunch": false,
+          "authOpenIDAutoRegister": false,
+          "authOpenIDMatchExistingBy": null
+        }
+      }
+    },
+    "emitted": []
+  },
+  "MiscController (characterization) > auth settings > PATCH validates mobile redirect URIs > bad uri": {
+    "res": {
+      "status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8"
+      },
+      "body": {
+        "updated": false,
+        "serverSettings": {
+          "id": "server-settings",
+          "scannerFindCovers": false,
+          "scannerCoverProvider": "google",
+          "scannerParseSubtitle": false,
+          "scannerPreferMatchedMetadata": false,
+          "scannerDisableWatcher": false,
+          "storeCoverWithItem": false,
+          "storeMetadataWithItem": false,
+          "metadataFileFormat": "json",
+          "rateLimitLoginRequests": 10,
+          "rateLimitLoginWindow": 600000,
+          "allowIframe": false,
+          "backupPath": "<tmp>/metadata/backups",
+          "backupSchedule": false,
+          "backupsToKeep": 2,
+          "maxBackupSize": 1,
+          "loggerDailyLogsToKeep": 7,
+          "loggerScannerLogsToKeep": 2,
+          "homeBookshelfView": 1,
+          "bookshelfView": 1,
+          "podcastEpisodeSchedule": "0 * * * *",
+          "sortingIgnorePrefix": false,
+          "sortingPrefixes": [
+            "the",
+            "a"
+          ],
+          "chromecastEnabled": false,
+          "dateFormat": "MM/dd/yyyy",
+          "timeFormat": "HH:mm",
+          "language": "en-us",
+          "allowedOrigins": [],
+          "logLevel": 2,
+          "authLoginCustomMessage": null,
+          "authActiveAuthMethods": [
+            "local"
+          ],
+          "authOpenIDIssuerURL": null,
+          "authOpenIDAuthorizationURL": null,
+          "authOpenIDTokenURL": null,
+          "authOpenIDUserInfoURL": null,
+          "authOpenIDJwksURL": null,
+          "authOpenIDLogoutURL": null,
+          "authOpenIDTokenSigningAlgorithm": "RS256",
+          "authOpenIDButtonText": "Login with OpenId",
+          "authOpenIDAutoLaunch": false,
+          "authOpenIDAutoRegister": false,
+          "authOpenIDMatchExistingBy": null
+        }
+      }
+    },
+    "emitted": []
+  },
+  "MiscController (characterization) > auth settings > PATCH validates mobile redirect URIs > empty array is valid and clears": {
+    "res": {
+      "status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8"
+      },
+      "body": {
+        "updated": true,
+        "serverSettings": {
+          "id": "server-settings",
+          "scannerFindCovers": false,
+          "scannerCoverProvider": "google",
+          "scannerParseSubtitle": false,
+          "scannerPreferMatchedMetadata": false,
+          "scannerDisableWatcher": false,
+          "storeCoverWithItem": false,
+          "storeMetadataWithItem": false,
+          "metadataFileFormat": "json",
+          "rateLimitLoginRequests": 10,
+          "rateLimitLoginWindow": 600000,
+          "allowIframe": false,
+          "backupPath": "<tmp>/metadata/backups",
+          "backupSchedule": false,
+          "backupsToKeep": 2,
+          "maxBackupSize": 1,
+          "loggerDailyLogsToKeep": 7,
+          "loggerScannerLogsToKeep": 2,
+          "homeBookshelfView": 1,
+          "bookshelfView": 1,
+          "podcastEpisodeSchedule": "0 * * * *",
+          "sortingIgnorePrefix": false,
+          "sortingPrefixes": [
+            "the",
+            "a"
+          ],
+          "chromecastEnabled": false,
+          "dateFormat": "MM/dd/yyyy",
+          "timeFormat": "HH:mm",
+          "language": "en-us",
+          "allowedOrigins": [],
+          "logLevel": 2,
+          "authLoginCustomMessage": null,
+          "authActiveAuthMethods": [
+            "local"
+          ],
+          "authOpenIDIssuerURL": null,
+          "authOpenIDAuthorizationURL": null,
+          "authOpenIDTokenURL": null,
+          "authOpenIDUserInfoURL": null,
+          "authOpenIDJwksURL": null,
+          "authOpenIDLogoutURL": null,
+          "authOpenIDTokenSigningAlgorithm": "RS256",
+          "authOpenIDButtonText": "Login with OpenId",
+          "authOpenIDAutoLaunch": false,
+          "authOpenIDAutoRegister": false,
+          "authOpenIDMatchExistingBy": null
+        }
+      }
+    },
+    "emitted": []
+  },
+  "MiscController (characterization) > auth settings > PATCH validates mobile redirect URIs > non string": {
+    "res": {
+      "status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8"
+      },
+      "body": {
+        "updated": false,
+        "serverSettings": {
+          "id": "server-settings",
+          "scannerFindCovers": false,
+          "scannerCoverProvider": "google",
+          "scannerParseSubtitle": false,
+          "scannerPreferMatchedMetadata": false,
+          "scannerDisableWatcher": false,
+          "storeCoverWithItem": false,
+          "storeMetadataWithItem": false,
+          "metadataFileFormat": "json",
+          "rateLimitLoginRequests": 10,
+          "rateLimitLoginWindow": 600000,
+          "allowIframe": false,
+          "backupPath": "<tmp>/metadata/backups",
+          "backupSchedule": false,
+          "backupsToKeep": 2,
+          "maxBackupSize": 1,
+          "loggerDailyLogsToKeep": 7,
+          "loggerScannerLogsToKeep": 2,
+          "homeBookshelfView": 1,
+          "bookshelfView": 1,
+          "podcastEpisodeSchedule": "0 * * * *",
+          "sortingIgnorePrefix": false,
+          "sortingPrefixes": [
+            "the",
+            "a"
+          ],
+          "chromecastEnabled": false,
+          "dateFormat": "MM/dd/yyyy",
+          "timeFormat": "HH:mm",
+          "language": "en-us",
+          "allowedOrigins": [],
+          "logLevel": 2,
+          "authLoginCustomMessage": null,
+          "authActiveAuthMethods": [
+            "local"
+          ],
+          "authOpenIDIssuerURL": null,
+          "authOpenIDAuthorizationURL": null,
+          "authOpenIDTokenURL": null,
+          "authOpenIDUserInfoURL": null,
+          "authOpenIDJwksURL": null,
+          "authOpenIDLogoutURL": null,
+          "authOpenIDTokenSigningAlgorithm": "RS256",
+          "authOpenIDButtonText": "Login with OpenId",
+          "authOpenIDAutoLaunch": false,
+          "authOpenIDAutoRegister": false,
+          "authOpenIDMatchExistingBy": null
+        }
+      }
+    },
+    "emitted": []
+  },
+  "MiscController (characterization) > auth settings > PATCH validates mobile redirect URIs > not an array": {
+    "res": {
+      "status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8"
+      },
+      "body": {
+        "updated": false,
+        "serverSettings": {
+          "id": "server-settings",
+          "scannerFindCovers": false,
+          "scannerCoverProvider": "google",
+          "scannerParseSubtitle": false,
+          "scannerPreferMatchedMetadata": false,
+          "scannerDisableWatcher": false,
+          "storeCoverWithItem": false,
+          "storeMetadataWithItem": false,
+          "metadataFileFormat": "json",
+          "rateLimitLoginRequests": 10,
+          "rateLimitLoginWindow": 600000,
+          "allowIframe": false,
+          "backupPath": "<tmp>/metadata/backups",
+          "backupSchedule": false,
+          "backupsToKeep": 2,
+          "maxBackupSize": 1,
+          "loggerDailyLogsToKeep": 7,
+          "loggerScannerLogsToKeep": 2,
+          "homeBookshelfView": 1,
+          "bookshelfView": 1,
+          "podcastEpisodeSchedule": "0 * * * *",
+          "sortingIgnorePrefix": false,
+          "sortingPrefixes": [
+            "the",
+            "a"
+          ],
+          "chromecastEnabled": false,
+          "dateFormat": "MM/dd/yyyy",
+          "timeFormat": "HH:mm",
+          "language": "en-us",
+          "allowedOrigins": [],
+          "logLevel": 2,
+          "authLoginCustomMessage": null,
+          "authActiveAuthMethods": [
+            "local"
+          ],
+          "authOpenIDIssuerURL": null,
+          "authOpenIDAuthorizationURL": null,
+          "authOpenIDTokenURL": null,
+          "authOpenIDUserInfoURL": null,
+          "authOpenIDJwksURL": null,
+          "authOpenIDLogoutURL": null,
+          "authOpenIDTokenSigningAlgorithm": "RS256",
+          "authOpenIDButtonText": "Login with OpenId",
+          "authOpenIDAutoLaunch": false,
+          "authOpenIDAutoRegister": false,
+          "authOpenIDMatchExistingBy": null
+        }
+      }
+    },
+    "emitted": []
+  },
+  "MiscController (characterization) > auth settings > PATCH validates mobile redirect URIs > same uris other order are no change": {
+    "res": {
+      "status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8"
+      },
+      "body": {
+        "updated": false,
+        "serverSettings": {
+          "id": "server-settings",
+          "scannerFindCovers": false,
+          "scannerCoverProvider": "google",
+          "scannerParseSubtitle": false,
+          "scannerPreferMatchedMetadata": false,
+          "scannerDisableWatcher": false,
+          "storeCoverWithItem": false,
+          "storeMetadataWithItem": false,
+          "metadataFileFormat": "json",
+          "rateLimitLoginRequests": 10,
+          "rateLimitLoginWindow": 600000,
+          "allowIframe": false,
+          "backupPath": "<tmp>/metadata/backups",
+          "backupSchedule": false,
+          "backupsToKeep": 2,
+          "maxBackupSize": 1,
+          "loggerDailyLogsToKeep": 7,
+          "loggerScannerLogsToKeep": 2,
+          "homeBookshelfView": 1,
+          "bookshelfView": 1,
+          "podcastEpisodeSchedule": "0 * * * *",
+          "sortingIgnorePrefix": false,
+          "sortingPrefixes": [
+            "the",
+            "a"
+          ],
+          "chromecastEnabled": false,
+          "dateFormat": "MM/dd/yyyy",
+          "timeFormat": "HH:mm",
+          "language": "en-us",
+          "allowedOrigins": [],
+          "logLevel": 2,
+          "authLoginCustomMessage": null,
+          "authActiveAuthMethods": [
+            "local"
+          ],
+          "authOpenIDIssuerURL": null,
+          "authOpenIDAuthorizationURL": null,
+          "authOpenIDTokenURL": null,
+          "authOpenIDUserInfoURL": null,
+          "authOpenIDJwksURL": null,
+          "authOpenIDLogoutURL": null,
+          "authOpenIDTokenSigningAlgorithm": "RS256",
+          "authOpenIDButtonText": "Login with OpenId",
+          "authOpenIDAutoLaunch": false,
+          "authOpenIDAutoRegister": false,
+          "authOpenIDMatchExistingBy": null
+        }
+      }
+    },
+    "emitted": []
+  },
+  "MiscController (characterization) > auth settings > PATCH validates mobile redirect URIs > valid uris": {
+    "res": {
+      "status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8"
+      },
+      "body": {
+        "updated": true,
+        "serverSettings": {
+          "id": "server-settings",
+          "scannerFindCovers": false,
+          "scannerCoverProvider": "google",
+          "scannerParseSubtitle": false,
+          "scannerPreferMatchedMetadata": false,
+          "scannerDisableWatcher": false,
+          "storeCoverWithItem": false,
+          "storeMetadataWithItem": false,
+          "metadataFileFormat": "json",
+          "rateLimitLoginRequests": 10,
+          "rateLimitLoginWindow": 600000,
+          "allowIframe": false,
+          "backupPath": "<tmp>/metadata/backups",
+          "backupSchedule": false,
+          "backupsToKeep": 2,
+          "maxBackupSize": 1,
+          "loggerDailyLogsToKeep": 7,
+          "loggerScannerLogsToKeep": 2,
+          "homeBookshelfView": 1,
+          "bookshelfView": 1,
+          "podcastEpisodeSchedule": "0 * * * *",
+          "sortingIgnorePrefix": false,
+          "sortingPrefixes": [
+            "the",
+            "a"
+          ],
+          "chromecastEnabled": false,
+          "dateFormat": "MM/dd/yyyy",
+          "timeFormat": "HH:mm",
+          "language": "en-us",
+          "allowedOrigins": [],
+          "logLevel": 2,
+          "authLoginCustomMessage": null,
+          "authActiveAuthMethods": [
+            "local"
+          ],
+          "authOpenIDIssuerURL": null,
+          "authOpenIDAuthorizationURL": null,
+          "authOpenIDTokenURL": null,
+          "authOpenIDUserInfoURL": null,
+          "authOpenIDJwksURL": null,
+          "authOpenIDLogoutURL": null,
+          "authOpenIDTokenSigningAlgorithm": "RS256",
+          "authOpenIDButtonText": "Login with OpenId",
+          "authOpenIDAutoLaunch": false,
+          "authOpenIDAutoRegister": false,
+          "authOpenIDMatchExistingBy": null
+        }
+      }
+    },
+    "emitted": []
+  },
+  "MiscController (characterization) > auth settings > PATCH validates mobile redirect URIs > wildcard alone": {
+    "res": {
+      "status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8"
+      },
+      "body": {
+        "updated": true,
+        "serverSettings": {
+          "id": "server-settings",
+          "scannerFindCovers": false,
+          "scannerCoverProvider": "google",
+          "scannerParseSubtitle": false,
+          "scannerPreferMatchedMetadata": false,
+          "scannerDisableWatcher": false,
+          "storeCoverWithItem": false,
+          "storeMetadataWithItem": false,
+          "metadataFileFormat": "json",
+          "rateLimitLoginRequests": 10,
+          "rateLimitLoginWindow": 600000,
+          "allowIframe": false,
+          "backupPath": "<tmp>/metadata/backups",
+          "backupSchedule": false,
+          "backupsToKeep": 2,
+          "maxBackupSize": 1,
+          "loggerDailyLogsToKeep": 7,
+          "loggerScannerLogsToKeep": 2,
+          "homeBookshelfView": 1,
+          "bookshelfView": 1,
+          "podcastEpisodeSchedule": "0 * * * *",
+          "sortingIgnorePrefix": false,
+          "sortingPrefixes": [
+            "the",
+            "a"
+          ],
+          "chromecastEnabled": false,
+          "dateFormat": "MM/dd/yyyy",
+          "timeFormat": "HH:mm",
+          "language": "en-us",
+          "allowedOrigins": [],
+          "logLevel": 2,
+          "authLoginCustomMessage": null,
+          "authActiveAuthMethods": [
+            "local"
+          ],
+          "authOpenIDIssuerURL": null,
+          "authOpenIDAuthorizationURL": null,
+          "authOpenIDTokenURL": null,
+          "authOpenIDUserInfoURL": null,
+          "authOpenIDJwksURL": null,
+          "authOpenIDLogoutURL": null,
+          "authOpenIDTokenSigningAlgorithm": "RS256",
+          "authOpenIDButtonText": "Login with OpenId",
+          "authOpenIDAutoLaunch": false,
+          "authOpenIDAutoRegister": false,
+          "authOpenIDMatchExistingBy": null
+        }
+      }
+    },
+    "emitted": []
+  },
+  "MiscController (characterization) > auth settings > PATCH validates mobile redirect URIs > wildcard mixed with others": {
+    "res": {
+      "status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8"
+      },
+      "body": {
+        "updated": false,
+        "serverSettings": {
+          "id": "server-settings",
+          "scannerFindCovers": false,
+          "scannerCoverProvider": "google",
+          "scannerParseSubtitle": false,
+          "scannerPreferMatchedMetadata": false,
+          "scannerDisableWatcher": false,
+          "storeCoverWithItem": false,
+          "storeMetadataWithItem": false,
+          "metadataFileFormat": "json",
+          "rateLimitLoginRequests": 10,
+          "rateLimitLoginWindow": 600000,
+          "allowIframe": false,
+          "backupPath": "<tmp>/metadata/backups",
+          "backupSchedule": false,
+          "backupsToKeep": 2,
+          "maxBackupSize": 1,
+          "loggerDailyLogsToKeep": 7,
+          "loggerScannerLogsToKeep": 2,
+          "homeBookshelfView": 1,
+          "bookshelfView": 1,
+          "podcastEpisodeSchedule": "0 * * * *",
+          "sortingIgnorePrefix": false,
+          "sortingPrefixes": [
+            "the",
+            "a"
+          ],
+          "chromecastEnabled": false,
+          "dateFormat": "MM/dd/yyyy",
+          "timeFormat": "HH:mm",
+          "language": "en-us",
+          "allowedOrigins": [],
+          "logLevel": 2,
+          "authLoginCustomMessage": null,
+          "authActiveAuthMethods": [
+            "local"
+          ],
+          "authOpenIDIssuerURL": null,
+          "authOpenIDAuthorizationURL": null,
+          "authOpenIDTokenURL": null,
+          "authOpenIDUserInfoURL": null,
+          "authOpenIDJwksURL": null,
+          "authOpenIDLogoutURL": null,
+          "authOpenIDTokenSigningAlgorithm": "RS256",
+          "authOpenIDButtonText": "Login with OpenId",
+          "authOpenIDAutoLaunch": false,
+          "authOpenIDAutoRegister": false,
+          "authOpenIDMatchExistingBy": null
+        }
+      }
+    },
+    "emitted": []
+  },
+  "MiscController (characterization) > auth settings > PATCH validates the body > empty": {
+    "res": {
+      "status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8"
+      },
+      "body": {
+        "updated": false,
+        "serverSettings": {
+          "id": "server-settings",
+          "scannerFindCovers": false,
+          "scannerCoverProvider": "google",
+          "scannerParseSubtitle": false,
+          "scannerPreferMatchedMetadata": false,
+          "scannerDisableWatcher": false,
+          "storeCoverWithItem": false,
+          "storeMetadataWithItem": false,
+          "metadataFileFormat": "json",
+          "rateLimitLoginRequests": 10,
+          "rateLimitLoginWindow": 600000,
+          "allowIframe": false,
+          "backupPath": "<tmp>/metadata/backups",
+          "backupSchedule": false,
+          "backupsToKeep": 2,
+          "maxBackupSize": 1,
+          "loggerDailyLogsToKeep": 7,
+          "loggerScannerLogsToKeep": 2,
+          "homeBookshelfView": 1,
+          "bookshelfView": 1,
+          "podcastEpisodeSchedule": "0 * * * *",
+          "sortingIgnorePrefix": false,
+          "sortingPrefixes": [
+            "the",
+            "a"
+          ],
+          "chromecastEnabled": false,
+          "dateFormat": "MM/dd/yyyy",
+          "timeFormat": "HH:mm",
+          "language": "en-us",
+          "allowedOrigins": [],
+          "logLevel": 2,
+          "authLoginCustomMessage": null,
+          "authActiveAuthMethods": [
+            "local"
+          ],
+          "authOpenIDIssuerURL": null,
+          "authOpenIDAuthorizationURL": null,
+          "authOpenIDTokenURL": null,
+          "authOpenIDUserInfoURL": null,
+          "authOpenIDJwksURL": null,
+          "authOpenIDLogoutURL": null,
+          "authOpenIDTokenSigningAlgorithm": "RS256",
+          "authOpenIDButtonText": "Login with OpenId",
+          "authOpenIDAutoLaunch": false,
+          "authOpenIDAutoRegister": false,
+          "authOpenIDMatchExistingBy": null
+        }
+      }
+    },
+    "emitted": []
+  },
+  "MiscController (characterization) > auth settings > PATCH validates the body > string body is rejected by the json parser": {
+    "status": 400
+  },
+  "MiscController (characterization) > auth settings > PATCH validates the body > unknown key": {
+    "res": {
+      "status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8"
+      },
+      "body": {
+        "updated": false,
+        "serverSettings": {
+          "id": "server-settings",
+          "scannerFindCovers": false,
+          "scannerCoverProvider": "google",
+          "scannerParseSubtitle": false,
+          "scannerPreferMatchedMetadata": false,
+          "scannerDisableWatcher": false,
+          "storeCoverWithItem": false,
+          "storeMetadataWithItem": false,
+          "metadataFileFormat": "json",
+          "rateLimitLoginRequests": 10,
+          "rateLimitLoginWindow": 600000,
+          "allowIframe": false,
+          "backupPath": "<tmp>/metadata/backups",
+          "backupSchedule": false,
+          "backupsToKeep": 2,
+          "maxBackupSize": 1,
+          "loggerDailyLogsToKeep": 7,
+          "loggerScannerLogsToKeep": 2,
+          "homeBookshelfView": 1,
+          "bookshelfView": 1,
+          "podcastEpisodeSchedule": "0 * * * *",
+          "sortingIgnorePrefix": false,
+          "sortingPrefixes": [
+            "the",
+            "a"
+          ],
+          "chromecastEnabled": false,
+          "dateFormat": "MM/dd/yyyy",
+          "timeFormat": "HH:mm",
+          "language": "en-us",
+          "allowedOrigins": [],
+          "logLevel": 2,
+          "authLoginCustomMessage": null,
+          "authActiveAuthMethods": [
+            "local"
+          ],
+          "authOpenIDIssuerURL": null,
+          "authOpenIDAuthorizationURL": null,
+          "authOpenIDTokenURL": null,
+          "authOpenIDUserInfoURL": null,
+          "authOpenIDJwksURL": null,
+          "authOpenIDLogoutURL": null,
+          "authOpenIDTokenSigningAlgorithm": "RS256",
+          "authOpenIDButtonText": "Login with OpenId",
+          "authOpenIDAutoLaunch": false,
+          "authOpenIDAutoRegister": false,
+          "authOpenIDMatchExistingBy": null
+        }
+      }
+    },
+    "emitted": []
+  },
+  "MiscController (characterization) > genres > DELETE /api/genres/:genre removes a base64 encoded genre everywhere > after delete": {
+    "stored": {
+      "books": [
+        [
+          "Alpha",
+          [
+            "Fiction"
+          ]
+        ],
+        [
+          "Beta",
+          [
+            "Fiction"
+          ]
+        ],
+        [
+          "Gamma",
+          []
+        ]
+      ],
+      "podcasts": [
+        [
+          "Pod",
+          [
+            "Tech"
+          ]
+        ]
+      ]
+    },
+    "filter": {
+      "books": [
+        "Fiction"
+      ],
+      "pods": [
+        "Tech"
+      ]
+    }
+  },
+  "MiscController (characterization) > genres > DELETE /api/genres/:genre removes a base64 encoded genre everywhere > delete Drama": {
+    "res": {
+      "status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8"
+      },
+      "body": {
+        "numItemsUpdated": 2
+      }
+    },
+    "emitted": [
+      {
+        "method": "libraryItemEmitter",
+        "args": [
+          "item_updated",
+          {
+            "id": "<uuid-1>",
+            "ino": null,
+            "path": "/test/books/Beta",
+            "relPath": "Beta",
+            "mediaId": "<uuid-2>",
+            "mediaType": "book",
+            "isFile": null,
+            "isMissing": null,
+            "isInvalid": null,
+            "mtime": null,
+            "ctime": null,
+            "birthtime": null,
+            "size": null,
+            "lastScan": null,
+            "lastScanVersion": null,
+            "libraryFiles": [],
+            "extraData": null,
+            "title": null,
+            "titleIgnorePrefix": null,
+            "authorNamesFirstLast": null,
+            "authorNamesLastFirst": null,
+            "createdAt": "<iso-date>",
+            "updatedAt": "<iso-date>",
+            "libraryId": "<uuid-3>",
+            "libraryFolderId": "<uuid-4>"
+          }
+        ]
+      },
+      {
+        "method": "libraryItemEmitter",
+        "args": [
+          "item_updated",
+          {
+            "id": "<uuid-5>",
+            "ino": null,
+            "path": "/test/pods/Pod",
+            "relPath": "Pod",
+            "mediaId": "<uuid-6>",
+            "mediaType": "podcast",
+            "isFile": null,
+            "isMissing": null,
+            "isInvalid": null,
+            "mtime": null,
+            "ctime": null,
+            "birthtime": null,
+            "size": null,
+            "lastScan": null,
+            "lastScanVersion": null,
+            "libraryFiles": [],
+            "extraData": null,
+            "title": null,
+            "titleIgnorePrefix": null,
+            "authorNamesFirstLast": null,
+            "authorNamesLastFirst": null,
+            "createdAt": "<iso-date>",
+            "updatedAt": "<iso-date>",
+            "libraryId": "<uuid-7>",
+            "libraryFolderId": "<uuid-8>"
+          }
+        ]
+      }
+    ]
+  },
+  "MiscController (characterization) > genres > DELETE /api/genres/:genre removes a base64 encoded genre everywhere > unknown genre": {
+    "res": {
+      "status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8"
+      },
+      "body": {
+        "numItemsUpdated": 0
+      }
+    },
+    "emitted": []
+  },
+  "MiscController (characterization) > genres > GET /api/genres lists distinct genres in discovery order (not sorted) > admin": {
+    "res": {
+      "status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8"
+      },
+      "body": {
+        "genres": [
+          "Fiction",
+          "Drama",
+          "Tech"
+        ]
+      }
+    },
+    "emitted": []
+  },
+  "MiscController (characterization) > genres > GET /api/genres lists distinct genres in discovery order (not sorted) > none": {
+    "res": {
+      "status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8"
+      },
+      "body": {
+        "genres": []
+      }
+    },
+    "emitted": []
+  },
+  "MiscController (characterization) > genres > POST /api/genres/rename validates, renames and merges > after merge": {
+    "stored": {
+      "books": [
+        [
+          "Alpha",
+          [
+            "Fiction"
+          ]
+        ],
+        [
+          "Beta",
+          [
+            "Fiction"
+          ]
+        ],
+        [
+          "Gamma",
+          []
+        ]
+      ],
+      "podcasts": [
+        [
+          "Pod",
+          [
+            "Technology",
+            "Fiction"
+          ]
+        ]
+      ]
+    },
+    "filter": {
+      "books": [
+        "Fiction",
+        "Fiction"
+      ],
+      "pods": [
+        "Technology",
+        "Fiction"
+      ]
+    }
+  },
+  "MiscController (characterization) > genres > POST /api/genres/rename validates, renames and merges > after rename": {
+    "stored": {
+      "books": [
+        [
+          "Alpha",
+          [
+            "Fiction"
+          ]
+        ],
+        [
+          "Beta",
+          [
+            "Fiction",
+            "Drama"
+          ]
+        ],
+        [
+          "Gamma",
+          []
+        ]
+      ],
+      "podcasts": [
+        [
+          "Pod",
+          [
+            "Drama",
+            "Technology"
+          ]
+        ]
+      ]
+    },
+    "filter": {
+      "books": [
+        "Fiction",
+        "Drama"
+      ],
+      "pods": [
+        "Technology",
+        "Drama"
+      ]
+    }
+  },
+  "MiscController (characterization) > genres > POST /api/genres/rename validates, renames and merges > empty body": {
+    "res": {
+      "status": 400,
+      "headers": {
+        "content-type": "text/plain; charset=utf-8"
+      },
+      "body": "Bad Request"
+    },
+    "emitted": []
+  },
+  "MiscController (characterization) > genres > POST /api/genres/rename validates, renames and merges > merge": {
+    "res": {
+      "status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8"
+      },
+      "body": {
+        "genreMerged": true,
+        "numItemsUpdated": 2
+      }
+    },
+    "emitted": [
+      {
+        "method": "libraryItemEmitter",
+        "args": [
+          "item_updated",
+          {
+            "id": "<uuid-5>",
+            "ino": null,
+            "path": "/test/books/Beta",
+            "relPath": "Beta",
+            "mediaId": "<uuid-6>",
+            "mediaType": "book",
+            "isFile": null,
+            "isMissing": null,
+            "isInvalid": null,
+            "mtime": null,
+            "ctime": null,
+            "birthtime": null,
+            "size": null,
+            "lastScan": null,
+            "lastScanVersion": null,
+            "libraryFiles": [],
+            "extraData": null,
+            "title": null,
+            "titleIgnorePrefix": null,
+            "authorNamesFirstLast": null,
+            "authorNamesLastFirst": null,
+            "createdAt": "<iso-date>",
+            "updatedAt": "<iso-date>",
+            "libraryId": "<uuid-7>",
+            "libraryFolderId": "<uuid-8>"
+          }
+        ]
+      },
+      {
+        "method": "libraryItemEmitter",
+        "args": [
+          "item_updated",
+          {
+            "id": "<uuid-1>",
+            "ino": null,
+            "path": "/test/pods/Pod",
+            "relPath": "Pod",
+            "mediaId": "<uuid-2>",
+            "mediaType": "podcast",
+            "isFile": null,
+            "isMissing": null,
+            "isInvalid": null,
+            "mtime": null,
+            "ctime": null,
+            "birthtime": null,
+            "size": null,
+            "lastScan": null,
+            "lastScanVersion": null,
+            "libraryFiles": [],
+            "extraData": null,
+            "title": null,
+            "titleIgnorePrefix": null,
+            "authorNamesFirstLast": null,
+            "authorNamesLastFirst": null,
+            "createdAt": "<iso-date>",
+            "updatedAt": "<iso-date>",
+            "libraryId": "<uuid-3>",
+            "libraryFolderId": "<uuid-4>"
+          }
+        ]
+      }
+    ]
+  },
+  "MiscController (characterization) > genres > POST /api/genres/rename validates, renames and merges > no genre": {
+    "res": {
+      "status": 400,
+      "headers": {
+        "content-type": "text/plain; charset=utf-8"
+      },
+      "body": "Bad Request"
+    },
+    "emitted": []
+  },
+  "MiscController (characterization) > genres > POST /api/genres/rename validates, renames and merges > rename": {
+    "res": {
+      "status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8"
+      },
+      "body": {
+        "genreMerged": false,
+        "numItemsUpdated": 1
+      }
+    },
+    "emitted": [
+      {
+        "method": "libraryItemEmitter",
+        "args": [
+          "item_updated",
+          {
+            "id": "<uuid-1>",
+            "ino": null,
+            "path": "/test/pods/Pod",
+            "relPath": "Pod",
+            "mediaId": "<uuid-2>",
+            "mediaType": "podcast",
+            "isFile": null,
+            "isMissing": null,
+            "isInvalid": null,
+            "mtime": null,
+            "ctime": null,
+            "birthtime": null,
+            "size": null,
+            "lastScan": null,
+            "lastScanVersion": null,
+            "libraryFiles": [],
+            "extraData": null,
+            "title": null,
+            "titleIgnorePrefix": null,
+            "authorNamesFirstLast": null,
+            "authorNamesLastFirst": null,
+            "createdAt": "<iso-date>",
+            "updatedAt": "<iso-date>",
+            "libraryId": "<uuid-3>",
+            "libraryFolderId": "<uuid-4>"
+          }
+        ]
+      }
+    ]
+  },
+  "MiscController (characterization) > genres > POST /api/genres/rename validates, renames and merges > unknown genre": {
+    "res": {
+      "status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8"
+      },
+      "body": {
+        "genreMerged": false,
+        "numItemsUpdated": 0
+      }
+    },
+    "emitted": []
+  },
+  "MiscController (characterization) > permissions > anonymous requests get 401 on every route > DELETE /api/genres/abc": {
+    "res": {
+      "status": 401,
+      "headers": {
+        "content-type": "text/plain; charset=utf-8"
+      },
+      "body": "Unauthorized"
+    },
+    "emitted": []
+  },
+  "MiscController (characterization) > permissions > anonymous requests get 401 on every route > DELETE /api/tags/abc": {
+    "res": {
+      "status": 401,
+      "headers": {
+        "content-type": "text/plain; charset=utf-8"
+      },
+      "body": "Unauthorized"
+    },
+    "emitted": []
+  },
+  "MiscController (characterization) > permissions > anonymous requests get 401 on every route > GET /api/auth-settings": {
+    "res": {
+      "status": 401,
+      "headers": {
+        "content-type": "text/plain; charset=utf-8"
+      },
+      "body": "Unauthorized"
+    },
+    "emitted": []
+  },
+  "MiscController (characterization) > permissions > anonymous requests get 401 on every route > GET /api/genres": {
+    "res": {
+      "status": 401,
+      "headers": {
+        "content-type": "text/plain; charset=utf-8"
+      },
+      "body": "Unauthorized"
+    },
+    "emitted": []
+  },
+  "MiscController (characterization) > permissions > anonymous requests get 401 on every route > GET /api/logger-data": {
+    "res": {
+      "status": 401,
+      "headers": {
+        "content-type": "text/plain; charset=utf-8"
+      },
+      "body": "Unauthorized"
+    },
+    "emitted": []
+  },
+  "MiscController (characterization) > permissions > anonymous requests get 401 on every route > GET /api/tags": {
+    "res": {
+      "status": 401,
+      "headers": {
+        "content-type": "text/plain; charset=utf-8"
+      },
+      "body": "Unauthorized"
+    },
+    "emitted": []
+  },
+  "MiscController (characterization) > permissions > anonymous requests get 401 on every route > GET /api/tasks": {
+    "res": {
+      "status": 401,
+      "headers": {
+        "content-type": "text/plain; charset=utf-8"
+      },
+      "body": "Unauthorized"
+    },
+    "emitted": []
+  },
+  "MiscController (characterization) > permissions > anonymous requests get 401 on every route > PATCH /api/auth-settings": {
+    "res": {
+      "status": 401,
+      "headers": {
+        "content-type": "text/plain; charset=utf-8"
+      },
+      "body": "Unauthorized"
+    },
+    "emitted": []
+  },
+  "MiscController (characterization) > permissions > anonymous requests get 401 on every route > PATCH /api/settings": {
+    "res": {
+      "status": 401,
+      "headers": {
+        "content-type": "text/plain; charset=utf-8"
+      },
+      "body": "Unauthorized"
+    },
+    "emitted": []
+  },
+  "MiscController (characterization) > permissions > anonymous requests get 401 on every route > PATCH /api/sorting-prefixes": {
+    "res": {
+      "status": 401,
+      "headers": {
+        "content-type": "text/plain; charset=utf-8"
+      },
+      "body": "Unauthorized"
+    },
+    "emitted": []
+  },
+  "MiscController (characterization) > permissions > anonymous requests get 401 on every route > POST /api/authorize": {
+    "res": {
+      "status": 401,
+      "headers": {
+        "content-type": "text/plain; charset=utf-8"
+      },
+      "body": "Unauthorized"
+    },
+    "emitted": []
+  },
+  "MiscController (characterization) > permissions > anonymous requests get 401 on every route > POST /api/genres/rename": {
+    "res": {
+      "status": 401,
+      "headers": {
+        "content-type": "text/plain; charset=utf-8"
+      },
+      "body": "Unauthorized"
+    },
+    "emitted": []
+  },
+  "MiscController (characterization) > permissions > anonymous requests get 401 on every route > POST /api/tags/rename": {
+    "res": {
+      "status": 401,
+      "headers": {
+        "content-type": "text/plain; charset=utf-8"
+      },
+      "body": "Unauthorized"
+    },
+    "emitted": []
+  },
+  "MiscController (characterization) > permissions > anonymous requests get 401 on every route > POST /api/upload": {
+    "res": {
+      "status": 401,
+      "headers": {
+        "content-type": "text/plain; charset=utf-8"
+      },
+      "body": "Unauthorized"
+    },
+    "emitted": []
+  },
+  "MiscController (characterization) > permissions > anonymous requests get 401 on every route > POST /api/validate-cron": {
+    "res": {
+      "status": 401,
+      "headers": {
+        "content-type": "text/plain; charset=utf-8"
+      },
+      "body": "Unauthorized"
+    },
+    "emitted": []
+  },
+  "MiscController (characterization) > permissions > anonymous requests get 401 on every route > POST /api/watcher/update": {
+    "res": {
+      "status": 401,
+      "headers": {
+        "content-type": "text/plain; charset=utf-8"
+      },
+      "body": "Unauthorized"
+    },
+    "emitted": []
+  },
+  "MiscController (characterization) > permissions > user and guest are forbidden on admin-only routes > DELETE /api/genres/YQ%3D%3D guest": {
+    "res": {
+      "status": 403,
+      "headers": {
+        "content-type": "text/plain; charset=utf-8"
+      },
+      "body": "Forbidden"
+    },
+    "emitted": []
+  },
+  "MiscController (characterization) > permissions > user and guest are forbidden on admin-only routes > DELETE /api/genres/YQ%3D%3D user": {
+    "res": {
+      "status": 403,
+      "headers": {
+        "content-type": "text/plain; charset=utf-8"
+      },
+      "body": "Forbidden"
+    },
+    "emitted": []
+  },
+  "MiscController (characterization) > permissions > user and guest are forbidden on admin-only routes > DELETE /api/tags/YQ%3D%3D guest": {
+    "res": {
+      "status": 403,
+      "headers": {
+        "content-type": "text/plain; charset=utf-8"
+      },
+      "body": "Forbidden"
+    },
+    "emitted": []
+  },
+  "MiscController (characterization) > permissions > user and guest are forbidden on admin-only routes > DELETE /api/tags/YQ%3D%3D user": {
+    "res": {
+      "status": 403,
+      "headers": {
+        "content-type": "text/plain; charset=utf-8"
+      },
+      "body": "Forbidden"
+    },
+    "emitted": []
+  },
+  "MiscController (characterization) > permissions > user and guest are forbidden on admin-only routes > GET /api/auth-settings guest": {
+    "res": {
+      "status": 403,
+      "headers": {
+        "content-type": "text/plain; charset=utf-8"
+      },
+      "body": "Forbidden"
+    },
+    "emitted": []
+  },
+  "MiscController (characterization) > permissions > user and guest are forbidden on admin-only routes > GET /api/auth-settings user": {
+    "res": {
+      "status": 403,
+      "headers": {
+        "content-type": "text/plain; charset=utf-8"
+      },
+      "body": "Forbidden"
+    },
+    "emitted": []
+  },
+  "MiscController (characterization) > permissions > user and guest are forbidden on admin-only routes > GET /api/genres guest": {
+    "res": {
+      "status": 403,
+      "headers": {
+        "content-type": "text/plain; charset=utf-8"
+      },
+      "body": "Forbidden"
+    },
+    "emitted": []
+  },
+  "MiscController (characterization) > permissions > user and guest are forbidden on admin-only routes > GET /api/genres user": {
+    "res": {
+      "status": 403,
+      "headers": {
+        "content-type": "text/plain; charset=utf-8"
+      },
+      "body": "Forbidden"
+    },
+    "emitted": []
+  },
+  "MiscController (characterization) > permissions > user and guest are forbidden on admin-only routes > GET /api/logger-data guest": {
+    "res": {
+      "status": 403,
+      "headers": {
+        "content-type": "text/plain; charset=utf-8"
+      },
+      "body": "Forbidden"
+    },
+    "emitted": []
+  },
+  "MiscController (characterization) > permissions > user and guest are forbidden on admin-only routes > GET /api/logger-data user": {
+    "res": {
+      "status": 403,
+      "headers": {
+        "content-type": "text/plain; charset=utf-8"
+      },
+      "body": "Forbidden"
+    },
+    "emitted": []
+  },
+  "MiscController (characterization) > permissions > user and guest are forbidden on admin-only routes > GET /api/tags guest": {
+    "res": {
+      "status": 403,
+      "headers": {
+        "content-type": "text/plain; charset=utf-8"
+      },
+      "body": "Forbidden"
+    },
+    "emitted": []
+  },
+  "MiscController (characterization) > permissions > user and guest are forbidden on admin-only routes > GET /api/tags user": {
+    "res": {
+      "status": 403,
+      "headers": {
+        "content-type": "text/plain; charset=utf-8"
+      },
+      "body": "Forbidden"
+    },
+    "emitted": []
+  },
+  "MiscController (characterization) > permissions > user and guest are forbidden on admin-only routes > PATCH /api/auth-settings guest": {
+    "res": {
+      "status": 403,
+      "headers": {
+        "content-type": "text/plain; charset=utf-8"
+      },
+      "body": "Forbidden"
+    },
+    "emitted": []
+  },
+  "MiscController (characterization) > permissions > user and guest are forbidden on admin-only routes > PATCH /api/auth-settings user": {
+    "res": {
+      "status": 403,
+      "headers": {
+        "content-type": "text/plain; charset=utf-8"
+      },
+      "body": "Forbidden"
+    },
+    "emitted": []
+  },
+  "MiscController (characterization) > permissions > user and guest are forbidden on admin-only routes > PATCH /api/settings guest": {
+    "res": {
+      "status": 403,
+      "headers": {
+        "content-type": "text/plain; charset=utf-8"
+      },
+      "body": "Forbidden"
+    },
+    "emitted": []
+  },
+  "MiscController (characterization) > permissions > user and guest are forbidden on admin-only routes > PATCH /api/settings user": {
+    "res": {
+      "status": 403,
+      "headers": {
+        "content-type": "text/plain; charset=utf-8"
+      },
+      "body": "Forbidden"
+    },
+    "emitted": []
+  },
+  "MiscController (characterization) > permissions > user and guest are forbidden on admin-only routes > PATCH /api/sorting-prefixes guest": {
+    "res": {
+      "status": 403,
+      "headers": {
+        "content-type": "text/plain; charset=utf-8"
+      },
+      "body": "Forbidden"
+    },
+    "emitted": []
+  },
+  "MiscController (characterization) > permissions > user and guest are forbidden on admin-only routes > PATCH /api/sorting-prefixes user": {
+    "res": {
+      "status": 403,
+      "headers": {
+        "content-type": "text/plain; charset=utf-8"
+      },
+      "body": "Forbidden"
+    },
+    "emitted": []
+  },
+  "MiscController (characterization) > permissions > user and guest are forbidden on admin-only routes > POST /api/genres/rename guest": {
+    "res": {
+      "status": 403,
+      "headers": {
+        "content-type": "text/plain; charset=utf-8"
+      },
+      "body": "Forbidden"
+    },
+    "emitted": []
+  },
+  "MiscController (characterization) > permissions > user and guest are forbidden on admin-only routes > POST /api/genres/rename user": {
+    "res": {
+      "status": 403,
+      "headers": {
+        "content-type": "text/plain; charset=utf-8"
+      },
+      "body": "Forbidden"
+    },
+    "emitted": []
+  },
+  "MiscController (characterization) > permissions > user and guest are forbidden on admin-only routes > POST /api/tags/rename guest": {
+    "res": {
+      "status": 403,
+      "headers": {
+        "content-type": "text/plain; charset=utf-8"
+      },
+      "body": "Forbidden"
+    },
+    "emitted": []
+  },
+  "MiscController (characterization) > permissions > user and guest are forbidden on admin-only routes > POST /api/tags/rename user": {
+    "res": {
+      "status": 403,
+      "headers": {
+        "content-type": "text/plain; charset=utf-8"
+      },
+      "body": "Forbidden"
+    },
+    "emitted": []
+  },
+  "MiscController (characterization) > permissions > user and guest are forbidden on admin-only routes > POST /api/watcher/update guest": {
+    "res": {
+      "status": 403,
+      "headers": {
+        "content-type": "text/plain; charset=utf-8"
+      },
+      "body": "Forbidden"
+    },
+    "emitted": []
+  },
+  "MiscController (characterization) > permissions > user and guest are forbidden on admin-only routes > POST /api/watcher/update user": {
+    "res": {
+      "status": 403,
+      "headers": {
+        "content-type": "text/plain; charset=utf-8"
+      },
+      "body": "Forbidden"
+    },
+    "emitted": []
+  },
+  "MiscController (characterization) > tags > DELETE /api/tags/:tag removes a base64 encoded tag everywhere > after delete": {
+    "stored": {
+      "books": [
+        [
+          "Alpha",
+          [
+            "epic"
+          ]
+        ],
+        [
+          "Beta",
+          [
+            "sci-fi"
+          ]
+        ],
+        [
+          "Gamma",
+          []
+        ]
+      ],
+      "podcasts": [
+        [
+          "Pod",
+          [
+            "epic",
+            "Zebra"
+          ]
+        ]
+      ]
+    },
+    "filter": {
+      "books": [
+        "epic",
+        "sci-fi"
+      ],
+      "pods": [
+        "epic",
+        "Zebra"
+      ]
+    }
+  },
+  "MiscController (characterization) > tags > DELETE /api/tags/:tag removes a base64 encoded tag everywhere > delete Fantasy": {
+    "res": {
+      "status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8"
+      },
+      "body": {
+        "numItemsUpdated": 2
+      }
+    },
+    "emitted": [
+      {
+        "method": "libraryItemEmitter",
+        "args": [
+          "item_updated",
+          {
+            "id": "<uuid-1>",
+            "ino": null,
+            "path": "/test/books/Alpha",
+            "relPath": "Alpha",
+            "mediaId": "<uuid-2>",
+            "mediaType": "book",
+            "isFile": null,
+            "isMissing": null,
+            "isInvalid": null,
+            "mtime": null,
+            "ctime": null,
+            "birthtime": null,
+            "size": null,
+            "lastScan": null,
+            "lastScanVersion": null,
+            "libraryFiles": [],
+            "extraData": null,
+            "title": null,
+            "titleIgnorePrefix": null,
+            "authorNamesFirstLast": null,
+            "authorNamesLastFirst": null,
+            "createdAt": "<iso-date>",
+            "updatedAt": "<iso-date>",
+            "libraryId": "<uuid-3>",
+            "libraryFolderId": "<uuid-4>"
+          }
+        ]
+      },
+      {
+        "method": "libraryItemEmitter",
+        "args": [
+          "item_updated",
+          {
+            "id": "<uuid-5>",
+            "ino": null,
+            "path": "/test/books/Beta",
+            "relPath": "Beta",
+            "mediaId": "<uuid-6>",
+            "mediaType": "book",
+            "isFile": null,
+            "isMissing": null,
+            "isInvalid": null,
+            "mtime": null,
+            "ctime": null,
+            "birthtime": null,
+            "size": null,
+            "lastScan": null,
+            "lastScanVersion": null,
+            "libraryFiles": [],
+            "extraData": null,
+            "title": null,
+            "titleIgnorePrefix": null,
+            "authorNamesFirstLast": null,
+            "authorNamesLastFirst": null,
+            "createdAt": "<iso-date>",
+            "updatedAt": "<iso-date>",
+            "libraryId": "<uuid-3>",
+            "libraryFolderId": "<uuid-4>"
+          }
+        ]
+      }
+    ]
+  },
+  "MiscController (characterization) > tags > DELETE /api/tags/:tag removes a base64 encoded tag everywhere > delete epic (book and podcast)": {
+    "res": {
+      "status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8"
+      },
+      "body": {
+        "numItemsUpdated": 2
+      }
+    },
+    "emitted": [
+      {
+        "method": "libraryItemEmitter",
+        "args": [
+          "item_updated",
+          {
+            "id": "<uuid-1>",
+            "ino": null,
+            "path": "/test/books/Alpha",
+            "relPath": "Alpha",
+            "mediaId": "<uuid-2>",
+            "mediaType": "book",
+            "isFile": null,
+            "isMissing": null,
+            "isInvalid": null,
+            "mtime": null,
+            "ctime": null,
+            "birthtime": null,
+            "size": null,
+            "lastScan": null,
+            "lastScanVersion": null,
+            "libraryFiles": [],
+            "extraData": null,
+            "title": null,
+            "titleIgnorePrefix": null,
+            "authorNamesFirstLast": null,
+            "authorNamesLastFirst": null,
+            "createdAt": "<iso-date>",
+            "updatedAt": "<iso-date>",
+            "libraryId": "<uuid-3>",
+            "libraryFolderId": "<uuid-4>"
+          }
+        ]
+      },
+      {
+        "method": "libraryItemEmitter",
+        "args": [
+          "item_updated",
+          {
+            "id": "<uuid-7>",
+            "ino": null,
+            "path": "/test/pods/Pod",
+            "relPath": "Pod",
+            "mediaId": "<uuid-8>",
+            "mediaType": "podcast",
+            "isFile": null,
+            "isMissing": null,
+            "isInvalid": null,
+            "mtime": null,
+            "ctime": null,
+            "birthtime": null,
+            "size": null,
+            "lastScan": null,
+            "lastScanVersion": null,
+            "libraryFiles": [],
+            "extraData": null,
+            "title": null,
+            "titleIgnorePrefix": null,
+            "authorNamesFirstLast": null,
+            "authorNamesLastFirst": null,
+            "createdAt": "<iso-date>",
+            "updatedAt": "<iso-date>",
+            "libraryId": "<uuid-9>",
+            "libraryFolderId": "<uuid-10>"
+          }
+        ]
+      }
+    ]
+  },
+  "MiscController (characterization) > tags > DELETE /api/tags/:tag removes a base64 encoded tag everywhere > garbage parameter decodes to some other tag": {
+    "res": {
+      "status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8"
+      },
+      "body": {
+        "numItemsUpdated": 0
+      }
+    },
+    "emitted": []
+  },
+  "MiscController (characterization) > tags > DELETE /api/tags/:tag removes a base64 encoded tag everywhere > unknown tag": {
+    "res": {
+      "status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8"
+      },
+      "body": {
+        "numItemsUpdated": 0
+      }
+    },
+    "emitted": []
+  },
+  "MiscController (characterization) > tags > GET /api/tags is empty without tagged items": {
+    "res": {
+      "status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8"
+      },
+      "body": {
+        "tags": []
+      }
+    },
+    "emitted": []
+  },
+  "MiscController (characterization) > tags > GET /api/tags lists distinct tags sorted case-insensitively > admin": {
+    "res": {
+      "status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8"
+      },
+      "body": {
+        "tags": [
+          "epic",
+          "Fantasy",
+          "sci-fi",
+          "Zebra"
+        ]
+      }
+    },
+    "emitted": []
+  },
+  "MiscController (characterization) > tags > GET /api/tags lists distinct tags sorted case-insensitively > root": {
+    "res": {
+      "status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8"
+      },
+      "body": {
+        "tags": [
+          "epic",
+          "Fantasy",
+          "sci-fi",
+          "Zebra"
+        ]
+      }
+    },
+    "emitted": []
+  },
+  "MiscController (characterization) > tags > POST /api/tags/rename validates, renames and merges > after merge": {
+    "stored": {
+      "books": [
+        [
+          "Alpha",
+          [
+            "Fantasy"
+          ]
+        ],
+        [
+          "Beta",
+          [
+            "Fantasy",
+            "Science Fiction"
+          ]
+        ],
+        [
+          "Gamma",
+          []
+        ]
+      ],
+      "podcasts": [
+        [
+          "Pod",
+          [
+            "Zebra",
+            "Fantasy"
+          ]
+        ]
+      ]
+    },
+    "filter": {
+      "books": [
+        "Fantasy",
+        "Fantasy",
+        "Science Fiction"
+      ],
+      "pods": [
+        "Fantasy",
+        "Zebra"
+      ]
+    }
+  },
+  "MiscController (characterization) > tags > POST /api/tags/rename validates, renames and merges > after rename": {
+    "stored": {
+      "books": [
+        [
+          "Alpha",
+          [
+            "Fantasy",
+            "epic"
+          ]
+        ],
+        [
+          "Beta",
+          [
+            "Fantasy",
+            "Science Fiction"
+          ]
+        ],
+        [
+          "Gamma",
+          []
+        ]
+      ],
+      "podcasts": [
+        [
+          "Pod",
+          [
+            "epic",
+            "Zebra"
+          ]
+        ]
+      ]
+    },
+    "filter": {
+      "books": [
+        "Fantasy",
+        "epic",
+        "Science Fiction"
+      ],
+      "pods": [
+        "epic",
+        "Zebra"
+      ]
+    }
+  },
+  "MiscController (characterization) > tags > POST /api/tags/rename validates, renames and merges > empty body": {
+    "res": {
+      "status": 400,
+      "headers": {
+        "content-type": "text/plain; charset=utf-8"
+      },
+      "body": "Bad Request"
+    },
+    "emitted": []
+  },
+  "MiscController (characterization) > tags > POST /api/tags/rename validates, renames and merges > merge into existing (item and podcast)": {
+    "res": {
+      "status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8"
+      },
+      "body": {
+        "tagMerged": true,
+        "numItemsUpdated": 2
+      }
+    },
+    "emitted": [
+      {
+        "method": "libraryItemEmitter",
+        "args": [
+          "item_updated",
+          {
+            "id": "<uuid-5>",
+            "ino": null,
+            "path": "/test/books/Alpha",
+            "relPath": "Alpha",
+            "mediaId": "<uuid-6>",
+            "mediaType": "book",
+            "isFile": null,
+            "isMissing": null,
+            "isInvalid": null,
+            "mtime": null,
+            "ctime": null,
+            "birthtime": null,
+            "size": null,
+            "lastScan": null,
+            "lastScanVersion": null,
+            "libraryFiles": [],
+            "extraData": null,
+            "title": null,
+            "titleIgnorePrefix": null,
+            "authorNamesFirstLast": null,
+            "authorNamesLastFirst": null,
+            "createdAt": "<iso-date>",
+            "updatedAt": "<iso-date>",
+            "libraryId": "<uuid-3>",
+            "libraryFolderId": "<uuid-4>"
+          }
+        ]
+      },
+      {
+        "method": "libraryItemEmitter",
+        "args": [
+          "item_updated",
+          {
+            "id": "<uuid-7>",
+            "ino": null,
+            "path": "/test/pods/Pod",
+            "relPath": "Pod",
+            "mediaId": "<uuid-8>",
+            "mediaType": "podcast",
+            "isFile": null,
+            "isMissing": null,
+            "isInvalid": null,
+            "mtime": null,
+            "ctime": null,
+            "birthtime": null,
+            "size": null,
+            "lastScan": null,
+            "lastScanVersion": null,
+            "libraryFiles": [],
+            "extraData": null,
+            "title": null,
+            "titleIgnorePrefix": null,
+            "authorNamesFirstLast": null,
+            "authorNamesLastFirst": null,
+            "createdAt": "<iso-date>",
+            "updatedAt": "<iso-date>",
+            "libraryId": "<uuid-9>",
+            "libraryFolderId": "<uuid-10>"
+          }
+        ]
+      }
+    ]
+  },
+  "MiscController (characterization) > tags > POST /api/tags/rename validates, renames and merges > no new tag": {
+    "res": {
+      "status": 400,
+      "headers": {
+        "content-type": "text/plain; charset=utf-8"
+      },
+      "body": "Bad Request"
+    },
+    "emitted": []
+  },
+  "MiscController (characterization) > tags > POST /api/tags/rename validates, renames and merges > rename": {
+    "res": {
+      "status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8"
+      },
+      "body": {
+        "tagMerged": false,
+        "numItemsUpdated": 1
+      }
+    },
+    "emitted": [
+      {
+        "method": "libraryItemEmitter",
+        "args": [
+          "item_updated",
+          {
+            "id": "<uuid-1>",
+            "ino": null,
+            "path": "/test/books/Beta",
+            "relPath": "Beta",
+            "mediaId": "<uuid-2>",
+            "mediaType": "book",
+            "isFile": null,
+            "isMissing": null,
+            "isInvalid": null,
+            "mtime": null,
+            "ctime": null,
+            "birthtime": null,
+            "size": null,
+            "lastScan": null,
+            "lastScanVersion": null,
+            "libraryFiles": [],
+            "extraData": null,
+            "title": null,
+            "titleIgnorePrefix": null,
+            "authorNamesFirstLast": null,
+            "authorNamesLastFirst": null,
+            "createdAt": "<iso-date>",
+            "updatedAt": "<iso-date>",
+            "libraryId": "<uuid-3>",
+            "libraryFolderId": "<uuid-4>"
+          }
+        ]
+      }
+    ]
+  },
+  "MiscController (characterization) > tags > POST /api/tags/rename validates, renames and merges > tags after": {
+    "res": {
+      "status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8"
+      },
+      "body": {
+        "tags": [
+          "Fantasy",
+          "Science Fiction",
+          "Zebra"
+        ]
+      }
+    },
+    "emitted": []
+  },
+  "MiscController (characterization) > tags > POST /api/tags/rename validates, renames and merges > unknown tag": {
+    "res": {
+      "status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8"
+      },
+      "body": {
+        "tagMerged": false,
+        "numItemsUpdated": 0
+      }
+    },
+    "emitted": []
+  }
+}
