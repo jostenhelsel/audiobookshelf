@@ -1,0 +1,155 @@
+{
+  "characterization harness > creates a library and records the socket emission": {
+    "res": {
+      "status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8"
+      },
+      "body": {
+        "id": "<uuid-1>",
+        "name": "Books",
+        "folders": [
+          {
+            "id": "<uuid-2>",
+            "fullPath": "/tmp/x-books",
+            "libraryId": "<uuid-1>",
+            "addedAt": "<timestamp>"
+          }
+        ],
+        "displayOrder": 1,
+        "icon": "database",
+        "mediaType": "book",
+        "provider": "google",
+        "settings": {
+          "coverAspectRatio": 1,
+          "disableWatcher": false,
+          "autoScanCronExpression": null,
+          "skipMatchingMediaWithAsin": false,
+          "skipMatchingMediaWithIsbn": false,
+          "audiobooksOnly": false,
+          "epubsAllowScriptedContent": false,
+          "hideSingleBookSeries": false,
+          "onlyShowLaterBooksInContinueSeries": false,
+          "metadataPrecedence": [
+            "folderStructure",
+            "audioMetatags",
+            "nfoFile",
+            "txtFiles",
+            "opfFile",
+            "absMetadata"
+          ],
+          "markAsFinishedPercentComplete": null,
+          "markAsFinishedTimeRemaining": 10
+        },
+        "lastScan": null,
+        "createdAt": "<timestamp>",
+        "lastUpdate": "<timestamp>"
+      }
+    },
+    "emitted": [
+      {
+        "method": "emitter",
+        "args": [
+          "library_added",
+          {
+            "id": "<uuid-1>",
+            "name": "Books",
+            "folders": [
+              {
+                "id": "<uuid-2>",
+                "fullPath": "/tmp/x-books",
+                "libraryId": "<uuid-1>",
+                "addedAt": "<timestamp>"
+              }
+            ],
+            "displayOrder": 1,
+            "icon": "database",
+            "mediaType": "book",
+            "provider": "google",
+            "settings": {
+              "coverAspectRatio": 1,
+              "disableWatcher": false,
+              "autoScanCronExpression": null,
+              "skipMatchingMediaWithAsin": false,
+              "skipMatchingMediaWithIsbn": false,
+              "audiobooksOnly": false,
+              "epubsAllowScriptedContent": false,
+              "hideSingleBookSeries": false,
+              "onlyShowLaterBooksInContinueSeries": false,
+              "metadataPrecedence": [
+                "folderStructure",
+                "audioMetatags",
+                "nfoFile",
+                "txtFiles",
+                "opfFile",
+                "absMetadata"
+              ],
+              "markAsFinishedPercentComplete": null,
+              "markAsFinishedTimeRemaining": 10
+            },
+            "lastScan": null,
+            "createdAt": "<timestamp>",
+            "lastUpdate": "<timestamp>"
+          },
+          null
+        ]
+      }
+    ],
+    "watcherCalls": [
+      {
+        "method": "addLibrary",
+        "args": [
+          {
+            "id": "<uuid-1>",
+            "name": "Books",
+            "provider": "google",
+            "mediaType": "book",
+            "icon": "database",
+            "settings": {
+              "coverAspectRatio": 1,
+              "disableWatcher": false,
+              "autoScanCronExpression": null,
+              "skipMatchingMediaWithAsin": false,
+              "skipMatchingMediaWithIsbn": false,
+              "audiobooksOnly": false,
+              "epubsAllowScriptedContent": false,
+              "hideSingleBookSeries": false,
+              "onlyShowLaterBooksInContinueSeries": false,
+              "metadataPrecedence": [
+                "folderStructure",
+                "audioMetatags",
+                "nfoFile",
+                "txtFiles",
+                "opfFile",
+                "absMetadata"
+              ],
+              "markAsFinishedPercentComplete": null,
+              "markAsFinishedTimeRemaining": 10
+            },
+            "libraryFolders": [
+              {
+                "id": "<uuid-2>",
+                "path": "/tmp/x-books",
+                "libraryId": "<uuid-1>",
+                "updatedAt": "<iso-date>",
+                "createdAt": "<iso-date>"
+              }
+            ],
+            "displayOrder": 1,
+            "updatedAt": "<iso-date>",
+            "createdAt": "<iso-date>"
+          }
+        ]
+      }
+    ]
+  },
+  "characterization harness > lists no libraries on an empty server": {
+    "status": 200,
+    "headers": {
+      "content-type": "application/json; charset=utf-8"
+    },
+    "body": {
+      "libraries": []
+    }
+  }
+}

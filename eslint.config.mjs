@@ -3,6 +3,7 @@ import tseslint from 'typescript-eslint'
 const nodeGlobals = {
   AbortController: 'readonly',
   Buffer: 'readonly',
+  fetch: 'readonly',
   TextDecoder: 'readonly',
   URL: 'readonly',
   URLSearchParams: 'readonly',

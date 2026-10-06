@@ -6,5 +6,5 @@
     "incremental": false
   },
   "include": ["index.js", "index.ts", "server/**/*.js", "server/**/*.ts", "test/**/*.js", "test/**/*.ts"],
-  "exclude": ["node_modules", "dist-server", "client", "server/libs/**"]
+  "exclude": ["node_modules", "dist-server", "client", "server/libs/**", "test/characterization/**"]
 }

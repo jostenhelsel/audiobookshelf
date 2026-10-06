@@ -1,0 +1,3641 @@
+{
+  "CollectionController (characterization) > POST /api/collections > creates a collection as admin, user and guest > admin": {
+    "res": {
+      "status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8"
+      },
+      "body": {
+        "id": "<uuid-1>",
+        "libraryId": "<uuid-2>",
+        "name": "Favourites",
+        "description": "my picks",
+        "books": [
+          {
+            "id": "<uuid-3>",
+            "ino": null,
+            "oldLibraryItemId": null,
+            "libraryId": "<uuid-2>",
+            "folderId": "<uuid-4>",
+            "path": "/test/books/Book A",
+            "relPath": "Book A",
+            "isFile": null,
+            "addedAt": "<timestamp>",
+            "updatedAt": "<timestamp>",
+            "isMissing": false,
+            "isInvalid": false,
+            "mediaType": "book",
+            "media": {
+              "id": "<uuid-5>",
+              "metadata": {
+                "title": "Book A",
+                "subtitle": null,
+                "authors": [
+                  {
+                    "id": "<uuid-6>",
+                    "name": "Ann Author"
+                  }
+                ],
+                "narrators": [],
+                "series": [],
+                "genres": [],
+                "publishedYear": null,
+                "publishedDate": null,
+                "publisher": null,
+                "description": null,
+                "isbn": null,
+                "asin": null,
+                "language": null,
+                "explicit": null,
+                "abridged": null,
+                "titleIgnorePrefix": "Book A",
+                "authorName": "Ann Author",
+                "authorNameLF": "Author, Ann",
+                "narratorName": "",
+                "seriesName": "",
+                "descriptionPlain": null
+              },
+              "coverPath": null,
+              "tags": [],
+              "numTracks": 0,
+              "numAudioFiles": 0,
+              "numChapters": 0,
+              "duration": null,
+              "size": 0,
+              "libraryItemId": "<uuid-3>",
+              "audioFiles": [],
+              "chapters": [],
+              "ebookFile": null,
+              "tracks": []
+            },
+            "numFiles": 0,
+            "size": null,
+            "scanVersion": null,
+            "libraryFiles": []
+          },
+          {
+            "id": "<uuid-7>",
+            "ino": null,
+            "oldLibraryItemId": null,
+            "libraryId": "<uuid-2>",
+            "folderId": "<uuid-4>",
+            "path": "/test/books/Book B",
+            "relPath": "Book B",
+            "isFile": null,
+            "addedAt": "<timestamp>",
+            "updatedAt": "<timestamp>",
+            "isMissing": false,
+            "isInvalid": false,
+            "mediaType": "book",
+            "media": {
+              "id": "<uuid-8>",
+              "metadata": {
+                "title": "Book B",
+                "subtitle": null,
+                "authors": [
+                  {
+                    "id": "<uuid-6>",
+                    "name": "Ann Author"
+                  }
+                ],
+                "narrators": [],
+                "series": [],
+                "genres": [],
+                "publishedYear": null,
+                "publishedDate": null,
+                "publisher": null,
+                "description": null,
+                "isbn": null,
+                "asin": null,
+                "language": null,
+                "explicit": null,
+                "abridged": null,
+                "titleIgnorePrefix": "Book B",
+                "authorName": "Ann Author",
+                "authorNameLF": "Author, Ann",
+                "narratorName": "",
+                "seriesName": "",
+                "descriptionPlain": null
+              },
+              "coverPath": null,
+              "tags": [],
+              "numTracks": 0,
+              "numAudioFiles": 0,
+              "numChapters": 0,
+              "duration": null,
+              "size": 0,
+              "libraryItemId": "<uuid-7>",
+              "audioFiles": [],
+              "chapters": [],
+              "ebookFile": null,
+              "tracks": []
+            },
+            "numFiles": 0,
+            "size": null,
+            "scanVersion": null,
+            "libraryFiles": []
+          }
+        ],
+        "lastUpdate": "<timestamp>",
+        "createdAt": "<timestamp>"
+      }
+    },
+    "emitted": [
+      {
+        "method": "emitter",
+        "args": [
+          "collection_added",
+          {
+            "id": "<uuid-1>",
+            "libraryId": "<uuid-2>",
+            "name": "Favourites",
+            "description": "my picks",
+            "books": [
+              {
+                "id": "<uuid-3>",
+                "ino": null,
+                "oldLibraryItemId": null,
+                "libraryId": "<uuid-2>",
+                "folderId": "<uuid-4>",
+                "path": "/test/books/Book A",
+                "relPath": "Book A",
+                "isFile": null,
+                "addedAt": "<timestamp>",
+                "updatedAt": "<timestamp>",
+                "isMissing": false,
+                "isInvalid": false,
+                "mediaType": "book",
+                "media": {
+                  "id": "<uuid-5>",
+                  "metadata": {
+                    "title": "Book A",
+                    "subtitle": null,
+                    "authors": [
+                      {
+                        "id": "<uuid-6>",
+                        "name": "Ann Author"
+                      }
+                    ],
+                    "narrators": [],
+                    "series": [],
+                    "genres": [],
+                    "publishedYear": null,
+                    "publishedDate": null,
+                    "publisher": null,
+                    "description": null,
+                    "isbn": null,
+                    "asin": null,
+                    "language": null,
+                    "explicit": null,
+                    "abridged": null,
+                    "titleIgnorePrefix": "Book A",
+                    "authorName": "Ann Author",
+                    "authorNameLF": "Author, Ann",
+                    "narratorName": "",
+                    "seriesName": "",
+                    "descriptionPlain": null
+                  },
+                  "coverPath": null,
+                  "tags": [],
+                  "numTracks": 0,
+                  "numAudioFiles": 0,
+                  "numChapters": 0,
+                  "duration": null,
+                  "size": 0,
+                  "libraryItemId": "<uuid-3>",
+                  "audioFiles": [],
+                  "chapters": [],
+                  "ebookFile": null,
+                  "tracks": []
+                },
+                "numFiles": 0,
+                "size": null,
+                "scanVersion": null,
+                "libraryFiles": []
+              },
+              {
+                "id": "<uuid-7>",
+                "ino": null,
+                "oldLibraryItemId": null,
+                "libraryId": "<uuid-2>",
+                "folderId": "<uuid-4>",
+                "path": "/test/books/Book B",
+                "relPath": "Book B",
+                "isFile": null,
+                "addedAt": "<timestamp>",
+                "updatedAt": "<timestamp>",
+                "isMissing": false,
+                "isInvalid": false,
+                "mediaType": "book",
+                "media": {
+                  "id": "<uuid-8>",
+                  "metadata": {
+                    "title": "Book B",
+                    "subtitle": null,
+                    "authors": [
+                      {
+                        "id": "<uuid-6>",
+                        "name": "Ann Author"
+                      }
+                    ],
+                    "narrators": [],
+                    "series": [],
+                    "genres": [],
+                    "publishedYear": null,
+                    "publishedDate": null,
+                    "publisher": null,
+                    "description": null,
+                    "isbn": null,
+                    "asin": null,
+                    "language": null,
+                    "explicit": null,
+                    "abridged": null,
+                    "titleIgnorePrefix": "Book B",
+                    "authorName": "Ann Author",
+                    "authorNameLF": "Author, Ann",
+                    "narratorName": "",
+                    "seriesName": "",
+                    "descriptionPlain": null
+                  },
+                  "coverPath": null,
+                  "tags": [],
+                  "numTracks": 0,
+                  "numAudioFiles": 0,
+                  "numChapters": 0,
+                  "duration": null,
+                  "size": 0,
+                  "libraryItemId": "<uuid-7>",
+                  "audioFiles": [],
+                  "chapters": [],
+                  "ebookFile": null,
+                  "tracks": []
+                },
+                "numFiles": 0,
+                "size": null,
+                "scanVersion": null,
+                "libraryFiles": []
+              }
+            ],
+            "lastUpdate": "<timestamp>",
+            "createdAt": "<timestamp>"
+          }
+        ]
+      }
+    ]
+  },
+  "CollectionController (characterization) > POST /api/collections > creates a collection as admin, user and guest > guest": {
+    "res": {
+      "status": 403,
+      "headers": {
+        "content-type": "text/plain; charset=utf-8"
+      },
+      "body": "Forbidden"
+    },
+    "emitted": []
+  },
+  "CollectionController (characterization) > POST /api/collections > creates a collection as admin, user and guest > user": {
+    "res": {
+      "status": 403,
+      "headers": {
+        "content-type": "text/plain; charset=utf-8"
+      },
+      "body": "Forbidden"
+    },
+    "emitted": []
+  },
+  "CollectionController (characterization) > POST /api/collections > ignores items from another library": {
+    "res": {
+      "status": 400,
+      "headers": {
+        "content-type": "text/html; charset=utf-8"
+      },
+      "body": "Invalid collection data. Invalid books"
+    },
+    "emitted": []
+  },
+  "CollectionController (characterization) > POST /api/collections > rejects invalid bodies > bad description": {
+    "res": {
+      "status": 400,
+      "headers": {
+        "content-type": "text/html; charset=utf-8"
+      },
+      "body": "Invalid collection description"
+    },
+    "emitted": []
+  },
+  "CollectionController (characterization) > POST /api/collections > rejects invalid bodies > empty name": {
+    "res": {
+      "status": 400,
+      "headers": {
+        "content-type": "text/html; charset=utf-8"
+      },
+      "body": "Invalid collection data"
+    },
+    "emitted": []
+  },
+  "CollectionController (characterization) > POST /api/collections > rejects invalid bodies > no books": {
+    "res": {
+      "status": 400,
+      "headers": {
+        "content-type": "text/html; charset=utf-8"
+      },
+      "body": "Invalid collection data. No books"
+    },
+    "emitted": []
+  },
+  "CollectionController (characterization) > POST /api/collections > rejects invalid bodies > no library": {
+    "res": {
+      "status": 400,
+      "headers": {
+        "content-type": "text/html; charset=utf-8"
+      },
+      "body": "Invalid collection data"
+    },
+    "emitted": []
+  },
+  "CollectionController (characterization) > POST /api/collections > requires authentication": {
+    "res": {
+      "status": 401,
+      "headers": {
+        "content-type": "text/plain; charset=utf-8"
+      },
+      "body": "Unauthorized"
+    },
+    "emitted": []
+  },
+  "CollectionController (characterization) > POST /api/collections > strips html from the name": {
+    "res": {
+      "status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8"
+      },
+      "body": {
+        "id": "<uuid-1>",
+        "libraryId": "<uuid-2>",
+        "name": "Bold name",
+        "description": "my picks",
+        "books": [
+          {
+            "id": "<uuid-3>",
+            "ino": null,
+            "oldLibraryItemId": null,
+            "libraryId": "<uuid-2>",
+            "folderId": "<uuid-4>",
+            "path": "/test/books/Book A",
+            "relPath": "Book A",
+            "isFile": null,
+            "addedAt": "<timestamp>",
+            "updatedAt": "<timestamp>",
+            "isMissing": false,
+            "isInvalid": false,
+            "mediaType": "book",
+            "media": {
+              "id": "<uuid-5>",
+              "metadata": {
+                "title": "Book A",
+                "subtitle": null,
+                "authors": [
+                  {
+                    "id": "<uuid-6>",
+                    "name": "Ann Author"
+                  }
+                ],
+                "narrators": [],
+                "series": [],
+                "genres": [],
+                "publishedYear": null,
+                "publishedDate": null,
+                "publisher": null,
+                "description": null,
+                "isbn": null,
+                "asin": null,
+                "language": null,
+                "explicit": null,
+                "abridged": null,
+                "titleIgnorePrefix": "Book A",
+                "authorName": "Ann Author",
+                "authorNameLF": "Author, Ann",
+                "narratorName": "",
+                "seriesName": "",
+                "descriptionPlain": null
+              },
+              "coverPath": null,
+              "tags": [],
+              "numTracks": 0,
+              "numAudioFiles": 0,
+              "numChapters": 0,
+              "duration": null,
+              "size": 0,
+              "libraryItemId": "<uuid-3>",
+              "audioFiles": [],
+              "chapters": [],
+              "ebookFile": null,
+              "tracks": []
+            },
+            "numFiles": 0,
+            "size": null,
+            "scanVersion": null,
+            "libraryFiles": []
+          },
+          {
+            "id": "<uuid-7>",
+            "ino": null,
+            "oldLibraryItemId": null,
+            "libraryId": "<uuid-2>",
+            "folderId": "<uuid-4>",
+            "path": "/test/books/Book B",
+            "relPath": "Book B",
+            "isFile": null,
+            "addedAt": "<timestamp>",
+            "updatedAt": "<timestamp>",
+            "isMissing": false,
+            "isInvalid": false,
+            "mediaType": "book",
+            "media": {
+              "id": "<uuid-8>",
+              "metadata": {
+                "title": "Book B",
+                "subtitle": null,
+                "authors": [
+                  {
+                    "id": "<uuid-6>",
+                    "name": "Ann Author"
+                  }
+                ],
+                "narrators": [],
+                "series": [],
+                "genres": [],
+                "publishedYear": null,
+                "publishedDate": null,
+                "publisher": null,
+                "description": null,
+                "isbn": null,
+                "asin": null,
+                "language": null,
+                "explicit": null,
+                "abridged": null,
+                "titleIgnorePrefix": "Book B",
+                "authorName": "Ann Author",
+                "authorNameLF": "Author, Ann",
+                "narratorName": "",
+                "seriesName": "",
+                "descriptionPlain": null
+              },
+              "coverPath": null,
+              "tags": [],
+              "numTracks": 0,
+              "numAudioFiles": 0,
+              "numChapters": 0,
+              "duration": null,
+              "size": 0,
+              "libraryItemId": "<uuid-7>",
+              "audioFiles": [],
+              "chapters": [],
+              "ebookFile": null,
+              "tracks": []
+            },
+            "numFiles": 0,
+            "size": null,
+            "scanVersion": null,
+            "libraryFiles": []
+          }
+        ],
+        "lastUpdate": "<timestamp>",
+        "createdAt": "<timestamp>"
+      }
+    },
+    "emitted": [
+      {
+        "method": "emitter",
+        "args": [
+          "collection_added",
+          {
+            "id": "<uuid-1>",
+            "libraryId": "<uuid-2>",
+            "name": "Bold name",
+            "description": "my picks",
+            "books": [
+              {
+                "id": "<uuid-3>",
+                "ino": null,
+                "oldLibraryItemId": null,
+                "libraryId": "<uuid-2>",
+                "folderId": "<uuid-4>",
+                "path": "/test/books/Book A",
+                "relPath": "Book A",
+                "isFile": null,
+                "addedAt": "<timestamp>",
+                "updatedAt": "<timestamp>",
+                "isMissing": false,
+                "isInvalid": false,
+                "mediaType": "book",
+                "media": {
+                  "id": "<uuid-5>",
+                  "metadata": {
+                    "title": "Book A",
+                    "subtitle": null,
+                    "authors": [
+                      {
+                        "id": "<uuid-6>",
+                        "name": "Ann Author"
+                      }
+                    ],
+                    "narrators": [],
+                    "series": [],
+                    "genres": [],
+                    "publishedYear": null,
+                    "publishedDate": null,
+                    "publisher": null,
+                    "description": null,
+                    "isbn": null,
+                    "asin": null,
+                    "language": null,
+                    "explicit": null,
+                    "abridged": null,
+                    "titleIgnorePrefix": "Book A",
+                    "authorName": "Ann Author",
+                    "authorNameLF": "Author, Ann",
+                    "narratorName": "",
+                    "seriesName": "",
+                    "descriptionPlain": null
+                  },
+                  "coverPath": null,
+                  "tags": [],
+                  "numTracks": 0,
+                  "numAudioFiles": 0,
+                  "numChapters": 0,
+                  "duration": null,
+                  "size": 0,
+                  "libraryItemId": "<uuid-3>",
+                  "audioFiles": [],
+                  "chapters": [],
+                  "ebookFile": null,
+                  "tracks": []
+                },
+                "numFiles": 0,
+                "size": null,
+                "scanVersion": null,
+                "libraryFiles": []
+              },
+              {
+                "id": "<uuid-7>",
+                "ino": null,
+                "oldLibraryItemId": null,
+                "libraryId": "<uuid-2>",
+                "folderId": "<uuid-4>",
+                "path": "/test/books/Book B",
+                "relPath": "Book B",
+                "isFile": null,
+                "addedAt": "<timestamp>",
+                "updatedAt": "<timestamp>",
+                "isMissing": false,
+                "isInvalid": false,
+                "mediaType": "book",
+                "media": {
+                  "id": "<uuid-8>",
+                  "metadata": {
+                    "title": "Book B",
+                    "subtitle": null,
+                    "authors": [
+                      {
+                        "id": "<uuid-6>",
+                        "name": "Ann Author"
+                      }
+                    ],
+                    "narrators": [],
+                    "series": [],
+                    "genres": [],
+                    "publishedYear": null,
+                    "publishedDate": null,
+                    "publisher": null,
+                    "description": null,
+                    "isbn": null,
+                    "asin": null,
+                    "language": null,
+                    "explicit": null,
+                    "abridged": null,
+                    "titleIgnorePrefix": "Book B",
+                    "authorName": "Ann Author",
+                    "authorNameLF": "Author, Ann",
+                    "narratorName": "",
+                    "seriesName": "",
+                    "descriptionPlain": null
+                  },
+                  "coverPath": null,
+                  "tags": [],
+                  "numTracks": 0,
+                  "numAudioFiles": 0,
+                  "numChapters": 0,
+                  "duration": null,
+                  "size": 0,
+                  "libraryItemId": "<uuid-7>",
+                  "audioFiles": [],
+                  "chapters": [],
+                  "ebookFile": null,
+                  "tracks": []
+                },
+                "numFiles": 0,
+                "size": null,
+                "scanVersion": null,
+                "libraryFiles": []
+              }
+            ],
+            "lastUpdate": "<timestamp>",
+            "createdAt": "<timestamp>"
+          }
+        ]
+      }
+    ]
+  },
+  "CollectionController (characterization) > modify routes > adds and removes batches > batch add": {
+    "res": {
+      "status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8"
+      },
+      "body": {
+        "id": "<collection>",
+        "libraryId": "<uuid-2>",
+        "name": "Favourites",
+        "description": "my picks",
+        "books": [
+          {
+            "id": "<uuid-3>",
+            "ino": null,
+            "oldLibraryItemId": null,
+            "libraryId": "<uuid-2>",
+            "folderId": "<uuid-4>",
+            "path": "/test/books/Book A",
+            "relPath": "Book A",
+            "isFile": null,
+            "addedAt": "<timestamp>",
+            "updatedAt": "<timestamp>",
+            "isMissing": false,
+            "isInvalid": false,
+            "mediaType": "book",
+            "media": {
+              "id": "<uuid-5>",
+              "metadata": {
+                "title": "Book A",
+                "subtitle": null,
+                "authors": [
+                  {
+                    "id": "<uuid-6>",
+                    "name": "Ann Author"
+                  }
+                ],
+                "narrators": [],
+                "series": [],
+                "genres": [],
+                "publishedYear": null,
+                "publishedDate": null,
+                "publisher": null,
+                "description": null,
+                "isbn": null,
+                "asin": null,
+                "language": null,
+                "explicit": null,
+                "abridged": null,
+                "titleIgnorePrefix": "Book A",
+                "authorName": "Ann Author",
+                "authorNameLF": "Author, Ann",
+                "narratorName": "",
+                "seriesName": "",
+                "descriptionPlain": null
+              },
+              "coverPath": null,
+              "tags": [],
+              "numTracks": 0,
+              "numAudioFiles": 0,
+              "numChapters": 0,
+              "duration": null,
+              "size": 0,
+              "libraryItemId": "<uuid-3>",
+              "audioFiles": [],
+              "chapters": [],
+              "ebookFile": null,
+              "tracks": []
+            },
+            "numFiles": 0,
+            "size": null,
+            "scanVersion": null,
+            "libraryFiles": []
+          },
+          {
+            "id": "<uuid-7>",
+            "ino": null,
+            "oldLibraryItemId": null,
+            "libraryId": "<uuid-2>",
+            "folderId": "<uuid-4>",
+            "path": "/test/books/Book B",
+            "relPath": "Book B",
+            "isFile": null,
+            "addedAt": "<timestamp>",
+            "updatedAt": "<timestamp>",
+            "isMissing": false,
+            "isInvalid": false,
+            "mediaType": "book",
+            "media": {
+              "id": "<uuid-8>",
+              "metadata": {
+                "title": "Book B",
+                "subtitle": null,
+                "authors": [
+                  {
+                    "id": "<uuid-6>",
+                    "name": "Ann Author"
+                  }
+                ],
+                "narrators": [],
+                "series": [],
+                "genres": [],
+                "publishedYear": null,
+                "publishedDate": null,
+                "publisher": null,
+                "description": null,
+                "isbn": null,
+                "asin": null,
+                "language": null,
+                "explicit": null,
+                "abridged": null,
+                "titleIgnorePrefix": "Book B",
+                "authorName": "Ann Author",
+                "authorNameLF": "Author, Ann",
+                "narratorName": "",
+                "seriesName": "",
+                "descriptionPlain": null
+              },
+              "coverPath": null,
+              "tags": [],
+              "numTracks": 0,
+              "numAudioFiles": 0,
+              "numChapters": 0,
+              "duration": null,
+              "size": 0,
+              "libraryItemId": "<uuid-7>",
+              "audioFiles": [],
+              "chapters": [],
+              "ebookFile": null,
+              "tracks": []
+            },
+            "numFiles": 0,
+            "size": null,
+            "scanVersion": null,
+            "libraryFiles": []
+          },
+          {
+            "id": "<uuid-9>",
+            "ino": null,
+            "oldLibraryItemId": null,
+            "libraryId": "<uuid-2>",
+            "folderId": "<uuid-4>",
+            "path": "/test/books/Book C",
+            "relPath": "Book C",
+            "isFile": null,
+            "addedAt": "<timestamp>",
+            "updatedAt": "<timestamp>",
+            "isMissing": false,
+            "isInvalid": false,
+            "mediaType": "book",
+            "media": {
+              "id": "<uuid-10>",
+              "metadata": {
+                "title": "Book C",
+                "subtitle": null,
+                "authors": [
+                  {
+                    "id": "<uuid-6>",
+                    "name": "Ann Author"
+                  }
+                ],
+                "narrators": [],
+                "series": [],
+                "genres": [],
+                "publishedYear": null,
+                "publishedDate": null,
+                "publisher": null,
+                "description": null,
+                "isbn": null,
+                "asin": null,
+                "language": null,
+                "explicit": null,
+                "abridged": null,
+                "titleIgnorePrefix": "Book C",
+                "authorName": "Ann Author",
+                "authorNameLF": "Author, Ann",
+                "narratorName": "",
+                "seriesName": "",
+                "descriptionPlain": null
+              },
+              "coverPath": null,
+              "tags": [],
+              "numTracks": 0,
+              "numAudioFiles": 0,
+              "numChapters": 0,
+              "duration": null,
+              "size": 0,
+              "libraryItemId": "<uuid-9>",
+              "audioFiles": [],
+              "chapters": [],
+              "ebookFile": null,
+              "tracks": []
+            },
+            "numFiles": 0,
+            "size": null,
+            "scanVersion": null,
+            "libraryFiles": []
+          }
+        ],
+        "lastUpdate": "<timestamp>",
+        "createdAt": "<timestamp>"
+      }
+    },
+    "emitted": [
+      {
+        "method": "emitter",
+        "args": [
+          "collection_updated",
+          {
+            "id": "<collection>",
+            "libraryId": "<uuid-2>",
+            "name": "Favourites",
+            "description": "my picks",
+            "books": [
+              {
+                "id": "<uuid-3>",
+                "ino": null,
+                "oldLibraryItemId": null,
+                "libraryId": "<uuid-2>",
+                "folderId": "<uuid-4>",
+                "path": "/test/books/Book A",
+                "relPath": "Book A",
+                "isFile": null,
+                "addedAt": "<timestamp>",
+                "updatedAt": "<timestamp>",
+                "isMissing": false,
+                "isInvalid": false,
+                "mediaType": "book",
+                "media": {
+                  "id": "<uuid-5>",
+                  "metadata": {
+                    "title": "Book A",
+                    "subtitle": null,
+                    "authors": [
+                      {
+                        "id": "<uuid-6>",
+                        "name": "Ann Author"
+                      }
+                    ],
+                    "narrators": [],
+                    "series": [],
+                    "genres": [],
+                    "publishedYear": null,
+                    "publishedDate": null,
+                    "publisher": null,
+                    "description": null,
+                    "isbn": null,
+                    "asin": null,
+                    "language": null,
+                    "explicit": null,
+                    "abridged": null,
+                    "titleIgnorePrefix": "Book A",
+                    "authorName": "Ann Author",
+                    "authorNameLF": "Author, Ann",
+                    "narratorName": "",
+                    "seriesName": "",
+                    "descriptionPlain": null
+                  },
+                  "coverPath": null,
+                  "tags": [],
+                  "numTracks": 0,
+                  "numAudioFiles": 0,
+                  "numChapters": 0,
+                  "duration": null,
+                  "size": 0,
+                  "libraryItemId": "<uuid-3>",
+                  "audioFiles": [],
+                  "chapters": [],
+                  "ebookFile": null,
+                  "tracks": []
+                },
+                "numFiles": 0,
+                "size": null,
+                "scanVersion": null,
+                "libraryFiles": []
+              },
+              {
+                "id": "<uuid-7>",
+                "ino": null,
+                "oldLibraryItemId": null,
+                "libraryId": "<uuid-2>",
+                "folderId": "<uuid-4>",
+                "path": "/test/books/Book B",
+                "relPath": "Book B",
+                "isFile": null,
+                "addedAt": "<timestamp>",
+                "updatedAt": "<timestamp>",
+                "isMissing": false,
+                "isInvalid": false,
+                "mediaType": "book",
+                "media": {
+                  "id": "<uuid-8>",
+                  "metadata": {
+                    "title": "Book B",
+                    "subtitle": null,
+                    "authors": [
+                      {
+                        "id": "<uuid-6>",
+                        "name": "Ann Author"
+                      }
+                    ],
+                    "narrators": [],
+                    "series": [],
+                    "genres": [],
+                    "publishedYear": null,
+                    "publishedDate": null,
+                    "publisher": null,
+                    "description": null,
+                    "isbn": null,
+                    "asin": null,
+                    "language": null,
+                    "explicit": null,
+                    "abridged": null,
+                    "titleIgnorePrefix": "Book B",
+                    "authorName": "Ann Author",
+                    "authorNameLF": "Author, Ann",
+                    "narratorName": "",
+                    "seriesName": "",
+                    "descriptionPlain": null
+                  },
+                  "coverPath": null,
+                  "tags": [],
+                  "numTracks": 0,
+                  "numAudioFiles": 0,
+                  "numChapters": 0,
+                  "duration": null,
+                  "size": 0,
+                  "libraryItemId": "<uuid-7>",
+                  "audioFiles": [],
+                  "chapters": [],
+                  "ebookFile": null,
+                  "tracks": []
+                },
+                "numFiles": 0,
+                "size": null,
+                "scanVersion": null,
+                "libraryFiles": []
+              },
+              {
+                "id": "<uuid-9>",
+                "ino": null,
+                "oldLibraryItemId": null,
+                "libraryId": "<uuid-2>",
+                "folderId": "<uuid-4>",
+                "path": "/test/books/Book C",
+                "relPath": "Book C",
+                "isFile": null,
+                "addedAt": "<timestamp>",
+                "updatedAt": "<timestamp>",
+                "isMissing": false,
+                "isInvalid": false,
+                "mediaType": "book",
+                "media": {
+                  "id": "<uuid-10>",
+                  "metadata": {
+                    "title": "Book C",
+                    "subtitle": null,
+                    "authors": [
+                      {
+                        "id": "<uuid-6>",
+                        "name": "Ann Author"
+                      }
+                    ],
+                    "narrators": [],
+                    "series": [],
+                    "genres": [],
+                    "publishedYear": null,
+                    "publishedDate": null,
+                    "publisher": null,
+                    "description": null,
+                    "isbn": null,
+                    "asin": null,
+                    "language": null,
+                    "explicit": null,
+                    "abridged": null,
+                    "titleIgnorePrefix": "Book C",
+                    "authorName": "Ann Author",
+                    "authorNameLF": "Author, Ann",
+                    "narratorName": "",
+                    "seriesName": "",
+                    "descriptionPlain": null
+                  },
+                  "coverPath": null,
+                  "tags": [],
+                  "numTracks": 0,
+                  "numAudioFiles": 0,
+                  "numChapters": 0,
+                  "duration": null,
+                  "size": 0,
+                  "libraryItemId": "<uuid-9>",
+                  "audioFiles": [],
+                  "chapters": [],
+                  "ebookFile": null,
+                  "tracks": []
+                },
+                "numFiles": 0,
+                "size": null,
+                "scanVersion": null,
+                "libraryFiles": []
+              }
+            ],
+            "lastUpdate": "<timestamp>",
+            "createdAt": "<timestamp>"
+          }
+        ]
+      }
+    ]
+  },
+  "CollectionController (characterization) > modify routes > adds and removes batches > batch add empty": {
+    "res": {
+      "status": 400,
+      "headers": {
+        "content-type": "text/html; charset=utf-8"
+      },
+      "body": "Invalid request body"
+    },
+    "emitted": []
+  },
+  "CollectionController (characterization) > modify routes > adds and removes batches > batch remove": {
+    "res": {
+      "status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8"
+      },
+      "body": {
+        "id": "<collection>",
+        "libraryId": "<uuid-2>",
+        "name": "Favourites",
+        "description": "my picks",
+        "books": [
+          {
+            "id": "<uuid-7>",
+            "ino": null,
+            "oldLibraryItemId": null,
+            "libraryId": "<uuid-2>",
+            "folderId": "<uuid-4>",
+            "path": "/test/books/Book B",
+            "relPath": "Book B",
+            "isFile": null,
+            "addedAt": "<timestamp>",
+            "updatedAt": "<timestamp>",
+            "isMissing": false,
+            "isInvalid": false,
+            "mediaType": "book",
+            "media": {
+              "id": "<uuid-8>",
+              "metadata": {
+                "title": "Book B",
+                "subtitle": null,
+                "authors": [
+                  {
+                    "id": "<uuid-6>",
+                    "name": "Ann Author"
+                  }
+                ],
+                "narrators": [],
+                "series": [],
+                "genres": [],
+                "publishedYear": null,
+                "publishedDate": null,
+                "publisher": null,
+                "description": null,
+                "isbn": null,
+                "asin": null,
+                "language": null,
+                "explicit": null,
+                "abridged": null,
+                "titleIgnorePrefix": "Book B",
+                "authorName": "Ann Author",
+                "authorNameLF": "Author, Ann",
+                "narratorName": "",
+                "seriesName": "",
+                "descriptionPlain": null
+              },
+              "coverPath": null,
+              "tags": [],
+              "numTracks": 0,
+              "numAudioFiles": 0,
+              "numChapters": 0,
+              "duration": null,
+              "size": 0,
+              "libraryItemId": "<uuid-7>",
+              "audioFiles": [],
+              "chapters": [],
+              "ebookFile": null,
+              "tracks": []
+            },
+            "numFiles": 0,
+            "size": null,
+            "scanVersion": null,
+            "libraryFiles": []
+          }
+        ],
+        "lastUpdate": "<timestamp>",
+        "createdAt": "<timestamp>"
+      }
+    },
+    "emitted": [
+      {
+        "method": "emitter",
+        "args": [
+          "collection_updated",
+          {
+            "id": "<collection>",
+            "libraryId": "<uuid-2>",
+            "name": "Favourites",
+            "description": "my picks",
+            "books": [
+              {
+                "id": "<uuid-7>",
+                "ino": null,
+                "oldLibraryItemId": null,
+                "libraryId": "<uuid-2>",
+                "folderId": "<uuid-4>",
+                "path": "/test/books/Book B",
+                "relPath": "Book B",
+                "isFile": null,
+                "addedAt": "<timestamp>",
+                "updatedAt": "<timestamp>",
+                "isMissing": false,
+                "isInvalid": false,
+                "mediaType": "book",
+                "media": {
+                  "id": "<uuid-8>",
+                  "metadata": {
+                    "title": "Book B",
+                    "subtitle": null,
+                    "authors": [
+                      {
+                        "id": "<uuid-6>",
+                        "name": "Ann Author"
+                      }
+                    ],
+                    "narrators": [],
+                    "series": [],
+                    "genres": [],
+                    "publishedYear": null,
+                    "publishedDate": null,
+                    "publisher": null,
+                    "description": null,
+                    "isbn": null,
+                    "asin": null,
+                    "language": null,
+                    "explicit": null,
+                    "abridged": null,
+                    "titleIgnorePrefix": "Book B",
+                    "authorName": "Ann Author",
+                    "authorNameLF": "Author, Ann",
+                    "narratorName": "",
+                    "seriesName": "",
+                    "descriptionPlain": null
+                  },
+                  "coverPath": null,
+                  "tags": [],
+                  "numTracks": 0,
+                  "numAudioFiles": 0,
+                  "numChapters": 0,
+                  "duration": null,
+                  "size": 0,
+                  "libraryItemId": "<uuid-7>",
+                  "audioFiles": [],
+                  "chapters": [],
+                  "ebookFile": null,
+                  "tracks": []
+                },
+                "numFiles": 0,
+                "size": null,
+                "scanVersion": null,
+                "libraryFiles": []
+              }
+            ],
+            "lastUpdate": "<timestamp>",
+            "createdAt": "<timestamp>"
+          }
+        ]
+      }
+    ]
+  },
+  "CollectionController (characterization) > modify routes > adds and removes batches > batch remove invalid": {
+    "res": {
+      "status": 500,
+      "headers": {
+        "content-type": "text/html; charset=utf-8"
+      },
+      "body": "Invalid request body"
+    },
+    "emitted": []
+  },
+  "CollectionController (characterization) > modify routes > adds and removes single books > add": {
+    "res": {
+      "status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8"
+      },
+      "body": {
+        "id": "<collection>",
+        "libraryId": "<uuid-2>",
+        "name": "Favourites",
+        "description": "my picks",
+        "books": [
+          {
+            "id": "<uuid-3>",
+            "ino": null,
+            "oldLibraryItemId": null,
+            "libraryId": "<uuid-2>",
+            "folderId": "<uuid-4>",
+            "path": "/test/books/Book A",
+            "relPath": "Book A",
+            "isFile": null,
+            "addedAt": "<timestamp>",
+            "updatedAt": "<timestamp>",
+            "isMissing": false,
+            "isInvalid": false,
+            "mediaType": "book",
+            "media": {
+              "id": "<uuid-5>",
+              "metadata": {
+                "title": "Book A",
+                "subtitle": null,
+                "authors": [
+                  {
+                    "id": "<uuid-6>",
+                    "name": "Ann Author"
+                  }
+                ],
+                "narrators": [],
+                "series": [],
+                "genres": [],
+                "publishedYear": null,
+                "publishedDate": null,
+                "publisher": null,
+                "description": null,
+                "isbn": null,
+                "asin": null,
+                "language": null,
+                "explicit": null,
+                "abridged": null,
+                "titleIgnorePrefix": "Book A",
+                "authorName": "Ann Author",
+                "authorNameLF": "Author, Ann",
+                "narratorName": "",
+                "seriesName": "",
+                "descriptionPlain": null
+              },
+              "coverPath": null,
+              "tags": [],
+              "numTracks": 0,
+              "numAudioFiles": 0,
+              "numChapters": 0,
+              "duration": null,
+              "size": 0,
+              "libraryItemId": "<uuid-3>",
+              "audioFiles": [],
+              "chapters": [],
+              "ebookFile": null,
+              "tracks": []
+            },
+            "numFiles": 0,
+            "size": null,
+            "scanVersion": null,
+            "libraryFiles": []
+          },
+          {
+            "id": "<uuid-7>",
+            "ino": null,
+            "oldLibraryItemId": null,
+            "libraryId": "<uuid-2>",
+            "folderId": "<uuid-4>",
+            "path": "/test/books/Book B",
+            "relPath": "Book B",
+            "isFile": null,
+            "addedAt": "<timestamp>",
+            "updatedAt": "<timestamp>",
+            "isMissing": false,
+            "isInvalid": false,
+            "mediaType": "book",
+            "media": {
+              "id": "<uuid-8>",
+              "metadata": {
+                "title": "Book B",
+                "subtitle": null,
+                "authors": [
+                  {
+                    "id": "<uuid-6>",
+                    "name": "Ann Author"
+                  }
+                ],
+                "narrators": [],
+                "series": [],
+                "genres": [],
+                "publishedYear": null,
+                "publishedDate": null,
+                "publisher": null,
+                "description": null,
+                "isbn": null,
+                "asin": null,
+                "language": null,
+                "explicit": null,
+                "abridged": null,
+                "titleIgnorePrefix": "Book B",
+                "authorName": "Ann Author",
+                "authorNameLF": "Author, Ann",
+                "narratorName": "",
+                "seriesName": "",
+                "descriptionPlain": null
+              },
+              "coverPath": null,
+              "tags": [],
+              "numTracks": 0,
+              "numAudioFiles": 0,
+              "numChapters": 0,
+              "duration": null,
+              "size": 0,
+              "libraryItemId": "<uuid-7>",
+              "audioFiles": [],
+              "chapters": [],
+              "ebookFile": null,
+              "tracks": []
+            },
+            "numFiles": 0,
+            "size": null,
+            "scanVersion": null,
+            "libraryFiles": []
+          },
+          {
+            "id": "<uuid-9>",
+            "ino": null,
+            "oldLibraryItemId": null,
+            "libraryId": "<uuid-2>",
+            "folderId": "<uuid-4>",
+            "path": "/test/books/Book C",
+            "relPath": "Book C",
+            "isFile": null,
+            "addedAt": "<timestamp>",
+            "updatedAt": "<timestamp>",
+            "isMissing": false,
+            "isInvalid": false,
+            "mediaType": "book",
+            "media": {
+              "id": "<uuid-10>",
+              "metadata": {
+                "title": "Book C",
+                "subtitle": null,
+                "authors": [
+                  {
+                    "id": "<uuid-6>",
+                    "name": "Ann Author"
+                  }
+                ],
+                "narrators": [],
+                "series": [],
+                "genres": [],
+                "publishedYear": null,
+                "publishedDate": null,
+                "publisher": null,
+                "description": null,
+                "isbn": null,
+                "asin": null,
+                "language": null,
+                "explicit": null,
+                "abridged": null,
+                "titleIgnorePrefix": "Book C",
+                "authorName": "Ann Author",
+                "authorNameLF": "Author, Ann",
+                "narratorName": "",
+                "seriesName": "",
+                "descriptionPlain": null
+              },
+              "coverPath": null,
+              "tags": [],
+              "numTracks": 0,
+              "numAudioFiles": 0,
+              "numChapters": 0,
+              "duration": null,
+              "size": 0,
+              "libraryItemId": "<uuid-9>",
+              "audioFiles": [],
+              "chapters": [],
+              "ebookFile": null,
+              "tracks": []
+            },
+            "numFiles": 0,
+            "size": null,
+            "scanVersion": null,
+            "libraryFiles": []
+          }
+        ],
+        "lastUpdate": "<timestamp>",
+        "createdAt": "<timestamp>"
+      }
+    },
+    "emitted": [
+      {
+        "method": "emitter",
+        "args": [
+          "collection_updated",
+          {
+            "id": "<collection>",
+            "libraryId": "<uuid-2>",
+            "name": "Favourites",
+            "description": "my picks",
+            "books": [
+              {
+                "id": "<uuid-3>",
+                "ino": null,
+                "oldLibraryItemId": null,
+                "libraryId": "<uuid-2>",
+                "folderId": "<uuid-4>",
+                "path": "/test/books/Book A",
+                "relPath": "Book A",
+                "isFile": null,
+                "addedAt": "<timestamp>",
+                "updatedAt": "<timestamp>",
+                "isMissing": false,
+                "isInvalid": false,
+                "mediaType": "book",
+                "media": {
+                  "id": "<uuid-5>",
+                  "metadata": {
+                    "title": "Book A",
+                    "subtitle": null,
+                    "authors": [
+                      {
+                        "id": "<uuid-6>",
+                        "name": "Ann Author"
+                      }
+                    ],
+                    "narrators": [],
+                    "series": [],
+                    "genres": [],
+                    "publishedYear": null,
+                    "publishedDate": null,
+                    "publisher": null,
+                    "description": null,
+                    "isbn": null,
+                    "asin": null,
+                    "language": null,
+                    "explicit": null,
+                    "abridged": null,
+                    "titleIgnorePrefix": "Book A",
+                    "authorName": "Ann Author",
+                    "authorNameLF": "Author, Ann",
+                    "narratorName": "",
+                    "seriesName": "",
+                    "descriptionPlain": null
+                  },
+                  "coverPath": null,
+                  "tags": [],
+                  "numTracks": 0,
+                  "numAudioFiles": 0,
+                  "numChapters": 0,
+                  "duration": null,
+                  "size": 0,
+                  "libraryItemId": "<uuid-3>",
+                  "audioFiles": [],
+                  "chapters": [],
+                  "ebookFile": null,
+                  "tracks": []
+                },
+                "numFiles": 0,
+                "size": null,
+                "scanVersion": null,
+                "libraryFiles": []
+              },
+              {
+                "id": "<uuid-7>",
+                "ino": null,
+                "oldLibraryItemId": null,
+                "libraryId": "<uuid-2>",
+                "folderId": "<uuid-4>",
+                "path": "/test/books/Book B",
+                "relPath": "Book B",
+                "isFile": null,
+                "addedAt": "<timestamp>",
+                "updatedAt": "<timestamp>",
+                "isMissing": false,
+                "isInvalid": false,
+                "mediaType": "book",
+                "media": {
+                  "id": "<uuid-8>",
+                  "metadata": {
+                    "title": "Book B",
+                    "subtitle": null,
+                    "authors": [
+                      {
+                        "id": "<uuid-6>",
+                        "name": "Ann Author"
+                      }
+                    ],
+                    "narrators": [],
+                    "series": [],
+                    "genres": [],
+                    "publishedYear": null,
+                    "publishedDate": null,
+                    "publisher": null,
+                    "description": null,
+                    "isbn": null,
+                    "asin": null,
+                    "language": null,
+                    "explicit": null,
+                    "abridged": null,
+                    "titleIgnorePrefix": "Book B",
+                    "authorName": "Ann Author",
+                    "authorNameLF": "Author, Ann",
+                    "narratorName": "",
+                    "seriesName": "",
+                    "descriptionPlain": null
+                  },
+                  "coverPath": null,
+                  "tags": [],
+                  "numTracks": 0,
+                  "numAudioFiles": 0,
+                  "numChapters": 0,
+                  "duration": null,
+                  "size": 0,
+                  "libraryItemId": "<uuid-7>",
+                  "audioFiles": [],
+                  "chapters": [],
+                  "ebookFile": null,
+                  "tracks": []
+                },
+                "numFiles": 0,
+                "size": null,
+                "scanVersion": null,
+                "libraryFiles": []
+              },
+              {
+                "id": "<uuid-9>",
+                "ino": null,
+                "oldLibraryItemId": null,
+                "libraryId": "<uuid-2>",
+                "folderId": "<uuid-4>",
+                "path": "/test/books/Book C",
+                "relPath": "Book C",
+                "isFile": null,
+                "addedAt": "<timestamp>",
+                "updatedAt": "<timestamp>",
+                "isMissing": false,
+                "isInvalid": false,
+                "mediaType": "book",
+                "media": {
+                  "id": "<uuid-10>",
+                  "metadata": {
+                    "title": "Book C",
+                    "subtitle": null,
+                    "authors": [
+                      {
+                        "id": "<uuid-6>",
+                        "name": "Ann Author"
+                      }
+                    ],
+                    "narrators": [],
+                    "series": [],
+                    "genres": [],
+                    "publishedYear": null,
+                    "publishedDate": null,
+                    "publisher": null,
+                    "description": null,
+                    "isbn": null,
+                    "asin": null,
+                    "language": null,
+                    "explicit": null,
+                    "abridged": null,
+                    "titleIgnorePrefix": "Book C",
+                    "authorName": "Ann Author",
+                    "authorNameLF": "Author, Ann",
+                    "narratorName": "",
+                    "seriesName": "",
+                    "descriptionPlain": null
+                  },
+                  "coverPath": null,
+                  "tags": [],
+                  "numTracks": 0,
+                  "numAudioFiles": 0,
+                  "numChapters": 0,
+                  "duration": null,
+                  "size": 0,
+                  "libraryItemId": "<uuid-9>",
+                  "audioFiles": [],
+                  "chapters": [],
+                  "ebookFile": null,
+                  "tracks": []
+                },
+                "numFiles": 0,
+                "size": null,
+                "scanVersion": null,
+                "libraryFiles": []
+              }
+            ],
+            "lastUpdate": "<timestamp>",
+            "createdAt": "<timestamp>"
+          }
+        ]
+      }
+    ]
+  },
+  "CollectionController (characterization) > modify routes > adds and removes single books > add again": {
+    "res": {
+      "status": 400,
+      "headers": {
+        "content-type": "text/html; charset=utf-8"
+      },
+      "body": "Book already in collection"
+    },
+    "emitted": []
+  },
+  "CollectionController (characterization) > modify routes > adds and removes single books > add unknown": {
+    "res": {
+      "status": 404,
+      "headers": {
+        "content-type": "text/html; charset=utf-8"
+      },
+      "body": "Book not found"
+    },
+    "emitted": []
+  },
+  "CollectionController (characterization) > modify routes > adds and removes single books > remove": {
+    "res": {
+      "status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8"
+      },
+      "body": {
+        "id": "<collection>",
+        "libraryId": "<uuid-2>",
+        "name": "Favourites",
+        "description": "my picks",
+        "books": [
+          {
+            "id": "<uuid-3>",
+            "ino": null,
+            "oldLibraryItemId": null,
+            "libraryId": "<uuid-2>",
+            "folderId": "<uuid-4>",
+            "path": "/test/books/Book A",
+            "relPath": "Book A",
+            "isFile": null,
+            "addedAt": "<timestamp>",
+            "updatedAt": "<timestamp>",
+            "isMissing": false,
+            "isInvalid": false,
+            "mediaType": "book",
+            "media": {
+              "id": "<uuid-5>",
+              "metadata": {
+                "title": "Book A",
+                "subtitle": null,
+                "authors": [
+                  {
+                    "id": "<uuid-6>",
+                    "name": "Ann Author"
+                  }
+                ],
+                "narrators": [],
+                "series": [],
+                "genres": [],
+                "publishedYear": null,
+                "publishedDate": null,
+                "publisher": null,
+                "description": null,
+                "isbn": null,
+                "asin": null,
+                "language": null,
+                "explicit": null,
+                "abridged": null,
+                "titleIgnorePrefix": "Book A",
+                "authorName": "Ann Author",
+                "authorNameLF": "Author, Ann",
+                "narratorName": "",
+                "seriesName": "",
+                "descriptionPlain": null
+              },
+              "coverPath": null,
+              "tags": [],
+              "numTracks": 0,
+              "numAudioFiles": 0,
+              "numChapters": 0,
+              "duration": null,
+              "size": 0,
+              "libraryItemId": "<uuid-3>",
+              "audioFiles": [],
+              "chapters": [],
+              "ebookFile": null,
+              "tracks": []
+            },
+            "numFiles": 0,
+            "size": null,
+            "scanVersion": null,
+            "libraryFiles": []
+          },
+          {
+            "id": "<uuid-7>",
+            "ino": null,
+            "oldLibraryItemId": null,
+            "libraryId": "<uuid-2>",
+            "folderId": "<uuid-4>",
+            "path": "/test/books/Book B",
+            "relPath": "Book B",
+            "isFile": null,
+            "addedAt": "<timestamp>",
+            "updatedAt": "<timestamp>",
+            "isMissing": false,
+            "isInvalid": false,
+            "mediaType": "book",
+            "media": {
+              "id": "<uuid-8>",
+              "metadata": {
+                "title": "Book B",
+                "subtitle": null,
+                "authors": [
+                  {
+                    "id": "<uuid-6>",
+                    "name": "Ann Author"
+                  }
+                ],
+                "narrators": [],
+                "series": [],
+                "genres": [],
+                "publishedYear": null,
+                "publishedDate": null,
+                "publisher": null,
+                "description": null,
+                "isbn": null,
+                "asin": null,
+                "language": null,
+                "explicit": null,
+                "abridged": null,
+                "titleIgnorePrefix": "Book B",
+                "authorName": "Ann Author",
+                "authorNameLF": "Author, Ann",
+                "narratorName": "",
+                "seriesName": "",
+                "descriptionPlain": null
+              },
+              "coverPath": null,
+              "tags": [],
+              "numTracks": 0,
+              "numAudioFiles": 0,
+              "numChapters": 0,
+              "duration": null,
+              "size": 0,
+              "libraryItemId": "<uuid-7>",
+              "audioFiles": [],
+              "chapters": [],
+              "ebookFile": null,
+              "tracks": []
+            },
+            "numFiles": 0,
+            "size": null,
+            "scanVersion": null,
+            "libraryFiles": []
+          }
+        ],
+        "lastUpdate": "<timestamp>",
+        "createdAt": "<timestamp>"
+      }
+    },
+    "emitted": [
+      {
+        "method": "emitter",
+        "args": [
+          "collection_updated",
+          {
+            "id": "<collection>",
+            "libraryId": "<uuid-2>",
+            "name": "Favourites",
+            "description": "my picks",
+            "books": [
+              {
+                "id": "<uuid-3>",
+                "ino": null,
+                "oldLibraryItemId": null,
+                "libraryId": "<uuid-2>",
+                "folderId": "<uuid-4>",
+                "path": "/test/books/Book A",
+                "relPath": "Book A",
+                "isFile": null,
+                "addedAt": "<timestamp>",
+                "updatedAt": "<timestamp>",
+                "isMissing": false,
+                "isInvalid": false,
+                "mediaType": "book",
+                "media": {
+                  "id": "<uuid-5>",
+                  "metadata": {
+                    "title": "Book A",
+                    "subtitle": null,
+                    "authors": [
+                      {
+                        "id": "<uuid-6>",
+                        "name": "Ann Author"
+                      }
+                    ],
+                    "narrators": [],
+                    "series": [],
+                    "genres": [],
+                    "publishedYear": null,
+                    "publishedDate": null,
+                    "publisher": null,
+                    "description": null,
+                    "isbn": null,
+                    "asin": null,
+                    "language": null,
+                    "explicit": null,
+                    "abridged": null,
+                    "titleIgnorePrefix": "Book A",
+                    "authorName": "Ann Author",
+                    "authorNameLF": "Author, Ann",
+                    "narratorName": "",
+                    "seriesName": "",
+                    "descriptionPlain": null
+                  },
+                  "coverPath": null,
+                  "tags": [],
+                  "numTracks": 0,
+                  "numAudioFiles": 0,
+                  "numChapters": 0,
+                  "duration": null,
+                  "size": 0,
+                  "libraryItemId": "<uuid-3>",
+                  "audioFiles": [],
+                  "chapters": [],
+                  "ebookFile": null,
+                  "tracks": []
+                },
+                "numFiles": 0,
+                "size": null,
+                "scanVersion": null,
+                "libraryFiles": []
+              },
+              {
+                "id": "<uuid-7>",
+                "ino": null,
+                "oldLibraryItemId": null,
+                "libraryId": "<uuid-2>",
+                "folderId": "<uuid-4>",
+                "path": "/test/books/Book B",
+                "relPath": "Book B",
+                "isFile": null,
+                "addedAt": "<timestamp>",
+                "updatedAt": "<timestamp>",
+                "isMissing": false,
+                "isInvalid": false,
+                "mediaType": "book",
+                "media": {
+                  "id": "<uuid-8>",
+                  "metadata": {
+                    "title": "Book B",
+                    "subtitle": null,
+                    "authors": [
+                      {
+                        "id": "<uuid-6>",
+                        "name": "Ann Author"
+                      }
+                    ],
+                    "narrators": [],
+                    "series": [],
+                    "genres": [],
+                    "publishedYear": null,
+                    "publishedDate": null,
+                    "publisher": null,
+                    "description": null,
+                    "isbn": null,
+                    "asin": null,
+                    "language": null,
+                    "explicit": null,
+                    "abridged": null,
+                    "titleIgnorePrefix": "Book B",
+                    "authorName": "Ann Author",
+                    "authorNameLF": "Author, Ann",
+                    "narratorName": "",
+                    "seriesName": "",
+                    "descriptionPlain": null
+                  },
+                  "coverPath": null,
+                  "tags": [],
+                  "numTracks": 0,
+                  "numAudioFiles": 0,
+                  "numChapters": 0,
+                  "duration": null,
+                  "size": 0,
+                  "libraryItemId": "<uuid-7>",
+                  "audioFiles": [],
+                  "chapters": [],
+                  "ebookFile": null,
+                  "tracks": []
+                },
+                "numFiles": 0,
+                "size": null,
+                "scanVersion": null,
+                "libraryFiles": []
+              }
+            ],
+            "lastUpdate": "<timestamp>",
+            "createdAt": "<timestamp>"
+          }
+        ]
+      }
+    ]
+  },
+  "CollectionController (characterization) > modify routes > adds and removes single books > remove again": {
+    "res": {
+      "status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8"
+      },
+      "body": {
+        "id": "<collection>",
+        "libraryId": "<uuid-2>",
+        "name": "Favourites",
+        "description": "my picks",
+        "books": [
+          {
+            "id": "<uuid-3>",
+            "ino": null,
+            "oldLibraryItemId": null,
+            "libraryId": "<uuid-2>",
+            "folderId": "<uuid-4>",
+            "path": "/test/books/Book A",
+            "relPath": "Book A",
+            "isFile": null,
+            "addedAt": "<timestamp>",
+            "updatedAt": "<timestamp>",
+            "isMissing": false,
+            "isInvalid": false,
+            "mediaType": "book",
+            "media": {
+              "id": "<uuid-5>",
+              "metadata": {
+                "title": "Book A",
+                "subtitle": null,
+                "authors": [
+                  {
+                    "id": "<uuid-6>",
+                    "name": "Ann Author"
+                  }
+                ],
+                "narrators": [],
+                "series": [],
+                "genres": [],
+                "publishedYear": null,
+                "publishedDate": null,
+                "publisher": null,
+                "description": null,
+                "isbn": null,
+                "asin": null,
+                "language": null,
+                "explicit": null,
+                "abridged": null,
+                "titleIgnorePrefix": "Book A",
+                "authorName": "Ann Author",
+                "authorNameLF": "Author, Ann",
+                "narratorName": "",
+                "seriesName": "",
+                "descriptionPlain": null
+              },
+              "coverPath": null,
+              "tags": [],
+              "numTracks": 0,
+              "numAudioFiles": 0,
+              "numChapters": 0,
+              "duration": null,
+              "size": 0,
+              "libraryItemId": "<uuid-3>",
+              "audioFiles": [],
+              "chapters": [],
+              "ebookFile": null,
+              "tracks": []
+            },
+            "numFiles": 0,
+            "size": null,
+            "scanVersion": null,
+            "libraryFiles": []
+          },
+          {
+            "id": "<uuid-7>",
+            "ino": null,
+            "oldLibraryItemId": null,
+            "libraryId": "<uuid-2>",
+            "folderId": "<uuid-4>",
+            "path": "/test/books/Book B",
+            "relPath": "Book B",
+            "isFile": null,
+            "addedAt": "<timestamp>",
+            "updatedAt": "<timestamp>",
+            "isMissing": false,
+            "isInvalid": false,
+            "mediaType": "book",
+            "media": {
+              "id": "<uuid-8>",
+              "metadata": {
+                "title": "Book B",
+                "subtitle": null,
+                "authors": [
+                  {
+                    "id": "<uuid-6>",
+                    "name": "Ann Author"
+                  }
+                ],
+                "narrators": [],
+                "series": [],
+                "genres": [],
+                "publishedYear": null,
+                "publishedDate": null,
+                "publisher": null,
+                "description": null,
+                "isbn": null,
+                "asin": null,
+                "language": null,
+                "explicit": null,
+                "abridged": null,
+                "titleIgnorePrefix": "Book B",
+                "authorName": "Ann Author",
+                "authorNameLF": "Author, Ann",
+                "narratorName": "",
+                "seriesName": "",
+                "descriptionPlain": null
+              },
+              "coverPath": null,
+              "tags": [],
+              "numTracks": 0,
+              "numAudioFiles": 0,
+              "numChapters": 0,
+              "duration": null,
+              "size": 0,
+              "libraryItemId": "<uuid-7>",
+              "audioFiles": [],
+              "chapters": [],
+              "ebookFile": null,
+              "tracks": []
+            },
+            "numFiles": 0,
+            "size": null,
+            "scanVersion": null,
+            "libraryFiles": []
+          }
+        ],
+        "lastUpdate": "<timestamp>",
+        "createdAt": "<timestamp>"
+      }
+    },
+    "emitted": []
+  },
+  "CollectionController (characterization) > modify routes > checks permissions > guest add": {
+    "res": {
+      "status": 403,
+      "headers": {
+        "content-type": "text/plain; charset=utf-8"
+      },
+      "body": "Forbidden"
+    },
+    "emitted": []
+  },
+  "CollectionController (characterization) > modify routes > checks permissions > guest delete": {
+    "res": {
+      "status": 403,
+      "headers": {
+        "content-type": "text/plain; charset=utf-8"
+      },
+      "body": "Forbidden"
+    },
+    "emitted": []
+  },
+  "CollectionController (characterization) > modify routes > checks permissions > guest update": {
+    "res": {
+      "status": 403,
+      "headers": {
+        "content-type": "text/plain; charset=utf-8"
+      },
+      "body": "Forbidden"
+    },
+    "emitted": []
+  },
+  "CollectionController (characterization) > modify routes > checks permissions > user add": {
+    "res": {
+      "status": 403,
+      "headers": {
+        "content-type": "text/plain; charset=utf-8"
+      },
+      "body": "Forbidden"
+    },
+    "emitted": []
+  },
+  "CollectionController (characterization) > modify routes > checks permissions > user delete": {
+    "res": {
+      "status": 403,
+      "headers": {
+        "content-type": "text/plain; charset=utf-8"
+      },
+      "body": "Forbidden"
+    },
+    "emitted": []
+  },
+  "CollectionController (characterization) > modify routes > checks permissions > user update": {
+    "res": {
+      "status": 403,
+      "headers": {
+        "content-type": "text/plain; charset=utf-8"
+      },
+      "body": "Forbidden"
+    },
+    "emitted": []
+  },
+  "CollectionController (characterization) > modify routes > deletes and 404s afterwards > admin is not allowed": {
+    "res": {
+      "status": 403,
+      "headers": {
+        "content-type": "text/plain; charset=utf-8"
+      },
+      "body": "Forbidden"
+    },
+    "emitted": []
+  },
+  "CollectionController (characterization) > modify routes > deletes and 404s afterwards > delete again": {
+    "res": {
+      "status": 404,
+      "headers": {
+        "content-type": "text/html; charset=utf-8"
+      },
+      "body": "Collection not found"
+    },
+    "emitted": []
+  },
+  "CollectionController (characterization) > modify routes > deletes and 404s afterwards > find after delete": {
+    "res": {
+      "status": 404,
+      "headers": {
+        "content-type": "text/html; charset=utf-8"
+      },
+      "body": "Collection not found"
+    },
+    "emitted": []
+  },
+  "CollectionController (characterization) > modify routes > deletes and 404s afterwards > root deletes": {
+    "res": {
+      "status": 200,
+      "headers": {
+        "content-type": "text/plain; charset=utf-8"
+      },
+      "body": "OK"
+    },
+    "emitted": [
+      {
+        "method": "emitter",
+        "args": [
+          "collection_removed",
+          {
+            "id": "<collection>",
+            "libraryId": "<uuid-2>",
+            "name": "Favourites",
+            "description": "my picks",
+            "books": [
+              {
+                "id": "<uuid-3>",
+                "ino": null,
+                "oldLibraryItemId": null,
+                "libraryId": "<uuid-2>",
+                "folderId": "<uuid-4>",
+                "path": "/test/books/Book A",
+                "relPath": "Book A",
+                "isFile": null,
+                "addedAt": "<timestamp>",
+                "updatedAt": "<timestamp>",
+                "isMissing": false,
+                "isInvalid": false,
+                "mediaType": "book",
+                "media": {
+                  "id": "<uuid-5>",
+                  "metadata": {
+                    "title": "Book A",
+                    "subtitle": null,
+                    "authors": [
+                      {
+                        "id": "<uuid-6>",
+                        "name": "Ann Author"
+                      }
+                    ],
+                    "narrators": [],
+                    "series": [],
+                    "genres": [],
+                    "publishedYear": null,
+                    "publishedDate": null,
+                    "publisher": null,
+                    "description": null,
+                    "isbn": null,
+                    "asin": null,
+                    "language": null,
+                    "explicit": null,
+                    "abridged": null,
+                    "titleIgnorePrefix": "Book A",
+                    "authorName": "Ann Author",
+                    "authorNameLF": "Author, Ann",
+                    "narratorName": "",
+                    "seriesName": "",
+                    "descriptionPlain": null
+                  },
+                  "coverPath": null,
+                  "tags": [],
+                  "numTracks": 0,
+                  "numAudioFiles": 0,
+                  "numChapters": 0,
+                  "duration": null,
+                  "size": 0,
+                  "libraryItemId": "<uuid-3>",
+                  "audioFiles": [],
+                  "chapters": [],
+                  "ebookFile": null,
+                  "tracks": []
+                },
+                "numFiles": 0,
+                "size": null,
+                "scanVersion": null,
+                "libraryFiles": []
+              },
+              {
+                "id": "<uuid-7>",
+                "ino": null,
+                "oldLibraryItemId": null,
+                "libraryId": "<uuid-2>",
+                "folderId": "<uuid-4>",
+                "path": "/test/books/Book B",
+                "relPath": "Book B",
+                "isFile": null,
+                "addedAt": "<timestamp>",
+                "updatedAt": "<timestamp>",
+                "isMissing": false,
+                "isInvalid": false,
+                "mediaType": "book",
+                "media": {
+                  "id": "<uuid-8>",
+                  "metadata": {
+                    "title": "Book B",
+                    "subtitle": null,
+                    "authors": [
+                      {
+                        "id": "<uuid-6>",
+                        "name": "Ann Author"
+                      }
+                    ],
+                    "narrators": [],
+                    "series": [],
+                    "genres": [],
+                    "publishedYear": null,
+                    "publishedDate": null,
+                    "publisher": null,
+                    "description": null,
+                    "isbn": null,
+                    "asin": null,
+                    "language": null,
+                    "explicit": null,
+                    "abridged": null,
+                    "titleIgnorePrefix": "Book B",
+                    "authorName": "Ann Author",
+                    "authorNameLF": "Author, Ann",
+                    "narratorName": "",
+                    "seriesName": "",
+                    "descriptionPlain": null
+                  },
+                  "coverPath": null,
+                  "tags": [],
+                  "numTracks": 0,
+                  "numAudioFiles": 0,
+                  "numChapters": 0,
+                  "duration": null,
+                  "size": 0,
+                  "libraryItemId": "<uuid-7>",
+                  "audioFiles": [],
+                  "chapters": [],
+                  "ebookFile": null,
+                  "tracks": []
+                },
+                "numFiles": 0,
+                "size": null,
+                "scanVersion": null,
+                "libraryFiles": []
+              }
+            ],
+            "lastUpdate": "<timestamp>",
+            "createdAt": "<timestamp>"
+          }
+        ]
+      }
+    ]
+  },
+  "CollectionController (characterization) > modify routes > updates name, description and book order > full update": {
+    "res": {
+      "status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8"
+      },
+      "body": {
+        "id": "<collection>",
+        "libraryId": "<uuid-2>",
+        "name": "Renamed",
+        "description": "new",
+        "books": [
+          {
+            "id": "<uuid-3>",
+            "ino": null,
+            "oldLibraryItemId": null,
+            "libraryId": "<uuid-2>",
+            "folderId": "<uuid-4>",
+            "path": "/test/books/Book B",
+            "relPath": "Book B",
+            "isFile": null,
+            "addedAt": "<timestamp>",
+            "updatedAt": "<timestamp>",
+            "isMissing": false,
+            "isInvalid": false,
+            "mediaType": "book",
+            "media": {
+              "id": "<uuid-5>",
+              "metadata": {
+                "title": "Book B",
+                "subtitle": null,
+                "authors": [
+                  {
+                    "id": "<uuid-6>",
+                    "name": "Ann Author"
+                  }
+                ],
+                "narrators": [],
+                "series": [],
+                "genres": [],
+                "publishedYear": null,
+                "publishedDate": null,
+                "publisher": null,
+                "description": null,
+                "isbn": null,
+                "asin": null,
+                "language": null,
+                "explicit": null,
+                "abridged": null,
+                "titleIgnorePrefix": "Book B",
+                "authorName": "Ann Author",
+                "authorNameLF": "Author, Ann",
+                "narratorName": "",
+                "seriesName": "",
+                "descriptionPlain": null
+              },
+              "coverPath": null,
+              "tags": [],
+              "numTracks": 0,
+              "numAudioFiles": 0,
+              "numChapters": 0,
+              "duration": null,
+              "size": 0,
+              "libraryItemId": "<uuid-3>",
+              "audioFiles": [],
+              "chapters": [],
+              "ebookFile": null,
+              "tracks": []
+            },
+            "numFiles": 0,
+            "size": null,
+            "scanVersion": null,
+            "libraryFiles": []
+          },
+          {
+            "id": "<uuid-7>",
+            "ino": null,
+            "oldLibraryItemId": null,
+            "libraryId": "<uuid-2>",
+            "folderId": "<uuid-4>",
+            "path": "/test/books/Book A",
+            "relPath": "Book A",
+            "isFile": null,
+            "addedAt": "<timestamp>",
+            "updatedAt": "<timestamp>",
+            "isMissing": false,
+            "isInvalid": false,
+            "mediaType": "book",
+            "media": {
+              "id": "<uuid-8>",
+              "metadata": {
+                "title": "Book A",
+                "subtitle": null,
+                "authors": [
+                  {
+                    "id": "<uuid-6>",
+                    "name": "Ann Author"
+                  }
+                ],
+                "narrators": [],
+                "series": [],
+                "genres": [],
+                "publishedYear": null,
+                "publishedDate": null,
+                "publisher": null,
+                "description": null,
+                "isbn": null,
+                "asin": null,
+                "language": null,
+                "explicit": null,
+                "abridged": null,
+                "titleIgnorePrefix": "Book A",
+                "authorName": "Ann Author",
+                "authorNameLF": "Author, Ann",
+                "narratorName": "",
+                "seriesName": "",
+                "descriptionPlain": null
+              },
+              "coverPath": null,
+              "tags": [],
+              "numTracks": 0,
+              "numAudioFiles": 0,
+              "numChapters": 0,
+              "duration": null,
+              "size": 0,
+              "libraryItemId": "<uuid-7>",
+              "audioFiles": [],
+              "chapters": [],
+              "ebookFile": null,
+              "tracks": []
+            },
+            "numFiles": 0,
+            "size": null,
+            "scanVersion": null,
+            "libraryFiles": []
+          }
+        ],
+        "lastUpdate": "<timestamp>",
+        "createdAt": "<timestamp>"
+      }
+    },
+    "emitted": [
+      {
+        "method": "emitter",
+        "args": [
+          "collection_updated",
+          {
+            "id": "<collection>",
+            "libraryId": "<uuid-2>",
+            "name": "Renamed",
+            "description": "new",
+            "books": [
+              {
+                "id": "<uuid-3>",
+                "ino": null,
+                "oldLibraryItemId": null,
+                "libraryId": "<uuid-2>",
+                "folderId": "<uuid-4>",
+                "path": "/test/books/Book B",
+                "relPath": "Book B",
+                "isFile": null,
+                "addedAt": "<timestamp>",
+                "updatedAt": "<timestamp>",
+                "isMissing": false,
+                "isInvalid": false,
+                "mediaType": "book",
+                "media": {
+                  "id": "<uuid-5>",
+                  "metadata": {
+                    "title": "Book B",
+                    "subtitle": null,
+                    "authors": [
+                      {
+                        "id": "<uuid-6>",
+                        "name": "Ann Author"
+                      }
+                    ],
+                    "narrators": [],
+                    "series": [],
+                    "genres": [],
+                    "publishedYear": null,
+                    "publishedDate": null,
+                    "publisher": null,
+                    "description": null,
+                    "isbn": null,
+                    "asin": null,
+                    "language": null,
+                    "explicit": null,
+                    "abridged": null,
+                    "titleIgnorePrefix": "Book B",
+                    "authorName": "Ann Author",
+                    "authorNameLF": "Author, Ann",
+                    "narratorName": "",
+                    "seriesName": "",
+                    "descriptionPlain": null
+                  },
+                  "coverPath": null,
+                  "tags": [],
+                  "numTracks": 0,
+                  "numAudioFiles": 0,
+                  "numChapters": 0,
+                  "duration": null,
+                  "size": 0,
+                  "libraryItemId": "<uuid-3>",
+                  "audioFiles": [],
+                  "chapters": [],
+                  "ebookFile": null,
+                  "tracks": []
+                },
+                "numFiles": 0,
+                "size": null,
+                "scanVersion": null,
+                "libraryFiles": []
+              },
+              {
+                "id": "<uuid-7>",
+                "ino": null,
+                "oldLibraryItemId": null,
+                "libraryId": "<uuid-2>",
+                "folderId": "<uuid-4>",
+                "path": "/test/books/Book A",
+                "relPath": "Book A",
+                "isFile": null,
+                "addedAt": "<timestamp>",
+                "updatedAt": "<timestamp>",
+                "isMissing": false,
+                "isInvalid": false,
+                "mediaType": "book",
+                "media": {
+                  "id": "<uuid-8>",
+                  "metadata": {
+                    "title": "Book A",
+                    "subtitle": null,
+                    "authors": [
+                      {
+                        "id": "<uuid-6>",
+                        "name": "Ann Author"
+                      }
+                    ],
+                    "narrators": [],
+                    "series": [],
+                    "genres": [],
+                    "publishedYear": null,
+                    "publishedDate": null,
+                    "publisher": null,
+                    "description": null,
+                    "isbn": null,
+                    "asin": null,
+                    "language": null,
+                    "explicit": null,
+                    "abridged": null,
+                    "titleIgnorePrefix": "Book A",
+                    "authorName": "Ann Author",
+                    "authorNameLF": "Author, Ann",
+                    "narratorName": "",
+                    "seriesName": "",
+                    "descriptionPlain": null
+                  },
+                  "coverPath": null,
+                  "tags": [],
+                  "numTracks": 0,
+                  "numAudioFiles": 0,
+                  "numChapters": 0,
+                  "duration": null,
+                  "size": 0,
+                  "libraryItemId": "<uuid-7>",
+                  "audioFiles": [],
+                  "chapters": [],
+                  "ebookFile": null,
+                  "tracks": []
+                },
+                "numFiles": 0,
+                "size": null,
+                "scanVersion": null,
+                "libraryFiles": []
+              }
+            ],
+            "lastUpdate": "<timestamp>",
+            "createdAt": "<timestamp>"
+          }
+        ]
+      }
+    ]
+  },
+  "CollectionController (characterization) > modify routes > updates name, description and book order > no changes": {
+    "res": {
+      "status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8"
+      },
+      "body": {
+        "id": "<collection>",
+        "libraryId": "<uuid-2>",
+        "name": "Renamed",
+        "description": "xxxxx",
+        "books": [
+          {
+            "id": "<uuid-3>",
+            "ino": null,
+            "oldLibraryItemId": null,
+            "libraryId": "<uuid-2>",
+            "folderId": "<uuid-4>",
+            "path": "/test/books/Book B",
+            "relPath": "Book B",
+            "isFile": null,
+            "addedAt": "<timestamp>",
+            "updatedAt": "<timestamp>",
+            "isMissing": false,
+            "isInvalid": false,
+            "mediaType": "book",
+            "media": {
+              "id": "<uuid-5>",
+              "metadata": {
+                "title": "Book B",
+                "subtitle": null,
+                "authors": [
+                  {
+                    "id": "<uuid-6>",
+                    "name": "Ann Author"
+                  }
+                ],
+                "narrators": [],
+                "series": [],
+                "genres": [],
+                "publishedYear": null,
+                "publishedDate": null,
+                "publisher": null,
+                "description": null,
+                "isbn": null,
+                "asin": null,
+                "language": null,
+                "explicit": null,
+                "abridged": null,
+                "titleIgnorePrefix": "Book B",
+                "authorName": "Ann Author",
+                "authorNameLF": "Author, Ann",
+                "narratorName": "",
+                "seriesName": "",
+                "descriptionPlain": null
+              },
+              "coverPath": null,
+              "tags": [],
+              "numTracks": 0,
+              "numAudioFiles": 0,
+              "numChapters": 0,
+              "duration": null,
+              "size": 0,
+              "libraryItemId": "<uuid-3>",
+              "audioFiles": [],
+              "chapters": [],
+              "ebookFile": null,
+              "tracks": []
+            },
+            "numFiles": 0,
+            "size": null,
+            "scanVersion": null,
+            "libraryFiles": []
+          },
+          {
+            "id": "<uuid-7>",
+            "ino": null,
+            "oldLibraryItemId": null,
+            "libraryId": "<uuid-2>",
+            "folderId": "<uuid-4>",
+            "path": "/test/books/Book A",
+            "relPath": "Book A",
+            "isFile": null,
+            "addedAt": "<timestamp>",
+            "updatedAt": "<timestamp>",
+            "isMissing": false,
+            "isInvalid": false,
+            "mediaType": "book",
+            "media": {
+              "id": "<uuid-8>",
+              "metadata": {
+                "title": "Book A",
+                "subtitle": null,
+                "authors": [
+                  {
+                    "id": "<uuid-6>",
+                    "name": "Ann Author"
+                  }
+                ],
+                "narrators": [],
+                "series": [],
+                "genres": [],
+                "publishedYear": null,
+                "publishedDate": null,
+                "publisher": null,
+                "description": null,
+                "isbn": null,
+                "asin": null,
+                "language": null,
+                "explicit": null,
+                "abridged": null,
+                "titleIgnorePrefix": "Book A",
+                "authorName": "Ann Author",
+                "authorNameLF": "Author, Ann",
+                "narratorName": "",
+                "seriesName": "",
+                "descriptionPlain": null
+              },
+              "coverPath": null,
+              "tags": [],
+              "numTracks": 0,
+              "numAudioFiles": 0,
+              "numChapters": 0,
+              "duration": null,
+              "size": 0,
+              "libraryItemId": "<uuid-7>",
+              "audioFiles": [],
+              "chapters": [],
+              "ebookFile": null,
+              "tracks": []
+            },
+            "numFiles": 0,
+            "size": null,
+            "scanVersion": null,
+            "libraryFiles": []
+          }
+        ],
+        "lastUpdate": "<timestamp>",
+        "createdAt": "<timestamp>"
+      }
+    },
+    "emitted": []
+  },
+  "CollectionController (characterization) > modify routes > updates name, description and book order > partial update": {
+    "res": {
+      "status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8"
+      },
+      "body": {
+        "id": "<collection>",
+        "libraryId": "<uuid-2>",
+        "name": "Renamed",
+        "description": "xxxxx",
+        "books": [
+          {
+            "id": "<uuid-3>",
+            "ino": null,
+            "oldLibraryItemId": null,
+            "libraryId": "<uuid-2>",
+            "folderId": "<uuid-4>",
+            "path": "/test/books/Book B",
+            "relPath": "Book B",
+            "isFile": null,
+            "addedAt": "<timestamp>",
+            "updatedAt": "<timestamp>",
+            "isMissing": false,
+            "isInvalid": false,
+            "mediaType": "book",
+            "media": {
+              "id": "<uuid-5>",
+              "metadata": {
+                "title": "Book B",
+                "subtitle": null,
+                "authors": [
+                  {
+                    "id": "<uuid-6>",
+                    "name": "Ann Author"
+                  }
+                ],
+                "narrators": [],
+                "series": [],
+                "genres": [],
+                "publishedYear": null,
+                "publishedDate": null,
+                "publisher": null,
+                "description": null,
+                "isbn": null,
+                "asin": null,
+                "language": null,
+                "explicit": null,
+                "abridged": null,
+                "titleIgnorePrefix": "Book B",
+                "authorName": "Ann Author",
+                "authorNameLF": "Author, Ann",
+                "narratorName": "",
+                "seriesName": "",
+                "descriptionPlain": null
+              },
+              "coverPath": null,
+              "tags": [],
+              "numTracks": 0,
+              "numAudioFiles": 0,
+              "numChapters": 0,
+              "duration": null,
+              "size": 0,
+              "libraryItemId": "<uuid-3>",
+              "audioFiles": [],
+              "chapters": [],
+              "ebookFile": null,
+              "tracks": []
+            },
+            "numFiles": 0,
+            "size": null,
+            "scanVersion": null,
+            "libraryFiles": []
+          },
+          {
+            "id": "<uuid-7>",
+            "ino": null,
+            "oldLibraryItemId": null,
+            "libraryId": "<uuid-2>",
+            "folderId": "<uuid-4>",
+            "path": "/test/books/Book A",
+            "relPath": "Book A",
+            "isFile": null,
+            "addedAt": "<timestamp>",
+            "updatedAt": "<timestamp>",
+            "isMissing": false,
+            "isInvalid": false,
+            "mediaType": "book",
+            "media": {
+              "id": "<uuid-8>",
+              "metadata": {
+                "title": "Book A",
+                "subtitle": null,
+                "authors": [
+                  {
+                    "id": "<uuid-6>",
+                    "name": "Ann Author"
+                  }
+                ],
+                "narrators": [],
+                "series": [],
+                "genres": [],
+                "publishedYear": null,
+                "publishedDate": null,
+                "publisher": null,
+                "description": null,
+                "isbn": null,
+                "asin": null,
+                "language": null,
+                "explicit": null,
+                "abridged": null,
+                "titleIgnorePrefix": "Book A",
+                "authorName": "Ann Author",
+                "authorNameLF": "Author, Ann",
+                "narratorName": "",
+                "seriesName": "",
+                "descriptionPlain": null
+              },
+              "coverPath": null,
+              "tags": [],
+              "numTracks": 0,
+              "numAudioFiles": 0,
+              "numChapters": 0,
+              "duration": null,
+              "size": 0,
+              "libraryItemId": "<uuid-7>",
+              "audioFiles": [],
+              "chapters": [],
+              "ebookFile": null,
+              "tracks": []
+            },
+            "numFiles": 0,
+            "size": null,
+            "scanVersion": null,
+            "libraryFiles": []
+          }
+        ],
+        "lastUpdate": "<timestamp>",
+        "createdAt": "<timestamp>"
+      }
+    },
+    "emitted": [
+      {
+        "method": "emitter",
+        "args": [
+          "collection_updated",
+          {
+            "id": "<collection>",
+            "libraryId": "<uuid-2>",
+            "name": "Renamed",
+            "description": "xxxxx",
+            "books": [
+              {
+                "id": "<uuid-3>",
+                "ino": null,
+                "oldLibraryItemId": null,
+                "libraryId": "<uuid-2>",
+                "folderId": "<uuid-4>",
+                "path": "/test/books/Book B",
+                "relPath": "Book B",
+                "isFile": null,
+                "addedAt": "<timestamp>",
+                "updatedAt": "<timestamp>",
+                "isMissing": false,
+                "isInvalid": false,
+                "mediaType": "book",
+                "media": {
+                  "id": "<uuid-5>",
+                  "metadata": {
+                    "title": "Book B",
+                    "subtitle": null,
+                    "authors": [
+                      {
+                        "id": "<uuid-6>",
+                        "name": "Ann Author"
+                      }
+                    ],
+                    "narrators": [],
+                    "series": [],
+                    "genres": [],
+                    "publishedYear": null,
+                    "publishedDate": null,
+                    "publisher": null,
+                    "description": null,
+                    "isbn": null,
+                    "asin": null,
+                    "language": null,
+                    "explicit": null,
+                    "abridged": null,
+                    "titleIgnorePrefix": "Book B",
+                    "authorName": "Ann Author",
+                    "authorNameLF": "Author, Ann",
+                    "narratorName": "",
+                    "seriesName": "",
+                    "descriptionPlain": null
+                  },
+                  "coverPath": null,
+                  "tags": [],
+                  "numTracks": 0,
+                  "numAudioFiles": 0,
+                  "numChapters": 0,
+                  "duration": null,
+                  "size": 0,
+                  "libraryItemId": "<uuid-3>",
+                  "audioFiles": [],
+                  "chapters": [],
+                  "ebookFile": null,
+                  "tracks": []
+                },
+                "numFiles": 0,
+                "size": null,
+                "scanVersion": null,
+                "libraryFiles": []
+              },
+              {
+                "id": "<uuid-7>",
+                "ino": null,
+                "oldLibraryItemId": null,
+                "libraryId": "<uuid-2>",
+                "folderId": "<uuid-4>",
+                "path": "/test/books/Book A",
+                "relPath": "Book A",
+                "isFile": null,
+                "addedAt": "<timestamp>",
+                "updatedAt": "<timestamp>",
+                "isMissing": false,
+                "isInvalid": false,
+                "mediaType": "book",
+                "media": {
+                  "id": "<uuid-8>",
+                  "metadata": {
+                    "title": "Book A",
+                    "subtitle": null,
+                    "authors": [
+                      {
+                        "id": "<uuid-6>",
+                        "name": "Ann Author"
+                      }
+                    ],
+                    "narrators": [],
+                    "series": [],
+                    "genres": [],
+                    "publishedYear": null,
+                    "publishedDate": null,
+                    "publisher": null,
+                    "description": null,
+                    "isbn": null,
+                    "asin": null,
+                    "language": null,
+                    "explicit": null,
+                    "abridged": null,
+                    "titleIgnorePrefix": "Book A",
+                    "authorName": "Ann Author",
+                    "authorNameLF": "Author, Ann",
+                    "narratorName": "",
+                    "seriesName": "",
+                    "descriptionPlain": null
+                  },
+                  "coverPath": null,
+                  "tags": [],
+                  "numTracks": 0,
+                  "numAudioFiles": 0,
+                  "numChapters": 0,
+                  "duration": null,
+                  "size": 0,
+                  "libraryItemId": "<uuid-7>",
+                  "audioFiles": [],
+                  "chapters": [],
+                  "ebookFile": null,
+                  "tracks": []
+                },
+                "numFiles": 0,
+                "size": null,
+                "scanVersion": null,
+                "libraryFiles": []
+              }
+            ],
+            "lastUpdate": "<timestamp>",
+            "createdAt": "<timestamp>"
+          }
+        ]
+      }
+    ]
+  },
+  "CollectionController (characterization) > read routes > lists, finds and 404s > find": {
+    "res": {
+      "status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8"
+      },
+      "body": {
+        "id": "<uuid-1>",
+        "libraryId": "<uuid-2>",
+        "name": "Favourites",
+        "description": "my picks",
+        "books": [
+          {
+            "id": "<uuid-3>",
+            "ino": null,
+            "oldLibraryItemId": null,
+            "libraryId": "<uuid-2>",
+            "folderId": "<uuid-4>",
+            "path": "/test/books/Book A",
+            "relPath": "Book A",
+            "isFile": null,
+            "addedAt": "<timestamp>",
+            "updatedAt": "<timestamp>",
+            "isMissing": false,
+            "isInvalid": false,
+            "mediaType": "book",
+            "media": {
+              "id": "<uuid-5>",
+              "metadata": {
+                "title": "Book A",
+                "subtitle": null,
+                "authors": [
+                  {
+                    "id": "<uuid-6>",
+                    "name": "Ann Author"
+                  }
+                ],
+                "narrators": [],
+                "series": [],
+                "genres": [],
+                "publishedYear": null,
+                "publishedDate": null,
+                "publisher": null,
+                "description": null,
+                "isbn": null,
+                "asin": null,
+                "language": null,
+                "explicit": null,
+                "abridged": null,
+                "titleIgnorePrefix": "Book A",
+                "authorName": "Ann Author",
+                "authorNameLF": "Author, Ann",
+                "narratorName": "",
+                "seriesName": "",
+                "descriptionPlain": null
+              },
+              "coverPath": null,
+              "tags": [],
+              "numTracks": 0,
+              "numAudioFiles": 0,
+              "numChapters": 0,
+              "duration": null,
+              "size": 0,
+              "libraryItemId": "<uuid-3>",
+              "audioFiles": [],
+              "chapters": [],
+              "ebookFile": null,
+              "tracks": []
+            },
+            "numFiles": 0,
+            "size": null,
+            "scanVersion": null,
+            "libraryFiles": []
+          },
+          {
+            "id": "<uuid-7>",
+            "ino": null,
+            "oldLibraryItemId": null,
+            "libraryId": "<uuid-2>",
+            "folderId": "<uuid-4>",
+            "path": "/test/books/Book B",
+            "relPath": "Book B",
+            "isFile": null,
+            "addedAt": "<timestamp>",
+            "updatedAt": "<timestamp>",
+            "isMissing": false,
+            "isInvalid": false,
+            "mediaType": "book",
+            "media": {
+              "id": "<uuid-8>",
+              "metadata": {
+                "title": "Book B",
+                "subtitle": null,
+                "authors": [
+                  {
+                    "id": "<uuid-6>",
+                    "name": "Ann Author"
+                  }
+                ],
+                "narrators": [],
+                "series": [],
+                "genres": [],
+                "publishedYear": null,
+                "publishedDate": null,
+                "publisher": null,
+                "description": null,
+                "isbn": null,
+                "asin": null,
+                "language": null,
+                "explicit": null,
+                "abridged": null,
+                "titleIgnorePrefix": "Book B",
+                "authorName": "Ann Author",
+                "authorNameLF": "Author, Ann",
+                "narratorName": "",
+                "seriesName": "",
+                "descriptionPlain": null
+              },
+              "coverPath": null,
+              "tags": [],
+              "numTracks": 0,
+              "numAudioFiles": 0,
+              "numChapters": 0,
+              "duration": null,
+              "size": 0,
+              "libraryItemId": "<uuid-7>",
+              "audioFiles": [],
+              "chapters": [],
+              "ebookFile": null,
+              "tracks": []
+            },
+            "numFiles": 0,
+            "size": null,
+            "scanVersion": null,
+            "libraryFiles": []
+          }
+        ],
+        "lastUpdate": "<timestamp>",
+        "createdAt": "<timestamp>"
+      }
+    },
+    "emitted": []
+  },
+  "CollectionController (characterization) > read routes > lists, finds and 404s > find include rssfeed": {
+    "res": {
+      "status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8"
+      },
+      "body": {
+        "id": "<uuid-1>",
+        "libraryId": "<uuid-2>",
+        "name": "Favourites",
+        "description": "my picks",
+        "books": [
+          {
+            "id": "<uuid-3>",
+            "ino": null,
+            "oldLibraryItemId": null,
+            "libraryId": "<uuid-2>",
+            "folderId": "<uuid-4>",
+            "path": "/test/books/Book A",
+            "relPath": "Book A",
+            "isFile": null,
+            "addedAt": "<timestamp>",
+            "updatedAt": "<timestamp>",
+            "isMissing": false,
+            "isInvalid": false,
+            "mediaType": "book",
+            "media": {
+              "id": "<uuid-5>",
+              "metadata": {
+                "title": "Book A",
+                "subtitle": null,
+                "authors": [
+                  {
+                    "id": "<uuid-6>",
+                    "name": "Ann Author"
+                  }
+                ],
+                "narrators": [],
+                "series": [],
+                "genres": [],
+                "publishedYear": null,
+                "publishedDate": null,
+                "publisher": null,
+                "description": null,
+                "isbn": null,
+                "asin": null,
+                "language": null,
+                "explicit": null,
+                "abridged": null,
+                "titleIgnorePrefix": "Book A",
+                "authorName": "Ann Author",
+                "authorNameLF": "Author, Ann",
+                "narratorName": "",
+                "seriesName": "",
+                "descriptionPlain": null
+              },
+              "coverPath": null,
+              "tags": [],
+              "numTracks": 0,
+              "numAudioFiles": 0,
+              "numChapters": 0,
+              "duration": null,
+              "size": 0,
+              "libraryItemId": "<uuid-3>",
+              "audioFiles": [],
+              "chapters": [],
+              "ebookFile": null,
+              "tracks": []
+            },
+            "numFiles": 0,
+            "size": null,
+            "scanVersion": null,
+            "libraryFiles": []
+          },
+          {
+            "id": "<uuid-7>",
+            "ino": null,
+            "oldLibraryItemId": null,
+            "libraryId": "<uuid-2>",
+            "folderId": "<uuid-4>",
+            "path": "/test/books/Book B",
+            "relPath": "Book B",
+            "isFile": null,
+            "addedAt": "<timestamp>",
+            "updatedAt": "<timestamp>",
+            "isMissing": false,
+            "isInvalid": false,
+            "mediaType": "book",
+            "media": {
+              "id": "<uuid-8>",
+              "metadata": {
+                "title": "Book B",
+                "subtitle": null,
+                "authors": [
+                  {
+                    "id": "<uuid-6>",
+                    "name": "Ann Author"
+                  }
+                ],
+                "narrators": [],
+                "series": [],
+                "genres": [],
+                "publishedYear": null,
+                "publishedDate": null,
+                "publisher": null,
+                "description": null,
+                "isbn": null,
+                "asin": null,
+                "language": null,
+                "explicit": null,
+                "abridged": null,
+                "titleIgnorePrefix": "Book B",
+                "authorName": "Ann Author",
+                "authorNameLF": "Author, Ann",
+                "narratorName": "",
+                "seriesName": "",
+                "descriptionPlain": null
+              },
+              "coverPath": null,
+              "tags": [],
+              "numTracks": 0,
+              "numAudioFiles": 0,
+              "numChapters": 0,
+              "duration": null,
+              "size": 0,
+              "libraryItemId": "<uuid-7>",
+              "audioFiles": [],
+              "chapters": [],
+              "ebookFile": null,
+              "tracks": []
+            },
+            "numFiles": 0,
+            "size": null,
+            "scanVersion": null,
+            "libraryFiles": []
+          }
+        ],
+        "lastUpdate": "<timestamp>",
+        "createdAt": "<timestamp>"
+      }
+    },
+    "emitted": []
+  },
+  "CollectionController (characterization) > read routes > lists, finds and 404s > library collections": {
+    "res": {
+      "status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8"
+      },
+      "body": {
+        "results": [
+          {
+            "id": "<uuid-1>",
+            "libraryId": "<uuid-2>",
+            "name": "Favourites",
+            "description": "my picks",
+            "books": [
+              {
+                "id": "<uuid-3>",
+                "ino": null,
+                "oldLibraryItemId": null,
+                "libraryId": "<uuid-2>",
+                "folderId": "<uuid-4>",
+                "path": "/test/books/Book A",
+                "relPath": "Book A",
+                "isFile": null,
+                "addedAt": "<timestamp>",
+                "updatedAt": "<timestamp>",
+                "isMissing": false,
+                "isInvalid": false,
+                "mediaType": "book",
+                "media": {
+                  "id": "<uuid-5>",
+                  "metadata": {
+                    "title": "Book A",
+                    "subtitle": null,
+                    "authors": [
+                      {
+                        "id": "<uuid-6>",
+                        "name": "Ann Author"
+                      }
+                    ],
+                    "narrators": [],
+                    "series": [],
+                    "genres": [],
+                    "publishedYear": null,
+                    "publishedDate": null,
+                    "publisher": null,
+                    "description": null,
+                    "isbn": null,
+                    "asin": null,
+                    "language": null,
+                    "explicit": null,
+                    "abridged": null,
+                    "titleIgnorePrefix": "Book A",
+                    "authorName": "Ann Author",
+                    "authorNameLF": "Author, Ann",
+                    "narratorName": "",
+                    "seriesName": "",
+                    "descriptionPlain": null
+                  },
+                  "coverPath": null,
+                  "tags": [],
+                  "numTracks": 0,
+                  "numAudioFiles": 0,
+                  "numChapters": 0,
+                  "duration": null,
+                  "size": 0,
+                  "libraryItemId": "<uuid-3>",
+                  "audioFiles": [],
+                  "chapters": [],
+                  "ebookFile": null,
+                  "tracks": []
+                },
+                "numFiles": 0,
+                "size": null,
+                "scanVersion": null,
+                "libraryFiles": []
+              },
+              {
+                "id": "<uuid-7>",
+                "ino": null,
+                "oldLibraryItemId": null,
+                "libraryId": "<uuid-2>",
+                "folderId": "<uuid-4>",
+                "path": "/test/books/Book B",
+                "relPath": "Book B",
+                "isFile": null,
+                "addedAt": "<timestamp>",
+                "updatedAt": "<timestamp>",
+                "isMissing": false,
+                "isInvalid": false,
+                "mediaType": "book",
+                "media": {
+                  "id": "<uuid-8>",
+                  "metadata": {
+                    "title": "Book B",
+                    "subtitle": null,
+                    "authors": [
+                      {
+                        "id": "<uuid-6>",
+                        "name": "Ann Author"
+                      }
+                    ],
+                    "narrators": [],
+                    "series": [],
+                    "genres": [],
+                    "publishedYear": null,
+                    "publishedDate": null,
+                    "publisher": null,
+                    "description": null,
+                    "isbn": null,
+                    "asin": null,
+                    "language": null,
+                    "explicit": null,
+                    "abridged": null,
+                    "titleIgnorePrefix": "Book B",
+                    "authorName": "Ann Author",
+                    "authorNameLF": "Author, Ann",
+                    "narratorName": "",
+                    "seriesName": "",
+                    "descriptionPlain": null
+                  },
+                  "coverPath": null,
+                  "tags": [],
+                  "numTracks": 0,
+                  "numAudioFiles": 0,
+                  "numChapters": 0,
+                  "duration": null,
+                  "size": 0,
+                  "libraryItemId": "<uuid-7>",
+                  "audioFiles": [],
+                  "chapters": [],
+                  "ebookFile": null,
+                  "tracks": []
+                },
+                "numFiles": 0,
+                "size": null,
+                "scanVersion": null,
+                "libraryFiles": []
+              }
+            ],
+            "lastUpdate": "<timestamp>",
+            "createdAt": "<timestamp>"
+          }
+        ],
+        "total": 1,
+        "limit": 0,
+        "page": 0,
+        "sortDesc": false,
+        "minified": false,
+        "include": ""
+      }
+    },
+    "emitted": []
+  },
+  "CollectionController (characterization) > read routes > lists, finds and 404s > list": {
+    "res": {
+      "status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8"
+      },
+      "body": {
+        "collections": [
+          {
+            "id": "<uuid-1>",
+            "libraryId": "<uuid-2>",
+            "name": "Favourites",
+            "description": "my picks",
+            "books": [
+              {
+                "id": "<uuid-3>",
+                "ino": null,
+                "oldLibraryItemId": null,
+                "libraryId": "<uuid-2>",
+                "folderId": "<uuid-4>",
+                "path": "/test/books/Book A",
+                "relPath": "Book A",
+                "isFile": null,
+                "addedAt": "<timestamp>",
+                "updatedAt": "<timestamp>",
+                "isMissing": false,
+                "isInvalid": false,
+                "mediaType": "book",
+                "media": {
+                  "id": "<uuid-5>",
+                  "metadata": {
+                    "title": "Book A",
+                    "subtitle": null,
+                    "authors": [
+                      {
+                        "id": "<uuid-6>",
+                        "name": "Ann Author"
+                      }
+                    ],
+                    "narrators": [],
+                    "series": [],
+                    "genres": [],
+                    "publishedYear": null,
+                    "publishedDate": null,
+                    "publisher": null,
+                    "description": null,
+                    "isbn": null,
+                    "asin": null,
+                    "language": null,
+                    "explicit": null,
+                    "abridged": null,
+                    "titleIgnorePrefix": "Book A",
+                    "authorName": "Ann Author",
+                    "authorNameLF": "Author, Ann",
+                    "narratorName": "",
+                    "seriesName": "",
+                    "descriptionPlain": null
+                  },
+                  "coverPath": null,
+                  "tags": [],
+                  "numTracks": 0,
+                  "numAudioFiles": 0,
+                  "numChapters": 0,
+                  "duration": null,
+                  "size": 0,
+                  "libraryItemId": "<uuid-3>",
+                  "audioFiles": [],
+                  "chapters": [],
+                  "ebookFile": null,
+                  "tracks": []
+                },
+                "numFiles": 0,
+                "size": null,
+                "scanVersion": null,
+                "libraryFiles": []
+              },
+              {
+                "id": "<uuid-7>",
+                "ino": null,
+                "oldLibraryItemId": null,
+                "libraryId": "<uuid-2>",
+                "folderId": "<uuid-4>",
+                "path": "/test/books/Book B",
+                "relPath": "Book B",
+                "isFile": null,
+                "addedAt": "<timestamp>",
+                "updatedAt": "<timestamp>",
+                "isMissing": false,
+                "isInvalid": false,
+                "mediaType": "book",
+                "media": {
+                  "id": "<uuid-8>",
+                  "metadata": {
+                    "title": "Book B",
+                    "subtitle": null,
+                    "authors": [
+                      {
+                        "id": "<uuid-6>",
+                        "name": "Ann Author"
+                      }
+                    ],
+                    "narrators": [],
+                    "series": [],
+                    "genres": [],
+                    "publishedYear": null,
+                    "publishedDate": null,
+                    "publisher": null,
+                    "description": null,
+                    "isbn": null,
+                    "asin": null,
+                    "language": null,
+                    "explicit": null,
+                    "abridged": null,
+                    "titleIgnorePrefix": "Book B",
+                    "authorName": "Ann Author",
+                    "authorNameLF": "Author, Ann",
+                    "narratorName": "",
+                    "seriesName": "",
+                    "descriptionPlain": null
+                  },
+                  "coverPath": null,
+                  "tags": [],
+                  "numTracks": 0,
+                  "numAudioFiles": 0,
+                  "numChapters": 0,
+                  "duration": null,
+                  "size": 0,
+                  "libraryItemId": "<uuid-7>",
+                  "audioFiles": [],
+                  "chapters": [],
+                  "ebookFile": null,
+                  "tracks": []
+                },
+                "numFiles": 0,
+                "size": null,
+                "scanVersion": null,
+                "libraryFiles": []
+              }
+            ],
+            "lastUpdate": "<timestamp>",
+            "createdAt": "<timestamp>"
+          }
+        ]
+      }
+    },
+    "emitted": []
+  },
+  "CollectionController (characterization) > read routes > lists, finds and 404s > unknown id": {
+    "res": {
+      "status": 404,
+      "headers": {
+        "content-type": "text/html; charset=utf-8"
+      },
+      "body": "Collection not found"
+    },
+    "emitted": []
+  }
+}
