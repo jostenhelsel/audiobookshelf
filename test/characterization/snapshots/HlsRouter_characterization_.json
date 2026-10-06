@@ -1,0 +1,1571 @@
+{
+  "HlsRouter (characterization) > files inside the stream directory > serves .ts files and .m3u8 with their types; dotfiles, directories and symlinks > special files: dirM3u8": {
+    "res": {
+      "status": 404,
+      "headers": {
+        "content-type": "text/html; charset=utf-8",
+        "content-length": "<html error page length>",
+        "content-range": null,
+        "accept-ranges": null,
+        "cache-control": null,
+        "x-content-type-options": "nosniff",
+        "access-control-allow-origin": null,
+        "x-powered-by": "Express",
+        "etag": null,
+        "last-modified": null
+      },
+      "body": {
+        "htmlErrorPage": "Cannot GET /hls/<uuid-1>/dir.m3u8"
+      }
+    }
+  },
+  "HlsRouter (characterization) > files inside the stream directory > serves .ts files and .m3u8 with their types; dotfiles, directories and symlinks > special files: dirTs": {
+    "res": {
+      "status": 404,
+      "headers": {
+        "content-type": "text/html; charset=utf-8",
+        "content-length": "<html error page length>",
+        "content-range": null,
+        "accept-ranges": null,
+        "cache-control": null,
+        "x-content-type-options": "nosniff",
+        "access-control-allow-origin": null,
+        "x-powered-by": "Express",
+        "etag": null,
+        "last-modified": null
+      },
+      "body": {
+        "htmlErrorPage": "Cannot GET /hls/<uuid-1>/dir.ts"
+      }
+    }
+  },
+  "HlsRouter (characterization) > files inside the stream directory > serves .ts files and .m3u8 with their types; dotfiles, directories and symlinks > special files: dotfile": {
+    "res": {
+      "status": 404,
+      "headers": {
+        "content-type": "text/html; charset=utf-8",
+        "content-length": "<html error page length>",
+        "content-range": null,
+        "accept-ranges": null,
+        "cache-control": null,
+        "x-content-type-options": "nosniff",
+        "access-control-allow-origin": null,
+        "x-powered-by": "Express",
+        "etag": null,
+        "last-modified": null
+      },
+      "body": {
+        "htmlErrorPage": "NotFoundError: Not Found"
+      }
+    }
+  },
+  "HlsRouter (characterization) > files inside the stream directory > serves .ts files and .m3u8 with their types; dotfiles, directories and symlinks > special files: segment": {
+    "res": {
+      "status": 200,
+      "headers": {
+        "content-type": "video/mp2t",
+        "content-length": "4",
+        "content-range": null,
+        "accept-ranges": "bytes",
+        "cache-control": "public, max-age=0",
+        "x-content-type-options": null,
+        "access-control-allow-origin": null,
+        "x-powered-by": "Express",
+        "etag": "<present>",
+        "last-modified": "<present>"
+      },
+      "body": {
+        "bytes": 4,
+        "firstByteHex": "47"
+      }
+    }
+  },
+  "HlsRouter (characterization) > files inside the stream directory > serves .ts files and .m3u8 with their types; dotfiles, directories and symlinks > special files: symlinkOutside": {
+    "res": {
+      "status": 200,
+      "headers": {
+        "content-type": "video/mp2t",
+        "content-length": "36",
+        "content-range": null,
+        "accept-ranges": "bytes",
+        "cache-control": "public, max-age=0",
+        "x-content-type-options": null,
+        "access-control-allow-origin": null,
+        "x-powered-by": "Express",
+        "etag": "<present>",
+        "last-modified": "<present>"
+      },
+      "body": {
+        "bytes": 36,
+        "firstByteHex": "63"
+      }
+    }
+  },
+  "HlsRouter (characterization) > playlist and file parameter handling > answers 404 for missing .ts and .m3u8 files and never emits stream_reset on a fresh stream > missing files, fresh stream: extraDashes": {
+    "res": {
+      "status": 404,
+      "headers": {
+        "content-type": "text/plain; charset=utf-8",
+        "content-length": "9",
+        "content-range": null,
+        "accept-ranges": null,
+        "cache-control": null,
+        "x-content-type-options": null,
+        "access-control-allow-origin": null,
+        "x-powered-by": "Express",
+        "etag": "<present>",
+        "last-modified": null
+      },
+      "body": "Not Found"
+    }
+  },
+  "HlsRouter (characterization) > playlist and file parameter handling > answers 404 for missing .ts and .m3u8 files and never emits stream_reset on a fresh stream > missing files, fresh stream: farSegmentNoFurthest": {
+    "res": {
+      "status": 404,
+      "headers": {
+        "content-type": "text/plain; charset=utf-8",
+        "content-length": "9",
+        "content-range": null,
+        "accept-ranges": null,
+        "cache-control": null,
+        "x-content-type-options": null,
+        "access-control-allow-origin": null,
+        "x-powered-by": "Express",
+        "etag": "<present>",
+        "last-modified": null
+      },
+      "body": "Not Found"
+    }
+  },
+  "HlsRouter (characterization) > playlist and file parameter handling > answers 404 for missing .ts and .m3u8 files and never emits stream_reset on a fresh stream > missing files, fresh stream: missingPlaylist": {
+    "res": {
+      "status": 404,
+      "headers": {
+        "content-type": "text/plain; charset=utf-8",
+        "content-length": "9",
+        "content-range": null,
+        "accept-ranges": null,
+        "cache-control": null,
+        "x-content-type-options": null,
+        "access-control-allow-origin": null,
+        "x-powered-by": "Express",
+        "etag": "<present>",
+        "last-modified": null
+      },
+      "body": "Not Found"
+    }
+  },
+  "HlsRouter (characterization) > playlist and file parameter handling > answers 404 for missing .ts and .m3u8 files and never emits stream_reset on a fresh stream > missing files, fresh stream: negative": {
+    "res": {
+      "status": 404,
+      "headers": {
+        "content-type": "text/plain; charset=utf-8",
+        "content-length": "9",
+        "content-range": null,
+        "accept-ranges": null,
+        "cache-control": null,
+        "x-content-type-options": null,
+        "access-control-allow-origin": null,
+        "x-powered-by": "Express",
+        "etag": "<present>",
+        "last-modified": null
+      },
+      "body": "Not Found"
+    }
+  },
+  "HlsRouter (characterization) > playlist and file parameter handling > answers 404 for missing .ts and .m3u8 files and never emits stream_reset on a fresh stream > missing files, fresh stream: noNumber": {
+    "res": {
+      "status": 404,
+      "headers": {
+        "content-type": "text/plain; charset=utf-8",
+        "content-length": "9",
+        "content-range": null,
+        "accept-ranges": null,
+        "cache-control": null,
+        "x-content-type-options": null,
+        "access-control-allow-origin": null,
+        "x-powered-by": "Express",
+        "etag": "<present>",
+        "last-modified": null
+      },
+      "body": "Not Found"
+    }
+  },
+  "HlsRouter (characterization) > playlist and file parameter handling > answers 404 for missing .ts and .m3u8 files and never emits stream_reset on a fresh stream > missing files, fresh stream: nonNumeric": {
+    "res": {
+      "status": 404,
+      "headers": {
+        "content-type": "text/plain; charset=utf-8",
+        "content-length": "9",
+        "content-range": null,
+        "accept-ranges": null,
+        "cache-control": null,
+        "x-content-type-options": null,
+        "access-control-allow-origin": null,
+        "x-powered-by": "Express",
+        "etag": "<present>",
+        "last-modified": null
+      },
+      "body": "Not Found"
+    }
+  },
+  "HlsRouter (characterization) > playlist and file parameter handling > answers 404 for missing .ts and .m3u8 files and never emits stream_reset on a fresh stream > missing files, fresh stream: segment": {
+    "res": {
+      "status": 404,
+      "headers": {
+        "content-type": "text/plain; charset=utf-8",
+        "content-length": "9",
+        "content-range": null,
+        "accept-ranges": null,
+        "cache-control": null,
+        "x-content-type-options": null,
+        "access-control-allow-origin": null,
+        "x-powered-by": "Express",
+        "etag": "<present>",
+        "last-modified": null
+      },
+      "body": "Not Found"
+    }
+  },
+  "HlsRouter (characterization) > playlist and file parameter handling > answers 404 for missing .ts and .m3u8 files and never emits stream_reset on a fresh stream > missing files, fresh stream: state": {
+    "stream": {
+      "isResetting": false,
+      "furthestSegmentCreated": 0
+    }
+  },
+  "HlsRouter (characterization) > playlist and file parameter handling > honours Range and conditional requests through res.sendFile > range and conditional: badRange": {
+    "res": {
+      "status": 416,
+      "headers": {
+        "content-type": "text/html; charset=utf-8",
+        "content-length": "<html error page length>",
+        "content-range": "bytes */203",
+        "accept-ranges": "bytes",
+        "cache-control": "public, max-age=0",
+        "x-content-type-options": "nosniff",
+        "access-control-allow-origin": null,
+        "x-powered-by": "Express",
+        "etag": "<present>",
+        "last-modified": "<present>"
+      },
+      "body": {
+        "htmlErrorPage": "RangeNotSatisfiableError: Range Not Satisfiable"
+      }
+    }
+  },
+  "HlsRouter (characterization) > playlist and file parameter handling > honours Range and conditional requests through res.sendFile > range and conditional: full": {
+    "res": {
+      "status": 200,
+      "headers": {
+        "content-type": "application/vnd.apple.mpegurl",
+        "content-length": "203",
+        "content-range": null,
+        "accept-ranges": "bytes",
+        "cache-control": "public, max-age=0",
+        "x-content-type-options": null,
+        "access-control-allow-origin": null,
+        "x-powered-by": "Express",
+        "etag": "<present>",
+        "last-modified": "<present>"
+      },
+      "body": "#EXTM3U\n#EXT-X-VERSION:3\n#EXT-X-ALLOW-CACHE:NO\n#EXT-X-TARGETDURATION:6\n#EXT-X-MEDIA-SEQUENCE:0\n#EXT-X-PLAYLIST-TYPE:VOD\n#EXTINF:6,\noutput-0.ts\n#EXTINF:6,\noutput-1.ts\n#EXTINF:1,\noutput-2.ts\n#EXT-X-ENDLIST"
+    }
+  },
+  "HlsRouter (characterization) > playlist and file parameter handling > honours Range and conditional requests through res.sendFile > range and conditional: notModified": {
+    "res": {
+      "status": 304,
+      "headers": {
+        "content-type": null,
+        "content-length": null,
+        "content-range": null,
+        "accept-ranges": "bytes",
+        "cache-control": "public, max-age=0",
+        "x-content-type-options": null,
+        "access-control-allow-origin": null,
+        "x-powered-by": "Express",
+        "etag": "<present>",
+        "last-modified": "<present>"
+      },
+      "body": {
+        "bytes": 0,
+        "firstByteHex": null
+      }
+    }
+  },
+  "HlsRouter (characterization) > playlist and file parameter handling > honours Range and conditional requests through res.sendFile > range and conditional: range": {
+    "res": {
+      "status": 206,
+      "headers": {
+        "content-type": "application/vnd.apple.mpegurl",
+        "content-length": "7",
+        "content-range": "bytes 0-6/203",
+        "accept-ranges": "bytes",
+        "cache-control": "public, max-age=0",
+        "x-content-type-options": null,
+        "access-control-allow-origin": null,
+        "x-powered-by": "Express",
+        "etag": "<present>",
+        "last-modified": "<present>"
+      },
+      "body": "#EXTM3U"
+    }
+  },
+  "HlsRouter (characterization) > playlist and file parameter handling > missing segment before the stream start segment resets the stream, emits stream_reset and answers 404 > reset before start segment": {
+    "res": {
+      "status": 404,
+      "headers": {
+        "content-type": "text/plain; charset=utf-8",
+        "content-length": "9",
+        "content-range": null,
+        "accept-ranges": null,
+        "cache-control": null,
+        "x-content-type-options": null,
+        "access-control-allow-origin": null,
+        "x-powered-by": "Express",
+        "etag": "<present>",
+        "last-modified": null
+      },
+      "body": "Not Found"
+    },
+    "stream": {
+      "startTime": 0,
+      "isResetting": true
+    },
+    "emitted": [
+      {
+        "method": "emitter",
+        "args": [
+          "stream_reset",
+          {
+            "startTime": 18,
+            "streamId": "<uuid-1>"
+          }
+        ]
+      },
+      {
+        "method": "clientEmitter",
+        "args": [
+          "<uuid-2>",
+          "stream_error",
+          {
+            "id": "<uuid-1>",
+            "error": "Failed to write stream concat file"
+          }
+        ]
+      }
+    ]
+  },
+  "HlsRouter (characterization) > playlist and file parameter handling > missing segment far ahead of the furthest created segment resets the stream > reset when far ahead": {
+    "near": {
+      "status": 404,
+      "headers": {
+        "content-type": "text/plain; charset=utf-8",
+        "content-length": "9",
+        "content-range": null,
+        "accept-ranges": null,
+        "cache-control": null,
+        "x-content-type-options": null,
+        "access-control-allow-origin": null,
+        "x-powered-by": "Express",
+        "etag": "<present>",
+        "last-modified": null
+      },
+      "body": "Not Found"
+    },
+    "nearEmitted": [],
+    "far": {
+      "status": 404,
+      "headers": {
+        "content-type": "text/plain; charset=utf-8",
+        "content-length": "9",
+        "content-range": null,
+        "accept-ranges": null,
+        "cache-control": null,
+        "x-content-type-options": null,
+        "access-control-allow-origin": null,
+        "x-powered-by": "Express",
+        "etag": "<present>",
+        "last-modified": null
+      },
+      "body": "Not Found"
+    },
+    "stream": {
+      "startTime": 66
+    },
+    "emitted": [
+      {
+        "method": "emitter",
+        "args": [
+          "stream_reset",
+          {
+            "startTime": 96,
+            "streamId": "<uuid-1>"
+          }
+        ]
+      },
+      {
+        "method": "clientEmitter",
+        "args": [
+          "<uuid-2>",
+          "stream_error",
+          {
+            "id": "<uuid-1>",
+            "error": "Failed to write stream concat file"
+          }
+        ]
+      }
+    ]
+  },
+  "HlsRouter (characterization) > playlist and file parameter handling > missing segment on a completed transcode is a plain 404 (no reset) > complete transcode, far segment": {
+    "res": {
+      "status": 404,
+      "headers": {
+        "content-type": "text/plain; charset=utf-8",
+        "content-length": "9",
+        "content-range": null,
+        "accept-ranges": null,
+        "cache-control": null,
+        "x-content-type-options": null,
+        "access-control-allow-origin": null,
+        "x-powered-by": "Express",
+        "etag": "<present>",
+        "last-modified": null
+      },
+      "body": "Not Found"
+    },
+    "emitted": []
+  },
+  "HlsRouter (characterization) > playlist and file parameter handling > missing segment on a stream that is resetting: 404, no second reset > resetting stream": {
+    "res": {
+      "status": 404,
+      "headers": {
+        "content-type": "text/plain; charset=utf-8",
+        "content-length": "9",
+        "content-range": null,
+        "accept-ranges": null,
+        "cache-control": null,
+        "x-content-type-options": null,
+        "access-control-allow-origin": null,
+        "x-powered-by": "Express",
+        "etag": "<present>",
+        "last-modified": null
+      },
+      "body": "Not Found"
+    },
+    "stream": {
+      "isResetting": true,
+      "startTime": 100
+    },
+    "emitted": []
+  },
+  "HlsRouter (characterization) > playlist and file parameter handling > parseSegmentFilename takes the number after the first dash of the basename > segment number parsing": {
+    "parsed": {
+      "output-12.ts": 12,
+      "output-0.ts": 0,
+      "output.ts": "NaN",
+      "output-abc.ts": "NaN",
+      "a-5-6.ts": 5,
+      "output--3.ts": 0,
+      "dir-7.m3u8": 7,
+      "-4.ts": 4,
+      "output-1e2.ts": 100,
+      "output- 8.ts": 8
+    }
+  },
+  "HlsRouter (characterization) > playlist and file parameter handling > rejects files whose extension is not .ts or .m3u8 with 400 (after the stream exists) > extension validation: concatFile": {
+    "res": {
+      "status": 400,
+      "headers": {
+        "content-type": "text/plain; charset=utf-8",
+        "content-length": "11",
+        "content-range": null,
+        "accept-ranges": null,
+        "cache-control": null,
+        "x-content-type-options": null,
+        "access-control-allow-origin": null,
+        "x-powered-by": "Express",
+        "etag": "<present>",
+        "last-modified": null
+      },
+      "body": "Bad Request"
+    }
+  },
+  "HlsRouter (characterization) > playlist and file parameter handling > rejects files whose extension is not .ts or .m3u8 with 400 (after the stream exists) > extension validation: dotOnlyM3u8": {
+    "res": {
+      "status": 400,
+      "headers": {
+        "content-type": "text/plain; charset=utf-8",
+        "content-length": "11",
+        "content-range": null,
+        "accept-ranges": null,
+        "cache-control": null,
+        "x-content-type-options": null,
+        "access-control-allow-origin": null,
+        "x-powered-by": "Express",
+        "etag": "<present>",
+        "last-modified": null
+      },
+      "body": "Bad Request"
+    }
+  },
+  "HlsRouter (characterization) > playlist and file parameter handling > rejects files whose extension is not .ts or .m3u8 with 400 (after the stream exists) > extension validation: doubleExt": {
+    "res": {
+      "status": 400,
+      "headers": {
+        "content-type": "text/plain; charset=utf-8",
+        "content-length": "11",
+        "content-range": null,
+        "accept-ranges": null,
+        "cache-control": null,
+        "x-content-type-options": null,
+        "access-control-allow-origin": null,
+        "x-powered-by": "Express",
+        "etag": "<present>",
+        "last-modified": null
+      },
+      "body": "Bad Request"
+    }
+  },
+  "HlsRouter (characterization) > playlist and file parameter handling > rejects files whose extension is not .ts or .m3u8 with 400 (after the stream exists) > extension validation: empty": {
+    "res": {
+      "status": 404,
+      "headers": {
+        "content-type": "text/html; charset=utf-8",
+        "content-length": "<html error page length>",
+        "content-range": null,
+        "accept-ranges": null,
+        "cache-control": null,
+        "x-content-type-options": "nosniff",
+        "access-control-allow-origin": null,
+        "x-powered-by": "Express",
+        "etag": null,
+        "last-modified": null
+      },
+      "body": {
+        "htmlErrorPage": "Cannot GET /hls/<uuid-1>/"
+      }
+    }
+  },
+  "HlsRouter (characterization) > playlist and file parameter handling > rejects files whose extension is not .ts or .m3u8 with 400 (after the stream exists) > extension validation: m3u8Suffix": {
+    "res": {
+      "status": 400,
+      "headers": {
+        "content-type": "text/plain; charset=utf-8",
+        "content-length": "11",
+        "content-range": null,
+        "accept-ranges": null,
+        "cache-control": null,
+        "x-content-type-options": null,
+        "access-control-allow-origin": null,
+        "x-powered-by": "Express",
+        "etag": "<present>",
+        "last-modified": null
+      },
+      "body": "Bad Request"
+    }
+  },
+  "HlsRouter (characterization) > playlist and file parameter handling > rejects files whose extension is not .ts or .m3u8 with 400 (after the stream exists) > extension validation: m4s": {
+    "res": {
+      "status": 400,
+      "headers": {
+        "content-type": "text/plain; charset=utf-8",
+        "content-length": "11",
+        "content-range": null,
+        "accept-ranges": null,
+        "cache-control": null,
+        "x-content-type-options": null,
+        "access-control-allow-origin": null,
+        "x-powered-by": "Express",
+        "etag": "<present>",
+        "last-modified": null
+      },
+      "body": "Bad Request"
+    }
+  },
+  "HlsRouter (characterization) > playlist and file parameter handling > rejects files whose extension is not .ts or .m3u8 with 400 (after the stream exists) > extension validation: mp4": {
+    "res": {
+      "status": 400,
+      "headers": {
+        "content-type": "text/plain; charset=utf-8",
+        "content-length": "11",
+        "content-range": null,
+        "accept-ranges": null,
+        "cache-control": null,
+        "x-content-type-options": null,
+        "access-control-allow-origin": null,
+        "x-powered-by": "Express",
+        "etag": "<present>",
+        "last-modified": null
+      },
+      "body": "Bad Request"
+    }
+  },
+  "HlsRouter (characterization) > playlist and file parameter handling > rejects files whose extension is not .ts or .m3u8 with 400 (after the stream exists) > extension validation: noExtension": {
+    "res": {
+      "status": 400,
+      "headers": {
+        "content-type": "text/plain; charset=utf-8",
+        "content-length": "11",
+        "content-range": null,
+        "accept-ranges": null,
+        "cache-control": null,
+        "x-content-type-options": null,
+        "access-control-allow-origin": null,
+        "x-powered-by": "Express",
+        "etag": "<present>",
+        "last-modified": null
+      },
+      "body": "Bad Request"
+    }
+  },
+  "HlsRouter (characterization) > playlist and file parameter handling > rejects files whose extension is not .ts or .m3u8 with 400 (after the stream exists) > extension validation: upperCase": {
+    "res": {
+      "status": 400,
+      "headers": {
+        "content-type": "text/plain; charset=utf-8",
+        "content-length": "11",
+        "content-range": null,
+        "accept-ranges": null,
+        "cache-control": null,
+        "x-content-type-options": null,
+        "access-control-allow-origin": null,
+        "x-powered-by": "Express",
+        "etag": "<present>",
+        "last-modified": null
+      },
+      "body": "Bad Request"
+    }
+  },
+  "HlsRouter (characterization) > playlist and file parameter handling > rejects path traversal in the file parameter with 400, before the extension check > path traversal attempts: absolute": {
+    "res": {
+      "status": 400,
+      "headers": {
+        "content-type": "text/plain; charset=utf-8",
+        "content-length": "11",
+        "content-range": null,
+        "accept-ranges": null,
+        "cache-control": null,
+        "x-content-type-options": null,
+        "access-control-allow-origin": null,
+        "x-powered-by": "Express",
+        "etag": "<present>",
+        "last-modified": null
+      },
+      "body": "Bad Request"
+    }
+  },
+  "HlsRouter (characterization) > playlist and file parameter handling > rejects path traversal in the file parameter with 400, before the extension check > path traversal attempts: absoluteTs": {
+    "res": {
+      "status": 404,
+      "headers": {
+        "content-type": "text/plain; charset=utf-8",
+        "content-length": "9",
+        "content-range": null,
+        "accept-ranges": null,
+        "cache-control": null,
+        "x-content-type-options": null,
+        "access-control-allow-origin": null,
+        "x-powered-by": "Express",
+        "etag": "<present>",
+        "last-modified": null
+      },
+      "body": "Not Found"
+    }
+  },
+  "HlsRouter (characterization) > playlist and file parameter handling > rejects path traversal in the file parameter with 400, before the extension check > path traversal attempts: backslash": {
+    "res": {
+      "status": 400,
+      "headers": {
+        "content-type": "text/plain; charset=utf-8",
+        "content-length": "11",
+        "content-range": null,
+        "accept-ranges": null,
+        "cache-control": null,
+        "x-content-type-options": null,
+        "access-control-allow-origin": null,
+        "x-powered-by": "Express",
+        "etag": "<present>",
+        "last-modified": null
+      },
+      "body": "Bad Request"
+    }
+  },
+  "HlsRouter (characterization) > playlist and file parameter handling > rejects path traversal in the file parameter with 400, before the extension check > path traversal attempts: dot": {
+    "res": {
+      "status": 400,
+      "headers": {
+        "content-type": "text/plain; charset=utf-8",
+        "content-length": "11",
+        "content-range": null,
+        "accept-ranges": null,
+        "cache-control": null,
+        "x-content-type-options": null,
+        "access-control-allow-origin": null,
+        "x-powered-by": "Express",
+        "etag": "<present>",
+        "last-modified": null
+      },
+      "body": "Bad Request"
+    }
+  },
+  "HlsRouter (characterization) > playlist and file parameter handling > rejects path traversal in the file parameter with 400, before the extension check > path traversal attempts: dotSlash": {
+    "res": {
+      "status": 200,
+      "headers": {
+        "content-type": "application/vnd.apple.mpegurl",
+        "content-length": "203",
+        "content-range": null,
+        "accept-ranges": "bytes",
+        "cache-control": "public, max-age=0",
+        "x-content-type-options": null,
+        "access-control-allow-origin": null,
+        "x-powered-by": "Express",
+        "etag": "<present>",
+        "last-modified": "<present>"
+      },
+      "body": "#EXTM3U\n#EXT-X-VERSION:3\n#EXT-X-ALLOW-CACHE:NO\n#EXT-X-TARGETDURATION:6\n#EXT-X-MEDIA-SEQUENCE:0\n#EXT-X-PLAYLIST-TYPE:VOD\n#EXTINF:6,\noutput-0.ts\n#EXTINF:6,\noutput-1.ts\n#EXTINF:1,\noutput-2.ts\n#EXT-X-ENDLIST"
+    }
+  },
+  "HlsRouter (characterization) > playlist and file parameter handling > rejects path traversal in the file parameter with 400, before the extension check > path traversal attempts: dotdot": {
+    "res": {
+      "status": 400,
+      "headers": {
+        "content-type": "text/plain; charset=utf-8",
+        "content-length": "11",
+        "content-range": null,
+        "accept-ranges": null,
+        "cache-control": null,
+        "x-content-type-options": null,
+        "access-control-allow-origin": null,
+        "x-powered-by": "Express",
+        "etag": "<present>",
+        "last-modified": null
+      },
+      "body": "Bad Request"
+    }
+  },
+  "HlsRouter (characterization) > playlist and file parameter handling > rejects path traversal in the file parameter with 400, before the extension check > path traversal attempts: doubleEncoded": {
+    "res": {
+      "status": 404,
+      "headers": {
+        "content-type": "text/plain; charset=utf-8",
+        "content-length": "9",
+        "content-range": null,
+        "accept-ranges": null,
+        "cache-control": null,
+        "x-content-type-options": null,
+        "access-control-allow-origin": null,
+        "x-powered-by": "Express",
+        "etag": "<present>",
+        "last-modified": null
+      },
+      "body": "Not Found"
+    }
+  },
+  "HlsRouter (characterization) > playlist and file parameter handling > rejects path traversal in the file parameter with 400, before the extension check > path traversal attempts: doubleParent": {
+    "res": {
+      "status": 400,
+      "headers": {
+        "content-type": "text/plain; charset=utf-8",
+        "content-length": "11",
+        "content-range": null,
+        "accept-ranges": null,
+        "cache-control": null,
+        "x-content-type-options": null,
+        "access-control-allow-origin": null,
+        "x-powered-by": "Express",
+        "etag": "<present>",
+        "last-modified": null
+      },
+      "body": "Bad Request"
+    }
+  },
+  "HlsRouter (characterization) > playlist and file parameter handling > rejects path traversal in the file parameter with 400, before the extension check > path traversal attempts: encodedDots": {
+    "res": {
+      "status": 400,
+      "headers": {
+        "content-type": "text/plain; charset=utf-8",
+        "content-length": "11",
+        "content-range": null,
+        "accept-ranges": null,
+        "cache-control": null,
+        "x-content-type-options": null,
+        "access-control-allow-origin": null,
+        "x-powered-by": "Express",
+        "etag": "<present>",
+        "last-modified": null
+      },
+      "body": "Bad Request"
+    }
+  },
+  "HlsRouter (characterization) > playlist and file parameter handling > rejects path traversal in the file parameter with 400, before the extension check > path traversal attempts: nullByte": {
+    "res": {
+      "status": 400,
+      "headers": {
+        "content-type": "text/plain; charset=utf-8",
+        "content-length": "11",
+        "content-range": null,
+        "accept-ranges": null,
+        "cache-control": null,
+        "x-content-type-options": null,
+        "access-control-allow-origin": null,
+        "x-powered-by": "Express",
+        "etag": "<present>",
+        "last-modified": null
+      },
+      "body": "Bad Request"
+    }
+  },
+  "HlsRouter (characterization) > playlist and file parameter handling > rejects path traversal in the file parameter with 400, before the extension check > path traversal attempts: nullByteTs": {
+    "res": {
+      "status": 404,
+      "headers": {
+        "content-type": "text/plain; charset=utf-8",
+        "content-length": "9",
+        "content-range": null,
+        "accept-ranges": null,
+        "cache-control": null,
+        "x-content-type-options": null,
+        "access-control-allow-origin": null,
+        "x-powered-by": "Express",
+        "etag": "<present>",
+        "last-modified": null
+      },
+      "body": "Not Found"
+    }
+  },
+  "HlsRouter (characterization) > playlist and file parameter handling > rejects path traversal in the file parameter with 400, before the extension check > path traversal attempts: parentPasswd": {
+    "res": {
+      "status": 400,
+      "headers": {
+        "content-type": "text/plain; charset=utf-8",
+        "content-length": "11",
+        "content-range": null,
+        "accept-ranges": null,
+        "cache-control": null,
+        "x-content-type-options": null,
+        "access-control-allow-origin": null,
+        "x-powered-by": "Express",
+        "etag": "<present>",
+        "last-modified": null
+      },
+      "body": "Bad Request"
+    }
+  },
+  "HlsRouter (characterization) > playlist and file parameter handling > rejects path traversal in the file parameter with 400, before the extension check > path traversal attempts: parentTs": {
+    "res": {
+      "status": 400,
+      "headers": {
+        "content-type": "text/plain; charset=utf-8",
+        "content-length": "11",
+        "content-range": null,
+        "accept-ranges": null,
+        "cache-control": null,
+        "x-content-type-options": null,
+        "access-control-allow-origin": null,
+        "x-powered-by": "Express",
+        "etag": "<present>",
+        "last-modified": null
+      },
+      "body": "Bad Request"
+    }
+  },
+  "HlsRouter (characterization) > playlist and file parameter handling > rejects path traversal in the file parameter with 400, before the extension check > path traversal attempts: parentTsUpperHex": {
+    "res": {
+      "status": 400,
+      "headers": {
+        "content-type": "text/plain; charset=utf-8",
+        "content-length": "11",
+        "content-range": null,
+        "accept-ranges": null,
+        "cache-control": null,
+        "x-content-type-options": null,
+        "access-control-allow-origin": null,
+        "x-powered-by": "Express",
+        "etag": "<present>",
+        "last-modified": null
+      },
+      "body": "Bad Request"
+    }
+  },
+  "HlsRouter (characterization) > playlist and file parameter handling > rejects path traversal in the file parameter with 400, before the extension check > path traversal attempts: sameDirViaParent": {
+    "res": {
+      "status": 200,
+      "headers": {
+        "content-type": "application/vnd.apple.mpegurl",
+        "content-length": "203",
+        "content-range": null,
+        "accept-ranges": "bytes",
+        "cache-control": "public, max-age=0",
+        "x-content-type-options": null,
+        "access-control-allow-origin": null,
+        "x-powered-by": "Express",
+        "etag": "<present>",
+        "last-modified": "<present>"
+      },
+      "body": "#EXTM3U\n#EXT-X-VERSION:3\n#EXT-X-ALLOW-CACHE:NO\n#EXT-X-TARGETDURATION:6\n#EXT-X-MEDIA-SEQUENCE:0\n#EXT-X-PLAYLIST-TYPE:VOD\n#EXTINF:6,\noutput-0.ts\n#EXTINF:6,\noutput-1.ts\n#EXTINF:1,\noutput-2.ts\n#EXT-X-ENDLIST"
+    }
+  },
+  "HlsRouter (characterization) > playlist and file parameter handling > serves the generated client playlist with its content type and caching headers > client playlist": {
+    "res": {
+      "status": 200,
+      "headers": {
+        "content-type": "application/vnd.apple.mpegurl",
+        "content-length": "203",
+        "content-range": null,
+        "accept-ranges": "bytes",
+        "cache-control": "public, max-age=0",
+        "x-content-type-options": null,
+        "access-control-allow-origin": null,
+        "x-powered-by": "Express",
+        "etag": "<present>",
+        "last-modified": "<present>"
+      },
+      "body": "#EXTM3U\n#EXT-X-VERSION:3\n#EXT-X-ALLOW-CACHE:NO\n#EXT-X-TARGETDURATION:6\n#EXT-X-MEDIA-SEQUENCE:0\n#EXT-X-PLAYLIST-TYPE:VOD\n#EXTINF:6,\noutput-0.ts\n#EXTINF:6,\noutput-1.ts\n#EXTINF:1,\noutput-2.ts\n#EXT-X-ENDLIST"
+    },
+    "emitted": [],
+    "clientPlaylistUri": "/hls/<uuid-1>/output.m3u8"
+  },
+  "HlsRouter (characterization) > playlist and file parameter handling > validateStreamFilePath: accepts only paths strictly inside the stream dir (lexical check) > validateStreamFilePath": {
+    "results": {
+      "/streams/abc/a.ts": true,
+      "/streams/abc/sub/a.ts": true,
+      "/streams/abc": "",
+      "/streams/abc/": "",
+      "/streams/abcd/a.ts": false,
+      "/streams/a.ts": false,
+      "/etc/passwd": false,
+      "/streams/abc/../abc/a.ts": true,
+      "/streams/abc/..foo.ts": false
+    }
+  },
+  "HlsRouter (characterization) > real ffmpeg transcode (success path) > POST /api/items/:id/play starts a transcode whose playlist and segments are served by /hls > transcode and serve": {
+    "playMethod": 2,
+    "audioTracks": [
+      {
+        "contentUrl": "/hls/<uuid-1>/output.m3u8",
+        "mimeType": "application/vnd.apple.mpegurl",
+        "duration": 13
+      }
+    ],
+    "playlist": {
+      "status": 200,
+      "headers": {
+        "content-type": "application/vnd.apple.mpegurl",
+        "content-length": "203",
+        "content-range": null,
+        "accept-ranges": "bytes",
+        "cache-control": "public, max-age=0",
+        "x-content-type-options": null,
+        "access-control-allow-origin": null,
+        "x-powered-by": "Express",
+        "etag": "<present>",
+        "last-modified": "<present>"
+      },
+      "body": "#EXTM3U\n#EXT-X-VERSION:3\n#EXT-X-ALLOW-CACHE:NO\n#EXT-X-TARGETDURATION:6\n#EXT-X-MEDIA-SEQUENCE:0\n#EXT-X-PLAYLIST-TYPE:VOD\n#EXTINF:6,\noutput-0.ts\n#EXTINF:6,\noutput-1.ts\n#EXTINF:1,\noutput-2.ts\n#EXT-X-ENDLIST"
+    },
+    "finalPlaylist": {
+      "status": 200,
+      "contentType": "application/vnd.apple.mpegurl",
+      "tags": [
+        "#EXTM3U",
+        "#EXT-X-VERSION:3",
+        "#EXT-X-ALLOW-CACHE:NO",
+        "#EXT-X-TARGETDURATION:6",
+        "#EXT-X-MEDIA-SEQUENCE:0",
+        "#EXT-X-PLAYLIST-TYPE:VOD",
+        "#EXT-X-ENDLIST"
+      ],
+      "segmentLines": [
+        "output-0.ts",
+        "output-1.ts",
+        "output-2.ts"
+      ],
+      "extinfCount": 3
+    },
+    "segments": {
+      "output-0.ts": {
+        "status": 200,
+        "contentType": "video/mp2t",
+        "nonEmpty": true,
+        "tsFramed": true
+      },
+      "output-1.ts": {
+        "status": 200,
+        "contentType": "video/mp2t",
+        "nonEmpty": true,
+        "tsFramed": true
+      },
+      "output-2.ts": {
+        "status": 200,
+        "contentType": "video/mp2t",
+        "nonEmpty": true,
+        "tsFramed": true
+      },
+      "output-3.ts": {
+        "status": 404,
+        "headers": {
+          "content-type": "text/plain; charset=utf-8",
+          "content-length": "9",
+          "content-range": null,
+          "accept-ranges": null,
+          "cache-control": null,
+          "x-content-type-options": null,
+          "access-control-allow-origin": null,
+          "x-powered-by": "Express",
+          "etag": "<present>",
+          "last-modified": null
+        },
+        "body": "Not Found"
+      }
+    },
+    "streamState": {
+      "isTranscodeComplete": true,
+      "isResetting": false
+    },
+    "eventNames": [
+      "adminEmitter:user_stream_update",
+      "clientEmitter:stream_open",
+      "clientEmitter:stream_progress"
+    ]
+  },
+  "HlsRouter (characterization) > real ffmpeg transcode (success path) > a segment past the end of a completed transcode is 404 without reset; one before the stream start segment resets with stream_reset > seek reset after real transcode": {
+    "past": {
+      "status": 404,
+      "headers": {
+        "content-type": "text/plain; charset=utf-8",
+        "content-length": "9",
+        "content-range": null,
+        "accept-ranges": null,
+        "cache-control": null,
+        "x-content-type-options": null,
+        "access-control-allow-origin": null,
+        "x-powered-by": "Express",
+        "etag": "<present>",
+        "last-modified": null
+      },
+      "body": "Not Found"
+    },
+    "pastEmitted": [],
+    "afterStart": {
+      "status": 404,
+      "headers": {
+        "content-type": "text/plain; charset=utf-8",
+        "content-length": "9",
+        "content-range": null,
+        "accept-ranges": null,
+        "cache-control": null,
+        "x-content-type-options": null,
+        "access-control-allow-origin": null,
+        "x-powered-by": "Express",
+        "etag": "<present>",
+        "last-modified": null
+      },
+      "body": "Not Found"
+    },
+    "early": {
+      "status": 404,
+      "headers": {
+        "content-type": "text/plain; charset=utf-8",
+        "content-length": "9",
+        "content-range": null,
+        "accept-ranges": null,
+        "cache-control": null,
+        "x-content-type-options": null,
+        "access-control-allow-origin": null,
+        "x-powered-by": "Express",
+        "etag": "<present>",
+        "last-modified": null
+      },
+      "body": "Not Found"
+    },
+    "resets": [
+      {
+        "method": "emitter",
+        "args": [
+          "stream_reset",
+          {
+            "startTime": 30,
+            "streamId": "<uuid-1>"
+          }
+        ]
+      }
+    ],
+    "startTime": 0,
+    "emitted": [
+      "emitter:stream_reset",
+      "clientEmitter:stream_progress"
+    ]
+  },
+  "HlsRouter (characterization) > real ffmpeg transcode (success path) > after the stream is closed the same URLs answer 404 and the stream directory is gone > after close": {
+    "playlist": {
+      "status": 404,
+      "headers": {
+        "content-type": "text/plain; charset=utf-8",
+        "content-length": "9",
+        "content-range": null,
+        "accept-ranges": null,
+        "cache-control": null,
+        "x-content-type-options": null,
+        "access-control-allow-origin": null,
+        "x-powered-by": "Express",
+        "etag": "<present>",
+        "last-modified": null
+      },
+      "body": "Not Found"
+    },
+    "dirExists": false,
+    "streamOnSession": null,
+    "emitted": [
+      "adminEmitter:user_stream_update",
+      "clientEmitter:stream_progress",
+      "clientEmitter:stream_open",
+      "clientEmitter:stream_closed"
+    ]
+  },
+  "HlsRouter (characterization) > route shape > only GET /:stream/:file exists: other paths and methods get the express default 404 pages > other paths and methods: delete": {
+    "res": {
+      "status": 404,
+      "headers": {
+        "content-type": "text/html; charset=utf-8",
+        "content-length": "<html error page length>",
+        "content-range": null,
+        "accept-ranges": null,
+        "cache-control": null,
+        "x-content-type-options": "nosniff",
+        "access-control-allow-origin": null,
+        "x-powered-by": "Express",
+        "etag": null,
+        "last-modified": null
+      },
+      "body": {
+        "htmlErrorPage": "Cannot DELETE /hls/<uuid-1>/output.m3u8"
+      }
+    }
+  },
+  "HlsRouter (characterization) > route shape > only GET /:stream/:file exists: other paths and methods get the express default 404 pages > other paths and methods: extraSegment": {
+    "res": {
+      "status": 404,
+      "headers": {
+        "content-type": "text/html; charset=utf-8",
+        "content-length": "<html error page length>",
+        "content-range": null,
+        "accept-ranges": null,
+        "cache-control": null,
+        "x-content-type-options": "nosniff",
+        "access-control-allow-origin": null,
+        "x-powered-by": "Express",
+        "etag": null,
+        "last-modified": null
+      },
+      "body": {
+        "htmlErrorPage": "Cannot GET /hls/<uuid-1>/a/output.m3u8"
+      }
+    }
+  },
+  "HlsRouter (characterization) > route shape > only GET /:stream/:file exists: other paths and methods get the express default 404 pages > other paths and methods: post": {
+    "res": {
+      "status": 404,
+      "headers": {
+        "content-type": "text/html; charset=utf-8",
+        "content-length": "<html error page length>",
+        "content-range": null,
+        "accept-ranges": null,
+        "cache-control": null,
+        "x-content-type-options": "nosniff",
+        "access-control-allow-origin": null,
+        "x-powered-by": "Express",
+        "etag": null,
+        "last-modified": null
+      },
+      "body": {
+        "htmlErrorPage": "Cannot POST /hls/<uuid-1>/output.m3u8"
+      }
+    }
+  },
+  "HlsRouter (characterization) > route shape > only GET /:stream/:file exists: other paths and methods get the express default 404 pages > other paths and methods: put": {
+    "res": {
+      "status": 404,
+      "headers": {
+        "content-type": "text/html; charset=utf-8",
+        "content-length": "<html error page length>",
+        "content-range": null,
+        "accept-ranges": null,
+        "cache-control": null,
+        "x-content-type-options": "nosniff",
+        "access-control-allow-origin": null,
+        "x-powered-by": "Express",
+        "etag": null,
+        "last-modified": null
+      },
+      "body": {
+        "htmlErrorPage": "Cannot PUT /hls/<uuid-1>/output.m3u8"
+      }
+    }
+  },
+  "HlsRouter (characterization) > route shape > only GET /:stream/:file exists: other paths and methods get the express default 404 pages > other paths and methods: root": {
+    "res": {
+      "status": 404,
+      "headers": {
+        "content-type": "text/html; charset=utf-8",
+        "content-length": "<html error page length>",
+        "content-range": null,
+        "accept-ranges": null,
+        "cache-control": null,
+        "x-content-type-options": "nosniff",
+        "access-control-allow-origin": null,
+        "x-powered-by": "Express",
+        "etag": null,
+        "last-modified": null
+      },
+      "body": {
+        "htmlErrorPage": "Cannot GET /hls"
+      }
+    }
+  },
+  "HlsRouter (characterization) > route shape > only GET /:stream/:file exists: other paths and methods get the express default 404 pages > other paths and methods: rootSlash": {
+    "res": {
+      "status": 404,
+      "headers": {
+        "content-type": "text/html; charset=utf-8",
+        "content-length": "<html error page length>",
+        "content-range": null,
+        "accept-ranges": null,
+        "cache-control": null,
+        "x-content-type-options": "nosniff",
+        "access-control-allow-origin": null,
+        "x-powered-by": "Express",
+        "etag": null,
+        "last-modified": null
+      },
+      "body": {
+        "htmlErrorPage": "Cannot GET /hls/"
+      }
+    }
+  },
+  "HlsRouter (characterization) > route shape > only GET /:stream/:file exists: other paths and methods get the express default 404 pages > other paths and methods: streamOnly": {
+    "res": {
+      "status": 404,
+      "headers": {
+        "content-type": "text/html; charset=utf-8",
+        "content-length": "<html error page length>",
+        "content-range": null,
+        "accept-ranges": null,
+        "cache-control": null,
+        "x-content-type-options": "nosniff",
+        "access-control-allow-origin": null,
+        "x-powered-by": "Express",
+        "etag": null,
+        "last-modified": null
+      },
+      "body": {
+        "htmlErrorPage": "Cannot GET /hls/<uuid-1>"
+      }
+    }
+  },
+  "HlsRouter (characterization) > route shape > only GET /:stream/:file exists: other paths and methods get the express default 404 pages > other paths and methods: streamSlash": {
+    "res": {
+      "status": 404,
+      "headers": {
+        "content-type": "text/html; charset=utf-8",
+        "content-length": "<html error page length>",
+        "content-range": null,
+        "accept-ranges": null,
+        "cache-control": null,
+        "x-content-type-options": "nosniff",
+        "access-control-allow-origin": null,
+        "x-powered-by": "Express",
+        "etag": null,
+        "last-modified": null
+      },
+      "body": {
+        "htmlErrorPage": "Cannot GET /hls/<uuid-1>/"
+      }
+    }
+  },
+  "HlsRouter (characterization) > route shape > serves HEAD like GET without a body and ignores the query string > head and query: head": {
+    "res": {
+      "status": 200,
+      "headers": {
+        "content-type": "application/vnd.apple.mpegurl",
+        "content-length": "203",
+        "content-range": null,
+        "accept-ranges": "bytes",
+        "cache-control": "public, max-age=0",
+        "x-content-type-options": null,
+        "access-control-allow-origin": null,
+        "x-powered-by": "Express",
+        "etag": "<present>",
+        "last-modified": "<present>"
+      },
+      "body": ""
+    }
+  },
+  "HlsRouter (characterization) > route shape > serves HEAD like GET without a body and ignores the query string > head and query: withQuery": {
+    "res": {
+      "status": 200,
+      "headers": {
+        "content-type": "application/vnd.apple.mpegurl",
+        "content-length": "203",
+        "content-range": null,
+        "accept-ranges": "bytes",
+        "cache-control": "public, max-age=0",
+        "x-content-type-options": null,
+        "access-control-allow-origin": null,
+        "x-powered-by": "Express",
+        "etag": "<present>",
+        "last-modified": "<present>"
+      },
+      "body": "#EXTM3U\n#EXT-X-VERSION:3\n#EXT-X-ALLOW-CACHE:NO\n#EXT-X-TARGETDURATION:6\n#EXT-X-MEDIA-SEQUENCE:0\n#EXT-X-PLAYLIST-TYPE:VOD\n#EXTINF:6,\noutput-0.ts\n#EXTINF:6,\noutput-1.ts\n#EXTINF:1,\noutput-2.ts\n#EXT-X-ENDLIST"
+    }
+  },
+  "HlsRouter (characterization) > unknown stream and authentication > answers 404 for an unknown stream id without any credentials > unknown stream, no credentials": {
+    "res": {
+      "status": 404,
+      "headers": {
+        "content-type": "text/plain; charset=utf-8",
+        "content-length": "9",
+        "content-range": null,
+        "accept-ranges": null,
+        "cache-control": null,
+        "x-content-type-options": null,
+        "access-control-allow-origin": null,
+        "x-powered-by": "Express",
+        "etag": "<present>",
+        "last-modified": null
+      },
+      "body": "Not Found"
+    },
+    "emitted": []
+  },
+  "HlsRouter (characterization) > unknown stream and authentication > answers 404 once the session has no stream (closed) > before and after close: after": {
+    "res": {
+      "status": 404,
+      "headers": {
+        "content-type": "text/plain; charset=utf-8",
+        "content-length": "9",
+        "content-range": null,
+        "accept-ranges": null,
+        "cache-control": null,
+        "x-content-type-options": null,
+        "access-control-allow-origin": null,
+        "x-powered-by": "Express",
+        "etag": "<present>",
+        "last-modified": null
+      },
+      "body": "Not Found"
+    }
+  },
+  "HlsRouter (characterization) > unknown stream and authentication > answers 404 once the session has no stream (closed) > before and after close: before": {
+    "res": {
+      "status": 200,
+      "headers": {
+        "content-type": "application/vnd.apple.mpegurl",
+        "content-length": "203",
+        "content-range": null,
+        "accept-ranges": "bytes",
+        "cache-control": "public, max-age=0",
+        "x-content-type-options": null,
+        "access-control-allow-origin": null,
+        "x-powered-by": "Express",
+        "etag": "<present>",
+        "last-modified": "<present>"
+      },
+      "body": "#EXTM3U\n#EXT-X-VERSION:3\n#EXT-X-ALLOW-CACHE:NO\n#EXT-X-TARGETDURATION:6\n#EXT-X-MEDIA-SEQUENCE:0\n#EXT-X-PLAYLIST-TYPE:VOD\n#EXTINF:6,\noutput-0.ts\n#EXTINF:6,\noutput-1.ts\n#EXTINF:1,\noutput-2.ts\n#EXT-X-ENDLIST"
+    }
+  },
+  "HlsRouter (characterization) > unknown stream and authentication > answers 404 once the session has no stream (closed) > before and after close: emitted": {
+    "emitted": [
+      {
+        "method": "clientEmitter",
+        "args": [
+          "<uuid-1>",
+          "stream_closed",
+          "<uuid-2>"
+        ]
+      }
+    ]
+  },
+  "HlsRouter (characterization) > unknown stream and authentication > does not look at credentials: a bogus token, an unknown test user and a real user behave the same > credential variants: bearer": {
+    "res": {
+      "status": 404,
+      "headers": {
+        "content-type": "text/plain; charset=utf-8",
+        "content-length": "9",
+        "content-range": null,
+        "accept-ranges": null,
+        "cache-control": null,
+        "x-content-type-options": null,
+        "access-control-allow-origin": null,
+        "x-powered-by": "Express",
+        "etag": "<present>",
+        "last-modified": null
+      },
+      "body": "Not Found"
+    }
+  },
+  "HlsRouter (characterization) > unknown stream and authentication > does not look at credentials: a bogus token, an unknown test user and a real user behave the same > credential variants: real": {
+    "res": {
+      "status": 404,
+      "headers": {
+        "content-type": "text/plain; charset=utf-8",
+        "content-length": "9",
+        "content-range": null,
+        "accept-ranges": null,
+        "cache-control": null,
+        "x-content-type-options": null,
+        "access-control-allow-origin": null,
+        "x-powered-by": "Express",
+        "etag": "<present>",
+        "last-modified": null
+      },
+      "body": "Not Found"
+    }
+  },
+  "HlsRouter (characterization) > unknown stream and authentication > does not look at credentials: a bogus token, an unknown test user and a real user behave the same > credential variants: unknown": {
+    "res": {
+      "status": 404,
+      "headers": {
+        "content-type": "text/plain; charset=utf-8",
+        "content-length": "9",
+        "content-range": null,
+        "accept-ranges": null,
+        "cache-control": null,
+        "x-content-type-options": null,
+        "access-control-allow-origin": null,
+        "x-powered-by": "Express",
+        "etag": "<present>",
+        "last-modified": null
+      },
+      "body": "Not Found"
+    }
+  },
+  "HlsRouter (characterization) > unknown stream and authentication > serves another user's stream playlist to an anonymous caller (no ownership or permission check) > anonymous vs other user: anon": {
+    "res": {
+      "status": 200,
+      "headers": {
+        "content-type": "application/vnd.apple.mpegurl",
+        "content-length": "203",
+        "content-range": null,
+        "accept-ranges": "bytes",
+        "cache-control": "public, max-age=0",
+        "x-content-type-options": null,
+        "access-control-allow-origin": null,
+        "x-powered-by": "Express",
+        "etag": "<present>",
+        "last-modified": "<present>"
+      },
+      "body": "#EXTM3U\n#EXT-X-VERSION:3\n#EXT-X-ALLOW-CACHE:NO\n#EXT-X-TARGETDURATION:6\n#EXT-X-MEDIA-SEQUENCE:0\n#EXT-X-PLAYLIST-TYPE:VOD\n#EXTINF:6,\noutput-0.ts\n#EXTINF:6,\noutput-1.ts\n#EXTINF:1,\noutput-2.ts\n#EXT-X-ENDLIST"
+    }
+  },
+  "HlsRouter (characterization) > unknown stream and authentication > serves another user's stream playlist to an anonymous caller (no ownership or permission check) > anonymous vs other user: asOther": {
+    "res": {
+      "status": 200,
+      "headers": {
+        "content-type": "application/vnd.apple.mpegurl",
+        "content-length": "203",
+        "content-range": null,
+        "accept-ranges": "bytes",
+        "cache-control": "public, max-age=0",
+        "x-content-type-options": null,
+        "access-control-allow-origin": null,
+        "x-powered-by": "Express",
+        "etag": "<present>",
+        "last-modified": "<present>"
+      },
+      "body": "#EXTM3U\n#EXT-X-VERSION:3\n#EXT-X-ALLOW-CACHE:NO\n#EXT-X-TARGETDURATION:6\n#EXT-X-MEDIA-SEQUENCE:0\n#EXT-X-PLAYLIST-TYPE:VOD\n#EXTINF:6,\noutput-0.ts\n#EXTINF:6,\noutput-1.ts\n#EXTINF:1,\noutput-2.ts\n#EXT-X-ENDLIST"
+    }
+  },
+  "HlsRouter (characterization) > unknown stream and authentication > treats the stream id as an opaque string: traversal, encoded slashes and case do not match a session > stream id variants: dotdot": {
+    "res": {
+      "status": 404,
+      "headers": {
+        "content-type": "text/plain; charset=utf-8",
+        "content-length": "9",
+        "content-range": null,
+        "accept-ranges": null,
+        "cache-control": null,
+        "x-content-type-options": null,
+        "access-control-allow-origin": null,
+        "x-powered-by": "Express",
+        "etag": "<present>",
+        "last-modified": null
+      },
+      "body": "Not Found"
+    }
+  },
+  "HlsRouter (characterization) > unknown stream and authentication > treats the stream id as an opaque string: traversal, encoded slashes and case do not match a session > stream id variants: emptyStream": {
+    "res": {
+      "status": 404,
+      "headers": {
+        "content-type": "text/html; charset=utf-8",
+        "content-length": "<html error page length>",
+        "content-range": null,
+        "accept-ranges": null,
+        "cache-control": null,
+        "x-content-type-options": "nosniff",
+        "access-control-allow-origin": null,
+        "x-powered-by": "Express",
+        "etag": null,
+        "last-modified": null
+      },
+      "body": {
+        "htmlErrorPage": "Cannot GET /hls//output.m3u8"
+      }
+    }
+  },
+  "HlsRouter (characterization) > unknown stream and authentication > treats the stream id as an opaque string: traversal, encoded slashes and case do not match a session > stream id variants: encodedDotdot": {
+    "res": {
+      "status": 404,
+      "headers": {
+        "content-type": "text/plain; charset=utf-8",
+        "content-length": "9",
+        "content-range": null,
+        "accept-ranges": null,
+        "cache-control": null,
+        "x-content-type-options": null,
+        "access-control-allow-origin": null,
+        "x-powered-by": "Express",
+        "etag": "<present>",
+        "last-modified": null
+      },
+      "body": "Not Found"
+    }
+  },
+  "HlsRouter (characterization) > unknown stream and authentication > treats the stream id as an opaque string: traversal, encoded slashes and case do not match a session > stream id variants: encodedSlashInStream": {
+    "res": {
+      "status": 404,
+      "headers": {
+        "content-type": "text/plain; charset=utf-8",
+        "content-length": "9",
+        "content-range": null,
+        "accept-ranges": null,
+        "cache-control": null,
+        "x-content-type-options": null,
+        "access-control-allow-origin": null,
+        "x-powered-by": "Express",
+        "etag": "<present>",
+        "last-modified": null
+      },
+      "body": "Not Found"
+    }
+  },
+  "HlsRouter (characterization) > unknown stream and authentication > treats the stream id as an opaque string: traversal, encoded slashes and case do not match a session > stream id variants: upperCaseId": {
+    "res": {
+      "status": 404,
+      "headers": {
+        "content-type": "text/plain; charset=utf-8",
+        "content-length": "9",
+        "content-range": null,
+        "accept-ranges": null,
+        "cache-control": null,
+        "x-content-type-options": null,
+        "access-control-allow-origin": null,
+        "x-powered-by": "Express",
+        "etag": "<present>",
+        "last-modified": null
+      },
+      "body": "Not Found"
+    }
+  }
+}
