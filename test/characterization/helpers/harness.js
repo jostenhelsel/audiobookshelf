@@ -24,6 +24,7 @@ const Database = require('../../../server/Database')
 const Logger = require('../../../server/Logger')
 const SocketAuthority = require('../../../server/SocketAuthority')
 const Watcher = require('../../../server/Watcher')
+const CacheManager = require('../../../server/managers/CacheManager')
 const ApiRouter = require('../../../server/routers/ApiRouter')
 const Auth = require('../../../server/Auth')
 const ApiCacheManager = require('../../../server/managers/ApiCacheManager')
@@ -154,6 +155,8 @@ async function startApi(opts = {}) {
     async stop() {
       await new Promise((resolve) => server.close(resolve))
       sinon.restore()
+      // CacheManager is a singleton holding paths inside the temp dir deleted below; back to its constructor state
+      CacheManager.CachePath = CacheManager.CoverCachePath = CacheManager.ImageCachePath = CacheManager.ItemCachePath = null
       await Database.sequelize.close()
       for (const [k, v] of Object.entries(saved)) {
         if (v === undefined) delete global[k]
