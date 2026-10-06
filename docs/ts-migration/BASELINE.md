@@ -44,3 +44,9 @@ Measured in the cloud sandbox (Node v22.22.0, x86_64, 4 CPU, 15GB). CI and pkg t
 Notes: Node 26 breaks `npm test` (mocha/yargs `require is not defined in ES module scope`); Homebrew `node@24` is actually Node 26. DB fixtures embed absolute paths (`backupPath` in server settings) and crash BackupManager at boot on another machine unless rewritten.
 
 Not yet covered: Docker build/run, macOS x64 and macOS pkg, epub/comic scans, migrations v2.15.0–v2.26.0 end to end (the v2.32.1 DB only exercises 2 of 15), Windows.
+
+## Upgrade smoke test (`npm run smoke:upgrade`)
+Fixtures from real v2.14.0 and v2.25.1 servers (generated on the local machine). Passes on the baseline code in the sandbox (Node 22): all 15 migrations apply from v2.14.0, 3 from v2.25.1, both users log in, row counts survive except two pinned deltas:
+- `playbackSessions` 2 → 0 on both: boot cleanup deletes sessions with `timeListening <= 3` (fixture sessions are exactly 3s). Expected.
+- `feedEpisodes` 1 → 0 when upgrading from v2.14.0 only; the feed row survives. Probably v2.17.3's feeds-table rebuild cascading via `ON DELETE CASCADE` (not confirmed). Upstream behaviour, pinned so a change is flagged; worth a look as a possible upstream bug.
+The harness was negative-tested (a migration without `up` fails both the static check and the boot).

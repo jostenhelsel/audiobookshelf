@@ -5,3 +5,4 @@ Confirmed-good commits on `claude/dreamy-ramanujan-l3ozd4`. Git tags `rollback/N
 | Tag | SHA | What was verified |
 |---|---|---|
 | rollback/00-baseline | 7d10b8f | Upstream v2.37.0, untouched. build, lint, 356 tests green (Node 22, sandbox); boot smoke OK with binary-check overrides. |
+| rollback/01-upgrade-smoke | 65e983b | Baseline code plus upgrade smoke harness. lint clean, 356 tests, `npm run smoke:upgrade` passes (Node 22, sandbox). |
