@@ -26,4 +26,10 @@ describe('characterization harness', () => {
     const res = await api.request('POST', '/api/libraries', { as: 'root', json: { name: 'Books', mediaType: 'book', folders: [{ fullPath: '/tmp/x-books' }] } })
     matchSnapshot(this, { res, emitted: api.emitted, watcherCalls: api.watcherCalls })
   })
+
+  it('parses multipart uploads into req.files like Server.js', async () => {
+    api.app.post('/echo-upload', (req, res) => res.json({ fields: req.body, files: Object.values(req.files || {}).map((f) => ({ name: f.name, size: f.size, mimetype: f.mimetype })) }))
+    const res = await api.request('POST', '/echo-upload', { form: { fields: { title: 'x' }, files: [{ name: 'cover', filename: 'a.png', content: 'abc', type: 'image/png' }] } })
+    expect(res.body).to.deep.equal({ fields: { title: 'x' }, files: [{ name: 'a.png', size: 3, mimetype: 'image/png' }] })
+  })
 })

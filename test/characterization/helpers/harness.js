@@ -29,6 +29,7 @@ const ApiRouter = require('../../../server/routers/ApiRouter')
 const Auth = require('../../../server/Auth')
 const ApiCacheManager = require('../../../server/managers/ApiCacheManager')
 const ServerSettings = require('../../../server/objects/settings/ServerSettings')
+const fileUpload = require('../../../server/libs/expressFileupload')
 
 // file watching would open real chokidar handles (and keep mocha alive), so Watcher calls are recorded instead
 const WATCHER_METHODS = ['initWatcher', 'addLibrary', 'updateLibrary', 'removeLibrary', 'close', 'addIgnoreDir', 'removeIgnoreDir']
@@ -94,6 +95,8 @@ async function startApi(opts = {}) {
   const apiRouter = new ApiRouter(fakeServer)
 
   const app = express()
+  // same upload middleware and options as Server.js (multipart bodies -> req.files, temp files in <metadata>/tmp)
+  app.use(fileUpload({ defCharset: 'utf8', defParamCharset: 'utf8', useTempFiles: true, tempFileDir: path.join(global.MetadataPath, 'tmp') }))
   app.use(express.urlencoded({ extended: true }))
   app.use(express.json({ limit: '10mb' }))
   // stub login: x-test-user: <username> authenticates as that user, like passport's jwt strategy sets req.user
@@ -122,7 +125,8 @@ async function startApi(opts = {}) {
     /**
      * @param {string} method
      * @param {string} url path incl. query, e.g. '/api/libraries?limit=5'
-     * @param {{ as?: string, json?: any, headers?: Record<string,string> }} [o] `as` = username to authenticate as (omit for 401)
+     * @param {{ as?: string, json?: any, form?: { fields?: Record<string,string>, files?: { name:string, filename:string, content:string|Buffer, type?:string }[] }, headers?: Record<string,string> }} [o]
+     *   `as` = username to authenticate as (omit for 401); `form` sends multipart/form-data (uploads)
      * @returns {Promise<{ status:number, headers:Record<string,string>, body:any }>}
      */
     async request(method, url, o = {}) {
@@ -132,6 +136,11 @@ async function startApi(opts = {}) {
       if (o.json !== undefined) {
         headers['content-type'] = 'application/json'
         body = JSON.stringify(o.json)
+      }
+      if (o.form) {
+        body = new FormData()
+        for (const [k, v] of Object.entries(o.form.fields || {})) body.append(k, v)
+        for (const f of o.form.files || []) body.append(f.name, new Blob([f.content], { type: f.type || 'application/octet-stream' }), f.filename)
       }
       const res = await fetch(base + url, { method, headers, body, redirect: 'manual' })
       const text = await res.text()

@@ -10,7 +10,8 @@ They run the real `ApiRouter` (routing, middleware, permissions, controllers, mo
 3. Snapshot with `matchSnapshot(this, { res, emitted }, { label, ids: this.ids })`. Share one `this.ids = new Map()` per test so ids get stable labels across calls; use `new Map([[realId, '<name>']])` to name an important id.
 4. Test data: `helpers/seed-library.js` (`createLibrary`, `createBook`) or your own `helpers/seed-<area>.js`. **Do not edit** `harness.js`, `snapshot.js` or `seed-library.js` for one test's needs; if the harness itself is wrong, say so in your summary.
 5. Managers (playback sessions, backups, podcasts, email, ...) are not started. Pass fakes: `startApi({ managers: { backupManager: {...} } })`. Anything touching ffmpeg, the network, SMTP or the real filesystem: stub at the module boundary with sinon, or `it.skip('<route>: needs <thing>')` and report it.
-6. Never change files under `server/`.
+6. Uploads: `api.request(method, url, { form: { fields: {k: 'v'}, files: [{ name: 'cover', filename: 'a.png', content: <Buffer|string>, type: 'image/png' }] } })` sends multipart; the harness mounts the same `express-fileupload` options as `Server.js`, so handlers see `req.files`.
+7. Never change files under `server/`.
 
 ## Recording and verifying
 ```
