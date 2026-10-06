@@ -2148,24 +2148,6 @@
     },
     "emitted": []
   },
-  "NotificationController (characterization) > POST /api/notifications > silently ignores payloads without eventName or with empty urls > empty body, urls missing: see skipped test": {
-    "res": {
-      "status": 200,
-      "headers": {
-        "content-type": "application/json; charset=utf-8"
-      },
-      "body": {
-        "id": "notification-settings",
-        "appriseType": "api",
-        "appriseApiUrl": null,
-        "notifications": [],
-        "maxFailedAttempts": 5,
-        "maxNotificationQueue": 20,
-        "notificationDelay": 1000
-      }
-    },
-    "emitted": []
-  },
   "NotificationController (characterization) > POST /api/notifications > silently ignores payloads without eventName or with empty urls > empty urls": {
     "res": {
       "status": 200,

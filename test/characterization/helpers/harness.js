@@ -49,6 +49,28 @@ const unconfigured = (name) =>
     }
   )
 
+// Route coverage: ROUTE_COVERAGE=1 ROUTE_COVERAGE_FILE=<path> npm test writes every ApiRouter route and the ones the suite hit
+const routeHits = new Map() // route -> Set of status codes seen
+let allRoutes = null
+let coverageHookInstalled = false
+const routeKey = (method, p) => `${method.toUpperCase()} ${p instanceof RegExp ? String(p) : p}`
+function listRoutes(expressApp) {
+  const out = []
+  for (const layer of expressApp._router.stack) {
+    if (!layer.route) continue
+    for (const m of Object.keys(layer.route.methods)) out.push(routeKey(m, layer.route.path))
+  }
+  return out
+}
+function installCoverageHook() {
+  if (coverageHookInstalled || process.env.ROUTE_COVERAGE !== '1') return
+  coverageHookInstalled = true
+  process.on('exit', () => {
+    const file = process.env.ROUTE_COVERAGE_FILE
+    if (file && allRoutes) fs.writeFileSync(file, JSON.stringify({ all: allRoutes, hits: Object.fromEntries([...routeHits].sort().map(([k, v]) => [k, [...v].sort()])) }, null, 2))
+  })
+}
+
 function jsonSafe(v) {
   try {
     return JSON.parse(JSON.stringify(v))
@@ -84,6 +106,21 @@ async function startApi(opts = {}) {
   Database.serverSettings = settings.serverSettings || new ServerSettings()
   global.ServerSettings = Database.serverSettings.toJSON()
 
+  // Rows created in the same millisecond tie on createdAt, and the server sorts some lists by createdAt (newest episodes, recently
+  // added), so the order of tied rows is up to SQLite and flipped between machines. Give auto-generated createdAt/updatedAt values
+  // a strictly increasing millisecond so ties cannot happen; explicitly provided timestamps are left alone.
+  let lastCreatedAt = 0
+  const isAutoNow = (d) => d instanceof Date && Math.abs(d.getTime() - Date.now()) < 2000
+  const uniqueNow = (instance) => {
+    const attrs = instance.constructor.rawAttributes
+    if (!attrs?.createdAt || !isAutoNow(instance.createdAt)) return
+    lastCreatedAt = Math.max(Date.now(), lastCreatedAt + 1)
+    instance.createdAt = new Date(lastCreatedAt)
+    if (attrs.updatedAt) instance.updatedAt = new Date(lastCreatedAt)
+  }
+  Database.sequelize.addHook('beforeCreate', uniqueNow)
+  Database.sequelize.addHook('beforeBulkCreate', (instances) => instances.forEach(uniqueNow))
+
   const emitted = []
   for (const method of SOCKET_METHODS) sinon.stub(SocketAuthority, method).callsFake((...args) => emitted.push({ method, args: jsonSafe(args) }))
 
@@ -109,6 +146,8 @@ async function startApi(opts = {}) {
   SocketAuthority.clients = {}
   for (const name of MANAGER_NAMES) fakeServer[name] = opts.managers?.[name] || unconfigured(name)
   const apiRouter = new ApiRouter(fakeServer)
+  installCoverageHook()
+  if (!allRoutes) allRoutes = listRoutes(apiRouter.router)
 
   const app = express()
   // same upload middleware and options as Server.js (multipart bodies -> req.files, temp files in <metadata>/tmp)
@@ -122,6 +161,15 @@ async function startApi(opts = {}) {
     const user = username ? await Database.userModel.findOne({ where: { username } }) : null
     if (!user) return res.sendStatus(401)
     req.user = await Database.userModel.getUserById(user.id)
+    next()
+  })
+  app.use('/api', (req, res, next) => {
+    res.on('finish', () => {
+      if (!req.route) return
+      const key = routeKey(req.method, req.route.path)
+      if (!routeHits.has(key)) routeHits.set(key, new Set())
+      routeHits.get(key).add(res.statusCode)
+    })
     next()
   })
   app.use('/api', apiRouter.router)

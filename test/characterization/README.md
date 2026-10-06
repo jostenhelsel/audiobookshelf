@@ -22,3 +22,11 @@ npx mocha dist-server/test/characterization/<Controller>.test.js                
 Snapshots (`snapshots/*.json`) are committed. A failing snapshot means behaviour changed: either you broke something or the change is intended and the snapshot is re-recorded in a reviewed commit. Check that snapshots hold meaningful data, not just error responses, before handing back.
 
 Before handing back also run `npm run lint`, `npm test`, `npm run ratchet`. This folder is excluded from the ratchet (`tsconfig.check.json`) while it stays JS.
+
+## Guards (do not weaken)
+- `npm run audit:characterization` runs the whole suite while recording which routes were hit (with which statuses) and which snapshot entries were compared, then audits the tests: no `.only`, no test without an assertion, no snapshot entry that no test compares, every route handler hit with at least one success response, no suite that is mostly errors, no stub that replaces behaviour of code under test. Fix what it reports; do not edit the audit to pass.
+- `npm run oracle:check` verifies every file in this folder against `ORACLE.sha256.json`. Changing tests or snapshots is allowed only as a deliberate, reviewed commit that runs `node scripts/characterization-audit/oracle.js --update` and carries `[oracle-update]` in the commit message; CI rejects any change here without that marker.
+- `UPDATE_SNAPSHOTS=1` is refused when `CI` is set.
+- The harness gives auto-generated `createdAt` values a strictly increasing millisecond, because the server sorts some lists by `createdAt` and rows created in the same millisecond used to tie in an order that differed between machines.
+- The stub login answers anonymous requests with 401 before any server code runs, so "unauthenticated" cases characterize the harness, not real authentication (that needs the Auth route tests).
+

@@ -403,28 +403,6 @@
       }
     ]
   },
-  "EmailController (characterization) > POST /api/emails/ereader-devices > saves devices, emits to admins and persists > empty list does not clear devices": {
-    "res": {
-      "status": 200,
-      "headers": {
-        "content-type": "application/json; charset=utf-8"
-      },
-      "body": {
-        "ereaderDevices": []
-      }
-    },
-    "emitted": [
-      {
-        "method": "adminEmitter",
-        "args": [
-          "ereader-devices-updated",
-          {
-            "ereaderDevices": []
-          }
-        ]
-      }
-    ]
-  },
   "EmailController (characterization) > POST /api/emails/ereader-devices > saves devices, emits to admins and persists > replace with defaults": {
     "res": {
       "status": 200,

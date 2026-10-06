@@ -75,3 +75,8 @@ Reported by the test-writing agents while reading the code and recording respons
 - `createBook` leaves `explicit` NULL, which hides books from `user`/`guest`; `createLibrary` leaves `library.settings` NULL (public share GET then 500s).
 - Singletons leak between tests unless reset: `CacheManager` (reset by the harness), `ShareManager`, `Logger.logLevel`, `Database.libraryFilterData`, the rate limiter on `PATCH /me/password` (40 calls per 10 minutes per process).
 - `api.request` returns only `content-type`, drops `set-cookie`, and cannot send a body on GET; use `fetch` against `api.base` for those.
+
+## How the suite is kept honest
+`npm run audit:characterization` (see `test/characterization/README.md`) measures instead of trusting claims: 202 of 202 route handlers are hit and each has at least one 2xx/3xx response; every snapshot entry is compared by a test; no `.only`, no assertion-free test, no stub that replaces code under test; the only reshaping of responses before snapshotting is sorting where the server's own order is random, masking of times/versions/ids, and reducing the random "discover" shelf to its size. `npm run oracle:check` plus the Characterization Guard workflow stop the oracle from changing without a deliberate `[oracle-update]` commit.
+
+Found by this sweep: a flaky snapshot on macOS (rows seeded in the same millisecond tie on `createdAt`, which the server sorts by; fixed in the harness and covered by a self-test) and two stale snapshot entries (removed).

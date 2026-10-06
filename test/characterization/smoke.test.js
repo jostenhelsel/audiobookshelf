@@ -32,4 +32,14 @@ describe('characterization harness', () => {
     const res = await api.request('POST', '/echo-upload', { form: { fields: { title: 'x' }, files: [{ name: 'cover', filename: 'a.png', content: 'abc', type: 'image/png' }] } })
     expect(res.body).to.deep.equal({ fields: { title: 'x' }, files: [{ name: 'a.png', size: 3, mimetype: 'image/png' }] })
   })
+
+  it('never gives rows created back to back the same createdAt', async () => {
+    const Database = require('../../server/Database')
+    const { library } = await require('./helpers/seed-library').createLibrary()
+    const created = []
+    for (let i = 0; i < 30; i++) created.push(await Database.authorModel.create({ name: `Author ${i}`, libraryId: library.id }))
+    const times = created.map((a) => a.createdAt.getTime())
+    expect(new Set(times).size).to.equal(30)
+    expect(times).to.deep.equal([...times].sort((a, b) => a - b))
+  })
 })

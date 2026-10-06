@@ -82,8 +82,10 @@ function matchSnapshot(ctx, value, opts = {}) {
   const fileTitle = titles[0] || 'root'
   const file = path.join(snapshotDir(), `${fileTitle.replace(/[^A-Za-z0-9._-]+/g, '_')}.json`)
   const snaps = load(file)
+  usedKeys.add(`${path.basename(file)}::${key}`)
   const actual = normalize(JSON.parse(JSON.stringify(value === undefined ? null : value)), opts)
   if (process.env.UPDATE_SNAPSHOTS === '1') {
+    if (process.env.CI) throw new Error('UPDATE_SNAPSHOTS=1 is not allowed in CI: snapshots are only re-recorded by a person, in a reviewed commit')
     snaps[key] = actual
     const sorted = Object.fromEntries(Object.entries(snaps).sort(([a], [b]) => (a < b ? -1 : 1)))
     fs.mkdirSync(path.dirname(file), { recursive: true })
@@ -93,5 +95,9 @@ function matchSnapshot(ctx, value, opts = {}) {
   if (!(key in snaps)) throw new Error(`No snapshot for "${key}" in ${path.relative(repoRoot(), file)}. Run with UPDATE_SNAPSHOTS=1 to record it.`)
   expect(actual, `snapshot "${key}"`).to.deep.equal(snaps[key])
 }
+
+// SNAPSHOT_USED_FILE=<path> npm test records every snapshot entry that was compared, so the audit can find obsolete entries
+const usedKeys = new Set()
+if (process.env.SNAPSHOT_USED_FILE) process.on('exit', () => fs.writeFileSync(process.env.SNAPSHOT_USED_FILE, JSON.stringify([...usedKeys].sort(), null, 2)))
 
 module.exports = { matchSnapshot, normalize }

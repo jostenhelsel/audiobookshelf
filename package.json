@@ -22,6 +22,8 @@
     "coverage": "npm run build:server && nyc mocha dist-server/test",
     "ratchet": "node scripts/ts-ratchet/check.js",
     "ratchet:update": "node scripts/ts-ratchet/check.js --update",
+    "audit:characterization": "npm run build:server && node scripts/characterization-audit/run.js",
+    "oracle:check": "node scripts/characterization-audit/oracle.js",
     "smoke:upgrade": "npm run build:server && node scripts/upgrade-smoke/run.js",
     "lint": "eslint ."
   },
