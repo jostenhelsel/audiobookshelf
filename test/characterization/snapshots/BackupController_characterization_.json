@@ -1,0 +1,542 @@
+{
+  "BackupController (characterization) > DELETE /api/backups/:id > removes a backup and 404s for unknown ids > remove": {
+    "res": {
+      "status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8"
+      },
+      "body": {
+        "backups": [
+          {
+            "id": "2020-01-02T0000",
+            "filename": "b.audiobookshelf",
+            "datePretty": "Mon, Jan 1",
+            "fileSize": 99
+          }
+        ]
+      }
+    },
+    "emitted": [],
+    "calls": [
+      {
+        "method": "removeBackup",
+        "id": "2020-01-01T0000"
+      }
+    ]
+  },
+  "BackupController (characterization) > DELETE /api/backups/:id > removes a backup and 404s for unknown ids > remove again": {
+    "res": {
+      "status": 404,
+      "headers": {
+        "content-type": "text/plain; charset=utf-8"
+      },
+      "body": "Not Found"
+    },
+    "emitted": [],
+    "calls": []
+  },
+  "BackupController (characterization) > DELETE /api/backups/:id > removes a backup and 404s for unknown ids > unknown": {
+    "res": {
+      "status": 404,
+      "headers": {
+        "content-type": "text/plain; charset=utf-8"
+      },
+      "body": "Not Found"
+    },
+    "emitted": [],
+    "calls": []
+  },
+  "BackupController (characterization) > GET /api/backups > lists backups, location and env flag > admin": {
+    "res": {
+      "status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8"
+      },
+      "body": {
+        "backups": [
+          {
+            "id": "2020-01-01T0000",
+            "filename": "a.audiobookshelf",
+            "datePretty": "Mon, Jan 1",
+            "fileSize": 12
+          },
+          {
+            "id": "2020-01-02T0000",
+            "filename": "b.audiobookshelf",
+            "datePretty": "Mon, Jan 1",
+            "fileSize": 99
+          }
+        ],
+        "backupLocation": "<tmp>/backups",
+        "backupPathEnvSet": false
+      }
+    },
+    "emitted": [],
+    "calls": []
+  },
+  "BackupController (characterization) > GET /api/backups > lists backups, location and env flag > root, none, env set": {
+    "res": {
+      "status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8"
+      },
+      "body": {
+        "backups": [],
+        "backupLocation": "<tmp>/backups",
+        "backupPathEnvSet": true
+      }
+    },
+    "emitted": [],
+    "calls": []
+  },
+  "BackupController (characterization) > GET /api/backups/:id/apply > delegates to the manager with the api cache manager > apply": {
+    "res": {
+      "status": 200,
+      "headers": {
+        "content-type": "text/plain; charset=utf-8"
+      },
+      "body": "OK"
+    },
+    "emitted": [],
+    "calls": [
+      {
+        "method": "requestApplyBackup",
+        "id": "2020-01-02T0000",
+        "hasApiCacheManager": true
+      }
+    ]
+  },
+  "BackupController (characterization) > GET /api/backups/:id/apply > delegates to the manager with the api cache manager > unknown": {
+    "res": {
+      "status": 404,
+      "headers": {
+        "content-type": "text/plain; charset=utf-8"
+      },
+      "body": "Not Found"
+    },
+    "emitted": [],
+    "calls": []
+  },
+  "BackupController (characterization) > GET /api/backups/:id/download > 404s for unknown ids": {
+    "res": {
+      "status": 404,
+      "headers": {
+        "content-type": "text/plain; charset=utf-8"
+      },
+      "body": "Not Found"
+    },
+    "emitted": [],
+    "calls": []
+  },
+  "BackupController (characterization) > GET /api/backups/:id/download > answers 204 for X-Accel when configured > x-accel": {
+    "res": {
+      "status": 204,
+      "headers": {
+        "content-type": null
+      },
+      "body": null
+    },
+    "emitted": [],
+    "calls": []
+  },
+  "BackupController (characterization) > GET /api/backups/:id/download > fails when the file is missing on disk > missing file": {
+    "status": 404
+  },
+  "BackupController (characterization) > GET /api/backups/:id/download > sends the backup file > file": {
+    "res": {
+      "status": 200,
+      "headers": {
+        "content-type": "application/octet-stream"
+      },
+      "body": "backup-a-content"
+    },
+    "emitted": [],
+    "calls": []
+  },
+  "BackupController (characterization) > PATCH /api/backups/path > accepts an existing folder and normalises the path > existing folder with dot segment": {
+    "res": {
+      "status": 200,
+      "headers": {
+        "content-type": "text/plain; charset=utf-8"
+      },
+      "body": "OK"
+    },
+    "emitted": [],
+    "calls": [
+      {
+        "method": "reload",
+        "backupPath": "<tmp>/existing"
+      }
+    ]
+  },
+  "BackupController (characterization) > PATCH /api/backups/path > creates a new folder, saves the setting and reloads the manager > new folder": {
+    "res": {
+      "status": 200,
+      "headers": {
+        "content-type": "text/plain; charset=utf-8"
+      },
+      "body": "OK"
+    },
+    "emitted": [],
+    "calls": [
+      {
+        "method": "reload",
+        "backupPath": "<tmp>/newbackups"
+      }
+    ]
+  },
+  "BackupController (characterization) > PATCH /api/backups/path > creates a new folder, saves the setting and reloads the manager > persisted": {
+    "persisted": "<tmp>/newbackups"
+  },
+  "BackupController (characterization) > PATCH /api/backups/path > does nothing when the path is unchanged": {
+    "res": {
+      "status": 200,
+      "headers": {
+        "content-type": "text/html; charset=utf-8"
+      },
+      "body": "Backup path unchanged"
+    },
+    "emitted": [],
+    "calls": []
+  },
+  "BackupController (characterization) > PATCH /api/backups/path > fails when the parent folder does not exist > no parent": {
+    "res": {
+      "status": 400,
+      "headers": {
+        "content-type": "text/html; charset=utf-8"
+      },
+      "body": "Invalid backup path \"<tmp>/missing-parent/child\""
+    },
+    "emitted": [],
+    "calls": []
+  },
+  "BackupController (characterization) > PATCH /api/backups/path > validates the body > blank": {
+    "res": {
+      "status": 400,
+      "headers": {
+        "content-type": "text/html; charset=utf-8"
+      },
+      "body": "Invalid request body. Must include path."
+    },
+    "emitted": [],
+    "calls": []
+  },
+  "BackupController (characterization) > PATCH /api/backups/path > validates the body > empty": {
+    "res": {
+      "status": 400,
+      "headers": {
+        "content-type": "text/html; charset=utf-8"
+      },
+      "body": "Invalid request body. Must include path."
+    },
+    "emitted": [],
+    "calls": []
+  },
+  "BackupController (characterization) > PATCH /api/backups/path > validates the body > not a string": {
+    "res": {
+      "status": 400,
+      "headers": {
+        "content-type": "text/html; charset=utf-8"
+      },
+      "body": "Invalid request body. Must include path."
+    },
+    "emitted": [],
+    "calls": []
+  },
+  "BackupController (characterization) > POST /api/backups > delegates to the backup manager": {
+    "res": {
+      "status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8"
+      },
+      "body": {
+        "backups": [
+          {
+            "id": "2020-01-01T0000",
+            "filename": "a.audiobookshelf",
+            "datePretty": "Mon, Jan 1",
+            "fileSize": 12
+          },
+          {
+            "id": "2020-01-02T0000",
+            "filename": "b.audiobookshelf",
+            "datePretty": "Mon, Jan 1",
+            "fileSize": 99
+          }
+        ]
+      }
+    },
+    "emitted": [],
+    "calls": [
+      {
+        "method": "requestCreateBackup"
+      }
+    ]
+  },
+  "BackupController (characterization) > POST /api/backups/upload > hands the uploaded file to the manager > file": {
+    "res": {
+      "status": 200,
+      "headers": {
+        "content-type": "text/plain; charset=utf-8"
+      },
+      "body": "OK"
+    },
+    "emitted": [],
+    "calls": [
+      {
+        "method": "uploadBackup",
+        "file": {
+          "name": "restore.audiobookshelf",
+          "size": 9,
+          "mimetype": "application/zip"
+        }
+      }
+    ]
+  },
+  "BackupController (characterization) > POST /api/backups/upload > rejects a wrong field name with 500 > wrong field": {
+    "res": {
+      "status": 500,
+      "headers": {
+        "content-type": "text/plain; charset=utf-8"
+      },
+      "body": "Internal Server Error"
+    },
+    "emitted": [],
+    "calls": []
+  },
+  "BackupController (characterization) > POST /api/backups/upload > throws (500) when the request is not multipart > no files": {
+    "status": 500,
+    "calls": []
+  },
+  "BackupController (characterization) > permissions > every route requires authentication and admin > DELETE /api/backups/2020-01-01T0000 anonymous": {
+    "res": {
+      "status": 401,
+      "headers": {
+        "content-type": "text/plain; charset=utf-8"
+      },
+      "body": "Unauthorized"
+    },
+    "emitted": [],
+    "calls": []
+  },
+  "BackupController (characterization) > permissions > every route requires authentication and admin > DELETE /api/backups/2020-01-01T0000 guest": {
+    "res": {
+      "status": 403,
+      "headers": {
+        "content-type": "text/plain; charset=utf-8"
+      },
+      "body": "Forbidden"
+    },
+    "emitted": [],
+    "calls": []
+  },
+  "BackupController (characterization) > permissions > every route requires authentication and admin > DELETE /api/backups/2020-01-01T0000 user": {
+    "res": {
+      "status": 403,
+      "headers": {
+        "content-type": "text/plain; charset=utf-8"
+      },
+      "body": "Forbidden"
+    },
+    "emitted": [],
+    "calls": []
+  },
+  "BackupController (characterization) > permissions > every route requires authentication and admin > GET /api/backups anonymous": {
+    "res": {
+      "status": 401,
+      "headers": {
+        "content-type": "text/plain; charset=utf-8"
+      },
+      "body": "Unauthorized"
+    },
+    "emitted": [],
+    "calls": []
+  },
+  "BackupController (characterization) > permissions > every route requires authentication and admin > GET /api/backups guest": {
+    "res": {
+      "status": 403,
+      "headers": {
+        "content-type": "text/plain; charset=utf-8"
+      },
+      "body": "Forbidden"
+    },
+    "emitted": [],
+    "calls": []
+  },
+  "BackupController (characterization) > permissions > every route requires authentication and admin > GET /api/backups user": {
+    "res": {
+      "status": 403,
+      "headers": {
+        "content-type": "text/plain; charset=utf-8"
+      },
+      "body": "Forbidden"
+    },
+    "emitted": [],
+    "calls": []
+  },
+  "BackupController (characterization) > permissions > every route requires authentication and admin > GET /api/backups/2020-01-01T0000/apply anonymous": {
+    "res": {
+      "status": 401,
+      "headers": {
+        "content-type": "text/plain; charset=utf-8"
+      },
+      "body": "Unauthorized"
+    },
+    "emitted": [],
+    "calls": []
+  },
+  "BackupController (characterization) > permissions > every route requires authentication and admin > GET /api/backups/2020-01-01T0000/apply guest": {
+    "res": {
+      "status": 403,
+      "headers": {
+        "content-type": "text/plain; charset=utf-8"
+      },
+      "body": "Forbidden"
+    },
+    "emitted": [],
+    "calls": []
+  },
+  "BackupController (characterization) > permissions > every route requires authentication and admin > GET /api/backups/2020-01-01T0000/apply user": {
+    "res": {
+      "status": 403,
+      "headers": {
+        "content-type": "text/plain; charset=utf-8"
+      },
+      "body": "Forbidden"
+    },
+    "emitted": [],
+    "calls": []
+  },
+  "BackupController (characterization) > permissions > every route requires authentication and admin > GET /api/backups/2020-01-01T0000/download anonymous": {
+    "res": {
+      "status": 401,
+      "headers": {
+        "content-type": "text/plain; charset=utf-8"
+      },
+      "body": "Unauthorized"
+    },
+    "emitted": [],
+    "calls": []
+  },
+  "BackupController (characterization) > permissions > every route requires authentication and admin > GET /api/backups/2020-01-01T0000/download guest": {
+    "res": {
+      "status": 403,
+      "headers": {
+        "content-type": "text/plain; charset=utf-8"
+      },
+      "body": "Forbidden"
+    },
+    "emitted": [],
+    "calls": []
+  },
+  "BackupController (characterization) > permissions > every route requires authentication and admin > GET /api/backups/2020-01-01T0000/download user": {
+    "res": {
+      "status": 403,
+      "headers": {
+        "content-type": "text/plain; charset=utf-8"
+      },
+      "body": "Forbidden"
+    },
+    "emitted": [],
+    "calls": []
+  },
+  "BackupController (characterization) > permissions > every route requires authentication and admin > PATCH /api/backups/path anonymous": {
+    "res": {
+      "status": 401,
+      "headers": {
+        "content-type": "text/plain; charset=utf-8"
+      },
+      "body": "Unauthorized"
+    },
+    "emitted": [],
+    "calls": []
+  },
+  "BackupController (characterization) > permissions > every route requires authentication and admin > PATCH /api/backups/path guest": {
+    "res": {
+      "status": 403,
+      "headers": {
+        "content-type": "text/plain; charset=utf-8"
+      },
+      "body": "Forbidden"
+    },
+    "emitted": [],
+    "calls": []
+  },
+  "BackupController (characterization) > permissions > every route requires authentication and admin > PATCH /api/backups/path user": {
+    "res": {
+      "status": 403,
+      "headers": {
+        "content-type": "text/plain; charset=utf-8"
+      },
+      "body": "Forbidden"
+    },
+    "emitted": [],
+    "calls": []
+  },
+  "BackupController (characterization) > permissions > every route requires authentication and admin > POST /api/backups anonymous": {
+    "res": {
+      "status": 401,
+      "headers": {
+        "content-type": "text/plain; charset=utf-8"
+      },
+      "body": "Unauthorized"
+    },
+    "emitted": [],
+    "calls": []
+  },
+  "BackupController (characterization) > permissions > every route requires authentication and admin > POST /api/backups guest": {
+    "res": {
+      "status": 403,
+      "headers": {
+        "content-type": "text/plain; charset=utf-8"
+      },
+      "body": "Forbidden"
+    },
+    "emitted": [],
+    "calls": []
+  },
+  "BackupController (characterization) > permissions > every route requires authentication and admin > POST /api/backups user": {
+    "res": {
+      "status": 403,
+      "headers": {
+        "content-type": "text/plain; charset=utf-8"
+      },
+      "body": "Forbidden"
+    },
+    "emitted": [],
+    "calls": []
+  },
+  "BackupController (characterization) > permissions > every route requires authentication and admin > POST /api/backups/upload anonymous": {
+    "res": {
+      "status": 401,
+      "headers": {
+        "content-type": "text/plain; charset=utf-8"
+      },
+      "body": "Unauthorized"
+    },
+    "emitted": [],
+    "calls": []
+  },
+  "BackupController (characterization) > permissions > every route requires authentication and admin > POST /api/backups/upload guest": {
+    "res": {
+      "status": 403,
+      "headers": {
+        "content-type": "text/plain; charset=utf-8"
+      },
+      "body": "Forbidden"
+    },
+    "emitted": [],
+    "calls": []
+  },
+  "BackupController (characterization) > permissions > every route requires authentication and admin > POST /api/backups/upload user": {
+    "res": {
+      "status": 403,
+      "headers": {
+        "content-type": "text/plain; charset=utf-8"
+      },
+      "body": "Forbidden"
+    },
+    "emitted": [],
+    "calls": []
+  }
+}

@@ -1,0 +1,406 @@
+{
+  "FileSystemController (characterization) > GET /api/filesystem > hides app directories like node_modules, client, config and metadata": {
+    "res": {
+      "status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8"
+      },
+      "body": {
+        "posix": true,
+        "directories": [
+          {
+            "path": "<tmp>/app/books",
+            "dirname": "books",
+            "level": 0
+          }
+        ]
+      }
+    }
+  },
+  "FileSystemController (characterization) > GET /api/filesystem > lists a file path as empty (readdir fails)": {
+    "res": {
+      "status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8"
+      },
+      "body": {
+        "posix": true,
+        "directories": []
+      }
+    }
+  },
+  "FileSystemController (characterization) > GET /api/filesystem > lists directories of a path, only directories > admin": {
+    "res": {
+      "status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8"
+      },
+      "body": {
+        "posix": true,
+        "directories": [
+          {
+            "path": "<tmp>/fs/Alpha",
+            "dirname": "Alpha",
+            "level": 0
+          },
+          {
+            "path": "<tmp>/fs/Beta",
+            "dirname": "Beta",
+            "level": 0
+          },
+          {
+            "path": "<tmp>/fs/Gamma",
+            "dirname": "Gamma",
+            "level": 0
+          }
+        ]
+      }
+    }
+  },
+  "FileSystemController (characterization) > GET /api/filesystem > lists directories of a path, only directories > empty directory": {
+    "res": {
+      "status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8"
+      },
+      "body": {
+        "posix": true,
+        "directories": []
+      }
+    }
+  },
+  "FileSystemController (characterization) > GET /api/filesystem > lists directories of a path, only directories > non numeric level falls back to 0": {
+    "res": {
+      "status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8"
+      },
+      "body": {
+        "posix": true,
+        "directories": [
+          {
+            "path": "<tmp>/fs/Alpha/Inner",
+            "dirname": "Inner",
+            "level": 0
+          }
+        ]
+      }
+    }
+  },
+  "FileSystemController (characterization) > GET /api/filesystem > lists directories of a path, only directories > root with level 2": {
+    "res": {
+      "status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8"
+      },
+      "body": {
+        "posix": true,
+        "directories": [
+          {
+            "path": "<tmp>/fs/Alpha",
+            "dirname": "Alpha",
+            "level": 2
+          },
+          {
+            "path": "<tmp>/fs/Beta",
+            "dirname": "Beta",
+            "level": 2
+          },
+          {
+            "path": "<tmp>/fs/Gamma",
+            "dirname": "Gamma",
+            "level": 2
+          }
+        ]
+      }
+    }
+  },
+  "FileSystemController (characterization) > GET /api/filesystem > lists the filesystem root when no path is given > root listing facts": {
+    "status": 200,
+    "posix": true,
+    "level": [
+      0
+    ]
+  },
+  "FileSystemController (characterization) > GET /api/filesystem > reports posix=false when isWin is set > windows with path": {
+    "res": {
+      "status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8"
+      },
+      "body": {
+        "posix": false,
+        "directories": [
+          {
+            "path": "<tmp>/fs/Alpha",
+            "dirname": "Alpha",
+            "level": 0
+          },
+          {
+            "path": "<tmp>/fs/Beta",
+            "dirname": "Beta",
+            "level": 0
+          },
+          {
+            "path": "<tmp>/fs/Gamma",
+            "dirname": "Gamma",
+            "level": 0
+          }
+        ]
+      }
+    }
+  },
+  "FileSystemController (characterization) > GET /api/filesystem > requires authentication and admin > anonymous": {
+    "res": {
+      "status": 401,
+      "headers": {
+        "content-type": "text/plain; charset=utf-8"
+      },
+      "body": "Unauthorized"
+    }
+  },
+  "FileSystemController (characterization) > GET /api/filesystem > requires authentication and admin > guest": {
+    "res": {
+      "status": 403,
+      "headers": {
+        "content-type": "text/plain; charset=utf-8"
+      },
+      "body": "Forbidden"
+    }
+  },
+  "FileSystemController (characterization) > GET /api/filesystem > requires authentication and admin > user": {
+    "res": {
+      "status": 403,
+      "headers": {
+        "content-type": "text/plain; charset=utf-8"
+      },
+      "body": "Forbidden"
+    }
+  },
+  "FileSystemController (characterization) > GET /api/filesystem > validates the path > missing": {
+    "res": {
+      "status": 400,
+      "headers": {
+        "content-type": "text/html; charset=utf-8"
+      },
+      "body": "Invalid \"path\" query string"
+    }
+  },
+  "FileSystemController (characterization) > GET /api/filesystem > validates the path > relative": {
+    "res": {
+      "status": 400,
+      "headers": {
+        "content-type": "text/html; charset=utf-8"
+      },
+      "body": "Invalid \"path\" query string"
+    }
+  },
+  "FileSystemController (characterization) > POST /api/filesystem/pathexists > 404s for an unknown library folder": {
+    "res": {
+      "status": 404,
+      "headers": {
+        "content-type": "text/plain; charset=utf-8"
+      },
+      "body": "Not Found"
+    }
+  },
+  "FileSystemController (characterization) > POST /api/filesystem/pathexists > allows a user with upload permission > existing nested": {
+    "res": {
+      "status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8"
+      },
+      "body": {
+        "exists": true
+      }
+    }
+  },
+  "FileSystemController (characterization) > POST /api/filesystem/pathexists > detects a library item in a parent subdirectory > no item there": {
+    "res": {
+      "status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8"
+      },
+      "body": {
+        "exists": false
+      }
+    }
+  },
+  "FileSystemController (characterization) > POST /api/filesystem/pathexists > detects a library item in a parent subdirectory > one level below an item": {
+    "res": {
+      "status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8"
+      },
+      "body": {
+        "exists": true,
+        "libraryItemTitle": null
+      }
+    }
+  },
+  "FileSystemController (characterization) > POST /api/filesystem/pathexists > detects a library item in a parent subdirectory > three levels is too deep": {
+    "res": {
+      "status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8"
+      },
+      "body": {
+        "exists": false
+      }
+    }
+  },
+  "FileSystemController (characterization) > POST /api/filesystem/pathexists > detects a library item in a parent subdirectory > two levels below an item": {
+    "res": {
+      "status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8"
+      },
+      "body": {
+        "exists": true,
+        "libraryItemTitle": null
+      }
+    }
+  },
+  "FileSystemController (characterization) > POST /api/filesystem/pathexists > rejects traversal outside the library folder > deeper": {
+    "res": {
+      "status": 400,
+      "headers": {
+        "content-type": "text/plain; charset=utf-8"
+      },
+      "body": "Bad Request"
+    }
+  },
+  "FileSystemController (characterization) > POST /api/filesystem/pathexists > rejects traversal outside the library folder > parent": {
+    "res": {
+      "status": 400,
+      "headers": {
+        "content-type": "text/plain; charset=utf-8"
+      },
+      "body": "Bad Request"
+    }
+  },
+  "FileSystemController (characterization) > POST /api/filesystem/pathexists > reports existing and missing directories > existing": {
+    "res": {
+      "status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8"
+      },
+      "body": {
+        "exists": true
+      }
+    }
+  },
+  "FileSystemController (characterization) > POST /api/filesystem/pathexists > reports existing and missing directories > existing file": {
+    "res": {
+      "status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8"
+      },
+      "body": {
+        "exists": true
+      }
+    }
+  },
+  "FileSystemController (characterization) > POST /api/filesystem/pathexists > reports existing and missing directories > leading and trailing slash": {
+    "res": {
+      "status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8"
+      },
+      "body": {
+        "exists": true
+      }
+    }
+  },
+  "FileSystemController (characterization) > POST /api/filesystem/pathexists > reports existing and missing directories > missing": {
+    "res": {
+      "status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8"
+      },
+      "body": {
+        "exists": false
+      }
+    }
+  },
+  "FileSystemController (characterization) > POST /api/filesystem/pathexists > reports existing and missing directories > user has no upload permission by default": {
+    "res": {
+      "status": 403,
+      "headers": {
+        "content-type": "text/plain; charset=utf-8"
+      },
+      "body": "Forbidden"
+    }
+  },
+  "FileSystemController (characterization) > POST /api/filesystem/pathexists > requires authentication and upload permission > anonymous": {
+    "res": {
+      "status": 401,
+      "headers": {
+        "content-type": "text/plain; charset=utf-8"
+      },
+      "body": "Unauthorized"
+    }
+  },
+  "FileSystemController (characterization) > POST /api/filesystem/pathexists > requires authentication and upload permission > guest": {
+    "res": {
+      "status": 403,
+      "headers": {
+        "content-type": "text/plain; charset=utf-8"
+      },
+      "body": "Forbidden"
+    }
+  },
+  "FileSystemController (characterization) > POST /api/filesystem/pathexists > respects library access of the user > no access to library": {
+    "res": {
+      "status": 403,
+      "headers": {
+        "content-type": "text/plain; charset=utf-8"
+      },
+      "body": "Forbidden"
+    }
+  },
+  "FileSystemController (characterization) > POST /api/filesystem/pathexists > validates the body > directory not a string": {
+    "res": {
+      "status": 400,
+      "headers": {
+        "content-type": "application/json; charset=utf-8"
+      },
+      "body": {
+        "error": "Invalid request body"
+      }
+    }
+  },
+  "FileSystemController (characterization) > POST /api/filesystem/pathexists > validates the body > empty": {
+    "res": {
+      "status": 400,
+      "headers": {
+        "content-type": "application/json; charset=utf-8"
+      },
+      "body": {
+        "error": "Invalid request body"
+      }
+    }
+  },
+  "FileSystemController (characterization) > POST /api/filesystem/pathexists > validates the body > empty directory": {
+    "res": {
+      "status": 400,
+      "headers": {
+        "content-type": "application/json; charset=utf-8"
+      },
+      "body": {
+        "error": "Invalid request body"
+      }
+    }
+  },
+  "FileSystemController (characterization) > POST /api/filesystem/pathexists > validates the body > no folderPath": {
+    "res": {
+      "status": 400,
+      "headers": {
+        "content-type": "application/json; charset=utf-8"
+      },
+      "body": {
+        "error": "Invalid request body"
+      }
+    }
+  }
+}

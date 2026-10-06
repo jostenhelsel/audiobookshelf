@@ -1,0 +1,444 @@
+{
+  "CustomMetadataProviderController (characterization) > DELETE /api/custom-metadata-providers/:id > 404s on unknown id": {
+    "res": {
+      "status": 404,
+      "headers": {
+        "content-type": "text/plain; charset=utf-8"
+      },
+      "body": "Not Found"
+    },
+    "emitted": []
+  },
+  "CustomMetadataProviderController (characterization) > DELETE /api/custom-metadata-providers/:id > deletes and resets libraries that used the provider > delete again": {
+    "res": {
+      "status": 404,
+      "headers": {
+        "content-type": "text/plain; charset=utf-8"
+      },
+      "body": "Not Found"
+    },
+    "emitted": []
+  },
+  "CustomMetadataProviderController (characterization) > DELETE /api/custom-metadata-providers/:id > deletes and resets libraries that used the provider > delete book provider": {
+    "res": {
+      "status": 200,
+      "headers": {
+        "content-type": "text/plain; charset=utf-8"
+      },
+      "body": "OK"
+    },
+    "emitted": [
+      {
+        "method": "emitter",
+        "args": [
+          "custom_metadata_provider_removed",
+          {
+            "id": "<uuid-1>",
+            "name": "Book provider",
+            "mediaType": "book",
+            "slug": "custom-<uuid-1>"
+          }
+        ]
+      }
+    ]
+  },
+  "CustomMetadataProviderController (characterization) > DELETE /api/custom-metadata-providers/:id > deletes and resets libraries that used the provider > delete podcast provider": {
+    "res": {
+      "status": 200,
+      "headers": {
+        "content-type": "text/plain; charset=utf-8"
+      },
+      "body": "OK"
+    },
+    "emitted": [
+      {
+        "method": "emitter",
+        "args": [
+          "custom_metadata_provider_removed",
+          {
+            "id": "<uuid-2>",
+            "name": "Pod provider",
+            "mediaType": "podcast",
+            "slug": "custom-<uuid-2>"
+          }
+        ]
+      }
+    ]
+  },
+  "CustomMetadataProviderController (characterization) > DELETE /api/custom-metadata-providers/:id > deletes and resets libraries that used the provider > library providers": [
+    {
+      "name": "Books",
+      "provider": "google"
+    },
+    {
+      "name": "Keep",
+      "provider": "custom-<uuid-2>x"
+    },
+    {
+      "name": "Podcasts",
+      "provider": "itunes"
+    }
+  ],
+  "CustomMetadataProviderController (characterization) > DELETE /api/custom-metadata-providers/:id > deletes and resets libraries that used the provider > list after": {
+    "res": {
+      "status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8"
+      },
+      "body": {
+        "providers": []
+      }
+    },
+    "emitted": []
+  },
+  "CustomMetadataProviderController (characterization) > DELETE /api/custom-metadata-providers/:id > requires authentication and admin > anonymous": {
+    "res": {
+      "status": 401,
+      "headers": {
+        "content-type": "text/plain; charset=utf-8"
+      },
+      "body": "Unauthorized"
+    },
+    "emitted": []
+  },
+  "CustomMetadataProviderController (characterization) > DELETE /api/custom-metadata-providers/:id > requires authentication and admin > user": {
+    "res": {
+      "status": 403,
+      "headers": {
+        "content-type": "text/plain; charset=utf-8"
+      },
+      "body": "Forbidden"
+    },
+    "emitted": []
+  },
+  "CustomMetadataProviderController (characterization) > GET /api/custom-metadata-providers > lists providers (raw rows incl. authHeaderValue) > empty": {
+    "res": {
+      "status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8"
+      },
+      "body": {
+        "providers": []
+      }
+    },
+    "emitted": []
+  },
+  "CustomMetadataProviderController (characterization) > GET /api/custom-metadata-providers > lists providers (raw rows incl. authHeaderValue) > root": {
+    "res": {
+      "status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8"
+      },
+      "body": {
+        "providers": [
+          {
+            "id": "<uuid-1>",
+            "name": "Books One",
+            "mediaType": "book",
+            "url": "https://example.invalid/search",
+            "authHeaderValue": "Bearer secret",
+            "extraData": null,
+            "createdAt": "<iso-date>",
+            "updatedAt": "<iso-date>"
+          },
+          {
+            "id": "<uuid-2>",
+            "name": "Pods",
+            "mediaType": "podcast",
+            "url": "https://example.invalid/search",
+            "authHeaderValue": null,
+            "extraData": null,
+            "createdAt": "<iso-date>",
+            "updatedAt": "<iso-date>"
+          }
+        ]
+      }
+    },
+    "emitted": []
+  },
+  "CustomMetadataProviderController (characterization) > GET /api/custom-metadata-providers > lists providers (raw rows incl. authHeaderValue) > two providers (admin)": {
+    "res": {
+      "status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8"
+      },
+      "body": {
+        "providers": [
+          {
+            "id": "<uuid-1>",
+            "name": "Books One",
+            "mediaType": "book",
+            "url": "https://example.invalid/search",
+            "authHeaderValue": "Bearer secret",
+            "extraData": null,
+            "createdAt": "<iso-date>",
+            "updatedAt": "<iso-date>"
+          },
+          {
+            "id": "<uuid-2>",
+            "name": "Pods",
+            "mediaType": "podcast",
+            "url": "https://example.invalid/search",
+            "authHeaderValue": null,
+            "extraData": null,
+            "createdAt": "<iso-date>",
+            "updatedAt": "<iso-date>"
+          }
+        ]
+      }
+    },
+    "emitted": []
+  },
+  "CustomMetadataProviderController (characterization) > GET /api/custom-metadata-providers > requires authentication and admin > anonymous": {
+    "res": {
+      "status": 401,
+      "headers": {
+        "content-type": "text/plain; charset=utf-8"
+      },
+      "body": "Unauthorized"
+    },
+    "emitted": []
+  },
+  "CustomMetadataProviderController (characterization) > GET /api/custom-metadata-providers > requires authentication and admin > guest": {
+    "res": {
+      "status": 403,
+      "headers": {
+        "content-type": "text/plain; charset=utf-8"
+      },
+      "body": "Forbidden"
+    },
+    "emitted": []
+  },
+  "CustomMetadataProviderController (characterization) > GET /api/custom-metadata-providers > requires authentication and admin > user": {
+    "res": {
+      "status": 403,
+      "headers": {
+        "content-type": "text/plain; charset=utf-8"
+      },
+      "body": "Forbidden"
+    },
+    "emitted": []
+  },
+  "CustomMetadataProviderController (characterization) > POST /api/custom-metadata-providers > creates providers and emits an event > book with auth header": {
+    "res": {
+      "status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8"
+      },
+      "body": {
+        "provider": {
+          "id": "<uuid-1>",
+          "name": "My Books",
+          "mediaType": "book",
+          "url": "https://example.invalid/books",
+          "authHeaderValue": "Bearer abc",
+          "updatedAt": "<iso-date>",
+          "createdAt": "<iso-date>"
+        }
+      }
+    },
+    "emitted": [
+      {
+        "method": "emitter",
+        "args": [
+          "custom_metadata_provider_added",
+          {
+            "id": "<uuid-1>",
+            "name": "My Books",
+            "mediaType": "book",
+            "slug": "custom-<uuid-1>"
+          }
+        ]
+      }
+    ]
+  },
+  "CustomMetadataProviderController (characterization) > POST /api/custom-metadata-providers > creates providers and emits an event > empty auth header becomes null, ftp url accepted": {
+    "res": {
+      "status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8"
+      },
+      "body": {
+        "provider": {
+          "id": "<uuid-3>",
+          "name": "Empty header",
+          "mediaType": "book",
+          "url": "ftp://host/x",
+          "authHeaderValue": null,
+          "updatedAt": "<iso-date>",
+          "createdAt": "<iso-date>"
+        }
+      }
+    },
+    "emitted": [
+      {
+        "method": "emitter",
+        "args": [
+          "custom_metadata_provider_added",
+          {
+            "id": "<uuid-3>",
+            "name": "Empty header",
+            "mediaType": "book",
+            "slug": "custom-<uuid-3>"
+          }
+        ]
+      }
+    ]
+  },
+  "CustomMetadataProviderController (characterization) > POST /api/custom-metadata-providers > creates providers and emits an event > podcast without auth header": {
+    "res": {
+      "status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8"
+      },
+      "body": {
+        "provider": {
+          "id": "<uuid-2>",
+          "name": "My Pods",
+          "mediaType": "podcast",
+          "url": "http://localhost:3000/pods",
+          "authHeaderValue": null,
+          "updatedAt": "<iso-date>",
+          "createdAt": "<iso-date>"
+        }
+      }
+    },
+    "emitted": [
+      {
+        "method": "emitter",
+        "args": [
+          "custom_metadata_provider_added",
+          {
+            "id": "<uuid-2>",
+            "name": "My Pods",
+            "mediaType": "podcast",
+            "slug": "custom-<uuid-2>"
+          }
+        ]
+      }
+    ]
+  },
+  "CustomMetadataProviderController (characterization) > POST /api/custom-metadata-providers > creates providers and emits an event > rows": [
+    {
+      "name": "Empty header",
+      "mediaType": "book",
+      "url": "ftp://host/x",
+      "authHeaderValue": null
+    },
+    {
+      "name": "My Books",
+      "mediaType": "book",
+      "url": "https://example.invalid/books",
+      "authHeaderValue": "Bearer abc"
+    },
+    {
+      "name": "My Pods",
+      "mediaType": "podcast",
+      "url": "http://localhost:3000/pods",
+      "authHeaderValue": null
+    }
+  ],
+  "CustomMetadataProviderController (characterization) > POST /api/custom-metadata-providers > requires authentication and admin > anonymous": {
+    "res": {
+      "status": 401,
+      "headers": {
+        "content-type": "text/plain; charset=utf-8"
+      },
+      "body": "Unauthorized"
+    },
+    "emitted": []
+  },
+  "CustomMetadataProviderController (characterization) > POST /api/custom-metadata-providers > requires authentication and admin > guest": {
+    "res": {
+      "status": 403,
+      "headers": {
+        "content-type": "text/plain; charset=utf-8"
+      },
+      "body": "Forbidden"
+    },
+    "emitted": []
+  },
+  "CustomMetadataProviderController (characterization) > POST /api/custom-metadata-providers > requires authentication and admin > user": {
+    "res": {
+      "status": 403,
+      "headers": {
+        "content-type": "text/plain; charset=utf-8"
+      },
+      "body": "Forbidden"
+    },
+    "emitted": []
+  },
+  "CustomMetadataProviderController (characterization) > POST /api/custom-metadata-providers > validates the body > empty": {
+    "res": {
+      "status": 400,
+      "headers": {
+        "content-type": "text/html; charset=utf-8"
+      },
+      "body": "Invalid request body"
+    },
+    "emitted": []
+  },
+  "CustomMetadataProviderController (characterization) > POST /api/custom-metadata-providers > validates the body > invalid url": {
+    "res": {
+      "status": 400,
+      "headers": {
+        "content-type": "text/html; charset=utf-8"
+      },
+      "body": "Invalid url"
+    },
+    "emitted": []
+  },
+  "CustomMetadataProviderController (characterization) > POST /api/custom-metadata-providers > validates the body > no media type": {
+    "res": {
+      "status": 400,
+      "headers": {
+        "content-type": "text/html; charset=utf-8"
+      },
+      "body": "Invalid request body"
+    },
+    "emitted": []
+  },
+  "CustomMetadataProviderController (characterization) > POST /api/custom-metadata-providers > validates the body > unknown media type": {
+    "res": {
+      "status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8"
+      },
+      "body": {
+        "provider": {
+          "id": "<uuid-1>",
+          "name": "x",
+          "mediaType": "movie",
+          "url": "https://a.b",
+          "authHeaderValue": null,
+          "updatedAt": "<iso-date>",
+          "createdAt": "<iso-date>"
+        }
+      }
+    },
+    "emitted": [
+      {
+        "method": "emitter",
+        "args": [
+          "custom_metadata_provider_added",
+          {
+            "id": "<uuid-1>",
+            "name": "x",
+            "mediaType": "movie",
+            "slug": "custom-<uuid-1>"
+          }
+        ]
+      }
+    ]
+  },
+  "CustomMetadataProviderController (characterization) > POST /api/custom-metadata-providers > validates the body > url not a string": {
+    "res": {
+      "status": 400,
+      "headers": {
+        "content-type": "text/html; charset=utf-8"
+      },
+      "body": "Invalid url"
+    },
+    "emitted": []
+  }
+}
