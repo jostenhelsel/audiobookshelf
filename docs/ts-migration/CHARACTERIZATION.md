@@ -24,6 +24,10 @@ All 23 controllers, every route in `ApiRouter`, `PublicRouter` and the controlle
 
 `SocketAuthority.test.js` (19 tests) runs a fresh `SocketAuthority` on a real http server with a real socket.io server and a minimal `ws` client (`socket.io-client` is not a dependency): `auth` with jwt and api-key tokens (and every rejection), `init`/`user_online`/`user_offline`, the emitters (`emitter`, `clientEmitter`, `adminEmitter`, `libraryItemEmitter(s)`), `cancel_scan`, `message_all_users`, `set_log_listener`, the `RouterBasePath` second path, cover search events (with `CoverSearchManager` stubbed) and `close`.
 
+`Database.test.js` (47 tests) runs `Database.init()` on a real temp-dir SQLite file (new, existing, version and build upgrade, `init(true)`, triggers, cleanup during init, corrupt file, bad pragmas) and, on the harness database, settings round trips, `libraryFilterData` helpers, playback sessions, `cleanDatabase`, `compareVersions`, `TextSearchQuery`. Migrations are covered by `test/server/migrations` and `scripts/upgrade-smoke`.
+
+`HlsRouter.test.js` (22 tests) mounts the real `HlsRouter` as `Server.js` does, with the real `PlaybackSessionManager` and `Stream`: stream lookup, filename validation and traversal variants, headers (ranges, conditional), odd files, and a real ffmpeg transcode of a generated mp3 (skips if ffmpeg or libmp3lame is missing).
+
 Skipped (6): real zip download (`GET /libraries/:id/download`), author image resize (needs ffmpeg), item cover upload and cover cache-miss resize (LibraryItem), `POST /notifications` without `urls` (hangs), `GET /logger-data` with no log manager (hangs).
 
 ## Not covered yet
@@ -87,6 +91,23 @@ Reported by the test-writing agents while reading the code and recording respons
 - A socket can be re-authenticated as a different user; it is only logged as a warning.
 - `cancelSocketCoverSearches` does nothing (searches of a disconnected socket just time out).
 - `close()` also closes the underlying http server.
+
+**Database (from `Database.test.js`)**
+- A new DB stores no settings rows: `ServerSettings` defaults already carry the package version and buildNumber, so defaults live in memory until something saves them. Email and notification settings are never persisted by `init`.
+- `createRootUser` sets `Database.hasRootUser`; seeding users directly leaves it false while `userModel.getHasRootUser()` says true.
+- A corrupt db file passes `authenticate()` and fails only in the migration manager (`SQLITE_NOTADB`, logged as "Database migration failed"); the sequelize stays set on the singleton and `isNew` is false.
+- `init()` with a nonexistent config dir succeeds (sqlite creates it); "Database connection failed" is reached only when `connect()` returns false (e.g. unloadable `NUSQLITE3_PATH`).
+- `compareVersions('v2.3.0','2.3.0')` is 1, `('2.3.0','2.3.0-beta')` is -1, empty/null is 0; `convertToSnakeCase('ABC')` is `_a_b_c`.
+- `authorNamesLastFirst` is filled only by the authors-update trigger, not the bookAuthors insert trigger. `cleanDatabase` keeps the newest duplicate `mediaProgress` row (smallest id on a tie).
+- `Database` has no `getLibraryItem(s)` or `getPodcastEpisode`; only playback-session wrappers exist.
+- `ServerSettings` defaults read `Logger.logLevel`, and `new ServerSettings()` throws without `global.MetadataPath`.
+
+**HlsRouter (from `HlsRouter.test.js`)**
+- `/hls` has no authentication at all: the `auth` argument is stored and never used, and `Server.js` mounts it before any auth. Anyone with a session id can fetch that user's playlist and segments.
+- Traversal is blocked lexically only: a symlink inside the stream dir that points outside it is served with 200.
+- A GET for a segment far from the current position triggers a reset and broadcasts `stream_reset` without authentication; the event is emitted before the reset has run, so a failing `writeConcatFile` emits `stream_error` after the 404 was sent.
+- `parseSegmentFilename` is loose (`output.ts` gives NaN, `output--3.ts` gives 0, `a-5-6.ts` gives 5, `output-1e2.ts` gives 100).
+- Dotfiles and a 416 Range error return express error pages whose body contains a stack trace with absolute server paths; a directory named `x.ts` gives the "Cannot GET" HTML page. `validateStreamFilePath` returns `''` rather than `false` for the stream dir itself. No request hung.
 
 **Harness/seed quirks to remember when writing more tests**
 - `User.js` keeps a module-private LRU of users that outlives the database; the harness now evicts them in `stop()`, otherwise a later test's username lookup returns a previous test's user.
