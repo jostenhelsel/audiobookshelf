@@ -13,10 +13,8 @@ const hashPassword = (password) => LocalAuthStrategy.prototype.hashPassword.call
  * Insert cookie-parser at the front of the express stack of the harness app.
  * @param {{ app: import('express').Express }} api
  */
-function enableCookies(api) {
-  api.app.use(cookieParser())
-  const stack = api.app._router.stack
-  stack.unshift(stack.pop())
+function enableCookies() {
+  // the harness mounts cookie-parser itself now; kept so existing tests still call it
 }
 
 /**
@@ -28,17 +26,9 @@ function enableCookies(api) {
  * complete and swap it into the harness' Auth instead.
  * @param {{ apiRouter: any }} api
  */
-function setupTokens(api, secret = 'characterization-test-secret') {
-  const id = require.resolve('../../../server/auth/TokenManager')
-  const cached = require.cache[id]
-  delete require.cache[id]
-  const FreshTokenManager = require(id)
-  require.cache[id] = cached
-  api.apiRouter.auth.tokenManager = new FreshTokenManager()
-  FreshTokenManager.TokenSecret = secret
-  return () => {
-    FreshTokenManager.TokenSecret = null
-  }
+function setupTokens() {
+  // the harness installs a fresh TokenManager with a secret itself now; kept so existing tests still call it
+  return () => {}
 }
 
 /**
