@@ -1,0 +1,4105 @@
+{
+  "SessionController (characterization) > DELETE /api/sessions/:id > deletes as root only, closing open sessions first > admin": {
+    "res": {
+      "status": 403,
+      "headers": {
+        "content-type": "text/plain; charset=utf-8"
+      },
+      "body": "Forbidden"
+    },
+    "emitted": [],
+    "calls": []
+  },
+  "SessionController (characterization) > DELETE /api/sessions/:id > deletes as root only, closing open sessions first > delete again": {
+    "res": {
+      "status": 404,
+      "headers": {
+        "content-type": "text/plain; charset=utf-8"
+      },
+      "body": "Not Found"
+    },
+    "emitted": []
+  },
+  "SessionController (characterization) > DELETE /api/sessions/:id > deletes as root only, closing open sessions first > owner user": {
+    "res": {
+      "status": 403,
+      "headers": {
+        "content-type": "text/plain; charset=utf-8"
+      },
+      "body": "Forbidden"
+    },
+    "emitted": [],
+    "calls": []
+  },
+  "SessionController (characterization) > DELETE /api/sessions/:id > deletes as root only, closing open sessions first > root deletes an open session": {
+    "res": {
+      "status": 200,
+      "headers": {
+        "content-type": "text/plain; charset=utf-8"
+      },
+      "body": "OK"
+    },
+    "emitted": [],
+    "calls": [
+      {
+        "method": "getSession",
+        "args": [
+          "<B>"
+        ]
+      },
+      {
+        "method": "removeSession",
+        "args": [
+          "<B>"
+        ]
+      }
+    ],
+    "openLeft": 0
+  },
+  "SessionController (characterization) > DELETE /api/sessions/:id > deletes as root only, closing open sessions first > root deletes closed session": {
+    "res": {
+      "status": 200,
+      "headers": {
+        "content-type": "text/plain; charset=utf-8"
+      },
+      "body": "OK"
+    },
+    "emitted": [],
+    "calls": [
+      {
+        "method": "getSession",
+        "args": [
+          "<A>"
+        ]
+      }
+    ]
+  },
+  "SessionController (characterization) > DELETE /api/sessions/:id > deletes as root only, closing open sessions first > rows left": {
+    "res": {
+      "rows": 0
+    },
+    "emitted": []
+  },
+  "SessionController (characterization) > DELETE /api/sessions/:id > deletes as root only, closing open sessions first > unauthenticated": {
+    "res": {
+      "status": 401,
+      "headers": {
+        "content-type": "text/plain; charset=utf-8"
+      },
+      "body": "Unauthorized"
+    },
+    "emitted": []
+  },
+  "SessionController (characterization) > DELETE /api/sessions/:id > deletes as root only, closing open sessions first > unknown id": {
+    "res": {
+      "status": 404,
+      "headers": {
+        "content-type": "text/plain; charset=utf-8"
+      },
+      "body": "Not Found"
+    },
+    "emitted": []
+  },
+  "SessionController (characterization) > GET /api/sessions > falls back for invalid query values > invalid sort": {
+    "res": {
+      "status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8"
+      },
+      "body": {
+        "total": 5,
+        "numPages": 1,
+        "page": 0,
+        "itemsPerPage": 10,
+        "sessions": [
+          {
+            "id": "<uuid-1>",
+            "userId": "<uuid-2>",
+            "libraryId": "<uuid-3>",
+            "libraryItemId": "<uuid-4>",
+            "bookId": "<uuid-5>",
+            "episodeId": null,
+            "mediaType": "book",
+            "mediaMetadata": {
+              "title": "Zeta",
+              "authors": [],
+              "narrators": [],
+              "genres": []
+            },
+            "chapters": [],
+            "displayTitle": "Zeta",
+            "displayAuthor": "",
+            "coverPath": null,
+            "duration": 3600,
+            "playMethod": 0,
+            "mediaPlayer": "test-player",
+            "deviceInfo": {
+              "id": "<uuid-6>",
+              "userId": "<uuid-2>",
+              "deviceId": "dev-1",
+              "ipAddress": "10.0.0.1",
+              "osName": "Linux",
+              "clientVersion": "1.0",
+              "manufacturer": "",
+              "model": "",
+              "sdkVersion": "",
+              "clientName": "Test Client",
+              "deviceName": ""
+            },
+            "serverVersion": "2.0.0-test",
+            "date": "2024-01-01",
+            "dayOfWeek": "Friday",
+            "timeListening": 30,
+            "startTime": 0,
+            "currentTime": 100,
+            "startedAt": "<timestamp>",
+            "updatedAt": "<timestamp>",
+            "lastSave": 0,
+            "audioTracks": [],
+            "stream": null,
+            "shareSessionId": null,
+            "mediaItemShareId": null,
+            "coverAspectRatio": null,
+            "user": {
+              "id": "<uuid-2>",
+              "username": "admin"
+            }
+          },
+          {
+            "id": "<uuid-7>",
+            "userId": "<uuid-8>",
+            "libraryId": "<uuid-3>",
+            "libraryItemId": "<uuid-4>",
+            "bookId": "<uuid-5>",
+            "episodeId": null,
+            "mediaType": "book",
+            "mediaMetadata": {
+              "title": "Alpha",
+              "authors": [],
+              "narrators": [],
+              "genres": []
+            },
+            "chapters": [],
+            "displayTitle": "Alpha",
+            "displayAuthor": "",
+            "coverPath": null,
+            "duration": 3600,
+            "playMethod": 0,
+            "mediaPlayer": "test-player",
+            "deviceInfo": {},
+            "serverVersion": "2.0.0-test",
+            "date": "2024-01-02",
+            "dayOfWeek": "Friday",
+            "timeListening": 20,
+            "startTime": 0,
+            "currentTime": 300,
+            "startedAt": "<timestamp>",
+            "updatedAt": "<timestamp>",
+            "lastSave": 0,
+            "audioTracks": [],
+            "stream": null,
+            "shareSessionId": null,
+            "mediaItemShareId": null,
+            "coverAspectRatio": null,
+            "user": {
+              "id": "<uuid-8>",
+              "username": "user"
+            }
+          },
+          {
+            "id": "<uuid-9>",
+            "userId": "<uuid-2>",
+            "libraryId": "<uuid-3>",
+            "libraryItemId": "<uuid-4>",
+            "bookId": "<uuid-5>",
+            "episodeId": null,
+            "mediaType": "book",
+            "mediaMetadata": {
+              "title": "Mid",
+              "authors": [],
+              "narrators": [],
+              "genres": []
+            },
+            "chapters": [],
+            "displayTitle": "Mid",
+            "displayAuthor": "",
+            "coverPath": null,
+            "duration": 3600,
+            "playMethod": 0,
+            "mediaPlayer": "test-player",
+            "deviceInfo": {},
+            "serverVersion": "2.0.0-test",
+            "date": "2024-01-03",
+            "dayOfWeek": "Friday",
+            "timeListening": 10,
+            "startTime": 0,
+            "currentTime": 200,
+            "startedAt": "<timestamp>",
+            "updatedAt": "<timestamp>",
+            "lastSave": 0,
+            "audioTracks": [],
+            "stream": null,
+            "shareSessionId": null,
+            "mediaItemShareId": null,
+            "coverAspectRatio": null,
+            "user": {
+              "id": "<uuid-2>",
+              "username": "admin"
+            }
+          },
+          {
+            "id": "<uuid-10>",
+            "userId": "<uuid-11>",
+            "libraryId": "<uuid-3>",
+            "libraryItemId": "<uuid-4>",
+            "bookId": "<uuid-5>",
+            "episodeId": null,
+            "mediaType": "book",
+            "mediaMetadata": {
+              "title": "Beta",
+              "authors": [],
+              "narrators": [],
+              "genres": []
+            },
+            "chapters": [],
+            "displayTitle": "Beta",
+            "displayAuthor": "",
+            "coverPath": null,
+            "duration": 3600,
+            "playMethod": 0,
+            "mediaPlayer": "test-player",
+            "deviceInfo": {},
+            "serverVersion": "2.0.0-test",
+            "date": "2024-01-04",
+            "dayOfWeek": "Friday",
+            "timeListening": 40,
+            "startTime": 0,
+            "currentTime": 400,
+            "startedAt": "<timestamp>",
+            "updatedAt": "<timestamp>",
+            "lastSave": 0,
+            "audioTracks": [],
+            "stream": null,
+            "shareSessionId": null,
+            "mediaItemShareId": null,
+            "coverAspectRatio": null,
+            "user": {
+              "id": "<uuid-11>",
+              "username": "guest"
+            }
+          },
+          {
+            "id": "<uuid-12>",
+            "userId": "<uuid-13>",
+            "libraryId": "<uuid-3>",
+            "libraryItemId": "<uuid-4>",
+            "bookId": "<uuid-5>",
+            "episodeId": null,
+            "mediaType": "book",
+            "mediaMetadata": {
+              "title": "Omega",
+              "authors": [],
+              "narrators": [],
+              "genres": []
+            },
+            "chapters": [],
+            "displayTitle": "Omega",
+            "displayAuthor": "",
+            "coverPath": null,
+            "duration": 3600,
+            "playMethod": 0,
+            "mediaPlayer": "test-player",
+            "deviceInfo": {},
+            "serverVersion": "2.0.0-test",
+            "date": "2024-01-05",
+            "dayOfWeek": "Friday",
+            "timeListening": 50,
+            "startTime": 0,
+            "currentTime": 500,
+            "startedAt": "<timestamp>",
+            "updatedAt": "<timestamp>",
+            "lastSave": 0,
+            "audioTracks": [],
+            "stream": null,
+            "shareSessionId": null,
+            "mediaItemShareId": null,
+            "coverAspectRatio": null,
+            "user": {
+              "id": "<uuid-13>",
+              "username": "root"
+            }
+          }
+        ]
+      }
+    },
+    "emitted": []
+  },
+  "SessionController (characterization) > GET /api/sessions > falls back for invalid query values > itemsPerPage 0": {
+    "res": {
+      "status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8"
+      },
+      "body": {
+        "total": 5,
+        "numPages": 1,
+        "page": 0,
+        "itemsPerPage": 10,
+        "sessions": [
+          {
+            "id": "<uuid-1>",
+            "userId": "<uuid-2>",
+            "libraryId": "<uuid-3>",
+            "libraryItemId": "<uuid-4>",
+            "bookId": "<uuid-5>",
+            "episodeId": null,
+            "mediaType": "book",
+            "mediaMetadata": {
+              "title": "Zeta",
+              "authors": [],
+              "narrators": [],
+              "genres": []
+            },
+            "chapters": [],
+            "displayTitle": "Zeta",
+            "displayAuthor": "",
+            "coverPath": null,
+            "duration": 3600,
+            "playMethod": 0,
+            "mediaPlayer": "test-player",
+            "deviceInfo": {
+              "id": "<uuid-6>",
+              "userId": "<uuid-2>",
+              "deviceId": "dev-1",
+              "ipAddress": "10.0.0.1",
+              "osName": "Linux",
+              "clientVersion": "1.0",
+              "manufacturer": "",
+              "model": "",
+              "sdkVersion": "",
+              "clientName": "Test Client",
+              "deviceName": ""
+            },
+            "serverVersion": "2.0.0-test",
+            "date": "2024-01-01",
+            "dayOfWeek": "Friday",
+            "timeListening": 30,
+            "startTime": 0,
+            "currentTime": 100,
+            "startedAt": "<timestamp>",
+            "updatedAt": "<timestamp>",
+            "lastSave": 0,
+            "audioTracks": [],
+            "stream": null,
+            "shareSessionId": null,
+            "mediaItemShareId": null,
+            "coverAspectRatio": null,
+            "user": {
+              "id": "<uuid-2>",
+              "username": "admin"
+            }
+          },
+          {
+            "id": "<uuid-7>",
+            "userId": "<uuid-8>",
+            "libraryId": "<uuid-3>",
+            "libraryItemId": "<uuid-4>",
+            "bookId": "<uuid-5>",
+            "episodeId": null,
+            "mediaType": "book",
+            "mediaMetadata": {
+              "title": "Alpha",
+              "authors": [],
+              "narrators": [],
+              "genres": []
+            },
+            "chapters": [],
+            "displayTitle": "Alpha",
+            "displayAuthor": "",
+            "coverPath": null,
+            "duration": 3600,
+            "playMethod": 0,
+            "mediaPlayer": "test-player",
+            "deviceInfo": {},
+            "serverVersion": "2.0.0-test",
+            "date": "2024-01-02",
+            "dayOfWeek": "Friday",
+            "timeListening": 20,
+            "startTime": 0,
+            "currentTime": 300,
+            "startedAt": "<timestamp>",
+            "updatedAt": "<timestamp>",
+            "lastSave": 0,
+            "audioTracks": [],
+            "stream": null,
+            "shareSessionId": null,
+            "mediaItemShareId": null,
+            "coverAspectRatio": null,
+            "user": {
+              "id": "<uuid-8>",
+              "username": "user"
+            }
+          },
+          {
+            "id": "<uuid-9>",
+            "userId": "<uuid-2>",
+            "libraryId": "<uuid-3>",
+            "libraryItemId": "<uuid-4>",
+            "bookId": "<uuid-5>",
+            "episodeId": null,
+            "mediaType": "book",
+            "mediaMetadata": {
+              "title": "Mid",
+              "authors": [],
+              "narrators": [],
+              "genres": []
+            },
+            "chapters": [],
+            "displayTitle": "Mid",
+            "displayAuthor": "",
+            "coverPath": null,
+            "duration": 3600,
+            "playMethod": 0,
+            "mediaPlayer": "test-player",
+            "deviceInfo": {},
+            "serverVersion": "2.0.0-test",
+            "date": "2024-01-03",
+            "dayOfWeek": "Friday",
+            "timeListening": 10,
+            "startTime": 0,
+            "currentTime": 200,
+            "startedAt": "<timestamp>",
+            "updatedAt": "<timestamp>",
+            "lastSave": 0,
+            "audioTracks": [],
+            "stream": null,
+            "shareSessionId": null,
+            "mediaItemShareId": null,
+            "coverAspectRatio": null,
+            "user": {
+              "id": "<uuid-2>",
+              "username": "admin"
+            }
+          },
+          {
+            "id": "<uuid-10>",
+            "userId": "<uuid-11>",
+            "libraryId": "<uuid-3>",
+            "libraryItemId": "<uuid-4>",
+            "bookId": "<uuid-5>",
+            "episodeId": null,
+            "mediaType": "book",
+            "mediaMetadata": {
+              "title": "Beta",
+              "authors": [],
+              "narrators": [],
+              "genres": []
+            },
+            "chapters": [],
+            "displayTitle": "Beta",
+            "displayAuthor": "",
+            "coverPath": null,
+            "duration": 3600,
+            "playMethod": 0,
+            "mediaPlayer": "test-player",
+            "deviceInfo": {},
+            "serverVersion": "2.0.0-test",
+            "date": "2024-01-04",
+            "dayOfWeek": "Friday",
+            "timeListening": 40,
+            "startTime": 0,
+            "currentTime": 400,
+            "startedAt": "<timestamp>",
+            "updatedAt": "<timestamp>",
+            "lastSave": 0,
+            "audioTracks": [],
+            "stream": null,
+            "shareSessionId": null,
+            "mediaItemShareId": null,
+            "coverAspectRatio": null,
+            "user": {
+              "id": "<uuid-11>",
+              "username": "guest"
+            }
+          },
+          {
+            "id": "<uuid-12>",
+            "userId": "<uuid-13>",
+            "libraryId": "<uuid-3>",
+            "libraryItemId": "<uuid-4>",
+            "bookId": "<uuid-5>",
+            "episodeId": null,
+            "mediaType": "book",
+            "mediaMetadata": {
+              "title": "Omega",
+              "authors": [],
+              "narrators": [],
+              "genres": []
+            },
+            "chapters": [],
+            "displayTitle": "Omega",
+            "displayAuthor": "",
+            "coverPath": null,
+            "duration": 3600,
+            "playMethod": 0,
+            "mediaPlayer": "test-player",
+            "deviceInfo": {},
+            "serverVersion": "2.0.0-test",
+            "date": "2024-01-05",
+            "dayOfWeek": "Friday",
+            "timeListening": 50,
+            "startTime": 0,
+            "currentTime": 500,
+            "startedAt": "<timestamp>",
+            "updatedAt": "<timestamp>",
+            "lastSave": 0,
+            "audioTracks": [],
+            "stream": null,
+            "shareSessionId": null,
+            "mediaItemShareId": null,
+            "coverAspectRatio": null,
+            "user": {
+              "id": "<uuid-13>",
+              "username": "root"
+            }
+          }
+        ]
+      }
+    },
+    "emitted": []
+  },
+  "SessionController (characterization) > GET /api/sessions > falls back for invalid query values > negative itemsPerPage": {
+    "res": {
+      "status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8"
+      },
+      "body": {
+        "total": 5,
+        "numPages": 1,
+        "page": 0,
+        "itemsPerPage": 10,
+        "sessions": [
+          {
+            "id": "<uuid-1>",
+            "userId": "<uuid-2>",
+            "libraryId": "<uuid-3>",
+            "libraryItemId": "<uuid-4>",
+            "bookId": "<uuid-5>",
+            "episodeId": null,
+            "mediaType": "book",
+            "mediaMetadata": {
+              "title": "Zeta",
+              "authors": [],
+              "narrators": [],
+              "genres": []
+            },
+            "chapters": [],
+            "displayTitle": "Zeta",
+            "displayAuthor": "",
+            "coverPath": null,
+            "duration": 3600,
+            "playMethod": 0,
+            "mediaPlayer": "test-player",
+            "deviceInfo": {
+              "id": "<uuid-6>",
+              "userId": "<uuid-2>",
+              "deviceId": "dev-1",
+              "ipAddress": "10.0.0.1",
+              "osName": "Linux",
+              "clientVersion": "1.0",
+              "manufacturer": "",
+              "model": "",
+              "sdkVersion": "",
+              "clientName": "Test Client",
+              "deviceName": ""
+            },
+            "serverVersion": "2.0.0-test",
+            "date": "2024-01-01",
+            "dayOfWeek": "Friday",
+            "timeListening": 30,
+            "startTime": 0,
+            "currentTime": 100,
+            "startedAt": "<timestamp>",
+            "updatedAt": "<timestamp>",
+            "lastSave": 0,
+            "audioTracks": [],
+            "stream": null,
+            "shareSessionId": null,
+            "mediaItemShareId": null,
+            "coverAspectRatio": null,
+            "user": {
+              "id": "<uuid-2>",
+              "username": "admin"
+            }
+          },
+          {
+            "id": "<uuid-7>",
+            "userId": "<uuid-8>",
+            "libraryId": "<uuid-3>",
+            "libraryItemId": "<uuid-4>",
+            "bookId": "<uuid-5>",
+            "episodeId": null,
+            "mediaType": "book",
+            "mediaMetadata": {
+              "title": "Alpha",
+              "authors": [],
+              "narrators": [],
+              "genres": []
+            },
+            "chapters": [],
+            "displayTitle": "Alpha",
+            "displayAuthor": "",
+            "coverPath": null,
+            "duration": 3600,
+            "playMethod": 0,
+            "mediaPlayer": "test-player",
+            "deviceInfo": {},
+            "serverVersion": "2.0.0-test",
+            "date": "2024-01-02",
+            "dayOfWeek": "Friday",
+            "timeListening": 20,
+            "startTime": 0,
+            "currentTime": 300,
+            "startedAt": "<timestamp>",
+            "updatedAt": "<timestamp>",
+            "lastSave": 0,
+            "audioTracks": [],
+            "stream": null,
+            "shareSessionId": null,
+            "mediaItemShareId": null,
+            "coverAspectRatio": null,
+            "user": {
+              "id": "<uuid-8>",
+              "username": "user"
+            }
+          },
+          {
+            "id": "<uuid-9>",
+            "userId": "<uuid-2>",
+            "libraryId": "<uuid-3>",
+            "libraryItemId": "<uuid-4>",
+            "bookId": "<uuid-5>",
+            "episodeId": null,
+            "mediaType": "book",
+            "mediaMetadata": {
+              "title": "Mid",
+              "authors": [],
+              "narrators": [],
+              "genres": []
+            },
+            "chapters": [],
+            "displayTitle": "Mid",
+            "displayAuthor": "",
+            "coverPath": null,
+            "duration": 3600,
+            "playMethod": 0,
+            "mediaPlayer": "test-player",
+            "deviceInfo": {},
+            "serverVersion": "2.0.0-test",
+            "date": "2024-01-03",
+            "dayOfWeek": "Friday",
+            "timeListening": 10,
+            "startTime": 0,
+            "currentTime": 200,
+            "startedAt": "<timestamp>",
+            "updatedAt": "<timestamp>",
+            "lastSave": 0,
+            "audioTracks": [],
+            "stream": null,
+            "shareSessionId": null,
+            "mediaItemShareId": null,
+            "coverAspectRatio": null,
+            "user": {
+              "id": "<uuid-2>",
+              "username": "admin"
+            }
+          },
+          {
+            "id": "<uuid-10>",
+            "userId": "<uuid-11>",
+            "libraryId": "<uuid-3>",
+            "libraryItemId": "<uuid-4>",
+            "bookId": "<uuid-5>",
+            "episodeId": null,
+            "mediaType": "book",
+            "mediaMetadata": {
+              "title": "Beta",
+              "authors": [],
+              "narrators": [],
+              "genres": []
+            },
+            "chapters": [],
+            "displayTitle": "Beta",
+            "displayAuthor": "",
+            "coverPath": null,
+            "duration": 3600,
+            "playMethod": 0,
+            "mediaPlayer": "test-player",
+            "deviceInfo": {},
+            "serverVersion": "2.0.0-test",
+            "date": "2024-01-04",
+            "dayOfWeek": "Friday",
+            "timeListening": 40,
+            "startTime": 0,
+            "currentTime": 400,
+            "startedAt": "<timestamp>",
+            "updatedAt": "<timestamp>",
+            "lastSave": 0,
+            "audioTracks": [],
+            "stream": null,
+            "shareSessionId": null,
+            "mediaItemShareId": null,
+            "coverAspectRatio": null,
+            "user": {
+              "id": "<uuid-11>",
+              "username": "guest"
+            }
+          },
+          {
+            "id": "<uuid-12>",
+            "userId": "<uuid-13>",
+            "libraryId": "<uuid-3>",
+            "libraryItemId": "<uuid-4>",
+            "bookId": "<uuid-5>",
+            "episodeId": null,
+            "mediaType": "book",
+            "mediaMetadata": {
+              "title": "Omega",
+              "authors": [],
+              "narrators": [],
+              "genres": []
+            },
+            "chapters": [],
+            "displayTitle": "Omega",
+            "displayAuthor": "",
+            "coverPath": null,
+            "duration": 3600,
+            "playMethod": 0,
+            "mediaPlayer": "test-player",
+            "deviceInfo": {},
+            "serverVersion": "2.0.0-test",
+            "date": "2024-01-05",
+            "dayOfWeek": "Friday",
+            "timeListening": 50,
+            "startTime": 0,
+            "currentTime": 500,
+            "startedAt": "<timestamp>",
+            "updatedAt": "<timestamp>",
+            "lastSave": 0,
+            "audioTracks": [],
+            "stream": null,
+            "shareSessionId": null,
+            "mediaItemShareId": null,
+            "coverAspectRatio": null,
+            "user": {
+              "id": "<uuid-13>",
+              "username": "root"
+            }
+          }
+        ]
+      }
+    },
+    "emitted": []
+  },
+  "SessionController (characterization) > GET /api/sessions > falls back for invalid query values > negative page": {
+    "res": {
+      "status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8"
+      },
+      "body": {
+        "total": 5,
+        "numPages": 3,
+        "page": 0,
+        "itemsPerPage": 2,
+        "sessions": [
+          {
+            "id": "<uuid-1>",
+            "userId": "<uuid-2>",
+            "libraryId": "<uuid-3>",
+            "libraryItemId": "<uuid-4>",
+            "bookId": "<uuid-5>",
+            "episodeId": null,
+            "mediaType": "book",
+            "mediaMetadata": {
+              "title": "Zeta",
+              "authors": [],
+              "narrators": [],
+              "genres": []
+            },
+            "chapters": [],
+            "displayTitle": "Zeta",
+            "displayAuthor": "",
+            "coverPath": null,
+            "duration": 3600,
+            "playMethod": 0,
+            "mediaPlayer": "test-player",
+            "deviceInfo": {
+              "id": "<uuid-6>",
+              "userId": "<uuid-2>",
+              "deviceId": "dev-1",
+              "ipAddress": "10.0.0.1",
+              "osName": "Linux",
+              "clientVersion": "1.0",
+              "manufacturer": "",
+              "model": "",
+              "sdkVersion": "",
+              "clientName": "Test Client",
+              "deviceName": ""
+            },
+            "serverVersion": "2.0.0-test",
+            "date": "2024-01-01",
+            "dayOfWeek": "Friday",
+            "timeListening": 30,
+            "startTime": 0,
+            "currentTime": 100,
+            "startedAt": "<timestamp>",
+            "updatedAt": "<timestamp>",
+            "lastSave": 0,
+            "audioTracks": [],
+            "stream": null,
+            "shareSessionId": null,
+            "mediaItemShareId": null,
+            "coverAspectRatio": null,
+            "user": {
+              "id": "<uuid-2>",
+              "username": "admin"
+            }
+          },
+          {
+            "id": "<uuid-7>",
+            "userId": "<uuid-8>",
+            "libraryId": "<uuid-3>",
+            "libraryItemId": "<uuid-4>",
+            "bookId": "<uuid-5>",
+            "episodeId": null,
+            "mediaType": "book",
+            "mediaMetadata": {
+              "title": "Alpha",
+              "authors": [],
+              "narrators": [],
+              "genres": []
+            },
+            "chapters": [],
+            "displayTitle": "Alpha",
+            "displayAuthor": "",
+            "coverPath": null,
+            "duration": 3600,
+            "playMethod": 0,
+            "mediaPlayer": "test-player",
+            "deviceInfo": {},
+            "serverVersion": "2.0.0-test",
+            "date": "2024-01-02",
+            "dayOfWeek": "Friday",
+            "timeListening": 20,
+            "startTime": 0,
+            "currentTime": 300,
+            "startedAt": "<timestamp>",
+            "updatedAt": "<timestamp>",
+            "lastSave": 0,
+            "audioTracks": [],
+            "stream": null,
+            "shareSessionId": null,
+            "mediaItemShareId": null,
+            "coverAspectRatio": null,
+            "user": {
+              "id": "<uuid-8>",
+              "username": "user"
+            }
+          }
+        ]
+      }
+    },
+    "emitted": []
+  },
+  "SessionController (characterization) > GET /api/sessions > falls back for invalid query values > non numeric paging": {
+    "res": {
+      "status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8"
+      },
+      "body": {
+        "total": 5,
+        "numPages": 1,
+        "page": 0,
+        "itemsPerPage": 10,
+        "sessions": [
+          {
+            "id": "<uuid-1>",
+            "userId": "<uuid-2>",
+            "libraryId": "<uuid-3>",
+            "libraryItemId": "<uuid-4>",
+            "bookId": "<uuid-5>",
+            "episodeId": null,
+            "mediaType": "book",
+            "mediaMetadata": {
+              "title": "Zeta",
+              "authors": [],
+              "narrators": [],
+              "genres": []
+            },
+            "chapters": [],
+            "displayTitle": "Zeta",
+            "displayAuthor": "",
+            "coverPath": null,
+            "duration": 3600,
+            "playMethod": 0,
+            "mediaPlayer": "test-player",
+            "deviceInfo": {
+              "id": "<uuid-6>",
+              "userId": "<uuid-2>",
+              "deviceId": "dev-1",
+              "ipAddress": "10.0.0.1",
+              "osName": "Linux",
+              "clientVersion": "1.0",
+              "manufacturer": "",
+              "model": "",
+              "sdkVersion": "",
+              "clientName": "Test Client",
+              "deviceName": ""
+            },
+            "serverVersion": "2.0.0-test",
+            "date": "2024-01-01",
+            "dayOfWeek": "Friday",
+            "timeListening": 30,
+            "startTime": 0,
+            "currentTime": 100,
+            "startedAt": "<timestamp>",
+            "updatedAt": "<timestamp>",
+            "lastSave": 0,
+            "audioTracks": [],
+            "stream": null,
+            "shareSessionId": null,
+            "mediaItemShareId": null,
+            "coverAspectRatio": null,
+            "user": {
+              "id": "<uuid-2>",
+              "username": "admin"
+            }
+          },
+          {
+            "id": "<uuid-7>",
+            "userId": "<uuid-8>",
+            "libraryId": "<uuid-3>",
+            "libraryItemId": "<uuid-4>",
+            "bookId": "<uuid-5>",
+            "episodeId": null,
+            "mediaType": "book",
+            "mediaMetadata": {
+              "title": "Alpha",
+              "authors": [],
+              "narrators": [],
+              "genres": []
+            },
+            "chapters": [],
+            "displayTitle": "Alpha",
+            "displayAuthor": "",
+            "coverPath": null,
+            "duration": 3600,
+            "playMethod": 0,
+            "mediaPlayer": "test-player",
+            "deviceInfo": {},
+            "serverVersion": "2.0.0-test",
+            "date": "2024-01-02",
+            "dayOfWeek": "Friday",
+            "timeListening": 20,
+            "startTime": 0,
+            "currentTime": 300,
+            "startedAt": "<timestamp>",
+            "updatedAt": "<timestamp>",
+            "lastSave": 0,
+            "audioTracks": [],
+            "stream": null,
+            "shareSessionId": null,
+            "mediaItemShareId": null,
+            "coverAspectRatio": null,
+            "user": {
+              "id": "<uuid-8>",
+              "username": "user"
+            }
+          },
+          {
+            "id": "<uuid-9>",
+            "userId": "<uuid-2>",
+            "libraryId": "<uuid-3>",
+            "libraryItemId": "<uuid-4>",
+            "bookId": "<uuid-5>",
+            "episodeId": null,
+            "mediaType": "book",
+            "mediaMetadata": {
+              "title": "Mid",
+              "authors": [],
+              "narrators": [],
+              "genres": []
+            },
+            "chapters": [],
+            "displayTitle": "Mid",
+            "displayAuthor": "",
+            "coverPath": null,
+            "duration": 3600,
+            "playMethod": 0,
+            "mediaPlayer": "test-player",
+            "deviceInfo": {},
+            "serverVersion": "2.0.0-test",
+            "date": "2024-01-03",
+            "dayOfWeek": "Friday",
+            "timeListening": 10,
+            "startTime": 0,
+            "currentTime": 200,
+            "startedAt": "<timestamp>",
+            "updatedAt": "<timestamp>",
+            "lastSave": 0,
+            "audioTracks": [],
+            "stream": null,
+            "shareSessionId": null,
+            "mediaItemShareId": null,
+            "coverAspectRatio": null,
+            "user": {
+              "id": "<uuid-2>",
+              "username": "admin"
+            }
+          },
+          {
+            "id": "<uuid-10>",
+            "userId": "<uuid-11>",
+            "libraryId": "<uuid-3>",
+            "libraryItemId": "<uuid-4>",
+            "bookId": "<uuid-5>",
+            "episodeId": null,
+            "mediaType": "book",
+            "mediaMetadata": {
+              "title": "Beta",
+              "authors": [],
+              "narrators": [],
+              "genres": []
+            },
+            "chapters": [],
+            "displayTitle": "Beta",
+            "displayAuthor": "",
+            "coverPath": null,
+            "duration": 3600,
+            "playMethod": 0,
+            "mediaPlayer": "test-player",
+            "deviceInfo": {},
+            "serverVersion": "2.0.0-test",
+            "date": "2024-01-04",
+            "dayOfWeek": "Friday",
+            "timeListening": 40,
+            "startTime": 0,
+            "currentTime": 400,
+            "startedAt": "<timestamp>",
+            "updatedAt": "<timestamp>",
+            "lastSave": 0,
+            "audioTracks": [],
+            "stream": null,
+            "shareSessionId": null,
+            "mediaItemShareId": null,
+            "coverAspectRatio": null,
+            "user": {
+              "id": "<uuid-11>",
+              "username": "guest"
+            }
+          },
+          {
+            "id": "<uuid-12>",
+            "userId": "<uuid-13>",
+            "libraryId": "<uuid-3>",
+            "libraryItemId": "<uuid-4>",
+            "bookId": "<uuid-5>",
+            "episodeId": null,
+            "mediaType": "book",
+            "mediaMetadata": {
+              "title": "Omega",
+              "authors": [],
+              "narrators": [],
+              "genres": []
+            },
+            "chapters": [],
+            "displayTitle": "Omega",
+            "displayAuthor": "",
+            "coverPath": null,
+            "duration": 3600,
+            "playMethod": 0,
+            "mediaPlayer": "test-player",
+            "deviceInfo": {},
+            "serverVersion": "2.0.0-test",
+            "date": "2024-01-05",
+            "dayOfWeek": "Friday",
+            "timeListening": 50,
+            "startTime": 0,
+            "currentTime": 500,
+            "startedAt": "<timestamp>",
+            "updatedAt": "<timestamp>",
+            "lastSave": 0,
+            "audioTracks": [],
+            "stream": null,
+            "shareSessionId": null,
+            "mediaItemShareId": null,
+            "coverAspectRatio": null,
+            "user": {
+              "id": "<uuid-13>",
+              "username": "root"
+            }
+          }
+        ]
+      }
+    },
+    "emitted": []
+  },
+  "SessionController (characterization) > GET /api/sessions > lists the first page for admin and root > admin": {
+    "res": {
+      "status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8"
+      },
+      "body": {
+        "total": 5,
+        "numPages": 1,
+        "page": 0,
+        "itemsPerPage": 10,
+        "sessions": [
+          {
+            "id": "<uuid-1>",
+            "userId": "<uuid-2>",
+            "libraryId": "<uuid-3>",
+            "libraryItemId": "<uuid-4>",
+            "bookId": "<uuid-5>",
+            "episodeId": null,
+            "mediaType": "book",
+            "mediaMetadata": {
+              "title": "Zeta",
+              "authors": [],
+              "narrators": [],
+              "genres": []
+            },
+            "chapters": [],
+            "displayTitle": "Zeta",
+            "displayAuthor": "",
+            "coverPath": null,
+            "duration": 3600,
+            "playMethod": 0,
+            "mediaPlayer": "test-player",
+            "deviceInfo": {
+              "id": "<uuid-6>",
+              "userId": "<uuid-2>",
+              "deviceId": "dev-1",
+              "ipAddress": "10.0.0.1",
+              "osName": "Linux",
+              "clientVersion": "1.0",
+              "manufacturer": "",
+              "model": "",
+              "sdkVersion": "",
+              "clientName": "Test Client",
+              "deviceName": ""
+            },
+            "serverVersion": "2.0.0-test",
+            "date": "2024-01-01",
+            "dayOfWeek": "Friday",
+            "timeListening": 30,
+            "startTime": 0,
+            "currentTime": 100,
+            "startedAt": "<timestamp>",
+            "updatedAt": "<timestamp>",
+            "lastSave": 0,
+            "audioTracks": [],
+            "stream": null,
+            "shareSessionId": null,
+            "mediaItemShareId": null,
+            "coverAspectRatio": null,
+            "user": {
+              "id": "<uuid-2>",
+              "username": "admin"
+            }
+          },
+          {
+            "id": "<uuid-7>",
+            "userId": "<uuid-8>",
+            "libraryId": "<uuid-3>",
+            "libraryItemId": "<uuid-4>",
+            "bookId": "<uuid-5>",
+            "episodeId": null,
+            "mediaType": "book",
+            "mediaMetadata": {
+              "title": "Alpha",
+              "authors": [],
+              "narrators": [],
+              "genres": []
+            },
+            "chapters": [],
+            "displayTitle": "Alpha",
+            "displayAuthor": "",
+            "coverPath": null,
+            "duration": 3600,
+            "playMethod": 0,
+            "mediaPlayer": "test-player",
+            "deviceInfo": {},
+            "serverVersion": "2.0.0-test",
+            "date": "2024-01-02",
+            "dayOfWeek": "Friday",
+            "timeListening": 20,
+            "startTime": 0,
+            "currentTime": 300,
+            "startedAt": "<timestamp>",
+            "updatedAt": "<timestamp>",
+            "lastSave": 0,
+            "audioTracks": [],
+            "stream": null,
+            "shareSessionId": null,
+            "mediaItemShareId": null,
+            "coverAspectRatio": null,
+            "user": {
+              "id": "<uuid-8>",
+              "username": "user"
+            }
+          },
+          {
+            "id": "<uuid-9>",
+            "userId": "<uuid-2>",
+            "libraryId": "<uuid-3>",
+            "libraryItemId": "<uuid-4>",
+            "bookId": "<uuid-5>",
+            "episodeId": null,
+            "mediaType": "book",
+            "mediaMetadata": {
+              "title": "Mid",
+              "authors": [],
+              "narrators": [],
+              "genres": []
+            },
+            "chapters": [],
+            "displayTitle": "Mid",
+            "displayAuthor": "",
+            "coverPath": null,
+            "duration": 3600,
+            "playMethod": 0,
+            "mediaPlayer": "test-player",
+            "deviceInfo": {},
+            "serverVersion": "2.0.0-test",
+            "date": "2024-01-03",
+            "dayOfWeek": "Friday",
+            "timeListening": 10,
+            "startTime": 0,
+            "currentTime": 200,
+            "startedAt": "<timestamp>",
+            "updatedAt": "<timestamp>",
+            "lastSave": 0,
+            "audioTracks": [],
+            "stream": null,
+            "shareSessionId": null,
+            "mediaItemShareId": null,
+            "coverAspectRatio": null,
+            "user": {
+              "id": "<uuid-2>",
+              "username": "admin"
+            }
+          },
+          {
+            "id": "<uuid-10>",
+            "userId": "<uuid-11>",
+            "libraryId": "<uuid-3>",
+            "libraryItemId": "<uuid-4>",
+            "bookId": "<uuid-5>",
+            "episodeId": null,
+            "mediaType": "book",
+            "mediaMetadata": {
+              "title": "Beta",
+              "authors": [],
+              "narrators": [],
+              "genres": []
+            },
+            "chapters": [],
+            "displayTitle": "Beta",
+            "displayAuthor": "",
+            "coverPath": null,
+            "duration": 3600,
+            "playMethod": 0,
+            "mediaPlayer": "test-player",
+            "deviceInfo": {},
+            "serverVersion": "2.0.0-test",
+            "date": "2024-01-04",
+            "dayOfWeek": "Friday",
+            "timeListening": 40,
+            "startTime": 0,
+            "currentTime": 400,
+            "startedAt": "<timestamp>",
+            "updatedAt": "<timestamp>",
+            "lastSave": 0,
+            "audioTracks": [],
+            "stream": null,
+            "shareSessionId": null,
+            "mediaItemShareId": null,
+            "coverAspectRatio": null,
+            "user": {
+              "id": "<uuid-11>",
+              "username": "guest"
+            }
+          },
+          {
+            "id": "<uuid-12>",
+            "userId": "<uuid-13>",
+            "libraryId": "<uuid-3>",
+            "libraryItemId": "<uuid-4>",
+            "bookId": "<uuid-5>",
+            "episodeId": null,
+            "mediaType": "book",
+            "mediaMetadata": {
+              "title": "Omega",
+              "authors": [],
+              "narrators": [],
+              "genres": []
+            },
+            "chapters": [],
+            "displayTitle": "Omega",
+            "displayAuthor": "",
+            "coverPath": null,
+            "duration": 3600,
+            "playMethod": 0,
+            "mediaPlayer": "test-player",
+            "deviceInfo": {},
+            "serverVersion": "2.0.0-test",
+            "date": "2024-01-05",
+            "dayOfWeek": "Friday",
+            "timeListening": 50,
+            "startTime": 0,
+            "currentTime": 500,
+            "startedAt": "<timestamp>",
+            "updatedAt": "<timestamp>",
+            "lastSave": 0,
+            "audioTracks": [],
+            "stream": null,
+            "shareSessionId": null,
+            "mediaItemShareId": null,
+            "coverAspectRatio": null,
+            "user": {
+              "id": "<uuid-13>",
+              "username": "root"
+            }
+          }
+        ]
+      }
+    },
+    "emitted": []
+  },
+  "SessionController (characterization) > GET /api/sessions > lists the first page for admin and root > root": {
+    "res": {
+      "status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8"
+      },
+      "body": {
+        "total": 5,
+        "numPages": 1,
+        "page": 0,
+        "itemsPerPage": 10,
+        "sessions": [
+          {
+            "id": "<uuid-1>",
+            "userId": "<uuid-2>",
+            "libraryId": "<uuid-3>",
+            "libraryItemId": "<uuid-4>",
+            "bookId": "<uuid-5>",
+            "episodeId": null,
+            "mediaType": "book",
+            "mediaMetadata": {
+              "title": "Zeta",
+              "authors": [],
+              "narrators": [],
+              "genres": []
+            },
+            "chapters": [],
+            "displayTitle": "Zeta",
+            "displayAuthor": "",
+            "coverPath": null,
+            "duration": 3600,
+            "playMethod": 0,
+            "mediaPlayer": "test-player",
+            "deviceInfo": {
+              "id": "<uuid-6>",
+              "userId": "<uuid-2>",
+              "deviceId": "dev-1",
+              "ipAddress": "10.0.0.1",
+              "osName": "Linux",
+              "clientVersion": "1.0",
+              "manufacturer": "",
+              "model": "",
+              "sdkVersion": "",
+              "clientName": "Test Client",
+              "deviceName": ""
+            },
+            "serverVersion": "2.0.0-test",
+            "date": "2024-01-01",
+            "dayOfWeek": "Friday",
+            "timeListening": 30,
+            "startTime": 0,
+            "currentTime": 100,
+            "startedAt": "<timestamp>",
+            "updatedAt": "<timestamp>",
+            "lastSave": 0,
+            "audioTracks": [],
+            "stream": null,
+            "shareSessionId": null,
+            "mediaItemShareId": null,
+            "coverAspectRatio": null,
+            "user": {
+              "id": "<uuid-2>",
+              "username": "admin"
+            }
+          },
+          {
+            "id": "<uuid-7>",
+            "userId": "<uuid-8>",
+            "libraryId": "<uuid-3>",
+            "libraryItemId": "<uuid-4>",
+            "bookId": "<uuid-5>",
+            "episodeId": null,
+            "mediaType": "book",
+            "mediaMetadata": {
+              "title": "Alpha",
+              "authors": [],
+              "narrators": [],
+              "genres": []
+            },
+            "chapters": [],
+            "displayTitle": "Alpha",
+            "displayAuthor": "",
+            "coverPath": null,
+            "duration": 3600,
+            "playMethod": 0,
+            "mediaPlayer": "test-player",
+            "deviceInfo": {},
+            "serverVersion": "2.0.0-test",
+            "date": "2024-01-02",
+            "dayOfWeek": "Friday",
+            "timeListening": 20,
+            "startTime": 0,
+            "currentTime": 300,
+            "startedAt": "<timestamp>",
+            "updatedAt": "<timestamp>",
+            "lastSave": 0,
+            "audioTracks": [],
+            "stream": null,
+            "shareSessionId": null,
+            "mediaItemShareId": null,
+            "coverAspectRatio": null,
+            "user": {
+              "id": "<uuid-8>",
+              "username": "user"
+            }
+          },
+          {
+            "id": "<uuid-9>",
+            "userId": "<uuid-2>",
+            "libraryId": "<uuid-3>",
+            "libraryItemId": "<uuid-4>",
+            "bookId": "<uuid-5>",
+            "episodeId": null,
+            "mediaType": "book",
+            "mediaMetadata": {
+              "title": "Mid",
+              "authors": [],
+              "narrators": [],
+              "genres": []
+            },
+            "chapters": [],
+            "displayTitle": "Mid",
+            "displayAuthor": "",
+            "coverPath": null,
+            "duration": 3600,
+            "playMethod": 0,
+            "mediaPlayer": "test-player",
+            "deviceInfo": {},
+            "serverVersion": "2.0.0-test",
+            "date": "2024-01-03",
+            "dayOfWeek": "Friday",
+            "timeListening": 10,
+            "startTime": 0,
+            "currentTime": 200,
+            "startedAt": "<timestamp>",
+            "updatedAt": "<timestamp>",
+            "lastSave": 0,
+            "audioTracks": [],
+            "stream": null,
+            "shareSessionId": null,
+            "mediaItemShareId": null,
+            "coverAspectRatio": null,
+            "user": {
+              "id": "<uuid-2>",
+              "username": "admin"
+            }
+          },
+          {
+            "id": "<uuid-10>",
+            "userId": "<uuid-11>",
+            "libraryId": "<uuid-3>",
+            "libraryItemId": "<uuid-4>",
+            "bookId": "<uuid-5>",
+            "episodeId": null,
+            "mediaType": "book",
+            "mediaMetadata": {
+              "title": "Beta",
+              "authors": [],
+              "narrators": [],
+              "genres": []
+            },
+            "chapters": [],
+            "displayTitle": "Beta",
+            "displayAuthor": "",
+            "coverPath": null,
+            "duration": 3600,
+            "playMethod": 0,
+            "mediaPlayer": "test-player",
+            "deviceInfo": {},
+            "serverVersion": "2.0.0-test",
+            "date": "2024-01-04",
+            "dayOfWeek": "Friday",
+            "timeListening": 40,
+            "startTime": 0,
+            "currentTime": 400,
+            "startedAt": "<timestamp>",
+            "updatedAt": "<timestamp>",
+            "lastSave": 0,
+            "audioTracks": [],
+            "stream": null,
+            "shareSessionId": null,
+            "mediaItemShareId": null,
+            "coverAspectRatio": null,
+            "user": {
+              "id": "<uuid-11>",
+              "username": "guest"
+            }
+          },
+          {
+            "id": "<uuid-12>",
+            "userId": "<uuid-13>",
+            "libraryId": "<uuid-3>",
+            "libraryItemId": "<uuid-4>",
+            "bookId": "<uuid-5>",
+            "episodeId": null,
+            "mediaType": "book",
+            "mediaMetadata": {
+              "title": "Omega",
+              "authors": [],
+              "narrators": [],
+              "genres": []
+            },
+            "chapters": [],
+            "displayTitle": "Omega",
+            "displayAuthor": "",
+            "coverPath": null,
+            "duration": 3600,
+            "playMethod": 0,
+            "mediaPlayer": "test-player",
+            "deviceInfo": {},
+            "serverVersion": "2.0.0-test",
+            "date": "2024-01-05",
+            "dayOfWeek": "Friday",
+            "timeListening": 50,
+            "startTime": 0,
+            "currentTime": 500,
+            "startedAt": "<timestamp>",
+            "updatedAt": "<timestamp>",
+            "lastSave": 0,
+            "audioTracks": [],
+            "stream": null,
+            "shareSessionId": null,
+            "mediaItemShareId": null,
+            "coverAspectRatio": null,
+            "user": {
+              "id": "<uuid-13>",
+              "username": "root"
+            }
+          }
+        ]
+      }
+    },
+    "emitted": []
+  },
+  "SessionController (characterization) > GET /api/sessions > requires authentication and an admin > guest": {
+    "res": {
+      "status": 404,
+      "headers": {
+        "content-type": "text/plain; charset=utf-8"
+      },
+      "body": "Not Found"
+    },
+    "emitted": []
+  },
+  "SessionController (characterization) > GET /api/sessions > requires authentication and an admin > unauthenticated": {
+    "res": {
+      "status": 401,
+      "headers": {
+        "content-type": "text/plain; charset=utf-8"
+      },
+      "body": "Unauthorized"
+    },
+    "emitted": []
+  },
+  "SessionController (characterization) > GET /api/sessions > requires authentication and an admin > user": {
+    "res": {
+      "status": 404,
+      "headers": {
+        "content-type": "text/plain; charset=utf-8"
+      },
+      "body": "Not Found"
+    },
+    "emitted": []
+  },
+  "SessionController (characterization) > GET /api/sessions > sorts, filters and paginates > invalid user filter is ignored": {
+    "res": {
+      "status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8"
+      },
+      "body": {
+        "total": 5,
+        "numPages": 1,
+        "page": 0,
+        "itemsPerPage": 10,
+        "sessions": [
+          {
+            "id": "<uuid-12>",
+            "userId": "<uuid-9>",
+            "libraryId": "<uuid-3>",
+            "libraryItemId": "<uuid-4>",
+            "bookId": "<uuid-5>",
+            "episodeId": null,
+            "mediaType": "book",
+            "mediaMetadata": {
+              "title": "Zeta",
+              "authors": [],
+              "narrators": [],
+              "genres": []
+            },
+            "chapters": [],
+            "displayTitle": "Zeta",
+            "displayAuthor": "",
+            "coverPath": null,
+            "duration": 3600,
+            "playMethod": 0,
+            "mediaPlayer": "test-player",
+            "deviceInfo": {
+              "id": "<uuid-13>",
+              "userId": "<uuid-9>",
+              "deviceId": "dev-1",
+              "ipAddress": "10.0.0.1",
+              "osName": "Linux",
+              "clientVersion": "1.0",
+              "manufacturer": "",
+              "model": "",
+              "sdkVersion": "",
+              "clientName": "Test Client",
+              "deviceName": ""
+            },
+            "serverVersion": "2.0.0-test",
+            "date": "2024-01-01",
+            "dayOfWeek": "Friday",
+            "timeListening": 30,
+            "startTime": 0,
+            "currentTime": 100,
+            "startedAt": "<timestamp>",
+            "updatedAt": "<timestamp>",
+            "lastSave": 0,
+            "audioTracks": [],
+            "stream": null,
+            "shareSessionId": null,
+            "mediaItemShareId": null,
+            "coverAspectRatio": null,
+            "user": {
+              "id": "<uuid-9>",
+              "username": "admin"
+            }
+          },
+          {
+            "id": "<uuid-1>",
+            "userId": "<uuid-2>",
+            "libraryId": "<uuid-3>",
+            "libraryItemId": "<uuid-4>",
+            "bookId": "<uuid-5>",
+            "episodeId": null,
+            "mediaType": "book",
+            "mediaMetadata": {
+              "title": "Alpha",
+              "authors": [],
+              "narrators": [],
+              "genres": []
+            },
+            "chapters": [],
+            "displayTitle": "Alpha",
+            "displayAuthor": "",
+            "coverPath": null,
+            "duration": 3600,
+            "playMethod": 0,
+            "mediaPlayer": "test-player",
+            "deviceInfo": {},
+            "serverVersion": "2.0.0-test",
+            "date": "2024-01-02",
+            "dayOfWeek": "Friday",
+            "timeListening": 20,
+            "startTime": 0,
+            "currentTime": 300,
+            "startedAt": "<timestamp>",
+            "updatedAt": "<timestamp>",
+            "lastSave": 0,
+            "audioTracks": [],
+            "stream": null,
+            "shareSessionId": null,
+            "mediaItemShareId": null,
+            "coverAspectRatio": null,
+            "user": {
+              "id": "<uuid-2>",
+              "username": "user"
+            }
+          },
+          {
+            "id": "<uuid-8>",
+            "userId": "<uuid-9>",
+            "libraryId": "<uuid-3>",
+            "libraryItemId": "<uuid-4>",
+            "bookId": "<uuid-5>",
+            "episodeId": null,
+            "mediaType": "book",
+            "mediaMetadata": {
+              "title": "Mid",
+              "authors": [],
+              "narrators": [],
+              "genres": []
+            },
+            "chapters": [],
+            "displayTitle": "Mid",
+            "displayAuthor": "",
+            "coverPath": null,
+            "duration": 3600,
+            "playMethod": 0,
+            "mediaPlayer": "test-player",
+            "deviceInfo": {},
+            "serverVersion": "2.0.0-test",
+            "date": "2024-01-03",
+            "dayOfWeek": "Friday",
+            "timeListening": 10,
+            "startTime": 0,
+            "currentTime": 200,
+            "startedAt": "<timestamp>",
+            "updatedAt": "<timestamp>",
+            "lastSave": 0,
+            "audioTracks": [],
+            "stream": null,
+            "shareSessionId": null,
+            "mediaItemShareId": null,
+            "coverAspectRatio": null,
+            "user": {
+              "id": "<uuid-9>",
+              "username": "admin"
+            }
+          },
+          {
+            "id": "<uuid-6>",
+            "userId": "<uuid-7>",
+            "libraryId": "<uuid-3>",
+            "libraryItemId": "<uuid-4>",
+            "bookId": "<uuid-5>",
+            "episodeId": null,
+            "mediaType": "book",
+            "mediaMetadata": {
+              "title": "Beta",
+              "authors": [],
+              "narrators": [],
+              "genres": []
+            },
+            "chapters": [],
+            "displayTitle": "Beta",
+            "displayAuthor": "",
+            "coverPath": null,
+            "duration": 3600,
+            "playMethod": 0,
+            "mediaPlayer": "test-player",
+            "deviceInfo": {},
+            "serverVersion": "2.0.0-test",
+            "date": "2024-01-04",
+            "dayOfWeek": "Friday",
+            "timeListening": 40,
+            "startTime": 0,
+            "currentTime": 400,
+            "startedAt": "<timestamp>",
+            "updatedAt": "<timestamp>",
+            "lastSave": 0,
+            "audioTracks": [],
+            "stream": null,
+            "shareSessionId": null,
+            "mediaItemShareId": null,
+            "coverAspectRatio": null,
+            "user": {
+              "id": "<uuid-7>",
+              "username": "guest"
+            }
+          },
+          {
+            "id": "<uuid-10>",
+            "userId": "<uuid-11>",
+            "libraryId": "<uuid-3>",
+            "libraryItemId": "<uuid-4>",
+            "bookId": "<uuid-5>",
+            "episodeId": null,
+            "mediaType": "book",
+            "mediaMetadata": {
+              "title": "Omega",
+              "authors": [],
+              "narrators": [],
+              "genres": []
+            },
+            "chapters": [],
+            "displayTitle": "Omega",
+            "displayAuthor": "",
+            "coverPath": null,
+            "duration": 3600,
+            "playMethod": 0,
+            "mediaPlayer": "test-player",
+            "deviceInfo": {},
+            "serverVersion": "2.0.0-test",
+            "date": "2024-01-05",
+            "dayOfWeek": "Friday",
+            "timeListening": 50,
+            "startTime": 0,
+            "currentTime": 500,
+            "startedAt": "<timestamp>",
+            "updatedAt": "<timestamp>",
+            "lastSave": 0,
+            "audioTracks": [],
+            "stream": null,
+            "shareSessionId": null,
+            "mediaItemShareId": null,
+            "coverAspectRatio": null,
+            "user": {
+              "id": "<uuid-11>",
+              "username": "root"
+            }
+          }
+        ]
+      }
+    },
+    "emitted": []
+  },
+  "SessionController (characterization) > GET /api/sessions > sorts, filters and paginates > last page": {
+    "res": {
+      "status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8"
+      },
+      "body": {
+        "total": 5,
+        "numPages": 3,
+        "page": 2,
+        "itemsPerPage": 2,
+        "sessions": [
+          {
+            "id": "<uuid-10>",
+            "userId": "<uuid-11>",
+            "libraryId": "<uuid-3>",
+            "libraryItemId": "<uuid-4>",
+            "bookId": "<uuid-5>",
+            "episodeId": null,
+            "mediaType": "book",
+            "mediaMetadata": {
+              "title": "Omega",
+              "authors": [],
+              "narrators": [],
+              "genres": []
+            },
+            "chapters": [],
+            "displayTitle": "Omega",
+            "displayAuthor": "",
+            "coverPath": null,
+            "duration": 3600,
+            "playMethod": 0,
+            "mediaPlayer": "test-player",
+            "deviceInfo": {},
+            "serverVersion": "2.0.0-test",
+            "date": "2024-01-05",
+            "dayOfWeek": "Friday",
+            "timeListening": 50,
+            "startTime": 0,
+            "currentTime": 500,
+            "startedAt": "<timestamp>",
+            "updatedAt": "<timestamp>",
+            "lastSave": 0,
+            "audioTracks": [],
+            "stream": null,
+            "shareSessionId": null,
+            "mediaItemShareId": null,
+            "coverAspectRatio": null,
+            "user": {
+              "id": "<uuid-11>",
+              "username": "root"
+            }
+          }
+        ]
+      }
+    },
+    "emitted": []
+  },
+  "SessionController (characterization) > GET /api/sessions > sorts, filters and paginates > page 1": {
+    "res": {
+      "status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8"
+      },
+      "body": {
+        "total": 5,
+        "numPages": 3,
+        "page": 1,
+        "itemsPerPage": 2,
+        "sessions": [
+          {
+            "id": "<uuid-1>",
+            "userId": "<uuid-2>",
+            "libraryId": "<uuid-3>",
+            "libraryItemId": "<uuid-4>",
+            "bookId": "<uuid-5>",
+            "episodeId": null,
+            "mediaType": "book",
+            "mediaMetadata": {
+              "title": "Alpha",
+              "authors": [],
+              "narrators": [],
+              "genres": []
+            },
+            "chapters": [],
+            "displayTitle": "Alpha",
+            "displayAuthor": "",
+            "coverPath": null,
+            "duration": 3600,
+            "playMethod": 0,
+            "mediaPlayer": "test-player",
+            "deviceInfo": {},
+            "serverVersion": "2.0.0-test",
+            "date": "2024-01-02",
+            "dayOfWeek": "Friday",
+            "timeListening": 20,
+            "startTime": 0,
+            "currentTime": 300,
+            "startedAt": "<timestamp>",
+            "updatedAt": "<timestamp>",
+            "lastSave": 0,
+            "audioTracks": [],
+            "stream": null,
+            "shareSessionId": null,
+            "mediaItemShareId": null,
+            "coverAspectRatio": null,
+            "user": {
+              "id": "<uuid-2>",
+              "username": "user"
+            }
+          },
+          {
+            "id": "<uuid-6>",
+            "userId": "<uuid-7>",
+            "libraryId": "<uuid-3>",
+            "libraryItemId": "<uuid-4>",
+            "bookId": "<uuid-5>",
+            "episodeId": null,
+            "mediaType": "book",
+            "mediaMetadata": {
+              "title": "Beta",
+              "authors": [],
+              "narrators": [],
+              "genres": []
+            },
+            "chapters": [],
+            "displayTitle": "Beta",
+            "displayAuthor": "",
+            "coverPath": null,
+            "duration": 3600,
+            "playMethod": 0,
+            "mediaPlayer": "test-player",
+            "deviceInfo": {},
+            "serverVersion": "2.0.0-test",
+            "date": "2024-01-04",
+            "dayOfWeek": "Friday",
+            "timeListening": 40,
+            "startTime": 0,
+            "currentTime": 400,
+            "startedAt": "<timestamp>",
+            "updatedAt": "<timestamp>",
+            "lastSave": 0,
+            "audioTracks": [],
+            "stream": null,
+            "shareSessionId": null,
+            "mediaItemShareId": null,
+            "coverAspectRatio": null,
+            "user": {
+              "id": "<uuid-7>",
+              "username": "guest"
+            }
+          }
+        ]
+      }
+    },
+    "emitted": []
+  },
+  "SessionController (characterization) > GET /api/sessions > sorts, filters and paginates > page beyond the end": {
+    "res": {
+      "status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8"
+      },
+      "body": {
+        "total": 5,
+        "numPages": 3,
+        "page": 9,
+        "itemsPerPage": 2,
+        "sessions": []
+      }
+    },
+    "emitted": []
+  },
+  "SessionController (characterization) > GET /api/sessions > sorts, filters and paginates > sort displayTitle asc": {
+    "res": {
+      "status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8"
+      },
+      "body": {
+        "total": 5,
+        "numPages": 1,
+        "page": 0,
+        "itemsPerPage": 10,
+        "sessions": [
+          {
+            "id": "<uuid-1>",
+            "userId": "<uuid-2>",
+            "libraryId": "<uuid-3>",
+            "libraryItemId": "<uuid-4>",
+            "bookId": "<uuid-5>",
+            "episodeId": null,
+            "mediaType": "book",
+            "mediaMetadata": {
+              "title": "Alpha",
+              "authors": [],
+              "narrators": [],
+              "genres": []
+            },
+            "chapters": [],
+            "displayTitle": "Alpha",
+            "displayAuthor": "",
+            "coverPath": null,
+            "duration": 3600,
+            "playMethod": 0,
+            "mediaPlayer": "test-player",
+            "deviceInfo": {},
+            "serverVersion": "2.0.0-test",
+            "date": "2024-01-02",
+            "dayOfWeek": "Friday",
+            "timeListening": 20,
+            "startTime": 0,
+            "currentTime": 300,
+            "startedAt": "<timestamp>",
+            "updatedAt": "<timestamp>",
+            "lastSave": 0,
+            "audioTracks": [],
+            "stream": null,
+            "shareSessionId": null,
+            "mediaItemShareId": null,
+            "coverAspectRatio": null,
+            "user": {
+              "id": "<uuid-2>",
+              "username": "user"
+            }
+          },
+          {
+            "id": "<uuid-6>",
+            "userId": "<uuid-7>",
+            "libraryId": "<uuid-3>",
+            "libraryItemId": "<uuid-4>",
+            "bookId": "<uuid-5>",
+            "episodeId": null,
+            "mediaType": "book",
+            "mediaMetadata": {
+              "title": "Beta",
+              "authors": [],
+              "narrators": [],
+              "genres": []
+            },
+            "chapters": [],
+            "displayTitle": "Beta",
+            "displayAuthor": "",
+            "coverPath": null,
+            "duration": 3600,
+            "playMethod": 0,
+            "mediaPlayer": "test-player",
+            "deviceInfo": {},
+            "serverVersion": "2.0.0-test",
+            "date": "2024-01-04",
+            "dayOfWeek": "Friday",
+            "timeListening": 40,
+            "startTime": 0,
+            "currentTime": 400,
+            "startedAt": "<timestamp>",
+            "updatedAt": "<timestamp>",
+            "lastSave": 0,
+            "audioTracks": [],
+            "stream": null,
+            "shareSessionId": null,
+            "mediaItemShareId": null,
+            "coverAspectRatio": null,
+            "user": {
+              "id": "<uuid-7>",
+              "username": "guest"
+            }
+          },
+          {
+            "id": "<uuid-8>",
+            "userId": "<uuid-9>",
+            "libraryId": "<uuid-3>",
+            "libraryItemId": "<uuid-4>",
+            "bookId": "<uuid-5>",
+            "episodeId": null,
+            "mediaType": "book",
+            "mediaMetadata": {
+              "title": "Mid",
+              "authors": [],
+              "narrators": [],
+              "genres": []
+            },
+            "chapters": [],
+            "displayTitle": "Mid",
+            "displayAuthor": "",
+            "coverPath": null,
+            "duration": 3600,
+            "playMethod": 0,
+            "mediaPlayer": "test-player",
+            "deviceInfo": {},
+            "serverVersion": "2.0.0-test",
+            "date": "2024-01-03",
+            "dayOfWeek": "Friday",
+            "timeListening": 10,
+            "startTime": 0,
+            "currentTime": 200,
+            "startedAt": "<timestamp>",
+            "updatedAt": "<timestamp>",
+            "lastSave": 0,
+            "audioTracks": [],
+            "stream": null,
+            "shareSessionId": null,
+            "mediaItemShareId": null,
+            "coverAspectRatio": null,
+            "user": {
+              "id": "<uuid-9>",
+              "username": "admin"
+            }
+          },
+          {
+            "id": "<uuid-10>",
+            "userId": "<uuid-11>",
+            "libraryId": "<uuid-3>",
+            "libraryItemId": "<uuid-4>",
+            "bookId": "<uuid-5>",
+            "episodeId": null,
+            "mediaType": "book",
+            "mediaMetadata": {
+              "title": "Omega",
+              "authors": [],
+              "narrators": [],
+              "genres": []
+            },
+            "chapters": [],
+            "displayTitle": "Omega",
+            "displayAuthor": "",
+            "coverPath": null,
+            "duration": 3600,
+            "playMethod": 0,
+            "mediaPlayer": "test-player",
+            "deviceInfo": {},
+            "serverVersion": "2.0.0-test",
+            "date": "2024-01-05",
+            "dayOfWeek": "Friday",
+            "timeListening": 50,
+            "startTime": 0,
+            "currentTime": 500,
+            "startedAt": "<timestamp>",
+            "updatedAt": "<timestamp>",
+            "lastSave": 0,
+            "audioTracks": [],
+            "stream": null,
+            "shareSessionId": null,
+            "mediaItemShareId": null,
+            "coverAspectRatio": null,
+            "user": {
+              "id": "<uuid-11>",
+              "username": "root"
+            }
+          },
+          {
+            "id": "<uuid-12>",
+            "userId": "<uuid-9>",
+            "libraryId": "<uuid-3>",
+            "libraryItemId": "<uuid-4>",
+            "bookId": "<uuid-5>",
+            "episodeId": null,
+            "mediaType": "book",
+            "mediaMetadata": {
+              "title": "Zeta",
+              "authors": [],
+              "narrators": [],
+              "genres": []
+            },
+            "chapters": [],
+            "displayTitle": "Zeta",
+            "displayAuthor": "",
+            "coverPath": null,
+            "duration": 3600,
+            "playMethod": 0,
+            "mediaPlayer": "test-player",
+            "deviceInfo": {
+              "id": "<uuid-13>",
+              "userId": "<uuid-9>",
+              "deviceId": "dev-1",
+              "ipAddress": "10.0.0.1",
+              "osName": "Linux",
+              "clientVersion": "1.0",
+              "manufacturer": "",
+              "model": "",
+              "sdkVersion": "",
+              "clientName": "Test Client",
+              "deviceName": ""
+            },
+            "serverVersion": "2.0.0-test",
+            "date": "2024-01-01",
+            "dayOfWeek": "Friday",
+            "timeListening": 30,
+            "startTime": 0,
+            "currentTime": 100,
+            "startedAt": "<timestamp>",
+            "updatedAt": "<timestamp>",
+            "lastSave": 0,
+            "audioTracks": [],
+            "stream": null,
+            "shareSessionId": null,
+            "mediaItemShareId": null,
+            "coverAspectRatio": null,
+            "user": {
+              "id": "<uuid-9>",
+              "username": "admin"
+            }
+          }
+        ]
+      }
+    },
+    "emitted": []
+  },
+  "SessionController (characterization) > GET /api/sessions > sorts, filters and paginates > sort displayTitle desc": {
+    "res": {
+      "status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8"
+      },
+      "body": {
+        "total": 5,
+        "numPages": 1,
+        "page": 0,
+        "itemsPerPage": 10,
+        "sessions": [
+          {
+            "id": "<uuid-12>",
+            "userId": "<uuid-9>",
+            "libraryId": "<uuid-3>",
+            "libraryItemId": "<uuid-4>",
+            "bookId": "<uuid-5>",
+            "episodeId": null,
+            "mediaType": "book",
+            "mediaMetadata": {
+              "title": "Zeta",
+              "authors": [],
+              "narrators": [],
+              "genres": []
+            },
+            "chapters": [],
+            "displayTitle": "Zeta",
+            "displayAuthor": "",
+            "coverPath": null,
+            "duration": 3600,
+            "playMethod": 0,
+            "mediaPlayer": "test-player",
+            "deviceInfo": {
+              "id": "<uuid-13>",
+              "userId": "<uuid-9>",
+              "deviceId": "dev-1",
+              "ipAddress": "10.0.0.1",
+              "osName": "Linux",
+              "clientVersion": "1.0",
+              "manufacturer": "",
+              "model": "",
+              "sdkVersion": "",
+              "clientName": "Test Client",
+              "deviceName": ""
+            },
+            "serverVersion": "2.0.0-test",
+            "date": "2024-01-01",
+            "dayOfWeek": "Friday",
+            "timeListening": 30,
+            "startTime": 0,
+            "currentTime": 100,
+            "startedAt": "<timestamp>",
+            "updatedAt": "<timestamp>",
+            "lastSave": 0,
+            "audioTracks": [],
+            "stream": null,
+            "shareSessionId": null,
+            "mediaItemShareId": null,
+            "coverAspectRatio": null,
+            "user": {
+              "id": "<uuid-9>",
+              "username": "admin"
+            }
+          },
+          {
+            "id": "<uuid-10>",
+            "userId": "<uuid-11>",
+            "libraryId": "<uuid-3>",
+            "libraryItemId": "<uuid-4>",
+            "bookId": "<uuid-5>",
+            "episodeId": null,
+            "mediaType": "book",
+            "mediaMetadata": {
+              "title": "Omega",
+              "authors": [],
+              "narrators": [],
+              "genres": []
+            },
+            "chapters": [],
+            "displayTitle": "Omega",
+            "displayAuthor": "",
+            "coverPath": null,
+            "duration": 3600,
+            "playMethod": 0,
+            "mediaPlayer": "test-player",
+            "deviceInfo": {},
+            "serverVersion": "2.0.0-test",
+            "date": "2024-01-05",
+            "dayOfWeek": "Friday",
+            "timeListening": 50,
+            "startTime": 0,
+            "currentTime": 500,
+            "startedAt": "<timestamp>",
+            "updatedAt": "<timestamp>",
+            "lastSave": 0,
+            "audioTracks": [],
+            "stream": null,
+            "shareSessionId": null,
+            "mediaItemShareId": null,
+            "coverAspectRatio": null,
+            "user": {
+              "id": "<uuid-11>",
+              "username": "root"
+            }
+          },
+          {
+            "id": "<uuid-8>",
+            "userId": "<uuid-9>",
+            "libraryId": "<uuid-3>",
+            "libraryItemId": "<uuid-4>",
+            "bookId": "<uuid-5>",
+            "episodeId": null,
+            "mediaType": "book",
+            "mediaMetadata": {
+              "title": "Mid",
+              "authors": [],
+              "narrators": [],
+              "genres": []
+            },
+            "chapters": [],
+            "displayTitle": "Mid",
+            "displayAuthor": "",
+            "coverPath": null,
+            "duration": 3600,
+            "playMethod": 0,
+            "mediaPlayer": "test-player",
+            "deviceInfo": {},
+            "serverVersion": "2.0.0-test",
+            "date": "2024-01-03",
+            "dayOfWeek": "Friday",
+            "timeListening": 10,
+            "startTime": 0,
+            "currentTime": 200,
+            "startedAt": "<timestamp>",
+            "updatedAt": "<timestamp>",
+            "lastSave": 0,
+            "audioTracks": [],
+            "stream": null,
+            "shareSessionId": null,
+            "mediaItemShareId": null,
+            "coverAspectRatio": null,
+            "user": {
+              "id": "<uuid-9>",
+              "username": "admin"
+            }
+          },
+          {
+            "id": "<uuid-6>",
+            "userId": "<uuid-7>",
+            "libraryId": "<uuid-3>",
+            "libraryItemId": "<uuid-4>",
+            "bookId": "<uuid-5>",
+            "episodeId": null,
+            "mediaType": "book",
+            "mediaMetadata": {
+              "title": "Beta",
+              "authors": [],
+              "narrators": [],
+              "genres": []
+            },
+            "chapters": [],
+            "displayTitle": "Beta",
+            "displayAuthor": "",
+            "coverPath": null,
+            "duration": 3600,
+            "playMethod": 0,
+            "mediaPlayer": "test-player",
+            "deviceInfo": {},
+            "serverVersion": "2.0.0-test",
+            "date": "2024-01-04",
+            "dayOfWeek": "Friday",
+            "timeListening": 40,
+            "startTime": 0,
+            "currentTime": 400,
+            "startedAt": "<timestamp>",
+            "updatedAt": "<timestamp>",
+            "lastSave": 0,
+            "audioTracks": [],
+            "stream": null,
+            "shareSessionId": null,
+            "mediaItemShareId": null,
+            "coverAspectRatio": null,
+            "user": {
+              "id": "<uuid-7>",
+              "username": "guest"
+            }
+          },
+          {
+            "id": "<uuid-1>",
+            "userId": "<uuid-2>",
+            "libraryId": "<uuid-3>",
+            "libraryItemId": "<uuid-4>",
+            "bookId": "<uuid-5>",
+            "episodeId": null,
+            "mediaType": "book",
+            "mediaMetadata": {
+              "title": "Alpha",
+              "authors": [],
+              "narrators": [],
+              "genres": []
+            },
+            "chapters": [],
+            "displayTitle": "Alpha",
+            "displayAuthor": "",
+            "coverPath": null,
+            "duration": 3600,
+            "playMethod": 0,
+            "mediaPlayer": "test-player",
+            "deviceInfo": {},
+            "serverVersion": "2.0.0-test",
+            "date": "2024-01-02",
+            "dayOfWeek": "Friday",
+            "timeListening": 20,
+            "startTime": 0,
+            "currentTime": 300,
+            "startedAt": "<timestamp>",
+            "updatedAt": "<timestamp>",
+            "lastSave": 0,
+            "audioTracks": [],
+            "stream": null,
+            "shareSessionId": null,
+            "mediaItemShareId": null,
+            "coverAspectRatio": null,
+            "user": {
+              "id": "<uuid-2>",
+              "username": "user"
+            }
+          }
+        ]
+      }
+    },
+    "emitted": []
+  },
+  "SessionController (characterization) > GET /api/sessions > sorts, filters and paginates > sort timeListening desc, 2 per page": {
+    "res": {
+      "status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8"
+      },
+      "body": {
+        "total": 5,
+        "numPages": 3,
+        "page": 0,
+        "itemsPerPage": 2,
+        "sessions": [
+          {
+            "id": "<uuid-10>",
+            "userId": "<uuid-11>",
+            "libraryId": "<uuid-3>",
+            "libraryItemId": "<uuid-4>",
+            "bookId": "<uuid-5>",
+            "episodeId": null,
+            "mediaType": "book",
+            "mediaMetadata": {
+              "title": "Omega",
+              "authors": [],
+              "narrators": [],
+              "genres": []
+            },
+            "chapters": [],
+            "displayTitle": "Omega",
+            "displayAuthor": "",
+            "coverPath": null,
+            "duration": 3600,
+            "playMethod": 0,
+            "mediaPlayer": "test-player",
+            "deviceInfo": {},
+            "serverVersion": "2.0.0-test",
+            "date": "2024-01-05",
+            "dayOfWeek": "Friday",
+            "timeListening": 50,
+            "startTime": 0,
+            "currentTime": 500,
+            "startedAt": "<timestamp>",
+            "updatedAt": "<timestamp>",
+            "lastSave": 0,
+            "audioTracks": [],
+            "stream": null,
+            "shareSessionId": null,
+            "mediaItemShareId": null,
+            "coverAspectRatio": null,
+            "user": {
+              "id": "<uuid-11>",
+              "username": "root"
+            }
+          },
+          {
+            "id": "<uuid-6>",
+            "userId": "<uuid-7>",
+            "libraryId": "<uuid-3>",
+            "libraryItemId": "<uuid-4>",
+            "bookId": "<uuid-5>",
+            "episodeId": null,
+            "mediaType": "book",
+            "mediaMetadata": {
+              "title": "Beta",
+              "authors": [],
+              "narrators": [],
+              "genres": []
+            },
+            "chapters": [],
+            "displayTitle": "Beta",
+            "displayAuthor": "",
+            "coverPath": null,
+            "duration": 3600,
+            "playMethod": 0,
+            "mediaPlayer": "test-player",
+            "deviceInfo": {},
+            "serverVersion": "2.0.0-test",
+            "date": "2024-01-04",
+            "dayOfWeek": "Friday",
+            "timeListening": 40,
+            "startTime": 0,
+            "currentTime": 400,
+            "startedAt": "<timestamp>",
+            "updatedAt": "<timestamp>",
+            "lastSave": 0,
+            "audioTracks": [],
+            "stream": null,
+            "shareSessionId": null,
+            "mediaItemShareId": null,
+            "coverAspectRatio": null,
+            "user": {
+              "id": "<uuid-7>",
+              "username": "guest"
+            }
+          }
+        ]
+      }
+    },
+    "emitted": []
+  },
+  "SessionController (characterization) > GET /api/sessions > sorts, filters and paginates > user filter": {
+    "res": {
+      "status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8"
+      },
+      "body": {
+        "total": 2,
+        "numPages": 1,
+        "page": 0,
+        "itemsPerPage": 10,
+        "sessions": [
+          {
+            "id": "<uuid-12>",
+            "userId": "<uuid-9>",
+            "libraryId": "<uuid-3>",
+            "libraryItemId": "<uuid-4>",
+            "bookId": "<uuid-5>",
+            "episodeId": null,
+            "mediaType": "book",
+            "mediaMetadata": {
+              "title": "Zeta",
+              "authors": [],
+              "narrators": [],
+              "genres": []
+            },
+            "chapters": [],
+            "displayTitle": "Zeta",
+            "displayAuthor": "",
+            "coverPath": null,
+            "duration": 3600,
+            "playMethod": 0,
+            "mediaPlayer": "test-player",
+            "deviceInfo": {
+              "id": "<uuid-13>",
+              "userId": "<uuid-9>",
+              "deviceId": "dev-1",
+              "ipAddress": "10.0.0.1",
+              "osName": "Linux",
+              "clientVersion": "1.0",
+              "manufacturer": "",
+              "model": "",
+              "sdkVersion": "",
+              "clientName": "Test Client",
+              "deviceName": ""
+            },
+            "serverVersion": "2.0.0-test",
+            "date": "2024-01-01",
+            "dayOfWeek": "Friday",
+            "timeListening": 30,
+            "startTime": 0,
+            "currentTime": 100,
+            "startedAt": "<timestamp>",
+            "updatedAt": "<timestamp>",
+            "lastSave": 0,
+            "audioTracks": [],
+            "stream": null,
+            "shareSessionId": null,
+            "mediaItemShareId": null,
+            "coverAspectRatio": null,
+            "user": {
+              "id": "<uuid-9>",
+              "username": "admin"
+            }
+          },
+          {
+            "id": "<uuid-8>",
+            "userId": "<uuid-9>",
+            "libraryId": "<uuid-3>",
+            "libraryItemId": "<uuid-4>",
+            "bookId": "<uuid-5>",
+            "episodeId": null,
+            "mediaType": "book",
+            "mediaMetadata": {
+              "title": "Mid",
+              "authors": [],
+              "narrators": [],
+              "genres": []
+            },
+            "chapters": [],
+            "displayTitle": "Mid",
+            "displayAuthor": "",
+            "coverPath": null,
+            "duration": 3600,
+            "playMethod": 0,
+            "mediaPlayer": "test-player",
+            "deviceInfo": {},
+            "serverVersion": "2.0.0-test",
+            "date": "2024-01-03",
+            "dayOfWeek": "Friday",
+            "timeListening": 10,
+            "startTime": 0,
+            "currentTime": 200,
+            "startedAt": "<timestamp>",
+            "updatedAt": "<timestamp>",
+            "lastSave": 0,
+            "audioTracks": [],
+            "stream": null,
+            "shareSessionId": null,
+            "mediaItemShareId": null,
+            "coverAspectRatio": null,
+            "user": {
+              "id": "<uuid-9>",
+              "username": "admin"
+            }
+          }
+        ],
+        "userId": "<uuid-9>"
+      }
+    },
+    "emitted": []
+  },
+  "SessionController (characterization) > GET /api/sessions/open > requires an admin and lists open sessions with their user and share sessions > admin": {
+    "res": {
+      "status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8"
+      },
+      "body": {
+        "sessions": [
+          {
+            "id": "<uuid-1>",
+            "userId": "<uuid-2>",
+            "libraryId": "<uuid-3>",
+            "libraryItemId": "<uuid-4>",
+            "bookId": "<uuid-5>",
+            "episodeId": null,
+            "mediaType": "book",
+            "mediaMetadata": {
+              "title": "Open session"
+            },
+            "chapters": [],
+            "displayTitle": "Open session",
+            "displayAuthor": "Someone",
+            "coverPath": null,
+            "duration": 3600,
+            "playMethod": 0,
+            "mediaPlayer": "test-player",
+            "deviceInfo": {
+              "deviceId": "dev-1",
+              "clientName": "Test Client"
+            },
+            "serverVersion": "2.0.0-test",
+            "date": "2024-01-02",
+            "dayOfWeek": "Tuesday",
+            "timeListening": 10,
+            "startTime": 0,
+            "currentTime": 5,
+            "startedAt": "<timestamp>",
+            "updatedAt": "<timestamp>",
+            "user": {
+              "id": "<uuid-2>",
+              "username": "user"
+            }
+          },
+          {
+            "id": "<uuid-6>",
+            "userId": "<uuid-7>",
+            "libraryId": "<uuid-3>",
+            "libraryItemId": "<uuid-4>",
+            "bookId": "<uuid-5>",
+            "episodeId": null,
+            "mediaType": "book",
+            "mediaMetadata": {
+              "title": "Orphan"
+            },
+            "chapters": [],
+            "displayTitle": "Orphan",
+            "displayAuthor": "Someone",
+            "coverPath": null,
+            "duration": 3600,
+            "playMethod": 0,
+            "mediaPlayer": "test-player",
+            "deviceInfo": {
+              "deviceId": "dev-1",
+              "clientName": "Test Client"
+            },
+            "serverVersion": "2.0.0-test",
+            "date": "2024-01-02",
+            "dayOfWeek": "Tuesday",
+            "timeListening": 10,
+            "startTime": 0,
+            "currentTime": 5,
+            "startedAt": "<timestamp>",
+            "updatedAt": "<timestamp>",
+            "user": null
+          }
+        ],
+        "shareSessions": [
+          {
+            "id": "<uuid-8>",
+            "userId": null,
+            "libraryId": "<uuid-3>",
+            "libraryItemId": "<uuid-4>",
+            "bookId": "<uuid-5>",
+            "episodeId": null,
+            "mediaType": "book",
+            "mediaMetadata": {
+              "title": "Shared"
+            },
+            "chapters": [],
+            "displayTitle": "Shared",
+            "displayAuthor": "Someone",
+            "coverPath": null,
+            "duration": 3600,
+            "playMethod": 0,
+            "mediaPlayer": "test-player",
+            "deviceInfo": {
+              "deviceId": "dev-1",
+              "clientName": "Test Client"
+            },
+            "serverVersion": "2.0.0-test",
+            "date": "2024-01-02",
+            "dayOfWeek": "Tuesday",
+            "timeListening": 10,
+            "startTime": 0,
+            "currentTime": 5,
+            "startedAt": "<timestamp>",
+            "updatedAt": "<timestamp>"
+          }
+        ]
+      }
+    },
+    "emitted": []
+  },
+  "SessionController (characterization) > GET /api/sessions/open > requires an admin and lists open sessions with their user and share sessions > none open": {
+    "res": {
+      "status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8"
+      },
+      "body": {
+        "sessions": [],
+        "shareSessions": []
+      }
+    },
+    "emitted": []
+  },
+  "SessionController (characterization) > GET /api/sessions/open > requires an admin and lists open sessions with their user and share sessions > root": {
+    "res": {
+      "status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8"
+      },
+      "body": {
+        "sessions": [
+          {
+            "id": "<uuid-1>",
+            "userId": "<uuid-2>",
+            "libraryId": "<uuid-3>",
+            "libraryItemId": "<uuid-4>",
+            "bookId": "<uuid-5>",
+            "episodeId": null,
+            "mediaType": "book",
+            "mediaMetadata": {
+              "title": "Open session"
+            },
+            "chapters": [],
+            "displayTitle": "Open session",
+            "displayAuthor": "Someone",
+            "coverPath": null,
+            "duration": 3600,
+            "playMethod": 0,
+            "mediaPlayer": "test-player",
+            "deviceInfo": {
+              "deviceId": "dev-1",
+              "clientName": "Test Client"
+            },
+            "serverVersion": "2.0.0-test",
+            "date": "2024-01-02",
+            "dayOfWeek": "Tuesday",
+            "timeListening": 10,
+            "startTime": 0,
+            "currentTime": 5,
+            "startedAt": "<timestamp>",
+            "updatedAt": "<timestamp>",
+            "user": {
+              "id": "<uuid-2>",
+              "username": "user"
+            }
+          },
+          {
+            "id": "<uuid-6>",
+            "userId": "<uuid-7>",
+            "libraryId": "<uuid-3>",
+            "libraryItemId": "<uuid-4>",
+            "bookId": "<uuid-5>",
+            "episodeId": null,
+            "mediaType": "book",
+            "mediaMetadata": {
+              "title": "Orphan"
+            },
+            "chapters": [],
+            "displayTitle": "Orphan",
+            "displayAuthor": "Someone",
+            "coverPath": null,
+            "duration": 3600,
+            "playMethod": 0,
+            "mediaPlayer": "test-player",
+            "deviceInfo": {
+              "deviceId": "dev-1",
+              "clientName": "Test Client"
+            },
+            "serverVersion": "2.0.0-test",
+            "date": "2024-01-02",
+            "dayOfWeek": "Tuesday",
+            "timeListening": 10,
+            "startTime": 0,
+            "currentTime": 5,
+            "startedAt": "<timestamp>",
+            "updatedAt": "<timestamp>",
+            "user": null
+          }
+        ],
+        "shareSessions": [
+          {
+            "id": "<uuid-8>",
+            "userId": null,
+            "libraryId": "<uuid-3>",
+            "libraryItemId": "<uuid-4>",
+            "bookId": "<uuid-5>",
+            "episodeId": null,
+            "mediaType": "book",
+            "mediaMetadata": {
+              "title": "Shared"
+            },
+            "chapters": [],
+            "displayTitle": "Shared",
+            "displayAuthor": "Someone",
+            "coverPath": null,
+            "duration": 3600,
+            "playMethod": 0,
+            "mediaPlayer": "test-player",
+            "deviceInfo": {
+              "deviceId": "dev-1",
+              "clientName": "Test Client"
+            },
+            "serverVersion": "2.0.0-test",
+            "date": "2024-01-02",
+            "dayOfWeek": "Tuesday",
+            "timeListening": 10,
+            "startTime": 0,
+            "currentTime": 5,
+            "startedAt": "<timestamp>",
+            "updatedAt": "<timestamp>"
+          }
+        ]
+      }
+    },
+    "emitted": []
+  },
+  "SessionController (characterization) > GET /api/sessions/open > requires an admin and lists open sessions with their user and share sessions > unauthenticated": {
+    "res": {
+      "status": 401,
+      "headers": {
+        "content-type": "text/plain; charset=utf-8"
+      },
+      "body": "Unauthorized"
+    },
+    "emitted": []
+  },
+  "SessionController (characterization) > GET /api/sessions/open > requires an admin and lists open sessions with their user and share sessions > user": {
+    "res": {
+      "status": 404,
+      "headers": {
+        "content-type": "text/plain; charset=utf-8"
+      },
+      "body": "Not Found"
+    },
+    "emitted": []
+  },
+  "SessionController (characterization) > GET /public/session/:id/track/:index > redirects transcode sessions and supports X-Accel > transcode redirect": {
+    "res": {
+      "status": 302,
+      "headers": {
+        "content-type": "text/plain; charset=utf-8",
+        "location": "/hls/some-stream/output-0.ts",
+        "x-accel-redirect": null
+      },
+      "body": "Found. Redirecting to /hls/some-stream/output-0.ts"
+    },
+    "emitted": []
+  },
+  "SessionController (characterization) > GET /public/session/:id/track/:index > redirects transcode sessions and supports X-Accel > x-accel": {
+    "res": {
+      "status": 204,
+      "headers": {
+        "content-type": null,
+        "location": null,
+        "x-accel-redirect": "/audiobooks<tmp>/track.m4b"
+      },
+      "body": ""
+    },
+    "emitted": []
+  },
+  "SessionController (characterization) > GET /public/session/:id/track/:index > streams the file without authentication, with the audio mime type > book track": {
+    "res": {
+      "status": 200,
+      "headers": {
+        "content-type": "audio/mp4",
+        "location": null,
+        "x-accel-redirect": null
+      },
+      "body": "fake audio bytes"
+    },
+    "emitted": []
+  },
+  "SessionController (characterization) > GET /public/session/:id/track/:index > streams the file without authentication, with the audio mime type > podcast track with null index requested as 0": {
+    "res": {
+      "status": 200,
+      "headers": {
+        "content-type": "audio/mp4",
+        "location": null,
+        "x-accel-redirect": null
+      },
+      "body": "fake audio bytes"
+    },
+    "emitted": []
+  },
+  "SessionController (characterization) > GET /public/session/:id/track/:index > validates the session and track > index 0 for a book": {
+    "res": {
+      "status": 404,
+      "headers": {
+        "content-type": "text/plain; charset=utf-8",
+        "location": null,
+        "x-accel-redirect": null
+      },
+      "body": "Not Found"
+    },
+    "emitted": []
+  },
+  "SessionController (characterization) > GET /public/session/:id/track/:index > validates the session and track > invalid index": {
+    "res": {
+      "status": 400,
+      "headers": {
+        "content-type": "text/plain; charset=utf-8",
+        "location": null,
+        "x-accel-redirect": null
+      },
+      "body": "Bad Request"
+    },
+    "emitted": []
+  },
+  "SessionController (characterization) > GET /public/session/:id/track/:index > validates the session and track > track without a file path": {
+    "res": {
+      "status": 500,
+      "headers": {
+        "content-type": "text/plain; charset=utf-8",
+        "location": null,
+        "x-accel-redirect": null
+      },
+      "body": "Internal Server Error"
+    },
+    "emitted": []
+  },
+  "SessionController (characterization) > GET /public/session/:id/track/:index > validates the session and track > unknown session": {
+    "res": {
+      "status": 404,
+      "headers": {
+        "content-type": "text/plain; charset=utf-8",
+        "location": null,
+        "x-accel-redirect": null
+      },
+      "body": "Not Found"
+    },
+    "emitted": []
+  },
+  "SessionController (characterization) > GET /public/session/:id/track/:index > validates the session and track > unknown track": {
+    "res": {
+      "status": 404,
+      "headers": {
+        "content-type": "text/plain; charset=utf-8",
+        "location": null,
+        "x-accel-redirect": null
+      },
+      "body": "Not Found"
+    },
+    "emitted": []
+  },
+  "SessionController (characterization) > POST /api/session/local and /api/session/local-all > hands the request to the manager > local": {
+    "res": {
+      "status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8"
+      },
+      "body": {
+        "fake": "syncLocalSessionRequest"
+      }
+    },
+    "emitted": [],
+    "calls": [
+      {
+        "method": "syncLocalSessionRequest",
+        "args": [
+          {
+            "request": {
+              "user": "user",
+              "body": {
+                "id": "local_1",
+                "libraryItemId": "<uuid-1>",
+                "currentTime": 12
+              }
+            }
+          },
+          "<res>"
+        ]
+      }
+    ]
+  },
+  "SessionController (characterization) > POST /api/session/local and /api/session/local-all > hands the request to the manager > local guest without body": {
+    "res": {
+      "status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8"
+      },
+      "body": {
+        "fake": "syncLocalSessionRequest"
+      }
+    },
+    "emitted": [],
+    "calls": [
+      {
+        "method": "syncLocalSessionRequest",
+        "args": [
+          {
+            "request": {
+              "user": "guest",
+              "body": {}
+            }
+          },
+          "<res>"
+        ]
+      }
+    ]
+  },
+  "SessionController (characterization) > POST /api/session/local and /api/session/local-all > hands the request to the manager > local unauthenticated": {
+    "res": {
+      "status": 401,
+      "headers": {
+        "content-type": "text/plain; charset=utf-8"
+      },
+      "body": "Unauthorized"
+    },
+    "emitted": [],
+    "calls": []
+  },
+  "SessionController (characterization) > POST /api/session/local and /api/session/local-all > hands the request to the manager > local-all": {
+    "res": {
+      "status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8"
+      },
+      "body": {
+        "fake": "syncLocalSessionsRequest"
+      }
+    },
+    "emitted": [],
+    "calls": [
+      {
+        "method": "syncLocalSessionsRequest",
+        "args": [
+          {
+            "request": {
+              "user": "admin",
+              "body": {
+                "sessions": [
+                  {
+                    "id": "local_1"
+                  },
+                  {
+                    "id": "local_2"
+                  }
+                ],
+                "deviceInfo": {
+                  "deviceId": "d"
+                }
+              }
+            }
+          },
+          "<res>"
+        ]
+      }
+    ]
+  },
+  "SessionController (characterization) > POST /api/session/local and /api/session/local-all > hands the request to the manager > local-all unauthenticated": {
+    "res": {
+      "status": 401,
+      "headers": {
+        "content-type": "text/plain; charset=utf-8"
+      },
+      "body": "Unauthorized"
+    },
+    "emitted": [],
+    "calls": []
+  },
+  "SessionController (characterization) > POST /api/sessions/batch/delete > validates, requires an admin and deletes in bulk > admin deletes two and an unknown id": {
+    "res": {
+      "status": 200,
+      "headers": {
+        "content-type": "text/plain; charset=utf-8"
+      },
+      "body": "OK"
+    },
+    "emitted": [],
+    "calls": [
+      {
+        "method": "getSession",
+        "args": [
+          "<s0>"
+        ]
+      },
+      {
+        "method": "getSession",
+        "args": [
+          "<s1>"
+        ]
+      },
+      {
+        "method": "removeSession",
+        "args": [
+          "<s1>"
+        ]
+      },
+      {
+        "method": "getSession",
+        "args": [
+          "<uuid-5>"
+        ]
+      }
+    ],
+    "openLeft": 0
+  },
+  "SessionController (characterization) > POST /api/sessions/batch/delete > validates, requires an admin and deletes in bulk > empty": {
+    "res": {
+      "status": 400,
+      "headers": {
+        "content-type": "text/html; charset=utf-8"
+      },
+      "body": "Invalid request body. \"sessions\" array of session id strings is required."
+    },
+    "emitted": []
+  },
+  "SessionController (characterization) > POST /api/sessions/batch/delete > validates, requires an admin and deletes in bulk > guest": {
+    "res": {
+      "status": 403,
+      "headers": {
+        "content-type": "text/plain; charset=utf-8"
+      },
+      "body": "Forbidden"
+    },
+    "emitted": []
+  },
+  "SessionController (characterization) > POST /api/sessions/batch/delete > validates, requires an admin and deletes in bulk > invalid id (nothing deleted)": {
+    "res": {
+      "status": 400,
+      "headers": {
+        "content-type": "text/html; charset=utf-8"
+      },
+      "body": "Invalid request body. \"sessions\" array of session id strings is required."
+    },
+    "emitted": []
+  },
+  "SessionController (characterization) > POST /api/sessions/batch/delete > validates, requires an admin and deletes in bulk > no sessions": {
+    "res": {
+      "status": 400,
+      "headers": {
+        "content-type": "text/html; charset=utf-8"
+      },
+      "body": "Invalid request body. \"sessions\" array of session id strings is required."
+    },
+    "emitted": []
+  },
+  "SessionController (characterization) > POST /api/sessions/batch/delete > validates, requires an admin and deletes in bulk > not an array": {
+    "res": {
+      "status": 400,
+      "headers": {
+        "content-type": "text/html; charset=utf-8"
+      },
+      "body": "Invalid request body. \"sessions\" array of session id strings is required."
+    },
+    "emitted": []
+  },
+  "SessionController (characterization) > POST /api/sessions/batch/delete > validates, requires an admin and deletes in bulk > root deletes the rest": {
+    "res": {
+      "status": 200,
+      "headers": {
+        "content-type": "text/plain; charset=utf-8"
+      },
+      "body": "OK"
+    },
+    "emitted": [],
+    "calls": [
+      {
+        "method": "getSession",
+        "args": [
+          "<s2>"
+        ]
+      },
+      {
+        "method": "getSession",
+        "args": [
+          "<s3>"
+        ]
+      }
+    ]
+  },
+  "SessionController (characterization) > POST /api/sessions/batch/delete > validates, requires an admin and deletes in bulk > rows after admin": {
+    "res": {
+      "rows": 2
+    },
+    "emitted": []
+  },
+  "SessionController (characterization) > POST /api/sessions/batch/delete > validates, requires an admin and deletes in bulk > rows after root": {
+    "res": {
+      "rows": 0
+    },
+    "emitted": []
+  },
+  "SessionController (characterization) > POST /api/sessions/batch/delete > validates, requires an admin and deletes in bulk > rows before": {
+    "res": {
+      "rows": 4
+    },
+    "emitted": []
+  },
+  "SessionController (characterization) > POST /api/sessions/batch/delete > validates, requires an admin and deletes in bulk > unauthenticated": {
+    "res": {
+      "status": 401,
+      "headers": {
+        "content-type": "text/plain; charset=utf-8"
+      },
+      "body": "Unauthorized"
+    },
+    "emitted": []
+  },
+  "SessionController (characterization) > POST /api/sessions/batch/delete > validates, requires an admin and deletes in bulk > user": {
+    "res": {
+      "status": 403,
+      "headers": {
+        "content-type": "text/plain; charset=utf-8"
+      },
+      "body": "Forbidden"
+    },
+    "emitted": []
+  },
+  "SessionController (characterization) > open session routes (/api/session/:id) > GET returns the open session with its library item > admin may read others": {
+    "res": {
+      "status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8"
+      },
+      "body": {
+        "id": "<session>",
+        "userId": "<uuid-2>",
+        "libraryId": "<uuid-3>",
+        "libraryItemId": "<uuid-4>",
+        "bookId": "<uuid-5>",
+        "episodeId": null,
+        "mediaType": "book",
+        "mediaMetadata": {
+          "title": "Open session"
+        },
+        "chapters": [],
+        "displayTitle": "Open session",
+        "displayAuthor": "Someone",
+        "coverPath": null,
+        "duration": 3600,
+        "playMethod": 0,
+        "mediaPlayer": "test-player",
+        "deviceInfo": {
+          "deviceId": "dev-1",
+          "clientName": "Test Client"
+        },
+        "serverVersion": "2.0.0-test",
+        "date": "2024-01-02",
+        "dayOfWeek": "Tuesday",
+        "timeListening": 10,
+        "startTime": 0,
+        "currentTime": 5,
+        "startedAt": "<timestamp>",
+        "updatedAt": "<timestamp>",
+        "audioTracks": [
+          {
+            "index": 1,
+            "startOffset": 0,
+            "duration": 3600,
+            "title": "a.mp3",
+            "contentUrl": "/public/session/<session>/track/1",
+            "mimeType": "audio/mpeg",
+            "metadata": null
+          }
+        ],
+        "libraryItem": {
+          "id": "<uuid-4>",
+          "ino": null,
+          "oldLibraryItemId": null,
+          "libraryId": "<uuid-3>",
+          "folderId": "<uuid-6>",
+          "path": "/test/books/Listened Book",
+          "relPath": "Listened Book",
+          "isFile": null,
+          "addedAt": "<timestamp>",
+          "updatedAt": "<timestamp>",
+          "isMissing": false,
+          "isInvalid": false,
+          "mediaType": "book",
+          "media": {
+            "id": "<uuid-5>",
+            "metadata": {
+              "title": "Listened Book",
+              "subtitle": null,
+              "authors": [
+                {
+                  "id": "<uuid-7>",
+                  "name": "Ann Author"
+                }
+              ],
+              "narrators": [],
+              "series": [],
+              "genres": [],
+              "publishedYear": null,
+              "publishedDate": null,
+              "publisher": null,
+              "description": null,
+              "isbn": null,
+              "asin": null,
+              "language": null,
+              "explicit": false,
+              "abridged": null,
+              "titleIgnorePrefix": "Listened Book",
+              "authorName": "Ann Author",
+              "authorNameLF": "Author, Ann",
+              "narratorName": "",
+              "seriesName": "",
+              "descriptionPlain": null
+            },
+            "coverPath": null,
+            "tags": [],
+            "numTracks": 1,
+            "numAudioFiles": 1,
+            "numChapters": 0,
+            "duration": 3600,
+            "size": 1000,
+            "libraryItemId": "<uuid-4>",
+            "audioFiles": [
+              {
+                "index": 1,
+                "ino": "a.mp3",
+                "metadata": {
+                  "filename": "a.mp3",
+                  "ext": ".mp3",
+                  "path": "/x/a.mp3",
+                  "relPath": "a.mp3",
+                  "size": 1000,
+                  "mtimeMs": 1,
+                  "ctimeMs": 1,
+                  "birthtimeMs": 1
+                },
+                "addedAt": 1,
+                "updatedAt": 1,
+                "trackNumFromMeta": null,
+                "discNumFromMeta": null,
+                "trackNumFromFilename": null,
+                "discNumFromFilename": null,
+                "manuallyVerified": false,
+                "format": "MP3",
+                "duration": 3600,
+                "bitRate": 64000,
+                "language": null,
+                "codec": "mp3",
+                "timeBase": "1/14112000",
+                "channels": 2,
+                "channelLayout": "stereo",
+                "chapters": [],
+                "embeddedCoverArt": null,
+                "metaTags": {},
+                "mimeType": "audio/mpeg"
+              }
+            ],
+            "chapters": [],
+            "ebookFile": null,
+            "tracks": [
+              {
+                "index": 1,
+                "ino": "a.mp3",
+                "metadata": {
+                  "filename": "a.mp3",
+                  "ext": ".mp3",
+                  "path": "/x/a.mp3",
+                  "relPath": "a.mp3",
+                  "size": 1000,
+                  "mtimeMs": 1,
+                  "ctimeMs": 1,
+                  "birthtimeMs": 1
+                },
+                "addedAt": 1,
+                "updatedAt": 1,
+                "trackNumFromMeta": null,
+                "discNumFromMeta": null,
+                "trackNumFromFilename": null,
+                "discNumFromFilename": null,
+                "manuallyVerified": false,
+                "format": "MP3",
+                "duration": 3600,
+                "bitRate": 64000,
+                "language": null,
+                "codec": "mp3",
+                "timeBase": "1/14112000",
+                "channels": 2,
+                "channelLayout": "stereo",
+                "chapters": [],
+                "embeddedCoverArt": null,
+                "metaTags": {},
+                "mimeType": "audio/mpeg",
+                "title": "a.mp3",
+                "startOffset": 0,
+                "contentUrl": "/api/items/<uuid-4>/file/a.mp3"
+              }
+            ]
+          },
+          "numFiles": 0,
+          "size": null,
+          "scanVersion": null,
+          "libraryFiles": []
+        }
+      }
+    },
+    "emitted": []
+  },
+  "SessionController (characterization) > open session routes (/api/session/:id) > GET returns the open session with its library item > other non-admin": {
+    "res": {
+      "status": 403,
+      "headers": {
+        "content-type": "text/plain; charset=utf-8"
+      },
+      "body": "Forbidden"
+    },
+    "emitted": []
+  },
+  "SessionController (characterization) > open session routes (/api/session/:id) > GET returns the open session with its library item > owner": {
+    "res": {
+      "status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8"
+      },
+      "body": {
+        "id": "<session>",
+        "userId": "<uuid-2>",
+        "libraryId": "<uuid-3>",
+        "libraryItemId": "<uuid-4>",
+        "bookId": "<uuid-5>",
+        "episodeId": null,
+        "mediaType": "book",
+        "mediaMetadata": {
+          "title": "Open session"
+        },
+        "chapters": [],
+        "displayTitle": "Open session",
+        "displayAuthor": "Someone",
+        "coverPath": null,
+        "duration": 3600,
+        "playMethod": 0,
+        "mediaPlayer": "test-player",
+        "deviceInfo": {
+          "deviceId": "dev-1",
+          "clientName": "Test Client"
+        },
+        "serverVersion": "2.0.0-test",
+        "date": "2024-01-02",
+        "dayOfWeek": "Tuesday",
+        "timeListening": 10,
+        "startTime": 0,
+        "currentTime": 5,
+        "startedAt": "<timestamp>",
+        "updatedAt": "<timestamp>",
+        "audioTracks": [
+          {
+            "index": 1,
+            "startOffset": 0,
+            "duration": 3600,
+            "title": "a.mp3",
+            "contentUrl": "/public/session/<session>/track/1",
+            "mimeType": "audio/mpeg",
+            "metadata": null
+          }
+        ],
+        "libraryItem": {
+          "id": "<uuid-4>",
+          "ino": null,
+          "oldLibraryItemId": null,
+          "libraryId": "<uuid-3>",
+          "folderId": "<uuid-6>",
+          "path": "/test/books/Listened Book",
+          "relPath": "Listened Book",
+          "isFile": null,
+          "addedAt": "<timestamp>",
+          "updatedAt": "<timestamp>",
+          "isMissing": false,
+          "isInvalid": false,
+          "mediaType": "book",
+          "media": {
+            "id": "<uuid-5>",
+            "metadata": {
+              "title": "Listened Book",
+              "subtitle": null,
+              "authors": [
+                {
+                  "id": "<uuid-7>",
+                  "name": "Ann Author"
+                }
+              ],
+              "narrators": [],
+              "series": [],
+              "genres": [],
+              "publishedYear": null,
+              "publishedDate": null,
+              "publisher": null,
+              "description": null,
+              "isbn": null,
+              "asin": null,
+              "language": null,
+              "explicit": false,
+              "abridged": null,
+              "titleIgnorePrefix": "Listened Book",
+              "authorName": "Ann Author",
+              "authorNameLF": "Author, Ann",
+              "narratorName": "",
+              "seriesName": "",
+              "descriptionPlain": null
+            },
+            "coverPath": null,
+            "tags": [],
+            "numTracks": 1,
+            "numAudioFiles": 1,
+            "numChapters": 0,
+            "duration": 3600,
+            "size": 1000,
+            "libraryItemId": "<uuid-4>",
+            "audioFiles": [
+              {
+                "index": 1,
+                "ino": "a.mp3",
+                "metadata": {
+                  "filename": "a.mp3",
+                  "ext": ".mp3",
+                  "path": "/x/a.mp3",
+                  "relPath": "a.mp3",
+                  "size": 1000,
+                  "mtimeMs": 1,
+                  "ctimeMs": 1,
+                  "birthtimeMs": 1
+                },
+                "addedAt": 1,
+                "updatedAt": 1,
+                "trackNumFromMeta": null,
+                "discNumFromMeta": null,
+                "trackNumFromFilename": null,
+                "discNumFromFilename": null,
+                "manuallyVerified": false,
+                "format": "MP3",
+                "duration": 3600,
+                "bitRate": 64000,
+                "language": null,
+                "codec": "mp3",
+                "timeBase": "1/14112000",
+                "channels": 2,
+                "channelLayout": "stereo",
+                "chapters": [],
+                "embeddedCoverArt": null,
+                "metaTags": {},
+                "mimeType": "audio/mpeg"
+              }
+            ],
+            "chapters": [],
+            "ebookFile": null,
+            "tracks": [
+              {
+                "index": 1,
+                "ino": "a.mp3",
+                "metadata": {
+                  "filename": "a.mp3",
+                  "ext": ".mp3",
+                  "path": "/x/a.mp3",
+                  "relPath": "a.mp3",
+                  "size": 1000,
+                  "mtimeMs": 1,
+                  "ctimeMs": 1,
+                  "birthtimeMs": 1
+                },
+                "addedAt": 1,
+                "updatedAt": 1,
+                "trackNumFromMeta": null,
+                "discNumFromMeta": null,
+                "trackNumFromFilename": null,
+                "discNumFromFilename": null,
+                "manuallyVerified": false,
+                "format": "MP3",
+                "duration": 3600,
+                "bitRate": 64000,
+                "language": null,
+                "codec": "mp3",
+                "timeBase": "1/14112000",
+                "channels": 2,
+                "channelLayout": "stereo",
+                "chapters": [],
+                "embeddedCoverArt": null,
+                "metaTags": {},
+                "mimeType": "audio/mpeg",
+                "title": "a.mp3",
+                "startOffset": 0,
+                "contentUrl": "/api/items/<uuid-4>/file/a.mp3"
+              }
+            ]
+          },
+          "numFiles": 0,
+          "size": null,
+          "scanVersion": null,
+          "libraryFiles": []
+        }
+      }
+    },
+    "emitted": []
+  },
+  "SessionController (characterization) > open session routes (/api/session/:id) > GET returns the open session with its library item > unauthenticated": {
+    "res": {
+      "status": 401,
+      "headers": {
+        "content-type": "text/plain; charset=utf-8"
+      },
+      "body": "Unauthorized"
+    },
+    "emitted": []
+  },
+  "SessionController (characterization) > open session routes (/api/session/:id) > GET returns the open session with its library item > unknown id": {
+    "res": {
+      "status": 404,
+      "headers": {
+        "content-type": "text/plain; charset=utf-8"
+      },
+      "body": "Not Found"
+    },
+    "emitted": []
+  },
+  "SessionController (characterization) > open session routes (/api/session/:id) > POST close passes the body, or null for an empty body > other non-admin": {
+    "res": {
+      "status": 403,
+      "headers": {
+        "content-type": "text/plain; charset=utf-8"
+      },
+      "body": "Forbidden"
+    },
+    "emitted": [],
+    "calls": [
+      {
+        "method": "getSession",
+        "args": [
+          "<session>"
+        ]
+      }
+    ]
+  },
+  "SessionController (characterization) > open session routes (/api/session/:id) > POST close passes the body, or null for an empty body > owner with empty body": {
+    "res": {
+      "status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8"
+      },
+      "body": {
+        "fake": "closeSessionRequest"
+      }
+    },
+    "emitted": [],
+    "calls": [
+      {
+        "method": "getSession",
+        "args": [
+          "<session>"
+        ]
+      },
+      {
+        "method": "closeSessionRequest",
+        "args": [
+          {
+            "user": "user"
+          },
+          {
+            "session": "<session>"
+          },
+          null,
+          "<res>"
+        ]
+      }
+    ]
+  },
+  "SessionController (characterization) > open session routes (/api/session/:id) > POST close passes the body, or null for an empty body > owner with sync data": {
+    "res": {
+      "status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8"
+      },
+      "body": {
+        "fake": "closeSessionRequest"
+      }
+    },
+    "emitted": [],
+    "calls": [
+      {
+        "method": "getSession",
+        "args": [
+          "<session>"
+        ]
+      },
+      {
+        "method": "closeSessionRequest",
+        "args": [
+          {
+            "user": "user"
+          },
+          {
+            "session": "<session>"
+          },
+          {
+            "currentTime": 99,
+            "timeListened": 3,
+            "duration": 3600
+          },
+          "<res>"
+        ]
+      }
+    ]
+  },
+  "SessionController (characterization) > open session routes (/api/session/:id) > POST close passes the body, or null for an empty body > owner without body": {
+    "res": {
+      "status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8"
+      },
+      "body": {
+        "fake": "closeSessionRequest"
+      }
+    },
+    "emitted": [],
+    "calls": [
+      {
+        "method": "getSession",
+        "args": [
+          "<session>"
+        ]
+      },
+      {
+        "method": "closeSessionRequest",
+        "args": [
+          {
+            "user": "user"
+          },
+          {
+            "session": "<session>"
+          },
+          null,
+          "<res>"
+        ]
+      }
+    ]
+  },
+  "SessionController (characterization) > open session routes (/api/session/:id) > POST close passes the body, or null for an empty body > root": {
+    "res": {
+      "status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8"
+      },
+      "body": {
+        "fake": "closeSessionRequest"
+      }
+    },
+    "emitted": [],
+    "calls": [
+      {
+        "method": "getSession",
+        "args": [
+          "<session>"
+        ]
+      },
+      {
+        "method": "closeSessionRequest",
+        "args": [
+          {
+            "user": "root"
+          },
+          {
+            "session": "<session>"
+          },
+          {
+            "currentTime": 99,
+            "timeListened": 3,
+            "duration": 3600
+          },
+          "<res>"
+        ]
+      }
+    ]
+  },
+  "SessionController (characterization) > open session routes (/api/session/:id) > POST close passes the body, or null for an empty body > unauthenticated": {
+    "res": {
+      "status": 401,
+      "headers": {
+        "content-type": "text/plain; charset=utf-8"
+      },
+      "body": "Unauthorized"
+    },
+    "emitted": [],
+    "calls": []
+  },
+  "SessionController (characterization) > open session routes (/api/session/:id) > POST close passes the body, or null for an empty body > unknown id": {
+    "res": {
+      "status": 404,
+      "headers": {
+        "content-type": "text/plain; charset=utf-8"
+      },
+      "body": "Not Found"
+    },
+    "emitted": [],
+    "calls": [
+      {
+        "method": "getSession",
+        "args": [
+          "nope"
+        ]
+      }
+    ]
+  },
+  "SessionController (characterization) > open session routes (/api/session/:id) > POST sync passes the body to the manager > admin on another user session": {
+    "res": {
+      "status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8"
+      },
+      "body": {
+        "fake": "syncSessionRequest"
+      }
+    },
+    "emitted": [],
+    "calls": [
+      {
+        "method": "getSession",
+        "args": [
+          "<session>"
+        ]
+      },
+      {
+        "method": "syncSessionRequest",
+        "args": [
+          {
+            "user": "admin"
+          },
+          {
+            "session": "<session>"
+          },
+          {
+            "currentTime": 42,
+            "timeListened": 7,
+            "duration": 3600
+          },
+          "<res>"
+        ]
+      }
+    ]
+  },
+  "SessionController (characterization) > open session routes (/api/session/:id) > POST sync passes the body to the manager > no body": {
+    "res": {
+      "status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8"
+      },
+      "body": {
+        "fake": "syncSessionRequest"
+      }
+    },
+    "emitted": [],
+    "calls": [
+      {
+        "method": "getSession",
+        "args": [
+          "<session>"
+        ]
+      },
+      {
+        "method": "syncSessionRequest",
+        "args": [
+          {
+            "user": "user"
+          },
+          {
+            "session": "<session>"
+          },
+          {},
+          "<res>"
+        ]
+      }
+    ]
+  },
+  "SessionController (characterization) > open session routes (/api/session/:id) > POST sync passes the body to the manager > other non-admin": {
+    "res": {
+      "status": 403,
+      "headers": {
+        "content-type": "text/plain; charset=utf-8"
+      },
+      "body": "Forbidden"
+    },
+    "emitted": [],
+    "calls": [
+      {
+        "method": "getSession",
+        "args": [
+          "<session>"
+        ]
+      }
+    ]
+  },
+  "SessionController (characterization) > open session routes (/api/session/:id) > POST sync passes the body to the manager > owner": {
+    "res": {
+      "status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8"
+      },
+      "body": {
+        "fake": "syncSessionRequest"
+      }
+    },
+    "emitted": [],
+    "calls": [
+      {
+        "method": "getSession",
+        "args": [
+          "<session>"
+        ]
+      },
+      {
+        "method": "syncSessionRequest",
+        "args": [
+          {
+            "user": "user"
+          },
+          {
+            "session": "<session>"
+          },
+          {
+            "currentTime": 42,
+            "timeListened": 7,
+            "duration": 3600
+          },
+          "<res>"
+        ]
+      }
+    ]
+  },
+  "SessionController (characterization) > open session routes (/api/session/:id) > POST sync passes the body to the manager > unauthenticated": {
+    "res": {
+      "status": 401,
+      "headers": {
+        "content-type": "text/plain; charset=utf-8"
+      },
+      "body": "Unauthorized"
+    },
+    "emitted": [],
+    "calls": []
+  },
+  "SessionController (characterization) > open session routes (/api/session/:id) > POST sync passes the body to the manager > unknown id": {
+    "res": {
+      "status": 404,
+      "headers": {
+        "content-type": "text/plain; charset=utf-8"
+      },
+      "body": "Not Found"
+    },
+    "emitted": [],
+    "calls": [
+      {
+        "method": "getSession",
+        "args": [
+          "nope"
+        ]
+      }
+    ]
+  }
+}
