@@ -20,6 +20,7 @@
     "deploy-linux": "node deploy/linux",
     "test": "npm run build:server && mocha dist-server/test",
     "coverage": "npm run build:server && nyc mocha dist-server/test",
+    "smoke:upgrade": "npm run build:server && node scripts/upgrade-smoke/run.js",
     "lint": "eslint ."
   },
   "bin": "dist-server/index.js",
