@@ -235,6 +235,10 @@ async function startApi(opts = {}) {
     },
     async stop() {
       await new Promise((resolve) => server.close(resolve))
+      // User.js keeps a module-private LRU of users by id/username that outlives the database. User.destroy() evicts from it before
+      // anything else, so destroying every user (the root user's beforeDestroy guard throws, after the eviction) stops one test's users
+      // leaking into the next test's username lookups (e.g. a stale root with a different password hash)
+      for (const user of await Database.userModel.findAll()) await user.destroy().catch(() => {})
       sinon.restore()
       FreshTokenManager.TokenSecret = null
       SocketAuthority.clients = savedClients

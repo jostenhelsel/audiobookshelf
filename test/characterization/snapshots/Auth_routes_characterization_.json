@@ -1,0 +1,676 @@
+{
+  "Auth routes (characterization) > POST /auth/refresh > 401s for an invalid refresh token": {
+    "cookie": {
+      "status": 401,
+      "location": null,
+      "body": {
+        "error": "Invalid refresh token"
+      },
+      "cookies": []
+    },
+    "header": {
+      "status": 401,
+      "location": null,
+      "body": {
+        "error": "Invalid refresh token"
+      },
+      "cookies": []
+    }
+  },
+  "Auth routes (characterization) > POST /auth/refresh > 401s without a refresh token": {
+    "status": 401,
+    "location": null,
+    "body": {
+      "error": "No refresh token provided"
+    },
+    "cookies": []
+  },
+  "Auth routes (characterization) > POST /auth/refresh > issues a new access token from the cookie and keeps the refresh token out of the body": {
+    "status": 200,
+    "location": null,
+    "body": {
+      "user": {
+        "id": "<uuid-1>",
+        "username": "root",
+        "email": null,
+        "type": "root",
+        "token": null,
+        "mediaProgress": [],
+        "seriesHideFromContinueListening": [],
+        "bookmarks": [],
+        "isActive": true,
+        "isLocked": false,
+        "lastSeen": null,
+        "createdAt": "<timestamp>",
+        "permissions": {
+          "download": true,
+          "update": true,
+          "delete": true,
+          "upload": true,
+          "createEreader": true,
+          "accessAllLibraries": true,
+          "accessAllTags": true,
+          "accessExplicitContent": true,
+          "selectedTagsNotAccessible": false
+        },
+        "librariesAccessible": [],
+        "itemTagsSelected": [],
+        "hasOpenIDLink": false,
+        "accessToken": "<jwt>",
+        "refreshToken": null
+      },
+      "userDefaultLibraryId": null,
+      "serverSettings": {
+        "id": "server-settings",
+        "scannerFindCovers": false,
+        "scannerCoverProvider": "google",
+        "scannerParseSubtitle": false,
+        "scannerPreferMatchedMetadata": false,
+        "scannerDisableWatcher": false,
+        "storeCoverWithItem": false,
+        "storeMetadataWithItem": false,
+        "metadataFileFormat": "json",
+        "rateLimitLoginRequests": 10,
+        "rateLimitLoginWindow": 600000,
+        "allowIframe": false,
+        "backupPath": "<tmp>/metadata/backups",
+        "backupSchedule": false,
+        "backupsToKeep": 2,
+        "maxBackupSize": 1,
+        "loggerDailyLogsToKeep": 7,
+        "loggerScannerLogsToKeep": 2,
+        "homeBookshelfView": 1,
+        "bookshelfView": 1,
+        "podcastEpisodeSchedule": "0 * * * *",
+        "sortingIgnorePrefix": false,
+        "sortingPrefixes": [
+          "the",
+          "a"
+        ],
+        "chromecastEnabled": false,
+        "dateFormat": "MM/dd/yyyy",
+        "timeFormat": "HH:mm",
+        "language": "en-us",
+        "allowedOrigins": [],
+        "logLevel": "<env>",
+        "version": "2.37.0",
+        "buildNumber": 1,
+        "authLoginCustomMessage": null,
+        "authActiveAuthMethods": [
+          "local"
+        ],
+        "authOpenIDIssuerURL": null,
+        "authOpenIDAuthorizationURL": null,
+        "authOpenIDTokenURL": null,
+        "authOpenIDUserInfoURL": null,
+        "authOpenIDJwksURL": null,
+        "authOpenIDLogoutURL": null,
+        "authOpenIDTokenSigningAlgorithm": "RS256",
+        "authOpenIDButtonText": "Login with OpenId",
+        "authOpenIDAutoLaunch": false,
+        "authOpenIDAutoRegister": false,
+        "authOpenIDMatchExistingBy": null,
+        "timeZone": "UTC"
+      },
+      "ereaderDevices": []
+    },
+    "cookies": [
+      {
+        "name": "refresh_token",
+        "value": "<value>",
+        "attrs": [
+          "Max-Age=2592000",
+          "Path=/",
+          "HttpOnly",
+          "SameSite=Lax"
+        ]
+      }
+    ]
+  },
+  "Auth routes (characterization) > POST /auth/refresh > records whether the same refresh token can be used twice": {
+    "one": 200,
+    "two": 200,
+    "twoBody": "<ok>"
+  },
+  "Auth routes (characterization) > POST /auth/refresh > uses x-refresh-token over the cookie and returns the refresh token in the body": {
+    "status": 200,
+    "location": null,
+    "body": {
+      "user": {
+        "id": "<uuid-1>",
+        "username": "root",
+        "email": null,
+        "type": "root",
+        "token": null,
+        "mediaProgress": [],
+        "seriesHideFromContinueListening": [],
+        "bookmarks": [],
+        "isActive": true,
+        "isLocked": false,
+        "lastSeen": null,
+        "createdAt": "<timestamp>",
+        "permissions": {
+          "download": true,
+          "update": true,
+          "delete": true,
+          "upload": true,
+          "createEreader": true,
+          "accessAllLibraries": true,
+          "accessAllTags": true,
+          "accessExplicitContent": true,
+          "selectedTagsNotAccessible": false
+        },
+        "librariesAccessible": [],
+        "itemTagsSelected": [],
+        "hasOpenIDLink": false,
+        "accessToken": "<jwt>",
+        "refreshToken": "<jwt>"
+      },
+      "userDefaultLibraryId": null,
+      "serverSettings": {
+        "id": "server-settings",
+        "scannerFindCovers": false,
+        "scannerCoverProvider": "google",
+        "scannerParseSubtitle": false,
+        "scannerPreferMatchedMetadata": false,
+        "scannerDisableWatcher": false,
+        "storeCoverWithItem": false,
+        "storeMetadataWithItem": false,
+        "metadataFileFormat": "json",
+        "rateLimitLoginRequests": 10,
+        "rateLimitLoginWindow": 600000,
+        "allowIframe": false,
+        "backupPath": "<tmp>/metadata/backups",
+        "backupSchedule": false,
+        "backupsToKeep": 2,
+        "maxBackupSize": 1,
+        "loggerDailyLogsToKeep": 7,
+        "loggerScannerLogsToKeep": 2,
+        "homeBookshelfView": 1,
+        "bookshelfView": 1,
+        "podcastEpisodeSchedule": "0 * * * *",
+        "sortingIgnorePrefix": false,
+        "sortingPrefixes": [
+          "the",
+          "a"
+        ],
+        "chromecastEnabled": false,
+        "dateFormat": "MM/dd/yyyy",
+        "timeFormat": "HH:mm",
+        "language": "en-us",
+        "allowedOrigins": [],
+        "logLevel": "<env>",
+        "version": "2.37.0",
+        "buildNumber": 1,
+        "authLoginCustomMessage": null,
+        "authActiveAuthMethods": [
+          "local"
+        ],
+        "authOpenIDIssuerURL": null,
+        "authOpenIDAuthorizationURL": null,
+        "authOpenIDTokenURL": null,
+        "authOpenIDUserInfoURL": null,
+        "authOpenIDJwksURL": null,
+        "authOpenIDLogoutURL": null,
+        "authOpenIDTokenSigningAlgorithm": "RS256",
+        "authOpenIDButtonText": "Login with OpenId",
+        "authOpenIDAutoLaunch": false,
+        "authOpenIDAutoRegister": false,
+        "authOpenIDMatchExistingBy": null,
+        "timeZone": "UTC"
+      },
+      "ereaderDevices": []
+    },
+    "cookies": [
+      {
+        "name": "refresh_token",
+        "value": "<value>",
+        "attrs": [
+          "Max-Age=2592000",
+          "Path=/",
+          "HttpOnly",
+          "SameSite=Lax"
+        ]
+      }
+    ]
+  },
+  "Auth routes (characterization) > POST /login > logs in with a valid password and sets the refresh cookie": {
+    "status": 200,
+    "location": null,
+    "body": {
+      "user": {
+        "id": "<uuid-1>",
+        "username": "root",
+        "email": null,
+        "type": "root",
+        "token": null,
+        "mediaProgress": [],
+        "seriesHideFromContinueListening": [],
+        "bookmarks": [],
+        "isActive": true,
+        "isLocked": false,
+        "lastSeen": null,
+        "createdAt": "<timestamp>",
+        "permissions": {
+          "download": true,
+          "update": true,
+          "delete": true,
+          "upload": true,
+          "createEreader": true,
+          "accessAllLibraries": true,
+          "accessAllTags": true,
+          "accessExplicitContent": true,
+          "selectedTagsNotAccessible": false
+        },
+        "librariesAccessible": [],
+        "itemTagsSelected": [],
+        "hasOpenIDLink": false,
+        "refreshToken": null,
+        "accessToken": "<jwt>"
+      },
+      "userDefaultLibraryId": null,
+      "serverSettings": {
+        "id": "server-settings",
+        "scannerFindCovers": false,
+        "scannerCoverProvider": "google",
+        "scannerParseSubtitle": false,
+        "scannerPreferMatchedMetadata": false,
+        "scannerDisableWatcher": false,
+        "storeCoverWithItem": false,
+        "storeMetadataWithItem": false,
+        "metadataFileFormat": "json",
+        "rateLimitLoginRequests": 10,
+        "rateLimitLoginWindow": 600000,
+        "allowIframe": false,
+        "backupPath": "<tmp>/metadata/backups",
+        "backupSchedule": false,
+        "backupsToKeep": 2,
+        "maxBackupSize": 1,
+        "loggerDailyLogsToKeep": 7,
+        "loggerScannerLogsToKeep": 2,
+        "homeBookshelfView": 1,
+        "bookshelfView": 1,
+        "podcastEpisodeSchedule": "0 * * * *",
+        "sortingIgnorePrefix": false,
+        "sortingPrefixes": [
+          "the",
+          "a"
+        ],
+        "chromecastEnabled": false,
+        "dateFormat": "MM/dd/yyyy",
+        "timeFormat": "HH:mm",
+        "language": "en-us",
+        "allowedOrigins": [],
+        "logLevel": "<env>",
+        "version": "2.37.0",
+        "buildNumber": 1,
+        "authLoginCustomMessage": null,
+        "authActiveAuthMethods": [
+          "local"
+        ],
+        "authOpenIDIssuerURL": null,
+        "authOpenIDAuthorizationURL": null,
+        "authOpenIDTokenURL": null,
+        "authOpenIDUserInfoURL": null,
+        "authOpenIDJwksURL": null,
+        "authOpenIDLogoutURL": null,
+        "authOpenIDTokenSigningAlgorithm": "RS256",
+        "authOpenIDButtonText": "Login with OpenId",
+        "authOpenIDAutoLaunch": false,
+        "authOpenIDAutoRegister": false,
+        "authOpenIDMatchExistingBy": null,
+        "timeZone": "UTC"
+      },
+      "ereaderDevices": []
+    },
+    "cookies": [
+      {
+        "name": "refresh_token",
+        "value": "<value>",
+        "attrs": [
+          "Max-Age=2592000",
+          "Path=/",
+          "HttpOnly",
+          "SameSite=Lax"
+        ]
+      },
+      {
+        "name": "connect.sid",
+        "value": "<value>",
+        "attrs": [
+          "Path=/",
+          "HttpOnly"
+        ]
+      }
+    ]
+  },
+  "Auth routes (characterization) > POST /login > rejects a wrong password, an unknown user and a missing body with 401": {
+    "wrong": {
+      "status": 401,
+      "location": null,
+      "body": "Unauthorized",
+      "cookies": []
+    },
+    "unknown": {
+      "status": 401,
+      "location": null,
+      "body": "Unauthorized",
+      "cookies": []
+    },
+    "empty": {
+      "status": 400,
+      "location": null,
+      "body": "Bad Request",
+      "cookies": []
+    },
+    "noBody": {
+      "status": 400,
+      "location": null,
+      "body": "Bad Request",
+      "cookies": []
+    }
+  },
+  "Auth routes (characterization) > POST /login > rejects an inactive user": {
+    "status": 401,
+    "location": null,
+    "body": "Unauthorized",
+    "cookies": []
+  },
+  "Auth routes (characterization) > POST /login > returns the refresh token in the body (no cookie) when x-return-tokens is true": {
+    "status": 200,
+    "location": null,
+    "body": {
+      "user": {
+        "id": "<uuid-1>",
+        "username": "root",
+        "email": null,
+        "type": "root",
+        "token": null,
+        "mediaProgress": [],
+        "seriesHideFromContinueListening": [],
+        "bookmarks": [],
+        "isActive": true,
+        "isLocked": false,
+        "lastSeen": null,
+        "createdAt": "<timestamp>",
+        "permissions": {
+          "download": true,
+          "update": true,
+          "delete": true,
+          "upload": true,
+          "createEreader": true,
+          "accessAllLibraries": true,
+          "accessAllTags": true,
+          "accessExplicitContent": true,
+          "selectedTagsNotAccessible": false
+        },
+        "librariesAccessible": [],
+        "itemTagsSelected": [],
+        "hasOpenIDLink": false,
+        "refreshToken": "<jwt>",
+        "accessToken": "<jwt>"
+      },
+      "userDefaultLibraryId": null,
+      "serverSettings": {
+        "id": "server-settings",
+        "scannerFindCovers": false,
+        "scannerCoverProvider": "google",
+        "scannerParseSubtitle": false,
+        "scannerPreferMatchedMetadata": false,
+        "scannerDisableWatcher": false,
+        "storeCoverWithItem": false,
+        "storeMetadataWithItem": false,
+        "metadataFileFormat": "json",
+        "rateLimitLoginRequests": 10,
+        "rateLimitLoginWindow": 600000,
+        "allowIframe": false,
+        "backupPath": "<tmp>/metadata/backups",
+        "backupSchedule": false,
+        "backupsToKeep": 2,
+        "maxBackupSize": 1,
+        "loggerDailyLogsToKeep": 7,
+        "loggerScannerLogsToKeep": 2,
+        "homeBookshelfView": 1,
+        "bookshelfView": 1,
+        "podcastEpisodeSchedule": "0 * * * *",
+        "sortingIgnorePrefix": false,
+        "sortingPrefixes": [
+          "the",
+          "a"
+        ],
+        "chromecastEnabled": false,
+        "dateFormat": "MM/dd/yyyy",
+        "timeFormat": "HH:mm",
+        "language": "en-us",
+        "allowedOrigins": [],
+        "logLevel": "<env>",
+        "version": "2.37.0",
+        "buildNumber": 1,
+        "authLoginCustomMessage": null,
+        "authActiveAuthMethods": [
+          "local"
+        ],
+        "authOpenIDIssuerURL": null,
+        "authOpenIDAuthorizationURL": null,
+        "authOpenIDTokenURL": null,
+        "authOpenIDUserInfoURL": null,
+        "authOpenIDJwksURL": null,
+        "authOpenIDLogoutURL": null,
+        "authOpenIDTokenSigningAlgorithm": "RS256",
+        "authOpenIDButtonText": "Login with OpenId",
+        "authOpenIDAutoLaunch": false,
+        "authOpenIDAutoRegister": false,
+        "authOpenIDMatchExistingBy": null,
+        "timeZone": "UTC"
+      },
+      "ereaderDevices": []
+    },
+    "cookies": [
+      {
+        "name": "connect.sid",
+        "value": "<value>",
+        "attrs": [
+          "Path=/",
+          "HttpOnly"
+        ]
+      }
+    ]
+  },
+  "Auth routes (characterization) > POST /logout > allDevices=1 invalidates every session of the user": {
+    "out": {
+      "status": 200,
+      "location": null,
+      "body": {
+        "redirect_url": null
+      },
+      "cookies": [
+        {
+          "name": "refresh_token",
+          "value": "",
+          "attrs": [
+            "Path=/"
+          ]
+        },
+        {
+          "name": "auth_method",
+          "value": "",
+          "attrs": [
+            "Path=/"
+          ]
+        },
+        {
+          "name": "connect.sid",
+          "value": "<value>",
+          "attrs": [
+            "Path=/",
+            "HttpOnly"
+          ]
+        }
+      ]
+    },
+    "refreshA": {
+      "status": 401,
+      "location": null,
+      "body": {
+        "error": "Invalid refresh token"
+      },
+      "cookies": []
+    },
+    "refreshB": {
+      "status": 401,
+      "location": null,
+      "body": {
+        "error": "Invalid refresh token"
+      },
+      "cookies": []
+    }
+  },
+  "Auth routes (characterization) > POST /logout > clears the cookies and returns a null redirect_url": {
+    "status": 200,
+    "location": null,
+    "body": {
+      "redirect_url": null
+    },
+    "cookies": [
+      {
+        "name": "refresh_token",
+        "value": "",
+        "attrs": [
+          "Path=/"
+        ]
+      },
+      {
+        "name": "auth_method",
+        "value": "",
+        "attrs": [
+          "Path=/"
+        ]
+      },
+      {
+        "name": "connect.sid",
+        "value": "<value>",
+        "attrs": [
+          "Path=/",
+          "HttpOnly"
+        ]
+      }
+    ]
+  },
+  "Auth routes (characterization) > POST /logout > invalidates the refresh token": {
+    "status": 401,
+    "location": null,
+    "body": {
+      "error": "Invalid refresh token"
+    },
+    "cookies": []
+  },
+  "Auth routes (characterization) > POST /logout > works without a refresh token": {
+    "status": 200,
+    "location": null,
+    "body": {
+      "redirect_url": null
+    },
+    "cookies": [
+      {
+        "name": "refresh_token",
+        "value": "",
+        "attrs": [
+          "Path=/"
+        ]
+      },
+      {
+        "name": "auth_method",
+        "value": "",
+        "attrs": [
+          "Path=/"
+        ]
+      },
+      {
+        "name": "connect.sid",
+        "value": "<value>",
+        "attrs": [
+          "Path=/",
+          "HttpOnly"
+        ]
+      }
+    ]
+  },
+  "Auth routes (characterization) > bearer authentication on /api > accepts the access token as a bearer header and as ?token=": {
+    "header": {
+      "status": 200,
+      "location": null,
+      "body": {
+        "libraries": []
+      },
+      "cookies": []
+    },
+    "query": {
+      "status": 200,
+      "location": null,
+      "body": {
+        "libraries": []
+      },
+      "cookies": []
+    }
+  },
+  "Auth routes (characterization) > bearer authentication on /api > lets cover and author image GETs through without authentication": {
+    "cover": {
+      "status": 400,
+      "location": null,
+      "body": "Bad Request",
+      "cookies": []
+    },
+    "image": {
+      "status": 400,
+      "location": null,
+      "body": "Bad Request",
+      "cookies": []
+    },
+    "post": {
+      "status": 401,
+      "location": null,
+      "body": "Unauthorized",
+      "cookies": []
+    }
+  },
+  "Auth routes (characterization) > bearer authentication on /api > rejects missing, malformed and wrongly signed tokens with 401": {
+    "none": {
+      "status": 401,
+      "location": null,
+      "body": "Unauthorized",
+      "cookies": []
+    },
+    "garbage": {
+      "status": 401,
+      "location": null,
+      "body": "Unauthorized",
+      "cookies": []
+    },
+    "forged": {
+      "status": 401,
+      "location": null,
+      "body": "Unauthorized",
+      "cookies": []
+    }
+  },
+  "Auth routes (characterization) > openid routes without a configured provider > GET /auth/openid/config requires an admin and an issuer": {
+    "noAuth": {
+      "status": 401,
+      "location": null,
+      "body": "Unauthorized",
+      "cookies": []
+    },
+    "asUser": {
+      "status": 403,
+      "location": null,
+      "body": "Forbidden",
+      "cookies": []
+    },
+    "noIssuer": {
+      "status": 400,
+      "location": null,
+      "body": "Invalid request. Query param 'issuer' is required",
+      "cookies": []
+    }
+  }
+}

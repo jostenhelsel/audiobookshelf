@@ -20,10 +20,12 @@ All 23 controllers, every route in `ApiRouter`, `PublicRouter` and the controlle
 | ApiKey | 15 | Share | 29 |
 | Stats | 9 | | |
 
+`AuthRoutes.test.js` (17 tests) runs the real passport local and jwt strategies, `TokenManager` and `Auth.initAuthRoutes` (via `helpers/auth-harness.js`): `/login`, `/auth/refresh`, `/logout`, bearer/`?token=` auth on `/api`, the unauthenticated cover/author-image GETs, and `/auth/openid/config` without a provider.
+
 Skipped (6): real zip download (`GET /libraries/:id/download`), author image resize (needs ffmpeg), item cover upload and cover cache-miss resize (LibraryItem), `POST /notifications` without `urls` (hangs), `GET /logger-data` with no log manager (hangs).
 
 ## Not covered yet
-`Auth.js` routes outside `/api` (login, refresh, logout, OIDC), `Database.js` init, `SocketAuthority` event handling, the scanner (`scanner/*`), `Server.js` boot, `HlsRouter`, and anything needing ffmpeg/real media. The upgrade smoke test (`scripts/upgrade-smoke`) covers migrations end to end.
+The OIDC flow (`/auth/openid`, `/callback`, `/mobile-redirect`; needs a fake identity provider), auth rate limiting (429 after 40 attempts), `Database.js` init, `SocketAuthority` event handling, the scanner (`scanner/*`), `Server.js` boot, `HlsRouter`, and anything needing ffmpeg/real media. The upgrade smoke test (`scripts/upgrade-smoke`) covers migrations end to end.
 
 ## Findings (recorded as-is, nothing fixed)
 Reported by the test-writing agents while reading the code and recording responses; not independently verified beyond the snapshots. Candidates for upstream issues, roughly by importance.
@@ -71,10 +73,18 @@ Reported by the test-writing agents while reading the code and recording respons
 - `GET /libraries/:id/series` and `/recent-episodes` return empty `results` (correct `total`) without a `limit`.
 - Tag/genre rename-merge leaves duplicates in `Database.libraryFilterData`; `GET /genres` is unsorted while `GET /tags` is sorted.
 
+**Auth routes (from `AuthRoutes.test.js`)**
+- A refresh token can be used any number of times: `/auth/refresh` does not rotate it, so a stolen token stays valid until logout.
+- `GET /api/items/:id/cover` and `/api/authors/:id/image` skip authentication entirely (by design, via `ignorePatterns`); an unknown id answers 400 rather than 404.
+- `/logout` needs no authentication and always answers 200 `{ redirect_url: null }`, even with no token at all.
+- An empty or missing login body gives 400 (passport) while a wrong password or unknown user gives 401, which tells a client the body shape was wrong.
+
 **Harness/seed quirks to remember when writing more tests**
+- `User.js` keeps a module-private LRU of users that outlives the database; the harness now evicts them in `stop()`, otherwise a later test's username lookup returns a previous test's user.
+- The auth rate limiter is a process-wide singleton; `startAuthApi` bypasses it on its own `Auth` instance.
 - `createBook` leaves `explicit` NULL, which hides books from `user`/`guest`; `createLibrary` leaves `library.settings` NULL (public share GET then 500s).
 - Singletons leak between tests unless reset: `CacheManager` (reset by the harness), `ShareManager`, `Logger.logLevel`, `Database.libraryFilterData`, the rate limiter on `PATCH /me/password` (40 calls per 10 minutes per process).
-- `api.request` returns only `content-type`, drops `set-cookie`, and cannot send a body on GET; use `fetch` against `api.base` for those.
+- `api.request` returns only `content-type` in `headers`; `set-cookie` values are on the non-enumerable `res.cookies`. It still cannot send a body on GET; use `fetch` against `api.base` for that.
 
 ## How the suite is kept honest
 `npm run audit:characterization` (see `test/characterization/README.md`) measures instead of trusting claims: 202 of 202 route handlers are hit and each has at least one 2xx/3xx response; every snapshot entry is compared by a test; no `.only`, no assertion-free test, no stub that replaces code under test; the only reshaping of responses before snapshotting is sorting where the server's own order is random, masking of times/versions/ids, and reducing the random "discover" shelf to its size. `npm run oracle:check` plus the Characterization Guard workflow stop the oracle from changing without a deliberate `[oracle-update]` commit.
