@@ -6,6 +6,8 @@ const { startApi } = require('./helpers/harness')
 const { matchSnapshot } = require('./helpers/snapshot')
 const Database = require('../../server/Database')
 const Logger = require('../../server/Logger')
+const { createLibrary, createBook } = require('./helpers/seed-library')
+const { createUser } = require('./helpers/seed-library-extra')
 const jwt = require('../../server/libs/jsonwebtoken')
 
 const SECRET = 'characterization-test-secret'
@@ -224,18 +226,32 @@ describe('SocketAuthority (characterization)', function () {
     })
 
     it('libraryItemEmitter and libraryItemsEmitter send toOldJSONExpanded to clients that can access the item', async function () {
+      // real library items, loaded like the controllers do (LibraryItemController middleware: libraryItemModel.getExpandedById)
+      const libA = await createLibrary({ name: 'LibA' })
+      const libB = await createLibrary({ name: 'LibB' })
+      const load = async (lf, title, extra) => Database.libraryItemModel.getExpandedById((await createBook(lf, { title, extra })).libraryItem.id)
+      const one = await load(libA, 'One')
+      const two = await load(libB, 'Two')
+      const three = await load(libA, 'Three')
+      const four = await load(libB, 'Four')
+      const five = await load(libB, 'Five', { explicit: true })
+      this.ids = new Map([one, two, three, four, five].map((li, i) => [li.id, `<${['one', 'two', 'three', 'four', 'five'][i]}>`]))
       const user = await login(users.user)
       const admin = await login(users.admin)
-      await Promise.all([user.drain(), admin.drain()])
       // a user limited to one library cannot see items of another
-      await users.guest.update({ permissions: { ...users.guest.permissions, accessAllLibraries: false, librariesAccessible: ['lib-a'] } })
+      await users.guest.update({ permissions: { ...users.guest.permissions, accessAllLibraries: false, librariesAccessible: [libA.library.id] } })
       const limited = await login(users.guest)
-      await limited.drain()
-      const mk = (id, libraryId, media = {}) => ({ libraryId, media: { tags: [], ...media }, toOldJSONExpanded: () => ({ id }) })
-      authority.libraryItemEmitter('item_added', mk('one', 'lib-a'))
-      authority.libraryItemEmitter('item_added', mk('two', 'lib-b'))
-      authority.libraryItemsEmitter('items_updated', [mk('three', 'lib-a'), mk('four', 'lib-b'), mk('five', 'lib-b', { explicit: true })])
-      matchSnapshot(this, { user: await user.drain(), admin: await admin.drain(), limited: await limited.drain() })
+      // a user without explicit content access cannot see explicit items
+      const clean = await createUser('clean', 'user', (p) => {
+        p.accessExplicitContent = false
+      })
+      const noExplicit = await login(clean)
+      await Promise.all([user.drain(), admin.drain(), limited.drain(), noExplicit.drain()])
+      expect(one.toOldJSONExpanded().media.metadata.title).to.equal('One') // real model, real serialization
+      authority.libraryItemEmitter('item_added', one)
+      authority.libraryItemEmitter('item_added', two)
+      authority.libraryItemsEmitter('items_updated', [three, four, five])
+      matchSnapshot(this, { user: await user.drain(), admin: await admin.drain(), limited: await limited.drain(), noExplicit: await noExplicit.drain() }, { ids: this.ids })
     })
   })
 
@@ -264,8 +280,11 @@ describe('SocketAuthority (characterization)', function () {
     })
 
     it('set_log_listener validates the level and the role; remove_log_listener always removes', async function () {
-      const add = sinon.stub(Logger, 'addSocketListener')
-      const remove = sinon.stub(Logger, 'removeSocketListener')
+      // real Logger: spies only observe the calls, the listener registry (Logger.socketListeners) is the real one
+      const add = sinon.spy(Logger, 'addSocketListener')
+      const remove = sinon.spy(Logger, 'removeSocketListener')
+      const before = Logger.socketListeners
+      Logger.socketListeners = []
       try {
         const user = await login(users.user)
         const admin = await login(users.admin)
@@ -274,12 +293,16 @@ describe('SocketAuthority (characterization)', function () {
         admin.send('set_log_listener', 99)
         admin.send('set_log_listener', '1')
         admin.send('set_log_listener', 1.5)
+        await settle()
+        const adminSocketId = Object.values(authority.clients).find((c) => c.user?.id === users.admin.id)?.socket.id
+        const registered = Logger.socketListeners.map((l) => ({ level: l.level, isAdminSocket: l.id === adminSocketId }))
         admin.send('remove_log_listener')
         await settle()
-        matchSnapshot(this, { adds: add.args.map(([socket, level]) => [typeof socket.id, level]), removes: remove.callCount > 0 })
+        matchSnapshot(this, { adds: add.args.map(([socket, level]) => [typeof socket.id, level]), registered, listenersAfterRemove: Logger.socketListeners.length, removes: remove.callCount > 0 })
       } finally {
         add.restore()
         remove.restore()
+        Logger.socketListeners = before
       }
     })
 

@@ -90,6 +90,7 @@ describe('CollectionController (characterization)', () => {
     it('adds and removes batches', async function () {
       this.ids = new Map([[collection.id, '<collection>']])
       snap(this, await api.request('POST', `/api/collections/${collection.id}/batch/add`, { as: 'admin', json: { books: [items[1].id, items[2].id] } }), 'batch add')
+      // an empty list is rejected with the same 400 as any invalid body (controller requires a non-empty array)
       snap(this, await api.request('POST', `/api/collections/${collection.id}/batch/add`, { as: 'admin', json: { books: [] } }), 'batch add empty')
       snap(this, await api.request('POST', `/api/collections/${collection.id}/batch/remove`, { as: 'admin', json: { books: [items[0].id, items[2].id] } }), 'batch remove')
       snap(this, await api.request('POST', `/api/collections/${collection.id}/batch/remove`, { as: 'admin', json: {} }), 'batch remove invalid')

@@ -288,6 +288,7 @@ describe('LibraryController (characterization)', () => {
       const before = await itemCount()
       snap(this, await api.request('DELETE', L(), { as: 'admin' }), 'admin deletes')
       snap(this, { before, after: await itemCount(), collections: await Database.collectionModel.count(), rows: await libraryRows() }, 'rows and counts')
+      // the repeated 404 'Library not found' below is the behavior: the library is gone (rows asserted above)
       snap(this, await get(L()), 'find after delete')
       snap(this, await api.request('DELETE', L(), { as: 'admin' }), 'delete again')
     })
@@ -359,6 +360,7 @@ describe('LibraryController (characterization)', () => {
       const before = await itemCount()
       snap(this, await api.request('DELETE', `${L()}/issues`, { as: 'admin' }), 'admin removes issues')
       snap(this, { before, after: await itemCount() }, 'counts')
+      // a second run is a plain 200 OK like the first; 'counts' above proves the first run did the work
       snap(this, await api.request('DELETE', `${L()}/issues`, { as: 'admin' }), 'nothing left to remove')
     })
     it('removes invalid items in a podcast library', async function () {

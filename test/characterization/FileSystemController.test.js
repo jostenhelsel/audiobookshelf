@@ -35,6 +35,7 @@ describe('FileSystemController (characterization)', () => {
 
   describe('GET /api/filesystem', () => {
     it('requires authentication and admin', async function () {
+      // identical bare 403s for user and guest are the behavior (admin-only route)
       snap(this, await list(undefined), 'anonymous')
       snap(this, await list('user'), 'user')
       snap(this, await list('guest'), 'guest')
@@ -125,6 +126,7 @@ describe('FileSystemController (characterization)', () => {
         p.librariesAccessible = []
         p.upload = true
       })
+      // 403 from the library-access check (the user does have upload permission, see p.upload above)
       snap(this, await check('limited', { directory: 'Alpha', folderPath: root }), 'no access to library')
       expect(await Database.libraryFolderModel.count()).to.equal(1)
     })

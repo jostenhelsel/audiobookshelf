@@ -59,6 +59,7 @@ describe('BackupController (characterization)', () => {
 
   describe('permissions', () => {
     it('every route requires authentication and admin', async function () {
+      // identical 401/403 answers across routes are the behavior: the admin middleware rejects before any handler or manager call ('calls' stays empty)
       const routes = [
         ['GET', '/api/backups'],
         ['POST', '/api/backups'],

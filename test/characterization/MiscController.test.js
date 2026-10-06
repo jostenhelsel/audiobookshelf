@@ -428,6 +428,7 @@ describe('MiscController (characterization)', () => {
       snap(this, await rq('GET', '/api/auth-settings', 'admin'), 'settings after')
     })
     it('PATCH ignores wrongly typed values', async function () {
+      // the response echoes the unchanged settings with updated:false; identical to other no-op PATCHes by design
       snap(this, await patch('admin', { authOpenIDAutoLaunch: 'true', authOpenIDAutoRegister: 1, authOpenIDButtonText: 5, authOpenIDIssuerURL: ['x'] }))
     })
     it('PATCH switches auth methods and tells the auth manager', async function () {

@@ -419,6 +419,7 @@ describe('LibraryItemController (characterization)', () => {
       snap(this, await cover(items.book.id, '?raw=1'), 'raw')
       snap(this, await cover(items.book.id, '?raw=1&ts=123'), 'raw with ts sets cache-control')
       snap(this, await cover(items.second.id, '?raw=1'), 'raw without cover')
+      // the 404s below are the behavior under test (unknown item / no cover / file gone): the controller answers a bare sendStatus(404)
       snap(this, await cover('nope', '?raw=1'), 'raw unknown item')
       fs.rmSync(path.join(items.paths.book, 'cover.png'))
       snap(this, await cover(items.book.id, '?raw=1'), 'raw cover file missing on disk')
@@ -434,13 +435,18 @@ describe('LibraryItemController (characterization)', () => {
       fs.writeFileSync(path.join(CacheManager.CoverCachePath, `${items.book.id}_200x300.jpeg`), 'cached-jpeg')
       snap(this, await cover(items.book.id), 'default (webp 400)')
       snap(this, await cover(items.book.id, '?width=200&height=300&format=jpeg'), 'jpeg 200x300')
-      snap(this, await cover(items.second.id, '', { headers: { accept: 'image/png' } }), 'accept without webp falls back to jpeg (uncached, no cover)')
+      // a request whose Accept header lacks image/webp is served the cached jpeg (distinct size from the webp), not the webp
+      fs.writeFileSync(path.join(CacheManager.CoverCachePath, `${items.book.id}_400.jpeg`), 'cached-default-jpeg-bytes')
+      snap(this, await cover(items.book.id, '', { headers: { accept: 'image/png' } }), 'accept without webp falls back to jpeg')
     })
     it('validates id and options', async function () {
       snap(this, await cover('nope'), 'not a uuid')
       snap(this, await cover(items.book.id, '?format=gif'), 'bad format')
-      snap(this, await cover(items.second.id, '?width=-5'), 'negative width (item without cover, so no resize happens)')
-      snap(this, await cover(items.second.id, '?width=abc'), 'non numeric width (item without cover)')
+      // invalid widths are dropped (clampPositiveInt -> null) so the default 400 cache entry is served
+      fs.writeFileSync(path.join(CacheManager.CoverCachePath, `${items.book.id}_400.webp`), 'cached-webp-400')
+      snap(this, await cover(items.book.id, '?width=-5'), 'negative width falls back to the default 400 cache entry')
+      snap(this, await cover(items.book.id, '?width=abc'), 'non numeric width falls back to the default 400 cache entry')
+      // legitimate 404: nothing cached and the item has no cover to resize
       snap(this, await cover(items.second.id), 'uncached item without cover')
       snap(this, await cover('11111111-1111-4111-8111-111111111111'), 'uuid of unknown item')
     })

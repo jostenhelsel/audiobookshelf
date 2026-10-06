@@ -6882,14 +6882,14 @@
     },
     "emitted": []
   },
-  "LibraryItemController (characterization) > GET /api/items/:id/cover > serves a cached resized cover > accept without webp falls back to jpeg (uncached, no cover)": {
+  "LibraryItemController (characterization) > GET /api/items/:id/cover > serves a cached resized cover > accept without webp falls back to jpeg": {
     "res": {
-      "status": 404,
-      "type": "text/plain; charset=utf-8",
+      "status": 200,
+      "type": "image/jpeg",
       "disposition": null,
       "accel": null,
       "cache": null,
-      "body": "Not Found"
+      "bytes": 25
     },
     "emitted": []
   },
@@ -6981,25 +6981,25 @@
     },
     "emitted": []
   },
-  "LibraryItemController (characterization) > GET /api/items/:id/cover > validates id and options > negative width (item without cover, so no resize happens)": {
+  "LibraryItemController (characterization) > GET /api/items/:id/cover > validates id and options > negative width falls back to the default 400 cache entry": {
     "res": {
-      "status": 404,
-      "type": "text/plain; charset=utf-8",
+      "status": 200,
+      "type": "image/webp",
       "disposition": null,
       "accel": null,
       "cache": null,
-      "body": "Not Found"
+      "bytes": 15
     },
     "emitted": []
   },
-  "LibraryItemController (characterization) > GET /api/items/:id/cover > validates id and options > non numeric width (item without cover)": {
+  "LibraryItemController (characterization) > GET /api/items/:id/cover > validates id and options > non numeric width falls back to the default 400 cache entry": {
     "res": {
-      "status": 404,
-      "type": "text/plain; charset=utf-8",
+      "status": 200,
+      "type": "image/webp",
       "disposition": null,
       "accel": null,
       "cache": null,
-      "body": "Not Found"
+      "bytes": 15
     },
     "emitted": []
   },
