@@ -1,0 +1,1009 @@
+{
+  "EmailController (characterization) > GET /api/emails/settings > requires authentication": {
+    "res": {
+      "status": 401,
+      "headers": {
+        "content-type": "text/plain; charset=utf-8"
+      },
+      "body": "Unauthorized"
+    },
+    "emitted": []
+  },
+  "EmailController (characterization) > GET /api/emails/settings > returns default settings to admins and 404 to user/guest > admin": {
+    "res": {
+      "status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8"
+      },
+      "body": {
+        "settings": {
+          "id": "email-settings",
+          "host": null,
+          "port": 465,
+          "secure": true,
+          "rejectUnauthorized": true,
+          "user": null,
+          "pass": null,
+          "testAddress": null,
+          "fromAddress": null,
+          "ereaderDevices": []
+        }
+      }
+    },
+    "emitted": []
+  },
+  "EmailController (characterization) > GET /api/emails/settings > returns default settings to admins and 404 to user/guest > guest": {
+    "res": {
+      "status": 404,
+      "headers": {
+        "content-type": "text/plain; charset=utf-8"
+      },
+      "body": "Not Found"
+    },
+    "emitted": []
+  },
+  "EmailController (characterization) > GET /api/emails/settings > returns default settings to admins and 404 to user/guest > root": {
+    "res": {
+      "status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8"
+      },
+      "body": {
+        "settings": {
+          "id": "email-settings",
+          "host": null,
+          "port": 465,
+          "secure": true,
+          "rejectUnauthorized": true,
+          "user": null,
+          "pass": null,
+          "testAddress": null,
+          "fromAddress": null,
+          "ereaderDevices": []
+        }
+      }
+    },
+    "emitted": []
+  },
+  "EmailController (characterization) > GET /api/emails/settings > returns default settings to admins and 404 to user/guest > user": {
+    "res": {
+      "status": 404,
+      "headers": {
+        "content-type": "text/plain; charset=utf-8"
+      },
+      "body": "Not Found"
+    },
+    "emitted": []
+  },
+  "EmailController (characterization) > PATCH /api/emails/settings > requires authentication and admin > guest": {
+    "res": {
+      "status": 404,
+      "headers": {
+        "content-type": "text/plain; charset=utf-8"
+      },
+      "body": "Not Found"
+    },
+    "emitted": []
+  },
+  "EmailController (characterization) > PATCH /api/emails/settings > requires authentication and admin > no auth": {
+    "res": {
+      "status": 401,
+      "headers": {
+        "content-type": "text/plain; charset=utf-8"
+      },
+      "body": "Unauthorized"
+    },
+    "emitted": []
+  },
+  "EmailController (characterization) > PATCH /api/emails/settings > requires authentication and admin > unchanged": {
+    "res": {
+      "status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8"
+      },
+      "body": {
+        "settings": {
+          "id": "email-settings",
+          "host": null,
+          "port": 465,
+          "secure": true,
+          "rejectUnauthorized": true,
+          "user": null,
+          "pass": null,
+          "testAddress": null,
+          "fromAddress": null,
+          "ereaderDevices": []
+        }
+      }
+    },
+    "emitted": []
+  },
+  "EmailController (characterization) > PATCH /api/emails/settings > requires authentication and admin > user": {
+    "res": {
+      "status": 404,
+      "headers": {
+        "content-type": "text/plain; charset=utf-8"
+      },
+      "body": "Not Found"
+    },
+    "emitted": []
+  },
+  "EmailController (characterization) > PATCH /api/emails/settings > updates settings, coercing types, and persists them > admin update": {
+    "res": {
+      "status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8"
+      },
+      "body": {
+        "settings": {
+          "id": "email-settings",
+          "host": "smtp.example.test",
+          "port": 587,
+          "secure": false,
+          "rejectUnauthorized": false,
+          "user": "mailer",
+          "pass": "secret-pass",
+          "testAddress": "test@example.test",
+          "fromAddress": "abs@example.test",
+          "ereaderDevices": []
+        }
+      }
+    },
+    "emitted": []
+  },
+  "EmailController (characterization) > PATCH /api/emails/settings > updates settings, coercing types, and persists them > coerce port and secure": {
+    "res": {
+      "status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8"
+      },
+      "body": {
+        "settings": {
+          "id": "email-settings",
+          "host": "smtp.example.test",
+          "port": 465,
+          "secure": false,
+          "rejectUnauthorized": false,
+          "user": "mailer",
+          "pass": "secret-pass",
+          "testAddress": "test@example.test",
+          "fromAddress": "abs@example.test",
+          "ereaderDevices": []
+        }
+      }
+    },
+    "emitted": []
+  },
+  "EmailController (characterization) > PATCH /api/emails/settings > updates settings, coercing types, and persists them > db row": {
+    "id": "email-settings",
+    "host": "smtp.example.test",
+    "port": 2525,
+    "secure": false,
+    "rejectUnauthorized": false,
+    "user": "mailer",
+    "pass": "secret-pass",
+    "testAddress": "test@example.test",
+    "fromAddress": "abs@example.test",
+    "ereaderDevices": []
+  },
+  "EmailController (characterization) > PATCH /api/emails/settings > updates settings, coercing types, and persists them > get after update": {
+    "res": {
+      "status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8"
+      },
+      "body": {
+        "settings": {
+          "id": "email-settings",
+          "host": "smtp.example.test",
+          "port": 2525,
+          "secure": false,
+          "rejectUnauthorized": false,
+          "user": "mailer",
+          "pass": "secret-pass",
+          "testAddress": "test@example.test",
+          "fromAddress": "abs@example.test",
+          "ereaderDevices": []
+        }
+      }
+    },
+    "emitted": []
+  },
+  "EmailController (characterization) > PATCH /api/emails/settings > updates settings, coercing types, and persists them > no changes": {
+    "res": {
+      "status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8"
+      },
+      "body": {
+        "settings": {
+          "id": "email-settings",
+          "host": "smtp.example.test",
+          "port": 2525,
+          "secure": false,
+          "rejectUnauthorized": false,
+          "user": "mailer",
+          "pass": "secret-pass",
+          "testAddress": "test@example.test",
+          "fromAddress": "abs@example.test",
+          "ereaderDevices": []
+        }
+      }
+    },
+    "emitted": []
+  },
+  "EmailController (characterization) > PATCH /api/emails/settings > updates settings, coercing types, and persists them > string port": {
+    "res": {
+      "status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8"
+      },
+      "body": {
+        "settings": {
+          "id": "email-settings",
+          "host": "smtp.example.test",
+          "port": 2525,
+          "secure": false,
+          "rejectUnauthorized": false,
+          "user": "mailer",
+          "pass": "secret-pass",
+          "testAddress": "test@example.test",
+          "fromAddress": "abs@example.test",
+          "ereaderDevices": []
+        }
+      }
+    },
+    "emitted": []
+  },
+  "EmailController (characterization) > PATCH /api/emails/settings > validates ereaderDevices passed in settings > devices filtered and defaulted": {
+    "res": {
+      "status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8"
+      },
+      "body": {
+        "settings": {
+          "id": "email-settings",
+          "host": null,
+          "port": 465,
+          "secure": true,
+          "rejectUnauthorized": true,
+          "user": null,
+          "pass": null,
+          "testAddress": null,
+          "fromAddress": null,
+          "ereaderDevices": [
+            {
+              "name": "Kindle",
+              "email": "kindle@example.test",
+              "availabilityOption": "adminOrUp"
+            },
+            {
+              "name": "Specific no users",
+              "email": "a@example.test",
+              "availabilityOption": "adminOrUp"
+            },
+            {
+              "name": "Guests",
+              "email": "g@example.test",
+              "availabilityOption": "guestOrUp",
+              "users": []
+            },
+            {
+              "name": "Specific",
+              "email": "s@example.test",
+              "availabilityOption": "specificUsers",
+              "users": [
+                "<uuid-1>"
+              ]
+            }
+          ]
+        }
+      }
+    },
+    "emitted": []
+  },
+  "EmailController (characterization) > PATCH /api/emails/settings > validates ereaderDevices passed in settings > non-array ignored": {
+    "res": {
+      "status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8"
+      },
+      "body": {
+        "settings": {
+          "id": "email-settings",
+          "host": null,
+          "port": 465,
+          "secure": true,
+          "rejectUnauthorized": true,
+          "user": null,
+          "pass": null,
+          "testAddress": null,
+          "fromAddress": null,
+          "ereaderDevices": [
+            {
+              "name": "Kindle",
+              "email": "kindle@example.test",
+              "availabilityOption": "adminOrUp"
+            },
+            {
+              "name": "Specific no users",
+              "email": "a@example.test",
+              "availabilityOption": "adminOrUp"
+            },
+            {
+              "name": "Guests",
+              "email": "g@example.test",
+              "availabilityOption": "guestOrUp",
+              "users": []
+            },
+            {
+              "name": "Specific",
+              "email": "s@example.test",
+              "availabilityOption": "specificUsers",
+              "users": [
+                "<uuid-1>"
+              ]
+            }
+          ]
+        }
+      }
+    },
+    "emitted": []
+  },
+  "EmailController (characterization) > POST /api/emails/ereader-devices > requires authentication and admin > guest": {
+    "res": {
+      "status": 404,
+      "headers": {
+        "content-type": "text/plain; charset=utf-8"
+      },
+      "body": "Not Found"
+    },
+    "emitted": []
+  },
+  "EmailController (characterization) > POST /api/emails/ereader-devices > requires authentication and admin > no auth": {
+    "res": {
+      "status": 401,
+      "headers": {
+        "content-type": "text/plain; charset=utf-8"
+      },
+      "body": "Unauthorized"
+    },
+    "emitted": []
+  },
+  "EmailController (characterization) > POST /api/emails/ereader-devices > requires authentication and admin > user": {
+    "res": {
+      "status": 404,
+      "headers": {
+        "content-type": "text/plain; charset=utf-8"
+      },
+      "body": "Not Found"
+    },
+    "emitted": []
+  },
+  "EmailController (characterization) > POST /api/emails/ereader-devices > saves devices, emits to admins and persists > empty list clears all devices": {
+    "res": {
+      "status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8"
+      },
+      "body": {
+        "ereaderDevices": []
+      }
+    },
+    "emitted": [
+      {
+        "method": "adminEmitter",
+        "args": [
+          "ereader-devices-updated",
+          {
+            "ereaderDevices": []
+          }
+        ]
+      }
+    ]
+  },
+  "EmailController (characterization) > POST /api/emails/ereader-devices > saves devices, emits to admins and persists > empty list does not clear devices": {
+    "res": {
+      "status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8"
+      },
+      "body": {
+        "ereaderDevices": []
+      }
+    },
+    "emitted": [
+      {
+        "method": "adminEmitter",
+        "args": [
+          "ereader-devices-updated",
+          {
+            "ereaderDevices": []
+          }
+        ]
+      }
+    ]
+  },
+  "EmailController (characterization) > POST /api/emails/ereader-devices > saves devices, emits to admins and persists > replace with defaults": {
+    "res": {
+      "status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8"
+      },
+      "body": {
+        "ereaderDevices": [
+          {
+            "name": "Kindle",
+            "email": "new@example.test",
+            "availabilityOption": "adminOrUp"
+          }
+        ]
+      }
+    },
+    "emitted": [
+      {
+        "method": "adminEmitter",
+        "args": [
+          "ereader-devices-updated",
+          {
+            "ereaderDevices": [
+              {
+                "name": "Kindle",
+                "email": "new@example.test",
+                "availabilityOption": "adminOrUp"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "EmailController (characterization) > POST /api/emails/ereader-devices > saves devices, emits to admins and persists > same again emits nothing": {
+    "res": {
+      "status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8"
+      },
+      "body": {
+        "ereaderDevices": [
+          {
+            "name": "Kindle",
+            "email": "kindle@example.test",
+            "availabilityOption": "userOrUp"
+          },
+          {
+            "name": "Kobo",
+            "email": "kobo@example.test",
+            "availabilityOption": "specificUsers",
+            "users": [
+              "<uuid-1>"
+            ]
+          }
+        ]
+      }
+    },
+    "emitted": []
+  },
+  "EmailController (characterization) > POST /api/emails/ereader-devices > saves devices, emits to admins and persists > save": {
+    "res": {
+      "status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8"
+      },
+      "body": {
+        "ereaderDevices": [
+          {
+            "name": "Kindle",
+            "email": "kindle@example.test",
+            "availabilityOption": "userOrUp"
+          },
+          {
+            "name": "Kobo",
+            "email": "kobo@example.test",
+            "availabilityOption": "specificUsers",
+            "users": [
+              "<uuid-1>"
+            ]
+          }
+        ]
+      }
+    },
+    "emitted": [
+      {
+        "method": "adminEmitter",
+        "args": [
+          "ereader-devices-updated",
+          {
+            "ereaderDevices": [
+              {
+                "name": "Kindle",
+                "email": "kindle@example.test",
+                "availabilityOption": "userOrUp"
+              },
+              {
+                "name": "Kobo",
+                "email": "kobo@example.test",
+                "availabilityOption": "specificUsers",
+                "users": [
+                  "<uuid-1>"
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "EmailController (characterization) > POST /api/emails/ereader-devices > saves devices, emits to admins and persists > settings": {
+    "res": {
+      "status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8"
+      },
+      "body": {
+        "settings": {
+          "id": "email-settings",
+          "host": null,
+          "port": 465,
+          "secure": true,
+          "rejectUnauthorized": true,
+          "user": null,
+          "pass": null,
+          "testAddress": null,
+          "fromAddress": null,
+          "ereaderDevices": []
+        }
+      }
+    },
+    "emitted": []
+  },
+  "EmailController (characterization) > POST /api/emails/ereader-devices > validates the payload > device without email": {
+    "res": {
+      "status": 400,
+      "headers": {
+        "content-type": "text/html; charset=utf-8"
+      },
+      "body": "Invalid payload. ereaderDevices array items must have name and email"
+    },
+    "emitted": []
+  },
+  "EmailController (characterization) > POST /api/emails/ereader-devices > validates the payload > device without name": {
+    "res": {
+      "status": 400,
+      "headers": {
+        "content-type": "text/html; charset=utf-8"
+      },
+      "body": "Invalid payload. ereaderDevices array items must have name and email"
+    },
+    "emitted": []
+  },
+  "EmailController (characterization) > POST /api/emails/ereader-devices > validates the payload > missing": {
+    "res": {
+      "status": 400,
+      "headers": {
+        "content-type": "text/html; charset=utf-8"
+      },
+      "body": "Invalid payload. ereaderDevices array required"
+    },
+    "emitted": []
+  },
+  "EmailController (characterization) > POST /api/emails/ereader-devices > validates the payload > not an array": {
+    "res": {
+      "status": 400,
+      "headers": {
+        "content-type": "text/html; charset=utf-8"
+      },
+      "body": "Invalid payload. ereaderDevices array required"
+    },
+    "emitted": []
+  },
+  "EmailController (characterization) > POST /api/emails/send-ebook-to-device > 403s for a user without access to the item library > no library access": {
+    "res": {
+      "status": 403,
+      "headers": {
+        "content-type": "text/plain; charset=utf-8"
+      },
+      "body": "Forbidden"
+    },
+    "emitted": []
+  },
+  "EmailController (characterization) > POST /api/emails/send-ebook-to-device > 404s for unknown device, item and items without an ebook > empty body": {
+    "res": {
+      "status": 404,
+      "headers": {
+        "content-type": "text/html; charset=utf-8"
+      },
+      "body": "Ereader device not found"
+    },
+    "emitted": []
+  },
+  "EmailController (characterization) > POST /api/emails/send-ebook-to-device > 404s for unknown device, item and items without an ebook > item without ebook": {
+    "res": {
+      "status": 404,
+      "headers": {
+        "content-type": "text/html; charset=utf-8"
+      },
+      "body": "Ebook file not found"
+    },
+    "emitted": []
+  },
+  "EmailController (characterization) > POST /api/emails/send-ebook-to-device > 404s for unknown device, item and items without an ebook > no mail sent": {
+    "createTransport": [],
+    "verify": 0,
+    "sendMail": []
+  },
+  "EmailController (characterization) > POST /api/emails/send-ebook-to-device > 404s for unknown device, item and items without an ebook > unknown device": {
+    "res": {
+      "status": 404,
+      "headers": {
+        "content-type": "text/html; charset=utf-8"
+      },
+      "body": "Ereader device not found"
+    },
+    "emitted": []
+  },
+  "EmailController (characterization) > POST /api/emails/send-ebook-to-device > 404s for unknown device, item and items without an ebook > unknown item": {
+    "res": {
+      "status": 404,
+      "headers": {
+        "content-type": "text/html; charset=utf-8"
+      },
+      "body": "Library item not found"
+    },
+    "emitted": []
+  },
+  "EmailController (characterization) > POST /api/emails/send-ebook-to-device > enforces device availability per user type > admin -> AdminDevice": {
+    "res": {
+      "status": 200,
+      "headers": {
+        "content-type": "text/plain; charset=utf-8"
+      },
+      "body": "OK"
+    },
+    "emitted": []
+  },
+  "EmailController (characterization) > POST /api/emails/send-ebook-to-device > enforces device availability per user type > admin -> GuestDevice": {
+    "res": {
+      "status": 200,
+      "headers": {
+        "content-type": "text/plain; charset=utf-8"
+      },
+      "body": "OK"
+    },
+    "emitted": []
+  },
+  "EmailController (characterization) > POST /api/emails/send-ebook-to-device > enforces device availability per user type > admin -> SpecificDevice": {
+    "res": {
+      "status": 403,
+      "headers": {
+        "content-type": "text/plain; charset=utf-8"
+      },
+      "body": "Forbidden"
+    },
+    "emitted": []
+  },
+  "EmailController (characterization) > POST /api/emails/send-ebook-to-device > enforces device availability per user type > admin -> UserDevice": {
+    "res": {
+      "status": 200,
+      "headers": {
+        "content-type": "text/plain; charset=utf-8"
+      },
+      "body": "OK"
+    },
+    "emitted": []
+  },
+  "EmailController (characterization) > POST /api/emails/send-ebook-to-device > enforces device availability per user type > guest -> AdminDevice": {
+    "res": {
+      "status": 403,
+      "headers": {
+        "content-type": "text/plain; charset=utf-8"
+      },
+      "body": "Forbidden"
+    },
+    "emitted": []
+  },
+  "EmailController (characterization) > POST /api/emails/send-ebook-to-device > enforces device availability per user type > guest -> GuestDevice": {
+    "res": {
+      "status": 200,
+      "headers": {
+        "content-type": "text/plain; charset=utf-8"
+      },
+      "body": "OK"
+    },
+    "emitted": []
+  },
+  "EmailController (characterization) > POST /api/emails/send-ebook-to-device > enforces device availability per user type > guest -> SpecificDevice": {
+    "res": {
+      "status": 403,
+      "headers": {
+        "content-type": "text/plain; charset=utf-8"
+      },
+      "body": "Forbidden"
+    },
+    "emitted": []
+  },
+  "EmailController (characterization) > POST /api/emails/send-ebook-to-device > enforces device availability per user type > guest -> UserDevice": {
+    "res": {
+      "status": 403,
+      "headers": {
+        "content-type": "text/plain; charset=utf-8"
+      },
+      "body": "Forbidden"
+    },
+    "emitted": []
+  },
+  "EmailController (characterization) > POST /api/emails/send-ebook-to-device > enforces device availability per user type > user -> AdminDevice": {
+    "res": {
+      "status": 403,
+      "headers": {
+        "content-type": "text/plain; charset=utf-8"
+      },
+      "body": "Forbidden"
+    },
+    "emitted": []
+  },
+  "EmailController (characterization) > POST /api/emails/send-ebook-to-device > enforces device availability per user type > user -> GuestDevice": {
+    "res": {
+      "status": 200,
+      "headers": {
+        "content-type": "text/plain; charset=utf-8"
+      },
+      "body": "OK"
+    },
+    "emitted": []
+  },
+  "EmailController (characterization) > POST /api/emails/send-ebook-to-device > enforces device availability per user type > user -> SpecificDevice": {
+    "res": {
+      "status": 200,
+      "headers": {
+        "content-type": "text/plain; charset=utf-8"
+      },
+      "body": "OK"
+    },
+    "emitted": []
+  },
+  "EmailController (characterization) > POST /api/emails/send-ebook-to-device > enforces device availability per user type > user -> UserDevice": {
+    "res": {
+      "status": 200,
+      "headers": {
+        "content-type": "text/plain; charset=utf-8"
+      },
+      "body": "OK"
+    },
+    "emitted": []
+  },
+  "EmailController (characterization) > POST /api/emails/send-ebook-to-device > requires authentication": {
+    "res": {
+      "status": 401,
+      "headers": {
+        "content-type": "text/plain; charset=utf-8"
+      },
+      "body": "Unauthorized"
+    },
+    "emitted": []
+  },
+  "EmailController (characterization) > POST /api/emails/send-ebook-to-device > returns 400 when verify fails or sendMail fails > sendMail fails": {
+    "res": {
+      "status": 400,
+      "headers": {
+        "content-type": "text/html; charset=utf-8"
+      },
+      "body": "552 attachment too large"
+    },
+    "emitted": []
+  },
+  "EmailController (characterization) > POST /api/emails/send-ebook-to-device > returns 400 when verify fails or sendMail fails > verify false": {
+    "res": {
+      "status": 400,
+      "headers": {
+        "content-type": "text/html; charset=utf-8"
+      },
+      "body": "Failed to verify SMTP connection configuration"
+    },
+    "emitted": []
+  },
+  "EmailController (characterization) > POST /api/emails/send-ebook-to-device > sends the ebook as an attachment > user sends": {
+    "res": {
+      "status": 200,
+      "headers": {
+        "content-type": "text/plain; charset=utf-8"
+      },
+      "body": "OK"
+    },
+    "emitted": [],
+    "smtp": {
+      "createTransport": [
+        [
+          {
+            "host": "smtp.example.test",
+            "secure": false,
+            "port": 587,
+            "auth": {
+              "user": "mailer",
+              "pass": "secret-pass"
+            },
+            "tls": {
+              "rejectUnauthorized": false
+            }
+          }
+        ]
+      ],
+      "verify": 1,
+      "sendMail": [
+        [
+          {
+            "from": "abs@example.test",
+            "to": "user-dev@example.test",
+            "subject": "Here is your Ebook!",
+            "html": "<div dir=\"auto\"></div>",
+            "attachments": [
+              {
+                "filename": "book.epub",
+                "path": "<tmp>/books/With Ebook/book.epub"
+              }
+            ]
+          }
+        ]
+      ]
+    }
+  },
+  "EmailController (characterization) > POST /api/emails/test > falls back to the from address when there is no test address > root": {
+    "res": {
+      "status": 200,
+      "headers": {
+        "content-type": "text/plain; charset=utf-8"
+      },
+      "body": "OK"
+    },
+    "emitted": [],
+    "smtp": {
+      "createTransport": [
+        [
+          {
+            "host": "smtp.example.test",
+            "secure": false,
+            "port": 587,
+            "auth": {
+              "user": "mailer",
+              "pass": "secret-pass"
+            },
+            "tls": {
+              "rejectUnauthorized": false
+            }
+          }
+        ]
+      ],
+      "verify": 1,
+      "sendMail": [
+        [
+          {
+            "from": "abs@example.test",
+            "to": "abs@example.test",
+            "subject": "Test email from Audiobookshelf",
+            "text": "Success!"
+          }
+        ]
+      ]
+    }
+  },
+  "EmailController (characterization) > POST /api/emails/test > requires authentication and admin > no auth": {
+    "res": {
+      "status": 401,
+      "headers": {
+        "content-type": "text/plain; charset=utf-8"
+      },
+      "body": "Unauthorized"
+    },
+    "emitted": []
+  },
+  "EmailController (characterization) > POST /api/emails/test > requires authentication and admin > smtp calls": {
+    "createTransport": [],
+    "verify": 0,
+    "sendMail": []
+  },
+  "EmailController (characterization) > POST /api/emails/test > requires authentication and admin > user": {
+    "res": {
+      "status": 404,
+      "headers": {
+        "content-type": "text/plain; charset=utf-8"
+      },
+      "body": "Not Found"
+    },
+    "emitted": []
+  },
+  "EmailController (characterization) > POST /api/emails/test > returns 400 when the SMTP config cannot be verified > verify throws": {
+    "res": {
+      "status": 400,
+      "headers": {
+        "content-type": "text/html; charset=utf-8"
+      },
+      "body": "Failed to verify SMTP connection configuration"
+    },
+    "emitted": [],
+    "smtp": {
+      "createTransport": [
+        [
+          {
+            "host": null,
+            "secure": true,
+            "port": 465
+          }
+        ]
+      ],
+      "verify": 1,
+      "sendMail": []
+    }
+  },
+  "EmailController (characterization) > POST /api/emails/test > returns the sendMail error message with 400 > sendMail throws": {
+    "res": {
+      "status": 400,
+      "headers": {
+        "content-type": "text/html; charset=utf-8"
+      },
+      "body": "550 mailbox unavailable"
+    },
+    "emitted": [],
+    "smtp": {
+      "createTransport": [
+        [
+          {
+            "host": null,
+            "secure": true,
+            "port": 465
+          }
+        ]
+      ],
+      "verify": 1,
+      "sendMail": [
+        [
+          {
+            "from": null,
+            "to": null,
+            "subject": "Test email from Audiobookshelf",
+            "text": "Success!"
+          }
+        ]
+      ]
+    }
+  },
+  "EmailController (characterization) > POST /api/emails/test > sends the test email using the transport built from settings > admin": {
+    "res": {
+      "status": 200,
+      "headers": {
+        "content-type": "text/plain; charset=utf-8"
+      },
+      "body": "OK"
+    },
+    "emitted": [],
+    "smtp": {
+      "createTransport": [
+        [
+          {
+            "host": "smtp.example.test",
+            "secure": false,
+            "port": 587,
+            "auth": {
+              "user": "mailer",
+              "pass": "secret-pass"
+            },
+            "tls": {
+              "rejectUnauthorized": false
+            }
+          }
+        ]
+      ],
+      "verify": 1,
+      "sendMail": [
+        [
+          {
+            "from": "abs@example.test",
+            "to": "test@example.test",
+            "subject": "Test email from Audiobookshelf",
+            "text": "Success!"
+          }
+        ]
+      ]
+    }
+  }
+}

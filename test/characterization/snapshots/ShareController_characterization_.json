@@ -1,0 +1,2296 @@
+{
+  "ShareController (characterization) > DELETE /api/share/mediaitem/:id > deletes as admin, emits share_closed, drops sessions and 404s afterwards > delete": {
+    "res": {
+      "status": 204,
+      "headers": {
+        "content-type": null
+      },
+      "body": null
+    },
+    "emitted": [
+      {
+        "method": "adminEmitter",
+        "args": [
+          "share_closed",
+          {
+            "id": "<uuid-1>",
+            "slug": "my-book",
+            "expiresAt": "<iso-date>",
+            "mediaItemId": "<uuid-2>",
+            "mediaItemType": "book",
+            "isDownloadable": false,
+            "updatedAt": "<iso-date>",
+            "createdAt": "<iso-date>"
+          }
+        ]
+      }
+    ]
+  },
+  "ShareController (characterization) > DELETE /api/share/mediaitem/:id > deletes as admin, emits share_closed, drops sessions and 404s afterwards > delete again": {
+    "res": {
+      "status": 404,
+      "headers": {
+        "content-type": "text/html; charset=utf-8"
+      },
+      "body": "Media item share not found"
+    },
+    "emitted": []
+  },
+  "ShareController (characterization) > DELETE /api/share/mediaitem/:id > deletes as admin, emits share_closed, drops sessions and 404s afterwards > public get after delete": {
+    "res": {
+      "status": 404,
+      "headers": {
+        "content-type": "text/plain; charset=utf-8"
+      },
+      "body": "Not Found"
+    },
+    "emitted": []
+  },
+  "ShareController (characterization) > DELETE /api/share/mediaitem/:id > deletes as admin, emits share_closed, drops sessions and 404s afterwards > state": {
+    "rows": 0,
+    "open": 0,
+    "sessions": 0
+  },
+  "ShareController (characterization) > DELETE /api/share/mediaitem/:id > deletes as admin, emits share_closed, drops sessions and 404s afterwards > unknown id": {
+    "res": {
+      "status": 404,
+      "headers": {
+        "content-type": "text/html; charset=utf-8"
+      },
+      "body": "Media item share not found"
+    },
+    "emitted": []
+  },
+  "ShareController (characterization) > DELETE /api/share/mediaitem/:id > requires authentication and admin > guest": {
+    "res": {
+      "status": 403,
+      "headers": {
+        "content-type": "text/plain; charset=utf-8"
+      },
+      "body": "Forbidden"
+    },
+    "emitted": []
+  },
+  "ShareController (characterization) > DELETE /api/share/mediaitem/:id > requires authentication and admin > no auth": {
+    "res": {
+      "status": 401,
+      "headers": {
+        "content-type": "text/plain; charset=utf-8"
+      },
+      "body": "Unauthorized"
+    },
+    "emitted": []
+  },
+  "ShareController (characterization) > DELETE /api/share/mediaitem/:id > requires authentication and admin > user": {
+    "res": {
+      "status": 403,
+      "headers": {
+        "content-type": "text/plain; charset=utf-8"
+      },
+      "body": "Forbidden"
+    },
+    "emitted": []
+  },
+  "ShareController (characterization) > GET /public/share/:slug > 404s for an expired share and removes it > expired": {
+    "res": {
+      "status": 404,
+      "headers": {
+        "content-type": "text/html; charset=utf-8"
+      },
+      "body": "Media item share not found"
+    },
+    "emitted": [
+      {
+        "method": "adminEmitter",
+        "args": [
+          "share_closed",
+          {
+            "id": "<uuid-1>",
+            "slug": "my-book",
+            "expiresAt": "<iso-date>",
+            "mediaItemId": "<uuid-2>",
+            "mediaItemType": "book",
+            "isDownloadable": false,
+            "updatedAt": "<iso-date>",
+            "createdAt": "<iso-date>"
+          }
+        ]
+      }
+    ]
+  },
+  "ShareController (characterization) > GET /public/share/:slug > 404s for an expired share and removes it > state": {
+    "open": 0,
+    "rows": 0
+  },
+  "ShareController (characterization) > GET /public/share/:slug > 404s for an unknown slug": {
+    "res": {
+      "status": 404,
+      "headers": {
+        "content-type": "text/plain; charset=utf-8"
+      },
+      "body": "Not Found"
+    },
+    "emitted": []
+  },
+  "ShareController (characterization) > GET /public/share/:slug > 404s when the shared media item is a podcast episode or has no library item > book without library item": {
+    "res": {
+      "status": 404,
+      "headers": {
+        "content-type": "text/html; charset=utf-8"
+      },
+      "body": "Media item not found"
+    },
+    "emitted": []
+  },
+  "ShareController (characterization) > GET /public/share/:slug > 404s when the shared media item is a podcast episode or has no library item > podcast episode share": {
+    "res": {
+      "status": 404,
+      "headers": {
+        "content-type": "text/html; charset=utf-8"
+      },
+      "body": "Media item not found"
+    },
+    "emitted": []
+  },
+  "ShareController (characterization) > GET /public/share/:slug > honours the ?t start time > negative t ignored": {
+    "res": {
+      "status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8"
+      },
+      "body": {
+        "id": "<uuid-3>",
+        "slug": "my-book",
+        "expiresAt": null,
+        "mediaItemId": "<book>",
+        "mediaItemType": "book",
+        "isDownloadable": false,
+        "updatedAt": "<iso-date>",
+        "createdAt": "<iso-date>",
+        "playbackSession": {
+          "id": "<uuid-4>",
+          "userId": null,
+          "libraryId": "<uuid-5>",
+          "libraryItemId": "<item>",
+          "bookId": "<book>",
+          "episodeId": null,
+          "mediaType": "book",
+          "mediaMetadata": {
+            "title": "Shared Book",
+            "subtitle": null,
+            "authors": [
+              {
+                "id": "<uuid-6>",
+                "name": "Ann Author"
+              }
+            ],
+            "narrators": [],
+            "series": [],
+            "genres": [],
+            "publishedYear": null,
+            "publishedDate": null,
+            "publisher": null,
+            "description": null,
+            "isbn": null,
+            "asin": null,
+            "language": null,
+            "explicit": false,
+            "abridged": null
+          },
+          "chapters": [],
+          "displayTitle": "Shared Book",
+          "displayAuthor": "Ann Author",
+          "coverPath": "<tmp>/books/Shared Book/cover.png",
+          "duration": 90,
+          "playMethod": 0,
+          "mediaPlayer": "web-share",
+          "deviceInfo": {
+            "id": "<uuid-7>",
+            "deviceId": "<uuid-8>",
+            "ipAddress": "127.0.0.1",
+            "clientVersion": "<version>",
+            "clientName": "Abs Web Share"
+          },
+          "serverVersion": "<version>",
+          "date": "<date>",
+          "dayOfWeek": "<day>",
+          "timeListening": 0,
+          "startTime": 45,
+          "currentTime": 20,
+          "startedAt": "<timestamp>",
+          "updatedAt": "<timestamp>",
+          "audioTracks": [
+            {
+              "index": 1,
+              "startOffset": 0,
+              "duration": 60,
+              "title": "part1.mp3",
+              "contentUrl": "/public/share/my-book/track/1",
+              "mimeType": "audio/mpeg",
+              "codec": "mp3",
+              "metadata": {
+                "filename": "part1.mp3",
+                "ext": ".mp3",
+                "path": "<tmp>/books/Shared Book/part1.mp3",
+                "relPath": "part1.mp3",
+                "size": 15,
+                "mtimeMs": 1000,
+                "ctimeMs": 1000,
+                "birthtimeMs": 1000
+              }
+            },
+            {
+              "index": 2,
+              "startOffset": 60,
+              "duration": 30,
+              "title": "part2.mp3",
+              "contentUrl": "/public/share/my-book/track/2",
+              "mimeType": "audio/mpeg",
+              "codec": "mp3",
+              "metadata": {
+                "filename": "part2.mp3",
+                "ext": ".mp3",
+                "path": "<tmp>/books/Shared Book/part2.mp3",
+                "relPath": "part2.mp3",
+                "size": 15,
+                "mtimeMs": 1000,
+                "ctimeMs": 1000,
+                "birthtimeMs": 1000
+              }
+            }
+          ],
+          "libraryItem": null,
+          "coverAspectRatio": 1
+        }
+      }
+    },
+    "emitted": []
+  },
+  "ShareController (characterization) > GET /public/share/:slug > honours the ?t start time > t beyond duration keeps cached time": {
+    "res": {
+      "status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8"
+      },
+      "body": {
+        "id": "<uuid-3>",
+        "slug": "my-book",
+        "expiresAt": null,
+        "mediaItemId": "<book>",
+        "mediaItemType": "book",
+        "isDownloadable": false,
+        "updatedAt": "<iso-date>",
+        "createdAt": "<iso-date>",
+        "playbackSession": {
+          "id": "<uuid-4>",
+          "userId": null,
+          "libraryId": "<uuid-5>",
+          "libraryItemId": "<item>",
+          "bookId": "<book>",
+          "episodeId": null,
+          "mediaType": "book",
+          "mediaMetadata": {
+            "title": "Shared Book",
+            "subtitle": null,
+            "authors": [
+              {
+                "id": "<uuid-6>",
+                "name": "Ann Author"
+              }
+            ],
+            "narrators": [],
+            "series": [],
+            "genres": [],
+            "publishedYear": null,
+            "publishedDate": null,
+            "publisher": null,
+            "description": null,
+            "isbn": null,
+            "asin": null,
+            "language": null,
+            "explicit": false,
+            "abridged": null
+          },
+          "chapters": [],
+          "displayTitle": "Shared Book",
+          "displayAuthor": "Ann Author",
+          "coverPath": "<tmp>/books/Shared Book/cover.png",
+          "duration": 90,
+          "playMethod": 0,
+          "mediaPlayer": "web-share",
+          "deviceInfo": {
+            "id": "<uuid-7>",
+            "deviceId": "<uuid-8>",
+            "ipAddress": "127.0.0.1",
+            "clientVersion": "<version>",
+            "clientName": "Abs Web Share"
+          },
+          "serverVersion": "<version>",
+          "date": "<date>",
+          "dayOfWeek": "<day>",
+          "timeListening": 0,
+          "startTime": 45,
+          "currentTime": 20,
+          "startedAt": "<timestamp>",
+          "updatedAt": "<timestamp>",
+          "audioTracks": [
+            {
+              "index": 1,
+              "startOffset": 0,
+              "duration": 60,
+              "title": "part1.mp3",
+              "contentUrl": "/public/share/my-book/track/1",
+              "mimeType": "audio/mpeg",
+              "codec": "mp3",
+              "metadata": {
+                "filename": "part1.mp3",
+                "ext": ".mp3",
+                "path": "<tmp>/books/Shared Book/part1.mp3",
+                "relPath": "part1.mp3",
+                "size": 15,
+                "mtimeMs": 1000,
+                "ctimeMs": 1000,
+                "birthtimeMs": 1000
+              }
+            },
+            {
+              "index": 2,
+              "startOffset": 60,
+              "duration": 30,
+              "title": "part2.mp3",
+              "contentUrl": "/public/share/my-book/track/2",
+              "mimeType": "audio/mpeg",
+              "codec": "mp3",
+              "metadata": {
+                "filename": "part2.mp3",
+                "ext": ".mp3",
+                "path": "<tmp>/books/Shared Book/part2.mp3",
+                "relPath": "part2.mp3",
+                "size": 15,
+                "mtimeMs": 1000,
+                "ctimeMs": 1000,
+                "birthtimeMs": 1000
+              }
+            }
+          ],
+          "libraryItem": null,
+          "coverAspectRatio": 1
+        }
+      }
+    },
+    "emitted": []
+  },
+  "ShareController (characterization) > GET /public/share/:slug > honours the ?t start time > t beyond duration on a new session starts at 0": {
+    "res": {
+      "status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8"
+      },
+      "body": {
+        "id": "<uuid-3>",
+        "slug": "my-book",
+        "expiresAt": null,
+        "mediaItemId": "<book>",
+        "mediaItemType": "book",
+        "isDownloadable": false,
+        "updatedAt": "<iso-date>",
+        "createdAt": "<iso-date>",
+        "playbackSession": {
+          "id": "<uuid-9>",
+          "userId": null,
+          "libraryId": "<uuid-5>",
+          "libraryItemId": "<item>",
+          "bookId": "<book>",
+          "episodeId": null,
+          "mediaType": "book",
+          "mediaMetadata": {
+            "title": "Shared Book",
+            "subtitle": null,
+            "authors": [
+              {
+                "id": "<uuid-6>",
+                "name": "Ann Author"
+              }
+            ],
+            "narrators": [],
+            "series": [],
+            "genres": [],
+            "publishedYear": null,
+            "publishedDate": null,
+            "publisher": null,
+            "description": null,
+            "isbn": null,
+            "asin": null,
+            "language": null,
+            "explicit": false,
+            "abridged": null
+          },
+          "chapters": [],
+          "displayTitle": "Shared Book",
+          "displayAuthor": "Ann Author",
+          "coverPath": "<tmp>/books/Shared Book/cover.png",
+          "duration": 90,
+          "playMethod": 0,
+          "mediaPlayer": "web-share",
+          "deviceInfo": {
+            "id": "<uuid-10>",
+            "deviceId": "<uuid-11>",
+            "ipAddress": "127.0.0.1",
+            "clientVersion": "<version>",
+            "clientName": "Abs Web Share"
+          },
+          "serverVersion": "<version>",
+          "date": "<date>",
+          "dayOfWeek": "<day>",
+          "timeListening": 0,
+          "startTime": 0,
+          "currentTime": 0,
+          "startedAt": "<timestamp>",
+          "updatedAt": "<timestamp>",
+          "audioTracks": [
+            {
+              "index": 1,
+              "startOffset": 0,
+              "duration": 60,
+              "title": "part1.mp3",
+              "contentUrl": "/public/share/my-book/track/1",
+              "mimeType": "audio/mpeg",
+              "codec": "mp3",
+              "metadata": {
+                "filename": "part1.mp3",
+                "ext": ".mp3",
+                "path": "<tmp>/books/Shared Book/part1.mp3",
+                "relPath": "part1.mp3",
+                "size": 15,
+                "mtimeMs": 1000,
+                "ctimeMs": 1000,
+                "birthtimeMs": 1000
+              }
+            },
+            {
+              "index": 2,
+              "startOffset": 60,
+              "duration": 30,
+              "title": "part2.mp3",
+              "contentUrl": "/public/share/my-book/track/2",
+              "mimeType": "audio/mpeg",
+              "codec": "mp3",
+              "metadata": {
+                "filename": "part2.mp3",
+                "ext": ".mp3",
+                "path": "<tmp>/books/Shared Book/part2.mp3",
+                "relPath": "part2.mp3",
+                "size": 15,
+                "mtimeMs": 1000,
+                "ctimeMs": 1000,
+                "birthtimeMs": 1000
+              }
+            }
+          ],
+          "libraryItem": null,
+          "coverAspectRatio": 1
+        }
+      },
+      "setCookie": {
+        "name": "share_session_id",
+        "value": "<session-id>",
+        "attributes": [
+          "Max-Age=2592000",
+          "Path=/",
+          "HttpOnly"
+        ],
+        "hasExpires": true
+      }
+    },
+    "emitted": []
+  },
+  "ShareController (characterization) > GET /public/share/:slug > honours the ?t start time > t=20 overrides cached time": {
+    "res": {
+      "status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8"
+      },
+      "body": {
+        "id": "<uuid-3>",
+        "slug": "my-book",
+        "expiresAt": null,
+        "mediaItemId": "<book>",
+        "mediaItemType": "book",
+        "isDownloadable": false,
+        "updatedAt": "<iso-date>",
+        "createdAt": "<iso-date>",
+        "playbackSession": {
+          "id": "<uuid-4>",
+          "userId": null,
+          "libraryId": "<uuid-5>",
+          "libraryItemId": "<item>",
+          "bookId": "<book>",
+          "episodeId": null,
+          "mediaType": "book",
+          "mediaMetadata": {
+            "title": "Shared Book",
+            "subtitle": null,
+            "authors": [
+              {
+                "id": "<uuid-6>",
+                "name": "Ann Author"
+              }
+            ],
+            "narrators": [],
+            "series": [],
+            "genres": [],
+            "publishedYear": null,
+            "publishedDate": null,
+            "publisher": null,
+            "description": null,
+            "isbn": null,
+            "asin": null,
+            "language": null,
+            "explicit": false,
+            "abridged": null
+          },
+          "chapters": [],
+          "displayTitle": "Shared Book",
+          "displayAuthor": "Ann Author",
+          "coverPath": "<tmp>/books/Shared Book/cover.png",
+          "duration": 90,
+          "playMethod": 0,
+          "mediaPlayer": "web-share",
+          "deviceInfo": {
+            "id": "<uuid-7>",
+            "deviceId": "<uuid-8>",
+            "ipAddress": "127.0.0.1",
+            "clientVersion": "<version>",
+            "clientName": "Abs Web Share"
+          },
+          "serverVersion": "<version>",
+          "date": "<date>",
+          "dayOfWeek": "<day>",
+          "timeListening": 0,
+          "startTime": 45,
+          "currentTime": 20,
+          "startedAt": "<timestamp>",
+          "updatedAt": "<timestamp>",
+          "audioTracks": [
+            {
+              "index": 1,
+              "startOffset": 0,
+              "duration": 60,
+              "title": "part1.mp3",
+              "contentUrl": "/public/share/my-book/track/1",
+              "mimeType": "audio/mpeg",
+              "codec": "mp3",
+              "metadata": {
+                "filename": "part1.mp3",
+                "ext": ".mp3",
+                "path": "<tmp>/books/Shared Book/part1.mp3",
+                "relPath": "part1.mp3",
+                "size": 15,
+                "mtimeMs": 1000,
+                "ctimeMs": 1000,
+                "birthtimeMs": 1000
+              }
+            },
+            {
+              "index": 2,
+              "startOffset": 60,
+              "duration": 30,
+              "title": "part2.mp3",
+              "contentUrl": "/public/share/my-book/track/2",
+              "mimeType": "audio/mpeg",
+              "codec": "mp3",
+              "metadata": {
+                "filename": "part2.mp3",
+                "ext": ".mp3",
+                "path": "<tmp>/books/Shared Book/part2.mp3",
+                "relPath": "part2.mp3",
+                "size": 15,
+                "mtimeMs": 1000,
+                "ctimeMs": 1000,
+                "birthtimeMs": 1000
+              }
+            }
+          ],
+          "libraryItem": null,
+          "coverAspectRatio": 1
+        }
+      }
+    },
+    "emitted": []
+  },
+  "ShareController (characterization) > GET /public/share/:slug > honours the ?t start time > t=45 on a new session": {
+    "res": {
+      "status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8"
+      },
+      "body": {
+        "id": "<uuid-3>",
+        "slug": "my-book",
+        "expiresAt": null,
+        "mediaItemId": "<book>",
+        "mediaItemType": "book",
+        "isDownloadable": false,
+        "updatedAt": "<iso-date>",
+        "createdAt": "<iso-date>",
+        "playbackSession": {
+          "id": "<uuid-4>",
+          "userId": null,
+          "libraryId": "<uuid-5>",
+          "libraryItemId": "<item>",
+          "bookId": "<book>",
+          "episodeId": null,
+          "mediaType": "book",
+          "mediaMetadata": {
+            "title": "Shared Book",
+            "subtitle": null,
+            "authors": [
+              {
+                "id": "<uuid-6>",
+                "name": "Ann Author"
+              }
+            ],
+            "narrators": [],
+            "series": [],
+            "genres": [],
+            "publishedYear": null,
+            "publishedDate": null,
+            "publisher": null,
+            "description": null,
+            "isbn": null,
+            "asin": null,
+            "language": null,
+            "explicit": false,
+            "abridged": null
+          },
+          "chapters": [],
+          "displayTitle": "Shared Book",
+          "displayAuthor": "Ann Author",
+          "coverPath": "<tmp>/books/Shared Book/cover.png",
+          "duration": 90,
+          "playMethod": 0,
+          "mediaPlayer": "web-share",
+          "deviceInfo": {
+            "id": "<uuid-7>",
+            "deviceId": "<uuid-8>",
+            "ipAddress": "127.0.0.1",
+            "clientVersion": "<version>",
+            "clientName": "Abs Web Share"
+          },
+          "serverVersion": "<version>",
+          "date": "<date>",
+          "dayOfWeek": "<day>",
+          "timeListening": 0,
+          "startTime": 45,
+          "currentTime": 45,
+          "startedAt": "<timestamp>",
+          "updatedAt": "<timestamp>",
+          "audioTracks": [
+            {
+              "index": 1,
+              "startOffset": 0,
+              "duration": 60,
+              "title": "part1.mp3",
+              "contentUrl": "/public/share/my-book/track/1",
+              "mimeType": "audio/mpeg",
+              "codec": "mp3",
+              "metadata": {
+                "filename": "part1.mp3",
+                "ext": ".mp3",
+                "path": "<tmp>/books/Shared Book/part1.mp3",
+                "relPath": "part1.mp3",
+                "size": 15,
+                "mtimeMs": 1000,
+                "ctimeMs": 1000,
+                "birthtimeMs": 1000
+              }
+            },
+            {
+              "index": 2,
+              "startOffset": 60,
+              "duration": 30,
+              "title": "part2.mp3",
+              "contentUrl": "/public/share/my-book/track/2",
+              "mimeType": "audio/mpeg",
+              "codec": "mp3",
+              "metadata": {
+                "filename": "part2.mp3",
+                "ext": ".mp3",
+                "path": "<tmp>/books/Shared Book/part2.mp3",
+                "relPath": "part2.mp3",
+                "size": 15,
+                "mtimeMs": 1000,
+                "ctimeMs": 1000,
+                "birthtimeMs": 1000
+              }
+            }
+          ],
+          "libraryItem": null,
+          "coverAspectRatio": 1
+        }
+      },
+      "setCookie": {
+        "name": "share_session_id",
+        "value": "<session-id>",
+        "attributes": [
+          "Max-Age=2592000",
+          "Path=/",
+          "HttpOnly"
+        ],
+        "hasExpires": true
+      }
+    },
+    "emitted": []
+  },
+  "ShareController (characterization) > GET /public/share/:slug > opens a playback session, sets the cookie and returns the share with tracks > first request": {
+    "res": {
+      "status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8"
+      },
+      "body": {
+        "id": "<uuid-3>",
+        "slug": "my-book",
+        "expiresAt": null,
+        "mediaItemId": "<book>",
+        "mediaItemType": "book",
+        "isDownloadable": true,
+        "updatedAt": "<iso-date>",
+        "createdAt": "<iso-date>",
+        "playbackSession": {
+          "id": "<uuid-4>",
+          "userId": null,
+          "libraryId": "<uuid-5>",
+          "libraryItemId": "<item>",
+          "bookId": "<book>",
+          "episodeId": null,
+          "mediaType": "book",
+          "mediaMetadata": {
+            "title": "Shared Book",
+            "subtitle": null,
+            "authors": [
+              {
+                "id": "<uuid-6>",
+                "name": "Ann Author"
+              }
+            ],
+            "narrators": [],
+            "series": [],
+            "genres": [],
+            "publishedYear": null,
+            "publishedDate": null,
+            "publisher": null,
+            "description": null,
+            "isbn": null,
+            "asin": null,
+            "language": null,
+            "explicit": false,
+            "abridged": null
+          },
+          "chapters": [],
+          "displayTitle": "Shared Book",
+          "displayAuthor": "Ann Author",
+          "coverPath": "<tmp>/books/Shared Book/cover.png",
+          "duration": 90,
+          "playMethod": 0,
+          "mediaPlayer": "web-share",
+          "deviceInfo": {
+            "id": "<uuid-7>",
+            "deviceId": "<uuid-8>",
+            "ipAddress": "127.0.0.1",
+            "clientVersion": "<version>",
+            "clientName": "Abs Web Share"
+          },
+          "serverVersion": "<version>",
+          "date": "<date>",
+          "dayOfWeek": "<day>",
+          "timeListening": 0,
+          "startTime": 0,
+          "currentTime": 0,
+          "startedAt": "<timestamp>",
+          "updatedAt": "<timestamp>",
+          "audioTracks": [
+            {
+              "index": 1,
+              "startOffset": 0,
+              "duration": 60,
+              "title": "part1.mp3",
+              "contentUrl": "/public/share/my-book/track/1",
+              "mimeType": "audio/mpeg",
+              "codec": "mp3",
+              "metadata": {
+                "filename": "part1.mp3",
+                "ext": ".mp3",
+                "path": "<tmp>/books/Shared Book/part1.mp3",
+                "relPath": "part1.mp3",
+                "size": 15,
+                "mtimeMs": 1000,
+                "ctimeMs": 1000,
+                "birthtimeMs": 1000
+              }
+            },
+            {
+              "index": 2,
+              "startOffset": 60,
+              "duration": 30,
+              "title": "part2.mp3",
+              "contentUrl": "/public/share/my-book/track/2",
+              "mimeType": "audio/mpeg",
+              "codec": "mp3",
+              "metadata": {
+                "filename": "part2.mp3",
+                "ext": ".mp3",
+                "path": "<tmp>/books/Shared Book/part2.mp3",
+                "relPath": "part2.mp3",
+                "size": 15,
+                "mtimeMs": 1000,
+                "ctimeMs": 1000,
+                "birthtimeMs": 1000
+              }
+            }
+          ],
+          "libraryItem": null,
+          "coverAspectRatio": 1
+        }
+      },
+      "setCookie": {
+        "name": "share_session_id",
+        "value": "<session-id>",
+        "attributes": [
+          "Max-Age=2592000",
+          "Path=/",
+          "HttpOnly"
+        ],
+        "hasExpires": true
+      }
+    },
+    "emitted": []
+  },
+  "ShareController (characterization) > GET /public/share/:slug > opens a playback session, sets the cookie and returns the share with tracks > second request with cookie": {
+    "res": {
+      "status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8"
+      },
+      "body": {
+        "id": "<uuid-3>",
+        "slug": "my-book",
+        "expiresAt": null,
+        "mediaItemId": "<book>",
+        "mediaItemType": "book",
+        "isDownloadable": true,
+        "updatedAt": "<iso-date>",
+        "createdAt": "<iso-date>",
+        "playbackSession": {
+          "id": "<uuid-4>",
+          "userId": null,
+          "libraryId": "<uuid-5>",
+          "libraryItemId": "<item>",
+          "bookId": "<book>",
+          "episodeId": null,
+          "mediaType": "book",
+          "mediaMetadata": {
+            "title": "Shared Book",
+            "subtitle": null,
+            "authors": [
+              {
+                "id": "<uuid-6>",
+                "name": "Ann Author"
+              }
+            ],
+            "narrators": [],
+            "series": [],
+            "genres": [],
+            "publishedYear": null,
+            "publishedDate": null,
+            "publisher": null,
+            "description": null,
+            "isbn": null,
+            "asin": null,
+            "language": null,
+            "explicit": false,
+            "abridged": null
+          },
+          "chapters": [],
+          "displayTitle": "Shared Book",
+          "displayAuthor": "Ann Author",
+          "coverPath": "<tmp>/books/Shared Book/cover.png",
+          "duration": 90,
+          "playMethod": 0,
+          "mediaPlayer": "web-share",
+          "deviceInfo": {
+            "id": "<uuid-7>",
+            "deviceId": "<uuid-8>",
+            "ipAddress": "127.0.0.1",
+            "clientVersion": "<version>",
+            "clientName": "Abs Web Share"
+          },
+          "serverVersion": "<version>",
+          "date": "<date>",
+          "dayOfWeek": "<day>",
+          "timeListening": 0,
+          "startTime": 0,
+          "currentTime": 0,
+          "startedAt": "<timestamp>",
+          "updatedAt": "<timestamp>",
+          "audioTracks": [
+            {
+              "index": 1,
+              "startOffset": 0,
+              "duration": 60,
+              "title": "part1.mp3",
+              "contentUrl": "/public/share/my-book/track/1",
+              "mimeType": "audio/mpeg",
+              "codec": "mp3",
+              "metadata": {
+                "filename": "part1.mp3",
+                "ext": ".mp3",
+                "path": "<tmp>/books/Shared Book/part1.mp3",
+                "relPath": "part1.mp3",
+                "size": 15,
+                "mtimeMs": 1000,
+                "ctimeMs": 1000,
+                "birthtimeMs": 1000
+              }
+            },
+            {
+              "index": 2,
+              "startOffset": 60,
+              "duration": 30,
+              "title": "part2.mp3",
+              "contentUrl": "/public/share/my-book/track/2",
+              "mimeType": "audio/mpeg",
+              "codec": "mp3",
+              "metadata": {
+                "filename": "part2.mp3",
+                "ext": ".mp3",
+                "path": "<tmp>/books/Shared Book/part2.mp3",
+                "relPath": "part2.mp3",
+                "size": 15,
+                "mtimeMs": 1000,
+                "ctimeMs": 1000,
+                "birthtimeMs": 1000
+              }
+            }
+          ],
+          "libraryItem": null,
+          "coverAspectRatio": 1
+        }
+      }
+    },
+    "emitted": []
+  },
+  "ShareController (characterization) > GET /public/share/:slug > replaces an unknown or invalid cookie (the invalid value is reused as the session id) > invalid cookie": {
+    "res": {
+      "status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8"
+      },
+      "body": {
+        "id": "<uuid-2>",
+        "slug": "my-book",
+        "expiresAt": null,
+        "mediaItemId": "<book>",
+        "mediaItemType": "book",
+        "isDownloadable": false,
+        "updatedAt": "<iso-date>",
+        "createdAt": "<iso-date>",
+        "playbackSession": {
+          "id": "<uuid-9>",
+          "userId": null,
+          "libraryId": "<uuid-4>",
+          "libraryItemId": "<uuid-5>",
+          "bookId": "<book>",
+          "episodeId": null,
+          "mediaType": "book",
+          "mediaMetadata": {
+            "title": "Shared Book",
+            "subtitle": null,
+            "authors": [
+              {
+                "id": "<uuid-6>",
+                "name": "Ann Author"
+              }
+            ],
+            "narrators": [],
+            "series": [],
+            "genres": [],
+            "publishedYear": null,
+            "publishedDate": null,
+            "publisher": null,
+            "description": null,
+            "isbn": null,
+            "asin": null,
+            "language": null,
+            "explicit": false,
+            "abridged": null
+          },
+          "chapters": [],
+          "displayTitle": "Shared Book",
+          "displayAuthor": "Ann Author",
+          "coverPath": "<tmp>/books/Shared Book/cover.png",
+          "duration": 90,
+          "playMethod": 0,
+          "mediaPlayer": "web-share",
+          "deviceInfo": {
+            "id": "<uuid-10>",
+            "deviceId": "not-a-uuid",
+            "ipAddress": "127.0.0.1",
+            "clientVersion": "<version>",
+            "clientName": "Abs Web Share"
+          },
+          "serverVersion": "<version>",
+          "date": "<date>",
+          "dayOfWeek": "<day>",
+          "timeListening": 0,
+          "startTime": 0,
+          "currentTime": 0,
+          "startedAt": "<timestamp>",
+          "updatedAt": "<timestamp>",
+          "audioTracks": [
+            {
+              "index": 1,
+              "startOffset": 0,
+              "duration": 60,
+              "title": "part1.mp3",
+              "contentUrl": "/public/share/my-book/track/1",
+              "mimeType": "audio/mpeg",
+              "codec": "mp3",
+              "metadata": {
+                "filename": "part1.mp3",
+                "ext": ".mp3",
+                "path": "<tmp>/books/Shared Book/part1.mp3",
+                "relPath": "part1.mp3",
+                "size": 15,
+                "mtimeMs": 1000,
+                "ctimeMs": 1000,
+                "birthtimeMs": 1000
+              }
+            },
+            {
+              "index": 2,
+              "startOffset": 60,
+              "duration": 30,
+              "title": "part2.mp3",
+              "contentUrl": "/public/share/my-book/track/2",
+              "mimeType": "audio/mpeg",
+              "codec": "mp3",
+              "metadata": {
+                "filename": "part2.mp3",
+                "ext": ".mp3",
+                "path": "<tmp>/books/Shared Book/part2.mp3",
+                "relPath": "part2.mp3",
+                "size": 15,
+                "mtimeMs": 1000,
+                "ctimeMs": 1000,
+                "birthtimeMs": 1000
+              }
+            }
+          ],
+          "libraryItem": null,
+          "coverAspectRatio": 1
+        }
+      },
+      "setCookie": {
+        "name": "share_session_id",
+        "value": "",
+        "attributes": [
+          "Path=/",
+          "Max-Age=2592000",
+          "Path=/",
+          "HttpOnly"
+        ],
+        "hasExpires": true
+      }
+    },
+    "emitted": []
+  },
+  "ShareController (characterization) > GET /public/share/:slug > replaces an unknown or invalid cookie (the invalid value is reused as the session id) > session ids": {
+    "sessionIds": [
+      "<uuid-1>",
+      "not-a-uuid"
+    ]
+  },
+  "ShareController (characterization) > GET /public/share/:slug > replaces an unknown or invalid cookie (the invalid value is reused as the session id) > valid uuid4 not known": {
+    "res": {
+      "status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8"
+      },
+      "body": {
+        "id": "<uuid-2>",
+        "slug": "my-book",
+        "expiresAt": null,
+        "mediaItemId": "<book>",
+        "mediaItemType": "book",
+        "isDownloadable": false,
+        "updatedAt": "<iso-date>",
+        "createdAt": "<iso-date>",
+        "playbackSession": {
+          "id": "<uuid-3>",
+          "userId": null,
+          "libraryId": "<uuid-4>",
+          "libraryItemId": "<uuid-5>",
+          "bookId": "<book>",
+          "episodeId": null,
+          "mediaType": "book",
+          "mediaMetadata": {
+            "title": "Shared Book",
+            "subtitle": null,
+            "authors": [
+              {
+                "id": "<uuid-6>",
+                "name": "Ann Author"
+              }
+            ],
+            "narrators": [],
+            "series": [],
+            "genres": [],
+            "publishedYear": null,
+            "publishedDate": null,
+            "publisher": null,
+            "description": null,
+            "isbn": null,
+            "asin": null,
+            "language": null,
+            "explicit": false,
+            "abridged": null
+          },
+          "chapters": [],
+          "displayTitle": "Shared Book",
+          "displayAuthor": "Ann Author",
+          "coverPath": "<tmp>/books/Shared Book/cover.png",
+          "duration": 90,
+          "playMethod": 0,
+          "mediaPlayer": "web-share",
+          "deviceInfo": {
+            "id": "<uuid-7>",
+            "deviceId": "<uuid-8>",
+            "ipAddress": "127.0.0.1",
+            "clientVersion": "<version>",
+            "clientName": "Abs Web Share"
+          },
+          "serverVersion": "<version>",
+          "date": "<date>",
+          "dayOfWeek": "<day>",
+          "timeListening": 0,
+          "startTime": 0,
+          "currentTime": 0,
+          "startedAt": "<timestamp>",
+          "updatedAt": "<timestamp>",
+          "audioTracks": [
+            {
+              "index": 1,
+              "startOffset": 0,
+              "duration": 60,
+              "title": "part1.mp3",
+              "contentUrl": "/public/share/my-book/track/1",
+              "mimeType": "audio/mpeg",
+              "codec": "mp3",
+              "metadata": {
+                "filename": "part1.mp3",
+                "ext": ".mp3",
+                "path": "<tmp>/books/Shared Book/part1.mp3",
+                "relPath": "part1.mp3",
+                "size": 15,
+                "mtimeMs": 1000,
+                "ctimeMs": 1000,
+                "birthtimeMs": 1000
+              }
+            },
+            {
+              "index": 2,
+              "startOffset": 60,
+              "duration": 30,
+              "title": "part2.mp3",
+              "contentUrl": "/public/share/my-book/track/2",
+              "mimeType": "audio/mpeg",
+              "codec": "mp3",
+              "metadata": {
+                "filename": "part2.mp3",
+                "ext": ".mp3",
+                "path": "<tmp>/books/Shared Book/part2.mp3",
+                "relPath": "part2.mp3",
+                "size": 15,
+                "mtimeMs": 1000,
+                "ctimeMs": 1000,
+                "birthtimeMs": 1000
+              }
+            }
+          ],
+          "libraryItem": null,
+          "coverAspectRatio": 1
+        }
+      },
+      "setCookie": {
+        "name": "share_session_id",
+        "value": "<session-id>",
+        "attributes": [
+          "Max-Age=2592000",
+          "Path=/",
+          "HttpOnly"
+        ],
+        "hasExpires": true
+      }
+    },
+    "emitted": []
+  },
+  "ShareController (characterization) > GET /public/share/:slug > switching to another share closes the old session > other share with same cookie": {
+    "res": {
+      "status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8"
+      },
+      "body": {
+        "id": "<uuid-3>",
+        "slug": "other-book",
+        "expiresAt": null,
+        "mediaItemId": "<other>",
+        "mediaItemType": "book",
+        "isDownloadable": false,
+        "updatedAt": "<iso-date>",
+        "createdAt": "<iso-date>",
+        "playbackSession": {
+          "id": "<uuid-4>",
+          "userId": null,
+          "libraryId": "<uuid-5>",
+          "libraryItemId": "<uuid-6>",
+          "bookId": "<other>",
+          "episodeId": null,
+          "mediaType": "book",
+          "mediaMetadata": {
+            "title": "Another Book",
+            "subtitle": null,
+            "authors": [],
+            "narrators": [],
+            "series": [],
+            "genres": [],
+            "publishedYear": null,
+            "publishedDate": null,
+            "publisher": null,
+            "description": null,
+            "isbn": null,
+            "asin": null,
+            "language": null,
+            "explicit": false,
+            "abridged": null
+          },
+          "chapters": [],
+          "displayTitle": "Another Book",
+          "displayAuthor": "",
+          "coverPath": null,
+          "duration": 90,
+          "playMethod": 0,
+          "mediaPlayer": "web-share",
+          "deviceInfo": {
+            "id": "<uuid-7>",
+            "deviceId": "<uuid-8>",
+            "ipAddress": "127.0.0.1",
+            "clientVersion": "<version>",
+            "manufacturer": "",
+            "model": "",
+            "sdkVersion": "",
+            "clientName": "Abs Web Share",
+            "deviceName": ""
+          },
+          "serverVersion": "<version>",
+          "date": "<date>",
+          "dayOfWeek": "<day>",
+          "timeListening": 0,
+          "startTime": 0,
+          "currentTime": 0,
+          "startedAt": "<timestamp>",
+          "updatedAt": "<timestamp>",
+          "audioTracks": [
+            {
+              "index": 1,
+              "startOffset": 0,
+              "duration": 60,
+              "title": "part1.mp3",
+              "contentUrl": "/public/share/other-book/track/1",
+              "mimeType": "audio/mpeg",
+              "codec": "mp3",
+              "metadata": {
+                "filename": "part1.mp3",
+                "ext": ".mp3",
+                "path": "<tmp>/books/Another Book/part1.mp3",
+                "relPath": "part1.mp3",
+                "size": 15,
+                "mtimeMs": 1000,
+                "ctimeMs": 1000,
+                "birthtimeMs": 1000
+              }
+            },
+            {
+              "index": 2,
+              "startOffset": 60,
+              "duration": 30,
+              "title": "part2.mp3",
+              "contentUrl": "/public/share/other-book/track/2",
+              "mimeType": "audio/mpeg",
+              "codec": "mp3",
+              "metadata": {
+                "filename": "part2.mp3",
+                "ext": ".mp3",
+                "path": "<tmp>/books/Another Book/part2.mp3",
+                "relPath": "part2.mp3",
+                "size": 15,
+                "mtimeMs": 1000,
+                "ctimeMs": 1000,
+                "birthtimeMs": 1000
+              }
+            }
+          ],
+          "libraryItem": null,
+          "coverAspectRatio": 1
+        }
+      },
+      "setCookie": {
+        "name": "share_session_id",
+        "value": "<session-id>",
+        "attributes": [
+          "Max-Age=2592000",
+          "Path=/",
+          "HttpOnly"
+        ],
+        "hasExpires": true
+      }
+    },
+    "emitted": []
+  },
+  "ShareController (characterization) > GET /public/share/:slug > switching to another share closes the old session > sessions": {
+    "sessions": [
+      {
+        "title": "Another Book",
+        "sameShareSessionId": true
+      }
+    ]
+  },
+  "ShareController (characterization) > GET /public/share/:slug/cover > 404s when the item has no cover > no cover": {
+    "res": {
+      "status": 404,
+      "headers": {
+        "content-type": "text/html; charset=utf-8"
+      },
+      "body": "Cover image not found"
+    },
+    "emitted": []
+  },
+  "ShareController (characterization) > GET /public/share/:slug/cover > answers with X-Accel-Redirect when XAccel is configured > x-accel": {
+    "res": {
+      "status": 204,
+      "headers": {
+        "x-accel-redirect": "/protected<tmp>/books/Shared%20Book/cover.png"
+      },
+      "body": ""
+    },
+    "emitted": []
+  },
+  "ShareController (characterization) > GET /public/share/:slug/cover > requires the session cookie, a matching share and session > no cookie": {
+    "res": {
+      "status": 404,
+      "headers": {
+        "content-type": "text/html; charset=utf-8"
+      },
+      "body": "Share session not set"
+    },
+    "emitted": []
+  },
+  "ShareController (characterization) > GET /public/share/:slug/cover > requires the session cookie, a matching share and session > session belongs to another share": {
+    "res": {
+      "status": 404,
+      "headers": {
+        "content-type": "text/html; charset=utf-8"
+      },
+      "body": "Share session not found"
+    },
+    "emitted": []
+  },
+  "ShareController (characterization) > GET /public/share/:slug/cover > requires the session cookie, a matching share and session > unknown session": {
+    "res": {
+      "status": 404,
+      "headers": {
+        "content-type": "text/html; charset=utf-8"
+      },
+      "body": "Share session not found"
+    },
+    "emitted": []
+  },
+  "ShareController (characterization) > GET /public/share/:slug/cover > requires the session cookie, a matching share and session > unknown slug": {
+    "res": {
+      "status": 404,
+      "headers": {
+        "content-type": "text/plain; charset=utf-8"
+      },
+      "body": "Not Found"
+    },
+    "emitted": []
+  },
+  "ShareController (characterization) > GET /public/share/:slug/cover > serves the cover file > cover": {
+    "res": {
+      "status": 200,
+      "headers": {
+        "content-type": "image/png"
+      },
+      "body": {
+        "bytes": 70
+      }
+    },
+    "emitted": []
+  },
+  "ShareController (characterization) > GET /public/share/:slug/download > 404s when the library item is gone > item deleted": {
+    "res": {
+      "status": 404,
+      "headers": {
+        "content-type": "text/html; charset=utf-8"
+      },
+      "body": "Library item not found"
+    },
+    "emitted": []
+  },
+  "ShareController (characterization) > GET /public/share/:slug/download > downloads a folder item as a zip > zip": {
+    "res": {
+      "status": 200,
+      "headers": {
+        "content-type": "application/zip",
+        "content-disposition": "attachment; filename=\"Shared Book.zip\""
+      },
+      "body": {
+        "bytes": 452,
+        "startsWith": "PK"
+      }
+    },
+    "emitted": []
+  },
+  "ShareController (characterization) > GET /public/share/:slug/download > downloads a single file item as an attachment > file": {
+    "res": {
+      "status": 200,
+      "headers": {
+        "content-type": "audio/mpeg",
+        "content-disposition": "attachment; filename=\"part1.mp3\""
+      },
+      "body": "audio part1.mp3"
+    },
+    "emitted": []
+  },
+  "ShareController (characterization) > GET /public/share/:slug/download > requires the session cookie, a downloadable share, a matching share and session > no cookie": {
+    "res": {
+      "status": 404,
+      "headers": {
+        "content-type": "text/html; charset=utf-8"
+      },
+      "body": "Share session not set"
+    },
+    "emitted": []
+  },
+  "ShareController (characterization) > GET /public/share/:slug/download > requires the session cookie, a downloadable share, a matching share and session > not downloadable": {
+    "res": {
+      "status": 403,
+      "headers": {
+        "content-type": "text/html; charset=utf-8"
+      },
+      "body": "Download is not allowed for this item"
+    },
+    "emitted": []
+  },
+  "ShareController (characterization) > GET /public/share/:slug/download > requires the session cookie, a downloadable share, a matching share and session > session belongs to another share": {
+    "res": {
+      "status": 404,
+      "headers": {
+        "content-type": "text/html; charset=utf-8"
+      },
+      "body": "Share session not found"
+    },
+    "emitted": []
+  },
+  "ShareController (characterization) > GET /public/share/:slug/download > requires the session cookie, a downloadable share, a matching share and session > unknown session": {
+    "res": {
+      "status": 404,
+      "headers": {
+        "content-type": "text/html; charset=utf-8"
+      },
+      "body": "Share session not found"
+    },
+    "emitted": []
+  },
+  "ShareController (characterization) > GET /public/share/:slug/download > requires the session cookie, a downloadable share, a matching share and session > unknown slug": {
+    "res": {
+      "status": 404,
+      "headers": {
+        "content-type": "text/plain; charset=utf-8"
+      },
+      "body": "Not Found"
+    },
+    "emitted": []
+  },
+  "ShareController (characterization) > GET /public/share/:slug/track/:index > answers with X-Accel-Redirect when XAccel is configured > x-accel": {
+    "res": {
+      "status": 204,
+      "headers": {
+        "x-accel-redirect": "/protected<tmp>/books/Shared%20Book/part1.mp3"
+      },
+      "body": ""
+    },
+    "emitted": []
+  },
+  "ShareController (characterization) > GET /public/share/:slug/track/:index > requires the session cookie, a matching share and session > no cookie": {
+    "res": {
+      "status": 404,
+      "headers": {
+        "content-type": "text/html; charset=utf-8"
+      },
+      "body": "Share session not set"
+    },
+    "emitted": []
+  },
+  "ShareController (characterization) > GET /public/share/:slug/track/:index > requires the session cookie, a matching share and session > session belongs to another share": {
+    "res": {
+      "status": 404,
+      "headers": {
+        "content-type": "text/html; charset=utf-8"
+      },
+      "body": "Share session not found"
+    },
+    "emitted": []
+  },
+  "ShareController (characterization) > GET /public/share/:slug/track/:index > requires the session cookie, a matching share and session > unknown session": {
+    "res": {
+      "status": 404,
+      "headers": {
+        "content-type": "text/html; charset=utf-8"
+      },
+      "body": "Share session not found"
+    },
+    "emitted": []
+  },
+  "ShareController (characterization) > GET /public/share/:slug/track/:index > requires the session cookie, a matching share and session > unknown slug": {
+    "res": {
+      "status": 404,
+      "headers": {
+        "content-type": "text/plain; charset=utf-8"
+      },
+      "body": "Not Found"
+    },
+    "emitted": []
+  },
+  "ShareController (characterization) > GET /public/share/:slug/track/:index > serves the audio tracks and 404s unknown indexes > non numeric index": {
+    "res": {
+      "status": 404,
+      "headers": {
+        "content-type": "text/html; charset=utf-8"
+      },
+      "body": "Track not found"
+    },
+    "emitted": []
+  },
+  "ShareController (characterization) > GET /public/share/:slug/track/:index > serves the audio tracks and 404s unknown indexes > track 1": {
+    "res": {
+      "status": 200,
+      "headers": {
+        "content-type": "audio/mpeg"
+      },
+      "body": "audio part1.mp3"
+    },
+    "emitted": []
+  },
+  "ShareController (characterization) > GET /public/share/:slug/track/:index > serves the audio tracks and 404s unknown indexes > track 2": {
+    "res": {
+      "status": 200,
+      "headers": {
+        "content-type": "audio/mpeg"
+      },
+      "body": "audio part2.mp3"
+    },
+    "emitted": []
+  },
+  "ShareController (characterization) > GET /public/share/:slug/track/:index > serves the audio tracks and 404s unknown indexes > track 3 missing": {
+    "res": {
+      "status": 404,
+      "headers": {
+        "content-type": "text/html; charset=utf-8"
+      },
+      "body": "Track not found"
+    },
+    "emitted": []
+  },
+  "ShareController (characterization) > PATCH /public/share/:slug/progress > stores the progress in the open session, capped to the duration > capped to duration": {
+    "res": {
+      "status": 204,
+      "headers": {},
+      "body": ""
+    },
+    "emitted": []
+  },
+  "ShareController (characterization) > PATCH /public/share/:slug/progress > stores the progress in the open session, capped to the duration > get shows duration": {
+    "res": {
+      "status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8"
+      },
+      "body": {
+        "id": "<uuid-3>",
+        "slug": "my-book",
+        "expiresAt": null,
+        "mediaItemId": "<book>",
+        "mediaItemType": "book",
+        "isDownloadable": false,
+        "updatedAt": "<iso-date>",
+        "createdAt": "<iso-date>",
+        "playbackSession": {
+          "id": "<uuid-4>",
+          "userId": null,
+          "libraryId": "<uuid-5>",
+          "libraryItemId": "<item>",
+          "bookId": "<book>",
+          "episodeId": null,
+          "mediaType": "book",
+          "mediaMetadata": {
+            "title": "Shared Book",
+            "subtitle": null,
+            "authors": [
+              {
+                "id": "<uuid-6>",
+                "name": "Ann Author"
+              }
+            ],
+            "narrators": [],
+            "series": [],
+            "genres": [],
+            "publishedYear": null,
+            "publishedDate": null,
+            "publisher": null,
+            "description": null,
+            "isbn": null,
+            "asin": null,
+            "language": null,
+            "explicit": false,
+            "abridged": null
+          },
+          "chapters": [],
+          "displayTitle": "Shared Book",
+          "displayAuthor": "Ann Author",
+          "coverPath": "<tmp>/books/Shared Book/cover.png",
+          "duration": 90,
+          "playMethod": 0,
+          "mediaPlayer": "web-share",
+          "deviceInfo": {
+            "id": "<uuid-7>",
+            "deviceId": "<uuid-8>",
+            "ipAddress": "127.0.0.1",
+            "clientVersion": "<version>",
+            "clientName": "Abs Web Share"
+          },
+          "serverVersion": "<version>",
+          "date": "<date>",
+          "dayOfWeek": "<day>",
+          "timeListening": 0,
+          "startTime": 0,
+          "currentTime": 90,
+          "startedAt": "<timestamp>",
+          "updatedAt": "<timestamp>",
+          "audioTracks": [
+            {
+              "index": 1,
+              "startOffset": 0,
+              "duration": 60,
+              "title": "part1.mp3",
+              "contentUrl": "/public/share/my-book/track/1",
+              "mimeType": "audio/mpeg",
+              "codec": "mp3",
+              "metadata": {
+                "filename": "part1.mp3",
+                "ext": ".mp3",
+                "path": "<tmp>/books/Shared Book/part1.mp3",
+                "relPath": "part1.mp3",
+                "size": 15,
+                "mtimeMs": 1000,
+                "ctimeMs": 1000,
+                "birthtimeMs": 1000
+              }
+            },
+            {
+              "index": 2,
+              "startOffset": 60,
+              "duration": 30,
+              "title": "part2.mp3",
+              "contentUrl": "/public/share/my-book/track/2",
+              "mimeType": "audio/mpeg",
+              "codec": "mp3",
+              "metadata": {
+                "filename": "part2.mp3",
+                "ext": ".mp3",
+                "path": "<tmp>/books/Shared Book/part2.mp3",
+                "relPath": "part2.mp3",
+                "size": 15,
+                "mtimeMs": 1000,
+                "ctimeMs": 1000,
+                "birthtimeMs": 1000
+              }
+            }
+          ],
+          "libraryItem": null,
+          "coverAspectRatio": 1
+        }
+      }
+    },
+    "emitted": []
+  },
+  "ShareController (characterization) > PATCH /public/share/:slug/progress > stores the progress in the open session, capped to the duration > get shows new currentTime": {
+    "res": {
+      "status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8"
+      },
+      "body": {
+        "id": "<uuid-3>",
+        "slug": "my-book",
+        "expiresAt": null,
+        "mediaItemId": "<book>",
+        "mediaItemType": "book",
+        "isDownloadable": false,
+        "updatedAt": "<iso-date>",
+        "createdAt": "<iso-date>",
+        "playbackSession": {
+          "id": "<uuid-4>",
+          "userId": null,
+          "libraryId": "<uuid-5>",
+          "libraryItemId": "<item>",
+          "bookId": "<book>",
+          "episodeId": null,
+          "mediaType": "book",
+          "mediaMetadata": {
+            "title": "Shared Book",
+            "subtitle": null,
+            "authors": [
+              {
+                "id": "<uuid-6>",
+                "name": "Ann Author"
+              }
+            ],
+            "narrators": [],
+            "series": [],
+            "genres": [],
+            "publishedYear": null,
+            "publishedDate": null,
+            "publisher": null,
+            "description": null,
+            "isbn": null,
+            "asin": null,
+            "language": null,
+            "explicit": false,
+            "abridged": null
+          },
+          "chapters": [],
+          "displayTitle": "Shared Book",
+          "displayAuthor": "Ann Author",
+          "coverPath": "<tmp>/books/Shared Book/cover.png",
+          "duration": 90,
+          "playMethod": 0,
+          "mediaPlayer": "web-share",
+          "deviceInfo": {
+            "id": "<uuid-7>",
+            "deviceId": "<uuid-8>",
+            "ipAddress": "127.0.0.1",
+            "clientVersion": "<version>",
+            "clientName": "Abs Web Share"
+          },
+          "serverVersion": "<version>",
+          "date": "<date>",
+          "dayOfWeek": "<day>",
+          "timeListening": 0,
+          "startTime": 0,
+          "currentTime": 42.5,
+          "startedAt": "<timestamp>",
+          "updatedAt": "<timestamp>",
+          "audioTracks": [
+            {
+              "index": 1,
+              "startOffset": 0,
+              "duration": 60,
+              "title": "part1.mp3",
+              "contentUrl": "/public/share/my-book/track/1",
+              "mimeType": "audio/mpeg",
+              "codec": "mp3",
+              "metadata": {
+                "filename": "part1.mp3",
+                "ext": ".mp3",
+                "path": "<tmp>/books/Shared Book/part1.mp3",
+                "relPath": "part1.mp3",
+                "size": 15,
+                "mtimeMs": 1000,
+                "ctimeMs": 1000,
+                "birthtimeMs": 1000
+              }
+            },
+            {
+              "index": 2,
+              "startOffset": 60,
+              "duration": 30,
+              "title": "part2.mp3",
+              "contentUrl": "/public/share/my-book/track/2",
+              "mimeType": "audio/mpeg",
+              "codec": "mp3",
+              "metadata": {
+                "filename": "part2.mp3",
+                "ext": ".mp3",
+                "path": "<tmp>/books/Shared Book/part2.mp3",
+                "relPath": "part2.mp3",
+                "size": 15,
+                "mtimeMs": 1000,
+                "ctimeMs": 1000,
+                "birthtimeMs": 1000
+              }
+            }
+          ],
+          "libraryItem": null,
+          "coverAspectRatio": 1
+        }
+      }
+    },
+    "emitted": []
+  },
+  "ShareController (characterization) > PATCH /public/share/:slug/progress > stores the progress in the open session, capped to the duration > numeric string accepted": {
+    "res": {
+      "status": 204,
+      "headers": {},
+      "body": ""
+    },
+    "emitted": []
+  },
+  "ShareController (characterization) > PATCH /public/share/:slug/progress > stores the progress in the open session, capped to the duration > update": {
+    "res": {
+      "status": 204,
+      "headers": {},
+      "body": ""
+    },
+    "emitted": []
+  },
+  "ShareController (characterization) > PATCH /public/share/:slug/progress > validates cookie, body, slug and session > NaN currentTime": {
+    "res": {
+      "status": 400,
+      "headers": {
+        "content-type": "text/html; charset=utf-8"
+      },
+      "body": "Invalid current time"
+    },
+    "emitted": []
+  },
+  "ShareController (characterization) > PATCH /public/share/:slug/progress > validates cookie, body, slug and session > missing currentTime": {
+    "res": {
+      "status": 400,
+      "headers": {
+        "content-type": "text/html; charset=utf-8"
+      },
+      "body": "Invalid current time"
+    },
+    "emitted": []
+  },
+  "ShareController (characterization) > PATCH /public/share/:slug/progress > validates cookie, body, slug and session > negative currentTime": {
+    "res": {
+      "status": 400,
+      "headers": {
+        "content-type": "text/html; charset=utf-8"
+      },
+      "body": "Invalid current time"
+    },
+    "emitted": []
+  },
+  "ShareController (characterization) > PATCH /public/share/:slug/progress > validates cookie, body, slug and session > no cookie": {
+    "res": {
+      "status": 404,
+      "headers": {
+        "content-type": "text/html; charset=utf-8"
+      },
+      "body": "Share session not set"
+    },
+    "emitted": []
+  },
+  "ShareController (characterization) > PATCH /public/share/:slug/progress > validates cookie, body, slug and session > null currentTime": {
+    "res": {
+      "status": 400,
+      "headers": {
+        "content-type": "text/html; charset=utf-8"
+      },
+      "body": "Invalid current time"
+    },
+    "emitted": []
+  },
+  "ShareController (characterization) > PATCH /public/share/:slug/progress > validates cookie, body, slug and session > session belongs to another share": {
+    "res": {
+      "status": 404,
+      "headers": {
+        "content-type": "text/html; charset=utf-8"
+      },
+      "body": "Share session not found"
+    },
+    "emitted": []
+  },
+  "ShareController (characterization) > PATCH /public/share/:slug/progress > validates cookie, body, slug and session > unknown session": {
+    "res": {
+      "status": 404,
+      "headers": {
+        "content-type": "text/html; charset=utf-8"
+      },
+      "body": "Share session not found"
+    },
+    "emitted": []
+  },
+  "ShareController (characterization) > PATCH /public/share/:slug/progress > validates cookie, body, slug and session > unknown slug": {
+    "res": {
+      "status": 404,
+      "headers": {
+        "content-type": "text/plain; charset=utf-8"
+      },
+      "body": "Not Found"
+    },
+    "emitted": []
+  },
+  "ShareController (characterization) > POST /api/share/mediaitem > creates a permanent book share, emits share_open and stores the row > create": {
+    "res": {
+      "status": 201,
+      "headers": {
+        "content-type": "application/json; charset=utf-8"
+      },
+      "body": {
+        "id": "<uuid-3>",
+        "mediaItemId": "<book>",
+        "mediaItemType": "book",
+        "slug": "my-book",
+        "expiresAt": null,
+        "createdAt": "<iso-date>",
+        "updatedAt": "<iso-date>",
+        "isDownloadable": true
+      }
+    },
+    "emitted": [
+      {
+        "method": "adminEmitter",
+        "args": [
+          "share_open",
+          {
+            "id": "<uuid-3>",
+            "mediaItemId": "<book>",
+            "mediaItemType": "book",
+            "slug": "my-book",
+            "expiresAt": null,
+            "createdAt": "<iso-date>",
+            "updatedAt": "<iso-date>",
+            "isDownloadable": true
+          }
+        ]
+      }
+    ]
+  },
+  "ShareController (characterization) > POST /api/share/mediaitem > creates a permanent book share, emits share_open and stores the row > db row": {
+    "slug": "my-book",
+    "mediaItemType": "book",
+    "expiresAt": null,
+    "isDownloadable": true,
+    "userId": "<admin>",
+    "pash": null,
+    "extraData": null
+  },
+  "ShareController (characterization) > POST /api/share/mediaitem > creates a podcast episode share > create": {
+    "res": {
+      "status": 201,
+      "headers": {
+        "content-type": "application/json; charset=utf-8"
+      },
+      "body": {
+        "id": "<uuid-2>",
+        "mediaItemId": "<episode>",
+        "mediaItemType": "podcastEpisode",
+        "slug": "episode",
+        "expiresAt": null,
+        "createdAt": "<iso-date>",
+        "updatedAt": "<iso-date>"
+      }
+    },
+    "emitted": [
+      {
+        "method": "adminEmitter",
+        "args": [
+          "share_open",
+          {
+            "id": "<uuid-2>",
+            "mediaItemId": "<episode>",
+            "mediaItemType": "podcastEpisode",
+            "slug": "episode",
+            "expiresAt": null,
+            "createdAt": "<iso-date>",
+            "updatedAt": "<iso-date>"
+          }
+        ]
+      }
+    ]
+  },
+  "ShareController (characterization) > POST /api/share/mediaitem > rejects duplicate item or slug with 409 > both": {
+    "res": {
+      "status": 409,
+      "headers": {
+        "content-type": "text/html; charset=utf-8"
+      },
+      "body": "Item is already shared"
+    },
+    "emitted": []
+  },
+  "ShareController (characterization) > POST /api/share/mediaitem > rejects duplicate item or slug with 409 > item already shared": {
+    "res": {
+      "status": 409,
+      "headers": {
+        "content-type": "text/html; charset=utf-8"
+      },
+      "body": "Item is already shared"
+    },
+    "emitted": []
+  },
+  "ShareController (characterization) > POST /api/share/mediaitem > rejects duplicate item or slug with 409 > slug in use": {
+    "res": {
+      "status": 409,
+      "headers": {
+        "content-type": "text/html; charset=utf-8"
+      },
+      "body": "Slug is already in use"
+    },
+    "emitted": []
+  },
+  "ShareController (characterization) > POST /api/share/mediaitem > requires authentication and admin > guest": {
+    "res": {
+      "status": 403,
+      "headers": {
+        "content-type": "text/plain; charset=utf-8"
+      },
+      "body": "Forbidden"
+    },
+    "emitted": []
+  },
+  "ShareController (characterization) > POST /api/share/mediaitem > requires authentication and admin > no auth": {
+    "res": {
+      "status": 401,
+      "headers": {
+        "content-type": "text/plain; charset=utf-8"
+      },
+      "body": "Unauthorized"
+    },
+    "emitted": []
+  },
+  "ShareController (characterization) > POST /api/share/mediaitem > requires authentication and admin > nothing created": {
+    "rows": 0,
+    "open": 0
+  },
+  "ShareController (characterization) > POST /api/share/mediaitem > requires authentication and admin > user": {
+    "res": {
+      "status": 403,
+      "headers": {
+        "content-type": "text/plain; charset=utf-8"
+      },
+      "body": "Forbidden"
+    },
+    "emitted": []
+  },
+  "ShareController (characterization) > POST /api/share/mediaitem > returns 201 for an already expired share but it is destroyed at once and never reachable > create with past expiry": {
+    "res": {
+      "status": 201,
+      "headers": {
+        "content-type": "application/json; charset=utf-8"
+      },
+      "body": {
+        "id": "<uuid-2>",
+        "mediaItemId": "<book>",
+        "mediaItemType": "book",
+        "slug": "past",
+        "expiresAt": "<iso-date>",
+        "createdAt": "<iso-date>",
+        "updatedAt": "<iso-date>"
+      }
+    },
+    "emitted": [
+      {
+        "method": "adminEmitter",
+        "args": [
+          "share_open",
+          {
+            "id": "<uuid-2>",
+            "mediaItemId": "<book>",
+            "mediaItemType": "book",
+            "slug": "past",
+            "expiresAt": "<iso-date>",
+            "createdAt": "<iso-date>",
+            "updatedAt": "<iso-date>"
+          }
+        ]
+      }
+    ]
+  },
+  "ShareController (characterization) > POST /api/share/mediaitem > returns 201 for an already expired share but it is destroyed at once and never reachable > public get": {
+    "res": {
+      "status": 404,
+      "headers": {
+        "content-type": "text/plain; charset=utf-8"
+      },
+      "body": "Not Found"
+    },
+    "emitted": []
+  },
+  "ShareController (characterization) > POST /api/share/mediaitem > returns 201 for an already expired share but it is destroyed at once and never reachable > state": {
+    "rows": 0,
+    "open": 0
+  },
+  "ShareController (characterization) > POST /api/share/mediaitem > schedules an expiring share (root) and defaults isDownloadable to null > create": {
+    "res": {
+      "status": 201,
+      "headers": {
+        "content-type": "application/json; charset=utf-8"
+      },
+      "body": {
+        "id": "<uuid-2>",
+        "mediaItemId": "<book>",
+        "mediaItemType": "book",
+        "slug": "expiring",
+        "expiresAt": "<iso-date>",
+        "createdAt": "<iso-date>",
+        "updatedAt": "<iso-date>"
+      }
+    },
+    "emitted": [
+      {
+        "method": "adminEmitter",
+        "args": [
+          "share_open",
+          {
+            "id": "<uuid-2>",
+            "mediaItemId": "<book>",
+            "mediaItemType": "book",
+            "slug": "expiring",
+            "expiresAt": "<iso-date>",
+            "createdAt": "<iso-date>",
+            "updatedAt": "<iso-date>"
+          }
+        ]
+      }
+    ]
+  },
+  "ShareController (characterization) > POST /api/share/mediaitem > validates the body > blank slug": {
+    "res": {
+      "status": 400,
+      "headers": {
+        "content-type": "text/html; charset=utf-8"
+      },
+      "body": "Missing or invalid required fields"
+    },
+    "emitted": []
+  },
+  "ShareController (characterization) > POST /api/share/mediaitem > validates the body > book id used as episode": {
+    "res": {
+      "status": 404,
+      "headers": {
+        "content-type": "text/html; charset=utf-8"
+      },
+      "body": "Media item not found"
+    },
+    "emitted": []
+  },
+  "ShareController (characterization) > POST /api/share/mediaitem > validates the body > empty body": {
+    "res": {
+      "status": 400,
+      "headers": {
+        "content-type": "text/html; charset=utf-8"
+      },
+      "body": "Missing or invalid required fields"
+    },
+    "emitted": []
+  },
+  "ShareController (characterization) > POST /api/share/mediaitem > validates the body > expiresAt NaN": {
+    "res": {
+      "status": 400,
+      "headers": {
+        "content-type": "text/html; charset=utf-8"
+      },
+      "body": "Invalid expiration date"
+    },
+    "emitted": []
+  },
+  "ShareController (characterization) > POST /api/share/mediaitem > validates the body > expiresAt missing is invalid": {
+    "res": {
+      "status": 400,
+      "headers": {
+        "content-type": "text/html; charset=utf-8"
+      },
+      "body": "Invalid expiration date"
+    },
+    "emitted": []
+  },
+  "ShareController (characterization) > POST /api/share/mediaitem > validates the body > expiresAt negative": {
+    "res": {
+      "status": 400,
+      "headers": {
+        "content-type": "text/html; charset=utf-8"
+      },
+      "body": "Invalid expiration date"
+    },
+    "emitted": []
+  },
+  "ShareController (characterization) > POST /api/share/mediaitem > validates the body > expiresAt null": {
+    "res": {
+      "status": 400,
+      "headers": {
+        "content-type": "text/html; charset=utf-8"
+      },
+      "body": "Invalid expiration date"
+    },
+    "emitted": []
+  },
+  "ShareController (characterization) > POST /api/share/mediaitem > validates the body > invalid type": {
+    "res": {
+      "status": 400,
+      "headers": {
+        "content-type": "text/html; charset=utf-8"
+      },
+      "body": "Invalid media item type"
+    },
+    "emitted": []
+  },
+  "ShareController (characterization) > POST /api/share/mediaitem > validates the body > no type": {
+    "res": {
+      "status": 400,
+      "headers": {
+        "content-type": "text/html; charset=utf-8"
+      },
+      "body": "Missing or invalid required fields"
+    },
+    "emitted": []
+  },
+  "ShareController (characterization) > POST /api/share/mediaitem > validates the body > nothing created": {
+    "rows": 0
+  },
+  "ShareController (characterization) > POST /api/share/mediaitem > validates the body > numeric id": {
+    "res": {
+      "status": 400,
+      "headers": {
+        "content-type": "text/html; charset=utf-8"
+      },
+      "body": "Missing or invalid required fields"
+    },
+    "emitted": []
+  },
+  "ShareController (characterization) > POST /api/share/mediaitem > validates the body > numeric slug": {
+    "res": {
+      "status": 400,
+      "headers": {
+        "content-type": "text/html; charset=utf-8"
+      },
+      "body": "Missing or invalid required fields"
+    },
+    "emitted": []
+  },
+  "ShareController (characterization) > POST /api/share/mediaitem > validates the body > unknown media item": {
+    "res": {
+      "status": 404,
+      "headers": {
+        "content-type": "text/html; charset=utf-8"
+      },
+      "body": "Media item not found"
+    },
+    "emitted": []
+  }
+}

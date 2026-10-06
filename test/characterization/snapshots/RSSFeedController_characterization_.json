@@ -1,0 +1,1671 @@
+{
+  "RSSFeedController (characterization) > GET /api/feeds > lists no feeds, then all open feeds with episodes > admin list": {
+    "res": {
+      "status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8"
+      },
+      "body": {
+        "feeds": [
+          {
+            "id": "<uuid-4>",
+            "slug": "feed-a",
+            "userId": "<uuid-5>",
+            "entityType": "libraryItem",
+            "entityId": "<item-a>",
+            "entityUpdatedAt": "<timestamp>",
+            "coverPath": "<tmp>/books/Book A/cover.png",
+            "meta": {
+              "title": "Book A",
+              "description": null,
+              "author": "Ann Author",
+              "imageUrl": "/feed/feed-a/cover.png",
+              "feedUrl": "/feed/feed-a",
+              "link": "/item/<item-a>",
+              "explicit": false,
+              "type": "serial",
+              "language": null,
+              "preventIndexing": false,
+              "ownerName": "Ann",
+              "ownerEmail": "ann@example.test"
+            },
+            "serverAddress": "https://abs.example.test",
+            "feedUrl": "/feed/feed-a",
+            "episodes": [
+              {
+                "id": "<uuid-6>",
+                "title": "part1",
+                "description": "",
+                "enclosure": {
+                  "url": "/feed/feed-a/item/<uuid-6>/media.mp3",
+                  "size": 15,
+                  "type": "audio/mpeg"
+                },
+                "pubDate": "<pubDate>",
+                "link": "/item/<item-a>",
+                "author": "Ann Author",
+                "explicit": false,
+                "duration": 60,
+                "season": null,
+                "episode": null,
+                "episodeType": null,
+                "fullPath": "<tmp>/books/Book A/part1.mp3"
+              },
+              {
+                "id": "<uuid-7>",
+                "title": "part2",
+                "description": "",
+                "enclosure": {
+                  "url": "/feed/feed-a/item/<uuid-7>/media.mp3",
+                  "size": 15,
+                  "type": "audio/mpeg"
+                },
+                "pubDate": "<pubDate>",
+                "link": "/item/<item-a>",
+                "author": "Ann Author",
+                "explicit": false,
+                "duration": 30,
+                "season": null,
+                "episode": null,
+                "episodeType": null,
+                "fullPath": "<tmp>/books/Book A/part2.mp3"
+              }
+            ],
+            "createdAt": "<timestamp>",
+            "updatedAt": "<timestamp>"
+          },
+          {
+            "id": "<uuid-8>",
+            "slug": "feed-pod",
+            "userId": "<uuid-9>",
+            "entityType": "libraryItem",
+            "entityId": "<pod>",
+            "entityUpdatedAt": "<timestamp>",
+            "coverPath": null,
+            "meta": {
+              "title": "Pod",
+              "description": null,
+              "author": "Pat",
+              "imageUrl": "/Logo.png",
+              "feedUrl": "/feed/feed-pod",
+              "link": "/item/<pod>",
+              "explicit": false,
+              "type": null,
+              "language": null,
+              "preventIndexing": true,
+              "ownerName": null,
+              "ownerEmail": null
+            },
+            "serverAddress": "https://abs.example.test",
+            "feedUrl": "/feed/feed-pod",
+            "episodes": [
+              {
+                "id": "<uuid-10>",
+                "title": "Ep 1",
+                "description": null,
+                "enclosure": {
+                  "url": "/feed/feed-pod/item/<uuid-10>/media.mp3",
+                  "size": 15,
+                  "type": "audio/mpeg"
+                },
+                "pubDate": null,
+                "link": "/item/<pod>",
+                "author": "Pat",
+                "explicit": false,
+                "duration": 30,
+                "season": null,
+                "episode": null,
+                "episodeType": null,
+                "fullPath": "<tmp>/pods/Pod/ep1.mp3"
+              },
+              {
+                "id": "<uuid-11>",
+                "title": "Ep 2",
+                "description": null,
+                "enclosure": {
+                  "url": "/feed/feed-pod/item/<uuid-11>/media.mp3",
+                  "size": 15,
+                  "type": "audio/mpeg"
+                },
+                "pubDate": null,
+                "link": "/item/<pod>",
+                "author": "Pat",
+                "explicit": false,
+                "duration": 30,
+                "season": null,
+                "episode": null,
+                "episodeType": null,
+                "fullPath": "<tmp>/pods/Pod/ep2.mp3"
+              }
+            ],
+            "createdAt": "<timestamp>",
+            "updatedAt": "<timestamp>"
+          },
+          {
+            "id": "<uuid-12>",
+            "slug": "feed-collection",
+            "userId": "<uuid-5>",
+            "entityType": "collection",
+            "entityId": "<collection>",
+            "entityUpdatedAt": "<timestamp>",
+            "coverPath": "<tmp>/books/Book A/cover.png",
+            "meta": {
+              "title": "Favourites",
+              "description": "my picks",
+              "author": "Ann Author, Bob Writer",
+              "imageUrl": "/feed/feed-collection/cover.png",
+              "feedUrl": "/feed/feed-collection",
+              "link": "/collection/<collection>",
+              "explicit": false,
+              "type": "serial",
+              "language": null,
+              "preventIndexing": true,
+              "ownerName": null,
+              "ownerEmail": null
+            },
+            "serverAddress": "https://abs.example.test",
+            "feedUrl": "/feed/feed-collection",
+            "episodes": [
+              {
+                "id": "<uuid-13>",
+                "title": "part1",
+                "description": "",
+                "enclosure": {
+                  "url": "/feed/feed-collection/item/<uuid-13>/media.mp3",
+                  "size": 15,
+                  "type": "audio/mpeg"
+                },
+                "pubDate": "<pubDate>",
+                "link": "/collection/<collection>",
+                "author": "Ann Author, Bob Writer",
+                "explicit": false,
+                "duration": 60,
+                "season": null,
+                "episode": null,
+                "episodeType": null,
+                "fullPath": "<tmp>/books/Book A/part1.mp3"
+              },
+              {
+                "id": "<uuid-14>",
+                "title": "part2",
+                "description": "",
+                "enclosure": {
+                  "url": "/feed/feed-collection/item/<uuid-14>/media.mp3",
+                  "size": 15,
+                  "type": "audio/mpeg"
+                },
+                "pubDate": "<pubDate>",
+                "link": "/collection/<collection>",
+                "author": "Ann Author, Bob Writer",
+                "explicit": false,
+                "duration": 30,
+                "season": null,
+                "episode": null,
+                "episodeType": null,
+                "fullPath": "<tmp>/books/Book A/part2.mp3"
+              },
+              {
+                "id": "<uuid-15>",
+                "title": "part1",
+                "description": "",
+                "enclosure": {
+                  "url": "/feed/feed-collection/item/<uuid-15>/media.mp3",
+                  "size": 15,
+                  "type": "audio/mpeg"
+                },
+                "pubDate": "<pubDate>",
+                "link": "/collection/<collection>",
+                "author": "Ann Author, Bob Writer",
+                "explicit": false,
+                "duration": 60,
+                "season": null,
+                "episode": null,
+                "episodeType": null,
+                "fullPath": "<tmp>/books/Book B/part1.mp3"
+              },
+              {
+                "id": "<uuid-16>",
+                "title": "part2",
+                "description": "",
+                "enclosure": {
+                  "url": "/feed/feed-collection/item/<uuid-16>/media.mp3",
+                  "size": 15,
+                  "type": "audio/mpeg"
+                },
+                "pubDate": "<pubDate>",
+                "link": "/collection/<collection>",
+                "author": "Ann Author, Bob Writer",
+                "explicit": false,
+                "duration": 30,
+                "season": null,
+                "episode": null,
+                "episodeType": null,
+                "fullPath": "<tmp>/books/Book B/part2.mp3"
+              }
+            ],
+            "createdAt": "<timestamp>",
+            "updatedAt": "<timestamp>"
+          },
+          {
+            "id": "<uuid-17>",
+            "slug": "feed-series",
+            "userId": "<uuid-5>",
+            "entityType": "series",
+            "entityId": "<uuid-18>",
+            "entityUpdatedAt": "<timestamp>",
+            "coverPath": "<tmp>/books/Book A/cover.png",
+            "meta": {
+              "title": "Saga",
+              "description": "",
+              "author": "Ann Author, Bob Writer",
+              "imageUrl": "/feed/feed-series/cover.png",
+              "feedUrl": "/feed/feed-series",
+              "link": "/library/<uuid-19>/series/<uuid-18>",
+              "explicit": false,
+              "type": "serial",
+              "language": null,
+              "preventIndexing": true,
+              "ownerName": null,
+              "ownerEmail": null
+            },
+            "serverAddress": "https://abs.example.test",
+            "feedUrl": "/feed/feed-series",
+            "episodes": [
+              {
+                "id": "<uuid-20>",
+                "title": "part1",
+                "description": "",
+                "enclosure": {
+                  "url": "/feed/feed-series/item/<uuid-20>/media.mp3",
+                  "size": 15,
+                  "type": "audio/mpeg"
+                },
+                "pubDate": "<pubDate>",
+                "link": "/library/<uuid-19>/series/<uuid-18>",
+                "author": "Ann Author, Bob Writer",
+                "explicit": false,
+                "duration": 60,
+                "season": null,
+                "episode": null,
+                "episodeType": null,
+                "fullPath": "<tmp>/books/Book A/part1.mp3"
+              },
+              {
+                "id": "<uuid-21>",
+                "title": "part2",
+                "description": "",
+                "enclosure": {
+                  "url": "/feed/feed-series/item/<uuid-21>/media.mp3",
+                  "size": 15,
+                  "type": "audio/mpeg"
+                },
+                "pubDate": "<pubDate>",
+                "link": "/library/<uuid-19>/series/<uuid-18>",
+                "author": "Ann Author, Bob Writer",
+                "explicit": false,
+                "duration": 30,
+                "season": null,
+                "episode": null,
+                "episodeType": null,
+                "fullPath": "<tmp>/books/Book A/part2.mp3"
+              },
+              {
+                "id": "<uuid-22>",
+                "title": "part1",
+                "description": "",
+                "enclosure": {
+                  "url": "/feed/feed-series/item/<uuid-22>/media.mp3",
+                  "size": 15,
+                  "type": "audio/mpeg"
+                },
+                "pubDate": "<pubDate>",
+                "link": "/library/<uuid-19>/series/<uuid-18>",
+                "author": "Ann Author, Bob Writer",
+                "explicit": false,
+                "duration": 60,
+                "season": null,
+                "episode": null,
+                "episodeType": null,
+                "fullPath": "<tmp>/books/Book B/part1.mp3"
+              },
+              {
+                "id": "<uuid-23>",
+                "title": "part2",
+                "description": "",
+                "enclosure": {
+                  "url": "/feed/feed-series/item/<uuid-23>/media.mp3",
+                  "size": 15,
+                  "type": "audio/mpeg"
+                },
+                "pubDate": "<pubDate>",
+                "link": "/library/<uuid-19>/series/<uuid-18>",
+                "author": "Ann Author, Bob Writer",
+                "explicit": false,
+                "duration": 30,
+                "season": null,
+                "episode": null,
+                "episodeType": null,
+                "fullPath": "<tmp>/books/Book B/part2.mp3"
+              }
+            ],
+            "createdAt": "<timestamp>",
+            "updatedAt": "<timestamp>"
+          }
+        ],
+        "minified": [
+          {
+            "id": "<uuid-4>",
+            "entityType": "libraryItem",
+            "entityId": "<item-a>",
+            "feedUrl": "/feed/feed-a",
+            "meta": {
+              "title": "Book A",
+              "description": null,
+              "preventIndexing": false,
+              "ownerName": "Ann",
+              "ownerEmail": "ann@example.test"
+            }
+          },
+          {
+            "id": "<uuid-8>",
+            "entityType": "libraryItem",
+            "entityId": "<pod>",
+            "feedUrl": "/feed/feed-pod",
+            "meta": {
+              "title": "Pod",
+              "description": null,
+              "preventIndexing": true,
+              "ownerName": null,
+              "ownerEmail": null
+            }
+          },
+          {
+            "id": "<uuid-12>",
+            "entityType": "collection",
+            "entityId": "<collection>",
+            "feedUrl": "/feed/feed-collection",
+            "meta": {
+              "title": "Favourites",
+              "description": "my picks",
+              "preventIndexing": true,
+              "ownerName": null,
+              "ownerEmail": null
+            }
+          },
+          {
+            "id": "<uuid-17>",
+            "entityType": "series",
+            "entityId": "<uuid-18>",
+            "feedUrl": "/feed/feed-series",
+            "meta": {
+              "title": "Saga",
+              "description": "",
+              "preventIndexing": true,
+              "ownerName": null,
+              "ownerEmail": null
+            }
+          }
+        ]
+      }
+    },
+    "emitted": []
+  },
+  "RSSFeedController (characterization) > GET /api/feeds > lists no feeds, then all open feeds with episodes > empty": {
+    "res": {
+      "status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8"
+      },
+      "body": {
+        "feeds": [],
+        "minified": []
+      }
+    },
+    "emitted": []
+  },
+  "RSSFeedController (characterization) > GET /api/feeds > lists no feeds, then all open feeds with episodes > root list": {
+    "res": {
+      "status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8"
+      },
+      "body": {
+        "feeds": [
+          {
+            "id": "<uuid-4>",
+            "slug": "feed-a",
+            "userId": "<uuid-5>",
+            "entityType": "libraryItem",
+            "entityId": "<item-a>",
+            "entityUpdatedAt": "<timestamp>",
+            "coverPath": "<tmp>/books/Book A/cover.png",
+            "meta": {
+              "title": "Book A",
+              "description": null,
+              "author": "Ann Author",
+              "imageUrl": "/feed/feed-a/cover.png",
+              "feedUrl": "/feed/feed-a",
+              "link": "/item/<item-a>",
+              "explicit": false,
+              "type": "serial",
+              "language": null,
+              "preventIndexing": false,
+              "ownerName": "Ann",
+              "ownerEmail": "ann@example.test"
+            },
+            "serverAddress": "https://abs.example.test",
+            "feedUrl": "/feed/feed-a",
+            "episodes": [
+              {
+                "id": "<uuid-6>",
+                "title": "part1",
+                "description": "",
+                "enclosure": {
+                  "url": "/feed/feed-a/item/<uuid-6>/media.mp3",
+                  "size": 15,
+                  "type": "audio/mpeg"
+                },
+                "pubDate": "<pubDate>",
+                "link": "/item/<item-a>",
+                "author": "Ann Author",
+                "explicit": false,
+                "duration": 60,
+                "season": null,
+                "episode": null,
+                "episodeType": null,
+                "fullPath": "<tmp>/books/Book A/part1.mp3"
+              },
+              {
+                "id": "<uuid-7>",
+                "title": "part2",
+                "description": "",
+                "enclosure": {
+                  "url": "/feed/feed-a/item/<uuid-7>/media.mp3",
+                  "size": 15,
+                  "type": "audio/mpeg"
+                },
+                "pubDate": "<pubDate>",
+                "link": "/item/<item-a>",
+                "author": "Ann Author",
+                "explicit": false,
+                "duration": 30,
+                "season": null,
+                "episode": null,
+                "episodeType": null,
+                "fullPath": "<tmp>/books/Book A/part2.mp3"
+              }
+            ],
+            "createdAt": "<timestamp>",
+            "updatedAt": "<timestamp>"
+          },
+          {
+            "id": "<uuid-8>",
+            "slug": "feed-pod",
+            "userId": "<uuid-9>",
+            "entityType": "libraryItem",
+            "entityId": "<pod>",
+            "entityUpdatedAt": "<timestamp>",
+            "coverPath": null,
+            "meta": {
+              "title": "Pod",
+              "description": null,
+              "author": "Pat",
+              "imageUrl": "/Logo.png",
+              "feedUrl": "/feed/feed-pod",
+              "link": "/item/<pod>",
+              "explicit": false,
+              "type": null,
+              "language": null,
+              "preventIndexing": true,
+              "ownerName": null,
+              "ownerEmail": null
+            },
+            "serverAddress": "https://abs.example.test",
+            "feedUrl": "/feed/feed-pod",
+            "episodes": [
+              {
+                "id": "<uuid-10>",
+                "title": "Ep 1",
+                "description": null,
+                "enclosure": {
+                  "url": "/feed/feed-pod/item/<uuid-10>/media.mp3",
+                  "size": 15,
+                  "type": "audio/mpeg"
+                },
+                "pubDate": null,
+                "link": "/item/<pod>",
+                "author": "Pat",
+                "explicit": false,
+                "duration": 30,
+                "season": null,
+                "episode": null,
+                "episodeType": null,
+                "fullPath": "<tmp>/pods/Pod/ep1.mp3"
+              },
+              {
+                "id": "<uuid-11>",
+                "title": "Ep 2",
+                "description": null,
+                "enclosure": {
+                  "url": "/feed/feed-pod/item/<uuid-11>/media.mp3",
+                  "size": 15,
+                  "type": "audio/mpeg"
+                },
+                "pubDate": null,
+                "link": "/item/<pod>",
+                "author": "Pat",
+                "explicit": false,
+                "duration": 30,
+                "season": null,
+                "episode": null,
+                "episodeType": null,
+                "fullPath": "<tmp>/pods/Pod/ep2.mp3"
+              }
+            ],
+            "createdAt": "<timestamp>",
+            "updatedAt": "<timestamp>"
+          },
+          {
+            "id": "<uuid-12>",
+            "slug": "feed-collection",
+            "userId": "<uuid-5>",
+            "entityType": "collection",
+            "entityId": "<collection>",
+            "entityUpdatedAt": "<timestamp>",
+            "coverPath": "<tmp>/books/Book A/cover.png",
+            "meta": {
+              "title": "Favourites",
+              "description": "my picks",
+              "author": "Ann Author, Bob Writer",
+              "imageUrl": "/feed/feed-collection/cover.png",
+              "feedUrl": "/feed/feed-collection",
+              "link": "/collection/<collection>",
+              "explicit": false,
+              "type": "serial",
+              "language": null,
+              "preventIndexing": true,
+              "ownerName": null,
+              "ownerEmail": null
+            },
+            "serverAddress": "https://abs.example.test",
+            "feedUrl": "/feed/feed-collection",
+            "episodes": [
+              {
+                "id": "<uuid-13>",
+                "title": "part1",
+                "description": "",
+                "enclosure": {
+                  "url": "/feed/feed-collection/item/<uuid-13>/media.mp3",
+                  "size": 15,
+                  "type": "audio/mpeg"
+                },
+                "pubDate": "<pubDate>",
+                "link": "/collection/<collection>",
+                "author": "Ann Author, Bob Writer",
+                "explicit": false,
+                "duration": 60,
+                "season": null,
+                "episode": null,
+                "episodeType": null,
+                "fullPath": "<tmp>/books/Book A/part1.mp3"
+              },
+              {
+                "id": "<uuid-14>",
+                "title": "part2",
+                "description": "",
+                "enclosure": {
+                  "url": "/feed/feed-collection/item/<uuid-14>/media.mp3",
+                  "size": 15,
+                  "type": "audio/mpeg"
+                },
+                "pubDate": "<pubDate>",
+                "link": "/collection/<collection>",
+                "author": "Ann Author, Bob Writer",
+                "explicit": false,
+                "duration": 30,
+                "season": null,
+                "episode": null,
+                "episodeType": null,
+                "fullPath": "<tmp>/books/Book A/part2.mp3"
+              },
+              {
+                "id": "<uuid-15>",
+                "title": "part1",
+                "description": "",
+                "enclosure": {
+                  "url": "/feed/feed-collection/item/<uuid-15>/media.mp3",
+                  "size": 15,
+                  "type": "audio/mpeg"
+                },
+                "pubDate": "<pubDate>",
+                "link": "/collection/<collection>",
+                "author": "Ann Author, Bob Writer",
+                "explicit": false,
+                "duration": 60,
+                "season": null,
+                "episode": null,
+                "episodeType": null,
+                "fullPath": "<tmp>/books/Book B/part1.mp3"
+              },
+              {
+                "id": "<uuid-16>",
+                "title": "part2",
+                "description": "",
+                "enclosure": {
+                  "url": "/feed/feed-collection/item/<uuid-16>/media.mp3",
+                  "size": 15,
+                  "type": "audio/mpeg"
+                },
+                "pubDate": "<pubDate>",
+                "link": "/collection/<collection>",
+                "author": "Ann Author, Bob Writer",
+                "explicit": false,
+                "duration": 30,
+                "season": null,
+                "episode": null,
+                "episodeType": null,
+                "fullPath": "<tmp>/books/Book B/part2.mp3"
+              }
+            ],
+            "createdAt": "<timestamp>",
+            "updatedAt": "<timestamp>"
+          },
+          {
+            "id": "<uuid-17>",
+            "slug": "feed-series",
+            "userId": "<uuid-5>",
+            "entityType": "series",
+            "entityId": "<uuid-18>",
+            "entityUpdatedAt": "<timestamp>",
+            "coverPath": "<tmp>/books/Book A/cover.png",
+            "meta": {
+              "title": "Saga",
+              "description": "",
+              "author": "Ann Author, Bob Writer",
+              "imageUrl": "/feed/feed-series/cover.png",
+              "feedUrl": "/feed/feed-series",
+              "link": "/library/<uuid-19>/series/<uuid-18>",
+              "explicit": false,
+              "type": "serial",
+              "language": null,
+              "preventIndexing": true,
+              "ownerName": null,
+              "ownerEmail": null
+            },
+            "serverAddress": "https://abs.example.test",
+            "feedUrl": "/feed/feed-series",
+            "episodes": [
+              {
+                "id": "<uuid-20>",
+                "title": "part1",
+                "description": "",
+                "enclosure": {
+                  "url": "/feed/feed-series/item/<uuid-20>/media.mp3",
+                  "size": 15,
+                  "type": "audio/mpeg"
+                },
+                "pubDate": "<pubDate>",
+                "link": "/library/<uuid-19>/series/<uuid-18>",
+                "author": "Ann Author, Bob Writer",
+                "explicit": false,
+                "duration": 60,
+                "season": null,
+                "episode": null,
+                "episodeType": null,
+                "fullPath": "<tmp>/books/Book A/part1.mp3"
+              },
+              {
+                "id": "<uuid-21>",
+                "title": "part2",
+                "description": "",
+                "enclosure": {
+                  "url": "/feed/feed-series/item/<uuid-21>/media.mp3",
+                  "size": 15,
+                  "type": "audio/mpeg"
+                },
+                "pubDate": "<pubDate>",
+                "link": "/library/<uuid-19>/series/<uuid-18>",
+                "author": "Ann Author, Bob Writer",
+                "explicit": false,
+                "duration": 30,
+                "season": null,
+                "episode": null,
+                "episodeType": null,
+                "fullPath": "<tmp>/books/Book A/part2.mp3"
+              },
+              {
+                "id": "<uuid-22>",
+                "title": "part1",
+                "description": "",
+                "enclosure": {
+                  "url": "/feed/feed-series/item/<uuid-22>/media.mp3",
+                  "size": 15,
+                  "type": "audio/mpeg"
+                },
+                "pubDate": "<pubDate>",
+                "link": "/library/<uuid-19>/series/<uuid-18>",
+                "author": "Ann Author, Bob Writer",
+                "explicit": false,
+                "duration": 60,
+                "season": null,
+                "episode": null,
+                "episodeType": null,
+                "fullPath": "<tmp>/books/Book B/part1.mp3"
+              },
+              {
+                "id": "<uuid-23>",
+                "title": "part2",
+                "description": "",
+                "enclosure": {
+                  "url": "/feed/feed-series/item/<uuid-23>/media.mp3",
+                  "size": 15,
+                  "type": "audio/mpeg"
+                },
+                "pubDate": "<pubDate>",
+                "link": "/library/<uuid-19>/series/<uuid-18>",
+                "author": "Ann Author, Bob Writer",
+                "explicit": false,
+                "duration": 30,
+                "season": null,
+                "episode": null,
+                "episodeType": null,
+                "fullPath": "<tmp>/books/Book B/part2.mp3"
+              }
+            ],
+            "createdAt": "<timestamp>",
+            "updatedAt": "<timestamp>"
+          }
+        ],
+        "minified": [
+          {
+            "id": "<uuid-4>",
+            "entityType": "libraryItem",
+            "entityId": "<item-a>",
+            "feedUrl": "/feed/feed-a",
+            "meta": {
+              "title": "Book A",
+              "description": null,
+              "preventIndexing": false,
+              "ownerName": "Ann",
+              "ownerEmail": "ann@example.test"
+            }
+          },
+          {
+            "id": "<uuid-8>",
+            "entityType": "libraryItem",
+            "entityId": "<pod>",
+            "feedUrl": "/feed/feed-pod",
+            "meta": {
+              "title": "Pod",
+              "description": null,
+              "preventIndexing": true,
+              "ownerName": null,
+              "ownerEmail": null
+            }
+          },
+          {
+            "id": "<uuid-12>",
+            "entityType": "collection",
+            "entityId": "<collection>",
+            "feedUrl": "/feed/feed-collection",
+            "meta": {
+              "title": "Favourites",
+              "description": "my picks",
+              "preventIndexing": true,
+              "ownerName": null,
+              "ownerEmail": null
+            }
+          },
+          {
+            "id": "<uuid-17>",
+            "entityType": "series",
+            "entityId": "<uuid-18>",
+            "feedUrl": "/feed/feed-series",
+            "meta": {
+              "title": "Saga",
+              "description": "",
+              "preventIndexing": true,
+              "ownerName": null,
+              "ownerEmail": null
+            }
+          }
+        ]
+      }
+    },
+    "emitted": []
+  },
+  "RSSFeedController (characterization) > GET /api/feeds > requires authentication and admin > guest": {
+    "res": {
+      "status": 403,
+      "headers": {
+        "content-type": "text/plain; charset=utf-8"
+      },
+      "body": "Forbidden"
+    },
+    "emitted": []
+  },
+  "RSSFeedController (characterization) > GET /api/feeds > requires authentication and admin > no auth": {
+    "res": {
+      "status": 401,
+      "headers": {
+        "content-type": "text/plain; charset=utf-8"
+      },
+      "body": "Unauthorized"
+    },
+    "emitted": []
+  },
+  "RSSFeedController (characterization) > GET /api/feeds > requires authentication and admin > user": {
+    "res": {
+      "status": 403,
+      "headers": {
+        "content-type": "text/plain; charset=utf-8"
+      },
+      "body": "Forbidden"
+    },
+    "emitted": []
+  },
+  "RSSFeedController (characterization) > POST /api/feeds/:id/close > 404s for an unknown feed": {
+    "res": {
+      "status": 404,
+      "headers": {
+        "content-type": "text/plain; charset=utf-8"
+      },
+      "body": "Not Found"
+    },
+    "emitted": []
+  },
+  "RSSFeedController (characterization) > POST /api/feeds/:id/close > closes collection and series feeds as root and removes episodes > close collection feed": {
+    "res": {
+      "status": 200,
+      "headers": {
+        "content-type": "text/plain; charset=utf-8"
+      },
+      "body": "OK"
+    },
+    "emitted": [
+      {
+        "method": "emitter",
+        "args": [
+          "rss_feed_closed",
+          {
+            "id": "<uuid-1>",
+            "entityType": "collection",
+            "entityId": "<uuid-2>",
+            "feedUrl": "/feed/feed-collection",
+            "meta": {
+              "title": "Favourites",
+              "description": "my picks",
+              "preventIndexing": true,
+              "ownerName": null,
+              "ownerEmail": null
+            }
+          }
+        ]
+      }
+    ]
+  },
+  "RSSFeedController (characterization) > POST /api/feeds/:id/close > closes collection and series feeds as root and removes episodes > close series feed": {
+    "res": {
+      "status": 200,
+      "headers": {
+        "content-type": "text/plain; charset=utf-8"
+      },
+      "body": "OK"
+    },
+    "emitted": [
+      {
+        "method": "emitter",
+        "args": [
+          "rss_feed_closed",
+          {
+            "id": "<uuid-3>",
+            "entityType": "series",
+            "entityId": "<uuid-4>",
+            "feedUrl": "/feed/feed-series",
+            "meta": {
+              "title": "Saga",
+              "description": "",
+              "preventIndexing": true,
+              "ownerName": null,
+              "ownerEmail": null
+            }
+          }
+        ]
+      }
+    ]
+  },
+  "RSSFeedController (characterization) > POST /api/feeds/:id/close > closes collection and series feeds as root and removes episodes > episode rows left": {
+    "feedEpisodes": 0
+  },
+  "RSSFeedController (characterization) > POST /api/feeds/:id/close > closes collection and series feeds as root and removes episodes > list after close": {
+    "res": {
+      "status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8"
+      },
+      "body": {
+        "feeds": [],
+        "minified": []
+      }
+    },
+    "emitted": []
+  },
+  "RSSFeedController (characterization) > POST /api/feeds/:id/close > requires authentication and admin > feed still open": [
+    {
+      "slug": "feed-a",
+      "entityType": "libraryItem",
+      "entityId": "<uuid-2>",
+      "feedURL": "/feed/feed-a",
+      "title": "Book A",
+      "preventIndexing": true
+    }
+  ],
+  "RSSFeedController (characterization) > POST /api/feeds/:id/close > requires authentication and admin > guest": {
+    "res": {
+      "status": 403,
+      "headers": {
+        "content-type": "text/plain; charset=utf-8"
+      },
+      "body": "Forbidden"
+    },
+    "emitted": []
+  },
+  "RSSFeedController (characterization) > POST /api/feeds/:id/close > requires authentication and admin > no auth": {
+    "res": {
+      "status": 401,
+      "headers": {
+        "content-type": "text/plain; charset=utf-8"
+      },
+      "body": "Unauthorized"
+    },
+    "emitted": [
+      {
+        "method": "emitter",
+        "args": [
+          "rss_feed_open",
+          {
+            "id": "<uuid-1>",
+            "entityType": "libraryItem",
+            "entityId": "<uuid-2>",
+            "feedUrl": "/feed/feed-a",
+            "meta": {
+              "title": "Book A",
+              "description": null,
+              "preventIndexing": true,
+              "ownerName": null,
+              "ownerEmail": null
+            }
+          }
+        ]
+      }
+    ]
+  },
+  "RSSFeedController (characterization) > POST /api/feeds/:id/close > requires authentication and admin > user": {
+    "res": {
+      "status": 403,
+      "headers": {
+        "content-type": "text/plain; charset=utf-8"
+      },
+      "body": "Forbidden"
+    },
+    "emitted": []
+  },
+  "RSSFeedController (characterization) > POST /api/feeds/collection/:collectionId/open > opens a collection feed and rejects a duplicate slug > duplicate slug": {
+    "res": {
+      "status": 400,
+      "headers": {
+        "content-type": "text/html; charset=utf-8"
+      },
+      "body": "Slug already in use"
+    },
+    "emitted": []
+  },
+  "RSSFeedController (characterization) > POST /api/feeds/collection/:collectionId/open > opens a collection feed and rejects a duplicate slug > feed rows": [
+    {
+      "slug": "feed-collection",
+      "entityType": "collection",
+      "entityId": "<collection>",
+      "feedURL": "/feed/feed-collection",
+      "title": "Favourites",
+      "preventIndexing": false
+    }
+  ],
+  "RSSFeedController (characterization) > POST /api/feeds/collection/:collectionId/open > opens a collection feed and rejects a duplicate slug > open": {
+    "res": {
+      "status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8"
+      },
+      "body": {
+        "feed": {
+          "id": "<uuid-4>",
+          "entityType": "collection",
+          "entityId": "<collection>",
+          "feedUrl": "/feed/feed-collection",
+          "meta": {
+            "title": "Favourites",
+            "description": "my picks",
+            "preventIndexing": false,
+            "ownerName": null,
+            "ownerEmail": null
+          }
+        }
+      }
+    },
+    "emitted": [
+      {
+        "method": "emitter",
+        "args": [
+          "rss_feed_open",
+          {
+            "id": "<uuid-4>",
+            "entityType": "collection",
+            "entityId": "<collection>",
+            "feedUrl": "/feed/feed-collection",
+            "meta": {
+              "title": "Favourites",
+              "description": "my picks",
+              "preventIndexing": false,
+              "ownerName": null,
+              "ownerEmail": null
+            }
+          }
+        ]
+      }
+    ]
+  },
+  "RSSFeedController (characterization) > POST /api/feeds/collection/:collectionId/open > requires authentication and admin > guest": {
+    "res": {
+      "status": 403,
+      "headers": {
+        "content-type": "text/plain; charset=utf-8"
+      },
+      "body": "Forbidden"
+    },
+    "emitted": []
+  },
+  "RSSFeedController (characterization) > POST /api/feeds/collection/:collectionId/open > requires authentication and admin > no auth": {
+    "res": {
+      "status": 401,
+      "headers": {
+        "content-type": "text/plain; charset=utf-8"
+      },
+      "body": "Unauthorized"
+    },
+    "emitted": []
+  },
+  "RSSFeedController (characterization) > POST /api/feeds/collection/:collectionId/open > requires authentication and admin > user": {
+    "res": {
+      "status": 403,
+      "headers": {
+        "content-type": "text/plain; charset=utf-8"
+      },
+      "body": "Forbidden"
+    },
+    "emitted": []
+  },
+  "RSSFeedController (characterization) > POST /api/feeds/collection/:collectionId/open > validates body, collection and tracks > collection without audio tracks": {
+    "res": {
+      "status": 400,
+      "headers": {
+        "content-type": "text/html; charset=utf-8"
+      },
+      "body": "Collection has no audio tracks"
+    },
+    "emitted": []
+  },
+  "RSSFeedController (characterization) > POST /api/feeds/collection/:collectionId/open > validates body, collection and tracks > no body fields": {
+    "res": {
+      "status": 400,
+      "headers": {
+        "content-type": "text/html; charset=utf-8"
+      },
+      "body": "Invalid request body"
+    },
+    "emitted": []
+  },
+  "RSSFeedController (characterization) > POST /api/feeds/collection/:collectionId/open > validates body, collection and tracks > no feeds created": [],
+  "RSSFeedController (characterization) > POST /api/feeds/collection/:collectionId/open > validates body, collection and tracks > unknown collection": {
+    "res": {
+      "status": 404,
+      "headers": {
+        "content-type": "text/plain; charset=utf-8"
+      },
+      "body": "Not Found"
+    },
+    "emitted": []
+  },
+  "RSSFeedController (characterization) > POST /api/feeds/collection/:collectionId/open > validates body, collection and tracks > unknown collection and invalid body (body checked first)": {
+    "res": {
+      "status": 400,
+      "headers": {
+        "content-type": "text/html; charset=utf-8"
+      },
+      "body": "Invalid request body"
+    },
+    "emitted": []
+  },
+  "RSSFeedController (characterization) > POST /api/feeds/item/:itemId/open > closes a feed it opened and 404s afterwards > close": {
+    "res": {
+      "status": 200,
+      "headers": {
+        "content-type": "text/plain; charset=utf-8"
+      },
+      "body": "OK"
+    },
+    "emitted": [
+      {
+        "method": "emitter",
+        "args": [
+          "rss_feed_closed",
+          {
+            "id": "<uuid-1>",
+            "entityType": "libraryItem",
+            "entityId": "<uuid-2>",
+            "feedUrl": "/feed/feed-a",
+            "meta": {
+              "title": "Book A",
+              "description": null,
+              "preventIndexing": true,
+              "ownerName": null,
+              "ownerEmail": null
+            }
+          }
+        ]
+      }
+    ]
+  },
+  "RSSFeedController (characterization) > POST /api/feeds/item/:itemId/open > closes a feed it opened and 404s afterwards > close again": {
+    "res": {
+      "status": 404,
+      "headers": {
+        "content-type": "text/plain; charset=utf-8"
+      },
+      "body": "Not Found"
+    },
+    "emitted": []
+  },
+  "RSSFeedController (characterization) > POST /api/feeds/item/:itemId/open > closes a feed it opened and 404s afterwards > slug reusable after close": {
+    "res": {
+      "status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8"
+      },
+      "body": {
+        "feed": {
+          "id": "<uuid-3>",
+          "entityType": "libraryItem",
+          "entityId": "<uuid-2>",
+          "feedUrl": "/feed/feed-a",
+          "meta": {
+            "title": "Book A",
+            "description": null,
+            "preventIndexing": true,
+            "ownerName": null,
+            "ownerEmail": null
+          }
+        }
+      }
+    },
+    "emitted": [
+      {
+        "method": "emitter",
+        "args": [
+          "rss_feed_open",
+          {
+            "id": "<uuid-3>",
+            "entityType": "libraryItem",
+            "entityId": "<uuid-2>",
+            "feedUrl": "/feed/feed-a",
+            "meta": {
+              "title": "Book A",
+              "description": null,
+              "preventIndexing": true,
+              "ownerName": null,
+              "ownerEmail": null
+            }
+          }
+        ]
+      }
+    ]
+  },
+  "RSSFeedController (characterization) > POST /api/feeds/item/:itemId/open > opens a book feed, emits rss_feed_open and rejects a duplicate slug > defaults": {
+    "res": {
+      "status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8"
+      },
+      "body": {
+        "feed": {
+          "id": "<uuid-3>",
+          "entityType": "libraryItem",
+          "entityId": "<item-a>",
+          "feedUrl": "/feed/feed-a",
+          "meta": {
+            "title": "Book A",
+            "description": null,
+            "preventIndexing": true,
+            "ownerName": null,
+            "ownerEmail": null
+          }
+        }
+      }
+    },
+    "emitted": [
+      {
+        "method": "emitter",
+        "args": [
+          "rss_feed_open",
+          {
+            "id": "<uuid-3>",
+            "entityType": "libraryItem",
+            "entityId": "<item-a>",
+            "feedUrl": "/feed/feed-a",
+            "meta": {
+              "title": "Book A",
+              "description": null,
+              "preventIndexing": true,
+              "ownerName": null,
+              "ownerEmail": null
+            }
+          }
+        ]
+      }
+    ]
+  },
+  "RSSFeedController (characterization) > POST /api/feeds/item/:itemId/open > opens a book feed, emits rss_feed_open and rejects a duplicate slug > duplicate slug other item": {
+    "res": {
+      "status": 400,
+      "headers": {
+        "content-type": "text/html; charset=utf-8"
+      },
+      "body": "Slug already in use"
+    },
+    "emitted": []
+  },
+  "RSSFeedController (characterization) > POST /api/feeds/item/:itemId/open > opens a book feed, emits rss_feed_open and rejects a duplicate slug > duplicate slug same item": {
+    "res": {
+      "status": 400,
+      "headers": {
+        "content-type": "text/html; charset=utf-8"
+      },
+      "body": "Slug already in use"
+    },
+    "emitted": []
+  },
+  "RSSFeedController (characterization) > POST /api/feeds/item/:itemId/open > opens a book feed, emits rss_feed_open and rejects a duplicate slug > feed rows": [
+    {
+      "slug": "feed-a",
+      "entityType": "libraryItem",
+      "entityId": "<item-a>",
+      "feedURL": "/feed/feed-a",
+      "title": "Book A",
+      "preventIndexing": true
+    },
+    {
+      "slug": "feed-b",
+      "entityType": "libraryItem",
+      "entityId": "<item-b>",
+      "feedURL": "/feed/feed-b",
+      "title": "Book B",
+      "preventIndexing": false
+    },
+    {
+      "slug": "feed-b2",
+      "entityType": "libraryItem",
+      "entityId": "<item-b>",
+      "feedURL": "/feed/feed-b2",
+      "title": "Book B",
+      "preventIndexing": true
+    }
+  ],
+  "RSSFeedController (characterization) > POST /api/feeds/item/:itemId/open > opens a book feed, emits rss_feed_open and rejects a duplicate slug > odd metadata details": {
+    "res": {
+      "status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8"
+      },
+      "body": {
+        "feed": {
+          "id": "<uuid-5>",
+          "entityType": "libraryItem",
+          "entityId": "<item-b>",
+          "feedUrl": "/feed/feed-b2",
+          "meta": {
+            "title": "Book B",
+            "description": null,
+            "preventIndexing": true,
+            "ownerName": null,
+            "ownerEmail": null
+          }
+        }
+      }
+    },
+    "emitted": [
+      {
+        "method": "emitter",
+        "args": [
+          "rss_feed_open",
+          {
+            "id": "<uuid-5>",
+            "entityType": "libraryItem",
+            "entityId": "<item-b>",
+            "feedUrl": "/feed/feed-b2",
+            "meta": {
+              "title": "Book B",
+              "description": null,
+              "preventIndexing": true,
+              "ownerName": null,
+              "ownerEmail": null
+            }
+          }
+        ]
+      }
+    ]
+  },
+  "RSSFeedController (characterization) > POST /api/feeds/item/:itemId/open > opens a book feed, emits rss_feed_open and rejects a duplicate slug > with metadata details": {
+    "res": {
+      "status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8"
+      },
+      "body": {
+        "feed": {
+          "id": "<uuid-4>",
+          "entityType": "libraryItem",
+          "entityId": "<item-b>",
+          "feedUrl": "/feed/feed-b",
+          "meta": {
+            "title": "Book B",
+            "description": null,
+            "preventIndexing": false,
+            "ownerName": "Bob",
+            "ownerEmail": "bob@example.test"
+          }
+        }
+      }
+    },
+    "emitted": [
+      {
+        "method": "emitter",
+        "args": [
+          "rss_feed_open",
+          {
+            "id": "<uuid-4>",
+            "entityType": "libraryItem",
+            "entityId": "<item-b>",
+            "feedUrl": "/feed/feed-b",
+            "meta": {
+              "title": "Book B",
+              "description": null,
+              "preventIndexing": false,
+              "ownerName": "Bob",
+              "ownerEmail": "bob@example.test"
+            }
+          }
+        ]
+      }
+    ]
+  },
+  "RSSFeedController (characterization) > POST /api/feeds/item/:itemId/open > opens a podcast feed > podcast": {
+    "res": {
+      "status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8"
+      },
+      "body": {
+        "feed": {
+          "id": "<uuid-2>",
+          "entityType": "libraryItem",
+          "entityId": "<pod>",
+          "feedUrl": "/feed/feed-pod",
+          "meta": {
+            "title": "Pod",
+            "description": null,
+            "preventIndexing": true,
+            "ownerName": null,
+            "ownerEmail": null
+          }
+        }
+      }
+    },
+    "emitted": [
+      {
+        "method": "emitter",
+        "args": [
+          "rss_feed_open",
+          {
+            "id": "<uuid-2>",
+            "entityType": "libraryItem",
+            "entityId": "<pod>",
+            "feedUrl": "/feed/feed-pod",
+            "meta": {
+              "title": "Pod",
+              "description": null,
+              "preventIndexing": true,
+              "ownerName": null,
+              "ownerEmail": null
+            }
+          }
+        ]
+      }
+    ]
+  },
+  "RSSFeedController (characterization) > POST /api/feeds/item/:itemId/open > requires authentication and admin > guest": {
+    "res": {
+      "status": 403,
+      "headers": {
+        "content-type": "text/plain; charset=utf-8"
+      },
+      "body": "Forbidden"
+    },
+    "emitted": []
+  },
+  "RSSFeedController (characterization) > POST /api/feeds/item/:itemId/open > requires authentication and admin > no auth": {
+    "res": {
+      "status": 401,
+      "headers": {
+        "content-type": "text/plain; charset=utf-8"
+      },
+      "body": "Unauthorized"
+    },
+    "emitted": []
+  },
+  "RSSFeedController (characterization) > POST /api/feeds/item/:itemId/open > requires authentication and admin > no feeds created": [],
+  "RSSFeedController (characterization) > POST /api/feeds/item/:itemId/open > requires authentication and admin > user": {
+    "res": {
+      "status": 403,
+      "headers": {
+        "content-type": "text/plain; charset=utf-8"
+      },
+      "body": "Forbidden"
+    },
+    "emitted": []
+  },
+  "RSSFeedController (characterization) > POST /api/feeds/item/:itemId/open > validates item and body > item without audio tracks": {
+    "res": {
+      "status": 400,
+      "headers": {
+        "content-type": "text/html; charset=utf-8"
+      },
+      "body": "Item has no audio tracks"
+    },
+    "emitted": []
+  },
+  "RSSFeedController (characterization) > POST /api/feeds/item/:itemId/open > validates item and body > no body fields": {
+    "res": {
+      "status": 400,
+      "headers": {
+        "content-type": "text/html; charset=utf-8"
+      },
+      "body": "Invalid request body"
+    },
+    "emitted": []
+  },
+  "RSSFeedController (characterization) > POST /api/feeds/item/:itemId/open > validates item and body > no feeds created": [],
+  "RSSFeedController (characterization) > POST /api/feeds/item/:itemId/open > validates item and body > no server address": {
+    "res": {
+      "status": 400,
+      "headers": {
+        "content-type": "text/html; charset=utf-8"
+      },
+      "body": "Invalid request body"
+    },
+    "emitted": []
+  },
+  "RSSFeedController (characterization) > POST /api/feeds/item/:itemId/open > validates item and body > no slug": {
+    "res": {
+      "status": 400,
+      "headers": {
+        "content-type": "text/html; charset=utf-8"
+      },
+      "body": "Invalid request body"
+    },
+    "emitted": []
+  },
+  "RSSFeedController (characterization) > POST /api/feeds/item/:itemId/open > validates item and body > non-string address": {
+    "res": {
+      "status": 400,
+      "headers": {
+        "content-type": "text/html; charset=utf-8"
+      },
+      "body": "Invalid request body"
+    },
+    "emitted": []
+  },
+  "RSSFeedController (characterization) > POST /api/feeds/item/:itemId/open > validates item and body > unknown item": {
+    "res": {
+      "status": 404,
+      "headers": {
+        "content-type": "text/plain; charset=utf-8"
+      },
+      "body": "Not Found"
+    },
+    "emitted": []
+  },
+  "RSSFeedController (characterization) > POST /api/feeds/series/:seriesId/open > opens a series feed and rejects a duplicate slug > duplicate slug": {
+    "res": {
+      "status": 400,
+      "headers": {
+        "content-type": "text/html; charset=utf-8"
+      },
+      "body": "Slug already in use"
+    },
+    "emitted": []
+  },
+  "RSSFeedController (characterization) > POST /api/feeds/series/:seriesId/open > opens a series feed and rejects a duplicate slug > feed rows": [
+    {
+      "slug": "feed-series",
+      "entityType": "series",
+      "entityId": "<series>",
+      "feedURL": "/feed/feed-series",
+      "title": "Saga",
+      "preventIndexing": true
+    }
+  ],
+  "RSSFeedController (characterization) > POST /api/feeds/series/:seriesId/open > opens a series feed and rejects a duplicate slug > open": {
+    "res": {
+      "status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8"
+      },
+      "body": {
+        "feed": {
+          "id": "<uuid-4>",
+          "entityType": "series",
+          "entityId": "<series>",
+          "feedUrl": "/feed/feed-series",
+          "meta": {
+            "title": "Saga",
+            "description": "",
+            "preventIndexing": true,
+            "ownerName": "Series Owner",
+            "ownerEmail": null
+          }
+        }
+      }
+    },
+    "emitted": [
+      {
+        "method": "emitter",
+        "args": [
+          "rss_feed_open",
+          {
+            "id": "<uuid-4>",
+            "entityType": "series",
+            "entityId": "<series>",
+            "feedUrl": "/feed/feed-series",
+            "meta": {
+              "title": "Saga",
+              "description": "",
+              "preventIndexing": true,
+              "ownerName": "Series Owner",
+              "ownerEmail": null
+            }
+          }
+        ]
+      }
+    ]
+  },
+  "RSSFeedController (characterization) > POST /api/feeds/series/:seriesId/open > requires authentication and admin > guest": {
+    "res": {
+      "status": 403,
+      "headers": {
+        "content-type": "text/plain; charset=utf-8"
+      },
+      "body": "Forbidden"
+    },
+    "emitted": []
+  },
+  "RSSFeedController (characterization) > POST /api/feeds/series/:seriesId/open > requires authentication and admin > no auth": {
+    "res": {
+      "status": 401,
+      "headers": {
+        "content-type": "text/plain; charset=utf-8"
+      },
+      "body": "Unauthorized"
+    },
+    "emitted": []
+  },
+  "RSSFeedController (characterization) > POST /api/feeds/series/:seriesId/open > requires authentication and admin > user": {
+    "res": {
+      "status": 403,
+      "headers": {
+        "content-type": "text/plain; charset=utf-8"
+      },
+      "body": "Forbidden"
+    },
+    "emitted": []
+  },
+  "RSSFeedController (characterization) > POST /api/feeds/series/:seriesId/open > validates body, series and tracks > no body fields": {
+    "res": {
+      "status": 400,
+      "headers": {
+        "content-type": "text/html; charset=utf-8"
+      },
+      "body": "Invalid request body"
+    },
+    "emitted": []
+  },
+  "RSSFeedController (characterization) > POST /api/feeds/series/:seriesId/open > validates body, series and tracks > no feeds created": [],
+  "RSSFeedController (characterization) > POST /api/feeds/series/:seriesId/open > validates body, series and tracks > series without audio tracks": {
+    "res": {
+      "status": 400,
+      "headers": {
+        "content-type": "text/html; charset=utf-8"
+      },
+      "body": "Series has no audio tracks"
+    },
+    "emitted": []
+  },
+  "RSSFeedController (characterization) > POST /api/feeds/series/:seriesId/open > validates body, series and tracks > unknown series": {
+    "res": {
+      "status": 404,
+      "headers": {
+        "content-type": "text/plain; charset=utf-8"
+      },
+      "body": "Not Found"
+    },
+    "emitted": []
+  }
+}
