@@ -31,3 +31,16 @@ Measured in the cloud sandbox (Node v22.22.0, x86_64, 4 CPU, 15GB). CI and pkg t
 6. Docker: `docker buildx build`, run against a seeded config dir.
 7. Library scan of a small sample library (chaptered audiobook, podcast, epub/comic) with real ffprobe.
 8. Windows is unverifiable locally; keep `isWin`, path handling and `process.pkg` spots flagged for review.
+
+## Local verification (macOS arm64 + Linux aarch64 VM, branch code identical to 7d10b8f)
+| Item | Result |
+|---|---|
+| Node 24.21.0: `npm ci`, `build:server`, `lint`, `test` | All pass, 356 tests |
+| Boot with no env overrides (macOS arm64) | ffmpeg, ffprobe, libnusqlite3 download; server boots |
+| Client + login | `/` serves UI; `/init`, `/login` work; wrong password 401 |
+| Upgrade v2.32.1 → branch (synthetic DB) | Migrations v2.33.0 and v2.35.0 applied; login, 2 libraries, 3 chapters, 2 episodes load; forced rescan 0/0/0 |
+| pkg `node24-linux-arm64` | Builds (108 MB), serves UI, applies both migrations on old DB (loader works in pkg snapshot) |
+
+Notes: Node 26 breaks `npm test` (mocha/yargs `require is not defined in ES module scope`); Homebrew `node@24` is actually Node 26. DB fixtures embed absolute paths (`backupPath` in server settings) and crash BackupManager at boot on another machine unless rewritten.
+
+Not yet covered: Docker build/run, macOS x64 and macOS pkg, epub/comic scans, migrations v2.15.0–v2.26.0 end to end (the v2.32.1 DB only exercises 2 of 15), Windows.
