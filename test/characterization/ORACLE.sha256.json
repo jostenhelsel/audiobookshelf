@@ -23,7 +23,7 @@
   "StatsController.test.js": "ef58a90cb0e5023d70a12c78e49ed05e6fe2dbc365cca9d97ce1a3c0e330d729",
   "ToolsController.test.js": "c5f006ded994882cf9a24c7e8f736e6c40b2fce7b62d442a0a67d732d6864c8e",
   "UserController.test.js": "a74c95093dcaff4dcb70253cc332f1f6d02d9629762260a0f9246d0d22545691",
-  "helpers/harness.js": "b19055a410b08d185c9aca37053cf8bcbfd66286b1699df6d496f02b3a7377e2",
+  "helpers/harness.js": "96df4c1053ce811b559d57b4bf6eb3227b733bca5f60cefbca87348d0f5599dc",
   "helpers/seed-delivery-extra.js": "46d178e026f0e01d8d411028f753ee902f14a090baf0e6bfa1e73d5078463d8d",
   "helpers/seed-items-extra.js": "0fcae8b4d71171583618926ebc8514716a4aebf48a67d21ec25b349f936e48e8",
   "helpers/seed-library-extra.js": "cf1dd22b7dff2f293f46fad2884394a0217c930aa16b7ce14c5b142e374b8d35",

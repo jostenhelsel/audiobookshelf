@@ -91,6 +91,10 @@ async function startApi(opts = {}) {
   global.XAccel = ''
   global.isWin = false
   global.AllowCors = '0'
+  global.appRoot = path.resolve(__dirname, '../../..')
+  const savedLogLevel = Logger.logLevel
+  const savedFilterData = Database.libraryFilterData
+  Database.libraryFilterData = {}
   fs.mkdirSync(global.ConfigPath, { recursive: true })
   fs.mkdirSync(global.MetadataPath, { recursive: true })
 
@@ -213,7 +217,10 @@ async function startApi(opts = {}) {
       try {
         parsed = text ? JSON.parse(text) : null
       } catch {}
-      return { status: res.status, headers: { 'content-type': res.headers.get('content-type') }, body: parsed }
+      const result = { status: res.status, headers: { 'content-type': res.headers.get('content-type') }, body: parsed }
+      // non-enumerable so whole-response snapshots are unchanged; tests read result.cookies explicitly
+      Object.defineProperty(result, 'cookies', { value: res.headers.getSetCookie?.() || [], enumerable: false })
+      return result
     },
     seed: {
       /** root, admin, user, guest users (username = type name) */
@@ -232,6 +239,8 @@ async function startApi(opts = {}) {
       FreshTokenManager.TokenSecret = null
       SocketAuthority.clients = savedClients
       // CacheManager is a singleton holding paths inside the temp dir deleted below; back to its constructor state
+      Logger.logLevel = savedLogLevel
+      Database.libraryFilterData = savedFilterData
       CacheManager.CachePath = CacheManager.CoverCachePath = CacheManager.ImageCachePath = CacheManager.ItemCachePath = null
       await Database.sequelize.close()
       for (const [k, v] of Object.entries(saved)) {
