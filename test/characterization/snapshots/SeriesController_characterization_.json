@@ -1,0 +1,558 @@
+{
+  "SeriesController (characterization) > GET /api/series/:id > 404s for unknown ids, empty series and inaccessible books > accessible library": {
+    "res": {
+      "status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8"
+      },
+      "body": {
+        "id": "<other-series>",
+        "name": "Elsewhere Series",
+        "nameIgnorePrefix": "Elsewhere Series",
+        "description": null,
+        "addedAt": "<timestamp>",
+        "updatedAt": "<timestamp>",
+        "libraryId": "<uuid-4>"
+      }
+    },
+    "emitted": []
+  },
+  "SeriesController (characterization) > GET /api/series/:id > 404s for unknown ids, empty series and inaccessible books > explicit-only series hidden from user without explicit access": {
+    "res": {
+      "status": 404,
+      "headers": {
+        "content-type": "text/plain; charset=utf-8"
+      },
+      "body": "Not Found"
+    },
+    "emitted": []
+  },
+  "SeriesController (characterization) > GET /api/series/:id > 404s for unknown ids, empty series and inaccessible books > explicit-only series visible with explicit access": {
+    "res": {
+      "status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8"
+      },
+      "body": {
+        "id": "<uuid-5>",
+        "name": "Spicy Series",
+        "nameIgnorePrefix": "Spicy Series",
+        "description": null,
+        "addedAt": "<timestamp>",
+        "updatedAt": "<timestamp>",
+        "libraryId": "<uuid-3>"
+      }
+    },
+    "emitted": []
+  },
+  "SeriesController (characterization) > GET /api/series/:id > 404s for unknown ids, empty series and inaccessible books > library not accessible": {
+    "res": {
+      "status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8"
+      },
+      "body": {
+        "id": "<saga>",
+        "name": "Saga",
+        "nameIgnorePrefix": "Saga",
+        "description": "An epic",
+        "addedAt": "<timestamp>",
+        "updatedAt": "<timestamp>",
+        "libraryId": "<uuid-3>"
+      }
+    },
+    "emitted": []
+  },
+  "SeriesController (characterization) > GET /api/series/:id > 404s for unknown ids, empty series and inaccessible books > series without books": {
+    "res": {
+      "status": 404,
+      "headers": {
+        "content-type": "text/plain; charset=utf-8"
+      },
+      "body": "Not Found"
+    },
+    "emitted": []
+  },
+  "SeriesController (characterization) > GET /api/series/:id > 404s for unknown ids, empty series and inaccessible books > unknown id": {
+    "res": {
+      "status": 404,
+      "headers": {
+        "content-type": "text/plain; charset=utf-8"
+      },
+      "body": "Not Found"
+    },
+    "emitted": []
+  },
+  "SeriesController (characterization) > GET /api/series/:id > includes progress and rssfeed > multiple includes with spaces": {
+    "res": {
+      "status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8"
+      },
+      "body": {
+        "id": "<saga>",
+        "name": "Saga",
+        "nameIgnorePrefix": "Saga",
+        "description": "An epic",
+        "addedAt": "<timestamp>",
+        "updatedAt": "<timestamp>",
+        "libraryId": "<uuid-3>",
+        "progress": {
+          "libraryItemIds": [
+            "<uuid-4>",
+            "<uuid-5>",
+            "<uuid-6>"
+          ],
+          "libraryItemIdsFinished": [
+            "<uuid-4>"
+          ],
+          "isFinished": false
+        },
+        "rssFeed": null
+      }
+    },
+    "emitted": []
+  },
+  "SeriesController (characterization) > GET /api/series/:id > includes progress and rssfeed > progress for admin without progress": {
+    "res": {
+      "status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8"
+      },
+      "body": {
+        "id": "<saga>",
+        "name": "Saga",
+        "nameIgnorePrefix": "Saga",
+        "description": "An epic",
+        "addedAt": "<timestamp>",
+        "updatedAt": "<timestamp>",
+        "libraryId": "<uuid-3>",
+        "progress": {
+          "libraryItemIds": [
+            "<uuid-4>",
+            "<uuid-5>",
+            "<uuid-6>"
+          ],
+          "libraryItemIdsFinished": [],
+          "isFinished": false
+        }
+      }
+    },
+    "emitted": []
+  },
+  "SeriesController (characterization) > GET /api/series/:id > includes progress and rssfeed > progress for user with a finished book": {
+    "res": {
+      "status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8"
+      },
+      "body": {
+        "id": "<saga>",
+        "name": "Saga",
+        "nameIgnorePrefix": "Saga",
+        "description": "An epic",
+        "addedAt": "<timestamp>",
+        "updatedAt": "<timestamp>",
+        "libraryId": "<uuid-3>",
+        "progress": {
+          "libraryItemIds": [
+            "<uuid-4>",
+            "<uuid-5>",
+            "<uuid-6>"
+          ],
+          "libraryItemIdsFinished": [
+            "<uuid-4>"
+          ],
+          "isFinished": false
+        }
+      }
+    },
+    "emitted": []
+  },
+  "SeriesController (characterization) > GET /api/series/:id > includes progress and rssfeed > rssfeed (none open)": {
+    "res": {
+      "status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8"
+      },
+      "body": {
+        "id": "<saga>",
+        "name": "Saga",
+        "nameIgnorePrefix": "Saga",
+        "description": "An epic",
+        "addedAt": "<timestamp>",
+        "updatedAt": "<timestamp>",
+        "libraryId": "<uuid-3>",
+        "rssFeed": null
+      }
+    },
+    "emitted": []
+  },
+  "SeriesController (characterization) > GET /api/series/:id > requires authentication": {
+    "res": {
+      "status": 401,
+      "headers": {
+        "content-type": "text/plain; charset=utf-8"
+      },
+      "body": "Unauthorized"
+    },
+    "emitted": []
+  },
+  "SeriesController (characterization) > GET /api/series/:id > returns a series for every user type > admin": {
+    "res": {
+      "status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8"
+      },
+      "body": {
+        "id": "<saga>",
+        "name": "Saga",
+        "nameIgnorePrefix": "Saga",
+        "description": "An epic",
+        "addedAt": "<timestamp>",
+        "updatedAt": "<timestamp>",
+        "libraryId": "<uuid-3>"
+      }
+    },
+    "emitted": []
+  },
+  "SeriesController (characterization) > GET /api/series/:id > returns a series for every user type > guest": {
+    "res": {
+      "status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8"
+      },
+      "body": {
+        "id": "<saga>",
+        "name": "Saga",
+        "nameIgnorePrefix": "Saga",
+        "description": "An epic",
+        "addedAt": "<timestamp>",
+        "updatedAt": "<timestamp>",
+        "libraryId": "<uuid-3>"
+      }
+    },
+    "emitted": []
+  },
+  "SeriesController (characterization) > GET /api/series/:id > returns a series for every user type > root": {
+    "res": {
+      "status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8"
+      },
+      "body": {
+        "id": "<saga>",
+        "name": "Saga",
+        "nameIgnorePrefix": "Saga",
+        "description": "An epic",
+        "addedAt": "<timestamp>",
+        "updatedAt": "<timestamp>",
+        "libraryId": "<uuid-3>"
+      }
+    },
+    "emitted": []
+  },
+  "SeriesController (characterization) > GET /api/series/:id > returns a series for every user type > user": {
+    "res": {
+      "status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8"
+      },
+      "body": {
+        "id": "<saga>",
+        "name": "Saga",
+        "nameIgnorePrefix": "Saga",
+        "description": "An epic",
+        "addedAt": "<timestamp>",
+        "updatedAt": "<timestamp>",
+        "libraryId": "<uuid-3>"
+      }
+    },
+    "emitted": []
+  },
+  "SeriesController (characterization) > GET /api/series/:id > returns open rss feed details > rssfeed open": {
+    "res": {
+      "status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8"
+      },
+      "body": {
+        "id": "<saga>",
+        "name": "Saga",
+        "nameIgnorePrefix": "Saga",
+        "description": "An epic",
+        "addedAt": "<timestamp>",
+        "updatedAt": "<timestamp>",
+        "libraryId": "<uuid-3>",
+        "rssFeed": {
+          "id": "<uuid-4>",
+          "entityType": "series",
+          "entityId": "<saga>",
+          "feedUrl": "http://localhost/feed/saga-feed",
+          "meta": {
+            "title": "Saga",
+            "description": "d",
+            "preventIndexing": true,
+            "ownerName": null,
+            "ownerEmail": null
+          }
+        }
+      }
+    },
+    "emitted": []
+  },
+  "SeriesController (characterization) > PATCH /api/series/:id > rejects invalid payloads > empty": {
+    "res": {
+      "status": 400,
+      "headers": {
+        "content-type": "text/html; charset=utf-8"
+      },
+      "body": "No valid fields to update"
+    },
+    "emitted": []
+  },
+  "SeriesController (characterization) > PATCH /api/series/:id > rejects invalid payloads > unknown id": {
+    "res": {
+      "status": 404,
+      "headers": {
+        "content-type": "text/plain; charset=utf-8"
+      },
+      "body": "Not Found"
+    },
+    "emitted": []
+  },
+  "SeriesController (characterization) > PATCH /api/series/:id > rejects invalid payloads > wrong types": {
+    "res": {
+      "status": 400,
+      "headers": {
+        "content-type": "text/html; charset=utf-8"
+      },
+      "body": "No valid fields to update"
+    },
+    "emitted": []
+  },
+  "SeriesController (characterization) > PATCH /api/series/:id > requires authentication and update permission > anonymous": {
+    "res": {
+      "status": 401,
+      "headers": {
+        "content-type": "text/plain; charset=utf-8"
+      },
+      "body": "Unauthorized"
+    },
+    "emitted": []
+  },
+  "SeriesController (characterization) > PATCH /api/series/:id > requires authentication and update permission > guest": {
+    "res": {
+      "status": 403,
+      "headers": {
+        "content-type": "text/plain; charset=utf-8"
+      },
+      "body": "Forbidden"
+    },
+    "emitted": []
+  },
+  "SeriesController (characterization) > PATCH /api/series/:id > requires authentication and update permission > row unchanged": {
+    "res": {
+      "row": {
+        "id": "<saga>",
+        "name": "Saga",
+        "nameIgnorePrefix": null,
+        "description": "An epic"
+      }
+    },
+    "emitted": []
+  },
+  "SeriesController (characterization) > PATCH /api/series/:id > requires authentication and update permission > user": {
+    "res": {
+      "status": 403,
+      "headers": {
+        "content-type": "text/plain; charset=utf-8"
+      },
+      "body": "Forbidden"
+    },
+    "emitted": []
+  },
+  "SeriesController (characterization) > PATCH /api/series/:id > updates name and description > admin full update": {
+    "res": {
+      "status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8"
+      },
+      "body": {
+        "id": "<saga>",
+        "name": "The Saga",
+        "nameIgnorePrefix": "Saga, The",
+        "description": "Updated",
+        "addedAt": "<timestamp>",
+        "updatedAt": "<timestamp>",
+        "libraryId": "<uuid-3>"
+      }
+    },
+    "emitted": [
+      {
+        "method": "emitter",
+        "args": [
+          "series_updated",
+          {
+            "id": "<saga>",
+            "name": "The Saga",
+            "nameIgnorePrefix": "Saga, The",
+            "description": "Updated",
+            "addedAt": "<timestamp>",
+            "updatedAt": "<timestamp>",
+            "libraryId": "<uuid-3>"
+          }
+        ]
+      }
+    ]
+  },
+  "SeriesController (characterization) > PATCH /api/series/:id > updates name and description > duplicate names are not checked": {
+    "res": {
+      "status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8"
+      },
+      "body": {
+        "id": "<saga>",
+        "name": "Saga",
+        "nameIgnorePrefix": "Saga",
+        "description": "Root edit",
+        "addedAt": "<timestamp>",
+        "updatedAt": "<timestamp>",
+        "libraryId": "<uuid-3>"
+      }
+    },
+    "emitted": [
+      {
+        "method": "emitter",
+        "args": [
+          "series_updated",
+          {
+            "id": "<saga>",
+            "name": "Saga",
+            "nameIgnorePrefix": "Saga",
+            "description": "Root edit",
+            "addedAt": "<timestamp>",
+            "updatedAt": "<timestamp>",
+            "libraryId": "<uuid-3>"
+          }
+        ]
+      }
+    ]
+  },
+  "SeriesController (characterization) > PATCH /api/series/:id > updates name and description > empty name accepted": {
+    "res": {
+      "status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8"
+      },
+      "body": {
+        "id": "<saga>",
+        "name": "",
+        "nameIgnorePrefix": "",
+        "description": "Root edit",
+        "addedAt": "<timestamp>",
+        "updatedAt": "<timestamp>",
+        "libraryId": "<uuid-3>"
+      }
+    },
+    "emitted": [
+      {
+        "method": "emitter",
+        "args": [
+          "series_updated",
+          {
+            "id": "<saga>",
+            "name": "",
+            "nameIgnorePrefix": "",
+            "description": "Root edit",
+            "addedAt": "<timestamp>",
+            "updatedAt": "<timestamp>",
+            "libraryId": "<uuid-3>"
+          }
+        ]
+      }
+    ]
+  },
+  "SeriesController (characterization) > PATCH /api/series/:id > updates name and description > find after update": {
+    "res": {
+      "status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8"
+      },
+      "body": {
+        "id": "<saga>",
+        "name": "Saga",
+        "nameIgnorePrefix": "Saga",
+        "description": "Root edit",
+        "addedAt": "<timestamp>",
+        "updatedAt": "<timestamp>",
+        "libraryId": "<uuid-3>"
+      }
+    },
+    "emitted": []
+  },
+  "SeriesController (characterization) > PATCH /api/series/:id > updates name and description > no change emits nothing": {
+    "res": {
+      "status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8"
+      },
+      "body": {
+        "id": "<saga>",
+        "name": "The Saga",
+        "nameIgnorePrefix": "Saga, The",
+        "description": "Root edit",
+        "addedAt": "<timestamp>",
+        "updatedAt": "<timestamp>",
+        "libraryId": "<uuid-3>"
+      }
+    },
+    "emitted": []
+  },
+  "SeriesController (characterization) > PATCH /api/series/:id > updates name and description > root partial update": {
+    "res": {
+      "status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8"
+      },
+      "body": {
+        "id": "<saga>",
+        "name": "The Saga",
+        "nameIgnorePrefix": "Saga, The",
+        "description": "Root edit",
+        "addedAt": "<timestamp>",
+        "updatedAt": "<timestamp>",
+        "libraryId": "<uuid-3>"
+      }
+    },
+    "emitted": [
+      {
+        "method": "emitter",
+        "args": [
+          "series_updated",
+          {
+            "id": "<saga>",
+            "name": "The Saga",
+            "nameIgnorePrefix": "Saga, The",
+            "description": "Root edit",
+            "addedAt": "<timestamp>",
+            "updatedAt": "<timestamp>",
+            "libraryId": "<uuid-3>"
+          }
+        ]
+      }
+    ]
+  },
+  "SeriesController (characterization) > PATCH /api/series/:id > updates name and description > row after full update": {
+    "res": {
+      "row": {
+        "id": "<saga>",
+        "name": "The Saga",
+        "nameIgnorePrefix": null,
+        "description": "Updated"
+      }
+    },
+    "emitted": []
+  }
+}
