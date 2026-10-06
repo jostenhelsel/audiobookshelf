@@ -20,6 +20,8 @@
     "deploy-linux": "node deploy/linux",
     "test": "npm run build:server && mocha dist-server/test",
     "coverage": "npm run build:server && nyc mocha dist-server/test",
+    "ratchet": "node scripts/ts-ratchet/check.js",
+    "ratchet:update": "node scripts/ts-ratchet/check.js --update",
     "smoke:upgrade": "npm run build:server && node scripts/upgrade-smoke/run.js",
     "lint": "eslint ."
   },
@@ -70,7 +72,8 @@
     "nodemon": "^2.0.20",
     "nyc": "^15.1.0",
     "sinon": "^17.0.1",
-    "typescript": "^5.7.3"
+    "typescript": "^5.7.3",
+    "typescript-eslint": "^8.71.1"
   },
   "allowScripts": {
     "sqlite3@5.1.7": true

@@ -1,0 +1,10 @@
+{
+  "extends": "./tsconfig.server.json",
+  "compilerOptions": {
+    "checkJs": true,
+    "noEmit": true,
+    "incremental": false
+  },
+  "include": ["index.js", "index.ts", "server/**/*.js", "server/**/*.ts", "test/**/*.js", "test/**/*.ts"],
+  "exclude": ["node_modules", "dist-server", "client", "server/libs/**"]
+}

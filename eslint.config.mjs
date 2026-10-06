@@ -1,3 +1,5 @@
+import tseslint from 'typescript-eslint'
+
 const nodeGlobals = {
   AbortController: 'readonly',
   Buffer: 'readonly',
@@ -55,5 +57,23 @@ export default [
       }
     },
     rules
+  },
+  {
+    // TypeScript files: tsc covers undefined/redeclared names, so only the TS-specific escape hatches are linted here
+    files: ['index.ts', 'dev.ts', 'server/**/*.ts', 'test/**/*.ts'],
+    languageOptions: {
+      parser: tseslint.parser,
+      ecmaVersion: 'latest',
+      sourceType: 'commonjs',
+      globals: {
+        ...nodeGlobals,
+        ...mochaGlobals
+      }
+    },
+    plugins: { '@typescript-eslint': tseslint.plugin },
+    rules: {
+      '@typescript-eslint/ban-ts-comment': ['error', { 'ts-expect-error': 'allow-with-description', 'ts-ignore': true, 'ts-nocheck': true, 'ts-check': false, minimumDescriptionLength: 10 }],
+      '@typescript-eslint/no-explicit-any': 'warn'
+    }
   }
 ]
