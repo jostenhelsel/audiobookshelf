@@ -1,0 +1,2454 @@
+{
+  "NotificationController (characterization) > DELETE /api/notifications/:id > deletes a notification as admin and 404s afterwards > delete again": {
+    "res": {
+      "status": 404,
+      "headers": {
+        "content-type": "text/plain; charset=utf-8"
+      },
+      "body": "Not Found"
+    },
+    "emitted": []
+  },
+  "NotificationController (characterization) > DELETE /api/notifications/:id > deletes a notification as admin and 404s afterwards > delete first": {
+    "res": {
+      "status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8"
+      },
+      "body": {
+        "id": "notification-settings",
+        "appriseType": "api",
+        "appriseApiUrl": null,
+        "notifications": [
+          {
+            "id": "<uuid-1>",
+            "libraryId": null,
+            "eventName": "onBackupFailed",
+            "urls": [
+              "json://hooks.example.test/a"
+            ],
+            "titleTemplate": "Title {{version}}",
+            "bodyTemplate": "Body {{version}}",
+            "enabled": true,
+            "type": "info",
+            "lastFiredAt": null,
+            "lastAttemptFailed": false,
+            "numConsecutiveFailedAttempts": 0,
+            "numTimesFired": 0,
+            "createdAt": "<timestamp>"
+          }
+        ],
+        "maxFailedAttempts": 5,
+        "maxNotificationQueue": 20,
+        "notificationDelay": 1000
+      }
+    },
+    "emitted": []
+  },
+  "NotificationController (characterization) > DELETE /api/notifications/:id > deletes a notification as admin and 404s afterwards > root deletes second": {
+    "res": {
+      "status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8"
+      },
+      "body": {
+        "id": "notification-settings",
+        "appriseType": "api",
+        "appriseApiUrl": null,
+        "notifications": [],
+        "maxFailedAttempts": 5,
+        "maxNotificationQueue": 20,
+        "notificationDelay": 1000
+      }
+    },
+    "emitted": []
+  },
+  "NotificationController (characterization) > DELETE /api/notifications/:id > deletes a notification as admin and 404s afterwards > unknown": {
+    "res": {
+      "status": 404,
+      "headers": {
+        "content-type": "text/plain; charset=utf-8"
+      },
+      "body": "Not Found"
+    },
+    "emitted": []
+  },
+  "NotificationController (characterization) > GET /api/notifications and /api/notificationdata > returns event data and default settings to admin and root > admin": {
+    "res": {
+      "status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8"
+      },
+      "body": {
+        "data": {
+          "events": [
+            {
+              "name": "onPodcastEpisodeDownloaded",
+              "requiresLibrary": true,
+              "libraryMediaType": "podcast",
+              "description": "Triggered when a podcast episode is auto-downloaded",
+              "descriptionKey": "NotificationOnEpisodeDownloadedDescription",
+              "variables": [
+                "libraryItemId",
+                "libraryId",
+                "podcastTitle",
+                "podcastAuthor",
+                "podcastDescription",
+                "podcastGenres",
+                "episodeTitle",
+                "episodeSubtitle",
+                "episodeDescription",
+                "libraryName",
+                "episodeId",
+                "mediaTags"
+              ],
+              "defaults": {
+                "title": "New {{podcastTitle}} Episode!",
+                "body": "{{episodeTitle}} has been added to {{libraryName}} library."
+              },
+              "testData": {
+                "libraryItemId": "li_notification_test",
+                "libraryId": "lib_test",
+                "libraryName": "Podcasts",
+                "mediaTags": "TestTag1, TestTag2",
+                "podcastTitle": "Abs Test Podcast",
+                "podcastAuthor": "Audiobookshelf",
+                "podcastDescription": "Description of the Abs Test Podcast belongs here.",
+                "podcastGenres": "TestGenre1, TestGenre2",
+                "episodeId": "ep_notification_test",
+                "episodeTitle": "Successful Test Episode",
+                "episodeSubtitle": "Episode Subtitle",
+                "episodeDescription": "Some description of the podcast episode."
+              }
+            },
+            {
+              "name": "onBackupCompleted",
+              "requiresLibrary": false,
+              "description": "Triggered when a backup is completed",
+              "descriptionKey": "NotificationOnBackupCompletedDescription",
+              "variables": [
+                "completionTime",
+                "backupPath",
+                "backupSize",
+                "backupCount",
+                "removedOldest"
+              ],
+              "defaults": {
+                "title": "Backup Completed",
+                "body": "Backup has been completed successfully.\n\nPath: {{backupPath}}\nSize: {{backupSize}} bytes\nCount: {{backupCount}}\nRemoved Oldest: {{removedOldest}}"
+              },
+              "testData": {
+                "completionTime": "12:00 AM",
+                "backupPath": "path/to/backup",
+                "backupSize": "1.23 MB",
+                "backupCount": "1",
+                "removedOldest": "false"
+              }
+            },
+            {
+              "name": "onBackupFailed",
+              "requiresLibrary": false,
+              "description": "Triggered when a backup fails",
+              "descriptionKey": "NotificationOnBackupFailedDescription",
+              "variables": [
+                "errorMsg"
+              ],
+              "defaults": {
+                "title": "Backup Failed",
+                "body": "Backup failed, check ABS logs for more information.\nError message: {{errorMsg}}"
+              },
+              "testData": {
+                "errorMsg": "Example error message"
+              }
+            },
+            {
+              "name": "onRSSFeedFailed",
+              "requiresLibrary": true,
+              "description": "Triggered when the RSS feed request fails for an automatic episode download",
+              "descriptionKey": "NotificationOnRSSFeedFailedDescription",
+              "variables": [
+                "feedUrl",
+                "numFailed",
+                "title"
+              ],
+              "defaults": {
+                "title": "RSS Feed Request Failed",
+                "body": "Failed to request RSS feed for {{title}}.\nFeed URL: {{feedUrl}}\nNumber of failed attempts: {{numFailed}}"
+              },
+              "testData": {
+                "title": "Test RSS Feed",
+                "feedUrl": "https://example.com/rss",
+                "numFailed": 3
+              }
+            },
+            {
+              "name": "onRSSFeedDisabled",
+              "requiresLibrary": true,
+              "description": "Triggered when automatic episode downloads are disabled due to too many failed attempts",
+              "descriptionKey": "NotificationOnRSSFeedDisabledDescription",
+              "variables": [
+                "feedUrl",
+                "numFailed",
+                "title"
+              ],
+              "defaults": {
+                "title": "Podcast Episode Download Schedule Disabled",
+                "body": "Automatic episode downloads for {{title}} have been disabled due to too many failed RSS feed requests.\nFeed URL: {{feedUrl}}\nNumber of failed attempts: {{numFailed}}"
+              },
+              "testData": {
+                "title": "Test RSS Feed",
+                "feedUrl": "https://example.com/rss",
+                "numFailed": 5
+              }
+            },
+            {
+              "name": "onTest",
+              "requiresLibrary": false,
+              "description": "Event for testing the notification system",
+              "descriptionKey": "NotificationOnTestDescription",
+              "variables": [
+                "version"
+              ],
+              "defaults": {
+                "title": "Test Notification on Abs {{version}}",
+                "body": "Test notification body for abs {{version}}."
+              },
+              "testData": {
+                "version": "v<version>"
+              }
+            }
+          ]
+        },
+        "settings": {
+          "id": "notification-settings",
+          "appriseType": "api",
+          "appriseApiUrl": null,
+          "notifications": [],
+          "maxFailedAttempts": 5,
+          "maxNotificationQueue": 20,
+          "notificationDelay": 1000
+        }
+      }
+    },
+    "emitted": []
+  },
+  "NotificationController (characterization) > GET /api/notifications and /api/notificationdata > returns event data and default settings to admin and root > root": {
+    "res": {
+      "status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8"
+      },
+      "body": {
+        "data": {
+          "events": [
+            {
+              "name": "onPodcastEpisodeDownloaded",
+              "requiresLibrary": true,
+              "libraryMediaType": "podcast",
+              "description": "Triggered when a podcast episode is auto-downloaded",
+              "descriptionKey": "NotificationOnEpisodeDownloadedDescription",
+              "variables": [
+                "libraryItemId",
+                "libraryId",
+                "podcastTitle",
+                "podcastAuthor",
+                "podcastDescription",
+                "podcastGenres",
+                "episodeTitle",
+                "episodeSubtitle",
+                "episodeDescription",
+                "libraryName",
+                "episodeId",
+                "mediaTags"
+              ],
+              "defaults": {
+                "title": "New {{podcastTitle}} Episode!",
+                "body": "{{episodeTitle}} has been added to {{libraryName}} library."
+              },
+              "testData": {
+                "libraryItemId": "li_notification_test",
+                "libraryId": "lib_test",
+                "libraryName": "Podcasts",
+                "mediaTags": "TestTag1, TestTag2",
+                "podcastTitle": "Abs Test Podcast",
+                "podcastAuthor": "Audiobookshelf",
+                "podcastDescription": "Description of the Abs Test Podcast belongs here.",
+                "podcastGenres": "TestGenre1, TestGenre2",
+                "episodeId": "ep_notification_test",
+                "episodeTitle": "Successful Test Episode",
+                "episodeSubtitle": "Episode Subtitle",
+                "episodeDescription": "Some description of the podcast episode."
+              }
+            },
+            {
+              "name": "onBackupCompleted",
+              "requiresLibrary": false,
+              "description": "Triggered when a backup is completed",
+              "descriptionKey": "NotificationOnBackupCompletedDescription",
+              "variables": [
+                "completionTime",
+                "backupPath",
+                "backupSize",
+                "backupCount",
+                "removedOldest"
+              ],
+              "defaults": {
+                "title": "Backup Completed",
+                "body": "Backup has been completed successfully.\n\nPath: {{backupPath}}\nSize: {{backupSize}} bytes\nCount: {{backupCount}}\nRemoved Oldest: {{removedOldest}}"
+              },
+              "testData": {
+                "completionTime": "12:00 AM",
+                "backupPath": "path/to/backup",
+                "backupSize": "1.23 MB",
+                "backupCount": "1",
+                "removedOldest": "false"
+              }
+            },
+            {
+              "name": "onBackupFailed",
+              "requiresLibrary": false,
+              "description": "Triggered when a backup fails",
+              "descriptionKey": "NotificationOnBackupFailedDescription",
+              "variables": [
+                "errorMsg"
+              ],
+              "defaults": {
+                "title": "Backup Failed",
+                "body": "Backup failed, check ABS logs for more information.\nError message: {{errorMsg}}"
+              },
+              "testData": {
+                "errorMsg": "Example error message"
+              }
+            },
+            {
+              "name": "onRSSFeedFailed",
+              "requiresLibrary": true,
+              "description": "Triggered when the RSS feed request fails for an automatic episode download",
+              "descriptionKey": "NotificationOnRSSFeedFailedDescription",
+              "variables": [
+                "feedUrl",
+                "numFailed",
+                "title"
+              ],
+              "defaults": {
+                "title": "RSS Feed Request Failed",
+                "body": "Failed to request RSS feed for {{title}}.\nFeed URL: {{feedUrl}}\nNumber of failed attempts: {{numFailed}}"
+              },
+              "testData": {
+                "title": "Test RSS Feed",
+                "feedUrl": "https://example.com/rss",
+                "numFailed": 3
+              }
+            },
+            {
+              "name": "onRSSFeedDisabled",
+              "requiresLibrary": true,
+              "description": "Triggered when automatic episode downloads are disabled due to too many failed attempts",
+              "descriptionKey": "NotificationOnRSSFeedDisabledDescription",
+              "variables": [
+                "feedUrl",
+                "numFailed",
+                "title"
+              ],
+              "defaults": {
+                "title": "Podcast Episode Download Schedule Disabled",
+                "body": "Automatic episode downloads for {{title}} have been disabled due to too many failed RSS feed requests.\nFeed URL: {{feedUrl}}\nNumber of failed attempts: {{numFailed}}"
+              },
+              "testData": {
+                "title": "Test RSS Feed",
+                "feedUrl": "https://example.com/rss",
+                "numFailed": 5
+              }
+            },
+            {
+              "name": "onTest",
+              "requiresLibrary": false,
+              "description": "Event for testing the notification system",
+              "descriptionKey": "NotificationOnTestDescription",
+              "variables": [
+                "version"
+              ],
+              "defaults": {
+                "title": "Test Notification on Abs {{version}}",
+                "body": "Test notification body for abs {{version}}."
+              },
+              "testData": {
+                "version": "v<version>"
+              }
+            }
+          ]
+        },
+        "settings": {
+          "id": "notification-settings",
+          "appriseType": "api",
+          "appriseApiUrl": null,
+          "notifications": [],
+          "maxFailedAttempts": 5,
+          "maxNotificationQueue": 20,
+          "notificationDelay": 1000
+        }
+      }
+    },
+    "emitted": []
+  },
+  "NotificationController (characterization) > GET /api/notifications and /api/notificationdata > returns only the event data on the deprecated route > admin": {
+    "res": {
+      "status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8"
+      },
+      "body": {
+        "events": [
+          {
+            "name": "onPodcastEpisodeDownloaded",
+            "requiresLibrary": true,
+            "libraryMediaType": "podcast",
+            "description": "Triggered when a podcast episode is auto-downloaded",
+            "descriptionKey": "NotificationOnEpisodeDownloadedDescription",
+            "variables": [
+              "libraryItemId",
+              "libraryId",
+              "podcastTitle",
+              "podcastAuthor",
+              "podcastDescription",
+              "podcastGenres",
+              "episodeTitle",
+              "episodeSubtitle",
+              "episodeDescription",
+              "libraryName",
+              "episodeId",
+              "mediaTags"
+            ],
+            "defaults": {
+              "title": "New {{podcastTitle}} Episode!",
+              "body": "{{episodeTitle}} has been added to {{libraryName}} library."
+            },
+            "testData": {
+              "libraryItemId": "li_notification_test",
+              "libraryId": "lib_test",
+              "libraryName": "Podcasts",
+              "mediaTags": "TestTag1, TestTag2",
+              "podcastTitle": "Abs Test Podcast",
+              "podcastAuthor": "Audiobookshelf",
+              "podcastDescription": "Description of the Abs Test Podcast belongs here.",
+              "podcastGenres": "TestGenre1, TestGenre2",
+              "episodeId": "ep_notification_test",
+              "episodeTitle": "Successful Test Episode",
+              "episodeSubtitle": "Episode Subtitle",
+              "episodeDescription": "Some description of the podcast episode."
+            }
+          },
+          {
+            "name": "onBackupCompleted",
+            "requiresLibrary": false,
+            "description": "Triggered when a backup is completed",
+            "descriptionKey": "NotificationOnBackupCompletedDescription",
+            "variables": [
+              "completionTime",
+              "backupPath",
+              "backupSize",
+              "backupCount",
+              "removedOldest"
+            ],
+            "defaults": {
+              "title": "Backup Completed",
+              "body": "Backup has been completed successfully.\n\nPath: {{backupPath}}\nSize: {{backupSize}} bytes\nCount: {{backupCount}}\nRemoved Oldest: {{removedOldest}}"
+            },
+            "testData": {
+              "completionTime": "12:00 AM",
+              "backupPath": "path/to/backup",
+              "backupSize": "1.23 MB",
+              "backupCount": "1",
+              "removedOldest": "false"
+            }
+          },
+          {
+            "name": "onBackupFailed",
+            "requiresLibrary": false,
+            "description": "Triggered when a backup fails",
+            "descriptionKey": "NotificationOnBackupFailedDescription",
+            "variables": [
+              "errorMsg"
+            ],
+            "defaults": {
+              "title": "Backup Failed",
+              "body": "Backup failed, check ABS logs for more information.\nError message: {{errorMsg}}"
+            },
+            "testData": {
+              "errorMsg": "Example error message"
+            }
+          },
+          {
+            "name": "onRSSFeedFailed",
+            "requiresLibrary": true,
+            "description": "Triggered when the RSS feed request fails for an automatic episode download",
+            "descriptionKey": "NotificationOnRSSFeedFailedDescription",
+            "variables": [
+              "feedUrl",
+              "numFailed",
+              "title"
+            ],
+            "defaults": {
+              "title": "RSS Feed Request Failed",
+              "body": "Failed to request RSS feed for {{title}}.\nFeed URL: {{feedUrl}}\nNumber of failed attempts: {{numFailed}}"
+            },
+            "testData": {
+              "title": "Test RSS Feed",
+              "feedUrl": "https://example.com/rss",
+              "numFailed": 3
+            }
+          },
+          {
+            "name": "onRSSFeedDisabled",
+            "requiresLibrary": true,
+            "description": "Triggered when automatic episode downloads are disabled due to too many failed attempts",
+            "descriptionKey": "NotificationOnRSSFeedDisabledDescription",
+            "variables": [
+              "feedUrl",
+              "numFailed",
+              "title"
+            ],
+            "defaults": {
+              "title": "Podcast Episode Download Schedule Disabled",
+              "body": "Automatic episode downloads for {{title}} have been disabled due to too many failed RSS feed requests.\nFeed URL: {{feedUrl}}\nNumber of failed attempts: {{numFailed}}"
+            },
+            "testData": {
+              "title": "Test RSS Feed",
+              "feedUrl": "https://example.com/rss",
+              "numFailed": 5
+            }
+          },
+          {
+            "name": "onTest",
+            "requiresLibrary": false,
+            "description": "Event for testing the notification system",
+            "descriptionKey": "NotificationOnTestDescription",
+            "variables": [
+              "version"
+            ],
+            "defaults": {
+              "title": "Test Notification on Abs {{version}}",
+              "body": "Test notification body for abs {{version}}."
+            },
+            "testData": {
+              "version": "v<version>"
+            }
+          }
+        ]
+      }
+    },
+    "emitted": []
+  },
+  "NotificationController (characterization) > GET /api/notifications/:id/test > 400s when apprise is not configured and 404s for unknown ids > not configured": {
+    "res": {
+      "status": 400,
+      "headers": {
+        "content-type": "text/html; charset=utf-8"
+      },
+      "body": "Apprise is not configured"
+    },
+    "emitted": []
+  },
+  "NotificationController (characterization) > GET /api/notifications/:id/test > 400s when apprise is not configured and 404s for unknown ids > unknown id": {
+    "res": {
+      "status": 404,
+      "headers": {
+        "content-type": "text/plain; charset=utf-8"
+      },
+      "body": "Not Found"
+    },
+    "emitted": []
+  },
+  "NotificationController (characterization) > GET /api/notifications/:id/test > returns 500 when apprise fails > apprise error": {
+    "res": {
+      "status": 500,
+      "headers": {
+        "content-type": "text/plain; charset=utf-8"
+      },
+      "body": "Internal Server Error"
+    },
+    "emitted": []
+  },
+  "NotificationController (characterization) > GET /api/notifications/:id/test > sends the test data for the notification event > backup completed": {
+    "res": {
+      "status": 200,
+      "headers": {
+        "content-type": "text/plain; charset=utf-8"
+      },
+      "body": "OK"
+    },
+    "emitted": [],
+    "apprise": [
+      [
+        "http://apprise.example.test/notify",
+        {
+          "urls": [
+            "json://hooks.example.test/a"
+          ],
+          "title": "Backup 1",
+          "body": "path/to/backup (1.23 MB)"
+        },
+        {
+          "timeout": 6000
+        }
+      ]
+    ]
+  },
+  "NotificationController (characterization) > GET /api/notifications/:id/test > sends the test data for the notification event > episode downloaded": {
+    "res": {
+      "status": 200,
+      "headers": {
+        "content-type": "text/plain; charset=utf-8"
+      },
+      "body": "OK"
+    },
+    "emitted": [],
+    "apprise": [
+      [
+        "http://apprise.example.test/notify",
+        {
+          "urls": [
+            "json://hooks.example.test/a"
+          ],
+          "title": "Abs Test Podcast: Successful Test Episode",
+          "body": "Some description of the podcast episode."
+        },
+        {
+          "timeout": 6000
+        }
+      ]
+    ]
+  },
+  "NotificationController (characterization) > GET /api/notifications/test > counts failures with ?fail=1 and disables after max failed attempts > fail 1": {
+    "res": {
+      "status": 200,
+      "headers": {
+        "content-type": "text/plain; charset=utf-8"
+      },
+      "body": "OK"
+    },
+    "emitted": [
+      {
+        "method": "emitter",
+        "args": [
+          "notifications_updated",
+          {
+            "id": "notification-settings",
+            "appriseType": "api",
+            "appriseApiUrl": "http://apprise.example.test/notify",
+            "notifications": [
+              {
+                "id": "<uuid-1>",
+                "libraryId": null,
+                "eventName": "onTest",
+                "urls": [
+                  "json://hooks.example.test/a"
+                ],
+                "titleTemplate": "Title {{version}}",
+                "bodyTemplate": "Body {{version}}",
+                "enabled": true,
+                "type": "info",
+                "lastFiredAt": "<timestamp>",
+                "lastAttemptFailed": true,
+                "numConsecutiveFailedAttempts": 1,
+                "numTimesFired": 1,
+                "createdAt": "<timestamp>"
+              }
+            ],
+            "maxFailedAttempts": 2,
+            "maxNotificationQueue": 20,
+            "notificationDelay": 1
+          }
+        ]
+      }
+    ],
+    "apprise": []
+  },
+  "NotificationController (characterization) > GET /api/notifications/test > counts failures with ?fail=1 and disables after max failed attempts > fail 2": {
+    "res": {
+      "status": 200,
+      "headers": {
+        "content-type": "text/plain; charset=utf-8"
+      },
+      "body": "OK"
+    },
+    "emitted": [
+      {
+        "method": "emitter",
+        "args": [
+          "notifications_updated",
+          {
+            "id": "notification-settings",
+            "appriseType": "api",
+            "appriseApiUrl": "http://apprise.example.test/notify",
+            "notifications": [
+              {
+                "id": "<uuid-1>",
+                "libraryId": null,
+                "eventName": "onTest",
+                "urls": [
+                  "json://hooks.example.test/a"
+                ],
+                "titleTemplate": "Title {{version}}",
+                "bodyTemplate": "Body {{version}}",
+                "enabled": false,
+                "type": "info",
+                "lastFiredAt": "<timestamp>",
+                "lastAttemptFailed": true,
+                "numConsecutiveFailedAttempts": 2,
+                "numTimesFired": 2,
+                "createdAt": "<timestamp>"
+              }
+            ],
+            "maxFailedAttempts": 2,
+            "maxNotificationQueue": 20,
+            "notificationDelay": 1
+          }
+        ]
+      }
+    ],
+    "apprise": []
+  },
+  "NotificationController (characterization) > GET /api/notifications/test > counts failures with ?fail=1 and disables after max failed attempts > fail 3": {
+    "res": {
+      "status": 200,
+      "headers": {
+        "content-type": "text/plain; charset=utf-8"
+      },
+      "body": "OK"
+    },
+    "emitted": [
+      {
+        "method": "emitter",
+        "args": [
+          "notifications_updated",
+          {
+            "id": "notification-settings",
+            "appriseType": "api",
+            "appriseApiUrl": "http://apprise.example.test/notify",
+            "notifications": [
+              {
+                "id": "<uuid-1>",
+                "libraryId": null,
+                "eventName": "onTest",
+                "urls": [
+                  "json://hooks.example.test/a"
+                ],
+                "titleTemplate": "Title {{version}}",
+                "bodyTemplate": "Body {{version}}",
+                "enabled": false,
+                "type": "info",
+                "lastFiredAt": "<timestamp>",
+                "lastAttemptFailed": true,
+                "numConsecutiveFailedAttempts": 2,
+                "numTimesFired": 2,
+                "createdAt": "<timestamp>"
+              }
+            ],
+            "maxFailedAttempts": 2,
+            "maxNotificationQueue": 20,
+            "notificationDelay": 1
+          }
+        ]
+      }
+    ],
+    "apprise": []
+  },
+  "NotificationController (characterization) > GET /api/notifications/test > counts failures with ?fail=1 and disables after max failed attempts > settings after failures": {
+    "res": {
+      "status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8"
+      },
+      "body": {
+        "data": {
+          "events": [
+            {
+              "name": "onPodcastEpisodeDownloaded",
+              "requiresLibrary": true,
+              "libraryMediaType": "podcast",
+              "description": "Triggered when a podcast episode is auto-downloaded",
+              "descriptionKey": "NotificationOnEpisodeDownloadedDescription",
+              "variables": [
+                "libraryItemId",
+                "libraryId",
+                "podcastTitle",
+                "podcastAuthor",
+                "podcastDescription",
+                "podcastGenres",
+                "episodeTitle",
+                "episodeSubtitle",
+                "episodeDescription",
+                "libraryName",
+                "episodeId",
+                "mediaTags"
+              ],
+              "defaults": {
+                "title": "New {{podcastTitle}} Episode!",
+                "body": "{{episodeTitle}} has been added to {{libraryName}} library."
+              },
+              "testData": {
+                "libraryItemId": "li_notification_test",
+                "libraryId": "lib_test",
+                "libraryName": "Podcasts",
+                "mediaTags": "TestTag1, TestTag2",
+                "podcastTitle": "Abs Test Podcast",
+                "podcastAuthor": "Audiobookshelf",
+                "podcastDescription": "Description of the Abs Test Podcast belongs here.",
+                "podcastGenres": "TestGenre1, TestGenre2",
+                "episodeId": "ep_notification_test",
+                "episodeTitle": "Successful Test Episode",
+                "episodeSubtitle": "Episode Subtitle",
+                "episodeDescription": "Some description of the podcast episode."
+              }
+            },
+            {
+              "name": "onBackupCompleted",
+              "requiresLibrary": false,
+              "description": "Triggered when a backup is completed",
+              "descriptionKey": "NotificationOnBackupCompletedDescription",
+              "variables": [
+                "completionTime",
+                "backupPath",
+                "backupSize",
+                "backupCount",
+                "removedOldest"
+              ],
+              "defaults": {
+                "title": "Backup Completed",
+                "body": "Backup has been completed successfully.\n\nPath: {{backupPath}}\nSize: {{backupSize}} bytes\nCount: {{backupCount}}\nRemoved Oldest: {{removedOldest}}"
+              },
+              "testData": {
+                "completionTime": "12:00 AM",
+                "backupPath": "path/to/backup",
+                "backupSize": "1.23 MB",
+                "backupCount": "1",
+                "removedOldest": "false"
+              }
+            },
+            {
+              "name": "onBackupFailed",
+              "requiresLibrary": false,
+              "description": "Triggered when a backup fails",
+              "descriptionKey": "NotificationOnBackupFailedDescription",
+              "variables": [
+                "errorMsg"
+              ],
+              "defaults": {
+                "title": "Backup Failed",
+                "body": "Backup failed, check ABS logs for more information.\nError message: {{errorMsg}}"
+              },
+              "testData": {
+                "errorMsg": "Example error message"
+              }
+            },
+            {
+              "name": "onRSSFeedFailed",
+              "requiresLibrary": true,
+              "description": "Triggered when the RSS feed request fails for an automatic episode download",
+              "descriptionKey": "NotificationOnRSSFeedFailedDescription",
+              "variables": [
+                "feedUrl",
+                "numFailed",
+                "title"
+              ],
+              "defaults": {
+                "title": "RSS Feed Request Failed",
+                "body": "Failed to request RSS feed for {{title}}.\nFeed URL: {{feedUrl}}\nNumber of failed attempts: {{numFailed}}"
+              },
+              "testData": {
+                "title": "Test RSS Feed",
+                "feedUrl": "https://example.com/rss",
+                "numFailed": 3
+              }
+            },
+            {
+              "name": "onRSSFeedDisabled",
+              "requiresLibrary": true,
+              "description": "Triggered when automatic episode downloads are disabled due to too many failed attempts",
+              "descriptionKey": "NotificationOnRSSFeedDisabledDescription",
+              "variables": [
+                "feedUrl",
+                "numFailed",
+                "title"
+              ],
+              "defaults": {
+                "title": "Podcast Episode Download Schedule Disabled",
+                "body": "Automatic episode downloads for {{title}} have been disabled due to too many failed RSS feed requests.\nFeed URL: {{feedUrl}}\nNumber of failed attempts: {{numFailed}}"
+              },
+              "testData": {
+                "title": "Test RSS Feed",
+                "feedUrl": "https://example.com/rss",
+                "numFailed": 5
+              }
+            },
+            {
+              "name": "onTest",
+              "requiresLibrary": false,
+              "description": "Event for testing the notification system",
+              "descriptionKey": "NotificationOnTestDescription",
+              "variables": [
+                "version"
+              ],
+              "defaults": {
+                "title": "Test Notification on Abs {{version}}",
+                "body": "Test notification body for abs {{version}}."
+              },
+              "testData": {
+                "version": "v<version>"
+              }
+            }
+          ]
+        },
+        "settings": {
+          "id": "notification-settings",
+          "appriseType": "api",
+          "appriseApiUrl": "http://apprise.example.test/notify",
+          "notifications": [
+            {
+              "id": "<uuid-1>",
+              "libraryId": null,
+              "eventName": "onTest",
+              "urls": [
+                "json://hooks.example.test/a"
+              ],
+              "titleTemplate": "Title {{version}}",
+              "bodyTemplate": "Body {{version}}",
+              "enabled": false,
+              "type": "info",
+              "lastFiredAt": "<timestamp>",
+              "lastAttemptFailed": true,
+              "numConsecutiveFailedAttempts": 2,
+              "numTimesFired": 2,
+              "createdAt": "<timestamp>"
+            }
+          ],
+          "maxFailedAttempts": 2,
+          "maxNotificationQueue": 20,
+          "notificationDelay": 1
+        }
+      }
+    },
+    "emitted": []
+  },
+  "NotificationController (characterization) > GET /api/notifications/test > does nothing when apprise is not configured > unconfigured": {
+    "res": {
+      "status": 200,
+      "headers": {
+        "content-type": "text/plain; charset=utf-8"
+      },
+      "body": "OK"
+    },
+    "emitted": [],
+    "apprise": []
+  },
+  "NotificationController (characterization) > GET /api/notifications/test > posts the onTest notification to apprise and records the firing > fire": {
+    "res": {
+      "status": 200,
+      "headers": {
+        "content-type": "text/plain; charset=utf-8"
+      },
+      "body": "OK"
+    },
+    "emitted": [
+      {
+        "method": "emitter",
+        "args": [
+          "notifications_updated",
+          {
+            "id": "notification-settings",
+            "appriseType": "api",
+            "appriseApiUrl": "http://apprise.example.test/notify",
+            "notifications": [
+              {
+                "id": "<uuid-1>",
+                "libraryId": null,
+                "eventName": "onTest",
+                "urls": [
+                  "json://hooks.example.test/a"
+                ],
+                "titleTemplate": "Title {{version}}",
+                "bodyTemplate": "Body {{version}}",
+                "enabled": true,
+                "type": "info",
+                "lastFiredAt": "<timestamp>",
+                "lastAttemptFailed": false,
+                "numConsecutiveFailedAttempts": 0,
+                "numTimesFired": 1,
+                "createdAt": "<timestamp>"
+              },
+              {
+                "id": "<uuid-2>",
+                "libraryId": null,
+                "eventName": "onBackupFailed",
+                "urls": [
+                  "json://other"
+                ],
+                "titleTemplate": "Title {{version}}",
+                "bodyTemplate": "Body {{version}}",
+                "enabled": true,
+                "type": "info",
+                "lastFiredAt": null,
+                "lastAttemptFailed": false,
+                "numConsecutiveFailedAttempts": 0,
+                "numTimesFired": 0,
+                "createdAt": "<timestamp>"
+              },
+              {
+                "id": "<uuid-3>",
+                "libraryId": null,
+                "eventName": "onTest",
+                "urls": [
+                  "json://disabled"
+                ],
+                "titleTemplate": "Title {{version}}",
+                "bodyTemplate": "Body {{version}}",
+                "enabled": false,
+                "type": "info",
+                "lastFiredAt": null,
+                "lastAttemptFailed": false,
+                "numConsecutiveFailedAttempts": 0,
+                "numTimesFired": 0,
+                "createdAt": "<timestamp>"
+              }
+            ],
+            "maxFailedAttempts": 5,
+            "maxNotificationQueue": 20,
+            "notificationDelay": 1
+          }
+        ]
+      }
+    ],
+    "apprise": [
+      [
+        "http://apprise.example.test/notify",
+        {
+          "urls": [
+            "json://hooks.example.test/a"
+          ],
+          "title": "Title v<version>",
+          "body": "Body v<version>"
+        },
+        {
+          "timeout": 6000
+        }
+      ]
+    ]
+  },
+  "NotificationController (characterization) > GET /api/notifications/test > posts the onTest notification to apprise and records the firing > settings after firing": {
+    "res": {
+      "status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8"
+      },
+      "body": {
+        "data": {
+          "events": [
+            {
+              "name": "onPodcastEpisodeDownloaded",
+              "requiresLibrary": true,
+              "libraryMediaType": "podcast",
+              "description": "Triggered when a podcast episode is auto-downloaded",
+              "descriptionKey": "NotificationOnEpisodeDownloadedDescription",
+              "variables": [
+                "libraryItemId",
+                "libraryId",
+                "podcastTitle",
+                "podcastAuthor",
+                "podcastDescription",
+                "podcastGenres",
+                "episodeTitle",
+                "episodeSubtitle",
+                "episodeDescription",
+                "libraryName",
+                "episodeId",
+                "mediaTags"
+              ],
+              "defaults": {
+                "title": "New {{podcastTitle}} Episode!",
+                "body": "{{episodeTitle}} has been added to {{libraryName}} library."
+              },
+              "testData": {
+                "libraryItemId": "li_notification_test",
+                "libraryId": "lib_test",
+                "libraryName": "Podcasts",
+                "mediaTags": "TestTag1, TestTag2",
+                "podcastTitle": "Abs Test Podcast",
+                "podcastAuthor": "Audiobookshelf",
+                "podcastDescription": "Description of the Abs Test Podcast belongs here.",
+                "podcastGenres": "TestGenre1, TestGenre2",
+                "episodeId": "ep_notification_test",
+                "episodeTitle": "Successful Test Episode",
+                "episodeSubtitle": "Episode Subtitle",
+                "episodeDescription": "Some description of the podcast episode."
+              }
+            },
+            {
+              "name": "onBackupCompleted",
+              "requiresLibrary": false,
+              "description": "Triggered when a backup is completed",
+              "descriptionKey": "NotificationOnBackupCompletedDescription",
+              "variables": [
+                "completionTime",
+                "backupPath",
+                "backupSize",
+                "backupCount",
+                "removedOldest"
+              ],
+              "defaults": {
+                "title": "Backup Completed",
+                "body": "Backup has been completed successfully.\n\nPath: {{backupPath}}\nSize: {{backupSize}} bytes\nCount: {{backupCount}}\nRemoved Oldest: {{removedOldest}}"
+              },
+              "testData": {
+                "completionTime": "12:00 AM",
+                "backupPath": "path/to/backup",
+                "backupSize": "1.23 MB",
+                "backupCount": "1",
+                "removedOldest": "false"
+              }
+            },
+            {
+              "name": "onBackupFailed",
+              "requiresLibrary": false,
+              "description": "Triggered when a backup fails",
+              "descriptionKey": "NotificationOnBackupFailedDescription",
+              "variables": [
+                "errorMsg"
+              ],
+              "defaults": {
+                "title": "Backup Failed",
+                "body": "Backup failed, check ABS logs for more information.\nError message: {{errorMsg}}"
+              },
+              "testData": {
+                "errorMsg": "Example error message"
+              }
+            },
+            {
+              "name": "onRSSFeedFailed",
+              "requiresLibrary": true,
+              "description": "Triggered when the RSS feed request fails for an automatic episode download",
+              "descriptionKey": "NotificationOnRSSFeedFailedDescription",
+              "variables": [
+                "feedUrl",
+                "numFailed",
+                "title"
+              ],
+              "defaults": {
+                "title": "RSS Feed Request Failed",
+                "body": "Failed to request RSS feed for {{title}}.\nFeed URL: {{feedUrl}}\nNumber of failed attempts: {{numFailed}}"
+              },
+              "testData": {
+                "title": "Test RSS Feed",
+                "feedUrl": "https://example.com/rss",
+                "numFailed": 3
+              }
+            },
+            {
+              "name": "onRSSFeedDisabled",
+              "requiresLibrary": true,
+              "description": "Triggered when automatic episode downloads are disabled due to too many failed attempts",
+              "descriptionKey": "NotificationOnRSSFeedDisabledDescription",
+              "variables": [
+                "feedUrl",
+                "numFailed",
+                "title"
+              ],
+              "defaults": {
+                "title": "Podcast Episode Download Schedule Disabled",
+                "body": "Automatic episode downloads for {{title}} have been disabled due to too many failed RSS feed requests.\nFeed URL: {{feedUrl}}\nNumber of failed attempts: {{numFailed}}"
+              },
+              "testData": {
+                "title": "Test RSS Feed",
+                "feedUrl": "https://example.com/rss",
+                "numFailed": 5
+              }
+            },
+            {
+              "name": "onTest",
+              "requiresLibrary": false,
+              "description": "Event for testing the notification system",
+              "descriptionKey": "NotificationOnTestDescription",
+              "variables": [
+                "version"
+              ],
+              "defaults": {
+                "title": "Test Notification on Abs {{version}}",
+                "body": "Test notification body for abs {{version}}."
+              },
+              "testData": {
+                "version": "v<version>"
+              }
+            }
+          ]
+        },
+        "settings": {
+          "id": "notification-settings",
+          "appriseType": "api",
+          "appriseApiUrl": "http://apprise.example.test/notify",
+          "notifications": [
+            {
+              "id": "<uuid-1>",
+              "libraryId": null,
+              "eventName": "onTest",
+              "urls": [
+                "json://hooks.example.test/a"
+              ],
+              "titleTemplate": "Title {{version}}",
+              "bodyTemplate": "Body {{version}}",
+              "enabled": true,
+              "type": "info",
+              "lastFiredAt": "<timestamp>",
+              "lastAttemptFailed": false,
+              "numConsecutiveFailedAttempts": 0,
+              "numTimesFired": 1,
+              "createdAt": "<timestamp>"
+            },
+            {
+              "id": "<uuid-2>",
+              "libraryId": null,
+              "eventName": "onBackupFailed",
+              "urls": [
+                "json://other"
+              ],
+              "titleTemplate": "Title {{version}}",
+              "bodyTemplate": "Body {{version}}",
+              "enabled": true,
+              "type": "info",
+              "lastFiredAt": null,
+              "lastAttemptFailed": false,
+              "numConsecutiveFailedAttempts": 0,
+              "numTimesFired": 0,
+              "createdAt": "<timestamp>"
+            },
+            {
+              "id": "<uuid-3>",
+              "libraryId": null,
+              "eventName": "onTest",
+              "urls": [
+                "json://disabled"
+              ],
+              "titleTemplate": "Title {{version}}",
+              "bodyTemplate": "Body {{version}}",
+              "enabled": false,
+              "type": "info",
+              "lastFiredAt": null,
+              "lastAttemptFailed": false,
+              "numConsecutiveFailedAttempts": 0,
+              "numTimesFired": 0,
+              "createdAt": "<timestamp>"
+            }
+          ],
+          "maxFailedAttempts": 5,
+          "maxNotificationQueue": 20,
+          "notificationDelay": 1
+        }
+      }
+    },
+    "emitted": []
+  },
+  "NotificationController (characterization) > GET /api/notifications/test > records a failed attempt when apprise rejects > apprise down": {
+    "res": {
+      "status": 200,
+      "headers": {
+        "content-type": "text/plain; charset=utf-8"
+      },
+      "body": "OK"
+    },
+    "emitted": [
+      {
+        "method": "emitter",
+        "args": [
+          "notifications_updated",
+          {
+            "id": "notification-settings",
+            "appriseType": "api",
+            "appriseApiUrl": "http://apprise.example.test/notify",
+            "notifications": [
+              {
+                "id": "<uuid-1>",
+                "libraryId": null,
+                "eventName": "onTest",
+                "urls": [
+                  "json://hooks.example.test/a"
+                ],
+                "titleTemplate": "Title {{version}}",
+                "bodyTemplate": "Body {{version}}",
+                "enabled": true,
+                "type": "info",
+                "lastFiredAt": "<timestamp>",
+                "lastAttemptFailed": true,
+                "numConsecutiveFailedAttempts": 1,
+                "numTimesFired": 1,
+                "createdAt": "<timestamp>"
+              }
+            ],
+            "maxFailedAttempts": 5,
+            "maxNotificationQueue": 20,
+            "notificationDelay": 1
+          }
+        ]
+      }
+    ],
+    "apprise": [
+      [
+        "http://apprise.example.test/notify",
+        {
+          "urls": [
+            "json://hooks.example.test/a"
+          ],
+          "title": "Title v<version>",
+          "body": "Body v<version>"
+        },
+        {
+          "timeout": 6000
+        }
+      ]
+    ]
+  },
+  "NotificationController (characterization) > PATCH /api/notifications > updates apprise settings and persists them > db row": {
+    "id": "notification-settings",
+    "appriseType": "api",
+    "appriseApiUrl": null,
+    "notifications": [],
+    "maxFailedAttempts": 5,
+    "maxNotificationQueue": 20,
+    "notificationDelay": 1000
+  },
+  "NotificationController (characterization) > PATCH /api/notifications > updates apprise settings and persists them > empty body resets to defaults": {
+    "res": {
+      "status": 200,
+      "headers": {
+        "content-type": "text/plain; charset=utf-8"
+      },
+      "body": "OK"
+    },
+    "emitted": []
+  },
+  "NotificationController (characterization) > PATCH /api/notifications > updates apprise settings and persists them > get after reset": {
+    "res": {
+      "status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8"
+      },
+      "body": {
+        "data": {
+          "events": [
+            {
+              "name": "onPodcastEpisodeDownloaded",
+              "requiresLibrary": true,
+              "libraryMediaType": "podcast",
+              "description": "Triggered when a podcast episode is auto-downloaded",
+              "descriptionKey": "NotificationOnEpisodeDownloadedDescription",
+              "variables": [
+                "libraryItemId",
+                "libraryId",
+                "podcastTitle",
+                "podcastAuthor",
+                "podcastDescription",
+                "podcastGenres",
+                "episodeTitle",
+                "episodeSubtitle",
+                "episodeDescription",
+                "libraryName",
+                "episodeId",
+                "mediaTags"
+              ],
+              "defaults": {
+                "title": "New {{podcastTitle}} Episode!",
+                "body": "{{episodeTitle}} has been added to {{libraryName}} library."
+              },
+              "testData": {
+                "libraryItemId": "li_notification_test",
+                "libraryId": "lib_test",
+                "libraryName": "Podcasts",
+                "mediaTags": "TestTag1, TestTag2",
+                "podcastTitle": "Abs Test Podcast",
+                "podcastAuthor": "Audiobookshelf",
+                "podcastDescription": "Description of the Abs Test Podcast belongs here.",
+                "podcastGenres": "TestGenre1, TestGenre2",
+                "episodeId": "ep_notification_test",
+                "episodeTitle": "Successful Test Episode",
+                "episodeSubtitle": "Episode Subtitle",
+                "episodeDescription": "Some description of the podcast episode."
+              }
+            },
+            {
+              "name": "onBackupCompleted",
+              "requiresLibrary": false,
+              "description": "Triggered when a backup is completed",
+              "descriptionKey": "NotificationOnBackupCompletedDescription",
+              "variables": [
+                "completionTime",
+                "backupPath",
+                "backupSize",
+                "backupCount",
+                "removedOldest"
+              ],
+              "defaults": {
+                "title": "Backup Completed",
+                "body": "Backup has been completed successfully.\n\nPath: {{backupPath}}\nSize: {{backupSize}} bytes\nCount: {{backupCount}}\nRemoved Oldest: {{removedOldest}}"
+              },
+              "testData": {
+                "completionTime": "12:00 AM",
+                "backupPath": "path/to/backup",
+                "backupSize": "1.23 MB",
+                "backupCount": "1",
+                "removedOldest": "false"
+              }
+            },
+            {
+              "name": "onBackupFailed",
+              "requiresLibrary": false,
+              "description": "Triggered when a backup fails",
+              "descriptionKey": "NotificationOnBackupFailedDescription",
+              "variables": [
+                "errorMsg"
+              ],
+              "defaults": {
+                "title": "Backup Failed",
+                "body": "Backup failed, check ABS logs for more information.\nError message: {{errorMsg}}"
+              },
+              "testData": {
+                "errorMsg": "Example error message"
+              }
+            },
+            {
+              "name": "onRSSFeedFailed",
+              "requiresLibrary": true,
+              "description": "Triggered when the RSS feed request fails for an automatic episode download",
+              "descriptionKey": "NotificationOnRSSFeedFailedDescription",
+              "variables": [
+                "feedUrl",
+                "numFailed",
+                "title"
+              ],
+              "defaults": {
+                "title": "RSS Feed Request Failed",
+                "body": "Failed to request RSS feed for {{title}}.\nFeed URL: {{feedUrl}}\nNumber of failed attempts: {{numFailed}}"
+              },
+              "testData": {
+                "title": "Test RSS Feed",
+                "feedUrl": "https://example.com/rss",
+                "numFailed": 3
+              }
+            },
+            {
+              "name": "onRSSFeedDisabled",
+              "requiresLibrary": true,
+              "description": "Triggered when automatic episode downloads are disabled due to too many failed attempts",
+              "descriptionKey": "NotificationOnRSSFeedDisabledDescription",
+              "variables": [
+                "feedUrl",
+                "numFailed",
+                "title"
+              ],
+              "defaults": {
+                "title": "Podcast Episode Download Schedule Disabled",
+                "body": "Automatic episode downloads for {{title}} have been disabled due to too many failed RSS feed requests.\nFeed URL: {{feedUrl}}\nNumber of failed attempts: {{numFailed}}"
+              },
+              "testData": {
+                "title": "Test RSS Feed",
+                "feedUrl": "https://example.com/rss",
+                "numFailed": 5
+              }
+            },
+            {
+              "name": "onTest",
+              "requiresLibrary": false,
+              "description": "Event for testing the notification system",
+              "descriptionKey": "NotificationOnTestDescription",
+              "variables": [
+                "version"
+              ],
+              "defaults": {
+                "title": "Test Notification on Abs {{version}}",
+                "body": "Test notification body for abs {{version}}."
+              },
+              "testData": {
+                "version": "v<version>"
+              }
+            }
+          ]
+        },
+        "settings": {
+          "id": "notification-settings",
+          "appriseType": "api",
+          "appriseApiUrl": null,
+          "notifications": [],
+          "maxFailedAttempts": 5,
+          "maxNotificationQueue": 20,
+          "notificationDelay": 1000
+        }
+      }
+    },
+    "emitted": []
+  },
+  "NotificationController (characterization) > PATCH /api/notifications > updates apprise settings and persists them > get after update": {
+    "res": {
+      "status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8"
+      },
+      "body": {
+        "data": {
+          "events": [
+            {
+              "name": "onPodcastEpisodeDownloaded",
+              "requiresLibrary": true,
+              "libraryMediaType": "podcast",
+              "description": "Triggered when a podcast episode is auto-downloaded",
+              "descriptionKey": "NotificationOnEpisodeDownloadedDescription",
+              "variables": [
+                "libraryItemId",
+                "libraryId",
+                "podcastTitle",
+                "podcastAuthor",
+                "podcastDescription",
+                "podcastGenres",
+                "episodeTitle",
+                "episodeSubtitle",
+                "episodeDescription",
+                "libraryName",
+                "episodeId",
+                "mediaTags"
+              ],
+              "defaults": {
+                "title": "New {{podcastTitle}} Episode!",
+                "body": "{{episodeTitle}} has been added to {{libraryName}} library."
+              },
+              "testData": {
+                "libraryItemId": "li_notification_test",
+                "libraryId": "lib_test",
+                "libraryName": "Podcasts",
+                "mediaTags": "TestTag1, TestTag2",
+                "podcastTitle": "Abs Test Podcast",
+                "podcastAuthor": "Audiobookshelf",
+                "podcastDescription": "Description of the Abs Test Podcast belongs here.",
+                "podcastGenres": "TestGenre1, TestGenre2",
+                "episodeId": "ep_notification_test",
+                "episodeTitle": "Successful Test Episode",
+                "episodeSubtitle": "Episode Subtitle",
+                "episodeDescription": "Some description of the podcast episode."
+              }
+            },
+            {
+              "name": "onBackupCompleted",
+              "requiresLibrary": false,
+              "description": "Triggered when a backup is completed",
+              "descriptionKey": "NotificationOnBackupCompletedDescription",
+              "variables": [
+                "completionTime",
+                "backupPath",
+                "backupSize",
+                "backupCount",
+                "removedOldest"
+              ],
+              "defaults": {
+                "title": "Backup Completed",
+                "body": "Backup has been completed successfully.\n\nPath: {{backupPath}}\nSize: {{backupSize}} bytes\nCount: {{backupCount}}\nRemoved Oldest: {{removedOldest}}"
+              },
+              "testData": {
+                "completionTime": "12:00 AM",
+                "backupPath": "path/to/backup",
+                "backupSize": "1.23 MB",
+                "backupCount": "1",
+                "removedOldest": "false"
+              }
+            },
+            {
+              "name": "onBackupFailed",
+              "requiresLibrary": false,
+              "description": "Triggered when a backup fails",
+              "descriptionKey": "NotificationOnBackupFailedDescription",
+              "variables": [
+                "errorMsg"
+              ],
+              "defaults": {
+                "title": "Backup Failed",
+                "body": "Backup failed, check ABS logs for more information.\nError message: {{errorMsg}}"
+              },
+              "testData": {
+                "errorMsg": "Example error message"
+              }
+            },
+            {
+              "name": "onRSSFeedFailed",
+              "requiresLibrary": true,
+              "description": "Triggered when the RSS feed request fails for an automatic episode download",
+              "descriptionKey": "NotificationOnRSSFeedFailedDescription",
+              "variables": [
+                "feedUrl",
+                "numFailed",
+                "title"
+              ],
+              "defaults": {
+                "title": "RSS Feed Request Failed",
+                "body": "Failed to request RSS feed for {{title}}.\nFeed URL: {{feedUrl}}\nNumber of failed attempts: {{numFailed}}"
+              },
+              "testData": {
+                "title": "Test RSS Feed",
+                "feedUrl": "https://example.com/rss",
+                "numFailed": 3
+              }
+            },
+            {
+              "name": "onRSSFeedDisabled",
+              "requiresLibrary": true,
+              "description": "Triggered when automatic episode downloads are disabled due to too many failed attempts",
+              "descriptionKey": "NotificationOnRSSFeedDisabledDescription",
+              "variables": [
+                "feedUrl",
+                "numFailed",
+                "title"
+              ],
+              "defaults": {
+                "title": "Podcast Episode Download Schedule Disabled",
+                "body": "Automatic episode downloads for {{title}} have been disabled due to too many failed RSS feed requests.\nFeed URL: {{feedUrl}}\nNumber of failed attempts: {{numFailed}}"
+              },
+              "testData": {
+                "title": "Test RSS Feed",
+                "feedUrl": "https://example.com/rss",
+                "numFailed": 5
+              }
+            },
+            {
+              "name": "onTest",
+              "requiresLibrary": false,
+              "description": "Event for testing the notification system",
+              "descriptionKey": "NotificationOnTestDescription",
+              "variables": [
+                "version"
+              ],
+              "defaults": {
+                "title": "Test Notification on Abs {{version}}",
+                "body": "Test notification body for abs {{version}}."
+              },
+              "testData": {
+                "version": "v<version>"
+              }
+            }
+          ]
+        },
+        "settings": {
+          "id": "notification-settings",
+          "appriseType": "api",
+          "appriseApiUrl": "http://apprise.example.test/notify",
+          "notifications": [],
+          "maxFailedAttempts": 3,
+          "maxNotificationQueue": 20,
+          "notificationDelay": 1000
+        }
+      }
+    },
+    "emitted": []
+  },
+  "NotificationController (characterization) > PATCH /api/notifications > updates apprise settings and persists them > update": {
+    "res": {
+      "status": 200,
+      "headers": {
+        "content-type": "text/plain; charset=utf-8"
+      },
+      "body": "OK"
+    },
+    "emitted": []
+  },
+  "NotificationController (characterization) > PATCH /api/notifications/:id > 404s for an unknown notification id > unknown url id": {
+    "res": {
+      "status": 404,
+      "headers": {
+        "content-type": "text/plain; charset=utf-8"
+      },
+      "body": "Not Found"
+    },
+    "emitted": []
+  },
+  "NotificationController (characterization) > PATCH /api/notifications/:id > updates fields, and resets failure counters when re-enabled > no changes": {
+    "res": {
+      "status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8"
+      },
+      "body": {
+        "id": "notification-settings",
+        "appriseType": "api",
+        "appriseApiUrl": null,
+        "notifications": [
+          {
+            "id": "<notification>",
+            "libraryId": null,
+            "eventName": "onBackupFailed",
+            "urls": [
+              "json://b",
+              "json://c"
+            ],
+            "titleTemplate": "New {{version}}",
+            "bodyTemplate": "Body {{version}}",
+            "enabled": false,
+            "type": "warning",
+            "lastFiredAt": null,
+            "lastAttemptFailed": false,
+            "numConsecutiveFailedAttempts": 0,
+            "numTimesFired": 0,
+            "createdAt": "<timestamp>"
+          }
+        ],
+        "maxFailedAttempts": 5,
+        "maxNotificationQueue": 20,
+        "notificationDelay": 1000
+      }
+    },
+    "emitted": []
+  },
+  "NotificationController (characterization) > PATCH /api/notifications/:id > updates fields, and resets failure counters when re-enabled > re-enable": {
+    "res": {
+      "status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8"
+      },
+      "body": {
+        "id": "notification-settings",
+        "appriseType": "api",
+        "appriseApiUrl": null,
+        "notifications": [
+          {
+            "id": "<notification>",
+            "libraryId": null,
+            "eventName": "onBackupFailed",
+            "urls": [
+              "json://b",
+              "json://c"
+            ],
+            "titleTemplate": "New {{version}}",
+            "bodyTemplate": "Body {{version}}",
+            "enabled": true,
+            "type": "warning",
+            "lastFiredAt": null,
+            "lastAttemptFailed": false,
+            "numConsecutiveFailedAttempts": 0,
+            "numTimesFired": 0,
+            "createdAt": "<timestamp>"
+          }
+        ],
+        "maxFailedAttempts": 5,
+        "maxNotificationQueue": 20,
+        "notificationDelay": 1000
+      }
+    },
+    "emitted": []
+  },
+  "NotificationController (characterization) > PATCH /api/notifications/:id > updates fields, and resets failure counters when re-enabled > update": {
+    "res": {
+      "status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8"
+      },
+      "body": {
+        "id": "notification-settings",
+        "appriseType": "api",
+        "appriseApiUrl": null,
+        "notifications": [
+          {
+            "id": "<notification>",
+            "libraryId": null,
+            "eventName": "onBackupFailed",
+            "urls": [
+              "json://b",
+              "json://c"
+            ],
+            "titleTemplate": "New {{version}}",
+            "bodyTemplate": "Body {{version}}",
+            "enabled": false,
+            "type": "warning",
+            "lastFiredAt": null,
+            "lastAttemptFailed": false,
+            "numConsecutiveFailedAttempts": 0,
+            "numTimesFired": 0,
+            "createdAt": "<timestamp>"
+          }
+        ],
+        "maxFailedAttempts": 5,
+        "maxNotificationQueue": 20,
+        "notificationDelay": 1000
+      }
+    },
+    "emitted": []
+  },
+  "NotificationController (characterization) > PATCH /api/notifications/:id > uses the id in the body, not the one in the url > body id unknown": {
+    "res": {
+      "status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8"
+      },
+      "body": {
+        "id": "notification-settings",
+        "appriseType": "api",
+        "appriseApiUrl": null,
+        "notifications": [
+          {
+            "id": "<notification>",
+            "libraryId": null,
+            "eventName": "onTest",
+            "urls": [
+              "json://hooks.example.test/a"
+            ],
+            "titleTemplate": "Title {{version}}",
+            "bodyTemplate": "Body {{version}}",
+            "enabled": true,
+            "type": "info",
+            "lastFiredAt": null,
+            "lastAttemptFailed": false,
+            "numConsecutiveFailedAttempts": 0,
+            "numTimesFired": 0,
+            "createdAt": "<timestamp>"
+          }
+        ],
+        "maxFailedAttempts": 5,
+        "maxNotificationQueue": 20,
+        "notificationDelay": 1000
+      }
+    },
+    "emitted": []
+  },
+  "NotificationController (characterization) > PATCH /api/notifications/:id > uses the id in the body, not the one in the url > body without id": {
+    "res": {
+      "status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8"
+      },
+      "body": {
+        "id": "notification-settings",
+        "appriseType": "api",
+        "appriseApiUrl": null,
+        "notifications": [
+          {
+            "id": "<notification>",
+            "libraryId": null,
+            "eventName": "onTest",
+            "urls": [
+              "json://hooks.example.test/a"
+            ],
+            "titleTemplate": "Title {{version}}",
+            "bodyTemplate": "Body {{version}}",
+            "enabled": true,
+            "type": "info",
+            "lastFiredAt": null,
+            "lastAttemptFailed": false,
+            "numConsecutiveFailedAttempts": 0,
+            "numTimesFired": 0,
+            "createdAt": "<timestamp>"
+          }
+        ],
+        "maxFailedAttempts": 5,
+        "maxNotificationQueue": 20,
+        "notificationDelay": 1000
+      }
+    },
+    "emitted": []
+  },
+  "NotificationController (characterization) > POST /api/notifications > creates notifications and returns the settings > create disabled with two urls": {
+    "res": {
+      "status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8"
+      },
+      "body": {
+        "id": "notification-settings",
+        "appriseType": "api",
+        "appriseApiUrl": null,
+        "notifications": [
+          {
+            "id": "<uuid-1>",
+            "libraryId": null,
+            "eventName": "onTest",
+            "urls": [
+              "json://hooks.example.test/a"
+            ],
+            "titleTemplate": "Title {{version}}",
+            "bodyTemplate": "Body {{version}}",
+            "enabled": true,
+            "type": "info",
+            "lastFiredAt": null,
+            "lastAttemptFailed": false,
+            "numConsecutiveFailedAttempts": 0,
+            "numTimesFired": 0,
+            "createdAt": "<timestamp>"
+          },
+          {
+            "id": "<uuid-2>",
+            "libraryId": "lib-1",
+            "eventName": "onBackupFailed",
+            "urls": [
+              "json://x",
+              "mailto://y"
+            ],
+            "titleTemplate": "Title {{version}}",
+            "bodyTemplate": "Body {{version}}",
+            "enabled": false,
+            "type": null,
+            "lastFiredAt": null,
+            "lastAttemptFailed": false,
+            "numConsecutiveFailedAttempts": 0,
+            "numTimesFired": 0,
+            "createdAt": "<timestamp>"
+          }
+        ],
+        "maxFailedAttempts": 5,
+        "maxNotificationQueue": 20,
+        "notificationDelay": 1000
+      }
+    },
+    "emitted": []
+  },
+  "NotificationController (characterization) > POST /api/notifications > creates notifications and returns the settings > create enabled": {
+    "res": {
+      "status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8"
+      },
+      "body": {
+        "id": "notification-settings",
+        "appriseType": "api",
+        "appriseApiUrl": null,
+        "notifications": [
+          {
+            "id": "<uuid-1>",
+            "libraryId": null,
+            "eventName": "onTest",
+            "urls": [
+              "json://hooks.example.test/a"
+            ],
+            "titleTemplate": "Title {{version}}",
+            "bodyTemplate": "Body {{version}}",
+            "enabled": true,
+            "type": "info",
+            "lastFiredAt": null,
+            "lastAttemptFailed": false,
+            "numConsecutiveFailedAttempts": 0,
+            "numTimesFired": 0,
+            "createdAt": "<timestamp>"
+          }
+        ],
+        "maxFailedAttempts": 5,
+        "maxNotificationQueue": 20,
+        "notificationDelay": 1000
+      }
+    },
+    "emitted": []
+  },
+  "NotificationController (characterization) > POST /api/notifications > creates notifications and returns the settings > list": {
+    "res": {
+      "status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8"
+      },
+      "body": {
+        "data": {
+          "events": [
+            {
+              "name": "onPodcastEpisodeDownloaded",
+              "requiresLibrary": true,
+              "libraryMediaType": "podcast",
+              "description": "Triggered when a podcast episode is auto-downloaded",
+              "descriptionKey": "NotificationOnEpisodeDownloadedDescription",
+              "variables": [
+                "libraryItemId",
+                "libraryId",
+                "podcastTitle",
+                "podcastAuthor",
+                "podcastDescription",
+                "podcastGenres",
+                "episodeTitle",
+                "episodeSubtitle",
+                "episodeDescription",
+                "libraryName",
+                "episodeId",
+                "mediaTags"
+              ],
+              "defaults": {
+                "title": "New {{podcastTitle}} Episode!",
+                "body": "{{episodeTitle}} has been added to {{libraryName}} library."
+              },
+              "testData": {
+                "libraryItemId": "li_notification_test",
+                "libraryId": "lib_test",
+                "libraryName": "Podcasts",
+                "mediaTags": "TestTag1, TestTag2",
+                "podcastTitle": "Abs Test Podcast",
+                "podcastAuthor": "Audiobookshelf",
+                "podcastDescription": "Description of the Abs Test Podcast belongs here.",
+                "podcastGenres": "TestGenre1, TestGenre2",
+                "episodeId": "ep_notification_test",
+                "episodeTitle": "Successful Test Episode",
+                "episodeSubtitle": "Episode Subtitle",
+                "episodeDescription": "Some description of the podcast episode."
+              }
+            },
+            {
+              "name": "onBackupCompleted",
+              "requiresLibrary": false,
+              "description": "Triggered when a backup is completed",
+              "descriptionKey": "NotificationOnBackupCompletedDescription",
+              "variables": [
+                "completionTime",
+                "backupPath",
+                "backupSize",
+                "backupCount",
+                "removedOldest"
+              ],
+              "defaults": {
+                "title": "Backup Completed",
+                "body": "Backup has been completed successfully.\n\nPath: {{backupPath}}\nSize: {{backupSize}} bytes\nCount: {{backupCount}}\nRemoved Oldest: {{removedOldest}}"
+              },
+              "testData": {
+                "completionTime": "12:00 AM",
+                "backupPath": "path/to/backup",
+                "backupSize": "1.23 MB",
+                "backupCount": "1",
+                "removedOldest": "false"
+              }
+            },
+            {
+              "name": "onBackupFailed",
+              "requiresLibrary": false,
+              "description": "Triggered when a backup fails",
+              "descriptionKey": "NotificationOnBackupFailedDescription",
+              "variables": [
+                "errorMsg"
+              ],
+              "defaults": {
+                "title": "Backup Failed",
+                "body": "Backup failed, check ABS logs for more information.\nError message: {{errorMsg}}"
+              },
+              "testData": {
+                "errorMsg": "Example error message"
+              }
+            },
+            {
+              "name": "onRSSFeedFailed",
+              "requiresLibrary": true,
+              "description": "Triggered when the RSS feed request fails for an automatic episode download",
+              "descriptionKey": "NotificationOnRSSFeedFailedDescription",
+              "variables": [
+                "feedUrl",
+                "numFailed",
+                "title"
+              ],
+              "defaults": {
+                "title": "RSS Feed Request Failed",
+                "body": "Failed to request RSS feed for {{title}}.\nFeed URL: {{feedUrl}}\nNumber of failed attempts: {{numFailed}}"
+              },
+              "testData": {
+                "title": "Test RSS Feed",
+                "feedUrl": "https://example.com/rss",
+                "numFailed": 3
+              }
+            },
+            {
+              "name": "onRSSFeedDisabled",
+              "requiresLibrary": true,
+              "description": "Triggered when automatic episode downloads are disabled due to too many failed attempts",
+              "descriptionKey": "NotificationOnRSSFeedDisabledDescription",
+              "variables": [
+                "feedUrl",
+                "numFailed",
+                "title"
+              ],
+              "defaults": {
+                "title": "Podcast Episode Download Schedule Disabled",
+                "body": "Automatic episode downloads for {{title}} have been disabled due to too many failed RSS feed requests.\nFeed URL: {{feedUrl}}\nNumber of failed attempts: {{numFailed}}"
+              },
+              "testData": {
+                "title": "Test RSS Feed",
+                "feedUrl": "https://example.com/rss",
+                "numFailed": 5
+              }
+            },
+            {
+              "name": "onTest",
+              "requiresLibrary": false,
+              "description": "Event for testing the notification system",
+              "descriptionKey": "NotificationOnTestDescription",
+              "variables": [
+                "version"
+              ],
+              "defaults": {
+                "title": "Test Notification on Abs {{version}}",
+                "body": "Test notification body for abs {{version}}."
+              },
+              "testData": {
+                "version": "v<version>"
+              }
+            }
+          ]
+        },
+        "settings": {
+          "id": "notification-settings",
+          "appriseType": "api",
+          "appriseApiUrl": null,
+          "notifications": [
+            {
+              "id": "<uuid-1>",
+              "libraryId": null,
+              "eventName": "onTest",
+              "urls": [
+                "json://hooks.example.test/a"
+              ],
+              "titleTemplate": "Title {{version}}",
+              "bodyTemplate": "Body {{version}}",
+              "enabled": true,
+              "type": "info",
+              "lastFiredAt": null,
+              "lastAttemptFailed": false,
+              "numConsecutiveFailedAttempts": 0,
+              "numTimesFired": 0,
+              "createdAt": "<timestamp>"
+            },
+            {
+              "id": "<uuid-2>",
+              "libraryId": "lib-1",
+              "eventName": "onBackupFailed",
+              "urls": [
+                "json://x",
+                "mailto://y"
+              ],
+              "titleTemplate": "Title {{version}}",
+              "bodyTemplate": "Body {{version}}",
+              "enabled": false,
+              "type": null,
+              "lastFiredAt": null,
+              "lastAttemptFailed": false,
+              "numConsecutiveFailedAttempts": 0,
+              "numTimesFired": 0,
+              "createdAt": "<timestamp>"
+            }
+          ],
+          "maxFailedAttempts": 5,
+          "maxNotificationQueue": 20,
+          "notificationDelay": 1000
+        }
+      }
+    },
+    "emitted": []
+  },
+  "NotificationController (characterization) > POST /api/notifications > silently ignores payloads without eventName or with empty urls > empty body (no eventName short-circuits before urls is read)": {
+    "res": {
+      "status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8"
+      },
+      "body": {
+        "id": "notification-settings",
+        "appriseType": "api",
+        "appriseApiUrl": null,
+        "notifications": [],
+        "maxFailedAttempts": 5,
+        "maxNotificationQueue": 20,
+        "notificationDelay": 1000
+      }
+    },
+    "emitted": []
+  },
+  "NotificationController (characterization) > POST /api/notifications > silently ignores payloads without eventName or with empty urls > empty body, urls missing: see skipped test": {
+    "res": {
+      "status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8"
+      },
+      "body": {
+        "id": "notification-settings",
+        "appriseType": "api",
+        "appriseApiUrl": null,
+        "notifications": [],
+        "maxFailedAttempts": 5,
+        "maxNotificationQueue": 20,
+        "notificationDelay": 1000
+      }
+    },
+    "emitted": []
+  },
+  "NotificationController (characterization) > POST /api/notifications > silently ignores payloads without eventName or with empty urls > empty urls": {
+    "res": {
+      "status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8"
+      },
+      "body": {
+        "id": "notification-settings",
+        "appriseType": "api",
+        "appriseApiUrl": null,
+        "notifications": [],
+        "maxFailedAttempts": 5,
+        "maxNotificationQueue": 20,
+        "notificationDelay": 1000
+      }
+    },
+    "emitted": []
+  },
+  "NotificationController (characterization) > POST /api/notifications > silently ignores payloads without eventName or with empty urls > no event name": {
+    "res": {
+      "status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8"
+      },
+      "body": {
+        "id": "notification-settings",
+        "appriseType": "api",
+        "appriseApiUrl": null,
+        "notifications": [],
+        "maxFailedAttempts": 5,
+        "maxNotificationQueue": 20,
+        "notificationDelay": 1000
+      }
+    },
+    "emitted": []
+  },
+  "NotificationController (characterization) > authentication and permissions > rejects user and guest with 403 on every route > guest DELETE /api/notifications/some-id": {
+    "res": {
+      "status": 403,
+      "headers": {
+        "content-type": "text/plain; charset=utf-8"
+      },
+      "body": "Forbidden"
+    },
+    "emitted": []
+  },
+  "NotificationController (characterization) > authentication and permissions > rejects user and guest with 403 on every route > guest GET /api/notificationdata": {
+    "res": {
+      "status": 403,
+      "headers": {
+        "content-type": "text/plain; charset=utf-8"
+      },
+      "body": "Forbidden"
+    },
+    "emitted": []
+  },
+  "NotificationController (characterization) > authentication and permissions > rejects user and guest with 403 on every route > guest GET /api/notifications": {
+    "res": {
+      "status": 403,
+      "headers": {
+        "content-type": "text/plain; charset=utf-8"
+      },
+      "body": "Forbidden"
+    },
+    "emitted": []
+  },
+  "NotificationController (characterization) > authentication and permissions > rejects user and guest with 403 on every route > guest GET /api/notifications/some-id/test": {
+    "res": {
+      "status": 403,
+      "headers": {
+        "content-type": "text/plain; charset=utf-8"
+      },
+      "body": "Forbidden"
+    },
+    "emitted": []
+  },
+  "NotificationController (characterization) > authentication and permissions > rejects user and guest with 403 on every route > guest GET /api/notifications/test": {
+    "res": {
+      "status": 403,
+      "headers": {
+        "content-type": "text/plain; charset=utf-8"
+      },
+      "body": "Forbidden"
+    },
+    "emitted": []
+  },
+  "NotificationController (characterization) > authentication and permissions > rejects user and guest with 403 on every route > guest PATCH /api/notifications": {
+    "res": {
+      "status": 403,
+      "headers": {
+        "content-type": "text/plain; charset=utf-8"
+      },
+      "body": "Forbidden"
+    },
+    "emitted": []
+  },
+  "NotificationController (characterization) > authentication and permissions > rejects user and guest with 403 on every route > guest PATCH /api/notifications/some-id": {
+    "res": {
+      "status": 403,
+      "headers": {
+        "content-type": "text/plain; charset=utf-8"
+      },
+      "body": "Forbidden"
+    },
+    "emitted": []
+  },
+  "NotificationController (characterization) > authentication and permissions > rejects user and guest with 403 on every route > guest POST /api/notifications": {
+    "res": {
+      "status": 403,
+      "headers": {
+        "content-type": "text/plain; charset=utf-8"
+      },
+      "body": "Forbidden"
+    },
+    "emitted": []
+  },
+  "NotificationController (characterization) > authentication and permissions > rejects user and guest with 403 on every route > settings unchanged": {
+    "id": "notification-settings",
+    "appriseType": "api",
+    "appriseApiUrl": null,
+    "notifications": [],
+    "maxFailedAttempts": 5,
+    "maxNotificationQueue": 20,
+    "notificationDelay": 1000
+  },
+  "NotificationController (characterization) > authentication and permissions > rejects user and guest with 403 on every route > user DELETE /api/notifications/some-id": {
+    "res": {
+      "status": 403,
+      "headers": {
+        "content-type": "text/plain; charset=utf-8"
+      },
+      "body": "Forbidden"
+    },
+    "emitted": []
+  },
+  "NotificationController (characterization) > authentication and permissions > rejects user and guest with 403 on every route > user GET /api/notificationdata": {
+    "res": {
+      "status": 403,
+      "headers": {
+        "content-type": "text/plain; charset=utf-8"
+      },
+      "body": "Forbidden"
+    },
+    "emitted": []
+  },
+  "NotificationController (characterization) > authentication and permissions > rejects user and guest with 403 on every route > user GET /api/notifications": {
+    "res": {
+      "status": 403,
+      "headers": {
+        "content-type": "text/plain; charset=utf-8"
+      },
+      "body": "Forbidden"
+    },
+    "emitted": []
+  },
+  "NotificationController (characterization) > authentication and permissions > rejects user and guest with 403 on every route > user GET /api/notifications/some-id/test": {
+    "res": {
+      "status": 403,
+      "headers": {
+        "content-type": "text/plain; charset=utf-8"
+      },
+      "body": "Forbidden"
+    },
+    "emitted": []
+  },
+  "NotificationController (characterization) > authentication and permissions > rejects user and guest with 403 on every route > user GET /api/notifications/test": {
+    "res": {
+      "status": 403,
+      "headers": {
+        "content-type": "text/plain; charset=utf-8"
+      },
+      "body": "Forbidden"
+    },
+    "emitted": []
+  },
+  "NotificationController (characterization) > authentication and permissions > rejects user and guest with 403 on every route > user PATCH /api/notifications": {
+    "res": {
+      "status": 403,
+      "headers": {
+        "content-type": "text/plain; charset=utf-8"
+      },
+      "body": "Forbidden"
+    },
+    "emitted": []
+  },
+  "NotificationController (characterization) > authentication and permissions > rejects user and guest with 403 on every route > user PATCH /api/notifications/some-id": {
+    "res": {
+      "status": 403,
+      "headers": {
+        "content-type": "text/plain; charset=utf-8"
+      },
+      "body": "Forbidden"
+    },
+    "emitted": []
+  },
+  "NotificationController (characterization) > authentication and permissions > rejects user and guest with 403 on every route > user POST /api/notifications": {
+    "res": {
+      "status": 403,
+      "headers": {
+        "content-type": "text/plain; charset=utf-8"
+      },
+      "body": "Forbidden"
+    },
+    "emitted": []
+  },
+  "NotificationController (characterization) > authentication and permissions > requires authentication on every route > DELETE /api/notifications/some-id": {
+    "res": {
+      "status": 401,
+      "headers": {
+        "content-type": "text/plain; charset=utf-8"
+      },
+      "body": "Unauthorized"
+    },
+    "emitted": []
+  },
+  "NotificationController (characterization) > authentication and permissions > requires authentication on every route > GET /api/notificationdata": {
+    "res": {
+      "status": 401,
+      "headers": {
+        "content-type": "text/plain; charset=utf-8"
+      },
+      "body": "Unauthorized"
+    },
+    "emitted": []
+  },
+  "NotificationController (characterization) > authentication and permissions > requires authentication on every route > GET /api/notifications": {
+    "res": {
+      "status": 401,
+      "headers": {
+        "content-type": "text/plain; charset=utf-8"
+      },
+      "body": "Unauthorized"
+    },
+    "emitted": []
+  },
+  "NotificationController (characterization) > authentication and permissions > requires authentication on every route > GET /api/notifications/some-id/test": {
+    "res": {
+      "status": 401,
+      "headers": {
+        "content-type": "text/plain; charset=utf-8"
+      },
+      "body": "Unauthorized"
+    },
+    "emitted": []
+  },
+  "NotificationController (characterization) > authentication and permissions > requires authentication on every route > GET /api/notifications/test": {
+    "res": {
+      "status": 401,
+      "headers": {
+        "content-type": "text/plain; charset=utf-8"
+      },
+      "body": "Unauthorized"
+    },
+    "emitted": []
+  },
+  "NotificationController (characterization) > authentication and permissions > requires authentication on every route > PATCH /api/notifications": {
+    "res": {
+      "status": 401,
+      "headers": {
+        "content-type": "text/plain; charset=utf-8"
+      },
+      "body": "Unauthorized"
+    },
+    "emitted": []
+  },
+  "NotificationController (characterization) > authentication and permissions > requires authentication on every route > PATCH /api/notifications/some-id": {
+    "res": {
+      "status": 401,
+      "headers": {
+        "content-type": "text/plain; charset=utf-8"
+      },
+      "body": "Unauthorized"
+    },
+    "emitted": []
+  },
+  "NotificationController (characterization) > authentication and permissions > requires authentication on every route > POST /api/notifications": {
+    "res": {
+      "status": 401,
+      "headers": {
+        "content-type": "text/plain; charset=utf-8"
+      },
+      "body": "Unauthorized"
+    },
+    "emitted": []
+  }
+}
