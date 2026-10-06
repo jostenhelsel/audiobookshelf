@@ -1,0 +1,450 @@
+{
+  "SocketAuthority (characterization) > client events > cancel_scan is forwarded to the server for admins only": {
+    "afterUser": 0,
+    "calls": [
+      [
+        "lib-2"
+      ]
+    ]
+  },
+  "SocketAuthority (characterization) > client events > message_all_users sends admin_message to all authenticated clients for admins only": {
+    "afterUser": [
+      [],
+      []
+    ],
+    "user": [
+      [
+        "admin_message",
+        "from admin"
+      ],
+      [
+        "admin_message",
+        ""
+      ]
+    ],
+    "admin": [
+      [
+        "admin_message",
+        "from admin"
+      ],
+      [
+        "admin_message",
+        ""
+      ]
+    ]
+  },
+  "SocketAuthority (characterization) > client events > serves a second socket.io path when RouterBasePath is set": {
+    "paths": [
+      "/socket.io",
+      "/audiobooks/socket.io"
+    ],
+    "clients": 2
+  },
+  "SocketAuthority (characterization) > client events > set_log_listener validates the level and the role; remove_log_listener always removes": {
+    "adds": [
+      [
+        "string",
+        1
+      ]
+    ],
+    "removes": true
+  },
+  "SocketAuthority (characterization) > close > closes every socket.io server and empties the list": {
+    "servers": 0
+  },
+  "SocketAuthority (characterization) > connection and authentication > answers ping with pong, and tracks an unauthenticated socket without a user": {
+    "tracked": [
+      {
+        "hasUser": false,
+        "keys": [
+          "connected_at",
+          "id",
+          "socket"
+        ]
+      }
+    ],
+    "usersOnline": []
+  },
+  "SocketAuthority (characterization) > connection and authentication > authenticates with a bearer jwt: user gets init without usersOnline, admin gets usersOnline": {
+    "user": {
+      "userId": "<uuid-1>",
+      "username": "user"
+    },
+    "admin": {
+      "userId": "<uuid-2>",
+      "username": "admin",
+      "usersOnline": [
+        {
+          "id": "<uuid-1>",
+          "username": "user",
+          "type": "user",
+          "session": null,
+          "lastSeen": "<timestamp>",
+          "createdAt": "<timestamp>",
+          "connections": 1
+        },
+        {
+          "id": "<uuid-2>",
+          "username": "admin",
+          "type": "admin",
+          "session": null,
+          "lastSeen": "<timestamp>",
+          "createdAt": "<timestamp>",
+          "connections": 1
+        }
+      ]
+    },
+    "usersOnlineAfter": [
+      {
+        "username": "user",
+        "connections": 1,
+        "keys": [
+          "connections",
+          "createdAt",
+          "id",
+          "lastSeen",
+          "session",
+          "type",
+          "username"
+        ]
+      },
+      {
+        "username": "admin",
+        "connections": 1,
+        "keys": [
+          "connections",
+          "createdAt",
+          "id",
+          "lastSeen",
+          "session",
+          "type",
+          "username"
+        ]
+      }
+    ]
+  },
+  "SocketAuthority (characterization) > connection and authentication > authenticates with an api key and rejects inactive, unknown and expired keys": {
+    "results": {
+      "active": [
+        [
+          "init",
+          {
+            "userId": "<uuid-1>",
+            "username": "user"
+          }
+        ]
+      ],
+      "inactive": [
+        [
+          "auth_failed",
+          {
+            "message": "Invalid API key"
+          }
+        ]
+      ],
+      "unknown": [
+        [
+          "auth_failed",
+          {
+            "message": "Invalid API key"
+          }
+        ]
+      ],
+      "expired": [
+        [
+          "auth_failed",
+          {
+            "message": "API key expired"
+          }
+        ]
+      ]
+    },
+    "expiredKeyActiveAfter": false
+  },
+  "SocketAuthority (characterization) > connection and authentication > counts several sockets of one user as connections of a single online user": [
+    {
+      "username": "user",
+      "connections": 2
+    }
+  ],
+  "SocketAuthority (characterization) > connection and authentication > re-authenticating a socket as another user switches the associated user": {
+    "init": {
+      "username": "admin",
+      "hasUsersOnline": true
+    },
+    "associated": [
+      "admin"
+    ]
+  },
+  "SocketAuthority (characterization) > connection and authentication > rejects invalid, refresh-type, expired and unknown-user tokens and inactive users": {
+    "garbage": {
+      "message": "Invalid token"
+    },
+    "wrongSecret": {
+      "message": "Invalid token"
+    },
+    "refreshType": {
+      "message": "Invalid token"
+    },
+    "noUserId": {
+      "message": "Invalid token"
+    },
+    "expired": {
+      "message": "Token expired"
+    },
+    "unknownUser": {
+      "message": "Invalid token"
+    },
+    "inactive": {
+      "message": "Invalid user"
+    }
+  },
+  "SocketAuthority (characterization) > connection and authentication > removes an unauthenticated socket on disconnect": {
+    "remaining": 0
+  },
+  "SocketAuthority (characterization) > connection and authentication > tells admins when a user comes online and when they go offline": {
+    "online": {
+      "username": "admin",
+      "keys": [
+        "createdAt",
+        "id",
+        "lastSeen",
+        "session",
+        "type",
+        "username"
+      ]
+    },
+    "offline": {
+      "username": "user"
+    }
+  },
+  "SocketAuthority (characterization) > cover search over the socket > cancel_cover_search needs a user and only answers when a search was cancelled": {
+    "anon": [],
+    "user": [
+      [
+        "cover_search_cancelled",
+        {
+          "requestId": "known"
+        }
+      ]
+    ],
+    "cancelCalls": [
+      [
+        "known"
+      ],
+      [
+        "unknown"
+      ]
+    ]
+  },
+  "SocketAuthority (characterization) > cover search over the socket > rejects unauthenticated and invalid requests": {
+    "unauth": {
+      "requestId": "r1",
+      "error": "Unauthorized"
+    },
+    "invalid": {
+      "requestId": "r2",
+      "error": "Invalid request parameters"
+    },
+    "noId": {
+      "error": "Invalid request parameters"
+    }
+  },
+  "SocketAuthority (characterization) > cover search over the socket > streams results, completion and provider errors, and reports a failed search": {
+    "first": [
+      [
+        "cover_search_result",
+        {
+          "requestId": "ok",
+          "provider": "p1",
+          "covers": [
+            "a",
+            "b"
+          ],
+          "total": 2
+        }
+      ],
+      [
+        "cover_search_provider_error",
+        {
+          "requestId": "ok",
+          "provider": "p2",
+          "error": "boom"
+        }
+      ],
+      [
+        "cover_search_complete",
+        {
+          "requestId": "ok"
+        }
+      ]
+    ],
+    "second": [
+      [
+        "cover_search_error",
+        {
+          "requestId": "bad",
+          "error": "search failed"
+        }
+      ]
+    ],
+    "startArgs": [
+      [
+        "ok",
+        {
+          "title": "T",
+          "author": "A",
+          "provider": "google",
+          "podcast": false
+        }
+      ],
+      [
+        "bad",
+        {
+          "title": "T"
+        }
+      ]
+    ]
+  },
+  "SocketAuthority (characterization) > emitters > clientEmitter targets one user; adminEmitter targets admins and root": {
+    "user": [
+      [
+        "for_user",
+        {
+          "a": 1
+        }
+      ]
+    ],
+    "user2": [
+      [
+        "for_user",
+        {
+          "a": 1
+        }
+      ]
+    ],
+    "admin": [
+      [
+        "for_admins",
+        {
+          "b": 2
+        }
+      ]
+    ],
+    "root": [
+      [
+        "for_admins",
+        {
+          "b": 2
+        }
+      ]
+    ]
+  },
+  "SocketAuthority (characterization) > emitters > emitter reaches every authenticated client, honours the filter and skips unauthenticated sockets": {
+    "user": [
+      [
+        "hello",
+        {
+          "n": 1
+        }
+      ]
+    ],
+    "admin": [
+      [
+        "hello",
+        {
+          "n": 1
+        }
+      ],
+      [
+        "only_admins",
+        {
+          "n": 2
+        }
+      ]
+    ],
+    "anon": []
+  },
+  "SocketAuthority (characterization) > emitters > libraryItemEmitter and libraryItemsEmitter send toOldJSONExpanded to clients that can access the item": {
+    "user": [
+      [
+        "item_added",
+        {
+          "id": "one"
+        }
+      ],
+      [
+        "item_added",
+        {
+          "id": "two"
+        }
+      ],
+      [
+        "items_updated",
+        [
+          {
+            "id": "three"
+          },
+          {
+            "id": "four"
+          }
+        ]
+      ]
+    ],
+    "admin": [
+      [
+        "user_online",
+        {
+          "id": "<uuid-1>",
+          "username": "guest",
+          "type": "guest",
+          "session": null,
+          "lastSeen": null,
+          "createdAt": "<timestamp>"
+        }
+      ],
+      [
+        "item_added",
+        {
+          "id": "one"
+        }
+      ],
+      [
+        "item_added",
+        {
+          "id": "two"
+        }
+      ],
+      [
+        "items_updated",
+        [
+          {
+            "id": "three"
+          },
+          {
+            "id": "four"
+          },
+          {
+            "id": "five"
+          }
+        ]
+      ]
+    ],
+    "limited": [
+      [
+        "item_added",
+        {
+          "id": "one"
+        }
+      ],
+      [
+        "items_updated",
+        [
+          {
+            "id": "three"
+          }
+        ]
+      ]
+    ]
+  }
+}

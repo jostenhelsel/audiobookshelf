@@ -22,10 +22,12 @@ All 23 controllers, every route in `ApiRouter`, `PublicRouter` and the controlle
 
 `AuthRoutes.test.js` (17 tests) runs the real passport local and jwt strategies, `TokenManager` and `Auth.initAuthRoutes` (via `helpers/auth-harness.js`): `/login`, `/auth/refresh`, `/logout`, bearer/`?token=` auth on `/api`, the unauthenticated cover/author-image GETs, and `/auth/openid/config` without a provider.
 
+`SocketAuthority.test.js` (19 tests) runs a fresh `SocketAuthority` on a real http server with a real socket.io server and a minimal `ws` client (`socket.io-client` is not a dependency): `auth` with jwt and api-key tokens (and every rejection), `init`/`user_online`/`user_offline`, the emitters (`emitter`, `clientEmitter`, `adminEmitter`, `libraryItemEmitter(s)`), `cancel_scan`, `message_all_users`, `set_log_listener`, the `RouterBasePath` second path, cover search events (with `CoverSearchManager` stubbed) and `close`.
+
 Skipped (6): real zip download (`GET /libraries/:id/download`), author image resize (needs ffmpeg), item cover upload and cover cache-miss resize (LibraryItem), `POST /notifications` without `urls` (hangs), `GET /logger-data` with no log manager (hangs).
 
 ## Not covered yet
-The OIDC flow (`/auth/openid`, `/callback`, `/mobile-redirect`; needs a fake identity provider), auth rate limiting (429 after 40 attempts), `Database.js` init, `SocketAuthority` event handling, the scanner (`scanner/*`), `Server.js` boot, `HlsRouter`, and anything needing ffmpeg/real media. The upgrade smoke test (`scripts/upgrade-smoke`) covers migrations end to end.
+The OIDC flow (`/auth/openid`, `/callback`, `/mobile-redirect`; needs a fake identity provider), auth rate limiting (429 after 40 attempts), `Database.js` init, the scanner (`scanner/*`), `Server.js` boot, `HlsRouter`, and anything needing ffmpeg/real media. The upgrade smoke test (`scripts/upgrade-smoke`) covers migrations end to end.
 
 ## Findings (recorded as-is, nothing fixed)
 Reported by the test-writing agents while reading the code and recording responses; not independently verified beyond the snapshots. Candidates for upstream issues, roughly by importance.
@@ -78,6 +80,13 @@ Reported by the test-writing agents while reading the code and recording respons
 - `GET /api/items/:id/cover` and `/api/authors/:id/image` skip authentication entirely (by design, via `ignorePatterns`); an unknown id answers 400 rather than 404.
 - `/logout` needs no authentication and always answers 200 `{ redirect_url: null }`, even with no token at all.
 - An empty or missing login body gives 400 (passport) while a wrong password or unknown user gives 401, which tells a client the body shape was wrong.
+
+**SocketAuthority (from `SocketAuthority.test.js`)**
+- `authenticateSocket` accepts a refresh-less jwt only if it has a `userId` and is not `type: 'refresh'`; expiry is checked by the handler, not by `jwt.verify` (`ignoreExpiration`).
+- An expired api key is deactivated (`isActive = false`) as a side effect of the failed socket auth.
+- A socket can be re-authenticated as a different user; it is only logged as a warning.
+- `cancelSocketCoverSearches` does nothing (searches of a disconnected socket just time out).
+- `close()` also closes the underlying http server.
 
 **Harness/seed quirks to remember when writing more tests**
 - `User.js` keeps a module-private LRU of users that outlives the database; the harness now evicts them in `stop()`, otherwise a later test's username lookup returns a previous test's user.
