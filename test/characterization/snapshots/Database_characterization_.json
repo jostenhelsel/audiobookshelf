@@ -1,0 +1,1631 @@
+{
+  "Database (characterization) > in-memory state (harness database) > cleanDatabase > cleanupExpiredSessions and deactivateExpiredApiKeys swallow and log database errors": {
+    "errorLogs": [
+      "[Database] Error cleaning up expired sessions: boom-session",
+      "[Database] Error deactivating expired api keys: boom-key"
+    ]
+  },
+  "Database (characterization) > in-memory state (harness database) > cleanDatabase > removes books, podcasts and library items without counterpart, empty series, orphan playlist/collection rows": {
+    "before": {
+      "books": 2,
+      "podcasts": 1,
+      "libraryItems": 2,
+      "series": 2,
+      "collectionBooks": 0,
+      "playlistMediaItems": 1
+    },
+    "after": {
+      "books": [
+        "Keeper"
+      ],
+      "podcasts": 0,
+      "libraryItems": 1,
+      "series": [
+        "Kept"
+      ],
+      "collectionBooks": 0,
+      "playlistMediaItems": 0
+    },
+    "warnLogs": [
+      "Found podcast \"Orphan Podcast\" with no libraryItem - removing it",
+      "Found book \"Orphan Book\" with no libraryItem - removing it",
+      "Found libraryItem \"<uuid-1>\" with no media - removing it",
+      "Found playlistMediaItem with no book or podcastEpisode - removing it",
+      "Found series \"Empty\" with no books - removing it"
+    ]
+  },
+  "Database (characterization) > in-memory state (harness database) > cleanDatabase > removes playback sessions of 3 seconds or less, duplicate media progress (keeping the newest) and expired sessions, and deactivates expired api keys": {
+    "playbackSessions": [
+      "four"
+    ],
+    "mediaProgress": [
+      {
+        "currentTime": 2
+      }
+    ],
+    "sessions": [
+      "valid"
+    ],
+    "apiKeys": [
+      {
+        "name": "expired-key",
+        "isActive": false
+      },
+      {
+        "name": "future-key",
+        "isActive": true
+      },
+      {
+        "name": "no-expiry-key",
+        "isActive": true
+      }
+    ],
+    "warnLogs": [
+      "Removed 2 sessions that were 3 seconds or less",
+      "Found duplicate mediaProgress for mediaItem \"<id>\" - removing it",
+      "Found duplicate mediaProgress for mediaItem \"<id>\" - removing it"
+    ],
+    "infoLogs": [
+      "[Database] Cleaned up 1 expired sessions",
+      "[Database] Deactivated 1 expired api keys"
+    ]
+  },
+  "Database (characterization) > in-memory state (harness database) > library filter data helpers > checkAuthorExists / checkSeriesExists / getAuthorIdByName / getSeriesIdByName use the cache when set and the database otherwise": {
+    "noCache": {
+      "authorExists": true,
+      "authorMissing": false,
+      "seriesExists": true,
+      "seriesMissing": false,
+      "authorIdByName": "<author>",
+      "authorIdByNameMissing": null,
+      "seriesIdByName": "<series>",
+      "seriesIdByNameMissing": null
+    },
+    "emptyCache": {
+      "authorExists": false,
+      "seriesExists": false,
+      "authorIdByName": null,
+      "seriesIdByName": null
+    },
+    "filled": {
+      "authorExists": true,
+      "seriesExists": true,
+      "authorIdByName": "<author>",
+      "seriesIdByName": "<series>"
+    }
+  },
+  "Database (characterization) > in-memory state (harness database) > library filter data helpers > genres: replace and remove apply to every library; add is per library and de-duplicates": {
+    "lib1": [
+      "G2"
+    ],
+    "lib2": [
+      "G2",
+      "g3"
+    ]
+  },
+  "Database (characterization) > in-memory state (harness database) > library filter data helpers > narrators: replace/remove/add are per library": {
+    "lib1": [
+      "N1"
+    ],
+    "lib2": [
+      "n9"
+    ]
+  },
+  "Database (characterization) > in-memory state (harness database) > library filter data helpers > publisher, decade and language add ignore falsy and duplicate values": {
+    "publishers": [
+      "p1",
+      "p2"
+    ],
+    "publishedDecades": [
+      "2000",
+      "2010"
+    ],
+    "languages": [
+      "en",
+      "de"
+    ],
+    "libraries": [
+      "lib1",
+      "lib2"
+    ]
+  },
+  "Database (characterization) > in-memory state (harness database) > library filter data helpers > resetLibraryIssuesFilterData counts missing or invalid items and ignores libraries without cache": {
+    "numIssues": 2,
+    "notCachedCreated": false
+  },
+  "Database (characterization) > in-memory state (harness database) > library filter data helpers > series and authors: add de-duplicates by id and remove filters by id": {
+    "series": [
+      {
+        "id": "s1",
+        "name": "Series One"
+      },
+      {
+        "id": "s2",
+        "name": "Series Two"
+      }
+    ],
+    "authors": [
+      {
+        "id": "au1",
+        "name": "Author One"
+      },
+      {
+        "id": "au2",
+        "name": "Author Two"
+      }
+    ],
+    "afterRemove": {
+      "series": [
+        {
+          "id": "s2",
+          "name": "Series Two"
+        }
+      ],
+      "authors": [
+        {
+          "id": "au2",
+          "name": "Author Two"
+        }
+      ]
+    }
+  },
+  "Database (characterization) > in-memory state (harness database) > library filter data helpers > tags: replace and remove apply to every library; add is per library and de-duplicates": {
+    "afterReplace": [
+      "a",
+      "B2",
+      "B2",
+      "c"
+    ],
+    "tags": {
+      "lib1": [
+        "B2",
+        "new"
+      ],
+      "lib2": [
+        "B2",
+        "c"
+      ]
+    },
+    "unknownLibCreated": false
+  },
+  "Database (characterization) > in-memory state (harness database) > methods without a connected sequelize > return false instead of throwing": {
+    "models": [],
+    "userModel": null,
+    "createRootUser": false,
+    "updateServerSettings": false,
+    "updateSetting": false,
+    "getPlaybackSessions": false,
+    "getPlaybackSession": false,
+    "createPlaybackSession": false,
+    "updatePlaybackSession": false,
+    "removePlaybackSession": false
+  },
+  "Database (characterization) > in-memory state (harness database) > playback session helpers > create, get, update, list (with where) and remove an old-format session > session lifecycle": {
+    "created": [
+      {
+        "id": "play_1",
+        "mediaItemId": "<uuid-1>",
+        "mediaItemType": "book",
+        "libraryId": "<uuid-2>",
+        "displayTitle": "Played",
+        "displayAuthor": "Auth",
+        "duration": 100,
+        "playMethod": 0,
+        "mediaPlayer": "unknown",
+        "startTime": 0,
+        "currentTime": 5,
+        "serverVersion": null,
+        "createdAt": "<iso-date>",
+        "updatedAt": "<iso-date>",
+        "userId": "<uuid-3>",
+        "deviceId": null,
+        "timeListening": 10,
+        "mediaMetadata": {
+          "title": "Played"
+        },
+        "date": "2024-01-02",
+        "dayOfWeek": "Tuesday",
+        "extraData": {
+          "libraryItemId": "<uuid-4>"
+        }
+      },
+      null
+    ],
+    "fetched": {
+      "id": "play_1",
+      "userId": "<uuid-3>",
+      "libraryId": "<uuid-2>",
+      "libraryItemId": "<uuid-4>",
+      "bookId": "<uuid-1>",
+      "episodeId": null,
+      "mediaType": "book",
+      "mediaMetadata": {
+        "title": "Played"
+      },
+      "chapters": [],
+      "displayTitle": "Played",
+      "displayAuthor": "Auth",
+      "coverPath": null,
+      "duration": 100,
+      "playMethod": 0,
+      "mediaPlayer": "unknown",
+      "deviceInfo": {},
+      "serverVersion": null,
+      "date": "2024-01-02",
+      "dayOfWeek": "Tuesday",
+      "timeListening": 10,
+      "startTime": 0,
+      "currentTime": 5,
+      "startedAt": "<timestamp>",
+      "updatedAt": "<timestamp>"
+    },
+    "updated": [
+      1
+    ],
+    "refetched": {
+      "timeListening": 20,
+      "currentTime": 9
+    },
+    "listAll": 1,
+    "listMatch": 1,
+    "listNone": 0,
+    "removed": 1,
+    "afterRemove": null
+  },
+  "Database (characterization) > in-memory state (harness database) > settings persistence > getOldSettings on an empty settings table yields defaults for all three": {
+    "settings": [],
+    "server": {
+      "id": "server-settings",
+      "tokenSecret": null,
+      "scannerFindCovers": false,
+      "scannerCoverProvider": "google",
+      "scannerParseSubtitle": false,
+      "scannerPreferMatchedMetadata": false,
+      "scannerDisableWatcher": false,
+      "storeCoverWithItem": false,
+      "storeMetadataWithItem": false,
+      "metadataFileFormat": "json",
+      "rateLimitLoginRequests": 10,
+      "rateLimitLoginWindow": 600000,
+      "allowIframe": false,
+      "backupPath": "<tmp>/metadata/backups",
+      "backupSchedule": false,
+      "backupsToKeep": 2,
+      "maxBackupSize": 1,
+      "loggerDailyLogsToKeep": 7,
+      "loggerScannerLogsToKeep": 2,
+      "homeBookshelfView": 1,
+      "bookshelfView": 1,
+      "podcastEpisodeSchedule": "0 * * * *",
+      "sortingIgnorePrefix": false,
+      "sortingPrefixes": [
+        "the",
+        "a"
+      ],
+      "chromecastEnabled": false,
+      "dateFormat": "MM/dd/yyyy",
+      "timeFormat": "HH:mm",
+      "language": "en-us",
+      "allowedOrigins": [],
+      "logLevel": 0,
+      "version": "2.37.0",
+      "buildNumber": 1,
+      "authLoginCustomMessage": null,
+      "authActiveAuthMethods": [
+        "local"
+      ],
+      "authOpenIDIssuerURL": null,
+      "authOpenIDAuthorizationURL": null,
+      "authOpenIDTokenURL": null,
+      "authOpenIDUserInfoURL": null,
+      "authOpenIDJwksURL": null,
+      "authOpenIDLogoutURL": null,
+      "authOpenIDClientID": null,
+      "authOpenIDClientSecret": null,
+      "authOpenIDTokenSigningAlgorithm": "RS256",
+      "authOpenIDButtonText": "Login with OpenId",
+      "authOpenIDAutoLaunch": false,
+      "authOpenIDAutoRegister": false,
+      "authOpenIDMatchExistingBy": null,
+      "authOpenIDMobileRedirectURIs": [
+        "audiobookshelf://oauth"
+      ],
+      "authOpenIDGroupClaim": "",
+      "authOpenIDAdvancedPermsClaim": ""
+    },
+    "email": {
+      "id": "email-settings",
+      "host": null,
+      "port": 465,
+      "secure": true,
+      "rejectUnauthorized": true,
+      "user": null,
+      "pass": null,
+      "testAddress": null,
+      "fromAddress": null,
+      "ereaderDevices": []
+    },
+    "notification": {
+      "id": "notification-settings",
+      "appriseType": "api",
+      "appriseApiUrl": null,
+      "notifications": [],
+      "maxFailedAttempts": 5,
+      "maxNotificationQueue": 20,
+      "notificationDelay": 1000
+    }
+  },
+  "Database (characterization) > in-memory state (harness database) > settings persistence > updateServerSettings round-trips through the settings table and refreshes global.ServerSettings": {
+    "storedKeys": [
+      "server-settings"
+    ],
+    "reloaded": {
+      "id": "server-settings",
+      "tokenSecret": null,
+      "scannerFindCovers": true,
+      "scannerCoverProvider": "google",
+      "scannerParseSubtitle": false,
+      "scannerPreferMatchedMetadata": false,
+      "scannerDisableWatcher": false,
+      "storeCoverWithItem": false,
+      "storeMetadataWithItem": false,
+      "metadataFileFormat": "json",
+      "rateLimitLoginRequests": 10,
+      "rateLimitLoginWindow": 600000,
+      "allowIframe": false,
+      "backupPath": "<tmp>/metadata/backups",
+      "backupSchedule": false,
+      "backupsToKeep": 9,
+      "maxBackupSize": 1,
+      "loggerDailyLogsToKeep": 7,
+      "loggerScannerLogsToKeep": 2,
+      "homeBookshelfView": 1,
+      "bookshelfView": 1,
+      "podcastEpisodeSchedule": "0 * * * *",
+      "sortingIgnorePrefix": true,
+      "sortingPrefixes": [
+        "the",
+        "an"
+      ],
+      "chromecastEnabled": false,
+      "dateFormat": "MM/dd/yyyy",
+      "timeFormat": "HH:mm",
+      "language": "de",
+      "allowedOrigins": [],
+      "logLevel": 0,
+      "version": "2.37.0",
+      "buildNumber": 1,
+      "authLoginCustomMessage": null,
+      "authActiveAuthMethods": [
+        "local"
+      ],
+      "authOpenIDIssuerURL": null,
+      "authOpenIDAuthorizationURL": null,
+      "authOpenIDTokenURL": null,
+      "authOpenIDUserInfoURL": null,
+      "authOpenIDJwksURL": null,
+      "authOpenIDLogoutURL": null,
+      "authOpenIDClientID": null,
+      "authOpenIDClientSecret": null,
+      "authOpenIDTokenSigningAlgorithm": "RS256",
+      "authOpenIDButtonText": "Login with OpenId",
+      "authOpenIDAutoLaunch": false,
+      "authOpenIDAutoRegister": false,
+      "authOpenIDMatchExistingBy": null,
+      "authOpenIDMobileRedirectURIs": [
+        "audiobookshelf://oauth"
+      ],
+      "authOpenIDGroupClaim": "",
+      "authOpenIDAdvancedPermsClaim": ""
+    },
+    "global": {
+      "id": "server-settings",
+      "tokenSecret": null,
+      "scannerFindCovers": true,
+      "scannerCoverProvider": "google",
+      "scannerParseSubtitle": false,
+      "scannerPreferMatchedMetadata": false,
+      "scannerDisableWatcher": false,
+      "storeCoverWithItem": false,
+      "storeMetadataWithItem": false,
+      "metadataFileFormat": "json",
+      "rateLimitLoginRequests": 10,
+      "rateLimitLoginWindow": 600000,
+      "allowIframe": false,
+      "backupPath": "<tmp>/metadata/backups",
+      "backupSchedule": false,
+      "backupsToKeep": 9,
+      "maxBackupSize": 1,
+      "loggerDailyLogsToKeep": 7,
+      "loggerScannerLogsToKeep": 2,
+      "homeBookshelfView": 1,
+      "bookshelfView": 1,
+      "podcastEpisodeSchedule": "0 * * * *",
+      "sortingIgnorePrefix": true,
+      "sortingPrefixes": [
+        "the",
+        "an"
+      ],
+      "chromecastEnabled": false,
+      "dateFormat": "MM/dd/yyyy",
+      "timeFormat": "HH:mm",
+      "language": "de",
+      "allowedOrigins": [],
+      "logLevel": 0,
+      "version": "2.37.0",
+      "buildNumber": 1,
+      "authLoginCustomMessage": null,
+      "authActiveAuthMethods": [
+        "local"
+      ],
+      "authOpenIDIssuerURL": null,
+      "authOpenIDAuthorizationURL": null,
+      "authOpenIDTokenURL": null,
+      "authOpenIDUserInfoURL": null,
+      "authOpenIDJwksURL": null,
+      "authOpenIDLogoutURL": null,
+      "authOpenIDClientID": null,
+      "authOpenIDClientSecret": null,
+      "authOpenIDTokenSigningAlgorithm": "RS256",
+      "authOpenIDButtonText": "Login with OpenId",
+      "authOpenIDAutoLaunch": false,
+      "authOpenIDAutoRegister": false,
+      "authOpenIDMatchExistingBy": null,
+      "authOpenIDMobileRedirectURIs": [
+        "audiobookshelf://oauth"
+      ],
+      "authOpenIDGroupClaim": "",
+      "authOpenIDAdvancedPermsClaim": ""
+    },
+    "equal": true
+  },
+  "Database (characterization) > in-memory state (harness database) > settings persistence > updateSetting persists email settings including ereader devices": {
+    "storedKeys": [
+      "email-settings"
+    ],
+    "reloaded": {
+      "id": "email-settings",
+      "host": "smtp.example.test",
+      "port": 587,
+      "secure": false,
+      "rejectUnauthorized": true,
+      "user": "mailer",
+      "pass": "secret",
+      "testAddress": null,
+      "fromAddress": "abs@example.test",
+      "ereaderDevices": [
+        {
+          "name": "Kindle",
+          "email": "kindle@example.test",
+          "availabilityOption": "adminOrUp",
+          "users": []
+        }
+      ]
+    },
+    "hostOnly": "smtp.example.test"
+  },
+  "Database (characterization) > in-memory state (harness database) > settings persistence > updateSetting persists notification settings with notifications": {
+    "updateReturned": true,
+    "reloaded": {
+      "id": "notification-settings",
+      "appriseType": "api",
+      "appriseApiUrl": "http://apprise.test/notify",
+      "notifications": [
+        {
+          "id": "n1",
+          "libraryId": null,
+          "eventName": "onPodcastEpisodeDownloaded",
+          "urls": [
+            "json://x"
+          ],
+          "titleTemplate": "t",
+          "bodyTemplate": "b",
+          "enabled": true,
+          "type": "info",
+          "lastFiredAt": null,
+          "lastAttemptFailed": false,
+          "numConsecutiveFailedAttempts": 0,
+          "numTimesFired": 0
+        }
+      ],
+      "maxFailedAttempts": 2,
+      "maxNotificationQueue": 20,
+      "notificationDelay": 1000
+    },
+    "isUseable": true
+  },
+  "Database (characterization) > in-memory state (harness database) > settings persistence > updateSetting upserts: a second save replaces the row instead of adding one": {
+    "count": 1,
+    "backupsToKeep": 3,
+    "resultIsArray": true,
+    "resultKeyedBy": "server-settings"
+  },
+  "Database (characterization) > in-memory state (harness database) > utility methods > TextSearchQuery builds LIKE expressions (escaped) without unaccent support": {
+    "supportsUnaccent": false,
+    "hasAccents": false,
+    "expression": "books.title LIKE '%it''s 100% a_test%'",
+    "constructedBy": "TextSearchQuery"
+  },
+  "Database (characterization) > in-memory state (harness database) > utility methods > TextSearchQuery with unaccent support wraps the column unless the query has accents": {
+    "plain": "unaccent(title) LIKE '%cafe%'",
+    "accented": "title LIKE '%café%'"
+  },
+  "Database (characterization) > in-memory state (harness database) > utility methods > TextSearchQuery.init with unaccent support fails when the sqlite function is missing": {
+    "error": "SQLITE_ERROR: no such function: unaccent"
+  },
+  "Database (characterization) > in-memory state (harness database) > utility methods > a fresh Database instance has the documented initial state": {
+    "sequelize": null,
+    "dbPath": null,
+    "isNew": false,
+    "hasRootUser": false,
+    "settings": [],
+    "libraryFilterData": {},
+    "serverSettings": null,
+    "notificationSettings": null,
+    "emailSettings": null,
+    "supportsUnaccent": false,
+    "supportsUnicodeFoldings": false,
+    "models": {},
+    "userModel": null
+  },
+  "Database (characterization) > in-memory state (harness database) > utility methods > compareVersions": [
+    {
+      "a": "2.3.0",
+      "b": "2.3.0",
+      "result": 0
+    },
+    {
+      "a": "2.3.1",
+      "b": "2.3.0",
+      "result": 1
+    },
+    {
+      "a": "2.3.0",
+      "b": "2.3.1",
+      "result": -1
+    },
+    {
+      "a": "2.10.0",
+      "b": "2.9.0",
+      "result": 1
+    },
+    {
+      "a": "2.3.0",
+      "b": "2.3.0-beta",
+      "result": -1
+    },
+    {
+      "a": "v2.3.0",
+      "b": "2.3.0",
+      "result": 1
+    },
+    {
+      "a": "",
+      "b": "2.3.0",
+      "result": 0
+    },
+    {
+      "a": "2.3.0",
+      "b": null,
+      "result": 0
+    },
+    {
+      "result": 0
+    }
+  ],
+  "Database (characterization) > in-memory state (harness database) > utility methods > convertToSnakeCase": [
+    {
+      "s": "update_libraryItems_title",
+      "out": "update_library_items_title"
+    },
+    {
+      "s": "authorNamesFirstLast",
+      "out": "author_names_first_last"
+    },
+    {
+      "s": "ABC",
+      "out": "_a_b_c"
+    },
+    {
+      "s": "",
+      "out": ""
+    },
+    {
+      "s": "already_snake",
+      "out": "already_snake"
+    }
+  ],
+  "Database (characterization) > in-memory state (harness database) > utility methods > has no getLibraryItem(s)/getPodcastEpisode helpers (they live on the models)": {
+    "getLibraryItem": "undefined",
+    "getLibraryItems": "undefined",
+    "getPodcastEpisode": "undefined",
+    "libraryItemModelFindByPk": "function"
+  },
+  "Database (characterization) > in-memory state (harness database) > utility methods > hasRootUser and the root user lookup": {
+    "before": false,
+    "after": true,
+    "flag": false
+  },
+  "Database (characterization) > in-memory state (harness database) > utility methods > model accessors resolve to registered model names; the model list of a built sequelize": {
+    "models": [
+      "user",
+      "session",
+      "apiKey",
+      "library",
+      "libraryFolder",
+      "book",
+      "podcast",
+      "podcastEpisode",
+      "libraryItem",
+      "mediaProgress",
+      "series",
+      "bookSeries",
+      "author",
+      "bookAuthor",
+      "collection",
+      "collectionBook",
+      "playlist",
+      "playlistMediaItem",
+      "device",
+      "playbackSession",
+      "feed",
+      "feedEpisode",
+      "setting",
+      "customMetadataProvider",
+      "mediaItemShare"
+    ],
+    "settingsModelRegistered": true
+  },
+  "Database (characterization) > init() on a real database file > addTriggers is idempotent": {
+    "count": 7,
+    "addedLogs": 0
+  },
+  "Database (characterization) > init() on a real database file > associations of every model": {
+    "apiKey": {
+      "createdByUser": "BelongsTo user fk=createdByUserId",
+      "user": "BelongsTo user fk=userId"
+    },
+    "author": {
+      "bookAuthors": "HasMany bookAuthor fk=authorId",
+      "books": "BelongsToMany book fk=authorId",
+      "library": "BelongsTo library fk=libraryId"
+    },
+    "book": {
+      "authors": "BelongsToMany author fk=bookId",
+      "bookAuthors": "HasMany bookAuthor fk=bookId",
+      "bookSeries": "HasMany bookSeries fk=bookId",
+      "collectionBooks": "HasMany collectionBook fk=bookId",
+      "collections": "BelongsToMany collection fk=bookId",
+      "libraryItem": "HasOne libraryItem fk=mediaId",
+      "mediaItemShares": "HasMany mediaItemShare fk=mediaItemId",
+      "mediaProgresses": "HasMany mediaProgress fk=mediaItemId",
+      "playbackSessions": "HasMany playbackSession fk=mediaItemId",
+      "playlistMediaItems": "HasMany playlistMediaItem fk=mediaItemId",
+      "series": "BelongsToMany series fk=bookId"
+    },
+    "bookAuthor": {
+      "author": "BelongsTo author fk=authorId",
+      "book": "BelongsTo book fk=bookId"
+    },
+    "bookSeries": {
+      "book": "BelongsTo book fk=bookId",
+      "series": "BelongsTo series fk=seriesId"
+    },
+    "collection": {
+      "books": "BelongsToMany book fk=collectionId",
+      "collectionBooks": "HasMany collectionBook fk=collectionId",
+      "feeds": "HasMany feed fk=entityId",
+      "library": "BelongsTo library fk=libraryId"
+    },
+    "collectionBook": {
+      "book": "BelongsTo book fk=bookId",
+      "collection": "BelongsTo collection fk=collectionId"
+    },
+    "customMetadataProvider": {},
+    "device": {
+      "playbackSessions": "HasMany playbackSession fk=deviceId",
+      "user": "BelongsTo user fk=userId"
+    },
+    "feed": {
+      "collection": "BelongsTo collection fk=entityId",
+      "feedEpisodes": "HasMany feedEpisode fk=feedId",
+      "libraryItem": "BelongsTo libraryItem fk=entityId",
+      "playlist": "BelongsTo playlist fk=entityId",
+      "series": "BelongsTo series fk=entityId",
+      "user": "BelongsTo user fk=userId"
+    },
+    "feedEpisode": {
+      "feed": "BelongsTo feed fk=feedId"
+    },
+    "library": {
+      "authors": "HasMany author fk=libraryId",
+      "collections": "HasMany collection fk=libraryId",
+      "libraryFolders": "HasMany libraryFolder fk=libraryId",
+      "libraryItems": "HasMany libraryItem fk=libraryId",
+      "playbackSessions": "HasMany playbackSession fk=libraryId",
+      "playlists": "HasMany playlist fk=libraryId",
+      "series": "HasMany series fk=libraryId"
+    },
+    "libraryFolder": {
+      "library": "BelongsTo library fk=libraryId",
+      "libraryItems": "HasMany libraryItem fk=libraryFolderId"
+    },
+    "libraryItem": {
+      "book": "BelongsTo book fk=mediaId",
+      "feeds": "HasMany feed fk=entityId",
+      "library": "BelongsTo library fk=libraryId",
+      "libraryFolder": "BelongsTo libraryFolder fk=libraryFolderId",
+      "podcast": "BelongsTo podcast fk=mediaId"
+    },
+    "mediaItemShare": {
+      "book": "BelongsTo book fk=mediaItemId",
+      "podcastEpisode": "BelongsTo podcastEpisode fk=mediaItemId",
+      "user": "BelongsTo user fk=userId"
+    },
+    "mediaProgress": {
+      "book": "BelongsTo book fk=mediaItemId",
+      "podcastEpisode": "BelongsTo podcastEpisode fk=mediaItemId",
+      "user": "BelongsTo user fk=userId"
+    },
+    "playbackSession": {
+      "book": "BelongsTo book fk=mediaItemId",
+      "device": "BelongsTo device fk=deviceId",
+      "library": "BelongsTo library fk=libraryId",
+      "podcastEpisode": "BelongsTo podcastEpisode fk=mediaItemId",
+      "user": "BelongsTo user fk=userId"
+    },
+    "playlist": {
+      "feeds": "HasMany feed fk=entityId",
+      "library": "BelongsTo library fk=libraryId",
+      "playlistMediaItems": "HasMany playlistMediaItem fk=playlistId",
+      "user": "BelongsTo user fk=userId"
+    },
+    "playlistMediaItem": {
+      "book": "BelongsTo book fk=mediaItemId",
+      "playlist": "BelongsTo playlist fk=playlistId",
+      "podcastEpisode": "BelongsTo podcastEpisode fk=mediaItemId"
+    },
+    "podcast": {
+      "libraryItem": "HasOne libraryItem fk=mediaId",
+      "podcastEpisodes": "HasMany podcastEpisode fk=podcastId"
+    },
+    "podcastEpisode": {
+      "mediaItemShare": "HasOne mediaItemShare fk=mediaItemId",
+      "mediaProgresses": "HasMany mediaProgress fk=mediaItemId",
+      "playbackSession": "HasOne playbackSession fk=mediaItemId",
+      "playlistMediaItem": "HasOne playlistMediaItem fk=mediaItemId",
+      "podcast": "BelongsTo podcast fk=podcastId"
+    },
+    "series": {
+      "bookSeries": "HasMany bookSeries fk=seriesId",
+      "books": "BelongsToMany book fk=seriesId",
+      "feeds": "HasMany feed fk=entityId",
+      "library": "BelongsTo library fk=libraryId"
+    },
+    "session": {
+      "user": "BelongsTo user fk=userId"
+    },
+    "setting": {},
+    "user": {
+      "apiKeys": "HasMany apiKey fk=createdByUserId",
+      "devices": "HasMany device fk=userId",
+      "feeds": "HasMany feed fk=userId",
+      "mediaItemShares": "HasMany mediaItemShare fk=userId",
+      "mediaProgresses": "HasMany mediaProgress fk=userId",
+      "playbackSessions": "HasMany playbackSession fk=userId",
+      "playlists": "HasMany playlist fk=userId",
+      "sessions": "HasMany session fk=userId"
+    }
+  },
+  "Database (characterization) > init() on a real database file > checkHasDb is false before the file exists and true after": {
+    "before": false,
+    "after": true,
+    "infoLogs": [
+      [
+        "[Database] absdatabase.sqlite not found at <tmp>/config/absdatabase.sqlite"
+      ]
+    ]
+  },
+  "Database (characterization) > init() on a real database file > cleans orphaned and invalid rows while initializing an existing database": {
+    "books": [
+      "Keeper"
+    ],
+    "podcasts": 0,
+    "series": [
+      "Kept Series"
+    ],
+    "playbackSessions": [
+      "long enough"
+    ],
+    "warnLogs": [
+      "Found podcast \"Orphan Podcast\" with no libraryItem - removing it",
+      "Found book \"Orphan Book\" with no libraryItem - removing it",
+      "Found series \"Empty Series\" with no books - removing it",
+      "Removed 1 sessions that were 3 seconds or less"
+    ]
+  },
+  "Database (characterization) > init() on a real database file > connect() applies the allowed SQLITE_* pragmas from the environment": {
+    "ok": true,
+    "cache": [
+      {
+        "cache_size": -4000
+      }
+    ],
+    "temp": [
+      {
+        "temp_store": 2
+      }
+    ],
+    "infoLogs": [
+      [
+        "[Database] Initializing db at \"<tmp>/config/absdatabase.sqlite\""
+      ],
+      [
+        "[Database] Running \"PRAGMA cache_size = -4000\""
+      ],
+      [
+        "[Database] Running \"PRAGMA temp_store = 2\""
+      ],
+      [
+        "[Database] Db connection was successful"
+      ]
+    ]
+  },
+  "Database (characterization) > init() on a real database file > connect() ignores an invalid pragma value but still succeeds": {
+    "ok": true,
+    "errorLogs": [
+      "[Database] Failed to set SQLite pragma cache_size"
+    ]
+  },
+  "Database (characterization) > init() on a real database file > connect() returns false when the NUSQLITE3 extension cannot be loaded": {
+    "ok": false,
+    "supportsUnaccent": false,
+    "supportsUnicodeFoldings": false,
+    "errorLogs": [
+      "[Database] Failed to load extension <tmp>/does-not-exist.so",
+      "[Database] Failed to connect to db"
+    ]
+  },
+  "Database (characterization) > init() on a real database file > creates a missing config directory itself (sqlite storage dir) and initializes a new database": {
+    "error": null,
+    "isNew": true,
+    "configDirExists": true,
+    "dbFileExists": true,
+    "errorLogs": []
+  },
+  "Database (characterization) > init() on a real database file > creates a new database: file, flags, models, tables, triggers and default settings": {
+    "dbPath": "<tmp>/config/absdatabase.sqlite",
+    "fileExists": true,
+    "isNew": true,
+    "hasRootUser": false,
+    "supportsUnaccent": false,
+    "supportsUnicodeFoldings": false,
+    "models": [
+      "user",
+      "session",
+      "apiKey",
+      "library",
+      "libraryFolder",
+      "book",
+      "podcast",
+      "podcastEpisode",
+      "libraryItem",
+      "mediaProgress",
+      "series",
+      "bookSeries",
+      "author",
+      "bookAuthor",
+      "collection",
+      "collectionBook",
+      "playlist",
+      "playlistMediaItem",
+      "device",
+      "playbackSession",
+      "feed",
+      "feedEpisode",
+      "setting",
+      "customMetadataProvider",
+      "mediaItemShare"
+    ],
+    "tables": [
+      "apiKeys",
+      "authors",
+      "bookAuthors",
+      "bookSeries",
+      "books",
+      "collectionBooks",
+      "collections",
+      "customMetadataProviders",
+      "devices",
+      "feedEpisodes",
+      "feeds",
+      "libraries",
+      "libraryFolders",
+      "libraryItems",
+      "mediaItemShares",
+      "mediaProgresses",
+      "migrationsMeta",
+      "playbackSessions",
+      "playlistMediaItems",
+      "playlists",
+      "podcastEpisodes",
+      "podcasts",
+      "series",
+      "sessions",
+      "settings",
+      "sqlite_stat1",
+      "users"
+    ],
+    "triggers": [
+      {
+        "name": "update_library_items_author_names_on_authors_update",
+        "tbl_name": "authors"
+      },
+      {
+        "name": "update_library_items_author_names_on_book_authors_delete",
+        "tbl_name": "bookAuthors"
+      },
+      {
+        "name": "update_library_items_author_names_on_book_authors_insert",
+        "tbl_name": "bookAuthors"
+      },
+      {
+        "name": "update_library_items_title",
+        "tbl_name": "books"
+      },
+      {
+        "name": "update_library_items_title_from_podcasts_title",
+        "tbl_name": "podcasts"
+      },
+      {
+        "name": "update_library_items_title_ignore_prefix",
+        "tbl_name": "books"
+      },
+      {
+        "name": "update_library_items_title_ignore_prefix_from_podcasts_title_ignore_prefix",
+        "tbl_name": "podcasts"
+      }
+    ],
+    "configDir": [
+      "absdatabase.sqlite",
+      "migrations"
+    ],
+    "migrationsMeta": [
+      {
+        "key": "maxVersion",
+        "value": "<package version>"
+      },
+      {
+        "key": "version",
+        "value": "<package version>"
+      }
+    ],
+    "settingRows": [],
+    "infoLogs": [
+      [
+        "[Database] absdatabase.sqlite not found at <tmp>/config/absdatabase.sqlite"
+      ],
+      [
+        "[Database] Initializing db at \"<tmp>/config/absdatabase.sqlite\""
+      ],
+      [
+        "[Database] Db connection was successful"
+      ],
+      [
+        "[MigrationManager] Database is new. Skipping migrations."
+      ],
+      [
+        "[Database] Db initialized with models:",
+        "user, session, apiKey, library, libraryFolder, book, podcast, podcastEpisode, libraryItem, mediaProgress, series, bookSeries, author, bookAuthor, collection, collectionBook, playlist, playlistMediaItem, device, playbackSession, feed, feedEpisode, setting, customMetadataProvider, mediaItemShare"
+      ],
+      [
+        "[Database] Adding trigger update_library_items_title"
+      ],
+      [
+        "[Database] Adding trigger update_library_items_title_ignore_prefix"
+      ],
+      [
+        "[Database] Adding trigger update_library_items_title_from_podcasts_title"
+      ],
+      [
+        "[Database] Adding trigger update_library_items_title_ignore_prefix_from_podcasts_title_ignore_prefix"
+      ],
+      [
+        "[Database] Adding trigger update_library_items_author_names_on_book_authors_insert"
+      ],
+      [
+        "[Database] Adding trigger update_library_items_author_names_on_book_authors_delete"
+      ],
+      [
+        "[Database] Adding trigger update_library_items_author_names_on_authors_update"
+      ],
+      [
+        "[Database] running ANALYZE"
+      ],
+      [
+        "[Database] ANALYZE completed"
+      ]
+    ],
+    "errorLogs": []
+  },
+  "Database (characterization) > init() on a real database file > does not create a root user; createRootUser then sets hasRootUser": {
+    "before": {
+      "hasRootUser": false,
+      "users": 0
+    },
+    "created": true,
+    "hasRootUser": true,
+    "user": {
+      "type": "root",
+      "username": "boss",
+      "pash": "pash-hash",
+      "token": "token-for-boss",
+      "isActive": true,
+      "bookmarks": [],
+      "extraData": {
+        "seriesHideFromContinueListening": []
+      },
+      "permissions": {
+        "download": true,
+        "update": true,
+        "delete": true,
+        "upload": true,
+        "createEreader": true,
+        "accessAllLibraries": true,
+        "accessAllTags": true,
+        "accessExplicitContent": true,
+        "selectedTagsNotAccessible": false,
+        "librariesAccessible": [],
+        "itemTagsSelected": []
+      }
+    }
+  },
+  "Database (characterization) > init() on a real database file > fails with \"Database migration failed\" on a file that is not a sqlite database > corrupt file": {
+    "error": "Database migration failed",
+    "isNew": false,
+    "errorLogs": [
+      [
+        "[Database] Failed to run migrations",
+        "SQLITE_NOTADB: file is not a database"
+      ]
+    ]
+  },
+  "Database (characterization) > init() on a real database file > indexes created by the models": [
+    {
+      "name": "authors_library_id",
+      "tbl_name": "authors"
+    },
+    {
+      "name": "authors_name",
+      "tbl_name": "authors"
+    },
+    {
+      "name": "bookAuthor_authorId",
+      "tbl_name": "bookAuthors"
+    },
+    {
+      "name": "bookSeries_seriesId",
+      "tbl_name": "bookSeries"
+    },
+    {
+      "name": "book_series_series_book",
+      "tbl_name": "bookSeries"
+    },
+    {
+      "name": "books_duration",
+      "tbl_name": "books"
+    },
+    {
+      "name": "books_published_year",
+      "tbl_name": "books"
+    },
+    {
+      "name": "books_title",
+      "tbl_name": "books"
+    },
+    {
+      "name": "library_items_birthtime",
+      "tbl_name": "libraryItems"
+    },
+    {
+      "name": "library_items_created_at",
+      "tbl_name": "libraryItems"
+    },
+    {
+      "name": "library_items_library_id_media_id_media_type",
+      "tbl_name": "libraryItems"
+    },
+    {
+      "name": "library_items_library_id_media_type",
+      "tbl_name": "libraryItems"
+    },
+    {
+      "name": "library_items_library_id_media_type_author_names_first_last",
+      "tbl_name": "libraryItems"
+    },
+    {
+      "name": "library_items_library_id_media_type_author_names_last_first",
+      "tbl_name": "libraryItems"
+    },
+    {
+      "name": "library_items_library_id_media_type_created_at",
+      "tbl_name": "libraryItems"
+    },
+    {
+      "name": "library_items_library_id_media_type_size",
+      "tbl_name": "libraryItems"
+    },
+    {
+      "name": "library_items_library_id_media_type_title",
+      "tbl_name": "libraryItems"
+    },
+    {
+      "name": "library_items_library_id_media_type_title_ignore_prefix",
+      "tbl_name": "libraryItems"
+    },
+    {
+      "name": "library_items_media_id",
+      "tbl_name": "libraryItems"
+    },
+    {
+      "name": "library_items_mtime",
+      "tbl_name": "libraryItems"
+    },
+    {
+      "name": "media_progresses_updated_at",
+      "tbl_name": "mediaProgresses"
+    },
+    {
+      "name": "media_progresses_user_item_finished_time",
+      "tbl_name": "mediaProgresses"
+    },
+    {
+      "name": "podcastEpisode_createdAt_podcastId",
+      "tbl_name": "podcastEpisodes"
+    },
+    {
+      "name": "podcast_episodes_published_at",
+      "tbl_name": "podcastEpisodes"
+    },
+    {
+      "name": "series_library_id",
+      "tbl_name": "series"
+    },
+    {
+      "name": "series_name",
+      "tbl_name": "series"
+    },
+    {
+      "name": "unique_series_name_per_library",
+      "tbl_name": "series"
+    }
+  ],
+  "Database (characterization) > init() on a real database file > init(true) on an existing database is treated as new and drops all data": {
+    "isNew": true,
+    "hasRootUser": false,
+    "users": 0,
+    "storedSettingKeys": [],
+    "chromecastEnabled": false
+  },
+  "Database (characterization) > init() on a real database file > keeps default settings in memory only: a new database stores no settings rows until something saves them": {
+    "storedKeys": [],
+    "serverSettings": {
+      "id": "server-settings",
+      "tokenSecret": null,
+      "scannerFindCovers": false,
+      "scannerCoverProvider": "google",
+      "scannerParseSubtitle": false,
+      "scannerPreferMatchedMetadata": false,
+      "scannerDisableWatcher": false,
+      "storeCoverWithItem": false,
+      "storeMetadataWithItem": false,
+      "metadataFileFormat": "json",
+      "rateLimitLoginRequests": 10,
+      "rateLimitLoginWindow": 600000,
+      "allowIframe": false,
+      "backupPath": "<tmp>/metadata/backups",
+      "backupSchedule": false,
+      "backupsToKeep": 2,
+      "maxBackupSize": 1,
+      "loggerDailyLogsToKeep": 7,
+      "loggerScannerLogsToKeep": 2,
+      "homeBookshelfView": 1,
+      "bookshelfView": 1,
+      "podcastEpisodeSchedule": "0 * * * *",
+      "sortingIgnorePrefix": false,
+      "sortingPrefixes": [
+        "the",
+        "a"
+      ],
+      "chromecastEnabled": false,
+      "dateFormat": "MM/dd/yyyy",
+      "timeFormat": "HH:mm",
+      "language": "en-us",
+      "allowedOrigins": [],
+      "logLevel": 0,
+      "version": "<package version>",
+      "buildNumber": 1,
+      "authLoginCustomMessage": null,
+      "authActiveAuthMethods": [
+        "local"
+      ],
+      "authOpenIDIssuerURL": null,
+      "authOpenIDAuthorizationURL": null,
+      "authOpenIDTokenURL": null,
+      "authOpenIDUserInfoURL": null,
+      "authOpenIDJwksURL": null,
+      "authOpenIDLogoutURL": null,
+      "authOpenIDClientID": null,
+      "authOpenIDClientSecret": null,
+      "authOpenIDTokenSigningAlgorithm": "RS256",
+      "authOpenIDButtonText": "Login with OpenId",
+      "authOpenIDAutoLaunch": false,
+      "authOpenIDAutoRegister": false,
+      "authOpenIDMatchExistingBy": null,
+      "authOpenIDMobileRedirectURIs": [
+        "audiobookshelf://oauth"
+      ],
+      "authOpenIDGroupClaim": "",
+      "authOpenIDAdvancedPermsClaim": ""
+    },
+    "globalServerSettingsMatches": true,
+    "emailSettings": {
+      "id": "email-settings",
+      "host": null,
+      "port": 465,
+      "secure": true,
+      "rejectUnauthorized": true,
+      "user": null,
+      "pass": null,
+      "testAddress": null,
+      "fromAddress": null,
+      "ereaderDevices": []
+    },
+    "notificationSettings": {
+      "id": "notification-settings",
+      "appriseType": "api",
+      "appriseApiUrl": null,
+      "notifications": [],
+      "maxFailedAttempts": 5,
+      "maxNotificationQueue": 20,
+      "notificationDelay": 1000
+    },
+    "settingsArrayIds": []
+  },
+  "Database (characterization) > init() on a real database file > key columns of the main tables": {
+    "users": [
+      "id UUID PK",
+      "username VARCHAR(255)",
+      "email VARCHAR(255)",
+      "pash VARCHAR(255)",
+      "type VARCHAR(255)",
+      "token VARCHAR(255)",
+      "isActive TINYINT(1)",
+      "isLocked TINYINT(1)",
+      "lastSeen DATETIME",
+      "permissions JSON",
+      "bookmarks JSON",
+      "extraData JSON",
+      "createdAt DATETIME NOT NULL",
+      "updatedAt DATETIME NOT NULL"
+    ],
+    "libraries": [
+      "id UUID PK",
+      "name VARCHAR(255)",
+      "displayOrder INTEGER",
+      "icon VARCHAR(255)",
+      "mediaType VARCHAR(255)",
+      "provider VARCHAR(255)",
+      "lastScan DATETIME",
+      "lastScanVersion VARCHAR(255)",
+      "settings JSON",
+      "extraData JSON",
+      "createdAt DATETIME NOT NULL",
+      "updatedAt DATETIME NOT NULL"
+    ],
+    "libraryItems": [
+      "id UUID PK",
+      "ino VARCHAR(255)",
+      "path VARCHAR(255)",
+      "relPath VARCHAR(255)",
+      "mediaId UUID",
+      "mediaType VARCHAR(255)",
+      "isFile TINYINT(1)",
+      "isMissing TINYINT(1)",
+      "isInvalid TINYINT(1)",
+      "mtime DATETIME",
+      "ctime DATETIME",
+      "birthtime DATETIME",
+      "size BIGINT",
+      "lastScan DATETIME",
+      "lastScanVersion VARCHAR(255)",
+      "libraryFiles JSON",
+      "extraData JSON",
+      "title VARCHAR(255)",
+      "titleIgnorePrefix VARCHAR(255)",
+      "authorNamesFirstLast VARCHAR(255)",
+      "authorNamesLastFirst VARCHAR(255)",
+      "createdAt DATETIME NOT NULL",
+      "updatedAt DATETIME NOT NULL",
+      "libraryId UUID",
+      "libraryFolderId UUID"
+    ],
+    "books": [
+      "id UUID PK",
+      "title VARCHAR(255)",
+      "titleIgnorePrefix VARCHAR(255)",
+      "subtitle VARCHAR(255)",
+      "publishedYear VARCHAR(255)",
+      "publishedDate VARCHAR(255)",
+      "publisher VARCHAR(255)",
+      "description TEXT",
+      "isbn VARCHAR(255)",
+      "asin VARCHAR(255)",
+      "language VARCHAR(255)",
+      "explicit TINYINT(1)",
+      "abridged TINYINT(1)",
+      "coverPath VARCHAR(255)",
+      "duration FLOAT",
+      "narrators JSON",
+      "audioFiles JSON",
+      "ebookFile JSON",
+      "chapters JSON",
+      "tags JSON",
+      "genres JSON",
+      "createdAt DATETIME NOT NULL",
+      "updatedAt DATETIME NOT NULL"
+    ],
+    "podcasts": [
+      "id UUID PK",
+      "title VARCHAR(255)",
+      "titleIgnorePrefix VARCHAR(255)",
+      "author VARCHAR(255)",
+      "releaseDate VARCHAR(255)",
+      "feedURL VARCHAR(255)",
+      "imageURL VARCHAR(255)",
+      "description TEXT",
+      "itunesPageURL VARCHAR(255)",
+      "itunesId VARCHAR(255)",
+      "itunesArtistId VARCHAR(255)",
+      "language VARCHAR(255)",
+      "podcastType VARCHAR(255)",
+      "explicit TINYINT(1)",
+      "autoDownloadEpisodes TINYINT(1)",
+      "autoDownloadSchedule VARCHAR(255)",
+      "lastEpisodeCheck DATETIME",
+      "maxEpisodesToKeep INTEGER",
+      "maxNewEpisodesToDownload INTEGER",
+      "coverPath VARCHAR(255)",
+      "tags JSON",
+      "genres JSON",
+      "numEpisodes INTEGER",
+      "createdAt DATETIME NOT NULL",
+      "updatedAt DATETIME NOT NULL"
+    ],
+    "podcastEpisodes": [
+      "id UUID PK",
+      "index INTEGER",
+      "season VARCHAR(255)",
+      "episode VARCHAR(255)",
+      "episodeType VARCHAR(255)",
+      "title VARCHAR(255)",
+      "subtitle VARCHAR(1000)",
+      "description TEXT",
+      "pubDate VARCHAR(255)",
+      "enclosureURL VARCHAR(255)",
+      "enclosureSize BIGINT",
+      "enclosureType VARCHAR(255)",
+      "publishedAt DATETIME",
+      "audioFile JSON",
+      "chapters JSON",
+      "extraData JSON",
+      "createdAt DATETIME NOT NULL",
+      "updatedAt DATETIME NOT NULL",
+      "podcastId UUID"
+    ],
+    "settings": [
+      "key VARCHAR(255) PK",
+      "value JSON",
+      "createdAt DATETIME NOT NULL",
+      "updatedAt DATETIME NOT NULL"
+    ],
+    "sessions": [
+      "id UUID PK",
+      "ipAddress VARCHAR(255)",
+      "userAgent VARCHAR(255)",
+      "refreshToken VARCHAR(255) NOT NULL",
+      "expiresAt DATETIME NOT NULL",
+      "lastRefreshToken VARCHAR(255)",
+      "lastRefreshTokenExpiresAt DATETIME",
+      "createdAt DATETIME NOT NULL",
+      "updatedAt DATETIME NOT NULL",
+      "userId UUID NOT NULL"
+    ],
+    "apiKeys": [
+      "id UUID PK",
+      "name VARCHAR(255) NOT NULL",
+      "description TEXT",
+      "expiresAt DATETIME",
+      "lastUsedAt DATETIME",
+      "isActive TINYINT(1) NOT NULL",
+      "permissions JSON",
+      "createdAt DATETIME NOT NULL",
+      "updatedAt DATETIME NOT NULL",
+      "userId UUID",
+      "createdByUserId UUID"
+    ],
+    "mediaProgresses": [
+      "id UUID PK",
+      "mediaItemId UUID",
+      "mediaItemType VARCHAR(255)",
+      "duration FLOAT",
+      "currentTime FLOAT",
+      "isFinished TINYINT(1)",
+      "hideFromContinueListening TINYINT(1)",
+      "ebookLocation VARCHAR(255)",
+      "ebookProgress FLOAT",
+      "finishedAt DATETIME",
+      "extraData JSON",
+      "podcastId UUID",
+      "createdAt DATETIME NOT NULL",
+      "updatedAt DATETIME NOT NULL",
+      "userId UUID"
+    ],
+    "playbackSessions": [
+      "id UUID PK",
+      "mediaItemId UUID",
+      "mediaItemType VARCHAR(255)",
+      "displayTitle VARCHAR(255)",
+      "displayAuthor VARCHAR(255)",
+      "duration FLOAT",
+      "playMethod INTEGER",
+      "mediaPlayer VARCHAR(255)",
+      "startTime FLOAT",
+      "currentTime FLOAT",
+      "serverVersion VARCHAR(255)",
+      "coverPath VARCHAR(255)",
+      "timeListening INTEGER",
+      "mediaMetadata JSON",
+      "date VARCHAR(255)",
+      "dayOfWeek VARCHAR(255)",
+      "extraData JSON",
+      "createdAt DATETIME NOT NULL",
+      "updatedAt DATETIME NOT NULL",
+      "userId UUID",
+      "deviceId UUID",
+      "libraryId UUID"
+    ],
+    "bookAuthors": [
+      "id UUID PK",
+      "createdAt DATETIME NOT NULL",
+      "bookId UUID",
+      "authorId UUID"
+    ],
+    "bookSeries": [
+      "id UUID PK",
+      "sequence VARCHAR(255)",
+      "createdAt DATETIME NOT NULL",
+      "bookId UUID",
+      "seriesId UUID"
+    ]
+  },
+  "Database (characterization) > init() on a real database file > logs a build upgrade when only the buildNumber differs": {
+    "buildNumberIsPackage": true,
+    "buildLog": [
+      "[Database] Server v<package version> build upgraded from 5 to 1"
+    ]
+  },
+  "Database (characterization) > init() on a real database file > logs a server upgrade and rewrites version/buildNumber when the stored version differs": {
+    "loaded": {
+      "version": "<package version>",
+      "buildNumber": "<package build>"
+    },
+    "stored": {
+      "version": "<package version>",
+      "buildNumber": "<package build>"
+    },
+    "upgradeLog": [
+      "[Database] Server upgrade detected from 2.30.0 to <package version>"
+    ]
+  },
+  "Database (characterization) > init() on a real database file > model accessors map to the registered models": {
+    "userModel": "user",
+    "sessionModel": "session",
+    "apiKeyModel": "apiKey",
+    "libraryModel": "library",
+    "libraryFolderModel": "libraryFolder",
+    "authorModel": "author",
+    "seriesModel": "series",
+    "bookModel": "book",
+    "bookSeriesModel": "bookSeries",
+    "bookAuthorModel": "bookAuthor",
+    "podcastModel": "podcast",
+    "podcastEpisodeModel": "podcastEpisode",
+    "libraryItemModel": "libraryItem",
+    "mediaProgressModel": "mediaProgress",
+    "collectionModel": "collection",
+    "collectionBookModel": "collectionBook",
+    "playlistModel": "playlist",
+    "playlistMediaItemModel": "playlistMediaItem",
+    "feedModel": "feed",
+    "feedEpisodeModel": "feedEpisode",
+    "playbackSessionModel": "playbackSession",
+    "customMetadataProviderModel": "customMetadataProvider",
+    "mediaItemShareModel": "mediaItemShare",
+    "deviceModel": "device"
+  },
+  "Database (characterization) > init() on a real database file > opens an existing database: isNew false, data and settings kept, version untouched": {
+    "existedBefore": true,
+    "isNew": false,
+    "hasRootUser": true,
+    "users": 1,
+    "scannerParseSubtitle": true,
+    "chromecastEnabled": true,
+    "version": "<package version>",
+    "upgradeLogged": false,
+    "migrationsSkippedLogged": false,
+    "infoLogs": [
+      [
+        "[Database] Disconnecting sqlite db"
+      ],
+      [
+        "[Database] Initializing db at \"<tmp>/config/absdatabase.sqlite\""
+      ],
+      [
+        "[Database] Db connection was successful"
+      ],
+      [
+        "[MigrationManager] Database is already up to date."
+      ],
+      [
+        "[Database] Db initialized with models:",
+        "user, session, apiKey, library, libraryFolder, book, podcast, podcastEpisode, libraryItem, mediaProgress, series, bookSeries, author, bookAuthor, collection, collectionBook, playlist, playlistMediaItem, device, playbackSession, feed, feedEpisode, setting, customMetadataProvider, mediaItemShare"
+      ],
+      [
+        "[Database] running ANALYZE"
+      ],
+      [
+        "[Database] ANALYZE completed"
+      ]
+    ]
+  },
+  "Database (characterization) > init() on a real database file > reconnect() re-runs init against the same file": {
+    "isNew": false,
+    "hasRootUser": true,
+    "users": 1,
+    "connectLogs": [
+      [
+        "[Database] Disconnecting sqlite db"
+      ],
+      [
+        "[Database] Reconnecting sqlite db"
+      ]
+    ]
+  },
+  "Database (characterization) > init() on a real database file > triggers keep libraryItems title and author names in sync with books and authors": {
+    "afterCreate": {
+      "title": null,
+      "titleIgnorePrefix": null,
+      "authorNamesFirstLast": "Jane Doe, John Roe",
+      "authorNamesLastFirst": null
+    },
+    "afterBookUpdate": {
+      "title": "The Renamed",
+      "titleIgnorePrefix": "Renamed, The",
+      "authorNamesFirstLast": "Jane Doe, John Roe",
+      "authorNamesLastFirst": null
+    },
+    "afterAuthorUpdate": {
+      "title": "The Renamed",
+      "titleIgnorePrefix": "Renamed, The",
+      "authorNamesFirstLast": "Janet Doe, John Roe",
+      "authorNamesLastFirst": "Doe, Janet"
+    },
+    "afterBookAuthorDelete": {
+      "title": "The Renamed",
+      "titleIgnorePrefix": "Renamed, The",
+      "authorNamesFirstLast": "John Roe",
+      "authorNamesLastFirst": null
+    }
+  }
+}
