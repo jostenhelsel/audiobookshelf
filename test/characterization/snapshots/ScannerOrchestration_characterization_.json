@@ -1,0 +1,1741 @@
+{
+  "ScannerOrchestration (characterization) > LibraryItemScanner > POST /api/items/:id/scan reports the ScanResult name; non-admins and isFile items are refused": {
+    "upToDate": [
+      200,
+      {
+        "result": "UPTODATE"
+      }
+    ],
+    "updated": [
+      200,
+      {
+        "result": "UPDATED"
+      }
+    ],
+    "forbidden": 403,
+    "isFile": 500
+  },
+  "ScannerOrchestration (characterization) > LibraryItemScanner > a file the watcher is still writing (pending) is skipped during a scan": {
+    "result": "UPDATED",
+    "files": [
+      "01.mp3"
+    ],
+    "info": [
+      "[LibraryItemScanner] Skipping watcher pending file \"<tmp>/Author/Book One/02.mp3\" during scan of library item path \"<tmp>/Author/Book One\""
+    ]
+  },
+  "ScannerOrchestration (characterization) > LibraryItemScanner > scanLibraryItem on an isFile item treats the file path as a folder (watcher details are needed for isFile)": {
+    "result": "UPDATED",
+    "isFile": false,
+    "libraryFiles": 0,
+    "isMissing": true,
+    "withDetails": "UPDATED",
+    "errors": [
+      "[fileUtils] Recurse files error Error: ENOTDIR: not a directory, scandir '<tmp>/Standalone.mp3'"
+    ],
+    "info": []
+  },
+  "ScannerOrchestration (characterization) > LibraryItemScanner > scanLibraryItem with watcher details (item folder renamed): path and relPath follow": {
+    "result": "UPDATED",
+    "path": "<tmp>/Author/Renamed",
+    "relPath": "Author/Renamed",
+    "files": [
+      "<tmp>/Author/Renamed/01.mp3"
+    ],
+    "events": [
+      "libraryItemEmitter:item_updated"
+    ]
+  },
+  "ScannerOrchestration (characterization) > LibraryItemScanner > scanLibraryItem: files removed from disk, then the whole item folder removed": {
+    "filesSwapped": "UPDATED",
+    "folderGone": "UPDATED",
+    "isMissing": true,
+    "libraryFiles": 0,
+    "logsInfo": []
+  },
+  "ScannerOrchestration (characterization) > LibraryItemScanner > scanLibraryItem: up to date, updated (file added), item not found, library not found": {
+    "upToDate": "UPTODATE",
+    "updated": "UPDATED",
+    "unknown": "NOTHING",
+    "noLibrary": "NOTHING",
+    "eventsUpToDate": [],
+    "eventsUpdated": [
+      "libraryItemEmitter:item_updated"
+    ],
+    "errors": [
+      "[LibraryItemScanner] Library item not found \"<uuid-1>\"",
+      "[LibraryItemScanner] Library \"null\" not found for library item \"<uuid-2>\""
+    ],
+    "numTracks": 2
+  },
+  "ScannerOrchestration (characterization) > LibraryItemScanner > scanPotentialNewLibraryItem: a folder with files becomes an item, an empty folder is ignored": {
+    "created": {
+      "relPath": "New Author/New Book",
+      "title": "New Book",
+      "authors": [
+        "New Author"
+      ]
+    },
+    "empty": null,
+    "standaloneAgain": "Standalone.mp3",
+    "events": [
+      "emitter:author_added"
+    ],
+    "info": [
+      "[LibraryItemScanner] Library item at path \"<tmp>/Empty Folder\" has no files - ignoring"
+    ]
+  },
+  "ScannerOrchestration (characterization) > LibraryScan and ScanLogger (no scan) > LibraryScan.saveLog fails when <metadata>/logs does not exist (it creates only logs/scans, not parents)": {
+    "error": "ENOENT"
+  },
+  "ScannerOrchestration (characterization) > LibraryScan and ScanLogger (no scan) > LibraryScan.saveLog writes <metadata>/logs/scans/<date>_<id>.txt as json lines": {
+    "files": [
+      "<date>_<id>.txt"
+    ],
+    "lines": 3,
+    "endsWithNewline": true,
+    "header": [
+      "id",
+      "type",
+      "library",
+      "startedAt",
+      "finishedAt",
+      "elapsed",
+      "resultsAdded",
+      "resultsUpdated",
+      "resultsMissing"
+    ],
+    "logKeys": [
+      "timestamp",
+      "message",
+      "levelName",
+      "level"
+    ],
+    "message": "hello"
+  },
+  "ScannerOrchestration (characterization) > LibraryScan and ScanLogger (no scan) > LibraryScan: ids, counters, result strings, toJSON and logs": {
+    "before": {
+      "id": null,
+      "type": null,
+      "stats": "0 Added | 0 Updated | 0 Missing"
+    },
+    "getters": {
+      "libraryId": "lib-1",
+      "libraryName": "My Library",
+      "libraryMediaType": "book",
+      "libraryFolders": [
+        {
+          "path": "/x"
+        }
+      ],
+      "type": "scan",
+      "idLooksLikeUuid": true
+    },
+    "resultStats": "2 Added | 1 Updated | 3 Missing",
+    "scanResults": {
+      "added": 2,
+      "updated": 1,
+      "missing": 3,
+      "elapsed": 65000,
+      "text": "2 added, 1 updated, 3 missing (1 min)"
+    },
+    "noChanges": {
+      "added": 0,
+      "updated": 0,
+      "missing": 0,
+      "elapsed": 2000,
+      "text": "No changes needed (2 sec)"
+    },
+    "noChangesType": "match",
+    "json": {
+      "id": "<id>",
+      "type": "scan",
+      "library": {
+        "id": "lib-1",
+        "name": "My Library"
+      },
+      "startedAt": "<t>",
+      "finishedAt": "<t>",
+      "elapsed": 65000,
+      "resultsAdded": 2,
+      "resultsUpdated": 1,
+      "resultsMissing": 3
+    },
+    "logs": [
+      {
+        "levelName": "INFO",
+        "level": 2,
+        "message": "first second 3",
+        "hasTimestamp": true
+      },
+      {
+        "levelName": "WARN",
+        "level": 3,
+        "message": "warning",
+        "hasTimestamp": true
+      }
+    ],
+    "logFilenameShape": "<date>_<id>.txt"
+  },
+  "ScannerOrchestration (characterization) > LibraryScan and ScanLogger (no scan) > ScanLogger: same logging API without a library": {
+    "before": {
+      "id": null,
+      "type": null,
+      "name": null,
+      "authorsNumBooksChangedIds": []
+    },
+    "json": {
+      "id": "<id>",
+      "type": "libraryItem",
+      "name": "Some/Item",
+      "startedAt": "<t>",
+      "finishedAt": "<t>",
+      "elapsed": 0
+    },
+    "logs": [
+      "DEBUG: a b",
+      "ERROR: c"
+    ],
+    "hasElapsed": true
+  },
+  "ScannerOrchestration (characterization) > LibraryScanner.scan: a whole library scan > POST /api/libraries/:id/scan answers first, then scans; ?force=1 forces; non-admins are refused": {
+    "refused": 403,
+    "accepted": 200,
+    "forced": 200,
+    "items": [
+      "Author/Book One",
+      "Author/Book Two",
+      "Standalone.mp3"
+    ],
+    "tasks": [
+      {
+        "event": "task_started",
+        "action": "library-scan"
+      },
+      {
+        "event": "task_finished",
+        "action": "library-scan",
+        "results": {
+          "added": 3,
+          "updated": 0,
+          "missing": 0,
+          "elapsed": "<elapsed>",
+          "text": "3 added (<elapsed>)"
+        }
+      },
+      {
+        "event": "task_started",
+        "action": "library-scan"
+      },
+      {
+        "event": "task_finished",
+        "action": "library-scan",
+        "results": {
+          "added": 0,
+          "updated": 0,
+          "missing": 0,
+          "elapsed": "<elapsed>",
+          "text": "No changes needed (<elapsed>)"
+        }
+      }
+    ]
+  },
+  "ScannerOrchestration (characterization) > LibraryScanner.scan: a whole library scan > a changed library metadataPrecedence forces a rescan on the next scan and is stored as lastScanMetadataPrecedence": {
+    "first": {
+      "lastScanSet": true,
+      "lastScanVersion": "2.37.0",
+      "lastScanMetadataPrecedence": [
+        "folderStructure",
+        "audioMetatags",
+        "nfoFile",
+        "txtFiles",
+        "opfFile",
+        "absMetadata"
+      ]
+    },
+    "second": {
+      "lastScanSet": true,
+      "lastScanVersion": "2.37.0",
+      "lastScanMetadataPrecedence": [
+        "audioMetatags",
+        "folderStructure"
+      ]
+    },
+    "info": [
+      "[LibraryScanner] Library metadata precedence changed since last scan. From [folderStructure,audioMetatags,nfoFile,txtFiles,opfFile,absMetadata] to [audioMetatags,folderStructure]",
+      "[LibraryScanner] Starting (forced) library scan <uuid-1> for Books",
+      "[LibraryScanner] Library scan \"<uuid-1>\" completed <elapsed> | 0 Added | 1 Updated | 0 Missing",
+      "[LibraryScan] Scan log saved \"<tmp>/metadata/logs/scans/<date>_<uuid-1>.txt\""
+    ],
+    "titleNow": "Book One"
+  },
+  "ScannerOrchestration (characterization) > LibraryScanner.scan: a whole library scan > a library already scanning is refused": {
+    "error": [
+      "[LibraryScanner] Already scanning <library>"
+    ],
+    "tasks": [],
+    "items": 0
+  },
+  "ScannerOrchestration (characterization) > LibraryScanner.scan: a whole library scan > a library without folders is not scanned": {
+    "warn": [
+      "[LibraryScanner] Library has no folders to scan \"Books\""
+    ],
+    "tasks": [],
+    "scanning": []
+  },
+  "ScannerOrchestration (characterization) > LibraryScanner.scan: a whole library scan > a missing item that returns is found again; an item moved with the same inode keeps its row": {
+    "second": {
+      "added": 0,
+      "updated": 2,
+      "missing": 0,
+      "logs": [
+        "DEBUG: \"Hidden Away\" Getting metadata with precedence [folderStructure, audioMetatags, nfoFile, txtFiles, opfFile, absMetadata]",
+        "DEBUG: \"Renamed One\" Getting metadata with precedence [folderStructure, audioMetatags, nfoFile, txtFiles, opfFile, absMetadata]",
+        "DEBUG: Library file for library item \"<tmp>/Author/Renamed One\" key \"path\" changed from \"<tmp>/Author/Book One/01.mp3\" to \"<tmp>/Author/Renamed One/01.mp3\"",
+        "DEBUG: Library file for library item \"<tmp>/Hidden Away\" key \"path\" changed from \"<tmp>/Author/Book Two/01.mp3\" to \"<tmp>/Hidden Away/01.mp3\"",
+        "DEBUG: Library item \"Author/Book One\" key \"path\" changed from \"<tmp>/Author/Book One\" to \"<tmp>/Author/Renamed One\"",
+        "DEBUG: Library item \"Author/Book One\" key \"relPath\" changed from \"Author/Book One\" to \"Author/Renamed One\"",
+        "DEBUG: Library item \"Author/Book Two\" key \"path\" changed from \"<tmp>/Author/Book Two\" to \"<tmp>/Hidden Away\"",
+        "DEBUG: Library item \"Author/Book Two\" key \"relPath\" changed from \"Author/Book Two\" to \"Hidden Away\"",
+        "DEBUG: Library item \"Standalone.mp3\" is up-to-date",
+        "DEBUG: Success saving abmetadata to \"<tmp>/metadata/items/<item:Author/Book Two>/metadata.json\"",
+        "DEBUG: Success saving abmetadata to \"<tmp>/metadata/items/<item:Author/Renamed One>/metadata.json\"",
+        "INFO: 3 item data found in folder \"<tmp>\"",
+        "INFO: Found metadata file \"<tmp>/metadata/items/<item:Author/Book Two>/metadata.json\"",
+        "INFO: Found metadata file \"<tmp>/metadata/items/<item:Author/Renamed One>/metadata.json\"",
+        "INFO: Library file with path \"<tmp>/Author/Book One/01.mp3\" not found, but found file with matching inode value \"<ino>\" at path \"<tmp>/Author/Renamed One/01.mp3\"",
+        "INFO: Library file with path \"<tmp>/Author/Book Two/01.mp3\" not found, but found file with matching inode value \"<ino>\" at path \"<tmp>/Hidden Away/01.mp3\"",
+        "INFO: Library item with path \"<tmp>/Author/Book One\" was not found, but library item inode \"<ino>\" was found at path \"<tmp>/Author/Renamed One\"",
+        "INFO: Library item with path \"<tmp>/Author/Book Two\" was not found, but library item inode \"<ino>\" was found at path \"<tmp>/Hidden Away\"",
+        "INFO: Scan completed. 0 Added | 2 Updated | 0 Missing"
+      ]
+    },
+    "afterSecond": [
+      {
+        "relPath": "Author/Renamed One",
+        "path": "<tmp>/Author/Renamed One",
+        "isMissing": false
+      },
+      {
+        "relPath": "Hidden Away",
+        "path": "<tmp>/Hidden Away",
+        "isMissing": false
+      },
+      {
+        "relPath": "Standalone.mp3",
+        "path": "<tmp>/Standalone.mp3",
+        "isMissing": false
+      }
+    ],
+    "third": {
+      "added": 0,
+      "updated": 1,
+      "missing": 0,
+      "logs": [
+        "DEBUG: \"Book Two\" Getting metadata with precedence [folderStructure, audioMetatags, nfoFile, txtFiles, opfFile, absMetadata]",
+        "DEBUG: Library file for library item \"<tmp>/Author/Book Two\" key \"path\" changed from \"<tmp>/Hidden Away/01.mp3\" to \"<tmp>/Author/Book Two/01.mp3\"",
+        "DEBUG: Library item \"Author/Renamed One\" is up-to-date",
+        "DEBUG: Library item \"Hidden Away\" key \"path\" changed from \"<tmp>/Hidden Away\" to \"<tmp>/Author/Book Two\"",
+        "DEBUG: Library item \"Hidden Away\" key \"relPath\" changed from \"Hidden Away\" to \"Author/Book Two\"",
+        "DEBUG: Library item \"Standalone.mp3\" is up-to-date",
+        "DEBUG: Success saving abmetadata to \"<tmp>/metadata/items/<item:Author/Book Two>/metadata.json\"",
+        "INFO: 3 item data found in folder \"<tmp>\"",
+        "INFO: Found metadata file \"<tmp>/metadata/items/<item:Author/Book Two>/metadata.json\"",
+        "INFO: Library file with path \"<tmp>/Hidden Away/01.mp3\" not found, but found file with matching inode value \"<ino>\" at path \"<tmp>/Author/Book Two/01.mp3\"",
+        "INFO: Library item with path \"<tmp>/Hidden Away\" was not found, but library item inode \"<ino>\" was found at path \"<tmp>/Author/Book Two\"",
+        "INFO: Scan completed. 0 Added | 1 Updated | 0 Missing"
+      ]
+    },
+    "final": [
+      {
+        "relPath": "Author/Book Two",
+        "isMissing": false
+      },
+      {
+        "relPath": "Author/Renamed One",
+        "isMissing": false
+      },
+      {
+        "relPath": "Standalone.mp3",
+        "isMissing": false
+      }
+    ],
+    "sameRows": true,
+    "count": 3
+  },
+  "ScannerOrchestration (characterization) > LibraryScanner.scan: a whole library scan > cancelLibraryScan stops a running scan: no lastScan update and a \"canceled by user\" task": {
+    "flagsBefore": {
+      "scanning": true
+    },
+    "tasks": [
+      {
+        "event": "task_started",
+        "task": {
+          "id": "<uuid-1>",
+          "action": "library-scan",
+          "data": {
+            "libraryId": "<library>",
+            "libraryName": "Books",
+            "libraryMediaType": "book"
+          },
+          "title": "Scanning \"Books\" library",
+          "titleKey": "MessageTaskScanningLibrary",
+          "titleSubs": [
+            "Books"
+          ],
+          "description": null,
+          "descriptionKey": null,
+          "descriptionSubs": null,
+          "error": null,
+          "errorKey": null,
+          "errorSubs": null,
+          "showSuccess": true,
+          "isFailed": false,
+          "isFinished": false,
+          "startedAt": "<timestamp>",
+          "finishedAt": null
+        }
+      },
+      {
+        "event": "task_finished",
+        "task": {
+          "id": "<uuid-1>",
+          "action": "library-scan",
+          "data": {
+            "libraryId": "<library>",
+            "libraryName": "Books",
+            "libraryMediaType": "book",
+            "scanResults": {
+              "added": 0,
+              "updated": 0,
+              "missing": 0,
+              "elapsed": "<elapsed>",
+              "text": "No changes needed (<elapsed>)"
+            }
+          },
+          "title": "Scanning \"Books\" library",
+          "titleKey": "MessageTaskScanningLibrary",
+          "titleSubs": [
+            "Books"
+          ],
+          "description": "Task canceled by user",
+          "descriptionKey": "MessageTaskCanceledByUser",
+          "descriptionSubs": null,
+          "error": null,
+          "errorKey": null,
+          "errorSubs": null,
+          "showSuccess": true,
+          "isFailed": false,
+          "isFinished": true,
+          "startedAt": "<timestamp>",
+          "finishedAt": "<timestamp>"
+        }
+      }
+    ],
+    "library": {
+      "lastScanSet": false,
+      "lastScanVersion": null
+    },
+    "items": 0,
+    "scanningAfter": [],
+    "cancelFlagsAfter": {},
+    "info": [
+      "[LibraryScanner] Library metadata precedence changed since last scan. From [Unset] to [folderStructure,audioMetatags,nfoFile,txtFiles,opfFile,absMetadata]",
+      "[LibraryScanner] Starting (forced) library scan <uuid-2> for Books",
+      "[LibraryScanner] Library scan \"<uuid-2>\" canceled <elapsed> | 0 Added | 0 Updated | 0 Missing",
+      "[LibraryScan] Scan log saved \"<tmp>/metadata/logs/scans/<date>_<uuid-2>.txt\""
+    ]
+  },
+  "ScannerOrchestration (characterization) > LibraryScanner.scan: a whole library scan > first scan: result counts, task events, library lastScan, items added in chunks and events": {
+    "tasks": [
+      {
+        "event": "task_started",
+        "task": {
+          "id": "<uuid-1>",
+          "action": "library-scan",
+          "data": {
+            "libraryId": "<library>",
+            "libraryName": "Books",
+            "libraryMediaType": "book"
+          },
+          "title": "Scanning \"Books\" library",
+          "titleKey": "MessageTaskScanningLibrary",
+          "titleSubs": [
+            "Books"
+          ],
+          "description": null,
+          "descriptionKey": null,
+          "descriptionSubs": null,
+          "error": null,
+          "errorKey": null,
+          "errorSubs": null,
+          "showSuccess": true,
+          "isFailed": false,
+          "isFinished": false,
+          "startedAt": "<timestamp>",
+          "finishedAt": null
+        }
+      },
+      {
+        "event": "task_finished",
+        "task": {
+          "id": "<uuid-1>",
+          "action": "library-scan",
+          "data": {
+            "libraryId": "<library>",
+            "libraryName": "Books",
+            "libraryMediaType": "book",
+            "scanResults": {
+              "added": 3,
+              "updated": 0,
+              "missing": 0,
+              "elapsed": "<elapsed>",
+              "text": "3 added (<elapsed>)"
+            }
+          },
+          "title": "Scanning \"Books\" library",
+          "titleKey": "MessageTaskScanningLibrary",
+          "titleSubs": [
+            "Books"
+          ],
+          "description": null,
+          "descriptionKey": null,
+          "descriptionSubs": null,
+          "error": null,
+          "errorKey": null,
+          "errorSubs": null,
+          "showSuccess": true,
+          "isFailed": false,
+          "isFinished": true,
+          "startedAt": "<timestamp>",
+          "finishedAt": "<timestamp>"
+        }
+      }
+    ],
+    "library": {
+      "lastScanSet": true,
+      "lastScanVersion": "2.37.0",
+      "lastScanMetadataPrecedence": [
+        "folderStructure",
+        "audioMetatags",
+        "nfoFile",
+        "txtFiles",
+        "opfFile",
+        "absMetadata"
+      ]
+    },
+    "items": [
+      "Author/Book One",
+      "Author/Book Two",
+      "Standalone.mp3"
+    ],
+    "info": [
+      "[LibraryScanner] Library metadata precedence changed since last scan. From [Unset] to [folderStructure,audioMetatags,nfoFile,txtFiles,opfFile,absMetadata]",
+      "[LibraryScanner] Starting (forced) library scan <uuid-2> for Books",
+      "[LibraryScanner] Library scan \"<uuid-2>\" completed <elapsed> | 3 Added | 0 Updated | 0 Missing",
+      "[LibraryScan] Scan log saved \"<tmp>/metadata/logs/scans/<date>_<uuid-2>.txt\""
+    ],
+    "emitted": [
+      "emitter:author_added",
+      "emitter:authors_num_books_updated",
+      "libraryItemsEmitter:items_added"
+    ]
+  },
+  "ScannerOrchestration (characterization) > LibraryScanner.scan: a whole library scan > forced rescan re-reads metadata even when files did not change": {
+    "tasks": [
+      {
+        "event": "task_started",
+        "task": {
+          "id": "<uuid-1>",
+          "action": "library-scan",
+          "data": {
+            "libraryId": "<library>",
+            "libraryName": "Books",
+            "libraryMediaType": "book"
+          },
+          "title": "Scanning \"Books\" library",
+          "titleKey": "MessageTaskScanningLibrary",
+          "titleSubs": [
+            "Books"
+          ],
+          "description": null,
+          "descriptionKey": null,
+          "descriptionSubs": null,
+          "error": null,
+          "errorKey": null,
+          "errorSubs": null,
+          "showSuccess": true,
+          "isFailed": false,
+          "isFinished": false,
+          "startedAt": "<timestamp>",
+          "finishedAt": null
+        }
+      },
+      {
+        "event": "task_finished",
+        "task": {
+          "id": "<uuid-1>",
+          "action": "library-scan",
+          "data": {
+            "libraryId": "<library>",
+            "libraryName": "Books",
+            "libraryMediaType": "book",
+            "scanResults": {
+              "added": 0,
+              "updated": 0,
+              "missing": 0,
+              "elapsed": "<elapsed>",
+              "text": "No changes needed (<elapsed>)"
+            }
+          },
+          "title": "Scanning \"Books\" library",
+          "titleKey": "MessageTaskScanningLibrary",
+          "titleSubs": [
+            "Books"
+          ],
+          "description": null,
+          "descriptionKey": null,
+          "descriptionSubs": null,
+          "error": null,
+          "errorKey": null,
+          "errorSubs": null,
+          "showSuccess": true,
+          "isFailed": false,
+          "isFinished": true,
+          "startedAt": "<timestamp>",
+          "finishedAt": "<timestamp>"
+        }
+      }
+    ],
+    "info": [
+      "[LibraryScanner] Starting (forced) library scan <uuid-2> for Books",
+      "[LibraryScanner] Library scan \"<uuid-2>\" completed <elapsed> | 0 Added | 0 Updated | 0 Missing",
+      "[LibraryScan] Scan log saved \"<tmp>/metadata/logs/scans/<date>_<uuid-2>.txt\""
+    ]
+  },
+  "ScannerOrchestration (characterization) > LibraryScanner.scan: a whole library scan > podcast library scan": {
+    "tasks": [
+      {
+        "event": "task_started",
+        "task": {
+          "id": "<uuid-1>",
+          "action": "library-scan",
+          "data": {
+            "libraryId": "<library>",
+            "libraryName": "Podcasts",
+            "libraryMediaType": "podcast"
+          },
+          "title": "Scanning \"Podcasts\" library",
+          "titleKey": "MessageTaskScanningLibrary",
+          "titleSubs": [
+            "Podcasts"
+          ],
+          "description": null,
+          "descriptionKey": null,
+          "descriptionSubs": null,
+          "error": null,
+          "errorKey": null,
+          "errorSubs": null,
+          "showSuccess": true,
+          "isFailed": false,
+          "isFinished": false,
+          "startedAt": "<timestamp>",
+          "finishedAt": null
+        }
+      },
+      {
+        "event": "task_finished",
+        "task": {
+          "id": "<uuid-1>",
+          "action": "library-scan",
+          "data": {
+            "libraryId": "<library>",
+            "libraryName": "Podcasts",
+            "libraryMediaType": "podcast",
+            "scanResults": {
+              "added": 2,
+              "updated": 0,
+              "missing": 0,
+              "elapsed": "<elapsed>",
+              "text": "2 added (<elapsed>)"
+            }
+          },
+          "title": "Scanning \"Podcasts\" library",
+          "titleKey": "MessageTaskScanningLibrary",
+          "titleSubs": [
+            "Podcasts"
+          ],
+          "description": null,
+          "descriptionKey": null,
+          "descriptionSubs": null,
+          "error": null,
+          "errorKey": null,
+          "errorSubs": null,
+          "showSuccess": true,
+          "isFailed": false,
+          "isFinished": true,
+          "startedAt": "<timestamp>",
+          "finishedAt": "<timestamp>"
+        }
+      }
+    ],
+    "library": {
+      "lastScanSet": true,
+      "lastScanVersion": "2.37.0"
+    },
+    "items": [
+      "Pod One: 1",
+      "Pod Two: 1"
+    ]
+  },
+  "ScannerOrchestration (characterization) > LibraryScanner.scan: a whole library scan > scan after changes: one added, one updated, one missing": {
+    "tasks": [
+      {
+        "event": "task_started",
+        "task": {
+          "id": "<uuid-1>",
+          "action": "library-scan",
+          "data": {
+            "libraryId": "<library>",
+            "libraryName": "Books",
+            "libraryMediaType": "book"
+          },
+          "title": "Scanning \"Books\" library",
+          "titleKey": "MessageTaskScanningLibrary",
+          "titleSubs": [
+            "Books"
+          ],
+          "description": null,
+          "descriptionKey": null,
+          "descriptionSubs": null,
+          "error": null,
+          "errorKey": null,
+          "errorSubs": null,
+          "showSuccess": true,
+          "isFailed": false,
+          "isFinished": false,
+          "startedAt": "<timestamp>",
+          "finishedAt": null
+        }
+      },
+      {
+        "event": "task_finished",
+        "task": {
+          "id": "<uuid-1>",
+          "action": "library-scan",
+          "data": {
+            "libraryId": "<library>",
+            "libraryName": "Books",
+            "libraryMediaType": "book",
+            "scanResults": {
+              "added": 1,
+              "updated": 1,
+              "missing": 1,
+              "elapsed": "<elapsed>",
+              "text": "1 added, 1 updated, 1 missing (<elapsed>)"
+            }
+          },
+          "title": "Scanning \"Books\" library",
+          "titleKey": "MessageTaskScanningLibrary",
+          "titleSubs": [
+            "Books"
+          ],
+          "description": null,
+          "descriptionKey": null,
+          "descriptionSubs": null,
+          "error": null,
+          "errorKey": null,
+          "errorSubs": null,
+          "showSuccess": true,
+          "isFailed": false,
+          "isFinished": true,
+          "startedAt": "<timestamp>",
+          "finishedAt": "<timestamp>"
+        }
+      }
+    ],
+    "items": [
+      {
+        "relPath": "Author/Book One",
+        "isMissing": false,
+        "numTracks": 2
+      },
+      {
+        "relPath": "Author/Book Three",
+        "isMissing": false,
+        "numTracks": 1
+      },
+      {
+        "relPath": "Author/Book Two",
+        "isMissing": true,
+        "numTracks": 1
+      },
+      {
+        "relPath": "Standalone.mp3",
+        "isMissing": false,
+        "numTracks": 1
+      }
+    ],
+    "emitted": [
+      "emitter:authors_num_books_updated:",
+      "libraryItemsEmitter:items_added:1",
+      "libraryItemsEmitter:items_updated:2"
+    ]
+  },
+  "ScannerOrchestration (characterization) > LibraryScanner.scan: a whole library scan > scanFolder: a library folder that no longer exists makes all its items missing": {
+    "second": {
+      "added": 0,
+      "updated": 0,
+      "missing": 3
+    },
+    "error": [
+      "[scandir] Invalid folder path does not exist \"<tmp>\""
+    ],
+    "items": [
+      {
+        "relPath": "Author/Book One",
+        "isMissing": true
+      },
+      {
+        "relPath": "Author/Book Two",
+        "isMissing": true
+      },
+      {
+        "relPath": "Standalone.mp3",
+        "isMissing": true
+      }
+    ]
+  },
+  "ScannerOrchestration (characterization) > LibraryScanner.scan: a whole library scan > second scan with nothing changed: no changes needed": {
+    "tasks": [
+      {
+        "event": "task_started",
+        "task": {
+          "id": "<uuid-1>",
+          "action": "library-scan",
+          "data": {
+            "libraryId": "<library>",
+            "libraryName": "Books",
+            "libraryMediaType": "book"
+          },
+          "title": "Scanning \"Books\" library",
+          "titleKey": "MessageTaskScanningLibrary",
+          "titleSubs": [
+            "Books"
+          ],
+          "description": null,
+          "descriptionKey": null,
+          "descriptionSubs": null,
+          "error": null,
+          "errorKey": null,
+          "errorSubs": null,
+          "showSuccess": true,
+          "isFailed": false,
+          "isFinished": false,
+          "startedAt": "<timestamp>",
+          "finishedAt": null
+        }
+      },
+      {
+        "event": "task_finished",
+        "task": {
+          "id": "<uuid-1>",
+          "action": "library-scan",
+          "data": {
+            "libraryId": "<library>",
+            "libraryName": "Books",
+            "libraryMediaType": "book",
+            "scanResults": {
+              "added": 0,
+              "updated": 0,
+              "missing": 0,
+              "elapsed": "<elapsed>",
+              "text": "No changes needed (<elapsed>)"
+            }
+          },
+          "title": "Scanning \"Books\" library",
+          "titleKey": "MessageTaskScanningLibrary",
+          "titleSubs": [
+            "Books"
+          ],
+          "description": null,
+          "descriptionKey": null,
+          "descriptionSubs": null,
+          "error": null,
+          "errorKey": null,
+          "errorSubs": null,
+          "showSuccess": true,
+          "isFailed": false,
+          "isFinished": true,
+          "startedAt": "<timestamp>",
+          "finishedAt": "<timestamp>"
+        }
+      }
+    ],
+    "info": [
+      "[LibraryScanner] Starting library scan <uuid-2> for Books",
+      "[LibraryScanner] Library scan \"<uuid-2>\" completed <elapsed> | 0 Added | 0 Updated | 0 Missing",
+      "[LibraryScan] Scan log saved \"<tmp>/metadata/logs/scans/<date>_<uuid-2>.txt\""
+    ],
+    "emitted": []
+  },
+  "ScannerOrchestration (characterization) > LibraryScanner.scan: a whole library scan > setCancelLibraryScan does nothing when the library is not scanning": {
+    "flags": {}
+  },
+  "ScannerOrchestration (characterization) > LibraryScanner.scan: a whole library scan > the scan log is saved under <metadata>/logs/scans after the scan": {
+    "header": {
+      "type": "scan",
+      "resultsAdded": 3,
+      "resultsUpdated": 0,
+      "resultsMissing": 0,
+      "libraryName": "Books"
+    },
+    "messages": [
+      "DEBUG: \"Book One\" Getting metadata with precedence [folderStructure, audioMetatags, nfoFile, txtFiles, opfFile, absMetadata]",
+      "DEBUG: \"Book Two\" Getting metadata with precedence [folderStructure, audioMetatags, nfoFile, txtFiles, opfFile, absMetadata]",
+      "DEBUG: \"Standalone\" Getting metadata with precedence [folderStructure, audioMetatags, nfoFile, txtFiles, opfFile, absMetadata]",
+      "DEBUG: Success saving abmetadata to \"<tmp>/metadata/items/<item:Author/Book One>/metadata.json\"",
+      "DEBUG: Success saving abmetadata to \"<tmp>/metadata/items/<item:Author/Book Two>/metadata.json\"",
+      "DEBUG: Success saving abmetadata to \"<tmp>/metadata/items/<item:Standalone.mp3>/metadata.json\"",
+      "INFO: 3 item data found in folder \"<tmp>\"",
+      "INFO: Created new library item \"Author/Book One\" with id \"<item:Author/Book One>\"",
+      "INFO: Created new library item \"Author/Book Two\" with id \"<item:Author/Book Two>\"",
+      "INFO: Created new library item \"Standalone.mp3\" with id \"<item:Standalone.mp3>\"",
+      "INFO: Scan completed. 3 Added | 0 Updated | 0 Missing"
+    ]
+  },
+  "ScannerOrchestration (characterization) > LibraryScanner.scanFilesChanged (the watcher path) > a cover added to a folder with no item does not create an item": {
+    "result": {
+      "scanResults": {
+        "added": 0,
+        "updated": 0,
+        "removed": 0,
+        "text": "No changes needed",
+        "elapsed": "<elapsed>"
+      },
+      "isFinished": true,
+      "events": [
+        "emitter:task_finished"
+      ]
+    },
+    "items": [
+      {
+        "relPath": "Author/Book One",
+        "isMissing": false,
+        "isFile": false,
+        "numTracks": 1,
+        "files": [
+          "01.mp3"
+        ]
+      },
+      {
+        "relPath": "Author/Book Two",
+        "isMissing": false,
+        "isFile": false,
+        "numTracks": 1,
+        "files": [
+          "01.mp3"
+        ]
+      }
+    ]
+  },
+  "ScannerOrchestration (characterization) > LibraryScanner.scanFilesChanged (the watcher path) > a file added to, modified in and removed from an existing item": {
+    "added": {
+      "scanResults": {
+        "added": 0,
+        "updated": 1,
+        "removed": 0,
+        "text": "1 updated",
+        "elapsed": "<elapsed>"
+      },
+      "isFinished": true,
+      "events": [
+        "emitter:task_finished",
+        "libraryItemEmitter:item_updated"
+      ]
+    },
+    "afterAdd": [
+      {
+        "relPath": "Author/Book One",
+        "isMissing": false,
+        "isFile": false,
+        "numTracks": 2,
+        "files": [
+          "01.mp3",
+          "02.mp3"
+        ]
+      },
+      {
+        "relPath": "Author/Book Two",
+        "isMissing": false,
+        "isFile": false,
+        "numTracks": 1,
+        "files": [
+          "01.mp3"
+        ]
+      }
+    ],
+    "textAdded": {
+      "scanResults": {
+        "added": 0,
+        "updated": 1,
+        "removed": 0,
+        "text": "1 updated",
+        "elapsed": "<elapsed>"
+      },
+      "isFinished": true,
+      "events": [
+        "emitter:task_finished",
+        "libraryItemEmitter:item_updated"
+      ]
+    },
+    "removed": {
+      "scanResults": {
+        "added": 0,
+        "updated": 1,
+        "removed": 0,
+        "text": "1 updated",
+        "elapsed": "<elapsed>"
+      },
+      "isFinished": true,
+      "events": [
+        "emitter:task_finished",
+        "libraryItemEmitter:item_updated"
+      ]
+    },
+    "final": [
+      {
+        "relPath": "Author/Book One",
+        "isMissing": false,
+        "isFile": false,
+        "numTracks": 1,
+        "files": [
+          "02.mp3",
+          "desc.txt"
+        ]
+      },
+      {
+        "relPath": "Author/Book Two",
+        "isMissing": false,
+        "isFile": false,
+        "numTracks": 1,
+        "files": [
+          "01.mp3"
+        ]
+      }
+    ]
+  },
+  "ScannerOrchestration (characterization) > LibraryScanner.scanFilesChanged (the watcher path) > a new item folder is added": {
+    "result": {
+      "scanResults": {
+        "added": 1,
+        "updated": 0,
+        "removed": 0,
+        "text": "1 added",
+        "elapsed": "<elapsed>"
+      },
+      "isFinished": true,
+      "events": [
+        "emitter:authors_num_books_updated",
+        "emitter:task_finished",
+        "libraryItemEmitter:item_added"
+      ]
+    },
+    "items": [
+      {
+        "relPath": "Author/Book One",
+        "isMissing": false,
+        "isFile": false,
+        "numTracks": 1,
+        "files": [
+          "01.mp3"
+        ]
+      },
+      {
+        "relPath": "Author/Book Three",
+        "isMissing": false,
+        "isFile": false,
+        "numTracks": 1,
+        "files": [
+          "01.mp3",
+          "cover.jpg"
+        ]
+      },
+      {
+        "relPath": "Author/Book Two",
+        "isMissing": false,
+        "isFile": false,
+        "numTracks": 1,
+        "files": [
+          "01.mp3"
+        ]
+      }
+    ],
+    "debug": [
+      "[LibraryScanner] Folder update group must be a new item \"Author/Book Three\" in library \"Books\"",
+      "[LibraryScanner] Folder scan results {\"Author/Book Three\":1}"
+    ]
+  },
+  "ScannerOrchestration (characterization) > LibraryScanner.scanFilesChanged (the watcher path) > a root-level media file becomes an isFile item": {
+    "result": {
+      "scanResults": {
+        "added": 1,
+        "updated": 0,
+        "removed": 0,
+        "text": "1 added",
+        "elapsed": "<elapsed>"
+      },
+      "isFinished": true,
+      "events": [
+        "emitter:task_finished",
+        "libraryItemEmitter:item_added"
+      ]
+    },
+    "items": [
+      {
+        "relPath": "Author/Book One",
+        "isMissing": false,
+        "isFile": false,
+        "numTracks": 1,
+        "files": [
+          "01.mp3"
+        ]
+      },
+      {
+        "relPath": "Author/Book Two",
+        "isMissing": false,
+        "isFile": false,
+        "numTracks": 1,
+        "files": [
+          "01.mp3"
+        ]
+      },
+      {
+        "relPath": "Loose Book.mp3",
+        "isMissing": false,
+        "isFile": true,
+        "numTracks": 1,
+        "files": [
+          "Loose Book.mp3"
+        ]
+      }
+    ]
+  },
+  "ScannerOrchestration (characterization) > LibraryScanner.scanFilesChanged (the watcher path) > an empty or missing update list returns immediately; an unknown library is skipped": {
+    "empty": null,
+    "nothing": null,
+    "taskTouched": false,
+    "unknown": {
+      "scanResults": {
+        "added": 0,
+        "updated": 0,
+        "removed": 0,
+        "text": "No changes needed",
+        "elapsed": "<elapsed>"
+      },
+      "isFinished": true,
+      "events": [
+        "emitter:task_finished"
+      ]
+    },
+    "errors": [
+      "[LibraryScanner] Library \"<uuid-1>\" not found in files changed <uuid-1>"
+    ]
+  },
+  "ScannerOrchestration (characterization) > LibraryScanner.scanFilesChanged (the watcher path) > an item folder deleted from disk is marked missing": {
+    "result": {
+      "scanResults": {
+        "added": 0,
+        "updated": 0,
+        "removed": 1,
+        "text": "1 missing",
+        "elapsed": "<elapsed>"
+      },
+      "isFinished": true,
+      "events": [
+        "emitter:task_finished",
+        "libraryItemEmitter:item_updated"
+      ]
+    },
+    "items": [
+      {
+        "relPath": "Author/Book One",
+        "isMissing": false,
+        "isFile": false,
+        "numTracks": 1,
+        "files": [
+          "01.mp3"
+        ]
+      },
+      {
+        "relPath": "Author/Book Two",
+        "isMissing": true,
+        "isFile": false,
+        "numTracks": 1,
+        "files": [
+          "01.mp3"
+        ]
+      }
+    ],
+    "info": [
+      "[LibraryScanner] Scanning file update group and library item was deleted \"Book Two\" - marking as missing"
+    ]
+  },
+  "ScannerOrchestration (characterization) > LibraryScanner.scanFilesChanged (the watcher path) > an item folder moved (deleted + added with the same inode) keeps its row": {
+    "result": {
+      "scanResults": {
+        "added": 0,
+        "updated": 1,
+        "removed": 1,
+        "text": "1 updated, 1 missing",
+        "elapsed": "<elapsed>"
+      },
+      "isFinished": true,
+      "events": [
+        "emitter:task_finished",
+        "libraryItemEmitter:item_updated",
+        "libraryItemEmitter:item_updated"
+      ]
+    },
+    "items": [
+      {
+        "relPath": "Author/Book One",
+        "isMissing": false,
+        "isFile": false,
+        "numTracks": 1,
+        "files": [
+          "01.mp3"
+        ]
+      },
+      {
+        "relPath": "Moved Book",
+        "isMissing": false,
+        "isFile": false,
+        "numTracks": 1,
+        "files": [
+          "01.mp3"
+        ]
+      }
+    ],
+    "sameRow": true,
+    "count": 2
+  },
+  "ScannerOrchestration (characterization) > LibraryScanner.scanFilesChanged (the watcher path) > an update for a path that does not exist (deleted before the scan ran) is ignored": {
+    "result": {
+      "scanResults": {
+        "added": 0,
+        "updated": 0,
+        "removed": 0,
+        "text": "No changes needed",
+        "elapsed": "<elapsed>"
+      },
+      "isFinished": true,
+      "events": [
+        "emitter:task_finished"
+      ]
+    },
+    "items": [
+      {
+        "relPath": "Author/Book One",
+        "isMissing": false,
+        "isFile": false,
+        "numTracks": 1,
+        "files": [
+          "01.mp3"
+        ]
+      },
+      {
+        "relPath": "Author/Book Two",
+        "isMissing": false,
+        "isFile": false,
+        "numTracks": 1,
+        "files": [
+          "01.mp3"
+        ]
+      }
+    ],
+    "info": [
+      "[LibraryScanner] File update group \"Gone Author/Gone Book\" does not exist - ignoring"
+    ]
+  },
+  "ScannerOrchestration (characterization) > LibraryScanner.scanFilesChanged (the watcher path) > audiobooksOnly: updates without an audio file for an unknown folder are ignored": {
+    "result": {
+      "scanResults": {
+        "added": 0,
+        "updated": 0,
+        "removed": 0,
+        "text": "No changes needed",
+        "elapsed": "<elapsed>"
+      },
+      "isFinished": true,
+      "events": [
+        "emitter:task_finished"
+      ]
+    },
+    "items": [
+      {
+        "relPath": "Author/Book One",
+        "isMissing": false,
+        "isFile": false,
+        "numTracks": 1,
+        "files": [
+          "01.mp3"
+        ]
+      },
+      {
+        "relPath": "Author/Book Two",
+        "isMissing": false,
+        "isFile": false,
+        "numTracks": 1,
+        "files": [
+          "01.mp3"
+        ]
+      }
+    ]
+  },
+  "ScannerOrchestration (characterization) > LibraryScanner.scanFilesChanged (the watcher path) > changes that do not matter are ignored: hidden files, unknown extensions, non-media outside an item": {
+    "result": {
+      "scanResults": {
+        "added": 0,
+        "updated": 0,
+        "removed": 0,
+        "text": "No changes needed",
+        "elapsed": "<elapsed>"
+      },
+      "isFinished": true,
+      "events": [
+        "emitter:task_finished"
+      ]
+    },
+    "items": [
+      {
+        "relPath": "Author/Book One",
+        "isMissing": false,
+        "isFile": false,
+        "numTracks": 1,
+        "files": [
+          "01.mp3"
+        ]
+      },
+      {
+        "relPath": "Author/Book Two",
+        "isMissing": false,
+        "isFile": false,
+        "numTracks": 1,
+        "files": [
+          "01.mp3"
+        ]
+      }
+    ],
+    "info": [
+      "[LibraryScanner] No important changes to scan for in folder \"<folder>\""
+    ]
+  },
+  "ScannerOrchestration (characterization) > LibraryScanner.scanFilesChanged (the watcher path) > files in a parent directory of an existing item are ignored": {
+    "result": {
+      "scanResults": {
+        "added": 0,
+        "updated": 0,
+        "removed": 0,
+        "text": "No changes needed",
+        "elapsed": "<elapsed>"
+      },
+      "isFinished": true,
+      "events": [
+        "emitter:task_finished"
+      ]
+    },
+    "items": [
+      {
+        "relPath": "Author/Book One",
+        "isMissing": false,
+        "isFile": false,
+        "numTracks": 1,
+        "files": [
+          "01.mp3"
+        ]
+      },
+      {
+        "relPath": "Author/Book Two",
+        "isMissing": false,
+        "isFile": false,
+        "numTracks": 1,
+        "files": [
+          "01.mp3"
+        ]
+      }
+    ],
+    "warn": [
+      "[LibraryScanner] Files were modified in a parent directory of a library item \"<tmp>/Author/Book Two\" - ignoring"
+    ]
+  },
+  "ScannerOrchestration (characterization) > LibraryScanner.scanFilesChanged (the watcher path) > podcast library: an episode added to an existing podcast": {
+    "result": {
+      "scanResults": {
+        "added": 0,
+        "updated": 1,
+        "removed": 0,
+        "text": "1 updated",
+        "elapsed": "<elapsed>"
+      },
+      "isFinished": true,
+      "events": [
+        "emitter:task_finished",
+        "libraryItemEmitter:item_updated"
+      ]
+    },
+    "items": [
+      {
+        "relPath": "Pod",
+        "isMissing": false,
+        "isFile": false,
+        "numTracks": 2,
+        "files": [
+          "ep1.mp3",
+          "ep2.mp3"
+        ]
+      }
+    ]
+  },
+  "ScannerOrchestration (characterization) > LibraryScanner.scanFilesChanged (the watcher path) > scanFolderUpdates and getFileUpdatesGrouped": {
+    "groupedView": {
+      "<folder>": {
+        "libraryId": "<library>",
+        "files": [
+          "/a/1.mp3",
+          "/b/2.mp3"
+        ]
+      },
+      "other-folder": {
+        "libraryId": "<library>",
+        "files": [
+          "/c/3.mp3"
+        ]
+      }
+    },
+    "results": {
+      "Author/Book Four": "ADDED",
+      "Author/Book One": "UPTODATE",
+      "Nowhere/Nothing": "NOTHING"
+    },
+    "items": [
+      "Author/Book Four",
+      "Author/Book One",
+      "Author/Book Two"
+    ]
+  },
+  "ScannerOrchestration (characterization) > LibraryScanner.scanFilesChanged (the watcher path) > updates arriving while a watcher scan runs are queued and replayed afterwards": {
+    "queued": {
+      "queueLength": 1,
+      "itemsBefore": 2,
+      "taskFinished": false
+    },
+    "afterReplay": [
+      {
+        "relPath": "Author/Book One",
+        "isMissing": false,
+        "isFile": false,
+        "numTracks": 1,
+        "files": [
+          "01.mp3"
+        ]
+      },
+      {
+        "relPath": "Author/Book Three",
+        "isMissing": false,
+        "isFile": false,
+        "numTracks": 1,
+        "files": [
+          "01.mp3"
+        ]
+      },
+      {
+        "relPath": "Author/Book Two",
+        "isMissing": false,
+        "isFile": false,
+        "numTracks": 1,
+        "files": [
+          "01.mp3"
+        ]
+      }
+    ],
+    "scanningAfter": false,
+    "queueAfter": 0,
+    "debug": [
+      "[LibraryScanner] Already scanning files from watcher - file updates pushed to queue (size 1)"
+    ]
+  },
+  "ScannerOrchestration (characterization) > Scanner quick match (provider stubbed at axios) > matchLibraryItems (match all) > GET /api/libraries/:id/matchall is admin only and answers before matching finishes": {
+    "forbidden": 403,
+    "ok": 200,
+    "asins": [
+      [
+        "A Plain",
+        "B000000001"
+      ],
+      [
+        "B With Asin",
+        "B0ASIN0000"
+      ],
+      [
+        "C With Isbn",
+        "B000000001"
+      ]
+    ]
+  },
+  "ScannerOrchestration (characterization) > Scanner quick match (provider stubbed at axios) > matchLibraryItems (match all) > every item is matched by default": {
+    "asins": [
+      [
+        "A Plain",
+        "B000000001"
+      ],
+      [
+        "B With Asin",
+        "B0ASIN0000"
+      ],
+      [
+        "C With Isbn",
+        "B000000001"
+      ]
+    ],
+    "tasks": [
+      {
+        "event": "task_started",
+        "action": "library-match-all",
+        "description": null
+      },
+      {
+        "event": "task_finished",
+        "action": "library-match-all",
+        "results": {
+          "added": 0,
+          "updated": 3,
+          "missing": 0,
+          "elapsed": "<elapsed>",
+          "text": "3 updated (<elapsed>)"
+        },
+        "description": null
+      }
+    ],
+    "numRequests": 5,
+    "scanning": []
+  },
+  "ScannerOrchestration (characterization) > Scanner quick match (provider stubbed at axios) > matchLibraryItems (match all) > podcast libraries are refused, a library already scanning is refused, an empty library fails the task": {
+    "podErrors": [
+      "[Scanner] matchLibraryItems: Match all not supported for podcasts yet"
+    ],
+    "scanningErrors": [
+      "[Scanner] Library \"Books\" is already scanning"
+    ],
+    "emptyTasks": [
+      {
+        "event": "task_started",
+        "isFailed": false,
+        "error": null,
+        "description": null
+      },
+      {
+        "event": "task_finished",
+        "isFailed": true,
+        "error": "No items found",
+        "description": null
+      }
+    ],
+    "requests": 0
+  },
+  "ScannerOrchestration (characterization) > Scanner quick match (provider stubbed at axios) > matchLibraryItems (match all) > skipMatchingMediaWithAsin and skipMatchingMediaWithIsbn skip items that already have one": {
+    "asins": [
+      [
+        "A Plain",
+        "B000000001"
+      ],
+      [
+        "B With Asin",
+        "B0ASIN0000"
+      ],
+      [
+        "C With Isbn",
+        null
+      ]
+    ],
+    "tasks": [
+      {
+        "event": "task_started"
+      },
+      {
+        "event": "task_finished",
+        "results": {
+          "added": 0,
+          "updated": 1,
+          "missing": 0,
+          "elapsed": "<elapsed>",
+          "text": "1 updated (<elapsed>)"
+        }
+      }
+    ],
+    "numRequests": 2
+  },
+  "ScannerOrchestration (characterization) > Scanner quick match (provider stubbed at axios) > podcast quick match through the iTunes search (no feed url, so no episode matching)": {
+    "updated": true,
+    "after": {
+      "title": "My Podcast",
+      "author": "Podcast Host",
+      "genres": [
+        "Technology",
+        "News"
+      ],
+      "itunesId": "4242",
+      "itunesArtistId": "99",
+      "releaseDate": "<iso-date>",
+      "itunesPageUrl": null,
+      "explicit": false
+    },
+    "emitted": [
+      "libraryItemEmitter:item_updated"
+    ]
+  },
+  "ScannerOrchestration (characterization) > Scanner quick match (provider stubbed at axios) > quick match fills empty fields only (title, existing author kept)": {
+    "result": {
+      "updated": true
+    },
+    "after": {
+      "title": "Book One",
+      "subtitle": "Matched Subtitle",
+      "authors": [
+        "Old Author"
+      ],
+      "narrators": [
+        "Narr One",
+        "Narr Two"
+      ],
+      "series": [
+        "Match Series #2"
+      ],
+      "genres": [
+        "Fantasy"
+      ],
+      "tags": [
+        "Epic"
+      ],
+      "publisher": "Match Publisher",
+      "publishedYear": "2019",
+      "description": "<p>Matched <b>summary</b></p>",
+      "asin": "B000000001",
+      "isbn": "9780000000001",
+      "language": "English",
+      "explicit": false,
+      "abridged": false,
+      "coverPath": null
+    },
+    "requests": [
+      "https://api.audible.com/1.0/catalog/products?<query>",
+      "https://api.audnex.us/books/B000000001"
+    ],
+    "emitted": [
+      "emitter:series_added",
+      "libraryItemEmitter:item_updated"
+    ]
+  },
+  "ScannerOrchestration (characterization) > Scanner quick match (provider stubbed at axios) > quick match uses the server setting scannerPreferMatchedMetadata when no override flags are passed": {
+    "options": {
+      "provider": "audible",
+      "overrideCover": true,
+      "overrideDetails": true
+    },
+    "after": {
+      "title": "Matched Title",
+      "subtitle": "Matched Subtitle",
+      "authors": [
+        "Match Author",
+        "Second Author"
+      ],
+      "narrators": [
+        "Narr One",
+        "Narr Two"
+      ],
+      "series": [
+        "Match Series #2"
+      ],
+      "genres": [
+        "Fantasy"
+      ],
+      "tags": [
+        "Epic"
+      ],
+      "publisher": "Match Publisher",
+      "publishedYear": "2019",
+      "description": "<p>Matched <b>summary</b></p>",
+      "asin": "B000000001",
+      "isbn": "9780000000001",
+      "language": "English",
+      "explicit": false,
+      "abridged": false,
+      "coverPath": null
+    }
+  },
+  "ScannerOrchestration (characterization) > Scanner quick match (provider stubbed at axios) > quick match with an explicit title/author/asin searches with those": {
+    "requests": [
+      "https://api.audnex.us/books/B000000001"
+    ],
+    "queries": [
+      null
+    ]
+  },
+  "ScannerOrchestration (characterization) > Scanner quick match (provider stubbed at axios) > quick match with no result returns a warning and changes nothing": {
+    "result": {
+      "warning": "No audible match found"
+    },
+    "unchanged": true,
+    "numRequests": 5
+  },
+  "ScannerOrchestration (characterization) > Scanner quick match (provider stubbed at axios) > quick match with overrideDetails replaces title, authors and series and removes the old author": {
+    "result": {
+      "updated": true
+    },
+    "after": {
+      "title": "Matched Title",
+      "subtitle": "Matched Subtitle",
+      "authors": [
+        "Match Author",
+        "Second Author"
+      ],
+      "narrators": [
+        "Narr One",
+        "Narr Two"
+      ],
+      "series": [
+        "Match Series #2"
+      ],
+      "genres": [
+        "Fantasy"
+      ],
+      "tags": [
+        "Epic"
+      ],
+      "publisher": "Match Publisher",
+      "publishedYear": "2019",
+      "description": "<p>Matched <b>summary</b></p>",
+      "asin": "B000000001",
+      "isbn": "9780000000001",
+      "language": "English",
+      "explicit": false,
+      "abridged": false,
+      "coverPath": null
+    },
+    "authorsInLibrary": [
+      "Match Author",
+      "Second Author"
+    ],
+    "seriesInLibrary": [
+      "Match Series"
+    ],
+    "emitted": [
+      "emitter:author_added",
+      "emitter:author_added",
+      "emitter:author_removed",
+      "emitter:series_added",
+      "emitter:series_removed",
+      "libraryItemEmitter:item_updated"
+    ]
+  }
+}

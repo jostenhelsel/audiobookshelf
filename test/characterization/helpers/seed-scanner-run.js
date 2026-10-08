@@ -64,7 +64,7 @@ async function runScan(ctx, { force = false } = {}) {
     added: libraryScan.resultsAdded,
     updated: libraryScan.resultsUpdated,
     missing: libraryScan.resultsMissing,
-    logs: libraryScan.logs.filter((l) => !TIME_LOG.test(l.message)).map((l) => `${l.levelName}: ${l.message}`.replace(/inode value "\d+"/g, 'inode value "<ino>"').replace(/\(inode: \d+\)/g, '(inode: <ino>)'))
+    logs: libraryScan.logs.filter((l) => !TIME_LOG.test(l.message)).map((l) => `${l.levelName}: ${l.message}`.replace(/inode( value)? "\d+"/g, 'inode$1 "<ino>"').replace(/\(inode: \d+\)/g, '(inode: <ino>)'))
   }
 }
 
