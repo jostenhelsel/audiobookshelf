@@ -1,0 +1,4490 @@
+{
+  "ScannerBook (characterization) > AudioFileScanner helpers (no files) > MediaProbeData.construct / setData": {
+    "probe": {
+      "embeddedCoverArt": "mjpeg",
+      "format": "MP3",
+      "duration": 12.3,
+      "size": 100,
+      "audioStream": {
+        "bit_rate": 64000,
+        "codec": "mp3",
+        "time_base": "1/14112000",
+        "language": "eng",
+        "channel_layout": "stereo",
+        "channels": 2,
+        "sample_rate": 44100
+      },
+      "videoStream": null,
+      "bitRate": 64000,
+      "codec": "mp3",
+      "timeBase": "1/14112000",
+      "language": "eng",
+      "channelLayout": "stereo",
+      "channels": 2,
+      "sampleRate": 44100,
+      "chapters": [
+        {
+          "id": 0,
+          "start": 0,
+          "end": 12.3,
+          "title": "c"
+        }
+      ],
+      "audioMetaTags": {
+        "tags": {},
+        "track": null,
+        "disc": null
+      },
+      "trackNumber": null,
+      "trackTotal": null,
+      "discNumber": null,
+      "discTotal": null
+    },
+    "noVideo": {
+      "embeddedCoverArt": null,
+      "videoStream": null,
+      "bitRate": 5000,
+      "chapters": []
+    },
+    "constructed": {
+      "duration": 5,
+      "hasUnknown": false,
+      "tags": {
+        "tagTitle": "Q",
+        "tagTrack": "2"
+      }
+    }
+  },
+  "ScannerBook (characterization) > AudioFileScanner helpers (no files) > getBookChaptersFromAudioFiles: embedded chapters, per-file chapters, tag titles, filenames": {
+    "singleFileEmbedded": {
+      "chapters": [
+        {
+          "id": 0,
+          "start": 0,
+          "end": 50,
+          "title": "One"
+        },
+        {
+          "id": 1,
+          "start": 50,
+          "end": 100,
+          "title": "Two"
+        }
+      ],
+      "logs": [
+        "DEBUG: setChapters: Using embedded chapters in first audio file /b/a.m4b"
+      ]
+    },
+    "sameEmbeddedInAllFiles": {
+      "chapters": [
+        {
+          "id": 0,
+          "start": 0,
+          "end": 5,
+          "title": "One"
+        },
+        {
+          "id": 1,
+          "start": 5,
+          "end": 10,
+          "title": "Two"
+        }
+      ],
+      "logs": [
+        "DEBUG: setChapters: Using embedded chapters in first audio file /b/a.m4b"
+      ]
+    },
+    "differentEmbeddedPerFile": {
+      "chapters": [
+        {
+          "id": 0,
+          "start": 0,
+          "end": 5,
+          "title": "A1"
+        },
+        {
+          "id": 1,
+          "start": 5,
+          "end": 10,
+          "title": "A2"
+        },
+        {
+          "id": 2,
+          "start": 10,
+          "end": 30,
+          "title": "B1"
+        }
+      ],
+      "logs": [
+        "DEBUG: setChapters: Using embedded chapters from all audio files /b/a.mp3"
+      ]
+    },
+    "shortEmbeddedChaptersSkipped": {
+      "chapters": [
+        {
+          "id": 0,
+          "start": 0.05,
+          "end": 10,
+          "title": "Real"
+        },
+        {
+          "id": 1,
+          "start": 10,
+          "end": 20,
+          "title": "Other"
+        }
+      ],
+      "logs": [
+        "DEBUG: setChapters: Using embedded chapters from all audio files /b/a.mp3",
+        "WARN: Audio file \"a.mp3\" Chapter \"Blip\" (index 0) has invalid duration of 0.05 seconds. Skipping this chapter."
+      ]
+    },
+    "fileWithoutDurationSkipped": {
+      "chapters": [
+        {
+          "id": 0,
+          "start": 0,
+          "end": 10,
+          "title": "A"
+        }
+      ],
+      "logs": [
+        "DEBUG: setChapters: Using embedded chapters from all audio files /b/a.mp3"
+      ]
+    },
+    "noChaptersSingleFile": {
+      "chapters": [],
+      "logs": []
+    },
+    "filenamesAsChapters": {
+      "chapters": [
+        {
+          "id": 0,
+          "start": 0,
+          "end": 10,
+          "title": "01 Intro"
+        },
+        {
+          "id": 1,
+          "start": 10,
+          "end": 30,
+          "title": "02 Middle"
+        }
+      ],
+      "logs": []
+    },
+    "uniqueTagTitlesAsChapters": {
+      "chapters": [
+        {
+          "id": 0,
+          "start": 0,
+          "end": 10,
+          "title": "Intro"
+        },
+        {
+          "id": 1,
+          "start": 10,
+          "end": 30,
+          "title": "Middle"
+        }
+      ],
+      "logs": []
+    },
+    "tagTitleEqualToBookTitleFallsBack": {
+      "chapters": [
+        {
+          "id": 0,
+          "start": 0,
+          "end": 10,
+          "title": "a"
+        },
+        {
+          "id": 1,
+          "start": 10,
+          "end": 30,
+          "title": "b"
+        }
+      ],
+      "logs": []
+    },
+    "duplicateTagTitlesFallBack": {
+      "chapters": [
+        {
+          "id": 0,
+          "start": 0,
+          "end": 10,
+          "title": "a"
+        },
+        {
+          "id": 1,
+          "start": 10,
+          "end": 30,
+          "title": "b"
+        }
+      ],
+      "logs": []
+    },
+    "missingFilenameFallsBackToChapterN": {
+      "chapters": [
+        {
+          "id": 0,
+          "start": 0,
+          "end": 10,
+          "title": "Chapter 0"
+        },
+        {
+          "id": 1,
+          "start": 10,
+          "end": 15,
+          "title": "b"
+        }
+      ],
+      "logs": []
+    }
+  },
+  "ScannerBook (characterization) > AudioFileScanner helpers (no files) > getTrackAndDiscNumberFromFilename": {
+    "plain": {
+      "trackNumber": 1,
+      "discNumber": null
+    },
+    "prefixed": {
+      "trackNumber": 7,
+      "discNumber": null
+    },
+    "firstNumberWins": {
+      "trackNumber": 12,
+      "discNumber": null
+    },
+    "fourDigits": {
+      "trackNumber": 1234,
+      "discNumber": null
+    },
+    "noNumber": {
+      "trackNumber": null,
+      "discNumber": null
+    },
+    "discInName": {
+      "trackNumber": 5,
+      "discNumber": 2
+    },
+    "cdInName": {
+      "trackNumber": 3,
+      "discNumber": 1
+    },
+    "discFromFolder": {
+      "trackNumber": 4,
+      "discNumber": 2
+    },
+    "folderBeatsName": {
+      "trackNumber": 4,
+      "discNumber": 3
+    },
+    "titleRemovedFromName": {
+      "trackNumber": 3,
+      "discNumber": null
+    },
+    "authorAndSeriesRemoved": {
+      "trackNumber": 5,
+      "discNumber": null
+    },
+    "publishedYearRemoved": {
+      "trackNumber": 8,
+      "discNumber": null
+    },
+    "discTooManyDigits": {
+      "trackNumber": 123,
+      "discNumber": null
+    }
+  },
+  "ScannerBook (characterization) > AudioFileScanner helpers (no files) > isSequential / removeDupes": {
+    "isSequential": [
+      [
+        [],
+        false
+      ],
+      [
+        null,
+        false
+      ],
+      [
+        [
+          1
+        ],
+        true
+      ],
+      [
+        [
+          1,
+          2,
+          3
+        ],
+        true
+      ],
+      [
+        [
+          1,
+          3
+        ],
+        false
+      ],
+      [
+        [
+          3,
+          2,
+          1
+        ],
+        true
+      ],
+      [
+        [
+          0,
+          1,
+          1,
+          2
+        ],
+        true
+      ],
+      [
+        [
+          2,
+          3,
+          4
+        ],
+        true
+      ]
+    ],
+    "removeDupes": [
+      [
+        [],
+        []
+      ],
+      [
+        null,
+        []
+      ],
+      [
+        [
+          5
+        ],
+        [
+          5
+        ]
+      ],
+      [
+        [
+          1,
+          1,
+          2,
+          2,
+          3
+        ],
+        [
+          1,
+          2,
+          3
+        ]
+      ],
+      [
+        [
+          3,
+          2,
+          1
+        ],
+        [
+          3
+        ]
+      ],
+      [
+        [
+          1,
+          2,
+          2,
+          5,
+          5,
+          4
+        ],
+        [
+          1,
+          2,
+          5
+        ]
+      ]
+    ]
+  },
+  "ScannerBook (characterization) > AudioFileScanner helpers (no files) > parseGenresString": {
+    "": [],
+    "Fantasy": [
+      "Fantasy"
+    ],
+    "Fantasy;Sci-Fi; History": [
+      "Fantasy",
+      "Sci-Fi",
+      "History"
+    ],
+    "Fantasy / Sci-Fi": [
+      "Fantasy",
+      "Sci-Fi"
+    ],
+    "A//B": [
+      "A",
+      "B"
+    ],
+    "A/B;C": [
+      "A",
+      "B;C"
+    ],
+    ";;": [],
+    "Sci-Fi & Fantasy": [
+      "Sci-Fi & Fantasy"
+    ]
+  },
+  "ScannerBook (characterization) > AudioFileScanner helpers (no files) > runSmartTrackOrder: orders by filename or meta track numbers, discs, and sets index": {
+    "empty": 0,
+    "byFilenameNumbers": [
+      "1:a.mp3",
+      "2:b.mp3",
+      "3:c.mp3"
+    ],
+    "byMetaNumbers": [
+      "1:y.mp3",
+      "2:x.mp3"
+    ],
+    "filenameWinsWhenMoreDistinctNumbers": [
+      "1:b.mp3",
+      "2:a.mp3"
+    ],
+    "metaWinsOnTie": [
+      "1:a.mp3",
+      "2:b.mp3"
+    ],
+    "discsFromMeta": [
+      "1:d1t1.mp3",
+      "2:d1t2.mp3",
+      "3:d2t1.mp3"
+    ],
+    "discsFromFilename": [
+      "1:1-1.mp3",
+      "2:1-2.mp3",
+      "3:2-1.mp3"
+    ],
+    "discGapIsNotSequential": [
+      "1:b.mp3",
+      "2:a.mp3"
+    ],
+    "noNumbersKeepsInputOrder": [
+      "1:b.mp3",
+      "2:a.mp3",
+      "3:c.mp3"
+    ]
+  },
+  "ScannerBook (characterization) > AudioFileScanner helpers (no files) > setBookMetadataFromAudioMetaTags: tag mapping, alternate tags, series variants": {
+    "allTags": {
+      "bookMetadata": {
+        "narrators": [
+          "N One",
+          "N Two"
+        ],
+        "description": "desc",
+        "publisher": "Pub",
+        "publishedYear": "2012",
+        "subtitle": "Sub",
+        "title": "Album",
+        "authors": [
+          "A One",
+          "A Two"
+        ],
+        "genres": [
+          "Fantasy",
+          "Sci-Fi"
+        ],
+        "series": [
+          {
+            "name": "Series",
+            "sequence": "2"
+          }
+        ],
+        "isbn": "123",
+        "language": "en",
+        "asin": "B0015T963C"
+      },
+      "logs": []
+    },
+    "alternateTags": {
+      "bookMetadata": {
+        "description": "comment only",
+        "title": "Title only",
+        "authors": [
+          "Album Artist only"
+        ]
+      },
+      "logs": []
+    },
+    "groupingSeries": {
+      "bookMetadata": {
+        "series": [
+          {
+            "name": "Series A",
+            "sequence": null
+          },
+          {
+            "name": "Series B",
+            "sequence": "2"
+          },
+          {
+            "name": "Series C",
+            "sequence": "1.5"
+          }
+        ]
+      },
+      "logs": []
+    },
+    "groupingIgnoredWhenSeriesTagSet": {
+      "bookMetadata": {
+        "series": [
+          {
+            "name": "Real",
+            "sequence": null
+          }
+        ]
+      },
+      "logs": []
+    },
+    "multipleSeriesTags": {
+      "bookMetadata": {
+        "series": [
+          {
+            "name": "S1",
+            "sequence": "1"
+          },
+          {
+            "name": "S2",
+            "sequence": "2"
+          }
+        ]
+      },
+      "logs": [
+        "DEBUG: Detected multiple series in series/series-part tags: S1 #1, S2 #2"
+      ]
+    },
+    "multipleSeriesMismatch": {
+      "bookMetadata": {
+        "series": [
+          {
+            "name": "S1; S2",
+            "sequence": "1"
+          }
+        ]
+      },
+      "logs": []
+    },
+    "multipleSeriesMismatch2": {
+      "bookMetadata": {
+        "series": [
+          {
+            "name": "S1; S2",
+            "sequence": "1; 2; 3"
+          }
+        ]
+      },
+      "logs": []
+    },
+    "seriesWithoutPart": {
+      "bookMetadata": {
+        "series": [
+          {
+            "name": "Lonely",
+            "sequence": null
+          }
+        ]
+      },
+      "logs": []
+    },
+    "nonStringIgnored": {
+      "bookMetadata": {},
+      "logs": []
+    },
+    "existingValuesKeptWhenNoTag": {
+      "bookMetadata": {
+        "title": "Folder",
+        "publisher": "New",
+        "subtitle": "Keep"
+      },
+      "logs": []
+    }
+  },
+  "ScannerBook (characterization) > probing real audio files > AudioFileScanner.scan reads tags, track/disc numbers, cover art flag and chapters": {
+    "tagged.mp3": {
+      "index": null,
+      "metadata": {
+        "filename": "tagged.mp3",
+        "ext": ".mp3",
+        "path": "<tmp>/tagged.mp3",
+        "relPath": "tagged.mp3"
+      },
+      "trackNumFromMeta": 2,
+      "discNumFromMeta": 1,
+      "trackNumFromFilename": null,
+      "discNumFromFilename": null,
+      "manuallyVerified": false,
+      "exclude": false,
+      "error": null,
+      "format": "MP2/3 (MPEG audio layer 2/3)",
+      "duration": 1,
+      "language": null,
+      "codec": "mp3",
+      "channels": 1,
+      "channelLayout": "mono",
+      "chapters": [],
+      "embeddedCoverArt": "mjpeg",
+      "metaTags": {
+        "tagAlbum": "Album",
+        "tagArtist": "Someone",
+        "tagGenre": "Fantasy;Sci-Fi",
+        "tagTitle": "Song",
+        "tagTrack": "2/5",
+        "tagDisc": "1/2",
+        "tagDate": "2012",
+        "tagComposer": "Reader",
+        "tagComment": "a comment"
+      },
+      "mimeType": "audio/mpeg"
+    },
+    "chapters.m4b": {
+      "index": null,
+      "metadata": {
+        "filename": "chapters.m4b",
+        "ext": ".m4b",
+        "path": "<tmp>/chapters.m4b",
+        "relPath": "chapters.m4b"
+      },
+      "trackNumFromMeta": null,
+      "discNumFromMeta": null,
+      "trackNumFromFilename": null,
+      "discNumFromFilename": null,
+      "manuallyVerified": false,
+      "exclude": false,
+      "error": null,
+      "format": "QuickTime / MOV",
+      "duration": 4,
+      "language": "und",
+      "codec": "aac",
+      "channels": 1,
+      "channelLayout": "mono",
+      "chapters": [
+        {
+          "start": 0,
+          "end": 2,
+          "title": "One",
+          "id": 0
+        },
+        {
+          "start": 2,
+          "end": 4,
+          "title": "Two",
+          "id": 1
+        }
+      ],
+      "embeddedCoverArt": "mjpeg",
+      "metaTags": {
+        "tagArtist": "M4B Author",
+        "tagTitle": "M4B Title"
+      },
+      "mimeType": "audio/mp4"
+    },
+    "plain.ogg": {
+      "index": null,
+      "metadata": {
+        "filename": "plain.ogg",
+        "ext": ".ogg",
+        "path": "<tmp>/plain.ogg",
+        "relPath": "plain.ogg"
+      },
+      "trackNumFromMeta": null,
+      "discNumFromMeta": null,
+      "trackNumFromFilename": null,
+      "discNumFromFilename": null,
+      "manuallyVerified": false,
+      "exclude": false,
+      "error": null,
+      "format": "Ogg",
+      "duration": 1,
+      "language": null,
+      "codec": "opus",
+      "channels": 1,
+      "channelLayout": "mono",
+      "chapters": [],
+      "embeddedCoverArt": null,
+      "metaTags": {
+        "tagTitle": "Opus Title"
+      },
+      "mimeType": "audio/ogg"
+    },
+    "flac.flac": {
+      "index": null,
+      "metadata": {
+        "filename": "flac.flac",
+        "ext": ".flac",
+        "path": "<tmp>/flac.flac",
+        "relPath": "flac.flac"
+      },
+      "trackNumFromMeta": null,
+      "discNumFromMeta": null,
+      "trackNumFromFilename": null,
+      "discNumFromFilename": null,
+      "manuallyVerified": false,
+      "exclude": false,
+      "error": null,
+      "format": "raw FLAC",
+      "duration": 1,
+      "language": null,
+      "codec": "flac",
+      "channels": 1,
+      "channelLayout": "mono",
+      "chapters": [],
+      "embeddedCoverArt": null,
+      "metaTags": {},
+      "mimeType": "audio/flac"
+    },
+    "broken.mp3": null
+  },
+  "ScannerBook (characterization) > probing real audio files > executeMediaFileScans drops files that cannot be probed and keeps input order": [
+    {
+      "filename": "1.mp3",
+      "trackNumFromFilename": 1
+    },
+    {
+      "filename": "3.mp3",
+      "trackNumFromFilename": 3
+    }
+  ],
+  "ScannerBook (characterization) > probing real audio files > probeAudioFile returns the raw ffprobe output": {
+    "keys": [
+      "chapters",
+      "format",
+      "programs",
+      "streams"
+    ],
+    "formatName": "mp3",
+    "streamCodecs": [
+      "mp3"
+    ],
+    "titleTag": "Raw"
+  },
+  "ScannerBook (characterization) > rescanning a book > a cover image added, then removed": {
+    "first": {
+      "added": 1,
+      "updated": 0,
+      "missing": 0
+    },
+    "before": [
+      {
+        "relPath": "Rescan Book",
+        "isMissing": false,
+        "title": "Rescan Book",
+        "authors": [],
+        "narrators": [],
+        "series": [],
+        "genres": [],
+        "description": null,
+        "coverPath": null,
+        "ebook": null,
+        "duration": 1,
+        "audio": [
+          "01.mp3"
+        ],
+        "audioTagAlbums": [
+          null
+        ],
+        "chapters": [],
+        "libraryFiles": [
+          "01.mp3"
+        ]
+      }
+    ],
+    "second": {
+      "added": 0,
+      "updated": 1,
+      "missing": 0,
+      "logs": [
+        "DEBUG: \"Rescan Book\" Getting metadata with precedence [folderStructure, audioMetatags, nfoFile, txtFiles, opfFile, absMetadata]",
+        "DEBUG: Success saving abmetadata to \"<tmp>/metadata/items/<item:Rescan Book>/metadata.json\"",
+        "INFO: 1 item data found in folder \"<tmp>\"",
+        "INFO: Found metadata file \"<tmp>/metadata/items/<item:Rescan Book>/metadata.json\"",
+        "INFO: New library file found with path \"<tmp>/Rescan Book/cover.jpg\" for library item \"Rescan Book\"",
+        "INFO: Scan completed. 0 Added | 1 Updated | 0 Missing"
+      ]
+    },
+    "after": [
+      {
+        "relPath": "Rescan Book",
+        "isMissing": false,
+        "title": "Rescan Book",
+        "authors": [],
+        "narrators": [],
+        "series": [],
+        "genres": [],
+        "description": null,
+        "coverPath": "<tmp>/Rescan Book/cover.jpg",
+        "ebook": null,
+        "duration": 1,
+        "audio": [
+          "01.mp3"
+        ],
+        "audioTagAlbums": [
+          null
+        ],
+        "chapters": [],
+        "libraryFiles": [
+          "01.mp3",
+          "cover.jpg"
+        ]
+      }
+    ],
+    "emitted": [
+      "libraryItemsEmitter:items_updated"
+    ]
+  },
+  "ScannerBook (characterization) > rescanning a book > a cover image added, then removed > cover removed": {
+    "removed": {
+      "updated": 1,
+      "logs": [
+        "DEBUG: \"Rescan Book\" Getting metadata with precedence [folderStructure, audioMetatags, nfoFile, txtFiles, opfFile, absMetadata]",
+        "DEBUG: Success saving abmetadata to \"<tmp>/metadata/items/<item:Rescan Book>/metadata.json\"",
+        "INFO: 1 item data found in folder \"<tmp>\"",
+        "INFO: Found metadata file \"<tmp>/metadata/items/<item:Rescan Book>/metadata.json\"",
+        "INFO: Library file \"<tmp>/Rescan Book/cover.jpg\" was removed from library item \"Rescan Book\"",
+        "INFO: Scan completed. 0 Added | 1 Updated | 0 Missing"
+      ]
+    },
+    "after": [
+      {
+        "relPath": "Rescan Book",
+        "isMissing": false,
+        "title": "Rescan Book",
+        "authors": [],
+        "narrators": [],
+        "series": [],
+        "genres": [],
+        "description": null,
+        "coverPath": null,
+        "ebook": null,
+        "duration": 1,
+        "audio": [
+          "01.mp3"
+        ],
+        "audioTagAlbums": [
+          null
+        ],
+        "chapters": [],
+        "libraryFiles": [
+          "01.mp3"
+        ]
+      }
+    ]
+  },
+  "ScannerBook (characterization) > rescanning a book > a series that no book uses any more is deleted along with its feed (series_removed event)": {
+    "first": {
+      "added": 1,
+      "updated": 0,
+      "missing": 0
+    },
+    "before": [
+      {
+        "relPath": "Rescan Book",
+        "isMissing": false,
+        "title": "Rescan Book",
+        "authors": [
+          "Doomed Author"
+        ],
+        "narrators": [],
+        "series": [
+          "Doomed Series #1"
+        ],
+        "genres": [],
+        "description": null,
+        "coverPath": null,
+        "ebook": null,
+        "duration": 1,
+        "audio": [
+          "01.mp3"
+        ],
+        "audioTagAlbums": [
+          null
+        ],
+        "chapters": [],
+        "libraryFiles": [
+          "01.mp3",
+          "metadata.json"
+        ]
+      }
+    ],
+    "second": {
+      "added": 0,
+      "updated": 1,
+      "missing": 0,
+      "logs": [
+        "DEBUG: \"Rescan Book\" Getting metadata with precedence [folderStructure, audioMetatags, nfoFile, txtFiles, opfFile, absMetadata]",
+        "DEBUG: Library file \"metadata.json\" for library item \"<tmp>/Rescan Book\" key \"size\" changed from \"59\" to \"55\"",
+        "DEBUG: Updating book \"Rescan Book\" added new author \"Kept Author\"",
+        "DEBUG: Updating book \"Rescan Book\" added new series \"Kept Series\" with sequence \"2\"",
+        "DEBUG: Updating book \"Rescan Book\" removed author \"Doomed Author\"",
+        "DEBUG: Updating book \"Rescan Book\" removed series \"Doomed Series\"",
+        "INFO: 1 item data found in folder \"<tmp>\"",
+        "INFO: Found metadata file \"<tmp>/Rescan Book/metadata.json\"",
+        "INFO: Removed 1 authors",
+        "INFO: Removed 1 series",
+        "INFO: Scan completed. 0 Added | 1 Updated | 0 Missing"
+      ]
+    },
+    "after": [
+      {
+        "relPath": "Rescan Book",
+        "isMissing": false,
+        "title": "Rescan Book",
+        "authors": [
+          "Kept Author"
+        ],
+        "narrators": [],
+        "series": [
+          "Kept Series #2"
+        ],
+        "genres": [],
+        "description": null,
+        "coverPath": null,
+        "ebook": null,
+        "duration": 1,
+        "audio": [
+          "01.mp3"
+        ],
+        "audioTagAlbums": [
+          null
+        ],
+        "chapters": [],
+        "libraryFiles": [
+          "01.mp3",
+          "metadata.json"
+        ]
+      }
+    ],
+    "emitted": [
+      "emitter:author_added",
+      "emitter:author_removed",
+      "emitter:series_removed",
+      "libraryItemsEmitter:items_updated"
+    ]
+  },
+  "ScannerBook (characterization) > rescanning a book > an audio file added: tracks and duration follow, chapters stay as saved in the metadata.json copy": {
+    "first": {
+      "added": 1,
+      "updated": 0,
+      "missing": 0
+    },
+    "before": [
+      {
+        "relPath": "Rescan Book",
+        "isMissing": false,
+        "title": "One",
+        "authors": [],
+        "narrators": [],
+        "series": [],
+        "genres": [],
+        "description": null,
+        "coverPath": null,
+        "ebook": null,
+        "duration": 2,
+        "audio": [
+          "01.mp3",
+          "02.mp3"
+        ],
+        "audioTagAlbums": [
+          null,
+          null
+        ],
+        "chapters": [
+          "One 0-1",
+          "Two 1-2"
+        ],
+        "libraryFiles": [
+          "01.mp3",
+          "02.mp3"
+        ]
+      }
+    ],
+    "second": {
+      "added": 0,
+      "updated": 1,
+      "missing": 0,
+      "logs": [
+        "DEBUG: \"Rescan Book\" Getting metadata with precedence [folderStructure, audioMetatags, nfoFile, txtFiles, opfFile, absMetadata]",
+        "DEBUG: Success saving abmetadata to \"<tmp>/metadata/items/<item:Rescan Book>/metadata.json\"",
+        "INFO: 1 item data found in folder \"<tmp>\"",
+        "INFO: Found metadata file \"<tmp>/metadata/items/<item:Rescan Book>/metadata.json\"",
+        "INFO: New library file found with path \"<tmp>/Rescan Book/03.mp3\" for library item \"Rescan Book\"",
+        "INFO: Scan completed. 0 Added | 1 Updated | 0 Missing"
+      ]
+    },
+    "after": [
+      {
+        "relPath": "Rescan Book",
+        "isMissing": false,
+        "title": "One",
+        "authors": [],
+        "narrators": [],
+        "series": [],
+        "genres": [],
+        "description": null,
+        "coverPath": null,
+        "ebook": null,
+        "duration": 3,
+        "audio": [
+          "01.mp3",
+          "02.mp3",
+          "03.mp3"
+        ],
+        "audioTagAlbums": [
+          null,
+          null,
+          null
+        ],
+        "chapters": [
+          "One 0-1",
+          "Two 1-2"
+        ],
+        "libraryFiles": [
+          "01.mp3",
+          "02.mp3",
+          "03.mp3"
+        ]
+      }
+    ],
+    "emitted": [
+      "libraryItemsEmitter:items_updated"
+    ]
+  },
+  "ScannerBook (characterization) > rescanning a book > an audio file removed: the book keeps the other tracks (chapters stay as saved)": {
+    "first": {
+      "added": 1,
+      "updated": 0,
+      "missing": 0
+    },
+    "before": [
+      {
+        "relPath": "Rescan Book",
+        "isMissing": false,
+        "title": "One",
+        "authors": [],
+        "narrators": [],
+        "series": [],
+        "genres": [],
+        "description": null,
+        "coverPath": null,
+        "ebook": null,
+        "duration": 2,
+        "audio": [
+          "01.mp3",
+          "02.mp3"
+        ],
+        "audioTagAlbums": [
+          null,
+          null
+        ],
+        "chapters": [
+          "One 0-1",
+          "Two 1-2"
+        ],
+        "libraryFiles": [
+          "01.mp3",
+          "02.mp3"
+        ]
+      }
+    ],
+    "second": {
+      "added": 0,
+      "updated": 1,
+      "missing": 0,
+      "logs": [
+        "DEBUG: \"Rescan Book\" Getting metadata with precedence [folderStructure, audioMetatags, nfoFile, txtFiles, opfFile, absMetadata]",
+        "DEBUG: Success saving abmetadata to \"<tmp>/metadata/items/<item:Rescan Book>/metadata.json\"",
+        "INFO: 1 item data found in folder \"<tmp>\"",
+        "INFO: Found metadata file \"<tmp>/metadata/items/<item:Rescan Book>/metadata.json\"",
+        "INFO: Library file \"<tmp>/Rescan Book/01.mp3\" was removed from library item \"Rescan Book\"",
+        "INFO: Scan completed. 0 Added | 1 Updated | 0 Missing"
+      ]
+    },
+    "after": [
+      {
+        "relPath": "Rescan Book",
+        "isMissing": false,
+        "title": "One",
+        "authors": [],
+        "narrators": [],
+        "series": [],
+        "genres": [],
+        "description": null,
+        "coverPath": null,
+        "ebook": null,
+        "duration": 1,
+        "audio": [
+          "02.mp3"
+        ],
+        "audioTagAlbums": [
+          null
+        ],
+        "chapters": [
+          "One 0-1",
+          "Two 1-2"
+        ],
+        "libraryFiles": [
+          "02.mp3"
+        ]
+      }
+    ],
+    "emitted": [
+      "libraryItemsEmitter:items_updated"
+    ]
+  },
+  "ScannerBook (characterization) > rescanning a book > an audio file replaced by a corrupt file keeps its old audio entry (item is not set missing); restored: updated again": {
+    "first": {
+      "added": 1,
+      "updated": 0,
+      "missing": 0
+    },
+    "before": [
+      {
+        "relPath": "Rescan Book",
+        "isMissing": false,
+        "title": "Fragile",
+        "authors": [],
+        "narrators": [],
+        "series": [],
+        "genres": [],
+        "description": null,
+        "coverPath": null,
+        "ebook": null,
+        "duration": 1,
+        "audio": [
+          "01.mp3"
+        ],
+        "audioTagAlbums": [
+          "Fragile"
+        ],
+        "chapters": [],
+        "libraryFiles": [
+          "01.mp3"
+        ]
+      }
+    ],
+    "second": {
+      "added": 0,
+      "updated": 1,
+      "missing": 0,
+      "logs": [
+        "DEBUG: \"Rescan Book\" Getting metadata with precedence [folderStructure, audioMetatags, nfoFile, txtFiles, opfFile, absMetadata]",
+        "DEBUG: Library file \"01.mp3\" for library item \"<tmp>/Rescan Book\" key \"size\" changed from \"8604\" to \"9\"",
+        "DEBUG: Success saving abmetadata to \"<tmp>/metadata/items/<item:Rescan Book>/metadata.json\"",
+        "INFO: 1 item data found in folder \"<tmp>\"",
+        "INFO: Found metadata file \"<tmp>/metadata/items/<item:Rescan Book>/metadata.json\"",
+        "INFO: Scan completed. 0 Added | 1 Updated | 0 Missing"
+      ]
+    },
+    "after": [
+      {
+        "relPath": "Rescan Book",
+        "isMissing": false,
+        "title": "Fragile",
+        "authors": [],
+        "narrators": [],
+        "series": [],
+        "genres": [],
+        "description": null,
+        "coverPath": null,
+        "ebook": null,
+        "duration": 1,
+        "audio": [
+          "01.mp3"
+        ],
+        "audioTagAlbums": [
+          "Fragile"
+        ],
+        "chapters": [],
+        "libraryFiles": [
+          "01.mp3"
+        ]
+      }
+    ],
+    "emitted": [
+      "libraryItemsEmitter:items_updated"
+    ]
+  },
+  "ScannerBook (characterization) > rescanning a book > an audio file replaced by a corrupt file keeps its old audio entry (item is not set missing); restored: updated again > restored": {
+    "restored": {
+      "added": 0,
+      "updated": 1,
+      "logs": [
+        "DEBUG: \"Rescan Book\" Getting metadata with precedence [folderStructure, audioMetatags, nfoFile, txtFiles, opfFile, absMetadata]",
+        "DEBUG: Library file \"01.mp3\" for library item \"<tmp>/Rescan Book\" key \"size\" changed from \"9\" to \"8604\"",
+        "DEBUG: Success saving abmetadata to \"<tmp>/metadata/items/<item:Rescan Book>/metadata.json\"",
+        "INFO: 1 item data found in folder \"<tmp>\"",
+        "INFO: Found metadata file \"<tmp>/metadata/items/<item:Rescan Book>/metadata.json\"",
+        "INFO: Scan completed. 0 Added | 1 Updated | 0 Missing"
+      ]
+    },
+    "after": [
+      {
+        "relPath": "Rescan Book",
+        "isMissing": false,
+        "title": "Fragile",
+        "authors": [],
+        "narrators": [],
+        "series": [],
+        "genres": [],
+        "description": null,
+        "coverPath": null,
+        "ebook": null,
+        "duration": 1,
+        "audio": [
+          "01.mp3"
+        ],
+        "audioTagAlbums": [
+          "Fragile"
+        ],
+        "chapters": [],
+        "libraryFiles": [
+          "01.mp3"
+        ]
+      }
+    ]
+  },
+  "ScannerBook (characterization) > rescanning a book > an ebook added to an audiobook becomes the ebook file; removed again it is cleared": {
+    "first": {
+      "added": 1,
+      "updated": 0,
+      "missing": 0
+    },
+    "before": [
+      {
+        "relPath": "Rescan Book",
+        "isMissing": false,
+        "title": "Rescan Book",
+        "authors": [],
+        "narrators": [],
+        "series": [],
+        "genres": [],
+        "description": null,
+        "coverPath": null,
+        "ebook": null,
+        "duration": 1,
+        "audio": [
+          "01.mp3"
+        ],
+        "audioTagAlbums": [
+          null
+        ],
+        "chapters": [],
+        "libraryFiles": [
+          "01.mp3"
+        ]
+      }
+    ],
+    "second": {
+      "added": 0,
+      "updated": 1,
+      "missing": 0,
+      "logs": [
+        "DEBUG: \"Rescan Book\" Getting metadata with precedence [folderStructure, audioMetatags, nfoFile, txtFiles, opfFile, absMetadata]",
+        "DEBUG: Success saving abmetadata to \"<tmp>/metadata/items/<item:Rescan Book>/metadata.json\"",
+        "INFO: 1 item data found in folder \"<tmp>\"",
+        "INFO: Found metadata file \"<tmp>/metadata/items/<item:Rescan Book>/metadata.json\"",
+        "INFO: New library file found with path \"<tmp>/Rescan Book/book.epub\" for library item \"Rescan Book\"",
+        "INFO: Scan completed. 0 Added | 1 Updated | 0 Missing"
+      ]
+    },
+    "after": [
+      {
+        "relPath": "Rescan Book",
+        "isMissing": false,
+        "title": "Rescan Book",
+        "authors": [],
+        "narrators": [],
+        "series": [],
+        "genres": [],
+        "description": null,
+        "coverPath": null,
+        "ebook": "book.epub",
+        "duration": 1,
+        "audio": [
+          "01.mp3"
+        ],
+        "audioTagAlbums": [
+          null
+        ],
+        "chapters": [],
+        "libraryFiles": [
+          "01.mp3",
+          "book.epub (main)"
+        ]
+      }
+    ],
+    "emitted": [
+      "libraryItemsEmitter:items_updated"
+    ]
+  },
+  "ScannerBook (characterization) > rescanning a book > an ebook added to an audiobook becomes the ebook file; removed again it is cleared > ebook removed": {
+    "removed": {
+      "updated": 1,
+      "logs": [
+        "DEBUG: \"Rescan Book\" Getting metadata with precedence [folderStructure, audioMetatags, nfoFile, txtFiles, opfFile, absMetadata]",
+        "DEBUG: Success saving abmetadata to \"<tmp>/metadata/items/<item:Rescan Book>/metadata.json\"",
+        "INFO: 1 item data found in folder \"<tmp>\"",
+        "INFO: Found metadata file \"<tmp>/metadata/items/<item:Rescan Book>/metadata.json\"",
+        "INFO: Library file \"<tmp>/Rescan Book/book.epub\" was removed from library item \"Rescan Book\"",
+        "INFO: Scan completed. 0 Added | 1 Updated | 0 Missing"
+      ]
+    },
+    "after": [
+      {
+        "relPath": "Rescan Book",
+        "isMissing": false,
+        "title": "Rescan Book",
+        "authors": [],
+        "narrators": [],
+        "series": [],
+        "genres": [],
+        "description": null,
+        "coverPath": null,
+        "ebook": null,
+        "duration": 1,
+        "audio": [
+          "01.mp3"
+        ],
+        "audioTagAlbums": [
+          null
+        ],
+        "chapters": [],
+        "libraryFiles": [
+          "01.mp3"
+        ]
+      }
+    ]
+  },
+  "ScannerBook (characterization) > rescanning a book > forced rescan with no changes finds nothing to update": {
+    "first": {
+      "added": 1,
+      "updated": 0,
+      "missing": 0
+    },
+    "before": [
+      {
+        "relPath": "Rescan Book",
+        "isMissing": false,
+        "title": "Same",
+        "authors": [],
+        "narrators": [],
+        "series": [],
+        "genres": [],
+        "description": null,
+        "coverPath": null,
+        "ebook": null,
+        "duration": 1,
+        "audio": [
+          "01.mp3"
+        ],
+        "audioTagAlbums": [
+          "Same"
+        ],
+        "chapters": [],
+        "libraryFiles": [
+          "01.mp3"
+        ]
+      }
+    ],
+    "second": {
+      "added": 0,
+      "updated": 0,
+      "missing": 0,
+      "logs": [
+        "DEBUG: \"Rescan Book\" Getting metadata with precedence [folderStructure, audioMetatags, nfoFile, txtFiles, opfFile, absMetadata]",
+        "DEBUG: Library item \"Rescan Book\" is up-to-date",
+        "INFO: 1 item data found in folder \"<tmp>\"",
+        "INFO: Found metadata file \"<tmp>/metadata/items/<item:Rescan Book>/metadata.json\"",
+        "INFO: Scan completed. 0 Added | 0 Updated | 0 Missing"
+      ]
+    },
+    "after": [
+      {
+        "relPath": "Rescan Book",
+        "isMissing": false,
+        "title": "Same",
+        "authors": [],
+        "narrators": [],
+        "series": [],
+        "genres": [],
+        "description": null,
+        "coverPath": null,
+        "ebook": null,
+        "duration": 1,
+        "audio": [
+          "01.mp3"
+        ],
+        "audioTagAlbums": [
+          "Same"
+        ],
+        "chapters": [],
+        "libraryFiles": [
+          "01.mp3"
+        ]
+      }
+    ],
+    "emitted": []
+  },
+  "ScannerBook (characterization) > rescanning a book > metadata.json added, edited, then deleted (the copy saved in <metadata>/items still applies)": {
+    "first": {
+      "added": 1,
+      "updated": 0,
+      "missing": 0
+    },
+    "before": [
+      {
+        "relPath": "Rescan Book",
+        "isMissing": false,
+        "title": "Tag Title",
+        "authors": [],
+        "narrators": [],
+        "series": [],
+        "genres": [],
+        "description": null,
+        "coverPath": null,
+        "ebook": null,
+        "duration": 1,
+        "audio": [
+          "01.mp3"
+        ],
+        "audioTagAlbums": [
+          "Tag Title"
+        ],
+        "chapters": [],
+        "libraryFiles": [
+          "01.mp3"
+        ]
+      }
+    ],
+    "second": {
+      "added": 0,
+      "updated": 1,
+      "missing": 0,
+      "logs": [
+        "DEBUG: \"Rescan Book\" Getting metadata with precedence [folderStructure, audioMetatags, nfoFile, txtFiles, opfFile, absMetadata]",
+        "DEBUG: Success saving abmetadata to \"<tmp>/metadata/items/<item:Rescan Book>/metadata.json\"",
+        "DEBUG: Updating book \"Json Title\" added new author \"Json Author\"",
+        "DEBUG: Updating book \"Json Title\" added new series \"Json Series\" with sequence \"1\"",
+        "DEBUG: Updating book description \"null\" => \"v1\" for book \"Json Title\"",
+        "DEBUG: Updating book title \"Tag Title\" => \"Json Title\" for book \"Json Title\"",
+        "DEBUG: Updating book titleIgnorePrefix \"Tag Title\" => \"Json Title\" for book \"Json Title\"",
+        "INFO: 1 item data found in folder \"<tmp>\"",
+        "INFO: Found metadata file \"<tmp>/Rescan Book/metadata.json\"",
+        "INFO: New library file found with path \"<tmp>/Rescan Book/metadata.json\" for library item \"Rescan Book\"",
+        "INFO: Scan completed. 0 Added | 1 Updated | 0 Missing"
+      ]
+    },
+    "after": [
+      {
+        "relPath": "Rescan Book",
+        "isMissing": false,
+        "title": "Json Title",
+        "authors": [
+          "Json Author"
+        ],
+        "narrators": [],
+        "series": [
+          "Json Series #1"
+        ],
+        "genres": [],
+        "description": "v1",
+        "coverPath": null,
+        "ebook": null,
+        "duration": 1,
+        "audio": [
+          "01.mp3"
+        ],
+        "audioTagAlbums": [
+          "Tag Title"
+        ],
+        "chapters": [],
+        "libraryFiles": [
+          "01.mp3",
+          "metadata.json"
+        ]
+      }
+    ],
+    "emitted": [
+      "emitter:author_added",
+      "libraryItemsEmitter:items_updated"
+    ]
+  },
+  "ScannerBook (characterization) > rescanning a book > metadata.json added, edited, then deleted (the copy saved in <metadata>/items still applies) > edit and delete": {
+    "edited": {
+      "updated": 1,
+      "logs": [
+        "DEBUG: \"Rescan Book\" Getting metadata with precedence [folderStructure, audioMetatags, nfoFile, txtFiles, opfFile, absMetadata]",
+        "DEBUG: Library file \"metadata.json\" for library item \"<tmp>/Rescan Book\" key \"size\" changed from \"95\" to \"70\"",
+        "DEBUG: Success saving abmetadata to \"<tmp>/metadata/items/<item:Rescan Book>/metadata.json\"",
+        "DEBUG: Updating book \"Json Title 2\" added new author \"Other Author\"",
+        "DEBUG: Updating book \"Json Title 2\" removed author \"Json Author\"",
+        "DEBUG: Updating book description \"v1\" => \"v2\" for book \"Json Title 2\"",
+        "DEBUG: Updating book title \"Json Title\" => \"Json Title 2\" for book \"Json Title 2\"",
+        "DEBUG: Updating book titleIgnorePrefix \"Json Title\" => \"Json Title 2\" for book \"Json Title 2\"",
+        "INFO: 1 item data found in folder \"<tmp>\"",
+        "INFO: Found metadata file \"<tmp>/Rescan Book/metadata.json\"",
+        "INFO: Removed 1 authors",
+        "INFO: Scan completed. 0 Added | 1 Updated | 0 Missing"
+      ]
+    },
+    "afterEdit": [
+      {
+        "relPath": "Rescan Book",
+        "isMissing": false,
+        "title": "Json Title 2",
+        "authors": [
+          "Other Author"
+        ],
+        "narrators": [],
+        "series": [
+          "Json Series #1"
+        ],
+        "genres": [],
+        "description": "v2",
+        "coverPath": null,
+        "ebook": null,
+        "duration": 1,
+        "audio": [
+          "01.mp3"
+        ],
+        "audioTagAlbums": [
+          "Tag Title"
+        ],
+        "chapters": [],
+        "libraryFiles": [
+          "01.mp3",
+          "metadata.json"
+        ]
+      }
+    ],
+    "deleted": {
+      "updated": 1,
+      "logs": [
+        "DEBUG: \"Rescan Book\" Getting metadata with precedence [folderStructure, audioMetatags, nfoFile, txtFiles, opfFile, absMetadata]",
+        "INFO: 1 item data found in folder \"<tmp>\"",
+        "INFO: Found metadata file \"<tmp>/metadata/items/<item:Rescan Book>/metadata.json\"",
+        "INFO: Library file \"<tmp>/Rescan Book/metadata.json\" was removed from library item \"Rescan Book\"",
+        "INFO: Scan completed. 0 Added | 1 Updated | 0 Missing"
+      ]
+    },
+    "afterDelete": [
+      {
+        "relPath": "Rescan Book",
+        "isMissing": false,
+        "title": "Json Title 2",
+        "authors": [
+          "Other Author"
+        ],
+        "narrators": [],
+        "series": [
+          "Json Series #1"
+        ],
+        "genres": [],
+        "description": "v2",
+        "coverPath": null,
+        "ebook": null,
+        "duration": 1,
+        "audio": [
+          "01.mp3"
+        ],
+        "audioTagAlbums": [
+          "Tag Title"
+        ],
+        "chapters": [],
+        "libraryFiles": [
+          "01.mp3"
+        ]
+      }
+    ],
+    "authors": [
+      "Other Author"
+    ],
+    "series": [
+      "Json Series"
+    ],
+    "emitted": [
+      "emitter:author_added",
+      "emitter:author_added",
+      "emitter:author_removed",
+      "libraryItemsEmitter:items_updated",
+      "libraryItemsEmitter:items_updated",
+      "libraryItemsEmitter:items_updated"
+    ]
+  },
+  "ScannerBook (characterization) > rescanning a book > nothing changed: no updates, also with a forced rescan": {
+    "first": {
+      "added": 1,
+      "updated": 0,
+      "missing": 0
+    },
+    "before": [
+      {
+        "relPath": "Rescan Book",
+        "isMissing": false,
+        "title": "Same",
+        "authors": [],
+        "narrators": [],
+        "series": [],
+        "genres": [],
+        "description": null,
+        "coverPath": null,
+        "ebook": null,
+        "duration": 1,
+        "audio": [
+          "01.mp3"
+        ],
+        "audioTagAlbums": [
+          "Same"
+        ],
+        "chapters": [],
+        "libraryFiles": [
+          "01.mp3"
+        ]
+      }
+    ],
+    "second": {
+      "added": 0,
+      "updated": 0,
+      "missing": 0,
+      "logs": [
+        "DEBUG: Library item \"Rescan Book\" is up-to-date",
+        "INFO: 1 item data found in folder \"<tmp>\"",
+        "INFO: Scan completed. 0 Added | 0 Updated | 0 Missing"
+      ]
+    },
+    "after": [
+      {
+        "relPath": "Rescan Book",
+        "isMissing": false,
+        "title": "Same",
+        "authors": [],
+        "narrators": [],
+        "series": [],
+        "genres": [],
+        "description": null,
+        "coverPath": null,
+        "ebook": null,
+        "duration": 1,
+        "audio": [
+          "01.mp3"
+        ],
+        "audioTagAlbums": [
+          "Same"
+        ],
+        "chapters": [],
+        "libraryFiles": [
+          "01.mp3"
+        ]
+      }
+    ],
+    "emitted": []
+  },
+  "ScannerBook (characterization) > rescanning a book > tags changed in an audio file: the audio file tags update but the saved metadata.json copy keeps title, author and narrator": {
+    "first": {
+      "added": 1,
+      "updated": 0,
+      "missing": 0
+    },
+    "before": [
+      {
+        "relPath": "Rescan Book",
+        "isMissing": false,
+        "title": "Old Title",
+        "authors": [
+          "Old Author"
+        ],
+        "narrators": [
+          "Old Narrator"
+        ],
+        "series": [],
+        "genres": [],
+        "description": null,
+        "coverPath": null,
+        "ebook": null,
+        "duration": 1,
+        "audio": [
+          "01.mp3"
+        ],
+        "audioTagAlbums": [
+          "Old Title"
+        ],
+        "chapters": [],
+        "libraryFiles": [
+          "01.mp3"
+        ]
+      }
+    ],
+    "second": {
+      "added": 0,
+      "updated": 1,
+      "missing": 0,
+      "logs": [
+        "DEBUG: \"Rescan Book\" Getting metadata with precedence [folderStructure, audioMetatags, nfoFile, txtFiles, opfFile, absMetadata]",
+        "DEBUG: Success saving abmetadata to \"<tmp>/metadata/items/<item:Rescan Book>/metadata.json\"",
+        "INFO: 1 item data found in folder \"<tmp>\"",
+        "INFO: Found metadata file \"<tmp>/metadata/items/<item:Rescan Book>/metadata.json\"",
+        "INFO: Scan completed. 0 Added | 1 Updated | 0 Missing"
+      ]
+    },
+    "after": [
+      {
+        "relPath": "Rescan Book",
+        "isMissing": false,
+        "title": "Old Title",
+        "authors": [
+          "Old Author"
+        ],
+        "narrators": [
+          "Old Narrator"
+        ],
+        "series": [],
+        "genres": [],
+        "description": null,
+        "coverPath": null,
+        "ebook": null,
+        "duration": 1,
+        "audio": [
+          "01.mp3"
+        ],
+        "audioTagAlbums": [
+          "New Title"
+        ],
+        "chapters": [],
+        "libraryFiles": [
+          "01.mp3"
+        ]
+      }
+    ],
+    "emitted": [
+      "libraryItemsEmitter:items_updated"
+    ]
+  },
+  "ScannerBook (characterization) > rescanning a book > turning on audiobooksOnly drops the ebook file on the next rescan": {
+    "first": {
+      "added": 1,
+      "updated": 0,
+      "missing": 0
+    },
+    "before": [
+      {
+        "relPath": "Rescan Book",
+        "isMissing": false,
+        "title": "Rescan Book",
+        "authors": [],
+        "narrators": [],
+        "series": [],
+        "genres": [],
+        "description": null,
+        "coverPath": null,
+        "ebook": "book.epub",
+        "duration": 1,
+        "audio": [
+          "01.mp3"
+        ],
+        "audioTagAlbums": [
+          null
+        ],
+        "chapters": [],
+        "libraryFiles": [
+          "01.mp3",
+          "book.epub (main)"
+        ]
+      }
+    ],
+    "second": {
+      "added": 0,
+      "updated": 1,
+      "missing": 0,
+      "logs": [
+        "DEBUG: \"Rescan Book\" Getting metadata with precedence [folderStructure, audioMetatags, nfoFile, txtFiles, opfFile, absMetadata]",
+        "DEBUG: Success saving abmetadata to \"<tmp>/metadata/items/<item:Rescan Book>/metadata.json\"",
+        "INFO: 1 item data found in folder \"<tmp>\"",
+        "INFO: Found metadata file \"<tmp>/metadata/items/<item:Rescan Book>/metadata.json\"",
+        "INFO: Scan completed. 0 Added | 1 Updated | 0 Missing"
+      ]
+    },
+    "after": [
+      {
+        "relPath": "Rescan Book",
+        "isMissing": false,
+        "title": "Rescan Book",
+        "authors": [],
+        "narrators": [],
+        "series": [],
+        "genres": [],
+        "description": null,
+        "coverPath": null,
+        "ebook": null,
+        "duration": 1,
+        "audio": [
+          "01.mp3"
+        ],
+        "audioTagAlbums": [
+          null
+        ],
+        "chapters": [],
+        "libraryFiles": [
+          "01.mp3",
+          "book.epub (supplementary)"
+        ]
+      }
+    ],
+    "emitted": [
+      "libraryItemsEmitter:items_updated"
+    ]
+  },
+  "ScannerBook (characterization) > scanning a new book > .nfo, .opf, desc.txt and reader.txt feed metadata (default order: nfo, txt, opf)": {
+    "scan": {
+      "canceled": false,
+      "added": 1,
+      "updated": 0,
+      "missing": 0,
+      "logs": [
+        "DEBUG: \"Files Book\" Getting metadata with precedence [folderStructure, audioMetatags, nfoFile, txtFiles, opfFile, absMetadata]",
+        "DEBUG: Success saving abmetadata to \"<tmp>/metadata/items/<item:Files Book>/metadata.json\"",
+        "INFO: 1 item data found in folder \"<tmp>\"",
+        "INFO: Created new library item \"Files Book\" with id \"<item:Files Book>\"",
+        "INFO: Scan completed. 1 Added | 0 Updated | 0 Missing"
+      ]
+    },
+    "items": [
+      {
+        "id": "<item:Files Book>",
+        "oldLibraryItemId": null,
+        "libraryId": "<library>",
+        "folderId": "<folder>",
+        "path": "<tmp>/Files Book",
+        "relPath": "Files Book",
+        "isFile": false,
+        "isMissing": false,
+        "isInvalid": false,
+        "mediaType": "book",
+        "media": {
+          "id": "<book:Files Book>",
+          "metadata": {
+            "title": "Opf Title",
+            "subtitle": "Nfo Subtitle",
+            "authors": [
+              {
+                "id": "<author:Opf Author>",
+                "name": "Opf Author"
+              }
+            ],
+            "narrators": [
+              "Nfo Reader"
+            ],
+            "series": [
+              {
+                "id": "<series:Opf Series>",
+                "name": "Opf Series",
+                "sequence": "9"
+              }
+            ],
+            "genres": [
+              "Opf Genre"
+            ],
+            "publishedYear": "2005",
+            "publishedDate": null,
+            "publisher": "Opf Pub",
+            "description": "Txt description wins over nfo",
+            "isbn": "9780000000002",
+            "asin": "B0NFO00000",
+            "language": "English",
+            "explicit": false,
+            "abridged": false,
+            "titleIgnorePrefix": "Opf Title",
+            "authorName": "Opf Author",
+            "authorNameLF": "Author, Opf",
+            "narratorName": "Nfo Reader",
+            "seriesName": "Opf Series #9",
+            "descriptionPlain": "Txt description wins over nfo"
+          },
+          "coverPath": null,
+          "tags": [],
+          "numTracks": 1,
+          "numAudioFiles": 1,
+          "numChapters": 0,
+          "duration": 1,
+          "libraryItemId": "<item:Files Book>",
+          "audioFiles": [
+            {
+              "index": 1,
+              "metadata": {
+                "filename": "a.mp3",
+                "ext": ".mp3",
+                "path": "<tmp>/Files Book/a.mp3",
+                "relPath": "a.mp3"
+              },
+              "trackNumFromMeta": null,
+              "discNumFromMeta": null,
+              "trackNumFromFilename": null,
+              "discNumFromFilename": null,
+              "manuallyVerified": false,
+              "exclude": false,
+              "error": null,
+              "format": "MP2/3 (MPEG audio layer 2/3)",
+              "duration": 1,
+              "language": null,
+              "codec": "mp3",
+              "channels": 1,
+              "channelLayout": "mono",
+              "chapters": [],
+              "embeddedCoverArt": null,
+              "metaTags": {},
+              "mimeType": "audio/mpeg"
+            }
+          ],
+          "chapters": [],
+          "ebookFile": null
+        },
+        "numFiles": 4,
+        "scanVersion": "2.37.0",
+        "libraryFiles": [
+          {
+            "metadata": {
+              "filename": "a.mp3",
+              "ext": ".mp3",
+              "path": "<tmp>/Files Book/a.mp3",
+              "relPath": "a.mp3"
+            },
+            "isSupplementary": null,
+            "fileType": "audio"
+          },
+          {
+            "metadata": {
+              "filename": "book.nfo",
+              "ext": ".nfo",
+              "path": "<tmp>/Files Book/book.nfo",
+              "relPath": "book.nfo"
+            },
+            "isSupplementary": null,
+            "fileType": "text"
+          },
+          {
+            "metadata": {
+              "filename": "book.opf",
+              "ext": ".opf",
+              "path": "<tmp>/Files Book/book.opf",
+              "relPath": "book.opf"
+            },
+            "isSupplementary": null,
+            "fileType": "metadata"
+          },
+          {
+            "metadata": {
+              "filename": "desc.txt",
+              "ext": ".txt",
+              "path": "<tmp>/Files Book/desc.txt",
+              "relPath": "desc.txt"
+            },
+            "isSupplementary": null,
+            "fileType": "text"
+          }
+        ]
+      }
+    ],
+    "emitted": [
+      "emitter:author_added",
+      "libraryItemsEmitter:items_added"
+    ]
+  },
+  "ScannerBook (characterization) > scanning a new book > NfoFileScanner / OpfFileScanner merge rules on a metadata object": {
+    "withExisting": {
+      "title": "T",
+      "genres": [
+        "G"
+      ],
+      "tags": [
+        "t1",
+        "t2"
+      ],
+      "authors": [
+        "A"
+      ],
+      "series": [
+        {
+          "name": "S",
+          "sequence": "2"
+        }
+      ],
+      "narrators": [
+        "Old Nar"
+      ],
+      "publisher": "Old Pub"
+    },
+    "untouched": {
+      "title": "Same"
+    },
+    "opfTarget": {
+      "title": "OT",
+      "authors": [
+        "Keep"
+      ],
+      "genres": [
+        "Keep"
+      ]
+    },
+    "badTarget": {
+      "title": "Same"
+    }
+  },
+  "ScannerBook (characterization) > scanning a new book > a corrupt audio file is skipped; a folder where nothing can be probed is not added": {
+    "scan": {
+      "canceled": false,
+      "added": 1,
+      "updated": 0,
+      "missing": 0,
+      "logs": [
+        "DEBUG: \"Half Good\" Getting metadata with precedence [folderStructure, audioMetatags, nfoFile, txtFiles, opfFile, absMetadata]",
+        "DEBUG: Success saving abmetadata to \"<tmp>/metadata/items/<item:Half Good>/metadata.json\"",
+        "INFO: 2 item data found in folder \"<tmp>\"",
+        "INFO: Created new library item \"Half Good\" with id \"<item:Half Good>\"",
+        "INFO: Scan completed. 1 Added | 0 Updated | 0 Missing",
+        "WARN: Library item at path \"All Bad\" has no audio files and no ebook file - ignoring"
+      ]
+    },
+    "items": [
+      {
+        "id": "<item:Half Good>",
+        "oldLibraryItemId": null,
+        "libraryId": "<library>",
+        "folderId": "<folder>",
+        "path": "<tmp>/Half Good",
+        "relPath": "Half Good",
+        "isFile": false,
+        "isMissing": false,
+        "isInvalid": false,
+        "mediaType": "book",
+        "media": {
+          "id": "<book:Half Good>",
+          "metadata": {
+            "title": "Half Good",
+            "subtitle": null,
+            "authors": [],
+            "narrators": [],
+            "series": [],
+            "genres": [],
+            "publishedYear": null,
+            "publishedDate": null,
+            "publisher": null,
+            "description": null,
+            "isbn": null,
+            "asin": null,
+            "language": null,
+            "explicit": false,
+            "abridged": false,
+            "titleIgnorePrefix": "Half Good",
+            "authorName": "",
+            "authorNameLF": "",
+            "narratorName": "",
+            "seriesName": "",
+            "descriptionPlain": null
+          },
+          "coverPath": null,
+          "tags": [],
+          "numTracks": 1,
+          "numAudioFiles": 1,
+          "numChapters": 0,
+          "duration": 1,
+          "libraryItemId": "<item:Half Good>",
+          "audioFiles": [
+            {
+              "index": 1,
+              "metadata": {
+                "filename": "01.mp3",
+                "ext": ".mp3",
+                "path": "<tmp>/Half Good/01.mp3",
+                "relPath": "01.mp3"
+              },
+              "trackNumFromMeta": null,
+              "discNumFromMeta": null,
+              "trackNumFromFilename": 1,
+              "discNumFromFilename": null,
+              "manuallyVerified": false,
+              "exclude": false,
+              "error": null,
+              "format": "MP2/3 (MPEG audio layer 2/3)",
+              "duration": 1,
+              "language": null,
+              "codec": "mp3",
+              "channels": 1,
+              "channelLayout": "mono",
+              "chapters": [],
+              "embeddedCoverArt": null,
+              "metaTags": {},
+              "mimeType": "audio/mpeg"
+            }
+          ],
+          "chapters": [],
+          "ebookFile": null
+        },
+        "numFiles": 2,
+        "scanVersion": "2.37.0",
+        "libraryFiles": [
+          {
+            "metadata": {
+              "filename": "01.mp3",
+              "ext": ".mp3",
+              "path": "<tmp>/Half Good/01.mp3",
+              "relPath": "01.mp3"
+            },
+            "isSupplementary": null,
+            "fileType": "audio"
+          },
+          {
+            "metadata": {
+              "filename": "02.mp3",
+              "ext": ".mp3",
+              "path": "<tmp>/Half Good/02.mp3",
+              "relPath": "02.mp3"
+            },
+            "isSupplementary": null,
+            "fileType": "audio"
+          }
+        ]
+      }
+    ],
+    "emitted": [
+      "libraryItemsEmitter:items_added"
+    ]
+  },
+  "ScannerBook (characterization) > scanning a new book > a single audio file in the library root (isFile item)": {
+    "scan": {
+      "canceled": false,
+      "added": 1,
+      "updated": 0,
+      "missing": 0,
+      "logs": [
+        "DEBUG: \"Single Book\" Getting metadata with precedence [folderStructure, audioMetatags, nfoFile, txtFiles, opfFile, absMetadata]",
+        "DEBUG: Success saving abmetadata to \"<tmp>/metadata/items/<item:Single Book.mp3>/metadata.json\"",
+        "INFO: 1 item data found in folder \"<tmp>\"",
+        "INFO: Created new library item \"Single Book.mp3\" with id \"<item:Single Book.mp3>\"",
+        "INFO: Scan completed. 1 Added | 0 Updated | 0 Missing"
+      ]
+    },
+    "items": [
+      {
+        "id": "<item:Single Book.mp3>",
+        "oldLibraryItemId": null,
+        "libraryId": "<library>",
+        "folderId": "<folder>",
+        "path": "<tmp>/Single Book.mp3",
+        "relPath": "Single Book.mp3",
+        "isFile": true,
+        "isMissing": false,
+        "isInvalid": false,
+        "mediaType": "book",
+        "media": {
+          "id": "<book:Single Book.mp3>",
+          "metadata": {
+            "title": "Tagged Title",
+            "subtitle": null,
+            "authors": [
+              {
+                "id": "<author:Tagged Author>",
+                "name": "Tagged Author"
+              }
+            ],
+            "narrators": [],
+            "series": [],
+            "genres": [],
+            "publishedYear": null,
+            "publishedDate": null,
+            "publisher": null,
+            "description": null,
+            "isbn": null,
+            "asin": null,
+            "language": null,
+            "explicit": false,
+            "abridged": false,
+            "titleIgnorePrefix": "Tagged Title",
+            "authorName": "Tagged Author",
+            "authorNameLF": "Author, Tagged",
+            "narratorName": "",
+            "seriesName": "",
+            "descriptionPlain": null
+          },
+          "coverPath": null,
+          "tags": [],
+          "numTracks": 1,
+          "numAudioFiles": 1,
+          "numChapters": 0,
+          "duration": 1,
+          "libraryItemId": "<item:Single Book.mp3>",
+          "audioFiles": [
+            {
+              "index": 1,
+              "metadata": {
+                "filename": "Single Book.mp3",
+                "ext": ".mp3",
+                "path": "<tmp>/Single Book.mp3",
+                "relPath": "Single Book.mp3"
+              },
+              "trackNumFromMeta": null,
+              "discNumFromMeta": null,
+              "trackNumFromFilename": null,
+              "discNumFromFilename": null,
+              "manuallyVerified": false,
+              "exclude": false,
+              "error": null,
+              "format": "MP2/3 (MPEG audio layer 2/3)",
+              "duration": 1,
+              "language": null,
+              "codec": "mp3",
+              "channels": 1,
+              "channelLayout": "mono",
+              "chapters": [],
+              "embeddedCoverArt": null,
+              "metaTags": {
+                "tagArtist": "Tagged Author",
+                "tagTitle": "Tagged Title"
+              },
+              "mimeType": "audio/mpeg"
+            }
+          ],
+          "chapters": [],
+          "ebookFile": null
+        },
+        "numFiles": 1,
+        "scanVersion": "2.37.0",
+        "libraryFiles": [
+          {
+            "metadata": {
+              "filename": "Single Book.mp3",
+              "ext": ".mp3",
+              "path": "<tmp>/Single Book.mp3",
+              "relPath": "Single Book.mp3"
+            },
+            "isSupplementary": null,
+            "fileType": "audio"
+          }
+        ]
+      }
+    ],
+    "emitted": [
+      "emitter:author_added",
+      "libraryItemsEmitter:items_added"
+    ]
+  },
+  "ScannerBook (characterization) > scanning a new book > an epub alone: metadata and cover come from the epub": {
+    "scan": {
+      "canceled": false,
+      "added": 1,
+      "updated": 0,
+      "missing": 0,
+      "logs": [
+        "DEBUG: \"Epub Book\" Getting metadata with precedence [folderStructure, audioMetatags, nfoFile, txtFiles, opfFile, absMetadata]",
+        "DEBUG: Extracted embedded cover from ebook file at \"<tmp>/metadata/items/<item:Epub Book>/cover.png\" for book \"Epub Title\"",
+        "DEBUG: Success saving abmetadata to \"<tmp>/metadata/items/<item:Epub Book>/metadata.json\"",
+        "INFO: 1 item data found in folder \"<tmp>\"",
+        "INFO: Created new library item \"Epub Book\" with id \"<item:Epub Book>\"",
+        "INFO: Scan completed. 1 Added | 0 Updated | 0 Missing"
+      ]
+    },
+    "items": [
+      {
+        "id": "<item:Epub Book>",
+        "oldLibraryItemId": null,
+        "libraryId": "<library>",
+        "folderId": "<folder>",
+        "path": "<tmp>/Epub Book",
+        "relPath": "Epub Book",
+        "isFile": false,
+        "isMissing": false,
+        "isInvalid": false,
+        "mediaType": "book",
+        "media": {
+          "id": "<book:Epub Book>",
+          "metadata": {
+            "title": "Epub Title",
+            "subtitle": null,
+            "authors": [
+              {
+                "id": "<author:Epub Author>",
+                "name": "Epub Author"
+              }
+            ],
+            "narrators": [
+              "Epub Narrator"
+            ],
+            "series": [
+              {
+                "id": "<series:Epub Series>",
+                "name": "Epub Series",
+                "sequence": "2"
+              }
+            ],
+            "genres": [
+              "Epub Genre"
+            ],
+            "publishedYear": "2015",
+            "publishedDate": null,
+            "publisher": "Epub Pub",
+            "description": "Epub description",
+            "isbn": "9781111111111",
+            "asin": null,
+            "language": "en",
+            "explicit": false,
+            "abridged": false,
+            "titleIgnorePrefix": "Epub Title",
+            "authorName": "Epub Author",
+            "authorNameLF": "Author, Epub",
+            "narratorName": "Epub Narrator",
+            "seriesName": "Epub Series #2",
+            "descriptionPlain": "Epub description"
+          },
+          "coverPath": "<tmp>/metadata/items/<item:Epub Book>/cover.png",
+          "tags": [],
+          "numTracks": 0,
+          "numAudioFiles": 0,
+          "numChapters": 0,
+          "duration": 0,
+          "ebookFormat": "epub",
+          "libraryItemId": "<item:Epub Book>",
+          "audioFiles": [],
+          "chapters": [],
+          "ebookFile": {
+            "metadata": {
+              "filename": "book.epub",
+              "ext": ".epub",
+              "path": "<tmp>/Epub Book/book.epub",
+              "relPath": "book.epub"
+            },
+            "isSupplementary": null,
+            "fileType": "ebook",
+            "ebookFormat": "epub"
+          }
+        },
+        "numFiles": 1,
+        "scanVersion": "2.37.0",
+        "libraryFiles": [
+          {
+            "metadata": {
+              "filename": "book.epub",
+              "ext": ".epub",
+              "path": "<tmp>/Epub Book/book.epub",
+              "relPath": "book.epub"
+            },
+            "isSupplementary": false,
+            "fileType": "ebook"
+          }
+        ]
+      }
+    ],
+    "emitted": [
+      "emitter:author_added",
+      "libraryItemsEmitter:items_added"
+    ]
+  },
+  "ScannerBook (characterization) > scanning a new book > an epub as a root file, and a cbz with ComicInfo.xml": {
+    "scan": {
+      "canceled": false,
+      "added": 3,
+      "updated": 0,
+      "missing": 0,
+      "logs": [
+        "DEBUG: \"Comic Book\" Getting metadata with precedence [folderStructure, audioMetatags, nfoFile, txtFiles, opfFile, absMetadata]",
+        "DEBUG: \"Plain Comic\" Getting metadata with precedence [folderStructure, audioMetatags, nfoFile, txtFiles, opfFile, absMetadata]",
+        "DEBUG: \"Root Epub\" Getting metadata with precedence [folderStructure, audioMetatags, nfoFile, txtFiles, opfFile, absMetadata]",
+        "DEBUG: Extracted embedded cover from ebook file at \"<tmp>/metadata/items/<item:Comic Book>/cover.png\" for book \"Comic Series 5\"",
+        "DEBUG: Extracted embedded cover from ebook file at \"<tmp>/metadata/items/<item:Plain Comic>/cover.png\" for book \"Plain Comic\"",
+        "DEBUG: Success saving abmetadata to \"<tmp>/metadata/items/<item:Comic Book>/metadata.json\"",
+        "DEBUG: Success saving abmetadata to \"<tmp>/metadata/items/<item:Plain Comic>/metadata.json\"",
+        "DEBUG: Success saving abmetadata to \"<tmp>/metadata/items/<item:Root Epub.epub>/metadata.json\"",
+        "INFO: 3 item data found in folder \"<tmp>\"",
+        "INFO: Created new library item \"Comic Book\" with id \"<item:Comic Book>\"",
+        "INFO: Created new library item \"Plain Comic\" with id \"<item:Plain Comic>\"",
+        "INFO: Created new library item \"Root Epub.epub\" with id \"<item:Root Epub.epub>\"",
+        "INFO: Scan completed. 3 Added | 0 Updated | 0 Missing"
+      ]
+    },
+    "items": [
+      {
+        "id": "<item:Comic Book>",
+        "oldLibraryItemId": null,
+        "libraryId": "<library>",
+        "folderId": "<folder>",
+        "path": "<tmp>/Comic Book",
+        "relPath": "Comic Book",
+        "isFile": false,
+        "isMissing": false,
+        "isInvalid": false,
+        "mediaType": "book",
+        "media": {
+          "id": "<book:Comic Book>",
+          "metadata": {
+            "title": "Comic Series 5",
+            "subtitle": null,
+            "authors": [],
+            "narrators": [],
+            "series": [
+              {
+                "id": "<series:Comic Series>",
+                "name": "Comic Series",
+                "sequence": "5"
+              }
+            ],
+            "genres": [],
+            "publishedYear": null,
+            "publishedDate": null,
+            "publisher": null,
+            "description": "Comic summary",
+            "isbn": null,
+            "asin": null,
+            "language": null,
+            "explicit": false,
+            "abridged": false,
+            "titleIgnorePrefix": "Comic Series 5",
+            "authorName": "",
+            "authorNameLF": "",
+            "narratorName": "",
+            "seriesName": "Comic Series #5",
+            "descriptionPlain": "Comic summary"
+          },
+          "coverPath": "<tmp>/metadata/items/<item:Comic Book>/cover.png",
+          "tags": [],
+          "numTracks": 0,
+          "numAudioFiles": 0,
+          "numChapters": 0,
+          "duration": 0,
+          "ebookFormat": "cbz",
+          "libraryItemId": "<item:Comic Book>",
+          "audioFiles": [],
+          "chapters": [],
+          "ebookFile": {
+            "metadata": {
+              "filename": "comic.cbz",
+              "ext": ".cbz",
+              "path": "<tmp>/Comic Book/comic.cbz",
+              "relPath": "comic.cbz"
+            },
+            "isSupplementary": null,
+            "fileType": "ebook",
+            "ebookFormat": "cbz"
+          }
+        },
+        "numFiles": 1,
+        "scanVersion": "2.37.0",
+        "libraryFiles": [
+          {
+            "metadata": {
+              "filename": "comic.cbz",
+              "ext": ".cbz",
+              "path": "<tmp>/Comic Book/comic.cbz",
+              "relPath": "comic.cbz"
+            },
+            "isSupplementary": false,
+            "fileType": "ebook"
+          }
+        ]
+      },
+      {
+        "id": "<item:Plain Comic>",
+        "oldLibraryItemId": null,
+        "libraryId": "<library>",
+        "folderId": "<folder>",
+        "path": "<tmp>/Plain Comic",
+        "relPath": "Plain Comic",
+        "isFile": false,
+        "isMissing": false,
+        "isInvalid": false,
+        "mediaType": "book",
+        "media": {
+          "id": "<book:Plain Comic>",
+          "metadata": {
+            "title": "Plain Comic",
+            "subtitle": null,
+            "authors": [],
+            "narrators": [],
+            "series": [],
+            "genres": [],
+            "publishedYear": null,
+            "publishedDate": null,
+            "publisher": null,
+            "description": null,
+            "isbn": null,
+            "asin": null,
+            "language": null,
+            "explicit": false,
+            "abridged": false,
+            "titleIgnorePrefix": "Plain Comic",
+            "authorName": "",
+            "authorNameLF": "",
+            "narratorName": "",
+            "seriesName": "",
+            "descriptionPlain": null
+          },
+          "coverPath": "<tmp>/metadata/items/<item:Plain Comic>/cover.png",
+          "tags": [],
+          "numTracks": 0,
+          "numAudioFiles": 0,
+          "numChapters": 0,
+          "duration": 0,
+          "ebookFormat": "cbz",
+          "libraryItemId": "<item:Plain Comic>",
+          "audioFiles": [],
+          "chapters": [],
+          "ebookFile": {
+            "metadata": {
+              "filename": "comic.cbz",
+              "ext": ".cbz",
+              "path": "<tmp>/Plain Comic/comic.cbz",
+              "relPath": "comic.cbz"
+            },
+            "isSupplementary": null,
+            "fileType": "ebook",
+            "ebookFormat": "cbz"
+          }
+        },
+        "numFiles": 1,
+        "scanVersion": "2.37.0",
+        "libraryFiles": [
+          {
+            "metadata": {
+              "filename": "comic.cbz",
+              "ext": ".cbz",
+              "path": "<tmp>/Plain Comic/comic.cbz",
+              "relPath": "comic.cbz"
+            },
+            "isSupplementary": false,
+            "fileType": "ebook"
+          }
+        ]
+      },
+      {
+        "id": "<item:Root Epub.epub>",
+        "oldLibraryItemId": null,
+        "libraryId": "<library>",
+        "folderId": "<folder>",
+        "path": "<tmp>/Root Epub.epub",
+        "relPath": "Root Epub.epub",
+        "isFile": true,
+        "isMissing": false,
+        "isInvalid": false,
+        "mediaType": "book",
+        "media": {
+          "id": "<book:Root Epub.epub>",
+          "metadata": {
+            "title": "Root Epub Title",
+            "subtitle": null,
+            "authors": [
+              {
+                "id": "<author:Root Author>",
+                "name": "Root Author"
+              }
+            ],
+            "narrators": [],
+            "series": [],
+            "genres": [],
+            "publishedYear": null,
+            "publishedDate": null,
+            "publisher": null,
+            "description": null,
+            "isbn": null,
+            "asin": null,
+            "language": null,
+            "explicit": false,
+            "abridged": false,
+            "titleIgnorePrefix": "Root Epub Title",
+            "authorName": "Root Author",
+            "authorNameLF": "Author, Root",
+            "narratorName": "",
+            "seriesName": "",
+            "descriptionPlain": null
+          },
+          "coverPath": null,
+          "tags": [],
+          "numTracks": 0,
+          "numAudioFiles": 0,
+          "numChapters": 0,
+          "duration": 0,
+          "ebookFormat": "epub",
+          "libraryItemId": "<item:Root Epub.epub>",
+          "audioFiles": [],
+          "chapters": [],
+          "ebookFile": {
+            "metadata": {
+              "filename": "Root Epub.epub",
+              "ext": ".epub",
+              "path": "<tmp>/Root Epub.epub",
+              "relPath": "Root Epub.epub"
+            },
+            "isSupplementary": null,
+            "fileType": "ebook",
+            "ebookFormat": "epub"
+          }
+        },
+        "numFiles": 1,
+        "scanVersion": "2.37.0",
+        "libraryFiles": [
+          {
+            "metadata": {
+              "filename": "Root Epub.epub",
+              "ext": ".epub",
+              "path": "<tmp>/Root Epub.epub",
+              "relPath": "Root Epub.epub"
+            },
+            "isSupplementary": false,
+            "fileType": "ebook"
+          }
+        ]
+      }
+    ],
+    "emitted": [
+      "emitter:author_added",
+      "libraryItemsEmitter:items_added"
+    ]
+  },
+  "ScannerBook (characterization) > scanning a new book > audio plus ebook: tags win over the epub, the epub is the ebook file, other ebooks are supplementary": {
+    "scan": {
+      "canceled": false,
+      "added": 1,
+      "updated": 0,
+      "missing": 0,
+      "logs": [
+        "DEBUG: \"Audio And Ebook\" Getting metadata with precedence [folderStructure, audioMetatags, nfoFile, txtFiles, opfFile, absMetadata]",
+        "DEBUG: Success saving abmetadata to \"<tmp>/metadata/items/<item:Audio And Ebook>/metadata.json\"",
+        "INFO: 1 item data found in folder \"<tmp>\"",
+        "INFO: Created new library item \"Audio And Ebook\" with id \"<item:Audio And Ebook>\"",
+        "INFO: Scan completed. 1 Added | 0 Updated | 0 Missing"
+      ]
+    },
+    "items": [
+      {
+        "id": "<item:Audio And Ebook>",
+        "oldLibraryItemId": null,
+        "libraryId": "<library>",
+        "folderId": "<folder>",
+        "path": "<tmp>/Audio And Ebook",
+        "relPath": "Audio And Ebook",
+        "isFile": false,
+        "isMissing": false,
+        "isInvalid": false,
+        "mediaType": "book",
+        "media": {
+          "id": "<book:Audio And Ebook>",
+          "metadata": {
+            "title": "Audio Title",
+            "subtitle": null,
+            "authors": [],
+            "narrators": [],
+            "series": [],
+            "genres": [],
+            "publishedYear": null,
+            "publishedDate": null,
+            "publisher": null,
+            "description": null,
+            "isbn": null,
+            "asin": null,
+            "language": null,
+            "explicit": false,
+            "abridged": false,
+            "titleIgnorePrefix": "Audio Title",
+            "authorName": "",
+            "authorNameLF": "",
+            "narratorName": "",
+            "seriesName": "",
+            "descriptionPlain": null
+          },
+          "coverPath": null,
+          "tags": [],
+          "numTracks": 1,
+          "numAudioFiles": 1,
+          "numChapters": 0,
+          "duration": 1,
+          "ebookFormat": "epub",
+          "libraryItemId": "<item:Audio And Ebook>",
+          "audioFiles": [
+            {
+              "index": 1,
+              "metadata": {
+                "filename": "a.mp3",
+                "ext": ".mp3",
+                "path": "<tmp>/Audio And Ebook/a.mp3",
+                "relPath": "a.mp3"
+              },
+              "trackNumFromMeta": null,
+              "discNumFromMeta": null,
+              "trackNumFromFilename": null,
+              "discNumFromFilename": null,
+              "manuallyVerified": false,
+              "exclude": false,
+              "error": null,
+              "format": "MP2/3 (MPEG audio layer 2/3)",
+              "duration": 1,
+              "language": null,
+              "codec": "mp3",
+              "channels": 1,
+              "channelLayout": "mono",
+              "chapters": [],
+              "embeddedCoverArt": null,
+              "metaTags": {
+                "tagAlbum": "Audio Title"
+              },
+              "mimeType": "audio/mpeg"
+            }
+          ],
+          "chapters": [],
+          "ebookFile": {
+            "metadata": {
+              "filename": "z.epub",
+              "ext": ".epub",
+              "path": "<tmp>/Audio And Ebook/z.epub",
+              "relPath": "z.epub"
+            },
+            "isSupplementary": null,
+            "fileType": "ebook",
+            "ebookFormat": "epub"
+          }
+        },
+        "numFiles": 4,
+        "scanVersion": "2.37.0",
+        "libraryFiles": [
+          {
+            "metadata": {
+              "filename": "a.cbz",
+              "ext": ".cbz",
+              "path": "<tmp>/Audio And Ebook/a.cbz",
+              "relPath": "a.cbz"
+            },
+            "isSupplementary": true,
+            "fileType": "ebook"
+          },
+          {
+            "metadata": {
+              "filename": "a.mp3",
+              "ext": ".mp3",
+              "path": "<tmp>/Audio And Ebook/a.mp3",
+              "relPath": "a.mp3"
+            },
+            "isSupplementary": null,
+            "fileType": "audio"
+          },
+          {
+            "metadata": {
+              "filename": "m.pdf",
+              "ext": ".pdf",
+              "path": "<tmp>/Audio And Ebook/m.pdf",
+              "relPath": "m.pdf"
+            },
+            "isSupplementary": true,
+            "fileType": "ebook"
+          },
+          {
+            "metadata": {
+              "filename": "z.epub",
+              "ext": ".epub",
+              "path": "<tmp>/Audio And Ebook/z.epub",
+              "relPath": "z.epub"
+            },
+            "isSupplementary": false,
+            "fileType": "ebook"
+          }
+        ]
+      }
+    ],
+    "emitted": [
+      "libraryItemsEmitter:items_added"
+    ]
+  },
+  "ScannerBook (characterization) > scanning a new book > audiobooksOnly: ebooks are not added as ebook files, ebook-only folders are ignored": {
+    "scan": {
+      "canceled": false,
+      "added": 1,
+      "updated": 0,
+      "missing": 0,
+      "logs": [
+        "DEBUG: \"Audio And Ebook\" Getting metadata with precedence [folderStructure, audioMetatags, nfoFile, txtFiles, opfFile, absMetadata]",
+        "DEBUG: Success saving abmetadata to \"<tmp>/metadata/items/<item:Audio And Ebook>/metadata.json\"",
+        "INFO: 1 item data found in folder \"<tmp>\"",
+        "INFO: Created new library item \"Audio And Ebook\" with id \"<item:Audio And Ebook>\"",
+        "INFO: Scan completed. 1 Added | 0 Updated | 0 Missing"
+      ]
+    },
+    "items": [
+      {
+        "id": "<item:Audio And Ebook>",
+        "oldLibraryItemId": null,
+        "libraryId": "<library>",
+        "folderId": "<folder>",
+        "path": "<tmp>/Audio And Ebook",
+        "relPath": "Audio And Ebook",
+        "isFile": false,
+        "isMissing": false,
+        "isInvalid": false,
+        "mediaType": "book",
+        "media": {
+          "id": "<book:Audio And Ebook>",
+          "metadata": {
+            "title": "Audio And Ebook",
+            "subtitle": null,
+            "authors": [],
+            "narrators": [],
+            "series": [],
+            "genres": [],
+            "publishedYear": null,
+            "publishedDate": null,
+            "publisher": null,
+            "description": null,
+            "isbn": null,
+            "asin": null,
+            "language": null,
+            "explicit": false,
+            "abridged": false,
+            "titleIgnorePrefix": "Audio And Ebook",
+            "authorName": "",
+            "authorNameLF": "",
+            "narratorName": "",
+            "seriesName": "",
+            "descriptionPlain": null
+          },
+          "coverPath": null,
+          "tags": [],
+          "numTracks": 1,
+          "numAudioFiles": 1,
+          "numChapters": 0,
+          "duration": 1,
+          "libraryItemId": "<item:Audio And Ebook>",
+          "audioFiles": [
+            {
+              "index": 1,
+              "metadata": {
+                "filename": "a.mp3",
+                "ext": ".mp3",
+                "path": "<tmp>/Audio And Ebook/a.mp3",
+                "relPath": "a.mp3"
+              },
+              "trackNumFromMeta": null,
+              "discNumFromMeta": null,
+              "trackNumFromFilename": null,
+              "discNumFromFilename": null,
+              "manuallyVerified": false,
+              "exclude": false,
+              "error": null,
+              "format": "MP2/3 (MPEG audio layer 2/3)",
+              "duration": 1,
+              "language": null,
+              "codec": "mp3",
+              "channels": 1,
+              "channelLayout": "mono",
+              "chapters": [],
+              "embeddedCoverArt": null,
+              "metaTags": {},
+              "mimeType": "audio/mpeg"
+            }
+          ],
+          "chapters": [],
+          "ebookFile": null
+        },
+        "numFiles": 2,
+        "scanVersion": "2.37.0",
+        "libraryFiles": [
+          {
+            "metadata": {
+              "filename": "a.mp3",
+              "ext": ".mp3",
+              "path": "<tmp>/Audio And Ebook/a.mp3",
+              "relPath": "a.mp3"
+            },
+            "isSupplementary": null,
+            "fileType": "audio"
+          },
+          {
+            "metadata": {
+              "filename": "b.epub",
+              "ext": ".epub",
+              "path": "<tmp>/Audio And Ebook/b.epub",
+              "relPath": "b.epub"
+            },
+            "isSupplementary": true,
+            "fileType": "ebook"
+          }
+        ]
+      }
+    ],
+    "emitted": [
+      "libraryItemsEmitter:items_added"
+    ]
+  },
+  "ScannerBook (characterization) > scanning a new book > chapters embedded in an m4b are used": {
+    "scan": {
+      "canceled": false,
+      "added": 1,
+      "updated": 0,
+      "missing": 0,
+      "logs": [
+        "DEBUG: \"Chaptered\" Getting metadata with precedence [folderStructure, audioMetatags, nfoFile, txtFiles, opfFile, absMetadata]",
+        "DEBUG: Success saving abmetadata to \"<tmp>/metadata/items/<item:Chaptered>/metadata.json\"",
+        "DEBUG: setChapters: Using embedded chapters in first audio file <tmp>/Chaptered/book.m4b",
+        "INFO: 1 item data found in folder \"<tmp>\"",
+        "INFO: Created new library item \"Chaptered\" with id \"<item:Chaptered>\"",
+        "INFO: Scan completed. 1 Added | 0 Updated | 0 Missing"
+      ]
+    },
+    "items": [
+      {
+        "id": "<item:Chaptered>",
+        "oldLibraryItemId": null,
+        "libraryId": "<library>",
+        "folderId": "<folder>",
+        "path": "<tmp>/Chaptered",
+        "relPath": "Chaptered",
+        "isFile": false,
+        "isMissing": false,
+        "isInvalid": false,
+        "mediaType": "book",
+        "media": {
+          "id": "<book:Chaptered>",
+          "metadata": {
+            "title": "Chaptered",
+            "subtitle": null,
+            "authors": [
+              {
+                "id": "<author:Au>",
+                "name": "Au"
+              }
+            ],
+            "narrators": [],
+            "series": [],
+            "genres": [],
+            "publishedYear": null,
+            "publishedDate": null,
+            "publisher": null,
+            "description": null,
+            "isbn": null,
+            "asin": null,
+            "language": null,
+            "explicit": false,
+            "abridged": false,
+            "titleIgnorePrefix": "Chaptered",
+            "authorName": "Au",
+            "authorNameLF": "Au",
+            "narratorName": "",
+            "seriesName": "",
+            "descriptionPlain": null
+          },
+          "coverPath": null,
+          "tags": [],
+          "numTracks": 1,
+          "numAudioFiles": 1,
+          "numChapters": 2,
+          "duration": 4,
+          "libraryItemId": "<item:Chaptered>",
+          "audioFiles": [
+            {
+              "index": 1,
+              "metadata": {
+                "filename": "book.m4b",
+                "ext": ".m4b",
+                "path": "<tmp>/Chaptered/book.m4b",
+                "relPath": "book.m4b"
+              },
+              "trackNumFromMeta": null,
+              "discNumFromMeta": null,
+              "trackNumFromFilename": null,
+              "discNumFromFilename": null,
+              "manuallyVerified": false,
+              "exclude": false,
+              "error": null,
+              "format": "QuickTime / MOV",
+              "duration": 4,
+              "language": "und",
+              "codec": "aac",
+              "channels": 1,
+              "channelLayout": "mono",
+              "chapters": [
+                {
+                  "start": 0,
+                  "end": 2,
+                  "title": "Intro",
+                  "id": 0
+                },
+                {
+                  "start": 2,
+                  "end": 4,
+                  "title": "Body",
+                  "id": 1
+                }
+              ],
+              "embeddedCoverArt": null,
+              "metaTags": {
+                "tagArtist": "Au",
+                "tagTitle": "Chaptered"
+              },
+              "mimeType": "audio/mp4"
+            }
+          ],
+          "chapters": [
+            {
+              "start": 0,
+              "end": 2,
+              "title": "Intro",
+              "id": 0
+            },
+            {
+              "start": 2,
+              "end": 4,
+              "title": "Body",
+              "id": 1
+            }
+          ],
+          "ebookFile": null
+        },
+        "numFiles": 1,
+        "scanVersion": "2.37.0",
+        "libraryFiles": [
+          {
+            "metadata": {
+              "filename": "book.m4b",
+              "ext": ".m4b",
+              "path": "<tmp>/Chaptered/book.m4b",
+              "relPath": "book.m4b"
+            },
+            "isSupplementary": null,
+            "fileType": "audio"
+          }
+        ]
+      }
+    ],
+    "emitted": [
+      "emitter:author_added",
+      "libraryItemsEmitter:items_added"
+    ]
+  },
+  "ScannerBook (characterization) > scanning a new book > cover.jpg in the folder is the cover; desc.txt and reader.txt fill description and narrator": {
+    "scan": {
+      "canceled": false,
+      "added": 1,
+      "updated": 0,
+      "missing": 0,
+      "logs": [
+        "DEBUG: \"Covered\" Getting metadata with precedence [folderStructure, audioMetatags, nfoFile, txtFiles, opfFile, absMetadata]",
+        "DEBUG: Success saving abmetadata to \"<tmp>/metadata/items/<item:Covered>/metadata.json\"",
+        "INFO: 1 item data found in folder \"<tmp>\"",
+        "INFO: Created new library item \"Covered\" with id \"<item:Covered>\"",
+        "INFO: Scan completed. 1 Added | 0 Updated | 0 Missing"
+      ]
+    },
+    "items": [
+      {
+        "id": "<item:Covered>",
+        "oldLibraryItemId": null,
+        "libraryId": "<library>",
+        "folderId": "<folder>",
+        "path": "<tmp>/Covered",
+        "relPath": "Covered",
+        "isFile": false,
+        "isMissing": false,
+        "isInvalid": false,
+        "mediaType": "book",
+        "media": {
+          "id": "<book:Covered>",
+          "metadata": {
+            "title": "T",
+            "subtitle": null,
+            "authors": [
+              {
+                "id": "<author:A>",
+                "name": "A"
+              }
+            ],
+            "narrators": [
+              "Reader One",
+              "Reader Two"
+            ],
+            "series": [],
+            "genres": [],
+            "publishedYear": null,
+            "publishedDate": null,
+            "publisher": null,
+            "description": "A description from desc.txt",
+            "isbn": null,
+            "asin": null,
+            "language": null,
+            "explicit": false,
+            "abridged": false,
+            "titleIgnorePrefix": "T",
+            "authorName": "A",
+            "authorNameLF": "A",
+            "narratorName": "Reader One, Reader Two",
+            "seriesName": "",
+            "descriptionPlain": "A description from desc.txt"
+          },
+          "coverPath": "<tmp>/Covered/cover.jpg",
+          "tags": [],
+          "numTracks": 1,
+          "numAudioFiles": 1,
+          "numChapters": 0,
+          "duration": 1,
+          "libraryItemId": "<item:Covered>",
+          "audioFiles": [
+            {
+              "index": 1,
+              "metadata": {
+                "filename": "a.mp3",
+                "ext": ".mp3",
+                "path": "<tmp>/Covered/a.mp3",
+                "relPath": "a.mp3"
+              },
+              "trackNumFromMeta": null,
+              "discNumFromMeta": null,
+              "trackNumFromFilename": null,
+              "discNumFromFilename": null,
+              "manuallyVerified": false,
+              "exclude": false,
+              "error": null,
+              "format": "MP2/3 (MPEG audio layer 2/3)",
+              "duration": 1,
+              "language": null,
+              "codec": "mp3",
+              "channels": 1,
+              "channelLayout": "mono",
+              "chapters": [],
+              "embeddedCoverArt": "mjpeg",
+              "metaTags": {
+                "tagArtist": "A",
+                "tagTitle": "T"
+              },
+              "mimeType": "audio/mpeg"
+            }
+          ],
+          "chapters": [],
+          "ebookFile": null
+        },
+        "numFiles": 5,
+        "scanVersion": "2.37.0",
+        "libraryFiles": [
+          {
+            "metadata": {
+              "filename": "a.mp3",
+              "ext": ".mp3",
+              "path": "<tmp>/Covered/a.mp3",
+              "relPath": "a.mp3"
+            },
+            "isSupplementary": null,
+            "fileType": "audio"
+          },
+          {
+            "metadata": {
+              "filename": "cover.jpg",
+              "ext": ".jpg",
+              "path": "<tmp>/Covered/cover.jpg",
+              "relPath": "cover.jpg"
+            },
+            "isSupplementary": null,
+            "fileType": "image"
+          },
+          {
+            "metadata": {
+              "filename": "desc.txt",
+              "ext": ".txt",
+              "path": "<tmp>/Covered/desc.txt",
+              "relPath": "desc.txt"
+            },
+            "isSupplementary": null,
+            "fileType": "text"
+          },
+          {
+            "metadata": {
+              "filename": "other.png",
+              "ext": ".png",
+              "path": "<tmp>/Covered/other.png",
+              "relPath": "other.png"
+            },
+            "isSupplementary": null,
+            "fileType": "image"
+          },
+          {
+            "metadata": {
+              "filename": "reader.txt",
+              "ext": ".txt",
+              "path": "<tmp>/Covered/reader.txt",
+              "relPath": "reader.txt"
+            },
+            "isSupplementary": null,
+            "fileType": "text"
+          }
+        ]
+      }
+    ],
+    "emitted": [
+      "emitter:author_added",
+      "libraryItemsEmitter:items_added"
+    ]
+  },
+  "ScannerBook (characterization) > scanning a new book > embedded cover art is extracted to <metadata>/items/<id>/cover.jpg (png art would be cover.png)": {
+    "coverRelativeToMetadata": "items/<id>/cover.jpg",
+    "exists": true,
+    "isJpeg": true
+  },
+  "ScannerBook (characterization) > scanning a new book > folder with several tracks: ordering, duration, chapters from files, folder and tag metadata": {
+    "scan": {
+      "canceled": false,
+      "added": 1,
+      "updated": 0,
+      "missing": 0,
+      "logs": [
+        "DEBUG: \"Great Title\" Getting metadata with precedence [folderStructure, audioMetatags, nfoFile, txtFiles, opfFile, absMetadata]",
+        "DEBUG: Success saving abmetadata to \"<tmp>/metadata/items/<item:Author Name/Series Name/Book 3 - Great Title {Reader One}>/metadata.json\"",
+        "INFO: 1 item data found in folder \"<tmp>\"",
+        "INFO: Created new library item \"Author Name/Series Name/Book 3 - Great Title {Reader One}\" with id \"<item:Author Name/Series Name/Book 3 - Great Title {Reader One}>\"",
+        "INFO: Scan completed. 1 Added | 0 Updated | 0 Missing"
+      ]
+    },
+    "items": [
+      {
+        "id": "<item:Author Name/Series Name/Book 3 - Great Title {Reader One}>",
+        "oldLibraryItemId": null,
+        "libraryId": "<library>",
+        "folderId": "<folder>",
+        "path": "<tmp>/Author Name/Series Name/Book 3 - Great Title {Reader One}",
+        "relPath": "Author Name/Series Name/Book 3 - Great Title {Reader One}",
+        "isFile": false,
+        "isMissing": false,
+        "isInvalid": false,
+        "mediaType": "book",
+        "media": {
+          "id": "<book:Author Name/Series Name/Book 3 - Great Title {Reader One}>",
+          "metadata": {
+            "title": "First",
+            "subtitle": null,
+            "authors": [
+              {
+                "id": "<author:Author Name>",
+                "name": "Author Name"
+              }
+            ],
+            "narrators": [
+              "Reader One"
+            ],
+            "series": [
+              {
+                "id": "<series:Series Name>",
+                "name": "Series Name",
+                "sequence": "3"
+              }
+            ],
+            "genres": [],
+            "publishedYear": null,
+            "publishedDate": null,
+            "publisher": null,
+            "description": null,
+            "isbn": null,
+            "asin": null,
+            "language": null,
+            "explicit": false,
+            "abridged": false,
+            "titleIgnorePrefix": "First",
+            "authorName": "Author Name",
+            "authorNameLF": "Name, Author",
+            "narratorName": "Reader One",
+            "seriesName": "Series Name #3",
+            "descriptionPlain": null
+          },
+          "coverPath": null,
+          "tags": [],
+          "numTracks": 3,
+          "numAudioFiles": 3,
+          "numChapters": 3,
+          "duration": 3,
+          "libraryItemId": "<item:Author Name/Series Name/Book 3 - Great Title {Reader One}>",
+          "audioFiles": [
+            {
+              "index": 1,
+              "metadata": {
+                "filename": "01 First.mp3",
+                "ext": ".mp3",
+                "path": "<tmp>/Author Name/Series Name/Book 3 - Great Title {Reader One}/01 First.mp3",
+                "relPath": "01 First.mp3"
+              },
+              "trackNumFromMeta": 1,
+              "discNumFromMeta": null,
+              "trackNumFromFilename": 1,
+              "discNumFromFilename": null,
+              "manuallyVerified": false,
+              "exclude": false,
+              "error": null,
+              "format": "MP2/3 (MPEG audio layer 2/3)",
+              "duration": 1,
+              "language": null,
+              "codec": "mp3",
+              "channels": 1,
+              "channelLayout": "mono",
+              "chapters": [],
+              "embeddedCoverArt": null,
+              "metaTags": {
+                "tagTitle": "First",
+                "tagTrack": "1/3"
+              },
+              "mimeType": "audio/mpeg"
+            },
+            {
+              "index": 2,
+              "metadata": {
+                "filename": "02 Middle.mp3",
+                "ext": ".mp3",
+                "path": "<tmp>/Author Name/Series Name/Book 3 - Great Title {Reader One}/02 Middle.mp3",
+                "relPath": "02 Middle.mp3"
+              },
+              "trackNumFromMeta": 2,
+              "discNumFromMeta": null,
+              "trackNumFromFilename": 2,
+              "discNumFromFilename": null,
+              "manuallyVerified": false,
+              "exclude": false,
+              "error": null,
+              "format": "MP2/3 (MPEG audio layer 2/3)",
+              "duration": 1,
+              "language": null,
+              "codec": "mp3",
+              "channels": 1,
+              "channelLayout": "mono",
+              "chapters": [],
+              "embeddedCoverArt": null,
+              "metaTags": {
+                "tagTitle": "Middle",
+                "tagTrack": "2/3"
+              },
+              "mimeType": "audio/mpeg"
+            },
+            {
+              "index": 3,
+              "metadata": {
+                "filename": "10 Last.mp3",
+                "ext": ".mp3",
+                "path": "<tmp>/Author Name/Series Name/Book 3 - Great Title {Reader One}/10 Last.mp3",
+                "relPath": "10 Last.mp3"
+              },
+              "trackNumFromMeta": 3,
+              "discNumFromMeta": null,
+              "trackNumFromFilename": 10,
+              "discNumFromFilename": null,
+              "manuallyVerified": false,
+              "exclude": false,
+              "error": null,
+              "format": "MP2/3 (MPEG audio layer 2/3)",
+              "duration": 1,
+              "language": null,
+              "codec": "mp3",
+              "channels": 1,
+              "channelLayout": "mono",
+              "chapters": [],
+              "embeddedCoverArt": null,
+              "metaTags": {
+                "tagTitle": "Last",
+                "tagTrack": "3/3"
+              },
+              "mimeType": "audio/mpeg"
+            }
+          ],
+          "chapters": [
+            {
+              "id": 0,
+              "start": 0,
+              "end": 1,
+              "title": "First"
+            },
+            {
+              "id": 1,
+              "start": 1,
+              "end": 2,
+              "title": "Middle"
+            },
+            {
+              "id": 2,
+              "start": 2,
+              "end": 3,
+              "title": "Last"
+            }
+          ],
+          "ebookFile": null
+        },
+        "numFiles": 3,
+        "scanVersion": "2.37.0",
+        "libraryFiles": [
+          {
+            "metadata": {
+              "filename": "01 First.mp3",
+              "ext": ".mp3",
+              "path": "<tmp>/Author Name/Series Name/Book 3 - Great Title {Reader One}/01 First.mp3",
+              "relPath": "01 First.mp3"
+            },
+            "isSupplementary": null,
+            "fileType": "audio"
+          },
+          {
+            "metadata": {
+              "filename": "02 Middle.mp3",
+              "ext": ".mp3",
+              "path": "<tmp>/Author Name/Series Name/Book 3 - Great Title {Reader One}/02 Middle.mp3",
+              "relPath": "02 Middle.mp3"
+            },
+            "isSupplementary": null,
+            "fileType": "audio"
+          },
+          {
+            "metadata": {
+              "filename": "10 Last.mp3",
+              "ext": ".mp3",
+              "path": "<tmp>/Author Name/Series Name/Book 3 - Great Title {Reader One}/10 Last.mp3",
+              "relPath": "10 Last.mp3"
+            },
+            "isSupplementary": null,
+            "fileType": "audio"
+          }
+        ]
+      }
+    ],
+    "emitted": [
+      "emitter:author_added",
+      "libraryItemsEmitter:items_added"
+    ]
+  },
+  "ScannerBook (characterization) > scanning a new book > metadata precedence: default order, a custom order, and an invalid source name": {
+    "default": {
+      "title": "Tag Title",
+      "authors": [
+        "Tag Author"
+      ],
+      "series": [
+        "Tag Series #7"
+      ],
+      "publishedYear": "1999"
+    },
+    "custom": {
+      "title": "Folder Title",
+      "authors": [
+        "Folder Author"
+      ],
+      "series": [
+        "Folder Series #2"
+      ],
+      "publishedYear": "1999"
+    },
+    "logs": [
+      "DEBUG: \"Folder Title\" Getting metadata with precedence [audioMetatags, folderStructure, bogusSource]",
+      "ERROR: Invalid metadata source \"bogusSource\""
+    ]
+  },
+  "ScannerBook (characterization) > scanning a new book > metadata.json overrides tags (default precedence), empty arrays and nulls do not": {
+    "scan": {
+      "canceled": false,
+      "added": 1,
+      "updated": 0,
+      "missing": 0,
+      "logs": [
+        "DEBUG: \"Json Book\" Getting metadata with precedence [folderStructure, audioMetatags, nfoFile, txtFiles, opfFile, absMetadata]",
+        "DEBUG: Success saving abmetadata to \"<tmp>/metadata/items/<item:Json Book>/metadata.json\"",
+        "INFO: 1 item data found in folder \"<tmp>\"",
+        "INFO: Created new library item \"Json Book\" with id \"<item:Json Book>\"",
+        "INFO: Found metadata file \"<tmp>/Json Book/metadata.json\"",
+        "INFO: Scan completed. 1 Added | 0 Updated | 0 Missing"
+      ]
+    },
+    "items": [
+      {
+        "id": "<item:Json Book>",
+        "oldLibraryItemId": null,
+        "libraryId": "<library>",
+        "folderId": "<folder>",
+        "path": "<tmp>/Json Book",
+        "relPath": "Json Book",
+        "isFile": false,
+        "isMissing": false,
+        "isInvalid": false,
+        "mediaType": "book",
+        "media": {
+          "id": "<book:Json Book>",
+          "metadata": {
+            "title": "Json Title",
+            "subtitle": "Json Subtitle",
+            "authors": [
+              {
+                "id": "<author:Json Author>",
+                "name": "Json Author"
+              }
+            ],
+            "narrators": [],
+            "series": [
+              {
+                "id": "<series:Json Series>",
+                "name": "Json Series",
+                "sequence": "4"
+              },
+              {
+                "id": "<series:Other Series>",
+                "name": "Other Series",
+                "sequence": null
+              }
+            ],
+            "genres": [
+              "Tag Genre"
+            ],
+            "publishedYear": "2020",
+            "publishedDate": null,
+            "publisher": null,
+            "description": "<p>Json <b>description</b></p>",
+            "isbn": "9781234567890",
+            "asin": "B000000000",
+            "language": "French",
+            "explicit": true,
+            "abridged": true,
+            "titleIgnorePrefix": "Json Title",
+            "authorName": "Json Author",
+            "authorNameLF": "Author, Json",
+            "narratorName": "",
+            "seriesName": "Json Series #4, Other Series",
+            "descriptionPlain": "Json description"
+          },
+          "coverPath": null,
+          "tags": [
+            "t1",
+            "t2"
+          ],
+          "numTracks": 1,
+          "numAudioFiles": 1,
+          "numChapters": 2,
+          "duration": 1,
+          "libraryItemId": "<item:Json Book>",
+          "audioFiles": [
+            {
+              "index": 1,
+              "metadata": {
+                "filename": "a.mp3",
+                "ext": ".mp3",
+                "path": "<tmp>/Json Book/a.mp3",
+                "relPath": "a.mp3"
+              },
+              "trackNumFromMeta": null,
+              "discNumFromMeta": null,
+              "trackNumFromFilename": null,
+              "discNumFromFilename": null,
+              "manuallyVerified": false,
+              "exclude": false,
+              "error": null,
+              "format": "MP2/3 (MPEG audio layer 2/3)",
+              "duration": 1,
+              "language": null,
+              "codec": "mp3",
+              "channels": 1,
+              "channelLayout": "mono",
+              "chapters": [],
+              "embeddedCoverArt": null,
+              "metaTags": {
+                "tagAlbum": "Tag Title",
+                "tagArtist": "Tag Author",
+                "tagGenre": "Tag Genre",
+                "tagComposer": "Tag Narrator"
+              },
+              "mimeType": "audio/mpeg"
+            }
+          ],
+          "chapters": [
+            {
+              "id": 0,
+              "start": 0,
+              "end": 1,
+              "title": "First"
+            },
+            {
+              "id": 1,
+              "start": 1,
+              "end": 1,
+              "title": "Second"
+            }
+          ],
+          "ebookFile": null
+        },
+        "numFiles": 2,
+        "scanVersion": "2.37.0",
+        "libraryFiles": [
+          {
+            "metadata": {
+              "filename": "a.mp3",
+              "ext": ".mp3",
+              "path": "<tmp>/Json Book/a.mp3",
+              "relPath": "a.mp3"
+            },
+            "isSupplementary": null,
+            "fileType": "audio"
+          },
+          {
+            "metadata": {
+              "filename": "metadata.json",
+              "ext": ".json",
+              "path": "<tmp>/Json Book/metadata.json",
+              "relPath": "metadata.json"
+            },
+            "isSupplementary": null,
+            "fileType": "metadata"
+          }
+        ]
+      }
+    ],
+    "emitted": [
+      "emitter:author_added",
+      "libraryItemsEmitter:items_added"
+    ]
+  },
+  "ScannerBook (characterization) > scanning a new book > metadata.json variants: old nested format, invalid json, invalid chapter, wrong types": {
+    "scan": {
+      "canceled": false,
+      "added": 4,
+      "updated": 0,
+      "missing": 0,
+      "logs": [
+        "DEBUG: \"BadChapter\" Getting metadata with precedence [folderStructure, audioMetatags, nfoFile, txtFiles, opfFile, absMetadata]",
+        "DEBUG: \"Invalid\" Getting metadata with precedence [folderStructure, audioMetatags, nfoFile, txtFiles, opfFile, absMetadata]",
+        "DEBUG: \"Nested\" Getting metadata with precedence [folderStructure, audioMetatags, nfoFile, txtFiles, opfFile, absMetadata]",
+        "DEBUG: \"WrongTypes\" Getting metadata with precedence [folderStructure, audioMetatags, nfoFile, txtFiles, opfFile, absMetadata]",
+        "DEBUG: Success saving abmetadata to \"<tmp>/metadata/items/<item:BadChapter>/metadata.json\"",
+        "DEBUG: Success saving abmetadata to \"<tmp>/metadata/items/<item:Invalid>/metadata.json\"",
+        "DEBUG: Success saving abmetadata to \"<tmp>/metadata/items/<item:Nested>/metadata.json\"",
+        "DEBUG: Success saving abmetadata to \"<tmp>/metadata/items/<item:WrongTypes>/metadata.json\"",
+        "INFO: 4 item data found in folder \"<tmp>\"",
+        "INFO: Created new library item \"BadChapter\" with id \"<item:BadChapter>\"",
+        "INFO: Created new library item \"Invalid\" with id \"<item:Invalid>\"",
+        "INFO: Created new library item \"Nested\" with id \"<item:Nested>\"",
+        "INFO: Created new library item \"WrongTypes\" with id \"<item:WrongTypes>\"",
+        "INFO: Found metadata file \"<tmp>/BadChapter/metadata.json\"",
+        "INFO: Found metadata file \"<tmp>/Invalid/metadata.json\"",
+        "INFO: Found metadata file \"<tmp>/Nested/metadata.json\"",
+        "INFO: Found metadata file \"<tmp>/WrongTypes/metadata.json\"",
+        "INFO: Scan completed. 4 Added | 0 Updated | 0 Missing"
+      ]
+    },
+    "items": [
+      {
+        "id": "<item:BadChapter>",
+        "oldLibraryItemId": null,
+        "libraryId": "<library>",
+        "folderId": "<folder>",
+        "path": "<tmp>/BadChapter",
+        "relPath": "BadChapter",
+        "isFile": false,
+        "isMissing": false,
+        "isInvalid": false,
+        "mediaType": "book",
+        "media": {
+          "id": "<book:BadChapter>",
+          "metadata": {
+            "title": "Bad Chapter",
+            "subtitle": null,
+            "authors": [],
+            "narrators": [],
+            "series": [],
+            "genres": [],
+            "publishedYear": null,
+            "publishedDate": null,
+            "publisher": null,
+            "description": null,
+            "isbn": null,
+            "asin": null,
+            "language": null,
+            "explicit": false,
+            "abridged": false,
+            "titleIgnorePrefix": "Bad Chapter",
+            "authorName": "",
+            "authorNameLF": "",
+            "narratorName": "",
+            "seriesName": "",
+            "descriptionPlain": null
+          },
+          "coverPath": null,
+          "tags": [],
+          "numTracks": 1,
+          "numAudioFiles": 1,
+          "numChapters": 0,
+          "duration": 1,
+          "libraryItemId": "<item:BadChapter>",
+          "audioFiles": [
+            {
+              "index": 1,
+              "metadata": {
+                "filename": "a.mp3",
+                "ext": ".mp3",
+                "path": "<tmp>/BadChapter/a.mp3",
+                "relPath": "a.mp3"
+              },
+              "trackNumFromMeta": null,
+              "discNumFromMeta": null,
+              "trackNumFromFilename": null,
+              "discNumFromFilename": null,
+              "manuallyVerified": false,
+              "exclude": false,
+              "error": null,
+              "format": "MP2/3 (MPEG audio layer 2/3)",
+              "duration": 1,
+              "language": null,
+              "codec": "mp3",
+              "channels": 1,
+              "channelLayout": "mono",
+              "chapters": [],
+              "embeddedCoverArt": null,
+              "metaTags": {},
+              "mimeType": "audio/mpeg"
+            }
+          ],
+          "chapters": [],
+          "ebookFile": null
+        },
+        "numFiles": 2,
+        "scanVersion": "2.37.0",
+        "libraryFiles": [
+          {
+            "metadata": {
+              "filename": "a.mp3",
+              "ext": ".mp3",
+              "path": "<tmp>/BadChapter/a.mp3",
+              "relPath": "a.mp3"
+            },
+            "isSupplementary": null,
+            "fileType": "audio"
+          },
+          {
+            "metadata": {
+              "filename": "metadata.json",
+              "ext": ".json",
+              "path": "<tmp>/BadChapter/metadata.json",
+              "relPath": "metadata.json"
+            },
+            "isSupplementary": null,
+            "fileType": "metadata"
+          }
+        ]
+      },
+      {
+        "id": "<item:Invalid>",
+        "oldLibraryItemId": null,
+        "libraryId": "<library>",
+        "folderId": "<folder>",
+        "path": "<tmp>/Invalid",
+        "relPath": "Invalid",
+        "isFile": false,
+        "isMissing": false,
+        "isInvalid": false,
+        "mediaType": "book",
+        "media": {
+          "id": "<book:Invalid>",
+          "metadata": {
+            "title": "Invalid",
+            "subtitle": null,
+            "authors": [],
+            "narrators": [],
+            "series": [],
+            "genres": [],
+            "publishedYear": null,
+            "publishedDate": null,
+            "publisher": null,
+            "description": null,
+            "isbn": null,
+            "asin": null,
+            "language": null,
+            "explicit": false,
+            "abridged": false,
+            "titleIgnorePrefix": "Invalid",
+            "authorName": "",
+            "authorNameLF": "",
+            "narratorName": "",
+            "seriesName": "",
+            "descriptionPlain": null
+          },
+          "coverPath": null,
+          "tags": [],
+          "numTracks": 1,
+          "numAudioFiles": 1,
+          "numChapters": 0,
+          "duration": 1,
+          "libraryItemId": "<item:Invalid>",
+          "audioFiles": [
+            {
+              "index": 1,
+              "metadata": {
+                "filename": "a.mp3",
+                "ext": ".mp3",
+                "path": "<tmp>/Invalid/a.mp3",
+                "relPath": "a.mp3"
+              },
+              "trackNumFromMeta": null,
+              "discNumFromMeta": null,
+              "trackNumFromFilename": null,
+              "discNumFromFilename": null,
+              "manuallyVerified": false,
+              "exclude": false,
+              "error": null,
+              "format": "MP2/3 (MPEG audio layer 2/3)",
+              "duration": 1,
+              "language": null,
+              "codec": "mp3",
+              "channels": 1,
+              "channelLayout": "mono",
+              "chapters": [],
+              "embeddedCoverArt": null,
+              "metaTags": {},
+              "mimeType": "audio/mpeg"
+            }
+          ],
+          "chapters": [],
+          "ebookFile": null
+        },
+        "numFiles": 2,
+        "scanVersion": "2.37.0",
+        "libraryFiles": [
+          {
+            "metadata": {
+              "filename": "a.mp3",
+              "ext": ".mp3",
+              "path": "<tmp>/Invalid/a.mp3",
+              "relPath": "a.mp3"
+            },
+            "isSupplementary": null,
+            "fileType": "audio"
+          },
+          {
+            "metadata": {
+              "filename": "metadata.json",
+              "ext": ".json",
+              "path": "<tmp>/Invalid/metadata.json",
+              "relPath": "metadata.json"
+            },
+            "isSupplementary": null,
+            "fileType": "metadata"
+          }
+        ]
+      },
+      {
+        "id": "<item:Nested>",
+        "oldLibraryItemId": null,
+        "libraryId": "<library>",
+        "folderId": "<folder>",
+        "path": "<tmp>/Nested",
+        "relPath": "Nested",
+        "isFile": false,
+        "isMissing": false,
+        "isInvalid": false,
+        "mediaType": "book",
+        "media": {
+          "id": "<book:Nested>",
+          "metadata": {
+            "title": "Nested Title",
+            "subtitle": null,
+            "authors": [
+              {
+                "id": "<author:Nested Author>",
+                "name": "Nested Author"
+              }
+            ],
+            "narrators": [],
+            "series": [],
+            "genres": [],
+            "publishedYear": null,
+            "publishedDate": null,
+            "publisher": null,
+            "description": null,
+            "isbn": null,
+            "asin": null,
+            "language": null,
+            "explicit": false,
+            "abridged": false,
+            "titleIgnorePrefix": "Nested Title",
+            "authorName": "Nested Author",
+            "authorNameLF": "Author, Nested",
+            "narratorName": "",
+            "seriesName": "",
+            "descriptionPlain": null
+          },
+          "coverPath": null,
+          "tags": [
+            "x"
+          ],
+          "numTracks": 1,
+          "numAudioFiles": 1,
+          "numChapters": 0,
+          "duration": 1,
+          "libraryItemId": "<item:Nested>",
+          "audioFiles": [
+            {
+              "index": 1,
+              "metadata": {
+                "filename": "a.mp3",
+                "ext": ".mp3",
+                "path": "<tmp>/Nested/a.mp3",
+                "relPath": "a.mp3"
+              },
+              "trackNumFromMeta": null,
+              "discNumFromMeta": null,
+              "trackNumFromFilename": null,
+              "discNumFromFilename": null,
+              "manuallyVerified": false,
+              "exclude": false,
+              "error": null,
+              "format": "MP2/3 (MPEG audio layer 2/3)",
+              "duration": 1,
+              "language": null,
+              "codec": "mp3",
+              "channels": 1,
+              "channelLayout": "mono",
+              "chapters": [],
+              "embeddedCoverArt": null,
+              "metaTags": {},
+              "mimeType": "audio/mpeg"
+            }
+          ],
+          "chapters": [],
+          "ebookFile": null
+        },
+        "numFiles": 2,
+        "scanVersion": "2.37.0",
+        "libraryFiles": [
+          {
+            "metadata": {
+              "filename": "a.mp3",
+              "ext": ".mp3",
+              "path": "<tmp>/Nested/a.mp3",
+              "relPath": "a.mp3"
+            },
+            "isSupplementary": null,
+            "fileType": "audio"
+          },
+          {
+            "metadata": {
+              "filename": "metadata.json",
+              "ext": ".json",
+              "path": "<tmp>/Nested/metadata.json",
+              "relPath": "metadata.json"
+            },
+            "isSupplementary": null,
+            "fileType": "metadata"
+          }
+        ]
+      },
+      {
+        "id": "<item:WrongTypes>",
+        "oldLibraryItemId": null,
+        "libraryId": "<library>",
+        "folderId": "<folder>",
+        "path": "<tmp>/WrongTypes",
+        "relPath": "WrongTypes",
+        "isFile": false,
+        "isMissing": false,
+        "isInvalid": false,
+        "mediaType": "book",
+        "media": {
+          "id": "<book:WrongTypes>",
+          "metadata": {
+            "title": "WrongTypes",
+            "subtitle": "5",
+            "authors": [],
+            "narrators": [
+              "A"
+            ],
+            "series": [],
+            "genres": [],
+            "publishedYear": null,
+            "publishedDate": null,
+            "publisher": null,
+            "description": null,
+            "isbn": null,
+            "asin": null,
+            "language": null,
+            "explicit": false,
+            "abridged": false,
+            "titleIgnorePrefix": "WrongTypes",
+            "authorName": "",
+            "authorNameLF": "",
+            "narratorName": "A",
+            "seriesName": "",
+            "descriptionPlain": null
+          },
+          "coverPath": null,
+          "tags": [],
+          "numTracks": 1,
+          "numAudioFiles": 1,
+          "numChapters": 0,
+          "duration": 1,
+          "libraryItemId": "<item:WrongTypes>",
+          "audioFiles": [
+            {
+              "index": 1,
+              "metadata": {
+                "filename": "a.mp3",
+                "ext": ".mp3",
+                "path": "<tmp>/WrongTypes/a.mp3",
+                "relPath": "a.mp3"
+              },
+              "trackNumFromMeta": null,
+              "discNumFromMeta": null,
+              "trackNumFromFilename": null,
+              "discNumFromFilename": null,
+              "manuallyVerified": false,
+              "exclude": false,
+              "error": null,
+              "format": "MP2/3 (MPEG audio layer 2/3)",
+              "duration": 1,
+              "language": null,
+              "codec": "mp3",
+              "channels": 1,
+              "channelLayout": "mono",
+              "chapters": [],
+              "embeddedCoverArt": null,
+              "metaTags": {},
+              "mimeType": "audio/mpeg"
+            }
+          ],
+          "chapters": [],
+          "ebookFile": null
+        },
+        "numFiles": 2,
+        "scanVersion": "2.37.0",
+        "libraryFiles": [
+          {
+            "metadata": {
+              "filename": "a.mp3",
+              "ext": ".mp3",
+              "path": "<tmp>/WrongTypes/a.mp3",
+              "relPath": "a.mp3"
+            },
+            "isSupplementary": null,
+            "fileType": "audio"
+          },
+          {
+            "metadata": {
+              "filename": "metadata.json",
+              "ext": ".json",
+              "path": "<tmp>/WrongTypes/metadata.json",
+              "relPath": "metadata.json"
+            },
+            "isSupplementary": null,
+            "fileType": "metadata"
+          }
+        ]
+      }
+    ],
+    "emitted": [
+      "emitter:author_added",
+      "libraryItemsEmitter:items_added"
+    ]
+  },
+  "ScannerBook (characterization) > scanning a new book > multi-disc folders order by disc then track": {
+    "scan": {
+      "canceled": false,
+      "added": 1,
+      "updated": 0,
+      "missing": 0,
+      "logs": [
+        "DEBUG: \"Disc Book\" Getting metadata with precedence [folderStructure, audioMetatags, nfoFile, txtFiles, opfFile, absMetadata]",
+        "DEBUG: Success saving abmetadata to \"<tmp>/metadata/items/<item:Disc Book>/metadata.json\"",
+        "INFO: 1 item data found in folder \"<tmp>\"",
+        "INFO: Created new library item \"Disc Book\" with id \"<item:Disc Book>\"",
+        "INFO: Scan completed. 1 Added | 0 Updated | 0 Missing"
+      ]
+    },
+    "items": [
+      {
+        "id": "<item:Disc Book>",
+        "oldLibraryItemId": null,
+        "libraryId": "<library>",
+        "folderId": "<folder>",
+        "path": "<tmp>/Disc Book",
+        "relPath": "Disc Book",
+        "isFile": false,
+        "isMissing": false,
+        "isInvalid": false,
+        "mediaType": "book",
+        "media": {
+          "id": "<book:Disc Book>",
+          "metadata": {
+            "title": "Disc Book",
+            "subtitle": null,
+            "authors": [],
+            "narrators": [],
+            "series": [],
+            "genres": [],
+            "publishedYear": null,
+            "publishedDate": null,
+            "publisher": null,
+            "description": null,
+            "isbn": null,
+            "asin": null,
+            "language": null,
+            "explicit": false,
+            "abridged": false,
+            "titleIgnorePrefix": "Disc Book",
+            "authorName": "",
+            "authorNameLF": "",
+            "narratorName": "",
+            "seriesName": "",
+            "descriptionPlain": null
+          },
+          "coverPath": null,
+          "tags": [],
+          "numTracks": 3,
+          "numAudioFiles": 3,
+          "numChapters": 3,
+          "duration": 3,
+          "libraryItemId": "<item:Disc Book>",
+          "audioFiles": [
+            {
+              "index": 1,
+              "metadata": {
+                "filename": "01.mp3",
+                "ext": ".mp3",
+                "path": "<tmp>/Disc Book/CD 1/01.mp3",
+                "relPath": "CD 1/01.mp3"
+              },
+              "trackNumFromMeta": null,
+              "discNumFromMeta": null,
+              "trackNumFromFilename": 1,
+              "discNumFromFilename": 1,
+              "manuallyVerified": false,
+              "exclude": false,
+              "error": null,
+              "format": "MP2/3 (MPEG audio layer 2/3)",
+              "duration": 1,
+              "language": null,
+              "codec": "mp3",
+              "channels": 1,
+              "channelLayout": "mono",
+              "chapters": [],
+              "embeddedCoverArt": null,
+              "metaTags": {},
+              "mimeType": "audio/mpeg"
+            },
+            {
+              "index": 2,
+              "metadata": {
+                "filename": "02.mp3",
+                "ext": ".mp3",
+                "path": "<tmp>/Disc Book/CD 1/02.mp3",
+                "relPath": "CD 1/02.mp3"
+              },
+              "trackNumFromMeta": null,
+              "discNumFromMeta": null,
+              "trackNumFromFilename": 2,
+              "discNumFromFilename": 1,
+              "manuallyVerified": false,
+              "exclude": false,
+              "error": null,
+              "format": "MP2/3 (MPEG audio layer 2/3)",
+              "duration": 1,
+              "language": null,
+              "codec": "mp3",
+              "channels": 1,
+              "channelLayout": "mono",
+              "chapters": [],
+              "embeddedCoverArt": null,
+              "metaTags": {},
+              "mimeType": "audio/mpeg"
+            },
+            {
+              "index": 3,
+              "metadata": {
+                "filename": "01.mp3",
+                "ext": ".mp3",
+                "path": "<tmp>/Disc Book/CD 2/01.mp3",
+                "relPath": "CD 2/01.mp3"
+              },
+              "trackNumFromMeta": null,
+              "discNumFromMeta": null,
+              "trackNumFromFilename": 1,
+              "discNumFromFilename": 2,
+              "manuallyVerified": false,
+              "exclude": false,
+              "error": null,
+              "format": "MP2/3 (MPEG audio layer 2/3)",
+              "duration": 1,
+              "language": null,
+              "codec": "mp3",
+              "channels": 1,
+              "channelLayout": "mono",
+              "chapters": [],
+              "embeddedCoverArt": null,
+              "metaTags": {},
+              "mimeType": "audio/mpeg"
+            }
+          ],
+          "chapters": [
+            {
+              "id": 0,
+              "start": 0,
+              "end": 1,
+              "title": "01"
+            },
+            {
+              "id": 1,
+              "start": 1,
+              "end": 2,
+              "title": "02"
+            },
+            {
+              "id": 2,
+              "start": 2,
+              "end": 3,
+              "title": "01"
+            }
+          ],
+          "ebookFile": null
+        },
+        "numFiles": 3,
+        "scanVersion": "2.37.0",
+        "libraryFiles": [
+          {
+            "metadata": {
+              "filename": "01.mp3",
+              "ext": ".mp3",
+              "path": "<tmp>/Disc Book/CD 1/01.mp3",
+              "relPath": "CD 1/01.mp3"
+            },
+            "isSupplementary": null,
+            "fileType": "audio"
+          },
+          {
+            "metadata": {
+              "filename": "02.mp3",
+              "ext": ".mp3",
+              "path": "<tmp>/Disc Book/CD 1/02.mp3",
+              "relPath": "CD 1/02.mp3"
+            },
+            "isSupplementary": null,
+            "fileType": "audio"
+          },
+          {
+            "metadata": {
+              "filename": "01.mp3",
+              "ext": ".mp3",
+              "path": "<tmp>/Disc Book/CD 2/01.mp3",
+              "relPath": "CD 2/01.mp3"
+            },
+            "isSupplementary": null,
+            "fileType": "audio"
+          }
+        ]
+      }
+    ],
+    "emitted": [
+      "libraryItemsEmitter:items_added"
+    ]
+  },
+  "ScannerBook (characterization) > scanning a new book > saveMetadataFile writes metadata.json to <metadata>/items/<id>, or into the item folder with storeMetadataWithItem": {
+    "fileInMetadata": {
+      "tags": [],
+      "chapters": [],
+      "title": "Meta One",
+      "subtitle": null,
+      "authors": [
+        "Author One"
+      ],
+      "narrators": [],
+      "series": [
+        "S #2"
+      ],
+      "genres": [
+        "G1",
+        "G2"
+      ],
+      "publishedYear": null,
+      "publishedDate": null,
+      "publisher": null,
+      "description": null,
+      "isbn": null,
+      "asin": null,
+      "language": null,
+      "explicit": false,
+      "abridged": false
+    },
+    "inItemFolder": true,
+    "twoLibraryFiles": [
+      "a.mp3",
+      "metadata.json"
+    ],
+    "scan2Logs": [
+      "INFO: 2 item data found in folder \"<tmp>\"",
+      "DEBUG: Library item \"Meta One\" is up-to-date",
+      "DEBUG: \"Meta Two\" Getting metadata with precedence [folderStructure, audioMetatags, nfoFile, txtFiles, opfFile, absMetadata]",
+      "DEBUG: Success saving abmetadata to \"<tmp>/Meta Two/metadata.json\"",
+      "INFO: Created new library item \"Meta Two\" with id \"<uuid-1>\"",
+      "INFO: Scan completed. 1 Added | 0 Updated | 0 Missing"
+    ]
+  },
+  "ScannerBook (characterization) > scanning a new book > storeCoverWithItem puts the extracted cover next to the audio files (never for isFile items)": {
+    "In Folder": {
+      "coverPath": "<tmp>/In Folder/cover.jpg",
+      "libraryFiles": [
+        "a.mp3"
+      ]
+    },
+    "Root File.mp3": {
+      "coverPath": "<tmp>/metadata/items/<uuid-1>/cover.jpg",
+      "libraryFiles": [
+        "Root File.mp3"
+      ]
+    }
+  },
+  "ScannerBook (characterization) > scanning a new book > two books by the same author in the same series share the author and series; events are emitted": {
+    "scan": {
+      "canceled": false,
+      "added": 2,
+      "updated": 0,
+      "missing": 0,
+      "logs": [
+        "DEBUG: \"One\" Getting metadata with precedence [folderStructure, audioMetatags, nfoFile, txtFiles, opfFile, absMetadata]",
+        "DEBUG: \"Two\" Getting metadata with precedence [folderStructure, audioMetatags, nfoFile, txtFiles, opfFile, absMetadata]",
+        "DEBUG: Success saving abmetadata to \"<tmp>/metadata/items/<item:Shared Author/Shared Series/Book 1 - One>/metadata.json\"",
+        "DEBUG: Success saving abmetadata to \"<tmp>/metadata/items/<item:Shared Author/Shared Series/Book 2 - Two>/metadata.json\"",
+        "INFO: 2 item data found in folder \"<tmp>\"",
+        "INFO: Created new library item \"Shared Author/Shared Series/Book 1 - One\" with id \"<item:Shared Author/Shared Series/Book 1 - One>\"",
+        "INFO: Created new library item \"Shared Author/Shared Series/Book 2 - Two\" with id \"<item:Shared Author/Shared Series/Book 2 - Two>\"",
+        "INFO: Scan completed. 2 Added | 0 Updated | 0 Missing"
+      ]
+    },
+    "items": [
+      {
+        "relPath": "Shared Author/Shared Series/Book 1 - One",
+        "authors": [
+          "Shared Author"
+        ],
+        "series": [
+          "Shared Series #1"
+        ]
+      },
+      {
+        "relPath": "Shared Author/Shared Series/Book 2 - Two",
+        "authors": [
+          "Shared Author"
+        ],
+        "series": [
+          "Shared Series #2"
+        ]
+      }
+    ],
+    "numAuthors": 1,
+    "numSeries": 1,
+    "authorLastFirst": [
+      "Author, Shared"
+    ],
+    "emitted": [
+      "emitter:author_added",
+      "emitter:authors_num_books_updated:2",
+      "libraryItemsEmitter:items_added"
+    ]
+  },
+  "ScannerBook (characterization) > scanning a new book > without an epub the first ebook found is used (pdf has no metadata parser)": {
+    "scan": {
+      "canceled": false,
+      "added": 1,
+      "updated": 0,
+      "missing": 0,
+      "logs": [
+        "DEBUG: \"Pdf Book\" Getting metadata with precedence [folderStructure, audioMetatags, nfoFile, txtFiles, opfFile, absMetadata]",
+        "DEBUG: Success saving abmetadata to \"<tmp>/metadata/items/<item:Pdf Book>/metadata.json\"",
+        "INFO: 1 item data found in folder \"<tmp>\"",
+        "INFO: Created new library item \"Pdf Book\" with id \"<item:Pdf Book>\"",
+        "INFO: Scan completed. 1 Added | 0 Updated | 0 Missing"
+      ]
+    },
+    "items": [
+      {
+        "id": "<item:Pdf Book>",
+        "oldLibraryItemId": null,
+        "libraryId": "<library>",
+        "folderId": "<folder>",
+        "path": "<tmp>/Pdf Book",
+        "relPath": "Pdf Book",
+        "isFile": false,
+        "isMissing": false,
+        "isInvalid": false,
+        "mediaType": "book",
+        "media": {
+          "id": "<book:Pdf Book>",
+          "metadata": {
+            "title": "Pdf Book",
+            "subtitle": null,
+            "authors": [],
+            "narrators": [],
+            "series": [],
+            "genres": [],
+            "publishedYear": null,
+            "publishedDate": null,
+            "publisher": null,
+            "description": null,
+            "isbn": null,
+            "asin": null,
+            "language": null,
+            "explicit": false,
+            "abridged": false,
+            "titleIgnorePrefix": "Pdf Book",
+            "authorName": "",
+            "authorNameLF": "",
+            "narratorName": "",
+            "seriesName": "",
+            "descriptionPlain": null
+          },
+          "coverPath": null,
+          "tags": [],
+          "numTracks": 0,
+          "numAudioFiles": 0,
+          "numChapters": 0,
+          "duration": 0,
+          "ebookFormat": "mobi",
+          "libraryItemId": "<item:Pdf Book>",
+          "audioFiles": [],
+          "chapters": [],
+          "ebookFile": {
+            "metadata": {
+              "filename": "a.mobi",
+              "ext": ".mobi",
+              "path": "<tmp>/Pdf Book/a.mobi",
+              "relPath": "a.mobi"
+            },
+            "isSupplementary": null,
+            "fileType": "ebook",
+            "ebookFormat": "mobi"
+          }
+        },
+        "numFiles": 2,
+        "scanVersion": "2.37.0",
+        "libraryFiles": [
+          {
+            "metadata": {
+              "filename": "a.mobi",
+              "ext": ".mobi",
+              "path": "<tmp>/Pdf Book/a.mobi",
+              "relPath": "a.mobi"
+            },
+            "isSupplementary": false,
+            "fileType": "ebook"
+          },
+          {
+            "metadata": {
+              "filename": "b.pdf",
+              "ext": ".pdf",
+              "path": "<tmp>/Pdf Book/b.pdf",
+              "relPath": "b.pdf"
+            },
+            "isSupplementary": true,
+            "fileType": "ebook"
+          }
+        ]
+      }
+    ],
+    "emitted": [
+      "libraryItemsEmitter:items_added"
+    ]
+  },
+  "ScannerBook (characterization) > scanning a new book > without cover.jpg the first image file is the cover; embedded art is only extracted when there is no image": {
+    "coverFile": "aaa.jpg",
+    "metadataItemsDirExists": false
+  }
+}
