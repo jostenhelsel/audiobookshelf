@@ -47,8 +47,9 @@ async function setupScan(api, root, o = {}) {
   return { api, root, library, folder, mediaType: o.mediaType || 'book', logs: [] }
 }
 
-// lines about changed mtime/ctime/birthtime depend on whether two writes landed in the same millisecond, so they are left out of the logs
-const TIME_LOG = /key "(mtime|ctime|birthtime|mtimeMs|ctimeMs|birthtimeMs)"|changed: \[/
+// lines about changed mtime/ctime/birthtime depend on whether two writes landed in the same millisecond, and "size" lines carry the
+// byte size of ffmpeg-encoded fixtures, which differs between ffmpeg builds; both are left out of the logs
+const TIME_LOG = /key "(mtime|ctime|birthtime|mtimeMs|ctimeMs|birthtimeMs|size)"|changed: \[/
 
 /** a new LibraryScan per run, like LibraryScanner.scan() makes; returns result counts and log lines */
 async function runScan(ctx, { force = false } = {}) {
@@ -63,7 +64,7 @@ async function runScan(ctx, { force = false } = {}) {
     added: libraryScan.resultsAdded,
     updated: libraryScan.resultsUpdated,
     missing: libraryScan.resultsMissing,
-    logs: libraryScan.logs.filter((l) => !TIME_LOG.test(l.message)).map((l) => `${l.levelName}: ${l.message}`.replace(/inode value "\d+"/g, 'inode value "<ino>"'))
+    logs: libraryScan.logs.filter((l) => !TIME_LOG.test(l.message)).map((l) => `${l.levelName}: ${l.message}`.replace(/inode value "\d+"/g, 'inode value "<ino>"').replace(/\(inode: \d+\)/g, '(inode: <ino>)'))
   }
 }
 

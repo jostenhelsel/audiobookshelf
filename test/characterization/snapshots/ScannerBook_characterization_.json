@@ -924,7 +924,6 @@
       "missing": 0,
       "logs": [
         "DEBUG: \"Rescan Book\" Getting metadata with precedence [folderStructure, audioMetatags, nfoFile, txtFiles, opfFile, absMetadata]",
-        "DEBUG: Library file \"metadata.json\" for library item \"<tmp>/Rescan Book\" key \"size\" changed from \"59\" to \"55\"",
         "DEBUG: Updating book \"Rescan Book\" added new author \"Kept Author\"",
         "DEBUG: Updating book \"Rescan Book\" added new series \"Kept Series\" with sequence \"2\"",
         "DEBUG: Updating book \"Rescan Book\" removed author \"Doomed Author\"",
@@ -1180,7 +1179,6 @@
       "missing": 0,
       "logs": [
         "DEBUG: \"Rescan Book\" Getting metadata with precedence [folderStructure, audioMetatags, nfoFile, txtFiles, opfFile, absMetadata]",
-        "DEBUG: Library file \"01.mp3\" for library item \"<tmp>/Rescan Book\" key \"size\" changed from \"8604\" to \"9\"",
         "DEBUG: Success saving abmetadata to \"<tmp>/metadata/items/<item:Rescan Book>/metadata.json\"",
         "INFO: 1 item data found in folder \"<tmp>\"",
         "INFO: Found metadata file \"<tmp>/metadata/items/<item:Rescan Book>/metadata.json\"",
@@ -1222,7 +1220,6 @@
       "updated": 1,
       "logs": [
         "DEBUG: \"Rescan Book\" Getting metadata with precedence [folderStructure, audioMetatags, nfoFile, txtFiles, opfFile, absMetadata]",
-        "DEBUG: Library file \"01.mp3\" for library item \"<tmp>/Rescan Book\" key \"size\" changed from \"9\" to \"8604\"",
         "DEBUG: Success saving abmetadata to \"<tmp>/metadata/items/<item:Rescan Book>/metadata.json\"",
         "INFO: 1 item data found in folder \"<tmp>\"",
         "INFO: Found metadata file \"<tmp>/metadata/items/<item:Rescan Book>/metadata.json\"",
@@ -1526,7 +1523,6 @@
       "updated": 1,
       "logs": [
         "DEBUG: \"Rescan Book\" Getting metadata with precedence [folderStructure, audioMetatags, nfoFile, txtFiles, opfFile, absMetadata]",
-        "DEBUG: Library file \"metadata.json\" for library item \"<tmp>/Rescan Book\" key \"size\" changed from \"95\" to \"70\"",
         "DEBUG: Success saving abmetadata to \"<tmp>/metadata/items/<item:Rescan Book>/metadata.json\"",
         "DEBUG: Updating book \"Json Title 2\" added new author \"Other Author\"",
         "DEBUG: Updating book \"Json Title 2\" removed author \"Json Author\"",

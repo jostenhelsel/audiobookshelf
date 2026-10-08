@@ -1,0 +1,2608 @@
+{
+  "ScannerPodcast (characterization) > rescanning a podcast > a cover added, then removed": {
+    "first": {
+      "added": 1
+    },
+    "before": [
+      {
+        "relPath": "My Podcast",
+        "isMissing": false,
+        "title": "Show Album",
+        "author": "Show Host",
+        "description": null,
+        "genres": [
+          "Technology",
+          "News"
+        ],
+        "language": "eng",
+        "type": "serial",
+        "itunesId": "12345",
+        "feedUrl": null,
+        "explicit": false,
+        "tags": [],
+        "coverPath": null,
+        "numEpisodes": 2,
+        "autoDownloadEpisodes": false,
+        "autoDownloadSchedule": "0 * * * *",
+        "maxNewEpisodesToDownload": 3,
+        "episodes": [
+          {
+            "file": "ep1.mp3",
+            "title": "One",
+            "subtitle": null,
+            "season": null,
+            "episode": null,
+            "episodeType": null,
+            "pubDate": null,
+            "publishedAtIsSet": false,
+            "description": null,
+            "duration": 1,
+            "index": 1,
+            "chapters": 0
+          },
+          {
+            "file": "ep2.mp3",
+            "title": "Two",
+            "subtitle": null,
+            "season": null,
+            "episode": null,
+            "episodeType": null,
+            "pubDate": null,
+            "publishedAtIsSet": false,
+            "description": null,
+            "duration": 1,
+            "index": 1,
+            "chapters": 0
+          }
+        ],
+        "libraryFiles": [
+          "ep1.mp3",
+          "ep2.mp3"
+        ]
+      }
+    ],
+    "second": {
+      "added": 0,
+      "updated": 1,
+      "missing": 0,
+      "logs": [
+        "DEBUG: Mapping metadata to key tagAlbum => title: Show Album",
+        "DEBUG: Mapping metadata to key tagAlbumArtist => author: Show Host",
+        "DEBUG: Mapping metadata to key tagGenre => genres: Technology, News",
+        "DEBUG: Mapping metadata to key tagItunesId => itunesId: 12345",
+        "DEBUG: Mapping metadata to key tagLanguage => language: eng",
+        "DEBUG: Mapping metadata to key tagPodcastType => podcastType: serial",
+        "DEBUG: Success saving abmetadata to \"<tmp>/metadata/items/<item:My Podcast>/metadata.json\"",
+        "INFO: 1 item data found in folder \"<tmp>\"",
+        "INFO: Found metadata file \"<tmp>/metadata/items/<item:My Podcast>/metadata.json\"",
+        "INFO: New library file found with path \"<tmp>/My Podcast/cover.jpg\" for library item \"My Podcast\"",
+        "INFO: Scan completed. 0 Added | 1 Updated | 0 Missing"
+      ]
+    },
+    "after": [
+      {
+        "relPath": "My Podcast",
+        "isMissing": false,
+        "title": "Show Album",
+        "author": "Show Host",
+        "description": null,
+        "genres": [
+          "Technology",
+          "News"
+        ],
+        "language": "eng",
+        "type": "serial",
+        "itunesId": "12345",
+        "feedUrl": null,
+        "explicit": false,
+        "tags": [],
+        "coverPath": "<tmp>/My Podcast/cover.jpg",
+        "numEpisodes": 2,
+        "autoDownloadEpisodes": false,
+        "autoDownloadSchedule": "0 * * * *",
+        "maxNewEpisodesToDownload": 3,
+        "episodes": [
+          {
+            "file": "ep1.mp3",
+            "title": "One",
+            "subtitle": null,
+            "season": null,
+            "episode": null,
+            "episodeType": null,
+            "pubDate": null,
+            "publishedAtIsSet": false,
+            "description": null,
+            "duration": 1,
+            "index": 1,
+            "chapters": 0
+          },
+          {
+            "file": "ep2.mp3",
+            "title": "Two",
+            "subtitle": null,
+            "season": null,
+            "episode": null,
+            "episodeType": null,
+            "pubDate": null,
+            "publishedAtIsSet": false,
+            "description": null,
+            "duration": 1,
+            "index": 1,
+            "chapters": 0
+          }
+        ],
+        "libraryFiles": [
+          "cover.jpg",
+          "ep1.mp3",
+          "ep2.mp3"
+        ]
+      }
+    ],
+    "emitted": [
+      "libraryItemsEmitter:items_updated"
+    ]
+  },
+  "ScannerPodcast (characterization) > rescanning a podcast > a cover added, then removed > cover removed": {
+    "removed": {
+      "updated": 1,
+      "logs": [
+        "DEBUG: Mapping metadata to key tagAlbum => title: Show Album",
+        "DEBUG: Mapping metadata to key tagAlbumArtist => author: Show Host",
+        "DEBUG: Mapping metadata to key tagGenre => genres: Technology, News",
+        "DEBUG: Mapping metadata to key tagItunesId => itunesId: 12345",
+        "DEBUG: Mapping metadata to key tagLanguage => language: eng",
+        "DEBUG: Mapping metadata to key tagPodcastType => podcastType: serial",
+        "DEBUG: Success saving abmetadata to \"<tmp>/metadata/items/<item:My Podcast>/metadata.json\"",
+        "INFO: 1 item data found in folder \"<tmp>\"",
+        "INFO: Found metadata file \"<tmp>/metadata/items/<item:My Podcast>/metadata.json\"",
+        "INFO: Library file \"<tmp>/My Podcast/cover.jpg\" was removed from library item \"My Podcast\"",
+        "INFO: Scan completed. 0 Added | 1 Updated | 0 Missing"
+      ]
+    },
+    "after": [
+      {
+        "relPath": "My Podcast",
+        "isMissing": false,
+        "title": "Show Album",
+        "author": "Show Host",
+        "description": null,
+        "genres": [
+          "Technology",
+          "News"
+        ],
+        "language": "eng",
+        "type": "serial",
+        "itunesId": "12345",
+        "feedUrl": null,
+        "explicit": false,
+        "tags": [],
+        "coverPath": null,
+        "numEpisodes": 2,
+        "autoDownloadEpisodes": false,
+        "autoDownloadSchedule": "0 * * * *",
+        "maxNewEpisodesToDownload": 3,
+        "episodes": [
+          {
+            "file": "ep1.mp3",
+            "title": "One",
+            "subtitle": null,
+            "season": null,
+            "episode": null,
+            "episodeType": null,
+            "pubDate": null,
+            "publishedAtIsSet": false,
+            "description": null,
+            "duration": 1,
+            "index": 1,
+            "chapters": 0
+          },
+          {
+            "file": "ep2.mp3",
+            "title": "Two",
+            "subtitle": null,
+            "season": null,
+            "episode": null,
+            "episodeType": null,
+            "pubDate": null,
+            "publishedAtIsSet": false,
+            "description": null,
+            "duration": 1,
+            "index": 1,
+            "chapters": 0
+          }
+        ],
+        "libraryFiles": [
+          "ep1.mp3",
+          "ep2.mp3"
+        ]
+      }
+    ]
+  },
+  "ScannerPodcast (characterization) > rescanning a podcast > a modified episode file re-reads its tags into the episode": {
+    "first": {
+      "added": 1
+    },
+    "before": [
+      {
+        "relPath": "My Podcast",
+        "isMissing": false,
+        "title": "Show Album",
+        "author": "Show Host",
+        "description": null,
+        "genres": [
+          "Technology",
+          "News"
+        ],
+        "language": "eng",
+        "type": "serial",
+        "itunesId": "12345",
+        "feedUrl": null,
+        "explicit": false,
+        "tags": [],
+        "coverPath": null,
+        "numEpisodes": 2,
+        "autoDownloadEpisodes": false,
+        "autoDownloadSchedule": "0 * * * *",
+        "maxNewEpisodesToDownload": 3,
+        "episodes": [
+          {
+            "file": "ep1.mp3",
+            "title": "One",
+            "subtitle": null,
+            "season": null,
+            "episode": null,
+            "episodeType": null,
+            "pubDate": null,
+            "publishedAtIsSet": false,
+            "description": null,
+            "duration": 1,
+            "index": 1,
+            "chapters": 0
+          },
+          {
+            "file": "ep2.mp3",
+            "title": "Two",
+            "subtitle": null,
+            "season": null,
+            "episode": null,
+            "episodeType": null,
+            "pubDate": null,
+            "publishedAtIsSet": false,
+            "description": null,
+            "duration": 1,
+            "index": 1,
+            "chapters": 0
+          }
+        ],
+        "libraryFiles": [
+          "ep1.mp3",
+          "ep2.mp3"
+        ]
+      }
+    ],
+    "second": {
+      "added": 0,
+      "updated": 1,
+      "missing": 0,
+      "logs": [
+        "DEBUG: Mapping metadata to key tagAlbum => title: Show Album",
+        "DEBUG: Mapping metadata to key tagAlbumArtist => author: Show Host",
+        "DEBUG: Mapping metadata to key tagComment => description: new description",
+        "DEBUG: Mapping metadata to key tagGenre => genres: Technology, News",
+        "DEBUG: Mapping metadata to key tagItunesId => itunesId: 12345",
+        "DEBUG: Mapping metadata to key tagLanguage => language: eng",
+        "DEBUG: Mapping metadata to key tagPodcastType => podcastType: serial",
+        "DEBUG: Mapping metadata to key tagTitle => title: One Retitled",
+        "DEBUG: Mapping metadata to key tagTrack => episode: 9",
+        "INFO: 1 item data found in folder \"<tmp>\"",
+        "INFO: Found metadata file \"<tmp>/metadata/items/<item:My Podcast>/metadata.json\"",
+        "INFO: Podcast episode \"One Retitled\" keys changed [audioFile, description, episode, title]",
+        "INFO: Scan completed. 0 Added | 1 Updated | 0 Missing"
+      ]
+    },
+    "after": [
+      {
+        "relPath": "My Podcast",
+        "isMissing": false,
+        "title": "Show Album",
+        "author": "Show Host",
+        "description": null,
+        "genres": [
+          "Technology",
+          "News"
+        ],
+        "language": "eng",
+        "type": "serial",
+        "itunesId": "12345",
+        "feedUrl": null,
+        "explicit": false,
+        "tags": [],
+        "coverPath": null,
+        "numEpisodes": 2,
+        "autoDownloadEpisodes": false,
+        "autoDownloadSchedule": "0 * * * *",
+        "maxNewEpisodesToDownload": 3,
+        "episodes": [
+          {
+            "file": "ep1.mp3",
+            "title": "One Retitled",
+            "subtitle": null,
+            "season": null,
+            "episode": "9",
+            "episodeType": null,
+            "pubDate": null,
+            "publishedAtIsSet": false,
+            "description": "new description",
+            "duration": 1,
+            "index": null,
+            "chapters": 0
+          },
+          {
+            "file": "ep2.mp3",
+            "title": "Two",
+            "subtitle": null,
+            "season": null,
+            "episode": null,
+            "episodeType": null,
+            "pubDate": null,
+            "publishedAtIsSet": false,
+            "description": null,
+            "duration": 1,
+            "index": 1,
+            "chapters": 0
+          }
+        ],
+        "libraryFiles": [
+          "ep1.mp3",
+          "ep2.mp3"
+        ]
+      }
+    ],
+    "emitted": [
+      "libraryItemsEmitter:items_updated"
+    ]
+  },
+  "ScannerPodcast (characterization) > rescanning a podcast > a modified episode file that became corrupt keeps its old episode": {
+    "first": {
+      "added": 1
+    },
+    "before": [
+      {
+        "relPath": "My Podcast",
+        "isMissing": false,
+        "title": "Show Album",
+        "author": "Show Host",
+        "description": null,
+        "genres": [
+          "Technology",
+          "News"
+        ],
+        "language": "eng",
+        "type": "serial",
+        "itunesId": "12345",
+        "feedUrl": null,
+        "explicit": false,
+        "tags": [],
+        "coverPath": null,
+        "numEpisodes": 2,
+        "autoDownloadEpisodes": false,
+        "autoDownloadSchedule": "0 * * * *",
+        "maxNewEpisodesToDownload": 3,
+        "episodes": [
+          {
+            "file": "ep1.mp3",
+            "title": "One",
+            "subtitle": null,
+            "season": null,
+            "episode": null,
+            "episodeType": null,
+            "pubDate": null,
+            "publishedAtIsSet": false,
+            "description": null,
+            "duration": 1,
+            "index": 1,
+            "chapters": 0
+          },
+          {
+            "file": "ep2.mp3",
+            "title": "Two",
+            "subtitle": null,
+            "season": null,
+            "episode": null,
+            "episodeType": null,
+            "pubDate": null,
+            "publishedAtIsSet": false,
+            "description": null,
+            "duration": 1,
+            "index": 1,
+            "chapters": 0
+          }
+        ],
+        "libraryFiles": [
+          "ep1.mp3",
+          "ep2.mp3"
+        ]
+      }
+    ],
+    "second": {
+      "added": 0,
+      "updated": 1,
+      "missing": 0,
+      "logs": [
+        "DEBUG: Mapping metadata to key tagAlbum => title: Show Album",
+        "DEBUG: Mapping metadata to key tagAlbumArtist => author: Show Host",
+        "DEBUG: Mapping metadata to key tagGenre => genres: Technology, News",
+        "DEBUG: Mapping metadata to key tagItunesId => itunesId: 12345",
+        "DEBUG: Mapping metadata to key tagLanguage => language: eng",
+        "DEBUG: Mapping metadata to key tagPodcastType => podcastType: serial",
+        "INFO: 1 item data found in folder \"<tmp>\"",
+        "INFO: Found metadata file \"<tmp>/metadata/items/<item:My Podcast>/metadata.json\"",
+        "INFO: Scan completed. 0 Added | 1 Updated | 0 Missing"
+      ]
+    },
+    "after": [
+      {
+        "relPath": "My Podcast",
+        "isMissing": false,
+        "title": "Show Album",
+        "author": "Show Host",
+        "description": null,
+        "genres": [
+          "Technology",
+          "News"
+        ],
+        "language": "eng",
+        "type": "serial",
+        "itunesId": "12345",
+        "feedUrl": null,
+        "explicit": false,
+        "tags": [],
+        "coverPath": null,
+        "numEpisodes": 2,
+        "autoDownloadEpisodes": false,
+        "autoDownloadSchedule": "0 * * * *",
+        "maxNewEpisodesToDownload": 3,
+        "episodes": [
+          {
+            "file": "ep1.mp3",
+            "title": "One",
+            "subtitle": null,
+            "season": null,
+            "episode": null,
+            "episodeType": null,
+            "pubDate": null,
+            "publishedAtIsSet": false,
+            "description": null,
+            "duration": 1,
+            "index": 1,
+            "chapters": 0
+          },
+          {
+            "file": "ep2.mp3",
+            "title": "Two",
+            "subtitle": null,
+            "season": null,
+            "episode": null,
+            "episodeType": null,
+            "pubDate": null,
+            "publishedAtIsSet": false,
+            "description": null,
+            "duration": 1,
+            "index": 1,
+            "chapters": 0
+          }
+        ],
+        "libraryFiles": [
+          "ep1.mp3",
+          "ep2.mp3"
+        ]
+      }
+    ],
+    "emitted": [
+      "libraryItemsEmitter:items_updated"
+    ]
+  },
+  "ScannerPodcast (characterization) > rescanning a podcast > an episode added": {
+    "first": {
+      "added": 1
+    },
+    "before": [
+      {
+        "relPath": "My Podcast",
+        "isMissing": false,
+        "title": "Show Album",
+        "author": "Show Host",
+        "description": null,
+        "genres": [
+          "Technology",
+          "News"
+        ],
+        "language": "eng",
+        "type": "serial",
+        "itunesId": "12345",
+        "feedUrl": null,
+        "explicit": false,
+        "tags": [],
+        "coverPath": null,
+        "numEpisodes": 2,
+        "autoDownloadEpisodes": false,
+        "autoDownloadSchedule": "0 * * * *",
+        "maxNewEpisodesToDownload": 3,
+        "episodes": [
+          {
+            "file": "ep1.mp3",
+            "title": "One",
+            "subtitle": null,
+            "season": null,
+            "episode": null,
+            "episodeType": null,
+            "pubDate": null,
+            "publishedAtIsSet": false,
+            "description": null,
+            "duration": 1,
+            "index": 1,
+            "chapters": 0
+          },
+          {
+            "file": "ep2.mp3",
+            "title": "Two",
+            "subtitle": null,
+            "season": null,
+            "episode": null,
+            "episodeType": null,
+            "pubDate": null,
+            "publishedAtIsSet": false,
+            "description": null,
+            "duration": 1,
+            "index": 1,
+            "chapters": 0
+          }
+        ],
+        "libraryFiles": [
+          "ep1.mp3",
+          "ep2.mp3"
+        ]
+      }
+    ],
+    "second": {
+      "added": 0,
+      "updated": 1,
+      "missing": 0,
+      "logs": [
+        "DEBUG: Mapping metadata to key tagAlbum => title: Show Album",
+        "DEBUG: Mapping metadata to key tagAlbumArtist => author: Show Host",
+        "DEBUG: Mapping metadata to key tagDisc => season: 2",
+        "DEBUG: Mapping metadata to key tagGenre => genres: Technology, News",
+        "DEBUG: Mapping metadata to key tagItunesId => itunesId: 12345",
+        "DEBUG: Mapping metadata to key tagLanguage => language: eng",
+        "DEBUG: Mapping metadata to key tagPodcastType => podcastType: serial",
+        "DEBUG: Mapping metadata to key tagTitle => title: Three",
+        "DEBUG: Mapping metadata to key tagTrack => episode: 5",
+        "DEBUG: Success saving abmetadata to \"<tmp>/metadata/items/<item:My Podcast>/metadata.json\"",
+        "INFO: 1 item data found in folder \"<tmp>\"",
+        "INFO: Found metadata file \"<tmp>/metadata/items/<item:My Podcast>/metadata.json\"",
+        "INFO: New Podcast episode \"Three\" added",
+        "INFO: New library file found with path \"<tmp>/My Podcast/ep3.mp3\" for library item \"My Podcast\"",
+        "INFO: Scan completed. 0 Added | 1 Updated | 0 Missing"
+      ]
+    },
+    "after": [
+      {
+        "relPath": "My Podcast",
+        "isMissing": false,
+        "title": "Show Album",
+        "author": "Show Host",
+        "description": null,
+        "genres": [
+          "Technology",
+          "News"
+        ],
+        "language": "eng",
+        "type": "serial",
+        "itunesId": "12345",
+        "feedUrl": null,
+        "explicit": false,
+        "tags": [],
+        "coverPath": null,
+        "numEpisodes": 3,
+        "autoDownloadEpisodes": false,
+        "autoDownloadSchedule": "0 * * * *",
+        "maxNewEpisodesToDownload": 3,
+        "episodes": [
+          {
+            "file": "ep1.mp3",
+            "title": "One",
+            "subtitle": null,
+            "season": null,
+            "episode": null,
+            "episodeType": null,
+            "pubDate": null,
+            "publishedAtIsSet": false,
+            "description": null,
+            "duration": 1,
+            "index": 1,
+            "chapters": 0
+          },
+          {
+            "file": "ep2.mp3",
+            "title": "Two",
+            "subtitle": null,
+            "season": null,
+            "episode": null,
+            "episodeType": null,
+            "pubDate": null,
+            "publishedAtIsSet": false,
+            "description": null,
+            "duration": 1,
+            "index": 1,
+            "chapters": 0
+          },
+          {
+            "file": "ep3.mp3",
+            "title": "Three",
+            "subtitle": null,
+            "season": "2",
+            "episode": "5",
+            "episodeType": null,
+            "pubDate": null,
+            "publishedAtIsSet": false,
+            "description": null,
+            "duration": 1,
+            "index": 1,
+            "chapters": 0
+          }
+        ],
+        "libraryFiles": [
+          "ep1.mp3",
+          "ep2.mp3",
+          "ep3.mp3"
+        ]
+      }
+    ],
+    "emitted": [
+      "libraryItemsEmitter:items_updated"
+    ]
+  },
+  "ScannerPodcast (characterization) > rescanning a podcast > an episode removed: its media progress and playlist entries go with it": {
+    "view": {
+      "first": {
+        "added": 1
+      },
+      "before": [
+        {
+          "relPath": "My Podcast",
+          "isMissing": false,
+          "title": "Show Album",
+          "author": "Show Host",
+          "description": null,
+          "genres": [
+            "Technology",
+            "News"
+          ],
+          "language": "eng",
+          "type": "serial",
+          "itunesId": "12345",
+          "feedUrl": null,
+          "explicit": false,
+          "tags": [],
+          "coverPath": null,
+          "numEpisodes": 2,
+          "autoDownloadEpisodes": false,
+          "autoDownloadSchedule": "0 * * * *",
+          "maxNewEpisodesToDownload": 3,
+          "episodes": [
+            {
+              "file": "ep1.mp3",
+              "title": "One",
+              "subtitle": null,
+              "season": null,
+              "episode": null,
+              "episodeType": null,
+              "pubDate": null,
+              "publishedAtIsSet": false,
+              "description": null,
+              "duration": 1,
+              "index": 1,
+              "chapters": 0
+            },
+            {
+              "file": "ep2.mp3",
+              "title": "Two",
+              "subtitle": null,
+              "season": null,
+              "episode": null,
+              "episodeType": null,
+              "pubDate": null,
+              "publishedAtIsSet": false,
+              "description": null,
+              "duration": 1,
+              "index": 1,
+              "chapters": 0
+            }
+          ],
+          "libraryFiles": [
+            "ep1.mp3",
+            "ep2.mp3"
+          ]
+        }
+      ],
+      "second": {
+        "added": 0,
+        "updated": 1,
+        "missing": 0,
+        "logs": [
+          "DEBUG: Mapping metadata to key tagAlbum => title: Show Album",
+          "DEBUG: Mapping metadata to key tagAlbumArtist => author: Show Host",
+          "DEBUG: Mapping metadata to key tagGenre => genres: Technology, News",
+          "DEBUG: Mapping metadata to key tagItunesId => itunesId: 12345",
+          "DEBUG: Mapping metadata to key tagLanguage => language: eng",
+          "DEBUG: Mapping metadata to key tagPodcastType => podcastType: serial",
+          "DEBUG: Success saving abmetadata to \"<tmp>/metadata/items/<item:My Podcast>/metadata.json\"",
+          "INFO: 1 item data found in folder \"<tmp>\"",
+          "INFO: Found metadata file \"<tmp>/metadata/items/<item:My Podcast>/metadata.json\"",
+          "INFO: Library file \"<tmp>/My Podcast/ep1.mp3\" was removed from library item \"My Podcast\"",
+          "INFO: Podcast episode \"One\" audio file was removed",
+          "INFO: Removed 1 media progress for episodes",
+          "INFO: Scan completed. 0 Added | 1 Updated | 0 Missing"
+        ]
+      },
+      "after": [
+        {
+          "relPath": "My Podcast",
+          "isMissing": false,
+          "title": "Show Album",
+          "author": "Show Host",
+          "description": null,
+          "genres": [
+            "Technology",
+            "News"
+          ],
+          "language": "eng",
+          "type": "serial",
+          "itunesId": "12345",
+          "feedUrl": null,
+          "explicit": false,
+          "tags": [],
+          "coverPath": null,
+          "numEpisodes": 1,
+          "autoDownloadEpisodes": false,
+          "autoDownloadSchedule": "0 * * * *",
+          "maxNewEpisodesToDownload": 3,
+          "episodes": [
+            {
+              "file": "ep2.mp3",
+              "title": "Two",
+              "subtitle": null,
+              "season": null,
+              "episode": null,
+              "episodeType": null,
+              "pubDate": null,
+              "publishedAtIsSet": false,
+              "description": null,
+              "duration": 1,
+              "index": 1,
+              "chapters": 0
+            }
+          ],
+          "libraryFiles": [
+            "ep2.mp3"
+          ]
+        }
+      ],
+      "emitted": [
+        "clientEmitter:<uuid-1>",
+        "libraryItemsEmitter:items_updated"
+      ]
+    },
+    "progressLeft": 1,
+    "playlistsLeft": 0
+  },
+  "ScannerPodcast (characterization) > rescanning a podcast > every audio file removed but the folder remains: the podcast is not marked missing and keeps its episodes": {
+    "first": {
+      "added": 1
+    },
+    "before": [
+      {
+        "relPath": "My Podcast",
+        "isMissing": false,
+        "title": "Show Album",
+        "author": "Show Host",
+        "description": null,
+        "genres": [
+          "Technology",
+          "News"
+        ],
+        "language": "eng",
+        "type": "serial",
+        "itunesId": "12345",
+        "feedUrl": null,
+        "explicit": false,
+        "tags": [],
+        "coverPath": null,
+        "numEpisodes": 2,
+        "autoDownloadEpisodes": false,
+        "autoDownloadSchedule": "0 * * * *",
+        "maxNewEpisodesToDownload": 3,
+        "episodes": [
+          {
+            "file": "ep1.mp3",
+            "title": "One",
+            "subtitle": null,
+            "season": null,
+            "episode": null,
+            "episodeType": null,
+            "pubDate": null,
+            "publishedAtIsSet": false,
+            "description": null,
+            "duration": 1,
+            "index": 1,
+            "chapters": 0
+          },
+          {
+            "file": "ep2.mp3",
+            "title": "Two",
+            "subtitle": null,
+            "season": null,
+            "episode": null,
+            "episodeType": null,
+            "pubDate": null,
+            "publishedAtIsSet": false,
+            "description": null,
+            "duration": 1,
+            "index": 1,
+            "chapters": 0
+          }
+        ],
+        "libraryFiles": [
+          "ep1.mp3",
+          "ep2.mp3"
+        ]
+      }
+    ],
+    "second": {
+      "added": 0,
+      "updated": 0,
+      "missing": 0,
+      "logs": [
+        "INFO: 0 item data found in folder \"<tmp>\"",
+        "INFO: Library item \"My Podcast\" folder exists but has no episodes",
+        "INFO: Scan completed. 0 Added | 0 Updated | 0 Missing"
+      ]
+    },
+    "after": [
+      {
+        "relPath": "My Podcast",
+        "isMissing": false,
+        "title": "Show Album",
+        "author": "Show Host",
+        "description": null,
+        "genres": [
+          "Technology",
+          "News"
+        ],
+        "language": "eng",
+        "type": "serial",
+        "itunesId": "12345",
+        "feedUrl": null,
+        "explicit": false,
+        "tags": [],
+        "coverPath": null,
+        "numEpisodes": 2,
+        "autoDownloadEpisodes": false,
+        "autoDownloadSchedule": "0 * * * *",
+        "maxNewEpisodesToDownload": 3,
+        "episodes": [
+          {
+            "file": "ep1.mp3",
+            "title": "One",
+            "subtitle": null,
+            "season": null,
+            "episode": null,
+            "episodeType": null,
+            "pubDate": null,
+            "publishedAtIsSet": false,
+            "description": null,
+            "duration": 1,
+            "index": 1,
+            "chapters": 0
+          },
+          {
+            "file": "ep2.mp3",
+            "title": "Two",
+            "subtitle": null,
+            "season": null,
+            "episode": null,
+            "episodeType": null,
+            "pubDate": null,
+            "publishedAtIsSet": false,
+            "description": null,
+            "duration": 1,
+            "index": 1,
+            "chapters": 0
+          }
+        ],
+        "libraryFiles": [
+          "ep1.mp3",
+          "ep2.mp3"
+        ]
+      }
+    ],
+    "emitted": []
+  },
+  "ScannerPodcast (characterization) > rescanning a podcast > forced rescan with nothing changed": {
+    "first": {
+      "added": 1
+    },
+    "before": [
+      {
+        "relPath": "My Podcast",
+        "isMissing": false,
+        "title": "Show Album",
+        "author": "Show Host",
+        "description": null,
+        "genres": [
+          "Technology",
+          "News"
+        ],
+        "language": "eng",
+        "type": "serial",
+        "itunesId": "12345",
+        "feedUrl": null,
+        "explicit": false,
+        "tags": [],
+        "coverPath": null,
+        "numEpisodes": 2,
+        "autoDownloadEpisodes": false,
+        "autoDownloadSchedule": "0 * * * *",
+        "maxNewEpisodesToDownload": 3,
+        "episodes": [
+          {
+            "file": "ep1.mp3",
+            "title": "One",
+            "subtitle": null,
+            "season": null,
+            "episode": null,
+            "episodeType": null,
+            "pubDate": null,
+            "publishedAtIsSet": false,
+            "description": null,
+            "duration": 1,
+            "index": 1,
+            "chapters": 0
+          },
+          {
+            "file": "ep2.mp3",
+            "title": "Two",
+            "subtitle": null,
+            "season": null,
+            "episode": null,
+            "episodeType": null,
+            "pubDate": null,
+            "publishedAtIsSet": false,
+            "description": null,
+            "duration": 1,
+            "index": 1,
+            "chapters": 0
+          }
+        ],
+        "libraryFiles": [
+          "ep1.mp3",
+          "ep2.mp3"
+        ]
+      }
+    ],
+    "second": {
+      "added": 0,
+      "updated": 0,
+      "missing": 0,
+      "logs": [
+        "DEBUG: Library item \"My Podcast\" is up-to-date",
+        "DEBUG: Mapping metadata to key tagAlbum => title: Show Album",
+        "DEBUG: Mapping metadata to key tagAlbumArtist => author: Show Host",
+        "DEBUG: Mapping metadata to key tagGenre => genres: Technology, News",
+        "DEBUG: Mapping metadata to key tagItunesId => itunesId: 12345",
+        "DEBUG: Mapping metadata to key tagLanguage => language: eng",
+        "DEBUG: Mapping metadata to key tagPodcastType => podcastType: serial",
+        "INFO: 1 item data found in folder \"<tmp>\"",
+        "INFO: Found metadata file \"<tmp>/metadata/items/<item:My Podcast>/metadata.json\"",
+        "INFO: Scan completed. 0 Added | 0 Updated | 0 Missing"
+      ]
+    },
+    "after": [
+      {
+        "relPath": "My Podcast",
+        "isMissing": false,
+        "title": "Show Album",
+        "author": "Show Host",
+        "description": null,
+        "genres": [
+          "Technology",
+          "News"
+        ],
+        "language": "eng",
+        "type": "serial",
+        "itunesId": "12345",
+        "feedUrl": null,
+        "explicit": false,
+        "tags": [],
+        "coverPath": null,
+        "numEpisodes": 2,
+        "autoDownloadEpisodes": false,
+        "autoDownloadSchedule": "0 * * * *",
+        "maxNewEpisodesToDownload": 3,
+        "episodes": [
+          {
+            "file": "ep1.mp3",
+            "title": "One",
+            "subtitle": null,
+            "season": null,
+            "episode": null,
+            "episodeType": null,
+            "pubDate": null,
+            "publishedAtIsSet": false,
+            "description": null,
+            "duration": 1,
+            "index": 1,
+            "chapters": 0
+          },
+          {
+            "file": "ep2.mp3",
+            "title": "Two",
+            "subtitle": null,
+            "season": null,
+            "episode": null,
+            "episodeType": null,
+            "pubDate": null,
+            "publishedAtIsSet": false,
+            "description": null,
+            "duration": 1,
+            "index": 1,
+            "chapters": 0
+          }
+        ],
+        "libraryFiles": [
+          "ep1.mp3",
+          "ep2.mp3"
+        ]
+      }
+    ],
+    "emitted": []
+  },
+  "ScannerPodcast (characterization) > rescanning a podcast > metadata.json added and edited; the saved copy under <metadata>/items still wins afterwards": {
+    "first": {
+      "added": 1
+    },
+    "before": [
+      {
+        "relPath": "My Podcast",
+        "isMissing": false,
+        "title": "Show Album",
+        "author": "Show Host",
+        "description": null,
+        "genres": [
+          "Technology",
+          "News"
+        ],
+        "language": "eng",
+        "type": "serial",
+        "itunesId": "12345",
+        "feedUrl": null,
+        "explicit": false,
+        "tags": [],
+        "coverPath": null,
+        "numEpisodes": 2,
+        "autoDownloadEpisodes": false,
+        "autoDownloadSchedule": "0 * * * *",
+        "maxNewEpisodesToDownload": 3,
+        "episodes": [
+          {
+            "file": "ep1.mp3",
+            "title": "One",
+            "subtitle": null,
+            "season": null,
+            "episode": null,
+            "episodeType": null,
+            "pubDate": null,
+            "publishedAtIsSet": false,
+            "description": null,
+            "duration": 1,
+            "index": 1,
+            "chapters": 0
+          },
+          {
+            "file": "ep2.mp3",
+            "title": "Two",
+            "subtitle": null,
+            "season": null,
+            "episode": null,
+            "episodeType": null,
+            "pubDate": null,
+            "publishedAtIsSet": false,
+            "description": null,
+            "duration": 1,
+            "index": 1,
+            "chapters": 0
+          }
+        ],
+        "libraryFiles": [
+          "ep1.mp3",
+          "ep2.mp3"
+        ]
+      }
+    ],
+    "second": {
+      "added": 0,
+      "updated": 1,
+      "missing": 0,
+      "logs": [
+        "DEBUG: Mapping metadata to key tagAlbum => title: Show Album",
+        "DEBUG: Mapping metadata to key tagAlbumArtist => author: Show Host",
+        "DEBUG: Mapping metadata to key tagGenre => genres: Technology, News",
+        "DEBUG: Mapping metadata to key tagItunesId => itunesId: 12345",
+        "DEBUG: Mapping metadata to key tagLanguage => language: eng",
+        "DEBUG: Mapping metadata to key tagPodcastType => podcastType: serial",
+        "DEBUG: Success saving abmetadata to \"<tmp>/metadata/items/<item:My Podcast>/metadata.json\"",
+        "DEBUG: Updating podcast author \"Show Host\" => \"Json Author\" for podcast \"Json Title\"",
+        "DEBUG: Updating podcast tags \"\" => \"a\" for podcast \"Json Title\"",
+        "DEBUG: Updating podcast title \"Show Album\" => \"Json Title\" for podcast \"Json Title\"",
+        "DEBUG: Updating podcast titleIgnorePrefix \"Show Album\" => \"Json Title\" for podcast \"Json Title\"",
+        "INFO: 1 item data found in folder \"<tmp>\"",
+        "INFO: Found metadata file \"<tmp>/My Podcast/metadata.json\"",
+        "INFO: New library file found with path \"<tmp>/My Podcast/metadata.json\" for library item \"My Podcast\"",
+        "INFO: Scan completed. 0 Added | 1 Updated | 0 Missing"
+      ]
+    },
+    "after": [
+      {
+        "relPath": "My Podcast",
+        "isMissing": false,
+        "title": "Json Title",
+        "author": "Json Author",
+        "description": null,
+        "genres": [
+          "Technology",
+          "News"
+        ],
+        "language": "eng",
+        "type": "serial",
+        "itunesId": "12345",
+        "feedUrl": null,
+        "explicit": false,
+        "tags": [
+          "a"
+        ],
+        "coverPath": null,
+        "numEpisodes": 2,
+        "autoDownloadEpisodes": false,
+        "autoDownloadSchedule": "0 * * * *",
+        "maxNewEpisodesToDownload": 3,
+        "episodes": [
+          {
+            "file": "ep1.mp3",
+            "title": "One",
+            "subtitle": null,
+            "season": null,
+            "episode": null,
+            "episodeType": null,
+            "pubDate": null,
+            "publishedAtIsSet": false,
+            "description": null,
+            "duration": 1,
+            "index": 1,
+            "chapters": 0
+          },
+          {
+            "file": "ep2.mp3",
+            "title": "Two",
+            "subtitle": null,
+            "season": null,
+            "episode": null,
+            "episodeType": null,
+            "pubDate": null,
+            "publishedAtIsSet": false,
+            "description": null,
+            "duration": 1,
+            "index": 1,
+            "chapters": 0
+          }
+        ],
+        "libraryFiles": [
+          "ep1.mp3",
+          "ep2.mp3",
+          "metadata.json"
+        ]
+      }
+    ],
+    "emitted": [
+      "libraryItemsEmitter:items_updated"
+    ]
+  },
+  "ScannerPodcast (characterization) > rescanning a podcast > metadata.json added and edited; the saved copy under <metadata>/items still wins afterwards > edited": {
+    "edited": {
+      "updated": 1,
+      "logs": [
+        "DEBUG: Mapping metadata to key tagAlbum => title: Show Album",
+        "DEBUG: Mapping metadata to key tagAlbumArtist => author: Show Host",
+        "DEBUG: Mapping metadata to key tagGenre => genres: Technology, News",
+        "DEBUG: Mapping metadata to key tagItunesId => itunesId: 12345",
+        "DEBUG: Mapping metadata to key tagLanguage => language: eng",
+        "DEBUG: Mapping metadata to key tagPodcastType => podcastType: serial",
+        "DEBUG: Success saving abmetadata to \"<tmp>/metadata/items/<item:My Podcast>/metadata.json\"",
+        "DEBUG: Updating podcast author \"Json Author\" => \"Show Host\" for podcast \"Json Title 2\"",
+        "DEBUG: Updating podcast description \"null\" => \"v2\" for podcast \"Json Title 2\"",
+        "DEBUG: Updating podcast title \"Json Title\" => \"Json Title 2\" for podcast \"Json Title 2\"",
+        "DEBUG: Updating podcast titleIgnorePrefix \"Json Title\" => \"Json Title 2\" for podcast \"Json Title 2\"",
+        "INFO: 1 item data found in folder \"<tmp>\"",
+        "INFO: Found metadata file \"<tmp>/My Podcast/metadata.json\"",
+        "INFO: Scan completed. 0 Added | 1 Updated | 0 Missing"
+      ]
+    },
+    "after": [
+      {
+        "relPath": "My Podcast",
+        "isMissing": false,
+        "title": "Json Title 2",
+        "author": "Show Host",
+        "description": "v2",
+        "genres": [
+          "Technology",
+          "News"
+        ],
+        "language": "eng",
+        "type": "serial",
+        "itunesId": "12345",
+        "feedUrl": null,
+        "explicit": false,
+        "tags": [
+          "a"
+        ],
+        "coverPath": null,
+        "numEpisodes": 2,
+        "autoDownloadEpisodes": false,
+        "autoDownloadSchedule": "0 * * * *",
+        "maxNewEpisodesToDownload": 3,
+        "episodes": [
+          {
+            "file": "ep1.mp3",
+            "title": "One",
+            "subtitle": null,
+            "season": null,
+            "episode": null,
+            "episodeType": null,
+            "pubDate": null,
+            "publishedAtIsSet": false,
+            "description": null,
+            "duration": 1,
+            "index": 1,
+            "chapters": 0
+          },
+          {
+            "file": "ep2.mp3",
+            "title": "Two",
+            "subtitle": null,
+            "season": null,
+            "episode": null,
+            "episodeType": null,
+            "pubDate": null,
+            "publishedAtIsSet": false,
+            "description": null,
+            "duration": 1,
+            "index": 1,
+            "chapters": 0
+          }
+        ],
+        "libraryFiles": [
+          "ep1.mp3",
+          "ep2.mp3",
+          "metadata.json"
+        ]
+      }
+    ]
+  },
+  "ScannerPodcast (characterization) > rescanning a podcast > nothing changed": {
+    "first": {
+      "added": 1
+    },
+    "before": [
+      {
+        "relPath": "My Podcast",
+        "isMissing": false,
+        "title": "Show Album",
+        "author": "Show Host",
+        "description": null,
+        "genres": [
+          "Technology",
+          "News"
+        ],
+        "language": "eng",
+        "type": "serial",
+        "itunesId": "12345",
+        "feedUrl": null,
+        "explicit": false,
+        "tags": [],
+        "coverPath": null,
+        "numEpisodes": 2,
+        "autoDownloadEpisodes": false,
+        "autoDownloadSchedule": "0 * * * *",
+        "maxNewEpisodesToDownload": 3,
+        "episodes": [
+          {
+            "file": "ep1.mp3",
+            "title": "One",
+            "subtitle": null,
+            "season": null,
+            "episode": null,
+            "episodeType": null,
+            "pubDate": null,
+            "publishedAtIsSet": false,
+            "description": null,
+            "duration": 1,
+            "index": 1,
+            "chapters": 0
+          },
+          {
+            "file": "ep2.mp3",
+            "title": "Two",
+            "subtitle": null,
+            "season": null,
+            "episode": null,
+            "episodeType": null,
+            "pubDate": null,
+            "publishedAtIsSet": false,
+            "description": null,
+            "duration": 1,
+            "index": 1,
+            "chapters": 0
+          }
+        ],
+        "libraryFiles": [
+          "ep1.mp3",
+          "ep2.mp3"
+        ]
+      }
+    ],
+    "second": {
+      "added": 0,
+      "updated": 0,
+      "missing": 0,
+      "logs": [
+        "DEBUG: Library item \"My Podcast\" is up-to-date",
+        "INFO: 1 item data found in folder \"<tmp>\"",
+        "INFO: Scan completed. 0 Added | 0 Updated | 0 Missing"
+      ]
+    },
+    "after": [
+      {
+        "relPath": "My Podcast",
+        "isMissing": false,
+        "title": "Show Album",
+        "author": "Show Host",
+        "description": null,
+        "genres": [
+          "Technology",
+          "News"
+        ],
+        "language": "eng",
+        "type": "serial",
+        "itunesId": "12345",
+        "feedUrl": null,
+        "explicit": false,
+        "tags": [],
+        "coverPath": null,
+        "numEpisodes": 2,
+        "autoDownloadEpisodes": false,
+        "autoDownloadSchedule": "0 * * * *",
+        "maxNewEpisodesToDownload": 3,
+        "episodes": [
+          {
+            "file": "ep1.mp3",
+            "title": "One",
+            "subtitle": null,
+            "season": null,
+            "episode": null,
+            "episodeType": null,
+            "pubDate": null,
+            "publishedAtIsSet": false,
+            "description": null,
+            "duration": 1,
+            "index": 1,
+            "chapters": 0
+          },
+          {
+            "file": "ep2.mp3",
+            "title": "Two",
+            "subtitle": null,
+            "season": null,
+            "episode": null,
+            "episodeType": null,
+            "pubDate": null,
+            "publishedAtIsSet": false,
+            "description": null,
+            "duration": 1,
+            "index": 1,
+            "chapters": 0
+          }
+        ],
+        "libraryFiles": [
+          "ep1.mp3",
+          "ep2.mp3"
+        ]
+      }
+    ],
+    "emitted": []
+  },
+  "ScannerPodcast (characterization) > rescanning a podcast > the whole podcast folder removed: the podcast is marked missing": {
+    "first": {
+      "added": 1
+    },
+    "before": [
+      {
+        "relPath": "My Podcast",
+        "isMissing": false,
+        "title": "Show Album",
+        "author": "Show Host",
+        "description": null,
+        "genres": [
+          "Technology",
+          "News"
+        ],
+        "language": "eng",
+        "type": "serial",
+        "itunesId": "12345",
+        "feedUrl": null,
+        "explicit": false,
+        "tags": [],
+        "coverPath": null,
+        "numEpisodes": 2,
+        "autoDownloadEpisodes": false,
+        "autoDownloadSchedule": "0 * * * *",
+        "maxNewEpisodesToDownload": 3,
+        "episodes": [
+          {
+            "file": "ep1.mp3",
+            "title": "One",
+            "subtitle": null,
+            "season": null,
+            "episode": null,
+            "episodeType": null,
+            "pubDate": null,
+            "publishedAtIsSet": false,
+            "description": null,
+            "duration": 1,
+            "index": 1,
+            "chapters": 0
+          },
+          {
+            "file": "ep2.mp3",
+            "title": "Two",
+            "subtitle": null,
+            "season": null,
+            "episode": null,
+            "episodeType": null,
+            "pubDate": null,
+            "publishedAtIsSet": false,
+            "description": null,
+            "duration": 1,
+            "index": 1,
+            "chapters": 0
+          }
+        ],
+        "libraryFiles": [
+          "ep1.mp3",
+          "ep2.mp3"
+        ]
+      }
+    ],
+    "second": {
+      "added": 1,
+      "updated": 0,
+      "missing": 1,
+      "logs": [
+        "DEBUG: Success saving abmetadata to \"<tmp>/metadata/items/<item:Other>/metadata.json\"",
+        "INFO: 1 item data found in folder \"<tmp>\"",
+        "INFO: Created new library item \"Other\" with id \"<item:Other>\"",
+        "INFO: New Podcast episode \"ep\" found",
+        "INFO: Scan completed. 1 Added | 0 Updated | 1 Missing",
+        "INFO: Updating 1 library items missing",
+        "WARN: Library Item \"<tmp>/My Podcast\" (inode: <ino>) is missing"
+      ]
+    },
+    "after": [
+      {
+        "relPath": "My Podcast",
+        "isMissing": true,
+        "title": "Show Album",
+        "author": "Show Host",
+        "description": null,
+        "genres": [
+          "Technology",
+          "News"
+        ],
+        "language": "eng",
+        "type": "serial",
+        "itunesId": "12345",
+        "feedUrl": null,
+        "explicit": false,
+        "tags": [],
+        "coverPath": null,
+        "numEpisodes": 2,
+        "autoDownloadEpisodes": false,
+        "autoDownloadSchedule": "0 * * * *",
+        "maxNewEpisodesToDownload": 3,
+        "episodes": [
+          {
+            "file": "ep1.mp3",
+            "title": "One",
+            "subtitle": null,
+            "season": null,
+            "episode": null,
+            "episodeType": null,
+            "pubDate": null,
+            "publishedAtIsSet": false,
+            "description": null,
+            "duration": 1,
+            "index": 1,
+            "chapters": 0
+          },
+          {
+            "file": "ep2.mp3",
+            "title": "Two",
+            "subtitle": null,
+            "season": null,
+            "episode": null,
+            "episodeType": null,
+            "pubDate": null,
+            "publishedAtIsSet": false,
+            "description": null,
+            "duration": 1,
+            "index": 1,
+            "chapters": 0
+          }
+        ],
+        "libraryFiles": [
+          "ep1.mp3",
+          "ep2.mp3"
+        ]
+      },
+      {
+        "relPath": "Other",
+        "isMissing": false,
+        "title": "Other",
+        "author": null,
+        "description": null,
+        "genres": [],
+        "language": null,
+        "type": "episodic",
+        "itunesId": null,
+        "feedUrl": null,
+        "explicit": false,
+        "tags": [],
+        "coverPath": null,
+        "numEpisodes": 1,
+        "autoDownloadEpisodes": false,
+        "autoDownloadSchedule": "0 * * * *",
+        "maxNewEpisodesToDownload": 3,
+        "episodes": [
+          {
+            "file": "ep.mp3",
+            "title": "ep",
+            "subtitle": null,
+            "season": null,
+            "episode": null,
+            "episodeType": null,
+            "pubDate": null,
+            "publishedAtIsSet": false,
+            "description": null,
+            "duration": 1,
+            "index": 1,
+            "chapters": 0
+          }
+        ],
+        "libraryFiles": [
+          "ep.mp3"
+        ]
+      }
+    ],
+    "emitted": [
+      "libraryItemsEmitter:items_added",
+      "libraryItemsEmitter:items_updated"
+    ]
+  },
+  "ScannerPodcast (characterization) > scanning a new podcast > corrupt audio is skipped; a folder with nothing playable is not added": {
+    "scan": {
+      "canceled": false,
+      "added": 1,
+      "updated": 0,
+      "missing": 0,
+      "logs": [
+        "DEBUG: Success saving abmetadata to \"<tmp>/metadata/items/<item:Half>/metadata.json\"",
+        "INFO: 2 item data found in folder \"<tmp>\"",
+        "INFO: Created new library item \"Half\" with id \"<item:Half>\"",
+        "INFO: New Podcast episode \"a\" found",
+        "INFO: Scan completed. 1 Added | 0 Updated | 0 Missing",
+        "WARN: Library item at path \"Bad\" has no audio files - ignoring"
+      ]
+    },
+    "items": [
+      {
+        "relPath": "Half",
+        "isMissing": false,
+        "title": "Half",
+        "author": null,
+        "description": null,
+        "genres": [],
+        "language": null,
+        "type": "episodic",
+        "itunesId": null,
+        "feedUrl": null,
+        "explicit": false,
+        "tags": [],
+        "coverPath": null,
+        "numEpisodes": 1,
+        "autoDownloadEpisodes": false,
+        "autoDownloadSchedule": "0 * * * *",
+        "maxNewEpisodesToDownload": 3,
+        "episodes": [
+          {
+            "file": "a.mp3",
+            "title": "a",
+            "subtitle": null,
+            "season": null,
+            "episode": null,
+            "episodeType": null,
+            "pubDate": null,
+            "publishedAtIsSet": false,
+            "description": null,
+            "duration": 1,
+            "index": 1,
+            "chapters": 0
+          }
+        ],
+        "libraryFiles": [
+          "a.mp3",
+          "b.mp3"
+        ]
+      }
+    ],
+    "emitted": [
+      "libraryItemsEmitter:items_added"
+    ]
+  },
+  "ScannerPodcast (characterization) > scanning a new podcast > cover.jpg is the cover, otherwise the first image, otherwise embedded art is extracted": {
+    "scan": {
+      "canceled": false,
+      "added": 4,
+      "updated": 0,
+      "missing": 0,
+      "logs": [
+        "DEBUG: Success saving abmetadata to \"<tmp>/metadata/items/<item:Embedded>/metadata.json\"",
+        "DEBUG: Success saving abmetadata to \"<tmp>/metadata/items/<item:First Image>/metadata.json\"",
+        "DEBUG: Success saving abmetadata to \"<tmp>/metadata/items/<item:No Cover>/metadata.json\"",
+        "DEBUG: Success saving abmetadata to \"<tmp>/metadata/items/<item:With Cover>/metadata.json\"",
+        "INFO: 4 item data found in folder \"<tmp>\"",
+        "INFO: Created new library item \"Embedded\" with id \"<item:Embedded>\"",
+        "INFO: Created new library item \"First Image\" with id \"<item:First Image>\"",
+        "INFO: Created new library item \"No Cover\" with id \"<item:No Cover>\"",
+        "INFO: Created new library item \"With Cover\" with id \"<item:With Cover>\"",
+        "INFO: New Podcast episode \"a\" found",
+        "INFO: New Podcast episode \"a\" found",
+        "INFO: New Podcast episode \"a\" found",
+        "INFO: New Podcast episode \"a\" found",
+        "INFO: Scan completed. 4 Added | 0 Updated | 0 Missing"
+      ]
+    },
+    "items": [
+      {
+        "relPath": "Embedded",
+        "isMissing": false,
+        "title": "Embedded",
+        "author": null,
+        "description": null,
+        "genres": [],
+        "language": null,
+        "type": "episodic",
+        "itunesId": null,
+        "feedUrl": null,
+        "explicit": false,
+        "tags": [],
+        "coverPath": "<tmp>/metadata/items/<item:Embedded>/cover.jpg",
+        "numEpisodes": 1,
+        "autoDownloadEpisodes": false,
+        "autoDownloadSchedule": "0 * * * *",
+        "maxNewEpisodesToDownload": 3,
+        "episodes": [
+          {
+            "file": "a.mp3",
+            "title": "a",
+            "subtitle": null,
+            "season": null,
+            "episode": null,
+            "episodeType": null,
+            "pubDate": null,
+            "publishedAtIsSet": false,
+            "description": null,
+            "duration": 1,
+            "index": 1,
+            "chapters": 0
+          }
+        ],
+        "libraryFiles": [
+          "a.mp3"
+        ]
+      },
+      {
+        "relPath": "First Image",
+        "isMissing": false,
+        "title": "First Image",
+        "author": null,
+        "description": null,
+        "genres": [],
+        "language": null,
+        "type": "episodic",
+        "itunesId": null,
+        "feedUrl": null,
+        "explicit": false,
+        "tags": [],
+        "coverPath": "<tmp>/First Image/bbb.jpg",
+        "numEpisodes": 1,
+        "autoDownloadEpisodes": false,
+        "autoDownloadSchedule": "0 * * * *",
+        "maxNewEpisodesToDownload": 3,
+        "episodes": [
+          {
+            "file": "a.mp3",
+            "title": "a",
+            "subtitle": null,
+            "season": null,
+            "episode": null,
+            "episodeType": null,
+            "pubDate": null,
+            "publishedAtIsSet": false,
+            "description": null,
+            "duration": 1,
+            "index": 1,
+            "chapters": 0
+          }
+        ],
+        "libraryFiles": [
+          "a.mp3",
+          "bbb.jpg",
+          "zzz.png"
+        ]
+      },
+      {
+        "relPath": "No Cover",
+        "isMissing": false,
+        "title": "No Cover",
+        "author": null,
+        "description": null,
+        "genres": [],
+        "language": null,
+        "type": "episodic",
+        "itunesId": null,
+        "feedUrl": null,
+        "explicit": false,
+        "tags": [],
+        "coverPath": null,
+        "numEpisodes": 1,
+        "autoDownloadEpisodes": false,
+        "autoDownloadSchedule": "0 * * * *",
+        "maxNewEpisodesToDownload": 3,
+        "episodes": [
+          {
+            "file": "a.mp3",
+            "title": "a",
+            "subtitle": null,
+            "season": null,
+            "episode": null,
+            "episodeType": null,
+            "pubDate": null,
+            "publishedAtIsSet": false,
+            "description": null,
+            "duration": 1,
+            "index": 1,
+            "chapters": 0
+          }
+        ],
+        "libraryFiles": [
+          "a.mp3"
+        ]
+      },
+      {
+        "relPath": "With Cover",
+        "isMissing": false,
+        "title": "With Cover",
+        "author": null,
+        "description": null,
+        "genres": [],
+        "language": null,
+        "type": "episodic",
+        "itunesId": null,
+        "feedUrl": null,
+        "explicit": false,
+        "tags": [],
+        "coverPath": "<tmp>/With Cover/cover.jpg",
+        "numEpisodes": 1,
+        "autoDownloadEpisodes": false,
+        "autoDownloadSchedule": "0 * * * *",
+        "maxNewEpisodesToDownload": 3,
+        "episodes": [
+          {
+            "file": "a.mp3",
+            "title": "a",
+            "subtitle": null,
+            "season": null,
+            "episode": null,
+            "episodeType": null,
+            "pubDate": null,
+            "publishedAtIsSet": false,
+            "description": null,
+            "duration": 1,
+            "index": 1,
+            "chapters": 0
+          }
+        ],
+        "libraryFiles": [
+          "a.mp3",
+          "aaa.png",
+          "cover.jpg"
+        ]
+      }
+    ],
+    "emitted": [
+      "libraryItemsEmitter:items_added"
+    ]
+  },
+  "ScannerPodcast (characterization) > scanning a new podcast > episodes with tags: title, subtitle, season, episode, type, date, description, and podcast metadata from the first episode": {
+    "scan": {
+      "canceled": false,
+      "added": 1,
+      "updated": 0,
+      "missing": 0,
+      "logs": [
+        "DEBUG: Mapping metadata to key tagAlbum => title: Show Album",
+        "DEBUG: Mapping metadata to key tagAlbumArtist => author: Show Host",
+        "DEBUG: Mapping metadata to key tagComment => description: About the first",
+        "DEBUG: Mapping metadata to key tagDate => pubDate: 2021",
+        "DEBUG: Mapping metadata to key tagDate => pubDate: 2021",
+        "DEBUG: Mapping metadata to key tagDescription => description: About the second",
+        "DEBUG: Mapping metadata to key tagDisc => season: 1",
+        "DEBUG: Mapping metadata to key tagDisc => season: 1",
+        "DEBUG: Mapping metadata to key tagEpisodeType => episodeType: bonus",
+        "DEBUG: Mapping metadata to key tagEpisodeType => episodeType: full",
+        "DEBUG: Mapping metadata to key tagGenre => genres: Technology, News",
+        "DEBUG: Mapping metadata to key tagItunesId => itunesId: 12345",
+        "DEBUG: Mapping metadata to key tagLanguage => language: eng",
+        "DEBUG: Mapping metadata to key tagPodcastType => podcastType: serial",
+        "DEBUG: Mapping metadata to key tagSubtitle => subtitle: The start",
+        "DEBUG: Mapping metadata to key tagTitle => title: First Episode",
+        "DEBUG: Mapping metadata to key tagTitle => title: Second Episode",
+        "DEBUG: Mapping metadata to key tagTitle => title: Third Episode",
+        "DEBUG: Mapping metadata to key tagTrack => episode: 1",
+        "DEBUG: Mapping metadata to key tagTrack => episode: 2",
+        "DEBUG: Success saving abmetadata to \"<tmp>/metadata/items/<item:My Podcast>/metadata.json\"",
+        "INFO: 1 item data found in folder \"<tmp>\"",
+        "INFO: Created new library item \"My Podcast\" with id \"<item:My Podcast>\"",
+        "INFO: New Podcast episode \"First Episode\" found",
+        "INFO: New Podcast episode \"Second Episode\" found",
+        "INFO: New Podcast episode \"Third Episode\" found",
+        "INFO: Scan completed. 1 Added | 0 Updated | 0 Missing",
+        "WARN: Mapping episodeType with invalid value \"nonsense\". Must be one of [full, trailer, bonus].",
+        "WARN: Mapping pubDate with tag tagDate has invalid date \"garbage\""
+      ]
+    },
+    "items": [
+      {
+        "relPath": "My Podcast",
+        "isMissing": false,
+        "title": "Show Album",
+        "author": "Show Host",
+        "description": null,
+        "genres": [
+          "Technology",
+          "News"
+        ],
+        "language": "eng",
+        "type": "serial",
+        "itunesId": "12345",
+        "feedUrl": null,
+        "explicit": false,
+        "tags": [],
+        "coverPath": null,
+        "numEpisodes": 3,
+        "autoDownloadEpisodes": false,
+        "autoDownloadSchedule": "0 * * * *",
+        "maxNewEpisodesToDownload": 3,
+        "episodes": [
+          {
+            "file": "ep1.mp3",
+            "title": "First Episode",
+            "subtitle": "The start",
+            "season": "1",
+            "episode": "1",
+            "episodeType": "full",
+            "pubDate": "2021",
+            "publishedAtIsSet": true,
+            "description": "About the first",
+            "duration": 1,
+            "index": 1,
+            "chapters": 0
+          },
+          {
+            "file": "ep2.mp3",
+            "title": "Second Episode",
+            "subtitle": null,
+            "season": "1",
+            "episode": "2",
+            "episodeType": "bonus",
+            "pubDate": "2021",
+            "publishedAtIsSet": true,
+            "description": "About the second",
+            "duration": 1,
+            "index": 1,
+            "chapters": 0
+          },
+          {
+            "file": "ep3.mp3",
+            "title": "Third Episode",
+            "subtitle": null,
+            "season": null,
+            "episode": null,
+            "episodeType": null,
+            "pubDate": null,
+            "publishedAtIsSet": false,
+            "description": null,
+            "duration": 1,
+            "index": 1,
+            "chapters": 0
+          }
+        ],
+        "libraryFiles": [
+          "ep1.mp3",
+          "ep2.mp3",
+          "ep3.mp3"
+        ]
+      }
+    ],
+    "emitted": [
+      "libraryItemsEmitter:items_added"
+    ]
+  },
+  "ScannerPodcast (characterization) > scanning a new podcast > folders: season subfolders become separate podcasts, nested author folders keep the last folder as title, root files are ignored": {
+    "scan": {
+      "canceled": false,
+      "added": 3,
+      "updated": 0,
+      "missing": 0,
+      "logs": [
+        "DEBUG: Success saving abmetadata to \"<tmp>/metadata/items/<item:Network/Podcast C>/metadata.json\"",
+        "DEBUG: Success saving abmetadata to \"<tmp>/metadata/items/<item:Podcast B/Season 1>/metadata.json\"",
+        "DEBUG: Success saving abmetadata to \"<tmp>/metadata/items/<item:Podcast B/Season 2>/metadata.json\"",
+        "INFO: 3 item data found in folder \"<tmp>\"",
+        "INFO: Created new library item \"Network/Podcast C\" with id \"<item:Network/Podcast C>\"",
+        "INFO: Created new library item \"Podcast B/Season 1\" with id \"<item:Podcast B/Season 1>\"",
+        "INFO: Created new library item \"Podcast B/Season 2\" with id \"<item:Podcast B/Season 2>\"",
+        "INFO: New Podcast episode \"a\" found",
+        "INFO: New Podcast episode \"a\" found",
+        "INFO: New Podcast episode \"a\" found",
+        "INFO: Scan completed. 3 Added | 0 Updated | 0 Missing"
+      ]
+    },
+    "items": [
+      {
+        "relPath": "Network/Podcast C",
+        "isMissing": false,
+        "title": "Podcast C",
+        "author": null,
+        "description": null,
+        "genres": [],
+        "language": null,
+        "type": "episodic",
+        "itunesId": null,
+        "feedUrl": null,
+        "explicit": false,
+        "tags": [],
+        "coverPath": null,
+        "numEpisodes": 1,
+        "autoDownloadEpisodes": false,
+        "autoDownloadSchedule": "0 * * * *",
+        "maxNewEpisodesToDownload": 3,
+        "episodes": [
+          {
+            "file": "a.mp3",
+            "title": "a",
+            "subtitle": null,
+            "season": null,
+            "episode": null,
+            "episodeType": null,
+            "pubDate": null,
+            "publishedAtIsSet": false,
+            "description": null,
+            "duration": 1,
+            "index": 1,
+            "chapters": 0
+          }
+        ],
+        "libraryFiles": [
+          "a.mp3"
+        ]
+      },
+      {
+        "relPath": "Podcast B/Season 1",
+        "isMissing": false,
+        "title": "Season 1",
+        "author": null,
+        "description": null,
+        "genres": [],
+        "language": null,
+        "type": "episodic",
+        "itunesId": null,
+        "feedUrl": null,
+        "explicit": false,
+        "tags": [],
+        "coverPath": null,
+        "numEpisodes": 1,
+        "autoDownloadEpisodes": false,
+        "autoDownloadSchedule": "0 * * * *",
+        "maxNewEpisodesToDownload": 3,
+        "episodes": [
+          {
+            "file": "a.mp3",
+            "title": "a",
+            "subtitle": null,
+            "season": null,
+            "episode": null,
+            "episodeType": null,
+            "pubDate": null,
+            "publishedAtIsSet": false,
+            "description": null,
+            "duration": 1,
+            "index": 1,
+            "chapters": 0
+          }
+        ],
+        "libraryFiles": [
+          "a.mp3"
+        ]
+      },
+      {
+        "relPath": "Podcast B/Season 2",
+        "isMissing": false,
+        "title": "Season 2",
+        "author": null,
+        "description": null,
+        "genres": [],
+        "language": null,
+        "type": "episodic",
+        "itunesId": null,
+        "feedUrl": null,
+        "explicit": false,
+        "tags": [],
+        "coverPath": null,
+        "numEpisodes": 1,
+        "autoDownloadEpisodes": false,
+        "autoDownloadSchedule": "0 * * * *",
+        "maxNewEpisodesToDownload": 3,
+        "episodes": [
+          {
+            "file": "a.mp3",
+            "title": "a",
+            "subtitle": null,
+            "season": null,
+            "episode": null,
+            "episodeType": null,
+            "pubDate": null,
+            "publishedAtIsSet": false,
+            "description": null,
+            "duration": 1,
+            "index": 1,
+            "chapters": 0
+          }
+        ],
+        "libraryFiles": [
+          "a.mp3"
+        ]
+      }
+    ],
+    "emitted": [
+      "libraryItemsEmitter:items_added"
+    ]
+  },
+  "ScannerPodcast (characterization) > scanning a new podcast > metadata.json fills podcast fields (feed url, itunes ids, tags, type, explicit) over tags": {
+    "scan": {
+      "canceled": false,
+      "added": 1,
+      "updated": 0,
+      "missing": 0,
+      "logs": [
+        "DEBUG: Mapping metadata to key tagAlbum => title: Show Album",
+        "DEBUG: Mapping metadata to key tagAlbumArtist => author: Show Host",
+        "DEBUG: Mapping metadata to key tagGenre => genres: Technology, News",
+        "DEBUG: Mapping metadata to key tagItunesId => itunesId: 12345",
+        "DEBUG: Mapping metadata to key tagLanguage => language: eng",
+        "DEBUG: Mapping metadata to key tagPodcastType => podcastType: serial",
+        "DEBUG: Mapping metadata to key tagTitle => title: Ep",
+        "DEBUG: Success saving abmetadata to \"<tmp>/metadata/items/<item:My Podcast>/metadata.json\"",
+        "INFO: 1 item data found in folder \"<tmp>\"",
+        "INFO: Created new library item \"My Podcast\" with id \"<item:My Podcast>\"",
+        "INFO: Found metadata file \"<tmp>/My Podcast/metadata.json\"",
+        "INFO: New Podcast episode \"Ep\" found",
+        "INFO: Scan completed. 1 Added | 0 Updated | 0 Missing"
+      ]
+    },
+    "items": [
+      {
+        "relPath": "My Podcast",
+        "isMissing": false,
+        "title": "Json Podcast",
+        "author": "Json Host",
+        "description": "<p>Json <i>description</i></p>",
+        "genres": [
+          "Json Genre"
+        ],
+        "language": "fr",
+        "type": "episodic",
+        "itunesId": "777",
+        "feedUrl": "https://example.invalid/feed.xml",
+        "explicit": true,
+        "tags": [
+          "t1"
+        ],
+        "coverPath": null,
+        "numEpisodes": 1,
+        "autoDownloadEpisodes": false,
+        "autoDownloadSchedule": "0 * * * *",
+        "maxNewEpisodesToDownload": 3,
+        "episodes": [
+          {
+            "file": "ep1.mp3",
+            "title": "Ep",
+            "subtitle": null,
+            "season": null,
+            "episode": null,
+            "episodeType": null,
+            "pubDate": null,
+            "publishedAtIsSet": false,
+            "description": null,
+            "duration": 1,
+            "index": 1,
+            "chapters": 0
+          }
+        ],
+        "libraryFiles": [
+          "ep1.mp3",
+          "metadata.json"
+        ]
+      }
+    ],
+    "emitted": [
+      "libraryItemsEmitter:items_added"
+    ]
+  },
+  "ScannerPodcast (characterization) > scanning a new podcast > old nested metadata.json format and invalid json": {
+    "scan": {
+      "canceled": false,
+      "added": 2,
+      "updated": 0,
+      "missing": 0,
+      "logs": [
+        "DEBUG: Success saving abmetadata to \"<tmp>/metadata/items/<item:Broken>/metadata.json\"",
+        "DEBUG: Success saving abmetadata to \"<tmp>/metadata/items/<item:Nested>/metadata.json\"",
+        "INFO: 2 item data found in folder \"<tmp>\"",
+        "INFO: Created new library item \"Broken\" with id \"<item:Broken>\"",
+        "INFO: Created new library item \"Nested\" with id \"<item:Nested>\"",
+        "INFO: Found metadata file \"<tmp>/Broken/metadata.json\"",
+        "INFO: Found metadata file \"<tmp>/Nested/metadata.json\"",
+        "INFO: New Podcast episode \"a\" found",
+        "INFO: New Podcast episode \"a\" found",
+        "INFO: Scan completed. 2 Added | 0 Updated | 0 Missing"
+      ]
+    },
+    "items": [
+      {
+        "relPath": "Broken",
+        "isMissing": false,
+        "title": "Broken",
+        "author": null,
+        "description": null,
+        "genres": [],
+        "language": null,
+        "type": "episodic",
+        "itunesId": null,
+        "feedUrl": null,
+        "explicit": false,
+        "tags": [],
+        "coverPath": null,
+        "numEpisodes": 1,
+        "autoDownloadEpisodes": false,
+        "autoDownloadSchedule": "0 * * * *",
+        "maxNewEpisodesToDownload": 3,
+        "episodes": [
+          {
+            "file": "a.mp3",
+            "title": "a",
+            "subtitle": null,
+            "season": null,
+            "episode": null,
+            "episodeType": null,
+            "pubDate": null,
+            "publishedAtIsSet": false,
+            "description": null,
+            "duration": 1,
+            "index": 1,
+            "chapters": 0
+          }
+        ],
+        "libraryFiles": [
+          "a.mp3",
+          "metadata.json"
+        ]
+      },
+      {
+        "relPath": "Nested",
+        "isMissing": false,
+        "title": "Nested Title",
+        "author": "Nested Author",
+        "description": null,
+        "genres": [],
+        "language": null,
+        "type": "serial",
+        "itunesId": null,
+        "feedUrl": "https://example.invalid/old.xml",
+        "explicit": false,
+        "tags": [
+          "x"
+        ],
+        "coverPath": null,
+        "numEpisodes": 1,
+        "autoDownloadEpisodes": false,
+        "autoDownloadSchedule": "0 * * * *",
+        "maxNewEpisodesToDownload": 3,
+        "episodes": [
+          {
+            "file": "a.mp3",
+            "title": "a",
+            "subtitle": null,
+            "season": null,
+            "episode": null,
+            "episodeType": null,
+            "pubDate": null,
+            "publishedAtIsSet": false,
+            "description": null,
+            "duration": 1,
+            "index": 1,
+            "chapters": 0
+          }
+        ],
+        "libraryFiles": [
+          "a.mp3",
+          "metadata.json"
+        ]
+      }
+    ],
+    "emitted": [
+      "libraryItemsEmitter:items_added"
+    ]
+  },
+  "ScannerPodcast (characterization) > scanning a new podcast > storeMetadataWithItem writes metadata.json into the podcast folder": {
+    "view": {
+      "scan": {
+        "canceled": false,
+        "added": 1,
+        "updated": 0,
+        "missing": 0,
+        "logs": [
+          "DEBUG: Mapping metadata to key tagAlbum => title: Show Album",
+          "DEBUG: Mapping metadata to key tagAlbumArtist => author: Show Host",
+          "DEBUG: Mapping metadata to key tagGenre => genres: Technology, News",
+          "DEBUG: Mapping metadata to key tagItunesId => itunesId: 12345",
+          "DEBUG: Mapping metadata to key tagLanguage => language: eng",
+          "DEBUG: Mapping metadata to key tagPodcastType => podcastType: serial",
+          "DEBUG: Mapping metadata to key tagTitle => title: Ep",
+          "DEBUG: Success saving abmetadata to \"<tmp>/My Podcast/metadata.json\"",
+          "INFO: 1 item data found in folder \"<tmp>\"",
+          "INFO: Created new library item \"My Podcast\" with id \"<item:My Podcast>\"",
+          "INFO: New Podcast episode \"Ep\" found",
+          "INFO: Scan completed. 1 Added | 0 Updated | 0 Missing"
+        ]
+      },
+      "items": [
+        {
+          "relPath": "My Podcast",
+          "isMissing": false,
+          "title": "Show Album",
+          "author": "Show Host",
+          "description": null,
+          "genres": [
+            "Technology",
+            "News"
+          ],
+          "language": "eng",
+          "type": "serial",
+          "itunesId": "12345",
+          "feedUrl": null,
+          "explicit": false,
+          "tags": [],
+          "coverPath": null,
+          "numEpisodes": 1,
+          "autoDownloadEpisodes": false,
+          "autoDownloadSchedule": "0 * * * *",
+          "maxNewEpisodesToDownload": 3,
+          "episodes": [
+            {
+              "file": "ep1.mp3",
+              "title": "Ep",
+              "subtitle": null,
+              "season": null,
+              "episode": null,
+              "episodeType": null,
+              "pubDate": null,
+              "publishedAtIsSet": false,
+              "description": null,
+              "duration": 1,
+              "index": 1,
+              "chapters": 0
+            }
+          ],
+          "libraryFiles": [
+            "ep1.mp3",
+            "metadata.json"
+          ]
+        }
+      ],
+      "emitted": [
+        "libraryItemsEmitter:items_added"
+      ]
+    },
+    "written": {
+      "tags": [],
+      "title": "Show Album",
+      "author": "Show Host",
+      "description": null,
+      "releaseDate": null,
+      "genres": [
+        "Technology",
+        "News"
+      ],
+      "feedURL": null,
+      "imageURL": null,
+      "itunesPageURL": null,
+      "itunesId": "12345",
+      "itunesArtistId": null,
+      "language": "eng",
+      "explicit": false,
+      "podcastType": "serial"
+    },
+    "libraryFilesOnItem": [
+      "ep1.mp3",
+      "metadata.json"
+    ]
+  },
+  "ScannerPodcast (characterization) > scanning a new podcast > the saved metadata.json copy lists the podcast fields": {
+    "tags": [],
+    "title": "Show Album",
+    "author": "Show Host",
+    "description": null,
+    "releaseDate": null,
+    "genres": [
+      "Technology",
+      "News"
+    ],
+    "feedURL": null,
+    "imageURL": null,
+    "itunesPageURL": null,
+    "itunesId": "12345",
+    "itunesArtistId": null,
+    "language": "eng",
+    "explicit": false,
+    "podcastType": "serial"
+  },
+  "ScannerPodcast (characterization) > scanning a new podcast > without tags the folder is the title and file names are the episode titles (season/episode are not parsed from names)": {
+    "scan": {
+      "canceled": false,
+      "added": 1,
+      "updated": 0,
+      "missing": 0,
+      "logs": [
+        "DEBUG: Success saving abmetadata to \"<tmp>/metadata/items/<item:My Podcast>/metadata.json\"",
+        "INFO: 1 item data found in folder \"<tmp>\"",
+        "INFO: Created new library item \"My Podcast\" with id \"<item:My Podcast>\"",
+        "INFO: New Podcast episode \"2020-01-05 Dated\" found",
+        "INFO: New Podcast episode \"Episode 12\" found",
+        "INFO: New Podcast episode \"S01E02 - Some Name\" found",
+        "INFO: Scan completed. 1 Added | 0 Updated | 0 Missing"
+      ]
+    },
+    "items": [
+      {
+        "relPath": "My Podcast",
+        "isMissing": false,
+        "title": "My Podcast",
+        "author": null,
+        "description": null,
+        "genres": [],
+        "language": null,
+        "type": "episodic",
+        "itunesId": null,
+        "feedUrl": null,
+        "explicit": false,
+        "tags": [],
+        "coverPath": null,
+        "numEpisodes": 3,
+        "autoDownloadEpisodes": false,
+        "autoDownloadSchedule": "0 * * * *",
+        "maxNewEpisodesToDownload": 3,
+        "episodes": [
+          {
+            "file": "2020-01-05 Dated.m4a",
+            "title": "2020-01-05 Dated",
+            "subtitle": null,
+            "season": null,
+            "episode": null,
+            "episodeType": null,
+            "pubDate": null,
+            "publishedAtIsSet": false,
+            "description": null,
+            "duration": 1,
+            "index": 1,
+            "chapters": 0
+          },
+          {
+            "file": "Episode 12.mp3",
+            "title": "Episode 12",
+            "subtitle": null,
+            "season": null,
+            "episode": null,
+            "episodeType": null,
+            "pubDate": null,
+            "publishedAtIsSet": false,
+            "description": null,
+            "duration": 1,
+            "index": 1,
+            "chapters": 0
+          },
+          {
+            "file": "S01E02 - Some Name.mp3",
+            "title": "S01E02 - Some Name",
+            "subtitle": null,
+            "season": null,
+            "episode": null,
+            "episodeType": null,
+            "pubDate": null,
+            "publishedAtIsSet": false,
+            "description": null,
+            "duration": 1,
+            "index": 1,
+            "chapters": 0
+          }
+        ],
+        "libraryFiles": [
+          "2020-01-05 Dated.m4a",
+          "Episode 12.mp3",
+          "S01E02 - Some Name.mp3"
+        ]
+      }
+    ],
+    "emitted": [
+      "libraryItemsEmitter:items_added"
+    ]
+  },
+  "ScannerPodcast (characterization) > tag mapping (no files) > setPodcastEpisodeMetadataFromAudioMetaTags": {
+    "allTags": {
+      "episode": {
+        "description": "Comment",
+        "subtitle": "Sub",
+        "publishedAt": "<timestamp>",
+        "pubDate": "<iso-date>",
+        "season": "2",
+        "episode": "7",
+        "title": "Ep Title",
+        "episodeType": "bonus"
+      },
+      "logs": [
+        "DEBUG: Mapping metadata to key tagComment => description: Comment",
+        "DEBUG: Mapping metadata to key tagSubtitle => subtitle: Sub",
+        "DEBUG: Mapping metadata to key tagDate => pubDate: 2021-05-04T10:00:00Z",
+        "DEBUG: Mapping metadata to key tagDisc => season: 2",
+        "DEBUG: Mapping metadata to key tagTrack => episode: 7",
+        "DEBUG: Mapping metadata to key tagTitle => title: Ep Title",
+        "DEBUG: Mapping metadata to key tagEpisodeType => episodeType: bonus"
+      ]
+    },
+    "alternates": {
+      "episode": {
+        "description": "Description only",
+        "episode": "12"
+      },
+      "logs": [
+        "DEBUG: Mapping metadata to key tagDescription => description: Description only",
+        "DEBUG: Mapping metadata to key tagSeriesPart => episode: 12"
+      ]
+    },
+    "invalidDate": {
+      "episode": {},
+      "logs": [
+        "WARN: Mapping pubDate with tag tagDate has invalid date \"not a date\""
+      ]
+    },
+    "yearOnlyDate": {
+      "episode": {
+        "publishedAt": "<timestamp>",
+        "pubDate": "2019"
+      },
+      "logs": [
+        "DEBUG: Mapping metadata to key tagDate => pubDate: 2019"
+      ]
+    },
+    "invalidEpisodeType": {
+      "episode": {},
+      "logs": [
+        "WARN: Mapping episodeType with invalid value \"special\". Must be one of [full, trailer, bonus]."
+      ]
+    },
+    "trailerType": {
+      "episode": {
+        "episodeType": "trailer"
+      },
+      "logs": [
+        "DEBUG: Mapping metadata to key tagEpisodeType => episodeType: trailer"
+      ]
+    },
+    "existingKept": {
+      "episode": {
+        "title": "Kept",
+        "subtitle": "New"
+      },
+      "logs": [
+        "DEBUG: Mapping metadata to key tagSubtitle => subtitle: New"
+      ]
+    }
+  },
+  "ScannerPodcast (characterization) > tag mapping (no files) > setPodcastMetadataFromAudioMetaTags": {
+    "allTags": {
+      "metadata": {
+        "title": "Album",
+        "author": "Album Artist",
+        "genres": [
+          "Tech",
+          "News"
+        ],
+        "language": "en",
+        "itunesId": "99",
+        "podcastType": "episodic"
+      },
+      "logs": [
+        "DEBUG: Mapping metadata to key tagAlbum => title: Album",
+        "DEBUG: Mapping metadata to key tagAlbumArtist => author: Album Artist",
+        "DEBUG: Mapping metadata to key tagGenre => genres: Tech, News",
+        "DEBUG: Mapping metadata to key tagLanguage => language: en",
+        "DEBUG: Mapping metadata to key tagItunesId => itunesId: 99",
+        "DEBUG: Mapping metadata to key tagPodcastType => podcastType: episodic"
+      ]
+    },
+    "alternates": {
+      "metadata": {
+        "title": "Series Title",
+        "author": "Only Artist"
+      },
+      "logs": [
+        "DEBUG: Mapping metadata to key tagSeries => title: Series Title",
+        "DEBUG: Mapping metadata to key tagArtist => author: Only Artist"
+      ]
+    },
+    "albumBeatsSeries": {
+      "metadata": {
+        "title": "Album"
+      },
+      "logs": [
+        "DEBUG: Mapping metadata to key tagAlbum => title: Album"
+      ]
+    },
+    "nothing": {
+      "metadata": {
+        "title": "Folder Title"
+      },
+      "logs": []
+    }
+  }
+}
