@@ -1,0 +1,1915 @@
+{
+  "ScannerDirectory (characterization) > LibraryItemScanData against an existing library item > a changed relPath/path counts as a path change": {
+    "changed": true,
+    "hasChanges": true,
+    "hasPathChange": true,
+    "hasLibraryFileChanges": 0,
+    "hasAudioFileChanges": false,
+    "added": [],
+    "removed": [],
+    "modified": [],
+    "audioAdded": [],
+    "audioRemoved": [],
+    "audioModified": [],
+    "imageAdded": [],
+    "imageRemoved": [],
+    "ebookAdded": [],
+    "logs": [
+      "DEBUG: Library item \"Old Name\" key \"path\" changed from \"<root>/Old Name\" to \"<root>/Book\"",
+      "DEBUG: Library item \"Old Name\" key \"relPath\" changed from \"Old Name\" to \"Book\""
+    ]
+  },
+  "ScannerDirectory (characterization) > LibraryItemScanData against an existing library item > a missing item that is found again is flagged found": {
+    "changed": true,
+    "hasChanges": true,
+    "hasPathChange": false,
+    "hasLibraryFileChanges": 0,
+    "hasAudioFileChanges": false,
+    "added": [],
+    "removed": [],
+    "modified": [],
+    "audioAdded": [],
+    "audioRemoved": [],
+    "audioModified": [],
+    "imageAdded": [],
+    "imageRemoved": [],
+    "ebookAdded": [],
+    "logs": [
+      "DEBUG: Library item \"Book\" was missing but now found"
+    ],
+    "isMissing": false
+  },
+  "ScannerDirectory (characterization) > LibraryItemScanData against an existing library item > a renamed file with the same inode is a modification (matched by inode), not remove + add": {
+    "changed": true,
+    "hasChanges": true,
+    "hasPathChange": false,
+    "hasLibraryFileChanges": 1,
+    "hasAudioFileChanges": true,
+    "added": [],
+    "removed": [],
+    "modified": [
+      {
+        "old": "01.mp3",
+        "new": "renamed.mp3",
+        "oldSize": 3,
+        "newSize": 3
+      }
+    ],
+    "audioAdded": [],
+    "audioRemoved": [],
+    "audioModified": [
+      "01.mp3"
+    ],
+    "imageAdded": [],
+    "imageRemoved": [],
+    "ebookAdded": [],
+    "logs": [
+      "INFO: Library file with path \"<root>/Book/01.mp3\" not found, but found file with matching inode value \"<ino>\" at path \"<root>/Book/renamed.mp3\"",
+      "DEBUG: Library file \"01.mp3\" for library item \"<root>/Book\" key \"filename\" changed from \"01.mp3\" to \"renamed.mp3\"",
+      "DEBUG: Library file for library item \"<root>/Book\" key \"path\" changed from \"<root>/Book/01.mp3\" to \"<root>/Book/renamed.mp3\"",
+      "DEBUG: Library file for library item \"<root>/Book\" key \"relPath\" changed from \"01.mp3\" to \"renamed.mp3\""
+    ]
+  },
+  "ScannerDirectory (characterization) > LibraryItemScanData against an existing library item > added, modified and removed files are detected and the item row is updated": {
+    "changed": true,
+    "hasChanges": true,
+    "hasPathChange": false,
+    "hasLibraryFileChanges": 4,
+    "hasAudioFileChanges": true,
+    "added": [
+      "03.mp3",
+      "desc.txt"
+    ],
+    "removed": [
+      "cover.jpg"
+    ],
+    "modified": [
+      {
+        "old": "02.mp3",
+        "new": "02.mp3",
+        "oldSize": 4,
+        "newSize": 19
+      }
+    ],
+    "audioAdded": [
+      "03.mp3"
+    ],
+    "audioRemoved": [],
+    "audioModified": [
+      "02.mp3"
+    ],
+    "imageAdded": [],
+    "imageRemoved": [
+      "cover.jpg"
+    ],
+    "ebookAdded": [],
+    "logs": [
+      "DEBUG: Library file \"02.mp3\" for library item \"<root>/Book\" key \"size\" changed from \"4\" to \"19\"",
+      "INFO: Library file \"<root>/Book/cover.jpg\" was removed from library item \"Book\"",
+      "INFO: New library file found with path \"<root>/Book/03.mp3\" for library item \"Book\"",
+      "INFO: New library file found with path \"<root>/Book/desc.txt\" for library item \"Book\""
+    ],
+    "rowSize": 31,
+    "rowFiles": [
+      "01.mp3",
+      "02.mp3",
+      "03.mp3",
+      "desc.txt"
+    ],
+    "rowLastScanVersionSet": true
+  },
+  "ScannerDirectory (characterization) > LibraryItemScanData against an existing library item > an unchanged item has no changes": {
+    "changed": false,
+    "hasChanges": false,
+    "hasPathChange": false,
+    "hasLibraryFileChanges": 0,
+    "hasAudioFileChanges": false,
+    "added": [],
+    "removed": [],
+    "modified": [],
+    "audioAdded": [],
+    "audioRemoved": [],
+    "audioModified": [],
+    "imageAdded": [],
+    "imageRemoved": [],
+    "ebookAdded": [],
+    "logs": []
+  },
+  "ScannerDirectory (characterization) > LibraryItemScanData against an existing library item > checkAudioFileRemoved / checkEbookFileRemoved": {
+    "audioRemovedByPath": true,
+    "audioRemovedByIno": true,
+    "audioNotRemoved": false,
+    "audioNothingRemoved": false,
+    "ebookNoneScanned": true,
+    "ebookSamePath": false,
+    "ebookSameIno": false,
+    "ebookDifferent": true
+  },
+  "ScannerDirectory (characterization) > LibraryItemScanData against an existing library item > named file getters find desc.txt, reader.txt, metadata.json, metadata.abs, .opf and .nfo files": {
+    "desc": "desc.txt",
+    "reader": "reader.txt",
+    "json": "metadata.json",
+    "abs": "metadata.abs",
+    "opf": "Meta.OPF",
+    "nfo": "info.NFO",
+    "audio": [
+      "01.mp3",
+      "02.mp3"
+    ],
+    "image": [
+      "cover.jpg"
+    ],
+    "ebook": []
+  },
+  "ScannerDirectory (characterization) > LibraryItemScanData against an existing library item > new ebook files on an existing item are marked supplementary": {
+    "changed": true,
+    "hasChanges": true,
+    "hasPathChange": false,
+    "hasLibraryFileChanges": 1,
+    "hasAudioFileChanges": false,
+    "added": [
+      "extra.epub"
+    ],
+    "removed": [],
+    "modified": [],
+    "audioAdded": [],
+    "audioRemoved": [],
+    "audioModified": [],
+    "imageAdded": [],
+    "imageRemoved": [],
+    "ebookAdded": [
+      "extra.epub"
+    ],
+    "logs": [
+      "INFO: New library file found with path \"<root>/Book/extra.epub\" for library item \"Book\""
+    ],
+    "rowEbook": [
+      {
+        "relPath": "extra.epub",
+        "isSupplementary": true
+      }
+    ]
+  },
+  "ScannerDirectory (characterization) > LibraryItemScanData against an existing library item > setBookMetadataFromFilenames only copies parsed values that are set": {
+    "target": {
+      "title": "T",
+      "subtitle": "Old Sub",
+      "narrators": [
+        "Keep"
+      ],
+      "asin": "B0015T963C",
+      "publishedYear": "2012",
+      "authors": [
+        "A One",
+        "A Two"
+      ],
+      "series": [
+        {
+          "name": "S",
+          "sequence": "2"
+        }
+      ]
+    },
+    "target2": {
+      "title": "T",
+      "series": [
+        {
+          "name": "S",
+          "sequence": null
+        }
+      ]
+    }
+  },
+  "ScannerDirectory (characterization) > LibraryScanner.scanFolder on a real tree > book library with audiobooksOnly": [
+    {
+      "relPath": "Mixed",
+      "isFile": false,
+      "mediaType": "book",
+      "hasIno": true,
+      "mediaMetadata": {
+        "title": "Mixed",
+        "subtitle": null,
+        "asin": null,
+        "authors": [],
+        "narrators": [],
+        "seriesName": null,
+        "seriesSequence": null,
+        "publishedYear": null
+      },
+      "libraryFiles": [
+        {
+          "relPath": "audio.mp3",
+          "filename": "audio.mp3",
+          "ext": ".mp3",
+          "fileType": "audio",
+          "size": 0,
+          "isSupplementary": null
+        },
+        {
+          "relPath": "book.epub",
+          "filename": "book.epub",
+          "ext": ".epub",
+          "fileType": "ebook",
+          "size": 0,
+          "isSupplementary": null
+        }
+      ]
+    },
+    {
+      "relPath": "root.mp3",
+      "isFile": true,
+      "mediaType": "book",
+      "hasIno": true,
+      "mediaMetadata": {
+        "title": "root"
+      },
+      "libraryFiles": [
+        {
+          "relPath": "root.mp3",
+          "filename": "root.mp3",
+          "ext": ".mp3",
+          "fileType": "audio",
+          "size": 0,
+          "isSupplementary": null
+        }
+      ]
+    }
+  ],
+  "ScannerDirectory (characterization) > LibraryScanner.scanFolder on a real tree > book library: how a folder tree becomes library items": {
+    "count": 12,
+    "items": [
+      {
+        "relPath": "Author A/Series X/Book 1 - Title One",
+        "isFile": false,
+        "mediaType": "book",
+        "hasIno": true,
+        "mediaMetadata": {
+          "title": "Title One",
+          "subtitle": null,
+          "asin": null,
+          "authors": [
+            "Author A"
+          ],
+          "narrators": [],
+          "seriesName": "Series X",
+          "seriesSequence": "1",
+          "publishedYear": null
+        },
+        "libraryFiles": [
+          {
+            "relPath": "01.mp3",
+            "filename": "01.mp3",
+            "ext": ".mp3",
+            "fileType": "audio",
+            "size": 1,
+            "isSupplementary": null
+          },
+          {
+            "relPath": "02.mp3",
+            "filename": "02.mp3",
+            "ext": ".mp3",
+            "fileType": "audio",
+            "size": 2,
+            "isSupplementary": null
+          }
+        ]
+      },
+      {
+        "relPath": "Author A/Standalone Title",
+        "isFile": false,
+        "mediaType": "book",
+        "hasIno": true,
+        "mediaMetadata": {
+          "title": "Standalone Title",
+          "subtitle": null,
+          "asin": null,
+          "authors": [
+            "Author A"
+          ],
+          "narrators": [],
+          "seriesName": null,
+          "seriesSequence": null,
+          "publishedYear": null
+        },
+        "libraryFiles": [
+          {
+            "relPath": "part1.mp3",
+            "filename": "part1.mp3",
+            "ext": ".mp3",
+            "fileType": "audio",
+            "size": 0,
+            "isSupplementary": null
+          }
+        ]
+      },
+      {
+        "relPath": "Deep/a/b/c/d",
+        "isFile": false,
+        "mediaType": "book",
+        "hasIno": true,
+        "mediaMetadata": {
+          "title": "d",
+          "subtitle": null,
+          "asin": null,
+          "authors": [
+            "B"
+          ],
+          "narrators": [],
+          "seriesName": "c",
+          "seriesSequence": null,
+          "publishedYear": null
+        },
+        "libraryFiles": [
+          {
+            "relPath": "e.mp3",
+            "filename": "e.mp3",
+            "ext": ".mp3",
+            "fileType": "audio",
+            "size": 0,
+            "isSupplementary": null
+          }
+        ]
+      },
+      {
+        "relPath": "Ebook Only",
+        "isFile": false,
+        "mediaType": "book",
+        "hasIno": true,
+        "mediaMetadata": {
+          "title": "Ebook Only",
+          "subtitle": null,
+          "asin": null,
+          "authors": [],
+          "narrators": [],
+          "seriesName": null,
+          "seriesSequence": null,
+          "publishedYear": null
+        },
+        "libraryFiles": [
+          {
+            "relPath": "book.cbz",
+            "filename": "book.cbz",
+            "ext": ".cbz",
+            "fileType": "ebook",
+            "size": 0,
+            "isSupplementary": null
+          },
+          {
+            "relPath": "book.epub",
+            "filename": "book.epub",
+            "ext": ".epub",
+            "fileType": "ebook",
+            "size": 0,
+            "isSupplementary": null
+          }
+        ]
+      },
+      {
+        "relPath": "Hidden Files",
+        "isFile": false,
+        "mediaType": "book",
+        "hasIno": true,
+        "mediaMetadata": {
+          "title": "Hidden Files",
+          "subtitle": null,
+          "asin": null,
+          "authors": [],
+          "narrators": [],
+          "seriesName": null,
+          "seriesSequence": null,
+          "publishedYear": null
+        },
+        "libraryFiles": [
+          {
+            "relPath": "visible.mp3",
+            "filename": "visible.mp3",
+            "ext": ".mp3",
+            "fileType": "audio",
+            "size": 0,
+            "isSupplementary": null
+          }
+        ]
+      },
+      {
+        "relPath": "Multi Disc",
+        "isFile": false,
+        "mediaType": "book",
+        "hasIno": true,
+        "mediaMetadata": {
+          "title": "Multi Disc",
+          "subtitle": null,
+          "asin": null,
+          "authors": [],
+          "narrators": [],
+          "seriesName": null,
+          "seriesSequence": null,
+          "publishedYear": null
+        },
+        "libraryFiles": [
+          {
+            "relPath": "CD 1/a.mp3",
+            "filename": "a.mp3",
+            "ext": ".mp3",
+            "fileType": "audio",
+            "size": 0,
+            "isSupplementary": null
+          },
+          {
+            "relPath": "CD 2/b.mp3",
+            "filename": "b.mp3",
+            "ext": ".mp3",
+            "fileType": "audio",
+            "size": 0,
+            "isSupplementary": null
+          },
+          {
+            "relPath": "cover.jpg",
+            "filename": "cover.jpg",
+            "ext": ".jpg",
+            "fileType": "image",
+            "size": 0,
+            "isSupplementary": null
+          }
+        ]
+      },
+      {
+        "relPath": "Single",
+        "isFile": false,
+        "mediaType": "book",
+        "hasIno": true,
+        "mediaMetadata": {
+          "title": "Single",
+          "subtitle": null,
+          "asin": null,
+          "authors": [],
+          "narrators": [],
+          "seriesName": null,
+          "seriesSequence": null,
+          "publishedYear": null
+        },
+        "libraryFiles": [
+          {
+            "relPath": "Extras/bonus.pdf",
+            "filename": "bonus.pdf",
+            "ext": ".pdf",
+            "fileType": "ebook",
+            "size": 2,
+            "isSupplementary": null
+          },
+          {
+            "relPath": "book.m4b",
+            "filename": "book.m4b",
+            "ext": ".m4b",
+            "fileType": "audio",
+            "size": 4,
+            "isSupplementary": null
+          },
+          {
+            "relPath": "book.nfo",
+            "filename": "book.nfo",
+            "ext": ".nfo",
+            "fileType": "text",
+            "size": 0,
+            "isSupplementary": null
+          },
+          {
+            "relPath": "book.opf",
+            "filename": "book.opf",
+            "ext": ".opf",
+            "fileType": "metadata",
+            "size": 0,
+            "isSupplementary": null
+          },
+          {
+            "relPath": "cover.jpg",
+            "filename": "cover.jpg",
+            "ext": ".jpg",
+            "fileType": "image",
+            "size": 2,
+            "isSupplementary": null
+          },
+          {
+            "relPath": "desc.txt",
+            "filename": "desc.txt",
+            "ext": ".txt",
+            "fileType": "text",
+            "size": 11,
+            "isSupplementary": null
+          },
+          {
+            "relPath": "metadata.json",
+            "filename": "metadata.json",
+            "ext": ".json",
+            "fileType": "metadata",
+            "size": 2,
+            "isSupplementary": null
+          },
+          {
+            "relPath": "reader.txt",
+            "filename": "reader.txt",
+            "ext": ".txt",
+            "fileType": "text",
+            "size": 6,
+            "isSupplementary": null
+          }
+        ]
+      },
+      {
+        "relPath": "Standalone Book.mp3",
+        "isFile": true,
+        "mediaType": "book",
+        "hasIno": true,
+        "mediaMetadata": {
+          "title": "Standalone Book"
+        },
+        "libraryFiles": [
+          {
+            "relPath": "Standalone Book.mp3",
+            "filename": "Standalone Book.mp3",
+            "ext": ".mp3",
+            "fileType": "audio",
+            "size": 4,
+            "isSupplementary": null
+          }
+        ]
+      },
+      {
+        "relPath": "Standalone Ebook.epub",
+        "isFile": true,
+        "mediaType": "book",
+        "hasIno": true,
+        "mediaMetadata": {
+          "title": "Standalone Ebook"
+        },
+        "libraryFiles": [
+          {
+            "relPath": "Standalone Ebook.epub",
+            "filename": "Standalone Ebook.epub",
+            "ext": ".epub",
+            "fileType": "ebook",
+            "size": 2,
+            "isSupplementary": null
+          }
+        ]
+      },
+      {
+        "relPath": "Unicode Bôök",
+        "isFile": false,
+        "mediaType": "book",
+        "hasIno": true,
+        "mediaMetadata": {
+          "title": "Unicode Bôök",
+          "subtitle": null,
+          "asin": null,
+          "authors": [],
+          "narrators": [],
+          "seriesName": null,
+          "seriesSequence": null,
+          "publishedYear": null
+        },
+        "libraryFiles": [
+          {
+            "relPath": "ファイル.mp3",
+            "filename": "ファイル.mp3",
+            "ext": ".mp3",
+            "fileType": "audio",
+            "size": 0,
+            "isSupplementary": null
+          }
+        ]
+      },
+      {
+        "relPath": "Uppercase Ext",
+        "isFile": false,
+        "mediaType": "book",
+        "hasIno": true,
+        "mediaMetadata": {
+          "title": "Uppercase Ext",
+          "subtitle": null,
+          "asin": null,
+          "authors": [],
+          "narrators": [],
+          "seriesName": null,
+          "seriesSequence": null,
+          "publishedYear": null
+        },
+        "libraryFiles": [
+          {
+            "relPath": "TRACK.MP3",
+            "filename": "TRACK.MP3",
+            "ext": ".MP3",
+            "fileType": "audio",
+            "size": 0,
+            "isSupplementary": null
+          }
+        ]
+      },
+      {
+        "relPath": "With Partial",
+        "isFile": false,
+        "mediaType": "book",
+        "hasIno": true,
+        "mediaMetadata": {
+          "title": "With Partial",
+          "subtitle": null,
+          "asin": null,
+          "authors": [],
+          "narrators": [],
+          "seriesName": null,
+          "seriesSequence": null,
+          "publishedYear": null
+        },
+        "libraryFiles": [
+          {
+            "relPath": "a.mp3",
+            "filename": "a.mp3",
+            "ext": ".mp3",
+            "fileType": "audio",
+            "size": 0,
+            "isSupplementary": null
+          }
+        ]
+      }
+    ]
+  },
+  "ScannerDirectory (characterization) > LibraryScanner.scanFolder on a real tree > item data: folder item vs root file item (path, relPath, folder/library ids, ino, timestamps, size)": {
+    "items": [
+      {
+        "relPath": "Folder Book",
+        "isFile": false,
+        "pathIsUnderRoot": true,
+        "libraryFolderIdMatches": true,
+        "libraryIdMatches": true,
+        "inoMatchesDiskInode": true,
+        "mtimeMatchesDisk": false,
+        "libraryItemObject": {
+          "relPath": "Folder Book",
+          "mediaType": "book",
+          "isFile": false,
+          "size": 5,
+          "numLibraryFiles": 2,
+          "lastScanVersionIsString": true,
+          "timesAreNumbers": true
+        }
+      },
+      {
+        "relPath": "Root File.mp3",
+        "isFile": true,
+        "pathIsUnderRoot": true,
+        "libraryFolderIdMatches": true,
+        "libraryIdMatches": true,
+        "inoMatchesDiskInode": true,
+        "mtimeMatchesDisk": false,
+        "libraryItemObject": {
+          "relPath": "Root File.mp3",
+          "mediaType": "book",
+          "isFile": true,
+          "size": 5,
+          "numLibraryFiles": 1,
+          "lastScanVersionIsString": true,
+          "timesAreNumbers": true
+        }
+      }
+    ]
+  },
+  "ScannerDirectory (characterization) > LibraryScanner.scanFolder on a real tree > podcast library: root files are ignored, subfolders belong to the podcast folder": [
+    {
+      "relPath": "Author/Podcast E",
+      "isFile": false,
+      "mediaType": "podcast",
+      "hasIno": true,
+      "mediaMetadata": {
+        "title": "Podcast E"
+      },
+      "libraryFiles": [
+        {
+          "relPath": "ep.mp3",
+          "filename": "ep.mp3",
+          "ext": ".mp3",
+          "fileType": "audio",
+          "size": 0,
+          "isSupplementary": null
+        }
+      ]
+    },
+    {
+      "relPath": "Podcast A",
+      "isFile": false,
+      "mediaType": "podcast",
+      "hasIno": true,
+      "mediaMetadata": {
+        "title": "Podcast A"
+      },
+      "libraryFiles": [
+        {
+          "relPath": "cover.jpg",
+          "filename": "cover.jpg",
+          "ext": ".jpg",
+          "fileType": "image",
+          "size": 0,
+          "isSupplementary": null
+        },
+        {
+          "relPath": "ep1.mp3",
+          "filename": "ep1.mp3",
+          "ext": ".mp3",
+          "fileType": "audio",
+          "size": 0,
+          "isSupplementary": null
+        },
+        {
+          "relPath": "ep2.m4a",
+          "filename": "ep2.m4a",
+          "ext": ".m4a",
+          "fileType": "audio",
+          "size": 0,
+          "isSupplementary": null
+        },
+        {
+          "relPath": "metadata.json",
+          "filename": "metadata.json",
+          "ext": ".json",
+          "fileType": "metadata",
+          "size": 2,
+          "isSupplementary": null
+        }
+      ]
+    },
+    {
+      "relPath": "Podcast B/Season 1",
+      "isFile": false,
+      "mediaType": "podcast",
+      "hasIno": true,
+      "mediaMetadata": {
+        "title": "Season 1"
+      },
+      "libraryFiles": [
+        {
+          "relPath": "ep1.mp3",
+          "filename": "ep1.mp3",
+          "ext": ".mp3",
+          "fileType": "audio",
+          "size": 0,
+          "isSupplementary": null
+        }
+      ]
+    },
+    {
+      "relPath": "Podcast B/Season 2",
+      "isFile": false,
+      "mediaType": "podcast",
+      "hasIno": true,
+      "mediaMetadata": {
+        "title": "Season 2"
+      },
+      "libraryFiles": [
+        {
+          "relPath": "ep1.mp3",
+          "filename": "ep1.mp3",
+          "ext": ".mp3",
+          "fileType": "audio",
+          "size": 0,
+          "isSupplementary": null
+        }
+      ]
+    }
+  ],
+  "ScannerDirectory (characterization) > LibraryScanner.scanFolder on a real tree > the parsed names depend on the scannerParseSubtitle server setting": {
+    "without": {
+      "title": "Title - Sub",
+      "subtitle": null,
+      "asin": null,
+      "authors": [
+        "Author"
+      ],
+      "narrators": [],
+      "seriesName": "Series",
+      "seriesSequence": "1",
+      "publishedYear": null
+    },
+    "withSub": {
+      "title": "Title",
+      "subtitle": "Sub",
+      "asin": null,
+      "authors": [
+        "Author"
+      ],
+      "narrators": [],
+      "seriesName": "Series",
+      "seriesSequence": "1",
+      "publishedYear": null
+    }
+  },
+  "ScannerDirectory (characterization) > fileUtils.recurseFiles on a real tree > a root .ignore file does not ignore anything (only .ignore in a subdirectory counts)": [
+    "Book/b.mp3",
+    "a.mp3"
+  ],
+  "ScannerDirectory (characterization) > fileUtils.recurseFiles on a real tree > lists non-ignored files, with depth, relative dir and extension": {
+    "files": [
+      {
+        "name": "01.mp3",
+        "path": "Author/Book/01.mp3",
+        "reldirpath": "Author/Book",
+        "extension": ".mp3",
+        "deep": 2,
+        "fullpathUnderRoot": true
+      },
+      {
+        "name": "cover.jpg",
+        "path": "Author/Book/cover.jpg",
+        "reldirpath": "Author/Book",
+        "extension": ".jpg",
+        "deep": 2,
+        "fullpathUnderRoot": true
+      },
+      {
+        "name": "e.mp3",
+        "path": "Deep/a/b/c/d/e.mp3",
+        "reldirpath": "Deep/a/b/c/d",
+        "extension": ".mp3",
+        "deep": 5,
+        "fullpathUnderRoot": true
+      },
+      {
+        "name": "keep.mp3",
+        "path": "Ignored2/keep.mp3",
+        "reldirpath": "Ignored2",
+        "extension": ".mp3",
+        "deep": 1,
+        "fullpathUnderRoot": true
+      },
+      {
+        "name": "ファイル.mp3",
+        "path": "Unicode Bôök/ファイル.mp3",
+        "reldirpath": "Unicode Bôök",
+        "extension": ".mp3",
+        "deep": 1,
+        "fullpathUnderRoot": true
+      },
+      {
+        "name": "root.mp3",
+        "path": "root.mp3",
+        "reldirpath": "",
+        "extension": ".mp3",
+        "deep": 0,
+        "fullpathUnderRoot": true
+      }
+    ],
+    "sortedByDepth": true
+  },
+  "ScannerDirectory (characterization) > fileUtils.recurseFiles on a real tree > relPathToReplace changes the relative paths": [
+    {
+      "path": "Author/Book/01.mp3",
+      "reldirpath": "Author/Book",
+      "deep": 1
+    },
+    {
+      "path": "Author/Book/cover.jpg",
+      "reldirpath": "Author/Book",
+      "deep": 1
+    }
+  ],
+  "ScannerDirectory (characterization) > fileUtils.shouldIgnoreFile > reports why a path is ignored": {
+    "Author/Book/01.mp3": null,
+    ".hidden.mp3": "dotfile",
+    "Book/.hidden.mp3": "dotfile",
+    ".hiddendir/Book/01.mp3": "dotpath",
+    "Book/.DS_Store": "dotfile",
+    "@eaDir/Book/01.mp3": "@eaDir directory",
+    "Book/@eaDir/01.mp3": "@eaDir directory",
+    "Book/my@eaDirbook.mp3": "@eaDir directory",
+    "Book/01.mp3.part": ".part file",
+    "Book/01.TMP": ".TMP file",
+    "Book/01.crdownload": ".crdownload file",
+    "Book/01.download": ".download file",
+    "Book/01.bak": ".bak file",
+    "Book/01.old": ".old file",
+    "Book/01.temp": ".temp file",
+    "Book/01.tempfile": ".tempfile file",
+    "Book/01.tempfile~": ".tempfile~ file",
+    "Book/01.partial": null,
+    "Book/.ignore": "dotfile",
+    "Book/noext": null
+  },
+  "ScannerDirectory (characterization) > getBookDataFromDir / getPodcastDataFromDir / getDataFromMediaDir (folder name parsing) > getDataFromMediaDir converts Windows separators in the relative path": {
+    "mediaMetadata": {
+      "title": "Author\\Series\\Book 1 - Title",
+      "subtitle": null,
+      "asin": null,
+      "authors": [],
+      "narrators": [],
+      "seriesName": null,
+      "seriesSequence": null,
+      "publishedYear": null
+    },
+    "relPath": "Author\\Series\\Book 1 - Title",
+    "path": "/audiobooks/Author\\Series\\Book 1 - Title"
+  },
+  "ScannerDirectory (characterization) > getBookDataFromDir / getPodcastDataFromDir / getDataFromMediaDir (folder name parsing) > getDataFromMediaDir joins the folder path and honours global scannerParseSubtitle": {
+    "book": {
+      "mediaMetadata": {
+        "title": "Title - Subtitle",
+        "subtitle": null,
+        "asin": null,
+        "authors": [
+          "Author"
+        ],
+        "narrators": [],
+        "seriesName": "Series",
+        "seriesSequence": "1",
+        "publishedYear": null
+      },
+      "relPath": "Author/Series/Book 1 - Title - Subtitle",
+      "path": "/audiobooks/Author/Series/Book 1 - Title - Subtitle"
+    },
+    "bookWithSubtitle": {
+      "mediaMetadata": {
+        "title": "Title",
+        "subtitle": "Subtitle",
+        "asin": null,
+        "authors": [
+          "Author"
+        ],
+        "narrators": [],
+        "seriesName": "Series",
+        "seriesSequence": "1",
+        "publishedYear": null
+      },
+      "relPath": "Author/Series/Book 1 - Title - Subtitle",
+      "path": "/audiobooks/Author/Series/Book 1 - Title - Subtitle"
+    }
+  },
+  "ScannerDirectory (characterization) > getBookDataFromDir / getPodcastDataFromDir / getDataFromMediaDir (folder name parsing) > parses folder structure into title/author/series/sequence/narrators/asin/year (subtitle parsing off)": {
+    "Title": {
+      "title": "Title",
+      "subtitle": null,
+      "asin": null,
+      "authors": [],
+      "narrators": [],
+      "seriesName": null,
+      "seriesSequence": null,
+      "publishedYear": null
+    },
+    "Author/Title": {
+      "title": "Title",
+      "subtitle": null,
+      "asin": null,
+      "authors": [
+        "Author"
+      ],
+      "narrators": [],
+      "seriesName": null,
+      "seriesSequence": null,
+      "publishedYear": null
+    },
+    "Author/Series/Title": {
+      "title": "Title",
+      "subtitle": null,
+      "asin": null,
+      "authors": [
+        "Author"
+      ],
+      "narrators": [],
+      "seriesName": "Series",
+      "seriesSequence": null,
+      "publishedYear": null
+    },
+    "Author/Series/Book 2 - Title": {
+      "title": "Title",
+      "subtitle": null,
+      "asin": null,
+      "authors": [
+        "Author"
+      ],
+      "narrators": [],
+      "seriesName": "Series",
+      "seriesSequence": "2",
+      "publishedYear": null
+    },
+    "Author/Series/Vol. 3 Title Here - Subtitle": {
+      "title": "Title Here - Subtitle",
+      "subtitle": null,
+      "asin": null,
+      "authors": [
+        "Author"
+      ],
+      "narrators": [],
+      "seriesName": "Series",
+      "seriesSequence": "3",
+      "publishedYear": null
+    },
+    "Author/Series/Title - Vol 12": {
+      "title": "Title",
+      "subtitle": null,
+      "asin": null,
+      "authors": [
+        "Author"
+      ],
+      "narrators": [],
+      "seriesName": "Series",
+      "seriesSequence": "12",
+      "publishedYear": null
+    },
+    "Author/Series/1980 - Book 2 - Title": {
+      "title": "Title",
+      "subtitle": null,
+      "asin": null,
+      "authors": [
+        "Author"
+      ],
+      "narrators": [],
+      "seriesName": "Series",
+      "seriesSequence": "2",
+      "publishedYear": "1980"
+    },
+    "Author/Series/100 - Book Title": {
+      "title": "Book Title",
+      "subtitle": null,
+      "asin": null,
+      "authors": [
+        "Author"
+      ],
+      "narrators": [],
+      "seriesName": "Series",
+      "seriesSequence": "100",
+      "publishedYear": null
+    },
+    "Author/Series/6. Title": {
+      "title": "Title",
+      "subtitle": null,
+      "asin": null,
+      "authors": [
+        "Author"
+      ],
+      "narrators": [],
+      "seriesName": "Series",
+      "seriesSequence": "6",
+      "publishedYear": null
+    },
+    "Author/Series/0.5 - Book Title": {
+      "title": "Book Title",
+      "subtitle": null,
+      "asin": null,
+      "authors": [
+        "Author"
+      ],
+      "narrators": [],
+      "seriesName": "Series",
+      "seriesSequence": "0.5",
+      "publishedYear": null
+    },
+    "Author/Series/101 Dalmations": {
+      "title": "101 Dalmations",
+      "subtitle": null,
+      "asin": null,
+      "authors": [
+        "Author"
+      ],
+      "narrators": [],
+      "seriesName": "Series",
+      "seriesSequence": null,
+      "publishedYear": null
+    },
+    "Author/Series/Volume 12. Title - Subtitle": {
+      "title": "Title - Subtitle",
+      "subtitle": null,
+      "asin": null,
+      "authors": [
+        "Author"
+      ],
+      "narrators": [],
+      "seriesName": "Series",
+      "seriesSequence": "12",
+      "publishedYear": null
+    },
+    "Author/Series/Title - volume 9 - Subtitle": {
+      "title": "Title - Subtitle",
+      "subtitle": null,
+      "asin": null,
+      "authors": [
+        "Author"
+      ],
+      "narrators": [],
+      "seriesName": "Series",
+      "seriesSequence": "9",
+      "publishedYear": null
+    },
+    "Author/Series/Book 1 - Title {Narrator One, Narrator Two}": {
+      "title": "Title",
+      "subtitle": null,
+      "asin": null,
+      "authors": [
+        "Author"
+      ],
+      "narrators": [
+        "Narrator One",
+        "Narrator Two"
+      ],
+      "seriesName": "Series",
+      "seriesSequence": "1",
+      "publishedYear": null
+    },
+    "Author/Series/Title [B0015T963C]": {
+      "title": "Title",
+      "subtitle": null,
+      "asin": "B0015T963C",
+      "authors": [
+        "Author"
+      ],
+      "narrators": [],
+      "seriesName": "Series",
+      "seriesSequence": null,
+      "publishedYear": null
+    },
+    "Author/Series/[B0015T963C] Title": {
+      "title": "Title",
+      "subtitle": null,
+      "asin": "B0015T963C",
+      "authors": [
+        "Author"
+      ],
+      "narrators": [],
+      "seriesName": "Series",
+      "seriesSequence": null,
+      "publishedYear": null
+    },
+    "Author/Series/Title[B0015T963C]": {
+      "title": "Title[B0015T963C]",
+      "subtitle": null,
+      "asin": null,
+      "authors": [
+        "Author"
+      ],
+      "narrators": [],
+      "seriesName": "Series",
+      "seriesSequence": null,
+      "publishedYear": null
+    },
+    "Author/Series/Title [b0015t963c]": {
+      "title": "Title [b0015t963c]",
+      "subtitle": null,
+      "asin": null,
+      "authors": [
+        "Author"
+      ],
+      "narrators": [],
+      "seriesName": "Series",
+      "seriesSequence": null,
+      "publishedYear": null
+    },
+    "Author/Series/(2012) - Title": {
+      "title": "Title",
+      "subtitle": null,
+      "asin": null,
+      "authors": [
+        "Author"
+      ],
+      "narrators": [],
+      "seriesName": "Series",
+      "seriesSequence": null,
+      "publishedYear": "2012"
+    },
+    "Author/Series/2012 - Title": {
+      "title": "Title",
+      "subtitle": null,
+      "asin": null,
+      "authors": [
+        "Author"
+      ],
+      "narrators": [],
+      "seriesName": "Series",
+      "seriesSequence": null,
+      "publishedYear": "2012"
+    },
+    "Author/Series/Book 4 - 2012 - Title - Subtitle {Nar}": {
+      "title": "Title - Subtitle",
+      "subtitle": null,
+      "asin": null,
+      "authors": [
+        "Author"
+      ],
+      "narrators": [
+        "Nar"
+      ],
+      "seriesName": "Series",
+      "seriesSequence": "4",
+      "publishedYear": "2012"
+    },
+    "Author/Title - Subtitle": {
+      "title": "Title - Subtitle",
+      "subtitle": null,
+      "asin": null,
+      "authors": [
+        "Author"
+      ],
+      "narrators": [],
+      "seriesName": null,
+      "seriesSequence": null,
+      "publishedYear": null
+    },
+    "Author/Title (2012)": {
+      "title": "Title (2012)",
+      "subtitle": null,
+      "asin": null,
+      "authors": [
+        "Author"
+      ],
+      "narrators": [],
+      "seriesName": null,
+      "seriesSequence": null,
+      "publishedYear": null
+    },
+    "Author/1984": {
+      "title": "1984",
+      "subtitle": null,
+      "asin": null,
+      "authors": [
+        "Author"
+      ],
+      "narrators": [],
+      "seriesName": null,
+      "seriesSequence": null,
+      "publishedYear": null
+    },
+    "Author One, Author Two/Title": {
+      "title": "Title",
+      "subtitle": null,
+      "asin": null,
+      "authors": [
+        "Author One",
+        "Author Two"
+      ],
+      "narrators": [],
+      "seriesName": null,
+      "seriesSequence": null,
+      "publishedYear": null
+    },
+    "Author One & Author Two/Title": {
+      "title": "Title",
+      "subtitle": null,
+      "asin": null,
+      "authors": [
+        "Author One",
+        "Author Two"
+      ],
+      "narrators": [],
+      "seriesName": null,
+      "seriesSequence": null,
+      "publishedYear": null
+    },
+    "Last, First/Title": {
+      "title": "Title",
+      "subtitle": null,
+      "asin": null,
+      "authors": [
+        "First Last"
+      ],
+      "narrators": [],
+      "seriesName": null,
+      "seriesSequence": null,
+      "publishedYear": null
+    },
+    "Library Root/Author/Series/Title": {
+      "title": "Title",
+      "subtitle": null,
+      "asin": null,
+      "authors": [
+        "Author"
+      ],
+      "narrators": [],
+      "seriesName": "Series",
+      "seriesSequence": null,
+      "publishedYear": null
+    },
+    "Library Root/Extra/Author/Series/Title": {
+      "title": "Title",
+      "subtitle": null,
+      "asin": null,
+      "authors": [
+        "Author"
+      ],
+      "narrators": [],
+      "seriesName": "Series",
+      "seriesSequence": null,
+      "publishedYear": null
+    },
+    "Series Title 2 of 3/Book": {
+      "title": "Book",
+      "subtitle": null,
+      "asin": null,
+      "authors": [
+        "Series Title of 3"
+      ],
+      "narrators": [],
+      "seriesName": null,
+      "seriesSequence": null,
+      "publishedYear": null
+    },
+    "Author/Series/Title.With.Dots": {
+      "title": "Title.With.Dots",
+      "subtitle": null,
+      "asin": null,
+      "authors": [
+        "Author"
+      ],
+      "narrators": [],
+      "seriesName": "Series",
+      "seriesSequence": null,
+      "publishedYear": null
+    },
+    "Ünïcode Author/Séries/Titel ファイル": {
+      "title": "Titel ファイル",
+      "subtitle": null,
+      "asin": null,
+      "authors": [
+        "Ünïcode Author"
+      ],
+      "narrators": [],
+      "seriesName": "Séries",
+      "seriesSequence": null,
+      "publishedYear": null
+    }
+  },
+  "ScannerDirectory (characterization) > getBookDataFromDir / getPodcastDataFromDir / getDataFromMediaDir (folder name parsing) > parses subtitle too when asked": {
+    "Title": {
+      "title": "Title",
+      "subtitle": "",
+      "asin": null,
+      "authors": [],
+      "narrators": [],
+      "seriesName": null,
+      "seriesSequence": null,
+      "publishedYear": null
+    },
+    "Author/Title": {
+      "title": "Title",
+      "subtitle": "",
+      "asin": null,
+      "authors": [
+        "Author"
+      ],
+      "narrators": [],
+      "seriesName": null,
+      "seriesSequence": null,
+      "publishedYear": null
+    },
+    "Author/Series/Title": {
+      "title": "Title",
+      "subtitle": "",
+      "asin": null,
+      "authors": [
+        "Author"
+      ],
+      "narrators": [],
+      "seriesName": "Series",
+      "seriesSequence": null,
+      "publishedYear": null
+    },
+    "Author/Series/Book 2 - Title": {
+      "title": "Title",
+      "subtitle": "",
+      "asin": null,
+      "authors": [
+        "Author"
+      ],
+      "narrators": [],
+      "seriesName": "Series",
+      "seriesSequence": "2",
+      "publishedYear": null
+    },
+    "Author/Series/Vol. 3 Title Here - Subtitle": {
+      "title": "Title Here",
+      "subtitle": "Subtitle",
+      "asin": null,
+      "authors": [
+        "Author"
+      ],
+      "narrators": [],
+      "seriesName": "Series",
+      "seriesSequence": "3",
+      "publishedYear": null
+    },
+    "Author/Series/Title - Vol 12": {
+      "title": "Title",
+      "subtitle": "",
+      "asin": null,
+      "authors": [
+        "Author"
+      ],
+      "narrators": [],
+      "seriesName": "Series",
+      "seriesSequence": "12",
+      "publishedYear": null
+    },
+    "Author/Series/1980 - Book 2 - Title": {
+      "title": "Title",
+      "subtitle": "",
+      "asin": null,
+      "authors": [
+        "Author"
+      ],
+      "narrators": [],
+      "seriesName": "Series",
+      "seriesSequence": "2",
+      "publishedYear": "1980"
+    },
+    "Author/Series/100 - Book Title": {
+      "title": "Book Title",
+      "subtitle": "",
+      "asin": null,
+      "authors": [
+        "Author"
+      ],
+      "narrators": [],
+      "seriesName": "Series",
+      "seriesSequence": "100",
+      "publishedYear": null
+    },
+    "Author/Series/6. Title": {
+      "title": "Title",
+      "subtitle": "",
+      "asin": null,
+      "authors": [
+        "Author"
+      ],
+      "narrators": [],
+      "seriesName": "Series",
+      "seriesSequence": "6",
+      "publishedYear": null
+    },
+    "Author/Series/0.5 - Book Title": {
+      "title": "Book Title",
+      "subtitle": "",
+      "asin": null,
+      "authors": [
+        "Author"
+      ],
+      "narrators": [],
+      "seriesName": "Series",
+      "seriesSequence": "0.5",
+      "publishedYear": null
+    },
+    "Author/Series/101 Dalmations": {
+      "title": "101 Dalmations",
+      "subtitle": "",
+      "asin": null,
+      "authors": [
+        "Author"
+      ],
+      "narrators": [],
+      "seriesName": "Series",
+      "seriesSequence": null,
+      "publishedYear": null
+    },
+    "Author/Series/Volume 12. Title - Subtitle": {
+      "title": "Title",
+      "subtitle": "Subtitle",
+      "asin": null,
+      "authors": [
+        "Author"
+      ],
+      "narrators": [],
+      "seriesName": "Series",
+      "seriesSequence": "12",
+      "publishedYear": null
+    },
+    "Author/Series/Title - volume 9 - Subtitle": {
+      "title": "Title",
+      "subtitle": "Subtitle",
+      "asin": null,
+      "authors": [
+        "Author"
+      ],
+      "narrators": [],
+      "seriesName": "Series",
+      "seriesSequence": "9",
+      "publishedYear": null
+    },
+    "Author/Series/Book 1 - Title {Narrator One, Narrator Two}": {
+      "title": "Title",
+      "subtitle": "",
+      "asin": null,
+      "authors": [
+        "Author"
+      ],
+      "narrators": [
+        "Narrator One",
+        "Narrator Two"
+      ],
+      "seriesName": "Series",
+      "seriesSequence": "1",
+      "publishedYear": null
+    },
+    "Author/Series/Title [B0015T963C]": {
+      "title": "Title",
+      "subtitle": "",
+      "asin": "B0015T963C",
+      "authors": [
+        "Author"
+      ],
+      "narrators": [],
+      "seriesName": "Series",
+      "seriesSequence": null,
+      "publishedYear": null
+    },
+    "Author/Series/[B0015T963C] Title": {
+      "title": "Title",
+      "subtitle": "",
+      "asin": "B0015T963C",
+      "authors": [
+        "Author"
+      ],
+      "narrators": [],
+      "seriesName": "Series",
+      "seriesSequence": null,
+      "publishedYear": null
+    },
+    "Author/Series/Title[B0015T963C]": {
+      "title": "Title[B0015T963C]",
+      "subtitle": "",
+      "asin": null,
+      "authors": [
+        "Author"
+      ],
+      "narrators": [],
+      "seriesName": "Series",
+      "seriesSequence": null,
+      "publishedYear": null
+    },
+    "Author/Series/Title [b0015t963c]": {
+      "title": "Title [b0015t963c]",
+      "subtitle": "",
+      "asin": null,
+      "authors": [
+        "Author"
+      ],
+      "narrators": [],
+      "seriesName": "Series",
+      "seriesSequence": null,
+      "publishedYear": null
+    },
+    "Author/Series/(2012) - Title": {
+      "title": "Title",
+      "subtitle": "",
+      "asin": null,
+      "authors": [
+        "Author"
+      ],
+      "narrators": [],
+      "seriesName": "Series",
+      "seriesSequence": null,
+      "publishedYear": "2012"
+    },
+    "Author/Series/2012 - Title": {
+      "title": "Title",
+      "subtitle": "",
+      "asin": null,
+      "authors": [
+        "Author"
+      ],
+      "narrators": [],
+      "seriesName": "Series",
+      "seriesSequence": null,
+      "publishedYear": "2012"
+    },
+    "Author/Series/Book 4 - 2012 - Title - Subtitle {Nar}": {
+      "title": "Title",
+      "subtitle": "Subtitle",
+      "asin": null,
+      "authors": [
+        "Author"
+      ],
+      "narrators": [
+        "Nar"
+      ],
+      "seriesName": "Series",
+      "seriesSequence": "4",
+      "publishedYear": "2012"
+    },
+    "Author/Title - Subtitle": {
+      "title": "Title",
+      "subtitle": "Subtitle",
+      "asin": null,
+      "authors": [
+        "Author"
+      ],
+      "narrators": [],
+      "seriesName": null,
+      "seriesSequence": null,
+      "publishedYear": null
+    },
+    "Author/Title (2012)": {
+      "title": "Title (2012)",
+      "subtitle": "",
+      "asin": null,
+      "authors": [
+        "Author"
+      ],
+      "narrators": [],
+      "seriesName": null,
+      "seriesSequence": null,
+      "publishedYear": null
+    },
+    "Author/1984": {
+      "title": "1984",
+      "subtitle": "",
+      "asin": null,
+      "authors": [
+        "Author"
+      ],
+      "narrators": [],
+      "seriesName": null,
+      "seriesSequence": null,
+      "publishedYear": null
+    },
+    "Author One, Author Two/Title": {
+      "title": "Title",
+      "subtitle": "",
+      "asin": null,
+      "authors": [
+        "Author One",
+        "Author Two"
+      ],
+      "narrators": [],
+      "seriesName": null,
+      "seriesSequence": null,
+      "publishedYear": null
+    },
+    "Author One & Author Two/Title": {
+      "title": "Title",
+      "subtitle": "",
+      "asin": null,
+      "authors": [
+        "Author One",
+        "Author Two"
+      ],
+      "narrators": [],
+      "seriesName": null,
+      "seriesSequence": null,
+      "publishedYear": null
+    },
+    "Last, First/Title": {
+      "title": "Title",
+      "subtitle": "",
+      "asin": null,
+      "authors": [
+        "First Last"
+      ],
+      "narrators": [],
+      "seriesName": null,
+      "seriesSequence": null,
+      "publishedYear": null
+    },
+    "Library Root/Author/Series/Title": {
+      "title": "Title",
+      "subtitle": "",
+      "asin": null,
+      "authors": [
+        "Author"
+      ],
+      "narrators": [],
+      "seriesName": "Series",
+      "seriesSequence": null,
+      "publishedYear": null
+    },
+    "Library Root/Extra/Author/Series/Title": {
+      "title": "Title",
+      "subtitle": "",
+      "asin": null,
+      "authors": [
+        "Author"
+      ],
+      "narrators": [],
+      "seriesName": "Series",
+      "seriesSequence": null,
+      "publishedYear": null
+    },
+    "Series Title 2 of 3/Book": {
+      "title": "Book",
+      "subtitle": "",
+      "asin": null,
+      "authors": [
+        "Series Title of 3"
+      ],
+      "narrators": [],
+      "seriesName": null,
+      "seriesSequence": null,
+      "publishedYear": null
+    },
+    "Author/Series/Title.With.Dots": {
+      "title": "Title.With.Dots",
+      "subtitle": "",
+      "asin": null,
+      "authors": [
+        "Author"
+      ],
+      "narrators": [],
+      "seriesName": "Series",
+      "seriesSequence": null,
+      "publishedYear": null
+    },
+    "Ünïcode Author/Séries/Titel ファイル": {
+      "title": "Titel ファイル",
+      "subtitle": "",
+      "asin": null,
+      "authors": [
+        "Ünïcode Author"
+      ],
+      "narrators": [],
+      "seriesName": "Séries",
+      "seriesSequence": null,
+      "publishedYear": null
+    }
+  },
+  "ScannerDirectory (characterization) > getBookDataFromDir / getPodcastDataFromDir / getDataFromMediaDir (folder name parsing) > podcast folders only give a title (the last path part)": {
+    "simple": {
+      "mediaMetadata": {
+        "title": "My Podcast"
+      },
+      "relPath": "My Podcast",
+      "path": "/pods/My Podcast"
+    },
+    "nested": {
+      "mediaMetadata": {
+        "title": "My Podcast"
+      },
+      "relPath": "Network/My Podcast",
+      "path": "/pods/Network/My Podcast"
+    }
+  },
+  "ScannerDirectory (characterization) > getBookDataFromDir / getPodcastDataFromDir / getDataFromMediaDir (folder name parsing) > the sequence is only parsed when there is a series folder": {
+    "noSeriesFolder": {
+      "title": "Book 2 - Title",
+      "subtitle": null,
+      "asin": null,
+      "authors": [
+        "Author"
+      ],
+      "narrators": [],
+      "seriesName": null,
+      "seriesSequence": null,
+      "publishedYear": null
+    },
+    "withSeriesFolder": {
+      "title": "Title",
+      "subtitle": null,
+      "asin": null,
+      "authors": [
+        "Author"
+      ],
+      "narrators": [],
+      "seriesName": "Series",
+      "seriesSequence": "2",
+      "publishedYear": null
+    }
+  },
+  "ScannerDirectory (characterization) > groupFileItemsIntoLibraryItemDirs (pure) > audiobooksOnly drops ebook-only items and root ebook files": {
+    "all": {
+      "Ebook Only": [
+        "book.epub"
+      ],
+      "Mixed": [
+        "audio.mp3",
+        "book.epub"
+      ],
+      "root.epub": "root.epub",
+      "root.mp3": "root.mp3"
+    },
+    "audiobooksOnly": {
+      "Mixed": [
+        "audio.mp3",
+        "book.epub"
+      ],
+      "root.mp3": "root.mp3"
+    }
+  },
+  "ScannerDirectory (characterization) > groupFileItemsIntoLibraryItemDirs (pure) > groups book files: root files, folders, series/author nesting, CD dirs, extra files": {
+    "Author/Disc Book": [
+      "Disc 1/a.mp3",
+      "Disk2/b.mp3",
+      "disc 03/c.mp3"
+    ],
+    "Author/Nested/Deep/Deeper": [
+      "CD 1/b.mp3",
+      "a.mp3"
+    ],
+    "Author/Series/Book 1": [
+      "01.mp3",
+      "02.mp3",
+      "desc.txt",
+      "metadata.json"
+    ],
+    "Ebook Only": [
+      "book.epub"
+    ],
+    "Mixed": [
+      "audio.mp3",
+      "book.epub"
+    ],
+    "Multi Disc": [
+      "CD 1/a.mp3",
+      "CD 2/b.mp3",
+      "cover.jpg"
+    ],
+    "Single Folder": [
+      "book.m4b",
+      "cover.jpg"
+    ],
+    "Standalone.mp3": "Standalone.mp3",
+    "Unknown": [
+      "a.mp3",
+      "file.xyz"
+    ],
+    "Uppercase": [
+      "TRACK.MP3"
+    ]
+  },
+  "ScannerDirectory (characterization) > groupFileItemsIntoLibraryItemDirs (pure) > includeNonMediaFiles (watcher) groups text/metadata/image files by themselves too": {
+    "withoutNonMedia": {
+      "root.mp3": "root.mp3"
+    },
+    "withNonMedia": {
+      "Book": [
+        "a.opf",
+        "cover.jpg",
+        "desc.txt",
+        "metadata.json",
+        "x.xyz"
+      ],
+      "Other/Sub": [
+        "reader.txt"
+      ],
+      "root.mp3": "root.mp3"
+    }
+  },
+  "ScannerDirectory (characterization) > groupFileItemsIntoLibraryItemDirs (pure) > podcast libraries ignore root files and ebooks, and fold subfolders into the top folder": {
+    "Podcast A": [
+      "cover.jpg",
+      "ep1.mp3",
+      "ep2.mp3"
+    ],
+    "Podcast B/Season 1": [
+      "ep1.mp3"
+    ],
+    "Podcast B/Season 2": [
+      "ep1.mp3"
+    ],
+    "Podcast D": [
+      "CD 1/ep.mp3"
+    ]
+  },
+  "ScannerDirectory (characterization) > groupFileItemsIntoLibraryItemDirs (pure) > treats a folder named like a CD dir only as a CD dir when it is directly below the item folder": {
+    "Author": [
+      "CD 1000/e.mp3",
+      "CD1/d.mp3",
+      "cd 12/f.mp3"
+    ],
+    "Book": [
+      "CD 1/a.mp3",
+      "Extras/CD 2/b.mp3"
+    ],
+    "CD 1": [
+      "c.mp3"
+    ]
+  }
+}
