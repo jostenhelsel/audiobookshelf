@@ -28,6 +28,8 @@ All 23 controllers, every route in `ApiRouter`, `PublicRouter` and the controlle
 
 `HlsRouter.test.js` (22 tests) mounts the real `HlsRouter` as `Server.js` does, with the real `PlaybackSessionManager` and `Stream`: stream lookup, filename validation and traversal variants, headers (ranges, conditional), odd files, and a real ffmpeg transcode of a generated mp3 (skips if ffmpeg or libmp3lame is missing).
 
+Scanner (written on macOS/Node 24 by a local agent, verified on Linux/Node 22; full detail per step in `SCANNER_REPORT.md`): `ScannerDirectory.test.js` (33; ignore rules, grouping of files into items, folder-name parsing, `scanFolder`, `LibraryItemScanData`), `ScannerBook.test.js` (42; real ffmpeg/ffprobe fixtures, epub/cbz, metadata.json/nfo/opf, cover and chapter handling, rescans), `ScannerPodcast.test.js` (21; tag mapping, episode add/remove/modify, cleanup of progress and playlists), `ScannerOrchestration.test.js` (49 + 1 skipped; `LibraryScanner.scan`, `LibraryItemScanner`, the watcher path, quick match and match-all with `axios` stubbed). Fixtures are generated at test time; the media tests skip if ffmpeg/ffprobe is missing. Durations are rounded and sizes, bit rates and encoder tags are dropped, so the snapshots held on both Homebrew ffmpeg 9.0.1 and Ubuntu ffmpeg 6.1.1.
+
 Skipped (6): real zip download (`GET /libraries/:id/download`), author image resize (needs ffmpeg), item cover upload and cover cache-miss resize (LibraryItem), `POST /notifications` without `urls` (hangs), `GET /logger-data` with no log manager (hangs).
 
 ## Not covered yet
@@ -109,9 +111,23 @@ Reported by the test-writing agents while reading the code and recording respons
 - `parseSegmentFilename` is loose (`output.ts` gives NaN, `output--3.ts` gives 0, `a-5-6.ts` gives 5, `output-1e2.ts` gives 100).
 - Dotfiles and a 416 Range error return express error pages whose body contains a stack trace with absolute server paths; a directory named `x.ts` gives the "Cannot GET" HTML page. `validateStreamFilePath` returns `''` rather than `false` for the stream dir itself. No request hung.
 
+**Scanner (details and inputs in `SCANNER_REPORT.md`)**
+- The copy of `metadata.json` saved under `<metadata>/items/<id>/` is read back as the last metadata source on every rescan and wins over tags: changing an audio file's tags, or deleting the folder's metadata.json, does not change the book; adding or removing audio files does not rebuild chapters.
+- A corrupt replacement of the only audio file keeps the old audio entry (books and podcast episodes alike); the item is not set missing.
+- `.ignore` in the library root is ignored (treated as a dotfile); in a subfolder it hides that folder. `@eaDir` matches anywhere in a path as a substring (`my@eaDirbook.mp3` is ignored). `.partial` is not an ignored extension.
+- Folder parsing: only the last three folder levels feed metadata; `Series Title 2 of 3/Book` gives author `Series Title of 3`; `Title[B0015T963C]` is not an ASIN; sequence is only parsed with a series folder; a CD dir counts only directly below the item folder.
+- Podcast libraries: every subfolder with audio is its own podcast (`Season 1`/`Season 2` become two podcasts); season and episode numbers are not parsed from file names (only from tags); show metadata comes from the first scanned episode, in filesystem order; if all audio disappears but the folder stays the podcast is not set missing.
+- `getTrackAndDiscNumberFromFilename` calls `replace(publishedYear)` with no replacement, inserting the text `undefined`. `hasLibraryFileChanges` returns a number, not a boolean.
+- Every first scan logs `metadata precedence changed ... From [Unset]` and runs as forced. `LibraryScanner.scan` does not await `saveLog()`; it rejects with ENOENT (unhandled) if `<metadata>/logs` does not exist. A cancelled scan reports `No changes needed` in its text.
+- A renamed or moved item folder is matched by inode and counts as `updated`; the watcher path counts the old path's delete as an extra `missing`. `scanLibraryItem` on an `isFile` item without watcher details scans the file as a folder (`ENOTDIR`) and marks the item missing. Deleting a library leaves its items with a null `libraryId`.
+- Quick match fills only empty fields unless `overrideDetails` (or the server setting `scannerPreferMatchedMetadata`, which mutates the passed options) is set.
+- `hideSingleBookSeries` and `epubsAllowScriptedContent` are not read by the scanner (the first only by the query layer, the second nowhere in `server/`).
+
 **Harness/seed quirks to remember when writing more tests**
 - `User.js` keeps a module-private LRU of users that outlives the database; the harness now evicts them in `stop()`, otherwise a later test's username lookup returns a previous test's user.
 - The auth rate limiter is a process-wide singleton; `startAuthApi` bypasses it on its own `Auth` instance.
+- Scanner tests: the scanner recognizes moved folders by inode, and ext4/overlayfs reuse a freed inode for the next new file (APFS does not). Create replacement files before deleting the old ones in a test, or a "delete folder, create other folder" case turns into a rename on Linux.
+- `AuthRoutes.test.js` records the machine time zone in the login response (`serverSettings.timeZone`); it passes only where `TZ` is UTC (CI) and fails elsewhere. Mask it if this matters.
 - `createBook` leaves `explicit` NULL, which hides books from `user`/`guest`; `createLibrary` leaves `library.settings` NULL (public share GET then 500s).
 - Singletons leak between tests unless reset: `CacheManager` (reset by the harness), `ShareManager`, `Logger.logLevel`, `Database.libraryFilterData`, the rate limiter on `PATCH /me/password` (40 calls per 10 minutes per process).
 - `api.request` returns only `content-type` in `headers`; `set-cookie` values are on the non-enumerable `res.cookies`. It still cannot send a body on GET; use `fetch` against `api.base` for that.

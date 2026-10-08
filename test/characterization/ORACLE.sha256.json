@@ -22,7 +22,7 @@
   "ScannerBook.test.js": "a15714795aa21b4ae6b0528f0f54769a7c9e4f05e96c297713751668855c6eb7",
   "ScannerDirectory.test.js": "3378f786d2e2a4be79157586fe00656c711c2e36e9f38bfa1ba43f5c15d5036c",
   "ScannerOrchestration.test.js": "f8b1ccf7021d9afdfd3f1dba706ea9bcd94052c6702e0f074aebd3c0e7bf4003",
-  "ScannerPodcast.test.js": "db3418b9b4544071e17f7fd2aa1f53576f2506604c80747190ed45287997970c",
+  "ScannerPodcast.test.js": "79eb5e986a1c0171e7fccdd7a286dd52a1aa6793099751a1509c3f54df388c5a",
   "SearchController.test.js": "6818f49445db5a91c0cf2294e0fdc7e0ae7a850ea359dd1399d9a3dafbe19bad",
   "SeriesController.test.js": "649df24dbf672e14bbf25fefbb8ba46087cca5cf2a986f55e3730110975b7d00",
   "SessionController.test.js": "1d85c5a93f736d54b2233d3dd405f2c8076757f569fbe09317804644ec9a48c4",

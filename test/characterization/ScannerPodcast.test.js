@@ -317,8 +317,10 @@ describe('ScannerPodcast (characterization)', function () {
         this,
         (
           await rescanAfter(twoEpisodes, async () => {
-            fs.rmSync(pod(), { recursive: true })
+            // create the other file BEFORE deleting: ext4/overlayfs hands a freed inode to the next new file, and the scanner would then
+            // treat `Other` as a rename of the deleted podcast (inode match); APFS does not reuse inodes that fast
             media.makeAudio(path.join(root, 'Other/ep.mp3'))
+            fs.rmSync(pod(), { recursive: true })
           })
         ).view
       )
