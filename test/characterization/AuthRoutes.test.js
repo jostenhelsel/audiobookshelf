@@ -16,6 +16,8 @@ describe('Auth routes (characterization)', () => {
     const out = JSON.parse(JSON.stringify(v ?? null).replace(/[^"\\]*abs-char-[A-Za-z0-9]+/g, '<tmp>'))
     // the default logLevel setting is read from the Logger singleton, which depends on dev/prod mode
     if (out?.serverSettings?.logLevel !== undefined) out.serverSettings.logLevel = '<env>'
+    // the default timeZone setting is the machine's (process.env.TZ)
+    if (out?.serverSettings?.timeZone !== undefined) out.serverSettings.timeZone = '<env>'
     return out
   }
   const scrub = (res) => ({

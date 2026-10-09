@@ -110,7 +110,7 @@
         "authOpenIDAutoLaunch": false,
         "authOpenIDAutoRegister": false,
         "authOpenIDMatchExistingBy": null,
-        "timeZone": "UTC"
+        "timeZone": "<env>"
       },
       "ereaderDevices": []
     },
@@ -217,7 +217,7 @@
         "authOpenIDAutoLaunch": false,
         "authOpenIDAutoRegister": false,
         "authOpenIDMatchExistingBy": null,
-        "timeZone": "UTC"
+        "timeZone": "<env>"
       },
       "ereaderDevices": []
     },
@@ -319,7 +319,7 @@
         "authOpenIDAutoLaunch": false,
         "authOpenIDAutoRegister": false,
         "authOpenIDMatchExistingBy": null,
-        "timeZone": "UTC"
+        "timeZone": "<env>"
       },
       "ereaderDevices": []
     },
@@ -461,7 +461,7 @@
         "authOpenIDAutoLaunch": false,
         "authOpenIDAutoRegister": false,
         "authOpenIDMatchExistingBy": null,
-        "timeZone": "UTC"
+        "timeZone": "<env>"
       },
       "ereaderDevices": []
     },

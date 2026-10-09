@@ -127,7 +127,7 @@ Reported by the test-writing agents while reading the code and recording respons
 - `User.js` keeps a module-private LRU of users that outlives the database; the harness now evicts them in `stop()`, otherwise a later test's username lookup returns a previous test's user.
 - The auth rate limiter is a process-wide singleton; `startAuthApi` bypasses it on its own `Auth` instance.
 - Scanner tests: the scanner recognizes moved folders by inode, and ext4/overlayfs reuse a freed inode for the next new file (APFS does not). Create replacement files before deleting the old ones in a test, or a "delete folder, create other folder" case turns into a rename on Linux.
-- `AuthRoutes.test.js` records the machine time zone in the login response (`serverSettings.timeZone`); it passes only where `TZ` is UTC (CI) and fails elsewhere. Mask it if this matters.
+- Login responses carry `serverSettings.timeZone`, which defaults to the machine's `TZ`; `AuthRoutes.test.js` masks it (`<env>`), as it does `logLevel`.
 - `createBook` leaves `explicit` NULL, which hides books from `user`/`guest`; `createLibrary` leaves `library.settings` NULL (public share GET then 500s).
 - Singletons leak between tests unless reset: `CacheManager` (reset by the harness), `ShareManager`, `Logger.logLevel`, `Database.libraryFilterData`, the rate limiter on `PATCH /me/password` (40 calls per 10 minutes per process).
 - `api.request` returns only `content-type` in `headers`; `set-cookie` values are on the non-enumerable `res.cookies`. It still cannot send a body on GET; use `fetch` against `api.base` for that.
