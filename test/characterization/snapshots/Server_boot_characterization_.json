@@ -1,0 +1,712 @@
+{
+  "Server boot (characterization) > default base path (/audiobookshelf), fresh server > answers ping, healthcheck and status (not initialized)": {
+    "ping": {
+      "status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "content-security-policy": "frame-ancestors 'self'",
+        "referrer-policy": "no-referrer"
+      },
+      "body": {
+        "success": true
+      }
+    },
+    "healthcheck": {
+      "status": 200,
+      "headers": {
+        "content-type": "text/plain; charset=utf-8",
+        "content-security-policy": "frame-ancestors 'self'",
+        "referrer-policy": "no-referrer"
+      },
+      "body": "OK"
+    },
+    "status": {
+      "status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "content-security-policy": "frame-ancestors 'self'",
+        "referrer-policy": "no-referrer"
+      },
+      "body": {
+        "app": "audiobookshelf",
+        "serverVersion": "2.37.0",
+        "isInit": false,
+        "language": "en-us",
+        "authMethods": [
+          "local"
+        ],
+        "authFormData": {
+          "authLoginCustomMessage": ""
+        },
+        "ConfigPath": "<tmp>/config",
+        "MetadataPath": "<tmp>/metadata"
+      }
+    }
+  },
+  "Server boot (characterization) > default base path (/audiobookshelf), fresh server > creates the database and the metadata folders": {
+    "config": [
+      "absdatabase.sqlite",
+      "migrations"
+    ],
+    "metadata": [
+      "backups",
+      "cache",
+      "logs",
+      "streams"
+    ]
+  },
+  "Server boot (characterization) > default base path (/audiobookshelf), fresh server > logs the startup sequence": {
+    "lines": [
+      "Running in production mode.",
+      "Options: CONFIG_PATH=<tmp>/config, METADATA_PATH=<tmp>/metadata, PORT=<port>, HOST=127.0.0.1, SOURCE=local, ROUTER_BASE_PATH=/audiobookshelf",
+      "INFO: === Starting Server ===",
+      "INFO: [Server] Init v<version>",
+      "INFO: [Server] Node.js Version: <node>",
+      "INFO: [Server] Platform: <platform>",
+      "INFO: [Server] Arch: <arch>",
+      "INFO: [BinaryManager] Skipping check for binaries",
+      "INFO: [Database] absdatabase.sqlite not found at <tmp>/config/absdatabase.sqlite",
+      "INFO: [Database] Initializing db at \"<tmp>/config/absdatabase.sqlite\"",
+      "INFO: [Database] Db connection was successful",
+      "INFO: [MigrationManager] Database is new. Skipping migrations.",
+      "INFO: [Database] Db initialized with models: user, session, apiKey, library, libraryFolder, book, podcast, podcastEpisode, libraryItem, mediaProgress, series, bookSeries, author, bookAuthor, collection, collectionBook, playlist, playlistMediaItem, device, playbackSession, feed, feedEpisode, setting, customMetadataProvider, mediaItemShare",
+      "INFO: [Database] Adding trigger update_library_items_title",
+      "INFO: [Database] Adding trigger update_library_items_title_ignore_prefix",
+      "INFO: [Database] Adding trigger update_library_items_title_from_podcasts_title",
+      "INFO: [Database] Adding trigger update_library_items_title_ignore_prefix_from_podcasts_title_ignore_prefix",
+      "INFO: [Database] Adding trigger update_library_items_author_names_on_book_authors_insert",
+      "INFO: [Database] Adding trigger update_library_items_author_names_on_book_authors_delete",
+      "INFO: [Database] Adding trigger update_library_items_author_names_on_authors_update",
+      "INFO: [Database] running ANALYZE",
+      "INFO: [Database] ANALYZE completed",
+      "INFO: [Server] Serving from base path \"/audiobookshelf\"",
+      "INFO: [TokenManager] JWT secret key not found, generating one",
+      "INFO: [LogManager] Init current daily log filename: <date>.txt",
+      "INFO: [BackupManager] 0 Backups Found",
+      "INFO: [BackupManager] Auto Backups are disabled",
+      "INFO: Listening on http://127.0.0.1:<port>"
+    ]
+  },
+  "Server boot (characterization) > default base path (/audiobookshelf), fresh server > mounts socket.io under both the base path and the legacy root path": {
+    "legacy": {
+      "opened": true,
+      "got": [
+        "0{open}",
+        "40{\"sid\":\"<sid>\"}"
+      ]
+    },
+    "based": {
+      "opened": true,
+      "got": [
+        "0{open}",
+        "40{\"sid\":\"<sid>\"}"
+      ]
+    },
+    "other": {
+      "opened": false,
+      "error": "socket hang up"
+    }
+  },
+  "Server boot (characterization) > default base path (/audiobookshelf), fresh server > only sends CORS headers for the mobile origins on item cover/ebook routes (or allowed origins)": {
+    "capacitorCover": {
+      "status": 404,
+      "headers": {
+        "content-type": "text/plain; charset=utf-8",
+        "content-security-policy": "frame-ancestors 'self'",
+        "referrer-policy": "no-referrer",
+        "access-control-allow-origin": "capacitor://localhost",
+        "access-control-allow-methods": "GET, POST, PATCH, PUT, DELETE, OPTIONS",
+        "access-control-allow-headers": "*",
+        "access-control-allow-credentials": "true"
+      },
+      "body": "Not Found"
+    },
+    "localhostCover": {
+      "status": 404,
+      "headers": {
+        "content-type": "text/plain; charset=utf-8",
+        "content-security-policy": "frame-ancestors 'self'",
+        "referrer-policy": "no-referrer",
+        "access-control-allow-origin": "http://localhost",
+        "access-control-allow-methods": "GET, POST, PATCH, PUT, DELETE, OPTIONS",
+        "access-control-allow-headers": "*",
+        "access-control-allow-credentials": "true"
+      },
+      "body": "Not Found"
+    },
+    "otherOriginCover": {
+      "status": 404,
+      "headers": {
+        "content-type": "text/plain; charset=utf-8",
+        "content-security-policy": "frame-ancestors 'self'",
+        "referrer-policy": "no-referrer"
+      },
+      "body": "Not Found"
+    },
+    "optionsCover": {
+      "status": 200,
+      "headers": {
+        "content-type": "text/plain; charset=utf-8",
+        "content-security-policy": "frame-ancestors 'self'",
+        "referrer-policy": "no-referrer",
+        "access-control-allow-origin": "capacitor://localhost",
+        "access-control-allow-methods": "GET, POST, PATCH, PUT, DELETE, OPTIONS",
+        "access-control-allow-headers": "*",
+        "access-control-allow-credentials": "true"
+      },
+      "body": "OK"
+    },
+    "capacitorPing": {
+      "status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "content-security-policy": "frame-ancestors 'self'",
+        "referrer-policy": "no-referrer"
+      },
+      "body": {
+        "success": true
+      }
+    },
+    "optionsPing": {
+      "status": 200,
+      "headers": {
+        "content-type": "text/html; charset=utf-8",
+        "content-security-policy": "frame-ancestors 'self'",
+        "referrer-policy": "no-referrer"
+      },
+      "body": "GET,HEAD"
+    }
+  },
+  "Server boot (characterization) > default base path (/audiobookshelf), fresh server > prepends the base path to requests that lack it, and 404s unknown paths": {
+    "bare": {
+      "status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "content-security-policy": "frame-ancestors 'self'",
+        "referrer-policy": "no-referrer"
+      },
+      "body": {
+        "success": true
+      }
+    },
+    "bareStatus": {
+      "status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "content-security-policy": "frame-ancestors 'self'",
+        "referrer-policy": "no-referrer"
+      },
+      "body": {
+        "app": "audiobookshelf",
+        "serverVersion": "2.37.0",
+        "isInit": false,
+        "language": "en-us",
+        "authMethods": [
+          "local"
+        ],
+        "authFormData": {
+          "authLoginCustomMessage": ""
+        },
+        "ConfigPath": "<tmp>/config",
+        "MetadataPath": "<tmp>/metadata"
+      }
+    },
+    "unknown": {
+      "status": 404,
+      "headers": {
+        "content-type": "text/html; charset=utf-8",
+        "content-security-policy": "default-src 'none'",
+        "referrer-policy": "no-referrer"
+      },
+      "body": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n<meta charset=\"utf-8\">\n<title>Error</title>\n</head>\n<body>\n<pre>Cannot GET /audiobookshelf/nope</pre>\n</body>\n</html>\n"
+    },
+    "unknownApi": {
+      "status": 401,
+      "headers": {
+        "content-security-policy": "frame-ancestors 'self'",
+        "referrer-policy": "no-referrer"
+      },
+      "body": "Unauthorized"
+    },
+    "prefixLookalike": {
+      "status": 404,
+      "headers": {
+        "content-type": "text/html; charset=utf-8",
+        "content-security-policy": "default-src 'none'",
+        "referrer-policy": "no-referrer"
+      },
+      "body": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n<meta charset=\"utf-8\">\n<title>Error</title>\n</head>\n<body>\n<pre>Cannot GET /audiobookshelfx/ping</pre>\n</body>\n</html>\n"
+    }
+  },
+  "Server boot (characterization) > default base path (/audiobookshelf), fresh server > requires authentication on /api but not on /hls, /public, /feed, /status": {
+    "api": {
+      "status": 401,
+      "headers": {
+        "content-security-policy": "frame-ancestors 'self'",
+        "referrer-policy": "no-referrer"
+      },
+      "body": "Unauthorized"
+    },
+    "apiBadToken": {
+      "status": 401,
+      "headers": {
+        "content-security-policy": "frame-ancestors 'self'",
+        "referrer-policy": "no-referrer"
+      },
+      "body": "Unauthorized"
+    },
+    "hls": {
+      "status": 404,
+      "headers": {
+        "content-type": "text/plain; charset=utf-8",
+        "content-security-policy": "frame-ancestors 'self'",
+        "referrer-policy": "no-referrer"
+      },
+      "body": "Not Found"
+    },
+    "publicShare": {
+      "status": 404,
+      "headers": {
+        "content-type": "text/plain; charset=utf-8",
+        "content-security-policy": "frame-ancestors 'self'",
+        "referrer-policy": "no-referrer"
+      },
+      "body": "Not Found"
+    },
+    "feed": {
+      "status": 404,
+      "headers": {
+        "content-type": "text/plain; charset=utf-8",
+        "content-security-policy": "frame-ancestors 'self'",
+        "referrer-policy": "no-referrer"
+      },
+      "body": "Not Found"
+    },
+    "feedCover": {
+      "status": 404,
+      "headers": {
+        "content-type": "text/plain; charset=utf-8",
+        "content-security-policy": "frame-ancestors 'self'",
+        "referrer-policy": "no-referrer"
+      },
+      "body": "Not Found"
+    },
+    "feedItem": {
+      "status": 404,
+      "headers": {
+        "content-type": "text/plain; charset=utf-8",
+        "content-security-policy": "frame-ancestors 'self'",
+        "referrer-policy": "no-referrer"
+      },
+      "body": "Not Found"
+    }
+  },
+  "Server boot (characterization) > default base path (/audiobookshelf), fresh server > serves nothing for the web client when it has not been built, and a dynamic client route falls through to 404 or the index": {
+    "root": {
+      "status": 404,
+      "headers": {
+        "content-type": "text/html; charset=utf-8",
+        "content-security-policy": "default-src 'none'",
+        "referrer-policy": "no-referrer"
+      },
+      "body": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n<meta charset=\"utf-8\">\n<title>Error</title>\n</head>\n<body>\n<pre>Cannot GET /audiobookshelf/</pre>\n</body>\n</html>\n"
+    },
+    "item": {
+      "status": 404,
+      "headers": {
+        "content-type": "text/html; charset=utf-8",
+        "content-security-policy": "default-src 'none'",
+        "referrer-policy": "no-referrer"
+      },
+      "body": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n<meta charset=\"utf-8\">\n<title>Error</title>\n</head>\n<body>\n<pre>Not Found</pre>\n</body>\n</html>\n"
+    },
+    "library": {
+      "status": 404,
+      "headers": {
+        "content-type": "text/html; charset=utf-8",
+        "content-security-policy": "default-src 'none'",
+        "referrer-policy": "no-referrer"
+      },
+      "body": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n<meta charset=\"utf-8\">\n<title>Error</title>\n</head>\n<body>\n<pre>Not Found</pre>\n</body>\n</html>\n"
+    },
+    "staticFile": {
+      "status": 404,
+      "headers": {
+        "content-type": "text/html; charset=utf-8",
+        "content-security-policy": "default-src 'none'",
+        "referrer-policy": "no-referrer"
+      },
+      "body": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n<meta charset=\"utf-8\">\n<title>Error</title>\n</head>\n<body>\n<pre>Cannot GET /audiobookshelf/Logo.png</pre>\n</body>\n</html>\n"
+    }
+  },
+  "Server boot (characterization) > default base path (/audiobookshelf), fresh server > sets the security headers and no x-powered-by": {
+    "headers": {
+      "content-type": "application/json; charset=utf-8",
+      "content-security-policy": "frame-ancestors 'self'",
+      "referrer-policy": "no-referrer"
+    }
+  },
+  "Server boot (characterization) > default base path (/audiobookshelf), fresh server > shuts down on SIGINT: logs, exits with 0": {
+    "code": 0,
+    "signal": null,
+    "lines": [
+      "INFO: SIGINT (Ctrl+C) received. Shutting down...",
+      "INFO: === Stopping Server ===",
+      "INFO: [Server] Watcher Closed",
+      "INFO: [SocketAuthority] closing...",
+      "INFO: [SocketAuthority] Closing Socket.IO server: /socket.io",
+      "INFO: [SocketAuthority] Closing Socket.IO server: /audiobookshelf/socket.io",
+      "INFO: [SocketAuthority] Socket.IO server closed: /socket.io",
+      "INFO: [SocketAuthority] Socket.IO server closed: /audiobookshelf/socket.io",
+      "INFO: [SocketAuthority] closed",
+      "INFO: [Server] Closing HTTP Server",
+      "INFO: [Server] HTTP Server Closed",
+      "INFO: Server stopped. Exiting."
+    ]
+  },
+  "Server boot (characterization) > empty base path with ALLOW_CORS and ALLOW_IFRAME > logs the empty base path as /": {
+    "lines": [
+      "INFO: [Server] Serving from base path \"/\"",
+      "INFO: Listening on http://127.0.0.1:<port>"
+    ]
+  },
+  "Server boot (characterization) > empty base path with ALLOW_CORS and ALLOW_IFRAME > serves from the root and allows any origin (ALLOW_IFRAME is not applied on a fresh database)": {
+    "ping": {
+      "status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "content-security-policy": "frame-ancestors 'self'",
+        "referrer-policy": "no-referrer",
+        "access-control-allow-origin": "https://anything.example",
+        "access-control-allow-methods": "GET, POST, PATCH, PUT, DELETE, OPTIONS",
+        "access-control-allow-headers": "*",
+        "access-control-allow-credentials": "true"
+      },
+      "body": {
+        "success": true
+      }
+    },
+    "status": {
+      "status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "content-security-policy": "frame-ancestors 'self'",
+        "referrer-policy": "no-referrer",
+        "access-control-allow-origin": "undefined",
+        "access-control-allow-methods": "GET, POST, PATCH, PUT, DELETE, OPTIONS",
+        "access-control-allow-headers": "*",
+        "access-control-allow-credentials": "true"
+      },
+      "body": {
+        "app": "audiobookshelf",
+        "serverVersion": "2.37.0",
+        "isInit": false,
+        "language": "en-us",
+        "authMethods": [
+          "local"
+        ],
+        "authFormData": {
+          "authLoginCustomMessage": ""
+        },
+        "ConfigPath": "<tmp>/config",
+        "MetadataPath": "<tmp>/metadata"
+      }
+    },
+    "options": {
+      "status": 200,
+      "headers": {
+        "content-type": "text/plain; charset=utf-8",
+        "content-security-policy": "frame-ancestors 'self'",
+        "referrer-policy": "no-referrer",
+        "access-control-allow-origin": "https://anything.example",
+        "access-control-allow-methods": "GET, POST, PATCH, PUT, DELETE, OPTIONS",
+        "access-control-allow-headers": "*",
+        "access-control-allow-credentials": "true"
+      },
+      "body": "OK"
+    },
+    "prefixed": {
+      "status": 404,
+      "headers": {
+        "content-type": "text/html; charset=utf-8",
+        "content-security-policy": "default-src 'none'",
+        "referrer-policy": "no-referrer",
+        "access-control-allow-origin": "undefined",
+        "access-control-allow-methods": "GET, POST, PATCH, PUT, DELETE, OPTIONS",
+        "access-control-allow-headers": "*",
+        "access-control-allow-credentials": "true"
+      },
+      "body": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n<meta charset=\"utf-8\">\n<title>Error</title>\n</head>\n<body>\n<pre>Cannot GET /audiobookshelf/ping</pre>\n</body>\n</html>\n"
+    },
+    "socket": {
+      "opened": true,
+      "got": [
+        "0{open}",
+        "40{\"sid\":\"<sid>\"}"
+      ]
+    }
+  },
+  "Server boot (characterization) > initializing a new server (POST /init) > a /init request without newRoot throws inside the async handler: the unhandledRejection handler logs it and exits the whole process with 1": {
+    "res": {
+      "error": "TypeError"
+    },
+    "code": 1,
+    "signal": null,
+    "fatal": [
+      "FATAL: [Server] Unhandled rejection: TypeError: Cannot read properties of undefi",
+      "  <rejected> TypeError: Cannot read properties of undefined (reading 'username')"
+    ]
+  },
+  "Server boot (characterization) > initializing a new server (POST /init) > creates the root user once, then answers 500 to a second /init": {
+    "before": false,
+    "first": {
+      "status": 200,
+      "headers": {
+        "content-type": "text/plain; charset=utf-8",
+        "content-security-policy": "frame-ancestors 'self'",
+        "referrer-policy": "no-referrer"
+      },
+      "body": "OK"
+    },
+    "statusAfter": {
+      "status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "content-security-policy": "frame-ancestors 'self'",
+        "referrer-policy": "no-referrer"
+      },
+      "body": {
+        "app": "audiobookshelf",
+        "serverVersion": "2.37.0",
+        "isInit": true,
+        "language": "en-us",
+        "authMethods": [
+          "local"
+        ],
+        "authFormData": {
+          "authLoginCustomMessage": ""
+        }
+      }
+    },
+    "again": {
+      "status": 500,
+      "headers": {
+        "content-type": "text/plain; charset=utf-8",
+        "content-security-policy": "frame-ancestors 'self'",
+        "referrer-policy": "no-referrer"
+      },
+      "body": "Internal Server Error"
+    }
+  },
+  "Server boot (characterization) > initializing a new server (POST /init) > logs in with the password given to /init and reaches the api with the access token": {
+    "init": {
+      "status": 200,
+      "headers": {
+        "content-type": "text/plain; charset=utf-8",
+        "content-security-policy": "frame-ancestors 'self'",
+        "referrer-policy": "no-referrer"
+      },
+      "body": "OK"
+    },
+    "bad": {
+      "status": 401,
+      "headers": {
+        "content-security-policy": "frame-ancestors 'self'",
+        "referrer-policy": "no-referrer"
+      },
+      "body": "Unauthorized"
+    },
+    "login": {
+      "status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "content-security-policy": "frame-ancestors 'self'",
+        "referrer-policy": "no-referrer",
+        "set-cookie": "<set>"
+      },
+      "body": {
+        "user": {
+          "id": "<uuid-1>",
+          "username": "boss",
+          "email": null,
+          "type": "root",
+          "token": "<jwt>",
+          "mediaProgress": [],
+          "seriesHideFromContinueListening": [],
+          "bookmarks": [],
+          "isActive": true,
+          "isLocked": false,
+          "lastSeen": null,
+          "createdAt": "<timestamp>",
+          "permissions": {
+            "download": true,
+            "update": true,
+            "delete": true,
+            "upload": true,
+            "createEreader": true,
+            "accessAllLibraries": true,
+            "accessAllTags": true,
+            "accessExplicitContent": true,
+            "selectedTagsNotAccessible": false
+          },
+          "librariesAccessible": [],
+          "itemTagsSelected": [],
+          "hasOpenIDLink": false,
+          "refreshToken": null,
+          "accessToken": "<jwt>"
+        },
+        "userDefaultLibraryId": null,
+        "serverSettings": {
+          "id": "server-settings",
+          "scannerFindCovers": false,
+          "scannerCoverProvider": "google",
+          "scannerParseSubtitle": false,
+          "scannerPreferMatchedMetadata": false,
+          "scannerDisableWatcher": false,
+          "storeCoverWithItem": false,
+          "storeMetadataWithItem": false,
+          "metadataFileFormat": "json",
+          "rateLimitLoginRequests": 10,
+          "rateLimitLoginWindow": 600000,
+          "allowIframe": false,
+          "backupPath": "<tmp>/metadata/backups",
+          "backupSchedule": false,
+          "backupsToKeep": 2,
+          "maxBackupSize": 1,
+          "loggerDailyLogsToKeep": 7,
+          "loggerScannerLogsToKeep": 2,
+          "homeBookshelfView": 1,
+          "bookshelfView": 1,
+          "podcastEpisodeSchedule": "0 * * * *",
+          "sortingIgnorePrefix": false,
+          "sortingPrefixes": [
+            "the",
+            "a"
+          ],
+          "chromecastEnabled": false,
+          "dateFormat": "MM/dd/yyyy",
+          "timeFormat": "HH:mm",
+          "language": "en-us",
+          "allowedOrigins": [],
+          "logLevel": 2,
+          "version": "2.37.0",
+          "buildNumber": 1,
+          "authLoginCustomMessage": null,
+          "authActiveAuthMethods": [
+            "local"
+          ],
+          "authOpenIDIssuerURL": null,
+          "authOpenIDAuthorizationURL": null,
+          "authOpenIDTokenURL": null,
+          "authOpenIDUserInfoURL": null,
+          "authOpenIDJwksURL": null,
+          "authOpenIDLogoutURL": null,
+          "authOpenIDTokenSigningAlgorithm": "RS256",
+          "authOpenIDButtonText": "Login with OpenId",
+          "authOpenIDAutoLaunch": false,
+          "authOpenIDAutoRegister": false,
+          "authOpenIDMatchExistingBy": null,
+          "timeZone": "UTC"
+        },
+        "ereaderDevices": [],
+        "Source": "local"
+      }
+    },
+    "libraries": {
+      "status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "content-security-policy": "frame-ancestors 'self'",
+        "referrer-policy": "no-referrer"
+      },
+      "body": {
+        "libraries": []
+      }
+    },
+    "me": {
+      "status": 200,
+      "username": "boss",
+      "type": "root"
+    },
+    "status": {
+      "status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "content-security-policy": "frame-ancestors 'self'",
+        "referrer-policy": "no-referrer"
+      },
+      "body": {
+        "app": "audiobookshelf",
+        "serverVersion": "2.37.0",
+        "isInit": true,
+        "language": "en-us",
+        "authMethods": [
+          "local"
+        ],
+        "authFormData": {
+          "authLoginCustomMessage": ""
+        }
+      }
+    },
+    "noPrefix": {
+      "status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "content-security-policy": "frame-ancestors 'self'",
+        "referrer-policy": "no-referrer"
+      },
+      "body": {
+        "libraries": []
+      }
+    },
+    "ping": {
+      "status": 404,
+      "headers": {
+        "content-type": "text/html; charset=utf-8",
+        "content-security-policy": "default-src 'none'",
+        "referrer-policy": "no-referrer"
+      },
+      "body": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n<meta charset=\"utf-8\">\n<title>Error</title>\n</head>\n<body>\n<pre>Cannot GET /audiobookshelf/api/ping</pre>\n</body>\n</html>\n"
+    }
+  },
+  "Server boot (characterization) > initializing a new server (POST /init) > treats an empty username as root and an empty password as no password": {
+    "init": {
+      "status": 200,
+      "headers": {
+        "content-type": "text/plain; charset=utf-8",
+        "content-security-policy": "frame-ancestors 'self'",
+        "referrer-policy": "no-referrer"
+      },
+      "body": "OK"
+    },
+    "loginStatus": 200,
+    "loginUser": {
+      "username": "root",
+      "type": "root"
+    }
+  },
+  "Server boot (characterization) > restart on an existing database > keeps the root user, skips migrations, and applies ALLOW_IFRAME from the environment on the second start": {
+    "firstHeaders": {
+      "content-type": "application/json; charset=utf-8",
+      "content-security-policy": "frame-ancestors 'self'",
+      "referrer-policy": "no-referrer"
+    },
+    "secondHeaders": {
+      "content-type": "application/json; charset=utf-8",
+      "referrer-policy": "no-referrer"
+    },
+    "isInit": true,
+    "hasPaths": false,
+    "loginStatus": 200,
+    "lines": [
+      "INFO: [Server] Init v<version>",
+      "INFO: [Database] Initializing db at \"<tmp>/config/absdatabase.sqlite\"",
+      "INFO: [Database] Db connection was successful",
+      "INFO: [MigrationManager] Database is already up to date.",
+      "INFO: [Database] Db initialized with models: user, session, apiKey, library, libraryFolder, book, podcast, podcastEpisode, libraryItem, mediaProgress, series, bookSeries, author, bookAuthor, collection, collectionBook, playlist, playlistMediaItem, device, playbackSession, feed, feedEpisode, setting, customMetadataProvider, mediaItemShare",
+      "INFO: [ServerSettings] Using allowIframe from environment variable",
+      "INFO: [LogManager] Init current daily log filename: <date>.txt",
+      "INFO: [BackupManager] 0 Backups Found"
+    ]
+  }
+}

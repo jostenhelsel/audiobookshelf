@@ -30,6 +30,8 @@ All 23 controllers, every route in `ApiRouter`, `PublicRouter` and the controlle
 
 Scanner (written on macOS/Node 24 by a local agent, verified on Linux/Node 22; full detail per step in `SCANNER_REPORT.md`): `ScannerDirectory.test.js` (33; ignore rules, grouping of files into items, folder-name parsing, `scanFolder`, `LibraryItemScanData`), `ScannerBook.test.js` (42; real ffmpeg/ffprobe fixtures, epub/cbz, metadata.json/nfo/opf, cover and chapter handling, rescans), `ScannerPodcast.test.js` (21; tag mapping, episode add/remove/modify, cleanup of progress and playlists), `ScannerOrchestration.test.js` (49 + 1 skipped; `LibraryScanner.scan`, `LibraryItemScanner`, the watcher path, quick match and match-all with `axios` stubbed). Fixtures are generated at test time; the media tests skip if ffmpeg/ffprobe is missing. Durations are rounded and sizes, bit rates and encoder tags are dropped, so the snapshots held on both Homebrew ffmpeg 9.0.1 and Ubuntu ffmpeg 6.1.1.
 
+`ServerBoot.test.js` (17 tests) boots the real `dist-server/index.js` as a child process (temp config/metadata dirs, free port, `TZ=UTC`, needs ffmpeg/ffprobe paths but skips the binary check) and talks to it over HTTP and websockets: startup log sequence, files created, `/ping` `/healthcheck` `/status`, base-path rewriting, security and CORS headers, auth wiring of `/api` vs `/hls` `/public` `/feed`, the missing web client, socket.io on both paths, SIGINT shutdown, `POST /init` then real login and API access, an empty base path with `ALLOW_CORS`, and a restart on the existing database. A child process because `Server.start()` installs process-wide `SIGINT`/`unhandledRejection` handlers.
+
 Skipped (6): real zip download (`GET /libraries/:id/download`), author image resize (needs ffmpeg), item cover upload and cover cache-miss resize (LibraryItem), `POST /notifications` without `urls` (hangs), `GET /logger-data` with no log manager (hangs).
 
 ## Not covered yet
@@ -122,6 +124,15 @@ Reported by the test-writing agents while reading the code and recording respons
 - A renamed or moved item folder is matched by inode and counts as `updated`; the watcher path counts the old path's delete as an extra `missing`. `scanLibraryItem` on an `isFile` item without watcher details scans the file as a folder (`ENOTDIR`) and marks the item missing. Deleting a library leaves its items with a null `libraryId`.
 - Quick match fills only empty fields unless `overrideDetails` (or the server setting `scannerPreferMatchedMetadata`, which mutates the passed options) is set.
 - `hideSingleBookSeries` and `epubsAllowScriptedContent` are not read by the scanner (the first only by the query layer, the second nowhere in `server/`).
+
+**Server boot (from `ServerBoot.test.js`)**
+- `POST /init` without `newRoot` throws inside the async handler; the `unhandledRejection` handler logs FATAL and exits the whole process with code 1, so one malformed request from an unauthenticated client on a fresh (uninitialized) server stops it.
+- `Access-Control-Allow-Origin` is sent as the string `undefined` when CORS is enabled (`ALLOW_CORS=1`, dev mode, or allowed origins) and the request has no `Origin` header.
+- `ALLOW_IFRAME=1` is ignored on a fresh database (the env override is applied only when settings are loaded from a stored row), so the first start still sends `frame-ancestors 'self'`; it takes effect after a restart.
+- A request without the base path is served as if it had it (`/ping` works as `/audiobookshelf/ping`); a lookalike prefix (`/audiobookshelfx/ping`) is a 404. Unauthenticated unknown `/api/*` paths answer 401, not 404.
+- Without a built web client every client route answers 404 (an express "Not Found" page); `/hls`, `/public` and `/feed` need no authentication.
+- `/status` includes `ConfigPath` and `MetadataPath` until the server has a root user.
+- A first start logs `JWT secret key not found, generating one` and creates `absdatabase.sqlite`, `migrations/` under the config dir and `backups`, `cache`, `logs`, `streams` under metadata (no `items`, `tmp`, `covers`).
 
 **Harness/seed quirks to remember when writing more tests**
 - `User.js` keeps a module-private LRU of users that outlives the database; the harness now evicts them in `stop()`, otherwise a later test's username lookup returns a previous test's user.
